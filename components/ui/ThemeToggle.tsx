@@ -7,17 +7,17 @@ export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  // This is to avoid hydration mismatch
   useEffect(() => setMounted(true), [])
 
   if (!mounted) return null
 
   return (
     <button
-      className="px-3 py-1 rounded bg-slate-700 text-white hover:bg-slate-500 transition"
+      className="ml-4 p-2 rounded-full bg-slate-800 text-yellow-400 hover:bg-slate-700 transition md:ml-6"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label="Switch Theme"
     >
-      {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+      {theme === 'dark' ? '☀️' : '🌙'}
     </button>
   )
 }
