@@ -1,15 +1,26 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
 
 export default function Logo() {
+  const { theme } = useTheme()
+
+  // Default logo path (fallback)
+  let logoSrc = '/images/logo.svg'
+  // Adjust to use correct logo for theme
+  if (theme === 'dark') logoSrc = '/images/logo-light.svg'
+  else if (theme === 'light') logoSrc = '/images/logo-dark.svg'
+
   return (
     <Link href="/" className="inline-flex items-center" aria-label="BuildAI Startups">
       <Image
-        src="/images/logo.svg" // Update to your real path!
-        width={48}
-        height={48}
+        src={logoSrc}
+        width={40}
+        height={40}
         alt="BuildAI Startups"
-        className="mr-2"
+        className="w-10 h-10"
         priority
       />
     </Link>
