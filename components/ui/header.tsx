@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
-import ThemeToggle from './ThemeToggle' // ← Import the toggle
+import ThemeToggle from './ThemeToggle' // Import the toggle
 
 export default function Header() {
   return (
@@ -16,7 +16,6 @@ export default function Header() {
 
           {/* Desktop navigation */}
           <nav className="hidden md:flex md:grow">
-            {/* Desktop menu links */}
             <ul className="flex grow justify-center flex-wrap items-center">
               <li>
                 <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/about">About</Link>
@@ -38,6 +37,10 @@ export default function Header() {
 
           {/* Desktop sign in links + theme toggle */}
           <ul className="flex-1 flex justify-end items-center">
+            {/* Theme Toggle FIRST for visibility */}
+            <li className="mr-4">
+              <ThemeToggle />
+            </li>
             <li>
               <Link className="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out" href="/signin">Sign in</Link>
             </li>
@@ -47,12 +50,6 @@ export default function Header() {
                   Sign up <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
                 </span>
               </Link>
-            </li>
-            {/* Theme Toggle button here */}
-            <li>
-              <li>
-  <div style={{ color: 'white', background: 'red', padding: '8px' }}>DEBUG TOGGLE</div>
-</li>
             </li>
           </ul>
 
