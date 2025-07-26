@@ -1,50 +1,31 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+
   useEffect(() => setMounted(true), [])
 
   if (!mounted) return null
 
-  // You can use any emoji, SVG or icon here
+  // You can use emoji or a real SVG icon here
   const icon =
     theme === 'dark' ? (
-      <span role="img" aria-label="Light mode">
-        ☀️
-      </span>
+      <span role="img" aria-label="Light Mode" className="text-2xl md:text-xl">🌞</span>
     ) : (
-      <span role="img" aria-label="Dark mode">
-        🌙
-      </span>
+      <span role="img" aria-label="Dark Mode" className="text-2xl md:text-xl">🌙</span>
     )
 
   return (
     <button
+      aria-label="Toggle Dark Mode"
+      className="ml-4 p-2 rounded-full hover:bg-slate-700 transition-colors focus:outline-none"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      // Size: small on desktop, bigger on mobile
-      className="
-        flex items-center justify-center
-        bg-transparent
-        p-2
-        rounded-full
-        hover:bg-slate-700/20
-        transition
-        text-2xl
-        md:text-xl
-        md:bg-transparent
-        md:shadow-none
-      "
-      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
     >
-      {/* Hide label on desktop, show (smaller) on mobile if you want */}
-      <span className="block md:hidden text-base ml-2">
-        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-      </span>
-      <span className="md:block">{icon}</span>
+      {icon}
     </button>
   )
 }
