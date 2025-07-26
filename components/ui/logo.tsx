@@ -16,8 +16,8 @@ export default function Logo() {
       <Image
         className="max-w-none"
         src={logoSrc}
-        width={192}
-        height={200}
+        width={212}
+        height={220}
         priority
         alt="BuildAI Startups Logo"
       />
