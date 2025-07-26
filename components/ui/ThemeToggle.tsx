@@ -1,26 +1,32 @@
 'use client'
+
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
-export default function ThemeToggle() {
+export default function ThemeToggle({ small }: { small?: boolean }) {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
+
   if (!mounted) return null
 
   return (
     <button
-      className="ml-4 p-2 rounded-full hover:bg-slate-700 transition"
+      className={`flex items-center px-2 py-1 rounded ${
+        small
+          ? 'text-base bg-slate-700 hover:bg-slate-500'
+          : 'px-3 py-1 text-lg bg-slate-700 hover:bg-slate-500'
+      } text-white transition`}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      aria-label="Toggle theme"
-      type="button"
     >
-      {theme === 'dark' ? (
-        <span role="img" aria-label="Light mode">☀️</span>
-      ) : (
-        <span role="img" aria-label="Dark mode">🌙</span>
-      )}
+      {theme === 'dark'
+        ? small
+          ? '☀️'
+          : '☀️ Light Mode'
+        : small
+        ? '🌙'
+        : '🌙 Dark Mode'}
     </button>
   )
 }
