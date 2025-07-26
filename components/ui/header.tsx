@@ -69,8 +69,8 @@ export default function Header() {
                 </span>
               </Link>
             </li>
-            {/* Theme Toggle button */}
-            <li>
+            {/* Only desktop */}
+            <li className="hidden md:block">
               <ThemeToggle />
             </li>
           </ul>
