@@ -1,8 +1,8 @@
 <Link href="/" className="flex items-center gap-2" aria-label="BuildAI Startups">
   <Image
     src={logoSrc}
-    width={48}
-    height={48}
+    width={80}
+    height={72}
     alt="BuildAI Startups Logo"
     className="h-12 w-12"
     priority
