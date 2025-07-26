@@ -14,10 +14,8 @@ export default function Logo() {
   }, [])
 
   if (!mounted) {
-    // Prevents hydration errors and "missing logo"
-    return (
-      <div className="h-[48px] w-[160px]" />
-    )
+    // Keep placeholder size consistent with logo
+    return <div className="h-8 w-24" />
   }
 
   let logoSrc = '/images/logo.svg'
@@ -28,10 +26,10 @@ export default function Logo() {
     <Link href="/" className="flex items-center" aria-label="BuildAI Startups">
       <Image
         src={logoSrc}
-        width={60} // or whatever the real width is for your SVG
-        height={52}
+        width={96}
+        height={32}
         alt="BuildAI Startups Logo"
-        className="h-12 w-auto"
+        className="h-8 w-auto" // Tailwind h-8 for 32px height
         priority
       />
     </Link>
