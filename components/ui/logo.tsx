@@ -16,7 +16,7 @@ export default function Logo() {
   if (!mounted) {
     // Prevents hydration errors and "missing logo"
     return (
-      <div className="h-[48px] w-[160px]" /> // Reserve space so layout doesn't shift
+      <div className="h-[48px] w-[160px]" />
     )
   }
 
@@ -25,16 +25,15 @@ export default function Logo() {
   else if (theme === 'light') logoSrc = '/images/logo-dark.svg'
 
   return (
-    <Link href="/" className="flex items-center gap-2" aria-label="BuildAI Startups">
+    <Link href="/" className="flex items-center" aria-label="BuildAI Startups">
       <Image
         src={logoSrc}
-        width={48}
+        width={160} // or whatever the real width is for your SVG
         height={48}
         alt="BuildAI Startups Logo"
-        className="w-12 h-12"
+        className="h-12 w-auto"
         priority
       />
-      <span className="ml-2 font-bold text-2xl text-slate-900 dark:text-white">BuildAI<br />Startups</span>
     </Link>
   )
 }
