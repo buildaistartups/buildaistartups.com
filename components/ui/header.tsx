@@ -9,60 +9,97 @@ export default function Header() {
   return (
     <header className="absolute w-full z-30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Site branding */}
-          <div className="flex-1">
-            <Logo />
+        <div className="flex items-center justify-between h-16 md:h-20 w-full">
+
+          {/* Logo */}
+          <Logo />
+
+          {/* MOBILE layout: everything in a row, right-aligned */}
+          <div className="flex items-center flex-1 md:hidden justify-end">
+            <Link
+              className="font-medium text-sm text-slate-300 hover:text-white transition ml-4 mr-2"
+              href="/signin"
+            >
+              Sign in
+            </Link>
+            <Link
+              className="btn-sm text-slate-300 hover:text-white transition w-full group mr-2"
+              href="/signup"
+            >
+              <span className="relative inline-flex items-center">
+                Sign up
+                <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                  -&gt;
+                </span>
+              </span>
+            </Link>
+            {/* Hamburger menu */}
+            <MobileMenu />
+            {/* Small ThemeToggle */}
+            <span className="ml-2 flex items-center">
+              <ThemeToggle small />
+            </span>
           </div>
 
-          {/* Desktop navigation */}
+          {/* DESKTOP navigation */}
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow justify-center flex-wrap items-center">
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/about">About</Link>
+                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/about">
+                  About
+                </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/integrations">Integrations</Link>
+                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/integrations">
+                  Integrations
+                </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/pricing">Pricing</Link>
+                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/pricing">
+                  Pricing
+                </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/customers">Customers</Link>
+                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/customers">
+                  Customers
+                </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/changelog">Changelog</Link>
+                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/changelog">
+                  Changelog
+                </Link>
               </li>
             </ul>
           </nav>
 
-          {/* Desktop sign in links + theme toggle */}
-          <ul className="flex-1 flex justify-end items-center">
+          {/* DESKTOP actions */}
+          <ul className="hidden md:flex flex-1 justify-end items-center">
             <li>
-              <Link className="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out" href="/signin">Sign in</Link>
+              <Link
+                className="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out"
+                href="/signin"
+              >
+                Sign in
+              </Link>
             </li>
             <li className="ml-6">
-              <Link className="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none" href="/signup">
+              <Link
+                className="btn-sm text-slate-300 hover:text-white transition w-full group relative"
+                href="/signup"
+              >
                 <span className="relative inline-flex items-center">
-                  Sign up{' '}
+                  Sign up
                   <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                     -&gt;
                   </span>
                 </span>
               </Link>
             </li>
-            {/* Theme Toggle button only shows on desktop */}
-            <li className="hidden md:block">
+            {/* Large ThemeToggle */}
+            <li>
               <ThemeToggle />
             </li>
           </ul>
-
-          {/* Mobile menu */}
-          <MobileMenu />
-          {/* Theme toggle: visible only on mobile */}
-          <span className="ml-2 md:hidden flex items-center">
-            <ThemeToggle small />
-          </span>
         </div>
       </div>
     </header>
