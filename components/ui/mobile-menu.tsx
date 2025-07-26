@@ -1,21 +1,99 @@
+'use client'
+
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import ThemeToggle from './ThemeToggle'
 
 export default function MobileMenu() {
-  // ...state and useEffect handlers...
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+
+  const trigger = useRef<HTMLButtonElement>(null)
+  const mobileNav = useRef<HTMLDivElement>(null)
+
+  // Close on click outside
+  useEffect(() => {
+    const clickHandler = ({ target }: { target: EventTarget | null }) => {
+      if (!mobileNav.current || !trigger.current) return
+      if (
+        !mobileNavOpen ||
+        mobileNav.current.contains(target as Node) ||
+        trigger.current.contains(target as Node)
+      )
+        return
+      setMobileNavOpen(false)
+    }
+    document.addEventListener('click', clickHandler)
+    return () => document.removeEventListener('click', clickHandler)
+  }, [mobileNavOpen])
+
+  // Close on ESC
+  useEffect(() => {
+    const keyHandler = ({ key }: KeyboardEvent) => {
+      if (!mobileNavOpen || key !== 'Escape') return
+      setMobileNavOpen(false)
+    }
+    document.addEventListener('keydown', keyHandler)
+    return () => document.removeEventListener('keydown', keyHandler)
+  }, [mobileNavOpen])
 
   return (
     <div className="md:hidden flex items-center ml-4">
-      {/* Hamburger button... */}
-      <button /* ...props... */ >{/* ... */}</button>
+      {/* Hamburger button */}
+      <button
+        ref={trigger}
+        className="group inline-flex w-8 h-8 text-slate-300 hover:text-white items-center justify-center transition"
+        aria-controls="mobile-nav"
+        aria-expanded={mobileNavOpen}
+        onClick={() => setMobileNavOpen(!mobileNavOpen)}
+      >
+        <span className="sr-only">Menu</span>
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+        </svg>
+      </button>
 
-      {/*Mobile navigation */}
-      <nav /* ...props... */ >
-        <ul>
-          {/* ...links... */}
+      {/* Mobile navigation */}
+      <nav
+        id="mobile-nav"
+        ref={mobileNav}
+        className={`absolute top-full left-0 w-full px-4 sm:px-6 z-20 transition-all duration-300 ease-in-out ${
+          mobileNavOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-80'
+        } overflow-hidden`}
+        style={
+          mobileNavOpen
+            ? { maxHeight: mobileNav.current?.scrollHeight || 999, opacity: 1 }
+            : { maxHeight: 0, opacity: 0.8 }
+        }
+      >
+        <ul className="border border-transparent [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] rounded-lg px-4 py-1.5">
+          <li>
+            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/about">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/integrations">
+              Integrations
+            </Link>
+          </li>
+          <li>
+            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/pricing">
+              Pricing
+            </Link>
+          </li>
+          <li>
+            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/customers">
+              Customers
+            </Link>
+          </li>
+          <li>
+            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/changelog">
+              Changelog
+            </Link>
+          </li>
         </ul>
-        <div className="flex justify-center my-3">
+        {/* Theme toggle visible only in mobile menu */}
+        <div className="flex justify-center py-2">
           <ThemeToggle />
         </div>
       </nav>
