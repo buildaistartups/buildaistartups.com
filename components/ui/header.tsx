@@ -69,7 +69,6 @@ export default function Header() {
                 </span>
               </Link>
             </li>
-            {/* Theme Toggle button */}
             <li>
               <ThemeToggle />
             </li>
