@@ -1,14 +1,27 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
-const logoSrc = '/images/logo.svg'
+import { useTheme } from 'next-themes'
 
 export default function AuthLogo() {
+  const { theme } = useTheme()
+  let logoSrc = '/images/logo.svg'
+  if (theme === 'dark') logoSrc = '/images/logo-light.svg'
+  else if (theme === 'light') logoSrc = '/images/logo-dark.svg'
+
   return (
-    <div className="mb-5">
-      <Link className="inline-flex" href="/">
-        <div className="relative flex items-center justify-center w-16 h-16 border border-transparent rounded-2xl shadow-2xl [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-2xl">
-          <Image className="relative" src={logoSrc} width={42} height={42} alt="Stellar" />
-        </div>
+    <div className="flex items-center justify-center mb-5">
+      <Link href="/" className="inline-flex items-center gap-2" aria-label="BuildAI Startups">
+        <Image
+          src={logoSrc}
+          width={48}
+          height={48}
+          alt="BuildAI Startups Logo"
+          className="w-12 h-12"
+          priority
+        />
+        <span className="ml-2 font-semibold text-lg text-slate-900 dark:text-white">BuildAI Startups</span>
       </Link>
     </div>
   )
