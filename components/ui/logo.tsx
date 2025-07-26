@@ -28,8 +28,8 @@ export default function Logo() {
     <Link href="/" className="flex items-center" aria-label="BuildAI Startups">
       <Image
         src={logoSrc}
-        width={160} // or whatever the real width is for your SVG
-        height={48}
+        width={72} // or whatever the real width is for your SVG
+        height={80}
         alt="BuildAI Startups Logo"
         className="h-12 w-auto"
         priority
