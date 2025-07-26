@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
-import ThemeToggle from './ThemeToggle' // ← Import the toggle
+import ThemeToggle from './ui/ThemeToggle' // ← Import the toggle
 
 export default function Header() {
   return (
