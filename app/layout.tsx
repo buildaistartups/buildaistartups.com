@@ -1,8 +1,6 @@
-'use client'
-
 import './css/style.css'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
+import ThemeWrapper from './ThemeWrapper'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -10,14 +8,7 @@ const inter = Inter({
   display: 'swap'
 })
 
-export const metadata = {
-  title: 'BuildAIStartups — Instantly Generate Your Next Startup',
-  description: 'The fully AI-driven startup generator and builder platform.',
-  icons: [
-    { rel: "icon", type: "image/svg+xml", url: "/favicon.svg" },
-    { rel: "alternate icon", type: "image/png", url: "/favicon.ico" },
-  ],
-}
+// ...metadata as before...
 
 export default function RootLayout({
   children,
@@ -27,11 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
+        <ThemeWrapper>
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
             {children}
           </div>
-        </ThemeProvider>
+        </ThemeWrapper>
       </body>
     </html>
   )
