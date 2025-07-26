@@ -11,12 +11,12 @@ export default function ThemeToggle() {
 
   if (!mounted) return null
 
-  // You can use emoji or a real SVG icon here
+  // Just the icon!
   const icon =
     theme === 'dark' ? (
-      <span role="img" aria-label="Light Mode" className="text-2xl md:text-xl">🌞</span>
+      <span role="img" aria-label="Light Mode" className="text-xl md:text-lg">🌞</span>
     ) : (
-      <span role="img" aria-label="Dark Mode" className="text-2xl md:text-xl">🌙</span>
+      <span role="img" aria-label="Dark Mode" className="text-xl md:text-lg">🌙</span>
     )
 
   return (
