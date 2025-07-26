@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import Logo from '@/public/images/logo.svg'
+const logoSrc = '/images/logo.svg'
 
 export default function AuthLogo() {
   return (
