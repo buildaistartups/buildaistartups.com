@@ -50,7 +50,9 @@ export default function Header() {
             </li>
             {/* Theme Toggle button here */}
             <li>
-              <ThemeToggle />
+              <li>
+  <div style={{ color: 'white', background: 'red', padding: '8px' }}>DEBUG TOGGLE</div>
+</li>
             </li>
           </ul>
 
