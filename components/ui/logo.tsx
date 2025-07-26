@@ -5,11 +5,11 @@ export default function Logo() {
   return (
     <Link href="/" className="inline-flex items-center" aria-label="BuildAI Startups">
       <Image
-        src="/images/logo.svg"
-        width={40}
-        height={40}
+        src="/images/logo.svg" // Update to your real path!
+        width={48}
+        height={48}
         alt="BuildAI Startups"
-        className="w-10 h-10"
+        className="mr-2"
         priority
       />
     </Link>
