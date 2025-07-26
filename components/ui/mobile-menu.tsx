@@ -10,7 +10,6 @@ export default function MobileMenu() {
   const trigger = useRef<HTMLButtonElement>(null)
   const mobileNav = useRef<HTMLDivElement>(null)
 
-  // Close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: { target: EventTarget | null }) => {
       if (!mobileNav.current || !trigger.current) return
@@ -26,7 +25,6 @@ export default function MobileMenu() {
     return () => document.removeEventListener('click', clickHandler)
   }, [mobileNavOpen])
 
-  // Close on ESC
   useEffect(() => {
     const keyHandler = ({ key }: KeyboardEvent) => {
       if (!mobileNavOpen || key !== 'Escape') return
@@ -67,35 +65,34 @@ export default function MobileMenu() {
       >
         <ul className="border border-transparent [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] rounded-lg px-4 py-1.5">
           <li>
-            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/about">
+            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/about">
               About
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/integrations">
+            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/integrations">
               Integrations
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/pricing">
+            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/pricing">
               Pricing
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/customers">
+            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/customers">
               Customers
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" href="/changelog">
+            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/changelog">
               Changelog
             </Link>
           </li>
+          <li className="flex justify-center py-2 border-t border-slate-800 mt-2">
+            <ThemeToggle />
+          </li>
         </ul>
-        {/* Theme toggle visible only in mobile menu */}
-        <div className="flex justify-center py-2">
-          <ThemeToggle />
-        </div>
       </nav>
     </div>
   )
