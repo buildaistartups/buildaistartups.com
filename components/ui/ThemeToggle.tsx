@@ -11,22 +11,22 @@ export default function ThemeToggle({ small }: { small?: boolean }) {
 
   if (!mounted) return null
 
+  // Smaller button and icon for mobile
   return (
     <button
-      className={`flex items-center px-2 py-1 rounded ${
-        small
-          ? 'text-base bg-slate-700 hover:bg-slate-500'
-          : 'px-3 py-1 text-lg bg-slate-700 hover:bg-slate-500'
-      } text-white transition`}
+      className={`flex items-center rounded transition
+        ${small ? 'text-base px-1 py-1' : 'text-lg px-3 py-1'}
+        bg-slate-700 text-white hover:bg-slate-500
+      `}
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label="Toggle Theme"
     >
-      {theme === 'dark'
-        ? small
-          ? '☀️'
-          : '☀️ Light Mode'
-        : small
-        ? '🌙'
-        : '🌙 Dark Mode'}
+      <span className={`${small ? 'text-xl' : 'text-2xl'}`}>
+        {theme === 'dark' ? '☀️' : '🌙'}
+      </span>
+      {!small && (
+        <span className="ml-2">{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
+      )}
     </button>
   )
 }
