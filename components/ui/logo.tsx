@@ -17,8 +17,8 @@ export default function Logo() {
     <Link href="/" className="inline-flex items-center" aria-label="BuildAI Startups">
       <Image
         src={logoSrc}
-        width={40}
-        height={40}
+        width={72}
+        height={80}
         alt="BuildAI Startups"
         className="w-10 h-10"
         priority
