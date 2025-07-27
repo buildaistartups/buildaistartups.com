@@ -26,7 +26,7 @@ export default function AuthLogo() {
         src={logoSrc}
         width={120}
         height={60}
-        alt="BuildAI Startups Logo"
+        alt="BuildAIStartups Logo"
         priority
       />
     </Link>
