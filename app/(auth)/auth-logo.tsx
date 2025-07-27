@@ -12,26 +12,26 @@ export default function AuthLogo() {
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    return <div className="h-12 w-12" />
+    return <div className="h-10 w-10" />
   }
 
-  // Adjust according to your logo file names and location!
+  // Adjust for your file structure and naming!
   let logoSrc = '/images/logo.svg'
   if (theme === 'dark') logoSrc = '/images/logo-light.svg'
   else if (theme === 'light') logoSrc = '/images/logo-dark.svg'
 
   return (
-    <Link href="/" className="flex items-center gap-2" aria-label="BuildAIStartups">
+    <Link href="/" className="flex items-center gap-2 mb-8" aria-label="BuildAIStartups">
       <Image
         src={logoSrc}
-        width={80}
-        height={72}
+        width={40}
+        height={36}
         alt="BuildAIStartups Logo"
-        className="h-12 w-12"
+        className="h-10 w-auto"
         priority
       />
-      <span className="ml-2 font-bold text-2xl text-slate-900 dark:text-white">
-        BuildAIStartups
+      <span className="ml-1 font-bold text-xl text-slate-900 dark:text-white align-middle">
+        BuildAI Startups
       </span>
     </Link>
   )
