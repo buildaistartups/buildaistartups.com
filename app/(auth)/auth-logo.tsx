@@ -1,36 +1,28 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function AuthLogo() {
-  const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme()
 
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) {
-    return <div className="h-10 w-10" />
-  }
-
-  // Adjust for your file structure and naming!
-  let logoSrc = '/images/logo.svg'
-  if (theme === 'dark') logoSrc = '/images/logo-light.svg'
-  else if (theme === 'light') logoSrc = '/images/logo-dark.svg'
+  const logoSrc =
+    resolvedTheme === 'dark'
+      ? '/images/logo-dark.svg'
+      : '/images/logo-light.svg'
 
   return (
     <Link href="/" className="flex items-center gap-2 mb-8" aria-label="BuildAIStartups">
       <Image
         src={logoSrc}
-        width={40}
-        height={36}
-        alt="BuildAIStartups Logo"
-        className="h-10 w-auto"
+        width={80}
+        height={72}
+        alt="BuildAIStartups"
+        className="h-12 w-12"
         priority
       />
-      <span className="ml-1 font-bold text-xl text-slate-900 dark:text-white align-middle">
+      <span className="ml-2 font-bold text-2xl text-slate-900 dark:text-white">
         BuildAI Startups
       </span>
     </Link>
