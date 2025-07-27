@@ -12,12 +12,12 @@ export default function AuthLogo() {
       : '/images/logo-light.svg'
 
   return (
-    <Link href="/" aria-label="BuildAI Startups" className="block mb-8">
+    <Link href="/" aria-label="BuildAIStartups" className="block mb-8">
       <Image
         src={logoSrc}
         width={80}   // Adjust to match your desired logo width
         height={72}   // Adjust height proportionally to your SVG
-        alt="BuildAI Startups Logo"
+        alt="BuildAIStartups Logo"
         priority
       />
     </Link>
