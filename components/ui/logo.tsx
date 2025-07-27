@@ -1,4 +1,4 @@
-<Link href="/" className="flex items-center gap-2" aria-label="BuildAI Startups">
+<Link href="/" className="flex items-center gap-2" aria-label="BuildAIStartups">
   <Image
     src={logoSrc}
     width={80}
@@ -8,6 +8,6 @@
     priority
   />
   <span className="ml-2 font-bold text-2xl text-slate-900 dark:text-white">
-    BuildAI<br />Startups
+    BuildAIStartups
   </span>
 </Link>
