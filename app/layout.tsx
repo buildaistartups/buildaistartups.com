@@ -8,7 +8,11 @@ const inter = Inter({
   display: 'swap'
 })
 
-// ...metadata as before...
+// 👇 Add or update this metadata block!
+export const metadata = {
+  title: "BuildAIStartups - Home",           // 👈 Change this to your preferred tab text
+  description: "Landing page for BuildAIStartups",  // Optional: update the description
+}
 
 export default function RootLayout({
   children,
