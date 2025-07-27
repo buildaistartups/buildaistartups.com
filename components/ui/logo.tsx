@@ -3,7 +3,7 @@
     src={logoSrc}
     width={80}
     height={72}
-    alt="BuildAI Startups Logo"
+    alt="BuildAIStartups Logo"
     className="h-12 w-12"
     priority
   />
