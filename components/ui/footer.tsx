@@ -15,9 +15,11 @@ export default function Footer() {
                 <div className="mb-4">
                   <Logo />
                 </div>
-                <div className="text-sm text-slate-300">© BuildAIStartups.com <span className="text-slate-500">-</span> All rights reserved.</div>
+                <div className="text-sm text-slate-300">
+                  © BuildAIStartups.com <span className="text-slate-500">-</span> All rights reserved.
+                </div>
               </div>
-              {/* Social links */}
+              {/* Social links - commented out
               <ul className="flex">
                 <li>
                   <a className="flex justify-center items-center text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="#0" aria-label="Twitter">
@@ -41,6 +43,7 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
+              */}
             </div>
           </div>
 
