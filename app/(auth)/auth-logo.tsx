@@ -6,25 +6,20 @@ import Link from 'next/link'
 
 export default function AuthLogo() {
   const { resolvedTheme } = useTheme()
-
   const logoSrc =
     resolvedTheme === 'dark'
       ? '/images/logo-dark.svg'
       : '/images/logo-light.svg'
 
   return (
-    <Link href="/" className="flex items-center gap-2 mb-8" aria-label="BuildAIStartups">
+    <Link href="/" aria-label="BuildAI Startups" className="block mb-8">
       <Image
         src={logoSrc}
-        width={80}
-        height={72}
-        alt="BuildAIStartups"
-        className="h-12 w-12"
+        width={80}   // Adjust to match your desired logo width
+        height={72}   // Adjust height proportionally to your SVG
+        alt="BuildAI Startups Logo"
         priority
       />
-      <span className="ml-2 font-bold text-2xl text-slate-900 dark:text-white">
-        BuildAIStartups
-      </span>
     </Link>
   )
 }
