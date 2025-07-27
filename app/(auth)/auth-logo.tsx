@@ -23,7 +23,7 @@ export default function AuthLogo() {
         priority
       />
       <span className="ml-2 font-bold text-2xl text-slate-900 dark:text-white">
-        BuildAI Startups
+        BuildAIStartups
       </span>
     </Link>
   )
