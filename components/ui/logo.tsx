@@ -1,13 +1,36 @@
-<Link href="/" className="flex items-center gap-2" aria-label="BuildAIStartups">
-  <Image
-    src={logoSrc}
-    width={80}
-    height={72}
-    alt="BuildAIStartups Logo"
-    className="h-12 w-12"
-    priority
-  />
-  <span className="ml-2 font-bold text-2xl text-slate-900 dark:text-white">
-    BuildAIStartups
-  </span>
-</Link>
+// logo.tsx
+import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import Link from 'next/link'
+
+export default function Logo() {
+  const { resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Prevent rendering until theme is loaded (fixes flicker/bug)
+  if (!mounted) {
+    return <div style={{ width: 120, height: 60 }} />  // Placeholder, adjust as needed
+  }
+
+  const logoSrc =
+    resolvedTheme === 'dark'
+      ? '/images/logo-dark.svg'
+      : '/images/logo-light.svg'
+
+  return (
+    <Link href="/" aria-label="BuildAIStartups" className="flex items-center gap-2">
+      <Image
+        src={logoSrc}
+        width={120}
+        height={60}
+        alt="BuildAI Startups Logo"
+        priority
+      />
+    </Link>
+  )
+}
