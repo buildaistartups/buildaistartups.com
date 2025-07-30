@@ -1,65 +1,79 @@
-export const metadata = {
-  title: 'Sign In - BuildAIStartups.com',
-  description: 'Page description',
-}
+import Link from "next/link";
 
-import Link from 'next/link'
-import AuthLogo from '../auth-logo'
-
-export default function SignIn() {
+export default function SignInPage() {
   return (
-    <>
-      {/* Page header */}
-      <div className="max-w-3xl mx-auto text-center pb-12">
-        {/* Logo */}
-        <AuthLogo />
-        {/* Page title */}
-        <h1 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 dark:from-slate-800/70 dark:via-slate-100 dark:to-slate-800/70">
-          Sign in to your account
+    <div className="flex flex-col min-h-screen justify-center items-center py-10 px-4 bg-slate-50 dark:bg-slate-900">
+      <div className="w-full max-w-md bg-white dark:bg-slate-800 rounded-xl shadow-lg p-8">
+        <h1 className="text-2xl font-bold mb-6 text-center text-slate-900 dark:text-slate-100">
+          Sign in to BuildAIStartups.com
         </h1>
-      </div>
-
-      {/* Form */}
-      <div className="max-w-sm mx-auto">
-
-        <form>
-          <div className="space-y-4">
-            <div>
-              <label className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1" htmlFor="email">Email</label>
-              <input id="email" className="form-input w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900" type="email" required />
-            </div>
-            <div>
-              <div className="flex justify-between">
-                <label className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1" htmlFor="password">Password</label>
-                <Link className="text-sm font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out ml-2" href="/reset-password">Forgot?</Link>
-              </div>
-              <input id="password" className="form-input w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900" type="password" autoComplete="on" required />
-            </div>
+        <form className="space-y-6">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+              Email address
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+              className="mt-1 block w-full rounded-md border border-slate-300 dark:border-slate-700 px-3 py-2 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="your@email.com"
+            />
           </div>
-          <div className="mt-6">
-            <button className="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group dark:bg-purple-500 dark:hover:bg-purple-600">
-              Sign In <span className="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1 dark:text-purple-200">-&gt;</span>
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
+              Password
+            </label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              autoComplete="current-password"
+              className="mt-1 block w-full rounded-md border border-slate-300 dark:border-slate-700 px-3 py-2 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="••••••••"
+            />
+          </div>
+          <div className="flex justify-between items-center">
+            <Link href="/reset-password" className="text-sm text-blue-600 hover:underline">
+              Forgot password?
+            </Link>
+            <button
+              type="submit"
+              className="ml-2 inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Sign in
             </button>
           </div>
         </form>
 
-        <div className="text-center mt-4">
-          <div className="text-sm text-slate-400 dark:text-slate-500">
-            Don't have an account? <Link className="font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="/signup">Sign up</Link>
-          </div>
+        <div className="mt-8 flex flex-col space-y-3">
+          <button className="flex items-center justify-center w-full border border-slate-300 dark:border-slate-700 rounded-lg py-2 text-slate-700 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+            <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24">
+              <path
+                d="M21.805 10.023H12.18v3.99h5.497c-.237 1.289-1.363 3.786-5.497 3.786-3.3 0-5.992-2.733-5.992-6.092 0-3.359 2.692-6.092 5.992-6.092 1.885 0 3.151.8 3.877 1.495l2.647-2.572C16.402 3.498 14.469 2.45 12.18 2.45 6.954 2.45 2.625 6.638 2.625 12.001c0 5.364 4.329 9.551 9.555 9.551 5.523 0 9.17-3.873 9.17-9.321 0-.627-.07-1.113-.172-1.607z"
+                fill="#4285F4"
+              />
+            </svg>
+            Continue with Google
+          </button>
+          <button className="flex items-center justify-center w-full border border-slate-300 dark:border-slate-700 rounded-lg py-2 text-slate-700 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-700 transition">
+            <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.46 6c-.77.34-1.6.57-2.47.68a4.28 4.28 0 0 0 1.88-2.36 8.52 8.52 0 0 1-2.7 1.03 4.26 4.26 0 0 0-7.47 3.89A12.07 12.07 0 0 1 3.09 4.84a4.23 4.23 0 0 0-.58 2.15c0 1.48.75 2.78 1.9 3.55a4.21 4.21 0 0 1-1.93-.53v.05a4.26 4.26 0 0 0 3.42 4.17 4.28 4.28 0 0 1-1.92.07 4.27 4.27 0 0 0 3.98 2.96A8.57 8.57 0 0 1 2 19.54a12.1 12.1 0 0 0 6.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.18-.01-.36-.02-.54A8.64 8.64 0 0 0 24 4.59a8.49 8.49 0 0 1-2.46.67z" />
+            </svg>
+            Continue with Twitter
+          </button>
         </div>
 
-        {/* Divider */}
-        <div className="flex items-center my-6">
-          <div className="border-t border-slate-200 dark:border-slate-800 grow mr-3" aria-hidden="true" />
-          <div className="text-sm text-slate-500 italic dark:text-slate-400">or</div>
-          <div className="border-t border-slate-200 dark:border-slate-800 grow ml-3" aria-hidden="true" />
+        <div className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
+          Don&apos;t have an account?{" "}
+          <Link href="/signup" className="text-blue-600 hover:underline">
+            Sign up
+          </Link>
         </div>
-
-        {/* Social login */}
-        <div className="flex space-x-3">
-          <button className="btn text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-100),var(--color-slate-100))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-200)_25%,var(--color-slate-200)_75%,var(--color-slate-400)_100%)_border-box] dark:[background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-100/30 dark:before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9">
-            <span className="relative">
-              <span className="sr-only">Continue with Twitter</span>
-              <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="14" height="12">
-                <path d="m4.34 0 2.995 3.836L10.801 0h2.103L8.311 5.084 13.714 12H9.482L6.169 7.806 2.375 12H.271l4.915-5
+      </div>
+    </div>
+  );
+}
