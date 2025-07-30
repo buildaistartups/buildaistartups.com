@@ -1,3 +1,7 @@
-export async function GET(request: Request) {
-  return new Response('Hello, Next.js!')
+// app/api/hello/route.ts
+
+import { NextResponse } from 'next/server'
+
+export async function GET() {
+  return NextResponse.json({ message: 'Hello from BuildAIStartups.com API!' })
 }
