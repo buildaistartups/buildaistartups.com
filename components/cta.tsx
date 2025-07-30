@@ -2,7 +2,7 @@ export default function Cta() {
   return (
     <section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="relative px-8 py-12 md:py-20 rounded-[3rem] overflow-hidden">
+        <div className="relative px-8 py-12 md:py-20 rounded-[3rem] overflow-hidden bg-slate-900 dark:bg-white/90 transition-colors">
           {/* Radial gradient */}
           <div className="absolute flex items-center justify-center top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
             <div className="absolute inset-0 translate-z-0 bg-purple-500 rounded-full blur-[120px] opacity-70" />
@@ -23,12 +23,18 @@ export default function Cta() {
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center">
             <div>
-              <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">The security first platform</div>
+              <div className="inline-flex font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200 pb-3">
+                The security first platform
+              </div>
             </div>
-            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Take control of your business</h2>
-            <p className="text-lg text-slate-400 mb-8">All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+            <h2 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-900 dark:from-slate-800/80 dark:via-slate-900 dark:to-slate-800/80 to-slate-200/60 pb-4">
+              Take control of your business
+            </h2>
+            <p className="text-lg text-slate-400 dark:text-slate-600 mb-8">
+              All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+            </p>
             <div>
-              <a className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group" href="#0">
+              <a className="btn text-slate-900 dark:text-slate-100 bg-gradient-to-r from-white/80 via-white to-white/80 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 hover:bg-white dark:hover:bg-slate-800 transition duration-150 ease-in-out group" href="#0">
                 Get Started <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
               </a>
             </div>
