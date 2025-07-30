@@ -1,36 +1,21 @@
-"use client"
+'use client'
 
-import { useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
 import Image from 'next/image'
-import Link from 'next/link'
 
-export default function AuthLogo() {
-  const { resolvedTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+type AuthLogoProps = {
+  className?: string
+}
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return <div style={{ width: 120, height: 60 }} />
-  }
-
-  const logoSrc =
-    resolvedTheme === 'dark'
-      ? '/images/logo-dark.svg'
-      : '/images/logo-light.svg'
-
+export default function AuthLogo({ className = '' }: AuthLogoProps) {
   return (
-    <Link href="/" aria-label="BuildAIStartups" className="inline-flex items-center">
+    <div className={className}>
       <Image
-        src={logoSrc}
+        src="/images/logo-dark.svg"
+        alt="BuildAIStartups.com Logo"
         width={120}
         height={60}
-        alt="BuildAIStartups Logo"
         priority
       />
-    </Link>
+    </div>
   )
 }
