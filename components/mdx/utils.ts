@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 
+// Update type if you add more fields in your MDX frontmatter
 type Metadata = {
   title: string;
   publishedAt: string;
@@ -8,6 +9,7 @@ type Metadata = {
 };
 
 function parseFrontmatter(fileContent: string) {
+  // Extracts YAML frontmatter between --- markers
   const frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
   const match = frontmatterRegex.exec(fileContent);
   const frontMatterBlock = match![1];
@@ -26,6 +28,7 @@ function parseFrontmatter(fileContent: string) {
 }
 
 function getMDXFiles(dir: string) {
+  // Get all .mdx files in directory
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
@@ -47,6 +50,7 @@ function getMDXData(dir: string) {
   });
 }
 
+// This is the only exported function – it reads updates from /content/update/
 export function getUpdatePosts() {
   return getMDXData(path.join(process.cwd(), "content/update"));
 }
