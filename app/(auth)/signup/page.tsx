@@ -15,9 +15,7 @@ export default function SignUpPage() {
         </div>
         <form className="space-y-6">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
-              Email address
-            </label>
+            <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-200">Email address</label>
             <input
               id="email"
               name="email"
@@ -28,9 +26,7 @@ export default function SignUpPage() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-slate-700 dark:text-slate-200">
-              Password
-            </label>
+            <label htmlFor="password" className="block text-sm font-medium text-slate-700 dark:text-slate-200">Password</label>
             <input
               id="password"
               name="password"
