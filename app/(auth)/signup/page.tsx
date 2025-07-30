@@ -9,9 +9,7 @@ export default function SignUpPage() {
       <div className="w-full max-w-md p-8 space-y-8 bg-white dark:bg-slate-800 rounded-xl shadow-lg">
         <div className="flex flex-col items-center">
           <AuthLogo className="mb-4" />
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-            Create your BuildAIStartups.com account
-          </h1>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Create your BuildAIStartups.com account</h1>
         </div>
         <form className="space-y-6">
           <div>
