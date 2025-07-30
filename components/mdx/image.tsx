@@ -1,6 +1,5 @@
 import Image, { StaticImageData } from 'next/image'
 
-
 interface PostImageProps {
   alt: string
   caption?: string
@@ -9,7 +8,6 @@ interface PostImageProps {
 }
 
 export default function PostImage({ alt, caption, size, ...props }: PostImageProps) {
-
   const classes = (size === 'lg') ? 'lg:-ml-32 lg:-mr-32' : ''
 
   return (
