@@ -9,19 +9,13 @@ import AuthLogo from '../auth-logo'
 export default function SignIn() {
   return (
     <>
-      {/* Page header */}
       <div className="max-w-3xl mx-auto text-center pb-12">
-        {/* Logo */}
         <AuthLogo />
-        {/* Page title */}
         <h1 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60">
           Sign in to your account
         </h1>
       </div>
-
-      {/* Form */}
       <div className="max-w-sm mx-auto">
-
         <form>
           <div className="space-y-4">
             <div>
@@ -48,7 +42,6 @@ export default function SignIn() {
             </button>
           </div>
         </form>
-
         <div className="text-center mt-4">
           <div className="text-sm text-slate-400">
             Don't have an account?{' '}
