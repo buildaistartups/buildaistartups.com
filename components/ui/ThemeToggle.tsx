@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 import { useState, useEffect } from 'react'
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
@@ -13,7 +13,7 @@ export default function ThemeToggle() {
 
   // Just the icon!
   const icon =
-    theme === 'dark' ? (
+    resolvedTheme === 'dark' ? (
       <span role="img" aria-label="Light Mode" className="text-xl md:text-lg">🌞</span>
     ) : (
       <span role="img" aria-label="Dark Mode" className="text-xl md:text-lg">🌙</span>
@@ -23,7 +23,7 @@ export default function ThemeToggle() {
     <button
       aria-label="Toggle Dark Mode"
       className="ml-4 p-2 rounded-full hover:bg-slate-700 transition-colors focus:outline-none"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {icon}
     </button>

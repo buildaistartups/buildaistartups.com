@@ -1,33 +1,24 @@
-import { useEffect, useState } from 'react'
+'use client'
+
 import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Logo() {
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const [firstLoad, setFirstLoad] = useState(true)
 
   useEffect(() => {
     setMounted(true)
-    // Check if user has already chosen a theme
-    if (typeof window !== "undefined") {
-      setFirstLoad(!localStorage.getItem("theme"))
-    }
   }, [])
 
-  // Prevent rendering until theme is loaded (fixes flicker/bug)
-  if (!mounted) {
-    return <div style={{ width: 120, height: 60 }} />  // Placeholder, adjust as needed
-  }
+  // Only render logo once theme is known, to avoid SSR mismatch
+  if (!mounted) return <div style={{ width: 120, height: 60 }} />  // blank/placeholder
 
-  // Logo selection logic
-  let logoSrc = '/images/logo.svg' // Default logo
-  if (!firstLoad) {
-    logoSrc = resolvedTheme === 'dark'
-      ? '/images/logo-dark.svg'
-      : '/images/logo-light.svg'
-  }
+  const logoSrc = resolvedTheme === 'dark'
+    ? '/images/logo-dark.svg'
+    : '/images/logo-light.svg'
 
   return (
     <Link href="/" aria-label="BuildAIStartups" className="flex items-center gap-2">
