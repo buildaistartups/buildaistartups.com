@@ -70,8 +70,8 @@ export default function SignInPage() {
           </button>
           <button className="w-full flex items-center justify-center gap-2 py-2 px-4 border border-slate-300 dark:border-slate-700 rounded-md bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600">
             <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12">
-              <path d="m4.34 0 2.995 3.836L10.801 0h2.103L8.311 5.084 13.714 12H9.482L6.169 7.806 2.375 12H.271l4.915-5.934L0 0h4.34Zm-.634 1.347H2.249l7.734 9.79h1.306l-7.683-9.79Z" />
-            </svg>
+  <path d="M4.34 0l2.995 3.836L10.801 0h2.103L8.311 5.084 13.714 12H9.482L6.169 7.806 2.375 12H.271l4.915-5.934L0 0h4.34Zm-.634 1.347H2.249l7.734 9.79h1.306l-7.683-9.79Z" />
+</svg>
             <span>Continue with Twitter</span>
           </button>
         </div>
