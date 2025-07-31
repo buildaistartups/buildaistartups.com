@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Sign Up - Stellar',
+  title: 'Sign Up - BuildAIStartups.com',
   description: 'Page description',
 }
 
@@ -14,7 +14,9 @@ export default function SignUp() {
         {/* Logo */}
         <AuthLogo />
         {/* Page title */}
-        <h1 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60">Create your free account</h1>
+        <h1 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 dark:from-slate-800/70 dark:via-slate-100 dark:to-slate-800/70">
+          Create your free account
+        </h1>
       </div>
 
       {/* Form */}
@@ -23,24 +25,24 @@ export default function SignUp() {
         <form>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="company">Company <span className="text-rose-500">*</span></label>
-              <input id="company" className="form-input w-full" type="text" placeholder="mE.g., Acme Inc." required />
+              <label className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1" htmlFor="company">Company <span className="text-rose-500">*</span></label>
+              <input id="company" className="form-input w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900" type="text" placeholder="E.g., Acme Inc." required />
             </div>
             <div>
-              <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="full-name">Full Name <span className="text-rose-500">*</span></label>
-              <input id="full-name" className="form-input w-full" type="text" placeholder="E.g., Mark Rossi" required />
+              <label className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1" htmlFor="full-name">Full Name <span className="text-rose-500">*</span></label>
+              <input id="full-name" className="form-input w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900" type="text" placeholder="E.g., Mark Rossi" required />
             </div>
             <div>
-              <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="email">Email <span className="text-rose-500">*</span></label>
-              <input id="email" className="form-input w-full" type="email" placeholder="markrossi@company.com" required />
+              <label className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1" htmlFor="email">Email <span className="text-rose-500">*</span></label>
+              <input id="email" className="form-input w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900" type="email" placeholder="markrossi@company.com" required />
             </div>
             <div>
-              <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="password">Password <span className="text-rose-500">*</span></label>
-              <input id="password" className="form-input w-full" type="password" autoComplete="on" required />
+              <label className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1" htmlFor="password">Password <span className="text-rose-500">*</span></label>
+              <input id="password" className="form-input w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900" type="password" autoComplete="on" required />
             </div>
             <div>
-              <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="referrer">Where did you hear about us? <span className="text-rose-500">*</span></label>
-              <select id="referrer" className="form-select text-sm py-2 w-full" required>
+              <label className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1" htmlFor="referrer">Where did you hear about us? <span className="text-rose-500">*</span></label>
+              <select id="referrer" className="form-select text-sm py-2 w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900" required>
                 <option>Google</option>
                 <option>Medium</option>
                 <option>GitHub</option>
@@ -48,28 +50,28 @@ export default function SignUp() {
             </div>
           </div>
           <div className="mt-6">
-            <button className="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group">
-              Sign Up <span className="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+            <button className="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group dark:bg-purple-500 dark:hover:bg-purple-600">
+              Sign Up <span className="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1 dark:text-purple-200">-&gt;</span>
             </button>
           </div>
         </form>
 
         <div className="text-center mt-4">
-          <div className="text-sm text-slate-400">
+          <div className="text-sm text-slate-400 dark:text-slate-500">
             Already have an account? <Link className="font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="/signin">Sign in</Link>
           </div>
         </div>
 
         {/* Divider */}
         <div className="flex items-center my-6">
-          <div className="border-t border-slate-800 grow mr-3" aria-hidden="true" />
-          <div className="text-sm text-slate-500 italic">or</div>
-          <div className="border-t border-slate-800 grow ml-3" aria-hidden="true" />
+          <div className="border-t border-slate-200 dark:border-slate-800 grow mr-3" aria-hidden="true" />
+          <div className="text-sm text-slate-500 italic dark:text-slate-400">or</div>
+          <div className="border-t border-slate-200 dark:border-slate-800 grow ml-3" aria-hidden="true" />
         </div>
 
         {/* Social login */}
         <div className="flex space-x-3">
-          <button className="btn text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9">
+          <button className="btn text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-100),var(--color-slate-100))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-200)_25%,var(--color-slate-200)_75%,var(--color-slate-400)_100%)_border-box] dark:[background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-100/30 dark:before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9">
             <span className="relative">
               <span className="sr-only">Continue with Twitter</span>
               <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="14" height="12">
@@ -77,7 +79,7 @@ export default function SignUp() {
               </svg>
             </span>
           </button>
-          <button className="btn text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9">
+          <button className="btn text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-100),var(--color-slate-100))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-200)_25%,var(--color-slate-200)_75%,var(--color-slate-400)_100%)_border-box] dark:[background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-100/30 dark:before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9">
             <span className="relative">
               <span className="sr-only">Continue with GitHub</span>
               <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="16" height="15">
