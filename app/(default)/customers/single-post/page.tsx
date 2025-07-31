@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Customer Post - Stellar',
+  title: 'Customer Post - BuildAIStartups.com',
   description: 'Page description',
 }
 
@@ -44,7 +44,7 @@ export default function CustomerSingle() {
                   </div>
 
                   <header>
-                    <h1 className="h2 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">How Airbnb leverages Stellar X to onboard new hosts</h1>
+                    <h1 className="h2 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">How Airbnb leverages BuildAIStartups.com to onboard new hosts</h1>
                     <div className="text-sm flex items-center space-x-4 mb-8">
                       <img className="rounded-full" src="../images/customer-avatar-03.jpg" width="32" height="32" alt="Customer Avatar 03" />
                       <div>
@@ -67,7 +67,7 @@ export default function CustomerSingle() {
                       Brian Chesky, Co-Founder and CEO at Airbnb:
                     </p>
                     <p>
-                      Through spending twenty years working with hots, Airbnb reflected that a lack of governance policy is a systemic issue with most short rentals. Without web governance, hosts usually experience a lack of process and accountability leading to:
+                      Through spending twenty years working with hosts, Airbnb reflected that a lack of governance policy is a systemic issue with most short rentals. Without web governance, hosts usually experience a lack of process and accountability leading to:
                     </p>
                     <ul>
                       <li>
@@ -81,7 +81,7 @@ export default function CustomerSingle() {
                       </li>
                     </ul>
                     <p>
-                      When these problems become acute enough, large website redesign projects begin. But <strong>without governance being put in place at the same time, the same problem will only happen again</strong>. Airbnb mitigate this risk by baking web governance into their working process with clients from strategy through to site launch and beyond.
+                      When these problems become acute enough, large website redesign projects begin. But <strong>without governance being put in place at the same time, the same problem will only happen again</strong>. Airbnb mitigates this risk by baking web governance into their working process with clients from strategy through to site launch and beyond.
                     </p>
                     <h2>Good governance leads to stronger results</h2>
                     <p>
@@ -144,7 +144,7 @@ export default function CustomerSingle() {
                         </li>
                         <li className="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
                           <span className="text-slate-400">Product</span>
-                          <span className="text-slate-300 font-medium">Stellar X</span>
+                          <span className="text-slate-300 font-medium">BuildAIStartups.com</span>
                         </li>
                         <li className="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
                           <span className="text-slate-400">Impact</span>
