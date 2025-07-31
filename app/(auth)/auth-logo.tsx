@@ -23,12 +23,12 @@ export default function AuthLogo() {
       : '/images/logo-light.svg'
 
   return (
-    <Link href="/" aria-label="BuildAIStartups" className="inline-flex items-center">
+    <Link href="/" aria-label="BuildAIStartups.com" className="inline-flex items-center">
       <Image
         src={logoSrc}
         width={120}
         height={60}
-        alt="BuildAIStartups Logo"
+        alt="BuildAIStartups.com Logo"
         priority
       />
     </Link>
