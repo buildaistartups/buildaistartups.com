@@ -16,7 +16,7 @@ export default function ThemeToggle() {
     <div
       className="inline-flex items-center ml-2 px-[2px] py-[1.5px] rounded-full"
       style={{
-        backgroundColor: '#f1f5f9', // Tailwind's slate-100
+        backgroundColor: '#D0CFDD', // your specified color
         minWidth: 24,
       }}
     >
