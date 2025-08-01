@@ -67,6 +67,10 @@ export default function Footer() {
               <li>
                 <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Financial statements</a>
               </li>
+              {/* Theme toggle here */}
+              <li className="pt-2">
+                <ThemeToggle />
+              </li>
             </ul>
           </div>
 
@@ -105,11 +109,6 @@ export default function Footer() {
             </ul>
           </div>
 
-        </div>
-
-        {/* Theme toggle centered below the grid */}
-        <div className="flex justify-center mt-4">
-          <ThemeToggle />
         </div>
 
       </div>
