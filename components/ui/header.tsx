@@ -69,7 +69,8 @@ export default function Header() {
                 </span>
               </Link>
             </li>
-            <li>
+            {/* Add margin-left to give breathing room */}
+            <li className="ml-2">
               <ThemeToggle />
             </li>
           </ul>
