@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -20,14 +21,18 @@ export default function DefaultLayout({
       duration: 1000,
       easing: 'ease-out-cubic',
     })
-  }, [])
+  })
 
   return (
     <>
       <Header />
+      
       <main className="grow">
+
         {children}
+
       </main>
+
       <Footer />
     </>
   )

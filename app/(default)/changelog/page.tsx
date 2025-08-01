@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Changelog - BuildAIStartups.com',
+  title: 'Changelog - Stellar',
   description: 'Page description',
 }
 
@@ -19,6 +19,7 @@ export default function Changelog() {
 
   return (
     <>
+
       {/* Content */}
       <section className="relative">
 
@@ -45,9 +46,7 @@ export default function Changelog() {
             <div className="text-center pb-12 md:pb-20">
               <h1 className="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">What's New</h1>
               <div className="max-w-3xl mx-auto">
-                <p className="text-lg text-slate-400">
-                  New updates and improvements to <b>BuildAIStartups.com</b>.
-                </p>
+                <p className="text-lg text-slate-400">New updates and improvements to Stellar.</p>
               </div>
             </div>
 

@@ -60,12 +60,11 @@ input[type="search"]::-webkit-search-results-decoration {
     @apply border border-transparent rounded-sm focus:ring-0 focus:ring-offset-0;
 }
 
-/* --- UPDATED FOR DARK/LIGHT MODE: --- */
 .form-input,
 .form-textarea,
 .form-multiselect,
 .form-select {
-    @apply bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-200 text-sm px-3 py-1.5 focus:border-purple-500;
+    @apply bg-slate-800 text-slate-200 text-sm px-3 py-1.5 focus:border-purple-500;
 }
 
 .form-input,
@@ -79,7 +78,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 .form-checkbox,
 .form-radio {
-    @apply bg-white dark:bg-slate-800 checked:bg-purple-500 checked:border-transparent text-purple-600 rounded-xs focus-visible:not-checked:border-purple-500;
+    @apply bg-slate-800 checked:bg-purple-500 checked:border-transparent text-purple-600 rounded-xs focus-visible:not-checked:border-purple-500;
 }
 
 .form-checkbox {

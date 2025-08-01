@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Reset Password - BuildAIStartups.com',
+  title: 'Reset Password - Stellar',
   description: 'Page description',
 }
 
@@ -13,9 +13,7 @@ export default function ResetPassword() {
         {/* Logo */}
         <AuthLogo />
         {/* Page title */}
-        <h1 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 dark:from-slate-800/70 dark:via-slate-100 dark:to-slate-800/70">
-          Reset your password
-        </h1>
+        <h1 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60">Reset your password</h1>
       </div>
 
       {/* Form */}
@@ -24,26 +22,13 @@ export default function ResetPassword() {
         <form>
           <div className="space-y-4">
             <div>
-              <label
-                className="block text-sm text-slate-700 dark:text-slate-300 font-medium mb-1"
-                htmlFor="email"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                className="form-input w-full dark:bg-slate-800 dark:text-slate-100 bg-white text-slate-900"
-                type="email"
-                required
-              />
+              <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="email">Email</label>
+              <input id="email" className="form-input w-full" type="email" required />
             </div>
           </div>
           <div className="mt-6">
-            <button className="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group dark:bg-purple-500 dark:hover:bg-purple-600">
-              Reset Password{' '}
-              <span className="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1 dark:text-purple-200">
-                -&gt;
-              </span>
+            <button className="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group">
+              Reset Password <span className="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
             </button>
           </div>
         </form>
