@@ -14,40 +14,12 @@ export default function Header() {
           <div>
             <Logo />
           </div>
+          
+          {/* Spacer to push controls to the far right */}
+          <div className="flex-1" />
 
-          {/* Desktop navigation (centered, only on md+) */}
-          <nav className="hidden md:flex md:grow">
-            <ul className="flex grow justify-center flex-wrap items-center">
-              <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/about">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/integrations">
-                  Integrations
-                </Link>
-              </li>
-              <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/pricing">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/customers">
-                  Customers
-                </Link>
-              </li>
-              <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/changelog">
-                  Changelog
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
-          {/* All right-side controls, spaced and shifted right */}
-          <div className="flex items-center ml-auto gap-x-3 md:gap-x-4">
+          {/* Right-side controls */}
+          <div className="flex items-center gap-x-3 md:gap-x-4">
             <Link
               className="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out"
               href="/signin"
