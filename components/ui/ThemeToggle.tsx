@@ -13,15 +13,20 @@ export default function ThemeToggle() {
   const isDark = resolvedTheme === 'dark'
 
   return (
-    <div className="inline-flex items-center ml-2">
+    <div
+      className="inline-flex items-center ml-2 px-[2px] py-[1.5px] rounded-full"
+      style={{
+        backgroundColor: '#f1f5f9', // Tailwind's slate-100
+        minWidth: 24,
+      }}
+    >
       <button
         aria-label="Light mode"
         onClick={() => setTheme('light')}
-        className={`w-3.6 h-3.6 flex items-center justify-center rounded-full transition text-[7px] focus-visible:ring-2 focus-visible:ring-blue-400
-          ${!isDark ? 'bg-gray-100 text-yellow-400' : 'text-gray-400 hover:bg-gray-100'}
+        className={`w-3.5 h-3.5 flex items-center justify-center rounded-full transition text-[7px] focus-visible:ring-2 focus-visible:ring-blue-400
+          ${!isDark ? 'bg-white text-yellow-400 shadow-sm' : 'text-gray-400 hover:bg-white/70'}
         `}
         style={{
-          backgroundColor: !isDark ? 'rgba(243,244,246,0.7)' : 'transparent', // bg-gray-100 @ 70% opacity for active, transparent for inactive
           border: 'none',
         }}
         tabIndex={0}
@@ -37,10 +42,9 @@ export default function ThemeToggle() {
         aria-label="Dark mode"
         onClick={() => setTheme('dark')}
         className={`w-3.5 h-3.5 flex items-center justify-center rounded-full transition text-[7px] focus-visible:ring-2 focus-visible:ring-blue-400
-          ${isDark ? 'bg-gray-200 dark:bg-slate-700 text-slate-700 dark:text-yellow-300' : 'text-gray-400 hover:bg-gray-100'}
+          ${isDark ? 'bg-white text-slate-700 dark:text-yellow-300 shadow-sm' : 'text-gray-400 hover:bg-white/70'}
         `}
         style={{
-          backgroundColor: isDark ? 'rgba(226,232,240,0.7)' : 'transparent', // bg-gray-200 @ 70% opacity for active, transparent for inactive
           border: 'none',
         }}
         tabIndex={0}
