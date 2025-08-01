@@ -8,10 +8,9 @@ const inter = Inter({
   display: 'swap'
 })
 
-// 👇 Add or update this metadata block!
 export const metadata = {
-  title: "BuildAIStartups - Home",           // 👈 Change this to your preferred tab text
-  description: "Landing page for BuildAIStartups",  // Optional: update the description
+  title: "BuildAIStartups - Home",
+  description: "Landing page for BuildAIStartups",
 }
 
 export default function RootLayout({
@@ -20,12 +19,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`scroll-smooth ${inter.variable} font-inter antialiased tracking-tight`}
+    >
+      <body>
         <ThemeWrapper>
-          <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-            {children}
-          </div>
+          {children}
         </ThemeWrapper>
       </body>
     </html>

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import ThemeToggle from './ThemeToggle'
 
 export default function MobileMenu() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
@@ -81,6 +82,10 @@ export default function MobileMenu() {
             <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/changelog">
               Changelog
             </Link>
+          </li>
+          {/* Theme Toggle only visible on mobile */}
+          <li className="flex py-2 md:hidden">
+            <ThemeToggle />
           </li>
         </ul>
       </nav>
