@@ -9,13 +9,13 @@ export default function Header() {
   return (
     <header className="absolute w-full z-30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center h-16 md:h-20">
           {/* Site branding */}
           <div>
             <Logo />
           </div>
 
-          {/* Desktop navigation */}
+          {/* Desktop navigation (centered, only on md+) */}
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow justify-center flex-wrap items-center">
               <li>
@@ -46,8 +46,8 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* All right-side controls, always together, always spaced */}
-          <div className="flex items-center ml-auto gap-2">
+          {/* All right-side controls, spaced and shifted right */}
+          <div className="flex items-center ml-auto gap-x-3 md:gap-x-4">
             <Link
               className="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out"
               href="/signin"
