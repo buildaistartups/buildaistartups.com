@@ -22,17 +22,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`
-        scroll-smooth
-        ${inter.variable} font-inter antialiased tracking-tight
-      `}
+      className={`scroll-smooth ${inter.variable} font-inter antialiased tracking-tight`}
     >
       <body>
         <ThemeWrapper>
-          {/* === MOVE THEME CLASSES HERE === */}
-          <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip bg-white text-black dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
-            {children}
-          </div>
+          {children}
         </ThemeWrapper>
       </body>
     </html>
