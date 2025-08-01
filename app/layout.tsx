@@ -24,15 +24,13 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`
         scroll-smooth
-        bg-white text-black
-        dark:bg-slate-900 dark:text-slate-100
-        transition-colors duration-300
         ${inter.variable} font-inter antialiased tracking-tight
       `}
     >
       <body>
         <ThemeWrapper>
-          <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
+          {/* === MOVE THEME CLASSES HERE === */}
+          <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip bg-white text-black dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
             {children}
           </div>
         </ThemeWrapper>
