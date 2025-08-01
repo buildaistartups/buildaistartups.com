@@ -17,7 +17,7 @@ export default function ThemeToggle() {
       <button
         aria-label="Light mode"
         onClick={() => setTheme('light')}
-        className={`w-3.5 h-3.5 flex items-center justify-center rounded-full transition text-[7px] focus-visible:ring-2 focus-visible:ring-blue-400
+        className={`w-3.6 h-3.6 flex items-center justify-center rounded-full transition text-[7px] focus-visible:ring-2 focus-visible:ring-blue-400
           ${!isDark ? 'bg-gray-100 text-yellow-400' : 'text-gray-400 hover:bg-gray-100'}
         `}
         style={{
