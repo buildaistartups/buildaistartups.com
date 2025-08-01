@@ -2,8 +2,7 @@
 
 import Link from 'next/link'
 import Logo from './logo'
-import MobileMenu from './mobile-menu'
-import ThemeToggle from './ThemeToggle'
+import MobileMenu from './mobile-menu' // <--- ThemeToggle will be handled here!
 
 export default function Header() {
   return (
@@ -65,7 +64,7 @@ export default function Header() {
                 </span>
               </span>
             </Link>
-            <ThemeToggle />
+            {/* ThemeToggle REMOVED FROM HERE */}
             <MobileMenu />
           </div>
         </div>
