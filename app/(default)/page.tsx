@@ -27,6 +27,9 @@ export default function Home() {
       <Pricing />
       <Testimonials />
       <Cta />
+      <div className="bg-white text-black dark:bg-black dark:text-white p-4">
+  Test: This background should change with dark/light!
+</div>
     </>
   )
 }
