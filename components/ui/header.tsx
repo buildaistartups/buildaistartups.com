@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
+import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   return (
@@ -64,6 +65,7 @@ export default function Header() {
                 </span>
               </span>
             </Link>
+            <ThemeToggle />
             <MobileMenu />
           </div>
         </div>
