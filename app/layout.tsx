@@ -23,9 +23,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-inter antialiased bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100 tracking-tight`}>
         <ThemeWrapper>
-          <header className="w-full flex justify-end items-center px-4 py-4">
-            <ThemeToggle />
-          </header>
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
             {children}
           </div>
