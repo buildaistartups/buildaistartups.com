@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-inter antialiased bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100 tracking-tight`}>
+      <body className={`${inter.variable} font-inter antialiased bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 tracking-tight`}>
         <ThemeWrapper>
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
             {children}
