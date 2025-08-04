@@ -1,6 +1,7 @@
 import './css/style.css'
 import { Inter } from 'next/font/google'
 import ThemeWrapper from './ThemeWrapper'
+import ThemeToggle from '../components/ui/ThemeToggle'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -8,10 +9,9 @@ const inter = Inter({
   display: 'swap'
 })
 
-// 👇 Add or update this metadata block!
 export const metadata = {
-  title: "BuildAIStartups - Home",           // 👈 Change this to your preferred tab text
-  description: "Landing page for BuildAIStartups",  // Optional: update the description
+  title: "BuildAIStartups - Home",
+  description: "Landing page for BuildAIStartups",
 }
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}>
+      <body className={`${inter.variable} font-inter antialiased bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-700 tracking-tight`}>
         <ThemeWrapper>
           <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
             {children}
