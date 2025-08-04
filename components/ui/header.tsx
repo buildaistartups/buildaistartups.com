@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   return (
-    <header className="absolute w-full z-30">
+    <header className="w-full z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur shadow-md sticky top-0">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center h-16 md:h-20">
           {/* Site branding */}
@@ -19,27 +19,27 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow justify-center flex-wrap items-center">
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/about">
+                <Link className="font-medium text-sm text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/about">
                   About
                 </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/integrations">
+                <Link className="font-medium text-sm text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/integrations">
                   Integrations
                 </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/pricing">
+                <Link className="font-medium text-sm text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/pricing">
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/customers">
+                <Link className="font-medium text-sm text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/customers">
                   Customers
                 </Link>
               </li>
               <li>
-                <Link className="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/changelog">
+                <Link className="font-medium text-sm text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/changelog">
                   Changelog
                 </Link>
               </li>
@@ -49,13 +49,13 @@ export default function Header() {
           {/* All right-side controls, spaced and shifted right */}
           <div className="flex items-center ml-auto gap-x-3 md:gap-x-4">
             <Link
-              className="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out"
+              className="font-medium text-sm text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white whitespace-nowrap transition duration-150 ease-in-out"
               href="/signin"
             >
               Sign in
             </Link>
             <Link
-              className="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none"
+              className="btn-sm bg-white text-purple-700 border border-purple-100 hover:bg-purple-50 hover:text-purple-900 dark:bg-slate-900 dark:text-slate-100 dark:border-slate-700 dark:hover:bg-slate-800 transition duration-150 ease-in-out w-full group relative rounded-full shadow"
               href="/signup"
             >
               <span className="relative inline-flex items-center">
