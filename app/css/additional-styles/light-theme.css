@@ -1,0 +1,29 @@
+/* app/css/additional-styles/light-theme.css */
+
+/* When <html class="light"> is present, remap slate scale to a light UI. */
+.light {
+  /* Backgrounds & surfaces */
+  --color-slate-900: #ffffff; /* things like bg-slate-900 -> white */
+  --color-slate-800: #f8fafc; /* Tailwind slate-50-ish */
+  --color-slate-700: #f1f5f9;
+  --color-slate-600: #e2e8f0;
+  --color-slate-500: #cbd5e1;
+  /* Text & UI neutrals */
+  --color-slate-400: #94a3b8;
+  --color-slate-300: #64748b;
+  --color-slate-200: #475569;
+  --color-slate-100: #0f172a; /* text-slate-100 -> very dark text */
+  --color-slate-50:  #0b1220;
+
+  /* Common borders in this template reference slate-700/800 — keep contrast pleasant */
+  --color-gray-200: var(--color-slate-300);
+
+  /* Purples look fine on light; keep as-is or slightly soften if desired */
+  /* Example if you want a touch softer on light:
+  --color-purple-500: #7c3aed;
+  --color-purple-400: #a78bfa;
+  --color-purple-300: #c4b5fd;
+  */
+
+  /* Any bespoke vars used by gradients are based on these tokens already */
+}
