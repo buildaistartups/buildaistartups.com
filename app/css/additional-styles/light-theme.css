@@ -20,7 +20,8 @@
   --color-gray-200: var(--color-slate-300);
 
   /* Purples can stay; uncomment to tweak for lighter feel
-  --color-purple-500: #7c3aed;
+  --color-purple-600: #7c3aed;
+  --color-purple-500: #8b5cf6;
   --color-purple-400: #a78bfa;
   --color-purple-300: #c4b5fd;
   */
@@ -100,21 +101,24 @@
 
 /* 7) Robust no-markup fix for white/very-light pill buttons.
    Catches anchors or buttons that are rounded-full with white/light bg,
-   including `bg-white/xx` utilities. */
+   including `bg-white/xx` utilities and light slate surfaces. */
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"],
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"],
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"],
-.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] {
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-7"] {
   color: var(--color-slate-100) !important;      /* dark text for contrast */
   border: 1px solid var(--color-gray-200);        /* subtle outline */
   text-shadow: none !important;
+  font-weight: 600;
 }
 
 /* Ensure child elements don't force light text inside those pills */
-.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80),
-.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80),
-.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80),
-.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80) {
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-7"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60) {
   color: var(--color-slate-100) !important;
 }
 
@@ -122,7 +126,8 @@
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] svg,
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] svg,
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] svg,
-.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] svg {
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-7"] svg {
   color: currentColor !important;
   fill: currentColor !important;
   stroke: currentColor !important;
@@ -139,15 +144,22 @@
   background-color: var(--color-purple-400) !important;
   box-shadow: 0 10px 22px rgba(0,0,0,.10);
 }
-.light .cta-primary svg {
+.light .cta-primary :is(span,svg,i) {
   color: currentColor !important;
   fill: currentColor !important;
   stroke: currentColor !important;
 }
 
-/* 9) If the primary CTA uses a gradient background utility, force readable text */
-.light .bg-gradient-to-r.from-purple-600.to-purple-400,
-.light .bg-gradient-to-r.from-purple-500.to-purple-400,
-.light .bg-gradient-to-r.from-purple-500\/\[.*\].to-purple-400\/\[.*\] {
+/* 9) Gradient CTA variants — force readable text on purple gradients */
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-700.to-purple-500,
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-600.to-purple-400,
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-500.to-purple-400 {
   color: #fff !important;
+}
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-700.to-purple-500 :is(span,svg,i),
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-600.to-purple-400 :is(span,svg,i),
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-500.to-purple-400 :is(span,svg,i) {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
 }
