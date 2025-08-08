@@ -25,7 +25,7 @@ const logos = [
 
 export default function Clients() {
   return (
-    <section className="bg-slate-50 dark:bg-slate-900/80 py-6">
+    <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Particles animation */}
@@ -33,13 +33,13 @@ export default function Clients() {
           <Particles className="absolute inset-0 -z-10" quantity={5} />
         </div>
 
-        <div className="py-8 md:py-12">
+        <div className="py-12 md:py-16">
           <div className="overflow-hidden">
             <div className="inline-flex w-full flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
               <ul className="flex animate-infinite-scroll items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-8">
                 {logos.map((logo, index) => (
                   <li key={index}>
-                    <Image src={logo.src} alt={logo.alt} className="h-8 w-auto opacity-90 dark:opacity-100" />
+                    <Image src={logo.src} alt={logo.alt} />
                   </li>
                 ))}
               </ul>
@@ -49,7 +49,7 @@ export default function Clients() {
               >
                 {logos.map((logo, index) => (
                   <li key={index}>
-                    <Image src={logo.src} alt={logo.alt} className="h-8 w-auto opacity-90 dark:opacity-100" />
+                    <Image src={logo.src} alt={logo.alt} />
                   </li>
                 ))}
               </ul>
