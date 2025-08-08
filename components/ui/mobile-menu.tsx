@@ -33,7 +33,7 @@ export default function MobileMenu() {
       {/* Hamburger button */}
       <button
         ref={trigger}
-        className="group inline-flex w-8 h-8 text-slate-300 hover:text-white items-center justify-center transition"
+        className="group inline-flex w-8 h-8 text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white items-center justify-center transition"
         aria-controls="mobile-nav"
         aria-expanded={mobileNavOpen}
         onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -57,29 +57,34 @@ export default function MobileMenu() {
             : { maxHeight: 0, opacity: 0.8 }
         }
       >
-        <ul className="border border-transparent [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] rounded-lg px-4 py-1.5">
+        <ul className="
+          border border-slate-200 dark:border-transparent 
+          bg-white/90 dark:[background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box]
+          rounded-lg px-4 py-1.5
+          shadow-xl
+        ">
           <li>
-            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/about">
+            <Link className="flex font-medium text-lg text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white py-2 transition-colors" href="/about">
               About
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/integrations">
+            <Link className="flex font-medium text-lg text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white py-2 transition-colors" href="/integrations">
               Integrations
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/pricing">
+            <Link className="flex font-medium text-lg text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white py-2 transition-colors" href="/pricing">
               Pricing
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/customers">
+            <Link className="flex font-medium text-lg text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white py-2 transition-colors" href="/customers">
               Customers
             </Link>
           </li>
           <li>
-            <Link className="flex font-medium text-lg text-slate-300 hover:text-white py-2" href="/changelog">
+            <Link className="flex font-medium text-lg text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white py-2 transition-colors" href="/changelog">
               Changelog
             </Link>
           </li>
