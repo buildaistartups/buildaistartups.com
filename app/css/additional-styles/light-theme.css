@@ -8,6 +8,7 @@
   --color-slate-700: #f1f5f9;
   --color-slate-600: #e2e8f0;
   --color-slate-500: #cbd5e1;
+
   /* Text & UI neutrals */
   --color-slate-400: #94a3b8;
   --color-slate-300: #64748b;
@@ -18,21 +19,19 @@
   /* Common borders in this template reference slate-700/800 — keep contrast pleasant */
   --color-gray-200: var(--color-slate-300);
 
-  /* Purples look fine on light; keep as-is or slightly soften if desired */
-  /* Example if you want a touch softer on light:
+  /* Purples can stay; uncomment to tweak for lighter feel
   --color-purple-500: #7c3aed;
   --color-purple-400: #a78bfa;
   --color-purple-300: #c4b5fd;
   */
-
-  /* Any bespoke vars used by gradients are based on these tokens already */
 }
-/* ------------ Light-mode borders & polish (append below) ------------ */
+
+/* ------------ Light-mode borders & polish ------------ */
 
 /* 1) Opt-in classes (use these if you want precise control) */
 .light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card) {
   border: 1px solid var(--color-gray-200);
-  border-radius: 0.75rem;            /* matches rounded-xl */
+  border-radius: 0.75rem;            /* rounded-xl */
   background-clip: padding-box;      /* keeps border clean with gradients */
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
@@ -45,8 +44,7 @@
 }
 
 /* 2) Automatic fallback (no markup changes needed)
-   Targets common “box” patterns in Stellar: rounded + dark surface bg.
-   If you already add the classes above, this still applies harmlessly. */
+   Targets common “box” patterns in Stellar: rounded + dark surface bg. */
 .light :is([class*="rounded"])[class*="bg-slate-8"],
 .light :is([class*="rounded"])[class*="bg-slate-7"] {
   border: 1px solid var(--color-gray-200);
@@ -84,21 +82,72 @@
   border-color: var(--color-purple-400);
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-purple-400) 25%, transparent);
 }
-/* 6) Primary CTA button fix for light mode */
+
+/* ------------ CTA fixes (high-contrast, light-only) ------------ */
+
+/* 6) If you already use a `.btn-primary` utility */
 .light .btn-primary,
 .light a.btn-primary,
 .light button.btn-primary {
   background-color: var(--color-purple-500);
   color: #fff;
 }
-
 .light .btn-primary:hover,
 .light a.btn-primary:hover,
 .light button.btn-primary:hover {
   background-color: var(--color-purple-400);
 }
 
-/* Optional: if your template uses a specific gradient class for primary buttons */
-.light .bg-gradient-to-r.from-purple-500.to-purple-400 {
-  color: #fff !important; /* force text white */
+/* 7) Robust no-markup fix for white/very-light pill buttons.
+   Catches anchors or buttons that are rounded-full with white/light bg,
+   including `bg-white/xx` utilities. */
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] {
+  color: var(--color-slate-100) !important;      /* dark text for contrast */
+  border: 1px solid var(--color-gray-200);        /* subtle outline */
+  text-shadow: none !important;
+}
+
+/* Ensure child elements don't force light text inside those pills */
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white/80) {
+  color: var(--color-slate-100) !important;
+}
+
+/* Icons inside those buttons should inherit the readable color */
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] svg {
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* 8) Optional: explicit primary CTA utility you can add to the element */
+.light .cta-primary {
+  background-color: var(--color-purple-500) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.light .cta-primary:hover {
+  background-color: var(--color-purple-400) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+.light .cta-primary svg {
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* 9) If the primary CTA uses a gradient background utility, force readable text */
+.light .bg-gradient-to-r.from-purple-600.to-purple-400,
+.light .bg-gradient-to-r.from-purple-500.to-purple-400,
+.light .bg-gradient-to-r.from-purple-500\/\[.*\].to-purple-400\/\[.*\] {
+  color: #fff !important;
 }
