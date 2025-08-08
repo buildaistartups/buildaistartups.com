@@ -84,3 +84,21 @@
   border-color: var(--color-purple-400);
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-purple-400) 25%, transparent);
 }
+/* 6) Primary CTA button fix for light mode */
+.light .btn-primary,
+.light a.btn-primary,
+.light button.btn-primary {
+  background-color: var(--color-purple-500);
+  color: #fff;
+}
+
+.light .btn-primary:hover,
+.light a.btn-primary:hover,
+.light button.btn-primary:hover {
+  background-color: var(--color-purple-400);
+}
+
+/* Optional: if your template uses a specific gradient class for primary buttons */
+.light .bg-gradient-to-r.from-purple-500.to-purple-400 {
+  color: #fff !important; /* force text white */
+}
