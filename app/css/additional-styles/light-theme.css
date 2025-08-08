@@ -27,3 +27,60 @@
 
   /* Any bespoke vars used by gradients are based on these tokens already */
 }
+/* ------------ Light-mode borders & polish (append below) ------------ */
+
+/* 1) Opt-in classes (use these if you want precise control) */
+.light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card) {
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.75rem;            /* matches rounded-xl */
+  background-clip: padding-box;      /* keeps border clean with gradients */
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+/* Slight hover lift for interactive cards (optional) */
+.light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card):hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  transform: translateY(-1px);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+/* 2) Automatic fallback (no markup changes needed)
+   Targets common “box” patterns in Stellar: rounded + dark surface bg.
+   If you already add the classes above, this still applies harmlessly. */
+.light :is([class*="rounded"])[class*="bg-slate-8"],
+.light :is([class*="rounded"])[class*="bg-slate-7"] {
+  border: 1px solid var(--color-gray-200);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+/* 3) Fancy (optional) gradient border variant.
+   Add class `gradient-border` to a card to get a subtle accent ring. */
+.light .gradient-border {
+  position: relative;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-slate-900), var(--color-slate-900)) padding-box,
+    linear-gradient(135deg, var(--color-purple-400), var(--color-purple-300)) border-box;
+  border-radius: 0.75rem;
+}
+
+/* 4) Soft dividers inside cards (optional helper utility).
+   Add class `soft-divider` to any container and put children inside. */
+.light .soft-divider > * + * {
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* 5) Inputs on light — keep them crisp inside bordered cards (optional) */
+.light input:not([type="checkbox"]):not([type="radio"]),
+.light textarea,
+.light select {
+  border-color: var(--color-gray-200);
+  box-shadow: 0 1px 2px rgba(0,0,0,.02);
+}
+.light input:focus,
+.light textarea:focus,
+.light select:focus {
+  outline: none;
+  border-color: var(--color-purple-400);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-purple-400) 25%, transparent);
+}
