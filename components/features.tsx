@@ -33,7 +33,8 @@ export default function Features() {
               <div className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center" data-aos="fade-down">
                 {/* Content #1 */}
                 <div>
-                  <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">The security first platform</div>
+                  {/* changed to eyebrow-text so it's solid lavender in light mode */}
+                  <div className="inline-flex font-medium pb-3 eyebrow-text">The security first platform</div>
                 </div>
                 <h3 className="h3 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-3">Simplify your security with authentication services</h3>
                 <p className="text-lg text-slate-400 mb-8">Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.</p>
