@@ -189,11 +189,12 @@
 .light header a[href*="signin"]:focus-visible {
   color: #000 !important;
 }
-/* Light theme: force lavender color, kill gradient */
+/* Light only: force the eyebrow line to solid lavender, no gradient */
 .light .eyebrow-text {
-  background: none !important;           /* remove gradient */
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: #AD49FF !important;
-  color: #AD49FF !important;
+  background: none !important;                 /* remove bg gradient */
+  -webkit-background-clip: initial !important; /* stop clipping to text */
+  background-clip: initial !important;
+  -webkit-text-fill-color: #AD49FF !important; /* ensure WebKit shows solid */
+  color: #AD49FF !important;                   /* fallback */
 }
 
