@@ -18,13 +18,6 @@
 
   /* Common borders in this template reference slate-700/800 — keep contrast pleasant */
   --color-gray-200: var(--color-slate-300);
-
-  /* Purples can stay; uncomment to tweak for lighter feel
-  --color-purple-600: #7c3aed;
-  --color-purple-500: #8b5cf6;
-  --color-purple-400: #a78bfa;
-  --color-purple-300: #c4b5fd;
-  */
 }
 
 /* ------------ Light-mode borders & polish ------------ */
@@ -32,28 +25,25 @@
 /* 1) Opt-in classes (use these if you want precise control) */
 .light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card) {
   border: 1px solid var(--color-gray-200);
-  border-radius: 0.75rem;            /* rounded-xl */
-  background-clip: padding-box;      /* keeps border clean with gradients */
+  border-radius: 0.75rem;
+  background-clip: padding-box;
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
-/* Slight hover lift for interactive cards (optional) */
 .light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card):hover {
   box-shadow: 0 6px 16px rgba(0,0,0,.06);
   transform: translateY(-1px);
   transition: box-shadow .2s ease, transform .2s ease;
 }
 
-/* 2) Automatic fallback (no markup changes needed)
-   Targets common “box” patterns in Stellar: rounded + dark surface bg. */
+/* 2) Automatic fallback (no markup changes needed) */
 .light :is([class*="rounded"])[class*="bg-slate-8"],
 .light :is([class*="rounded"])[class*="bg-slate-7"] {
   border: 1px solid var(--color-gray-200);
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
-/* 3) Fancy (optional) gradient border variant.
-   Add class `gradient-border` to a card to get a subtle accent ring. */
+/* 3) Gradient border variant */
 .light .gradient-border {
   position: relative;
   border: 1px solid transparent;
@@ -63,13 +53,12 @@
   border-radius: 0.75rem;
 }
 
-/* 4) Soft dividers inside cards (optional helper utility).
-   Add class `soft-divider` to any container and put children inside. */
+/* 4) Soft dividers inside cards */
 .light .soft-divider > * + * {
   border-top: 1px solid var(--color-gray-200);
 }
 
-/* 5) Inputs on light — keep them crisp inside bordered cards (optional) */
+/* 5) Inputs on light */
 .light input:not([type="checkbox"]):not([type="radio"]),
 .light textarea,
 .light select {
@@ -84,9 +73,9 @@
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-purple-400) 25%, transparent);
 }
 
-/* ------------ CTA fixes (high-contrast, light-only) ------------ */
+/* ------------ CTA fixes ------------ */
 
-/* 6) If you already use a `.btn-primary` utility */
+/* 6) .btn-primary */
 .light .btn-primary,
 .light a.btn-primary,
 .light button.btn-primary {
@@ -99,7 +88,7 @@
   background-color: var(--color-purple-400);
 }
 
-/* 7) Robust no-markup fix for white/very-light pill buttons. */
+/* 7) White pill buttons */
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"],
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"],
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"],
@@ -111,7 +100,7 @@
   font-weight: 600;
 }
 
-/* Ensure child elements don't force light text inside those pills */
+/* Ensure child elements don't force light text */
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
@@ -120,7 +109,7 @@
   color: var(--color-slate-100) !important;
 }
 
-/* Icons inside those buttons should inherit the readable color */
+/* Icons inside those buttons */
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] svg,
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] svg,
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] svg,
@@ -131,7 +120,7 @@
   stroke: currentColor !important;
 }
 
-/* 8) Optional: explicit primary CTA utility you can add to the element */
+/* 8) .cta-primary */
 .light .cta-primary {
   background-color: var(--color-purple-500) !important;
   color: #fff !important;
@@ -148,7 +137,7 @@
   stroke: currentColor !important;
 }
 
-/* 9) Gradient CTA variants — force readable text on purple gradients */
+/* 9) Gradient CTAs */
 .light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-700.to-purple-500,
 .light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-600.to-purple-400,
 .light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-500.to-purple-400 {
@@ -162,10 +151,10 @@
   stroke: #fff !important;
 }
 
-/* --- FINAL hard override for the hero CTA in LIGHT mode --- */
+/* --- Hero CTA override --- */
 .light a.cta-primary,
 .light button.cta-primary {
-  background-image: none !important; /* kill white gradient */
+  background-image: none !important;
   background: linear-gradient(90deg, var(--color-purple-600, #7c3aed), var(--color-purple-400, #a78bfa)) !important;
   color: #fff !important;
   border: none !important;
@@ -186,11 +175,17 @@
   stroke: #fff !important;
 }
 
-/* --- Nav hover: make menu items black on hover in LIGHT mode only --- */
-.light header nav a {
+/* --- Nav hover: menu items & "Sign In" black on hover --- */
+.light header nav a,
+.light header a[href*="sign-in"],
+.light header a[href*="signin"] {
   transition: color .15s ease-in-out;
 }
 .light header nav a:hover,
-.light header nav a:focus-visible {
+.light header nav a:focus-visible,
+.light header a[href*="sign-in"]:hover,
+.light header a[href*="sign-in"]:focus-visible,
+.light header a[href*="signin"]:hover,
+.light header a[href*="signin"]:focus-visible {
   color: #000 !important;
 }
