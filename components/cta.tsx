@@ -46,7 +46,8 @@ export default function Cta() {
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center">
             <div>
-              <div className="inline-flex font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200 pb-3">
+              {/* Changed from gradient text to .eyebrow-text for solid lavender in light mode */}
+              <div className="inline-flex font-medium pb-3 eyebrow-text">
                 The security first platform
               </div>
             </div>
