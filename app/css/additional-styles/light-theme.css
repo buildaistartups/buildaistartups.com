@@ -163,8 +163,6 @@
 }
 
 /* --- FINAL hard override for the hero CTA in LIGHT mode --- */
-/* Your hero uses `bg-linear-to-r from-white/80 via-white to-white/80`,
-   which sets a background-image. Kill it and replace with purple. */
 .light a.cta-primary,
 .light button.cta-primary {
   background-image: none !important; /* kill white gradient */
@@ -186,4 +184,13 @@
   color: #fff !important;
   fill: #fff !important;
   stroke: #fff !important;
+}
+
+/* --- Nav hover: make menu items black on hover in LIGHT mode only --- */
+.light header nav a {
+  transition: color .15s ease-in-out;
+}
+.light header nav a:hover,
+.light header nav a:focus-visible {
+  color: #000 !important;
 }
