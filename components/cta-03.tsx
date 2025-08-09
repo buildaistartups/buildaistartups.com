@@ -11,6 +11,7 @@ export default function Cta03() {
             <div className="absolute inset-0 translate-z-0 bg-purple-500 rounded-full blur-[120px] opacity-70"></div>
             <div className="absolute w-1/4 h-1/4 translate-z-0 bg-purple-400 rounded-full blur-[40px]"></div>
           </div>
+
           {/* Blurred shape */}
           <div
             className="absolute bottom-0 translate-y-1/2 left-0 blur-2xl opacity-50 pointer-events-none -z-10"
@@ -31,10 +32,12 @@ export default function Cta03() {
               />
             </svg>
           </div>
+
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center">
             <div>
-              <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">
+              {/* Changed to eyebrow-text */}
+              <div className="inline-flex font-medium pb-3 eyebrow-text">
                 Never miss an update
               </div>
             </div>
