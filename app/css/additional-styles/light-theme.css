@@ -195,6 +195,6 @@
   -webkit-background-clip: initial !important; /* stop clipping to text */
   background-clip: initial !important;
   -webkit-text-fill-color: #AD49FF !important; /* ensure WebKit shows solid */
-  color: #AD49FF !important;                   /* fallback */
+  color: #991DFF !important;                   /* fallback */
 }
 
