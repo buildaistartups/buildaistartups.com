@@ -189,9 +189,11 @@
 .light header a[href*="signin"]:focus-visible {
   color: #000 !important;
 }
-/* Light theme: make entire title lavender */
-.light .text-lavender,
-.light h2 span,
-.light h3 span {
+/* Light theme: force lavender color, kill gradient */
+.light .eyebrow-text {
+  background: none !important;           /* remove gradient */
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: #AD49FF !important;
   color: #AD49FF !important;
 }
+
