@@ -194,7 +194,7 @@
   background: none !important;                 /* remove bg gradient */
   -webkit-background-clip: initial !important; /* stop clipping to text */
   background-clip: initial !important;
-  -webkit-text-fill-color: #AD49FF !important; /* ensure WebKit shows solid */
+  -webkit-text-fill-color: #7200D0 !important; /* ensure WebKit shows solid */
   color: #7200D0 !important;                   /* fallback */
 }
 
