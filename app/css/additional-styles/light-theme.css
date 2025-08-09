@@ -189,3 +189,9 @@
 .light header a[href*="signin"]:focus-visible {
   color: #000 !important;
 }
+/* Light theme: make entire title lavender */
+.light .text-lavender,
+.light h2 span,
+.light h3 span {
+  color: #AD49FF !important;
+}
