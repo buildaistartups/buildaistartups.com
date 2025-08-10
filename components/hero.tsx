@@ -45,8 +45,12 @@ export default function Hero() {
               The API Security Framework
             </h1>
 
-            {/* Paragraph with stronger visibility in light mode */}
-            <p className="text-lg text-slate-300 mb-8 hero-subtext" data-aos="fade-down" data-aos-delay="200">
+            {/* Paragraph — darker in light mode via .hero-subtext; safe in dark via fallback */}
+            <p
+              className="hero-subtext text-lg mb-8 dark:text-slate-400"
+              data-aos="fade-down"
+              data-aos-delay="200"
+            >
               Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
             </p>
 
