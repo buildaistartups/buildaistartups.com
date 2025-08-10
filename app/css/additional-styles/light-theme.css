@@ -201,5 +201,5 @@
 
 /* --- Hero subtext darker in light mode --- */
 .light .hero-subtext {
-  color: var(--color-slate-300) !important; /* darker & more readable */
+  color: var(--color-slate-200) !important; /* darker & more readable */
 }
