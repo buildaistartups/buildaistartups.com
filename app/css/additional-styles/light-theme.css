@@ -199,7 +199,8 @@
   color: #7200D0 !important;                   
 }
 
-/* --- Hero subtext darker in light mode --- */
-.light .hero-subtext {
+/* --- Hero subtext + Feature descriptions darker in light mode --- */
+.light .hero-subtext,
+.light .feature-subtext {
   color: var(--color-slate-200) !important; /* darker & more readable */
 }
