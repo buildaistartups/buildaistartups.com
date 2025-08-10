@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Changelog - Stellar',
+  title: 'Changelog - BuildAIStartups.com',
   description: 'Page description',
 }
 
