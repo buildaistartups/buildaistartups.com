@@ -16,15 +16,15 @@
   --color-slate-100: #0f172a; /* text-slate-100 -> very dark text */
   --color-slate-50:  #0b1220;
 
-  /* Lighter grey borders for cards & dividers */
-  --color-gray-200: #e5e7eb; /* Tailwind gray-200 */
+  /* Slightly darker + thinner borders for cards & dividers */
+  --color-gray-200: #d1d5db; /* Tailwind gray-300 */
 }
 
 /* ------------ Light-mode borders & polish ------------ */
 
 /* 1) Opt-in classes (use these if you want precise control) */
 .light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card) {
-  border: 1px solid var(--color-gray-200);
+  border: 0.75px solid var(--color-gray-200);
   border-radius: 0.75rem;
   background-clip: padding-box;
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
@@ -39,14 +39,14 @@
 /* 2) Automatic fallback (no markup changes needed) */
 .light :is([class*="rounded"])[class*="bg-slate-8"],
 .light :is([class*="rounded"])[class*="bg-slate-7"] {
-  border: 1px solid var(--color-gray-200);
+  border: 0.75px solid var(--color-gray-200);
   box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
 /* 3) Gradient border variant */
 .light .gradient-border {
   position: relative;
-  border: 1px solid transparent;
+  border: 0.75px solid transparent;
   background:
     linear-gradient(var(--color-slate-900), var(--color-slate-900)) padding-box,
     linear-gradient(135deg, var(--color-purple-400), var(--color-purple-300)) border-box;
@@ -55,7 +55,7 @@
 
 /* 4) Soft dividers inside cards */
 .light .soft-divider > * + * {
-  border-top: 1px solid var(--color-gray-200);
+  border-top: 0.75px solid var(--color-gray-200);
 }
 
 /* 5) Inputs on light */
@@ -95,7 +95,7 @@
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"],
 .light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-7"] {
   color: var(--color-slate-100) !important;
-  border: 1px solid var(--color-gray-200);
+  border: 0.75px solid var(--color-gray-200);
   text-shadow: none !important;
   font-weight: 600;
 }
@@ -189,6 +189,7 @@
 .light header a[href*="signin"]:focus-visible {
   color: #000 !important;
 }
+
 /* Light only: force the eyebrow line to solid lavender, no gradient */
 .light .eyebrow-text {
   background: none !important;                 
