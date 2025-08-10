@@ -201,6 +201,9 @@
 
 /* --- Hero subtext + Feature descriptions darker in light mode --- */
 .light .hero-subtext,
-.light .feature-subtext {
+.light .feature-subtext,
+.light p.text-lg.text-slate-400,
+.light p.hero-description,
+.light p.features-description {
   color: var(--color-slate-200) !important; /* darker & more readable */
 }
