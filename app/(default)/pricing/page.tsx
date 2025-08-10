@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Pricing - BuildAIStartups.com',
+  title: 'Pricing - BuildAIStartups',
   description: 'Page description',
 }
 
