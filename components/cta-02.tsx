@@ -34,9 +34,9 @@ export default function Cta02() {
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center">
             <div>
-              {/* Light: solid lavender via .eyebrow-text (CSS) */}
-              {/* Dark: restore original gradient */}
-              <div className="inline-flex font-medium pb-3 eyebrow-text dark:bg-clip-text dark:text-transparent dark:bg-linear-to-r dark:from-purple-400 dark:to-purple-200">
+              {/* Light mode: solid lavender via .eyebrow-text */}
+              {/* Dark mode: original gradient restored */}
+              <div className="inline-flex font-medium pb-3 eyebrow-text dark:bg-clip-text dark:text-transparent dark:bg-linear-to-r dark:from-purple-500 dark:to-purple-200">
                 The security first platform
               </div>
             </div>
