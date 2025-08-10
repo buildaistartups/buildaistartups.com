@@ -11,7 +11,6 @@ export default function Cta02() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="relative px-8 py-12 md:py-20 border-t border-b [border-image:linear-gradient(to_right,transparent,var(--color-slate-800),transparent)1]">
-
           {/* Blurred shape */}
           <div
             className="absolute top-0 -mt-24 left-1/2 -translate-x-1/2 ml-24 blur-2xl opacity-70 pointer-events-none -z-10"
@@ -36,10 +35,19 @@ export default function Cta02() {
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center">
             <div>
-              {/* Always gradient (matches original template in all themes) */}
-              <div className="inline-flex font-medium pb-3 bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200">
+              {/* Force the original gradient no matter what */}
+              <span
+                className="inline-flex font-medium pb-3 bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(90deg, var(--color-purple-500), var(--color-purple-200))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  color: 'transparent',
+                }}
+              >
                 The security first platform
-              </div>
+              </span>
             </div>
 
             <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
@@ -47,8 +55,8 @@ export default function Cta02() {
             </h2>
 
             <p className="text-lg text-slate-400 mb-8">
-              All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary,
-              making this the first true generator on the Internet.
+              All the lorem ipsum generators on the Internet tend to repeat predefined chunks as
+              necessary, making this the first true generator on the Internet.
             </p>
 
             <div>
