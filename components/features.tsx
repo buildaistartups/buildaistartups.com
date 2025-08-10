@@ -1,4 +1,4 @@
-here is features.tsx now with this paragraph. Update it. 'use client'
+'use client'
 
 import { useState } from 'react'
 
