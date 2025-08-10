@@ -3,8 +3,8 @@
 /* When <html class="light"> is present, remap slate scale to a light UI. */
 .light {
   /* Backgrounds & surfaces */
-  --color-slate-900: #ffffff; /* things like bg-slate-900 -> white */
-  --color-slate-800: #f8fafc; /* Tailwind slate-50-ish */
+  --color-slate-900: #ffffff;
+  --color-slate-800: #f8fafc;
   --color-slate-700: #f1f5f9;
   --color-slate-600: #e2e8f0;
   --color-slate-500: #cbd5e1;
@@ -13,16 +13,16 @@
   --color-slate-400: #94a3b8;
   --color-slate-300: #64748b;
   --color-slate-200: #475569;
-  --color-slate-100: #0f172a; /* text-slate-100 -> very dark text */
+  --color-slate-100: #0f172a;
   --color-slate-50:  #0b1220;
 
   /* Slightly darker + thinner borders for cards & dividers */
-  --color-gray-200: #d1d5db; /* Tailwind gray-300 */
+  --color-gray-200: #d1d5db;
 }
 
 /* ------------ Light-mode borders & polish ------------ */
 
-/* 1) Opt-in classes (use these if you want precise control) */
+/* 1) Opt-in classes */
 .light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card) {
   border: 0.75px solid var(--color-gray-200);
   border-radius: 0.75rem;
@@ -36,7 +36,7 @@
   transition: box-shadow .2s ease, transform .2s ease;
 }
 
-/* 2) Automatic fallback (no markup changes needed) */
+/* 2) Automatic fallback */
 .light :is([class*="rounded"])[class*="bg-slate-8"],
 .light :is([class*="rounded"])[class*="bg-slate-7"] {
   border: 0.75px solid var(--color-gray-200);
@@ -53,7 +53,7 @@
   border-radius: 0.75rem;
 }
 
-/* 4) Soft dividers inside cards */
+/* 4) Soft dividers */
 .light .soft-divider > * + * {
   border-top: 0.75px solid var(--color-gray-200);
 }
@@ -175,7 +175,7 @@
   stroke: #fff !important;
 }
 
-/* --- Nav hover: menu items & "Sign In" black on hover --- */
+/* --- Nav hover --- */
 .light header nav a,
 .light header a[href*="sign-in"],
 .light header a[href*="signin"] {
@@ -190,11 +190,16 @@
   color: #000 !important;
 }
 
-/* Light only: force the eyebrow line to solid lavender, no gradient */
+/* Light only: solid lavender eyebrow */
 .light .eyebrow-text {
   background: none !important;                 
   -webkit-background-clip: initial !important; 
   background-clip: initial !important;
   -webkit-text-fill-color: #7200D0 !important; 
   color: #7200D0 !important;                   
+}
+
+/* --- Hero subtext darker in light mode --- */
+.light .hero-subtext {
+  color: var(--color-slate-300) !important; /* darker & more readable */
 }
