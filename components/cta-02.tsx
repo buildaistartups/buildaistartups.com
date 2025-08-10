@@ -3,6 +3,7 @@ import Particles from './particles'
 export default function Cta02() {
   return (
     <section className="relative">
+
       {/* Particles animation */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 -z-10 w-80 h-80 -mt-24">
         <Particles className="absolute inset-0 -z-10" quantity={6} staticity={30} />
@@ -10,6 +11,7 @@ export default function Cta02() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="relative px-8 py-12 md:py-20 border-t border-b [border-image:linear-gradient(to_right,transparent,var(--color-slate-800),transparent)1]">
+
           {/* Blurred shape */}
           <div
             className="absolute top-0 -mt-24 left-1/2 -translate-x-1/2 ml-24 blur-2xl opacity-70 pointer-events-none -z-10"
@@ -34,9 +36,8 @@ export default function Cta02() {
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center">
             <div>
-              {/* Light mode: lavender from .eyebrow-text */}
-              {/* Dark mode: remove solid color, show gradient */}
-              <div className="inline-flex font-medium pb-3 text-[var(--color-lavender)] dark:bg-clip-text dark:text-transparent dark:bg-linear-to-r dark:from-purple-500 dark:to-purple-200">
+              {/* Always gradient (matches original template in all themes) */}
+              <div className="inline-flex font-medium pb-3 bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200">
                 The security first platform
               </div>
             </div>
@@ -62,6 +63,7 @@ export default function Cta02() {
               </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
