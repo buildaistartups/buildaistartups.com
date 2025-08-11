@@ -218,3 +218,11 @@
   -webkit-text-fill-color: var(--color-purple-200);
   color: var(--color-purple-200);
 }
+/* Light theme: solid lavender eyebrow text */
+.light .eyebrow-text {
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  -webkit-text-fill-color: var(--color-purple-200) !important;
+  color: var(--color-purple-200) !important;
+}
