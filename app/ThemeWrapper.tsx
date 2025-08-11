@@ -1,27 +1,23 @@
 'use client'
 
 import { ThemeProvider, useTheme } from 'next-themes'
-import Features from './components/features'
-import FeaturesLight from './components/features-light'
+import dynamic from 'next/dynamic'
+
+// Match your on-disk filenames exactly (lowercase)
+const Features = dynamic(() => import('../components/features'), { ssr: false })
+const FeaturesLight = dynamic(() => import('../components/features-light'), { ssr: false })
 
 function FeaturesSwitcher() {
-  const { theme } = useTheme()
-
-  // Only swap component based on active theme
-  if (theme === 'light') {
-    return <FeaturesLight />
-  }
-  return <Features />
+  const { theme, resolvedTheme } = useTheme()
+  const active = theme ?? resolvedTheme
+  return active === 'light' ? <FeaturesLight /> : <Features />
 }
 
 export default function ThemeWrapper({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <>
-        {/* Render all other children */}
         {children}
-
-        {/* Conditionally render the correct Features variant */}
         <FeaturesSwitcher />
       </>
     </ThemeProvider>
