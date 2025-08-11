@@ -29,7 +29,7 @@ export default function Features() {
               <div className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center" data-aos="fade-down">
                 {/* Eyebrow — keep original gradient in dark; light will override via .feature-eyebrow */}
                 <div>
-                  <div className="inline-flex font-medium pb-3 bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 feature-eyebrow">
+                 <div className="inline-flex font-medium pb-3 feature-eyebrow">
                     The security first platform
                   </div>
                 </div>
