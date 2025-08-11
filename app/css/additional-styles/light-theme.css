@@ -195,8 +195,8 @@
   background: none !important;                 
   -webkit-background-clip: initial !important; 
   background-clip: initial !important;
-  -webkit-text-fill-color: var(--color-slate-200) !important; 
-  color: var(--color-slate-200) !important;                   
+  -webkit-text-fill-color: var(--color-purple-400, #8b5cf6) !important; 
+  color: var(--color-purple-400, #8b5cf6) !important;                   
 }
 
 /* --- Hero subtext + Feature descriptions darker in light mode --- */
