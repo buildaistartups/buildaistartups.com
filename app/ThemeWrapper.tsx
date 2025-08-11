@@ -1,8 +1,8 @@
 'use client'
 
 import { ThemeProvider, useTheme } from 'next-themes'
-import Features from './features'
-import FeaturesLight from './features-light'
+import Features from './components/features'
+import FeaturesLight from './components/features-light'
 
 function FeaturesSwitcher() {
   const { theme } = useTheme()
