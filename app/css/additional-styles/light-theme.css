@@ -190,21 +190,14 @@
   color: #000 !important;
 }
 
-/* Light only: force solid eyebrow color in light mode (no gradient, no transparency) */
-.light .eyebrow-text,
-.light .section-eyebrow,
-.light .eyebrow {
+/* Light only: solid eyebrow text in light mode */
+.light .eyebrow-text {
   background: none !important;
-  background-image: none !important;
   -webkit-background-clip: initial !important;
   background-clip: initial !important;
-  text-shadow: none !important;
-
-  /* kill any tailwind 'text-transparent' or gradient text */
-  color: #7500D6 !important;
   -webkit-text-fill-color: #7500D6 !important;
-  filter: none !important;
-  font-weight: 600; /* keeps it readable on light bg */
+  color: #7500D6 !important;
+  font-weight: 600;
 }
 
 /* --- Hero subtext + Feature descriptions darker in light mode --- */
