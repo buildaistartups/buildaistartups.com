@@ -204,3 +204,12 @@
 .light .feature-subtext {
   color: var(--color-slate-200) !important; /* darker & more readable */
 }
+/* Light-only: Features eyebrow becomes solid purple-200 (no gradient) */
+.light .feature-eyebrow {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: var(--color-purple-200, #E9D5FF) !important;
+  color: var(--color-purple-200, #E9D5FF) !important;
+  text-shadow: none !important;
+}
