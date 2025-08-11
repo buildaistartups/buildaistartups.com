@@ -204,11 +204,20 @@
 .light .feature-subtext {
   color: var(--color-slate-200) !important; /* darker & more readable */
 }
-/* Light only: eyebrow text uses slate-400 everywhere */
-.light .eyebrow-text {
-  background: none !important;                 
-  -webkit-background-clip: initial !important; 
+/* --- Light mode: force eyebrow line to slate-400 everywhere --- */
+.light :is(
+  .eyebrow-text,                                      /* our explicit utility */
+  .inline-flex.font-medium.pb-3.bg-clip-text.text-transparent /* legacy gradient eyebrow */
+) {
+  /* kill the gradient and restore normal text paint */
+  background: none !important;
+  -webkit-background-clip: initial !important;
   background-clip: initial !important;
-  -webkit-text-fill-color: var(--color-slate-400) !important; 
-  color: var(--color-slate-400) !important;                   
+
+  /* paint with slate-400 */
+  -webkit-text-fill-color: var(--color-slate-400) !important;
+  color: var(--color-slate-400) !important;
+
+  /* avoid any washed-out look from shadows */
+  text-shadow: none !important;
 }
