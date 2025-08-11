@@ -204,3 +204,8 @@
 .light .feature-subtext {
   color: var(--color-slate-200) !important; /* darker & more readable */
 }
+html.light .gradient-text {
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: #1f2937; /* Tailwind slate-800 or any solid color */
+}
