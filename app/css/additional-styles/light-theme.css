@@ -10,7 +10,7 @@
   --color-slate-500: #cbd5e1;
 
   /* Text & UI neutrals */
-  --color-slate-400: #94a3b8;
+  --color-slate-400: #7c8ba1; /* slightly stronger contrast than #94a3b8 */
   --color-slate-300: #64748b;
   --color-slate-200: #475569;
   --color-slate-100: #0f172a;
@@ -192,15 +192,15 @@
 
 /* Light only: solid eyebrow text in light mode */
 .light .eyebrow-text {
-  background: none !important;                 
-  -webkit-background-clip: initial !important; 
+  background: none !important;
+  -webkit-background-clip: initial !important;
   background-clip: initial !important;
-  -webkit-text-fill-color: var(--color-purple-400, #8b5cf6) !important; 
-  color: var(--color-purple-400, #8b5cf6) !important;                   
+  -webkit-text-fill-color: var(--color-purple-400, #8b5cf6) !important;
+  color: var(--color-purple-400, #8b5cf6) !important;
 }
 
 /* --- Hero subtext + Feature descriptions darker in light mode --- */
 .light .hero-subtext,
 .light .feature-subtext {
-  color: var(--color-slate-200) !important; /* darker & more readable */
+  color: var(--color-slate-300) !important; /* slightly lighter than 200 for balance */
 }
