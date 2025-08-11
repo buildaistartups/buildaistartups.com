@@ -204,3 +204,11 @@
 .light .feature-subtext {
   color: var(--color-slate-200) !important; /* darker & more readable */
 }
+/* Light only: solid eyebrow text in light mode */
+.light .eyebrow-text {
+  background: none !important;                 
+  -webkit-background-clip: initial !important; 
+  background-clip: initial !important;
+  -webkit-text-fill-color: var(--color-slate-400) !important; 
+  color: var(--color-slate-400) !important;                   
+}
