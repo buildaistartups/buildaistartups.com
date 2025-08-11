@@ -204,6 +204,3 @@
 .light .feature-subtext {
   color: var(--color-slate-200) !important; /* darker & more readable */
 }
-html.light .gradient-text {
-  @apply text-purple-400 bg-none;
-}
