@@ -39,9 +39,9 @@ export default function FeaturesLight() {
                 className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center"
                 data-aos="fade-down"
               >
-                {/* Eyebrow — solid lavender (no gradient) for light mode */}
+                {/* Eyebrow — solid token color for light mode */}
                 <div>
-                  <div className="inline-flex font-medium pb-3 text-purple-200">
+                  <div className="inline-flex font-medium pb-3 text-[var(--color-slate-400)]">
                     The security first platform
                   </div>
                 </div>
