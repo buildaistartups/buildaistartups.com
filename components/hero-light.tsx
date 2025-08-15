@@ -11,9 +11,18 @@ export default function Hero() {
         <Particles className="absolute inset-0 -z-10" />
 
         {/* Illustration */}
-        <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
+        <div
+          className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
+          aria-hidden="true"
+        >
           <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
-            <Image src={Illustration} className="max-w-none" width={2146} priority alt="Hero Illustration" />
+            <Image
+              src={Illustration}
+              className="max-w-none"
+              width={2146}
+              priority
+              alt="Hero Illustration"
+            />
           </div>
         </div>
 
@@ -44,9 +53,9 @@ export default function Hero() {
               The API Security Framework
             </h1>
 
-            {/* Darker paragraph only for light theme */}
+            {/* Subtext — gradient only in light theme */}
             <p
-              className="text-lg text-slate-700 mb-8 hero-subtext"
+              className="text-lg mb-8 hero-subtext text-slate-300 light:bg-clip-text light:text-transparent light:bg-linear-to-r light:from-slate-200/60 light:via-slate-200 light:to-slate-200/60"
               data-aos="fade-down"
               data-aos-delay="200"
             >
@@ -74,7 +83,12 @@ export default function Hero() {
                   className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full transition duration-150 ease-in-out"
                   href="#0"
                 >
-                  <svg className="shrink-0 fill-slate-300 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <svg
+                    className="shrink-0 fill-slate-300 mr-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                  >
                     <path d="m1.999 0 1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 0l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 10l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM6.292 7.586l2.646-2.647L11.06 7.06 8.413 9.707zM0 13.878l5.586-5.586 2.122 2.121L2.12 16z" />
                   </svg>
                   <span>Read the docs</span>
