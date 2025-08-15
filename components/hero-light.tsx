@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Particles from './particles'
 import Illustration from '@/public/images/glow-bottom.svg'
 
-export default function Hero() {
+export default function HeroLight() {
   return (
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -45,7 +45,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Title (no eyebrow line above) */}
+            {/* Title (gradient heading stays) */}
             <h1
               className="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4"
               data-aos="fade-down"
@@ -53,13 +53,14 @@ export default function Hero() {
               The API Security Framework
             </h1>
 
-            {/* Subtext — gradient only in light theme */}
+            {/* Subtext (light mode: slate-200 for readability) */}
             <p
-              className="text-lg mb-8 hero-subtext text-slate-300 light:bg-clip-text light:text-transparent light:bg-linear-to-r light:from-slate-200/60 light:via-slate-200 light:to-slate-200/60"
+              className="text-lg mb-8 hero-subtext text-slate-200"
               data-aos="fade-down"
               data-aos-delay="200"
             >
-              Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
+              Our landing page template works on all devices, so you only have to set it up once,
+              and get beautiful results forever.
             </p>
 
             <div
