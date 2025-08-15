@@ -42,7 +42,7 @@ export default function FeaturesLight() {
                 {/* Eyebrow — solid color for light mode */}
                 <div>
                   <div
-                    className="inline-flex font-semibold pb-3 eyebrow-text"
+                    className="inline-flex font-semibold pb-3"
                     style={{
                       color: '#7500D6',
                       background: 'none',
@@ -102,7 +102,8 @@ export default function FeaturesLight() {
               </div>
 
               {/* Image */}
-              {/* ... rest of your code stays exactly the same ... */}
+              {/* ... rest of your image/particles block unchanged ... */}
+
             </div>
           </div>
         </div>
