@@ -44,7 +44,12 @@ export default function Hero() {
               The API Security Framework
             </h1>
 
-            <p className="text-lg text-slate-300 mb-8 hero-subtext" data-aos="fade-down" data-aos-delay="200">
+            {/* Darker paragraph only for light theme */}
+            <p
+              className="text-lg text-slate-700 mb-8 hero-subtext"
+              data-aos="fade-down"
+              data-aos-delay="200"
+            >
               Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
             </p>
 
