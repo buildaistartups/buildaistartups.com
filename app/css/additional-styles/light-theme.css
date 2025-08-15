@@ -204,4 +204,5 @@
 .light .hero-subtext,
 .light .feature-subtext {
   color: var(--color-slate-200) !important; /* stronger contrast */
+  font-weight: 500; /* medium weight for better balance */
 }
