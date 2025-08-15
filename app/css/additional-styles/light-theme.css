@@ -203,5 +203,5 @@
 /* --- Hero subtext + Feature descriptions darker in light mode --- */
 .light .hero-subtext,
 .light .feature-subtext {
-  color: var(--color-slate-300) !important; /* slightly lighter than 200 for balance */
+  color: var(--color-slate-200) !important; /* stronger contrast */
 }
