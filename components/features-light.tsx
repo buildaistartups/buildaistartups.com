@@ -1,149 +1,88 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import { Transition } from '@headlessui/react'
-import Particles from './particles'
-import Illustration from '@/public/images/glow-top.svg'
+import { FileText, ScanLine, RefreshCcw } from 'lucide-react'
+
+const features = [
+  {
+    title: 'Simplify your security',
+    description:
+      'Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.',
+    icon: FileText,
+  },
+  {
+    title: 'Customer identity',
+    description:
+      'Easily manage customer identities and provide seamless login experiences across platforms.',
+    icon: ScanLine,
+  },
+  {
+    title: 'Adaptable authentication',
+    description:
+      'Implement adaptable authentication strategies that balance security and user experience.',
+    icon: RefreshCcw,
+  },
+]
 
 export default function FeaturesLight() {
-  const [tab, setTab] = useState<number>(1)
+  const [selected, setSelected] = useState(0)
 
   return (
-    <section>
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="relative overflow-hidden py-24 sm:py-32">
+      {/* Background halo circles */}
+      <div className="absolute inset-0 flex justify-center items-center">
+        <div className="absolute w-[800px] h-[800px] rounded-full bg-purple-400/30 blur-3xl animate-pulse" />
+        <div className="absolute w-[600px] h-[600px] rounded-full bg-purple-300/20 blur-3xl animate-ping" />
+      </div>
 
-        {/* Illustration (unchanged) */}
-        <div
-          className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden"
-          aria-hidden="true"
-        >
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 -z-10">
-            <Image
-              src={Illustration}
-              className="max-w-none"
-              width={1404}
-              height={658}
-              alt="Features Illustration"
-              priority
-            />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 grid lg:grid-cols-2 lg:gap-x-16 items-center">
+        {/* Left content */}
+        <div>
+          <p className="text-sm font-semibold text-purple-600">The security first platform</p>
+          <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Simplify your security with authentication services
+          </h2>
+          <p className="mt-6 text-lg leading-8 text-gray-700">
+            {features[selected].description}
+          </p>
+
+          {/* Tabs */}
+          <div className="mt-8 flex flex-col gap-3">
+            {features.map((feature, idx) => {
+              const Icon = feature.icon
+              const isActive = idx === selected
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setSelected(idx)}
+                  className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-base font-medium transition-all
+                    ${isActive
+                      ? 'border-purple-500 bg-white text-black'
+                      : 'border-gray-300 bg-white/70 text-gray-500 hover:text-black hover:border-gray-400'
+                    }`}
+                >
+                  <Icon
+                    className={`h-5 w-5 transition-colors ${
+                      isActive ? 'text-black' : 'text-gray-400 group-hover:text-black'
+                    }`}
+                  />
+                  {feature.title}
+                </button>
+              )
+            })}
           </div>
         </div>
 
-        <div className="pt-16 pb-12 md:pt-52 md:pb-20">
-          <div>
-            {/* Section content */}
-            <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
-
-              {/* Left column (text + tabs) */}
-              <div
-                className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center"
-                data-aos="fade-down"
-              >
-                {/* Eyebrow — solid for light */}
-                <div>
-                  <div
-                    className="inline-flex font-semibold pb-3"
-                    style={{
-                      color: '#7500D6',
-                      background: 'none',
-                      WebkitBackgroundClip: 'initial',
-                      WebkitTextFillColor: '#7500D6',
-                    }}
-                  >
-                    The security first platform
-                  </div>
-                </div>
-
-                {/* Title — keep original gradient styling from dark file */}
-                <h3 className="h3 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-3">
-                  Simplify your security with authentication services
-                </h3>
-
-                {/* Subtext */}
-                <p className="feature-subtext text-lg mb-8 dark:text-slate-400">
-                  Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.
-                </p>
-
-                {/* Tabs — keep original sizing/spacing; only change colors via CSS below */}
-                <div className="mt-8 max-w-xs max-md:mx-auto space-y-2">
-                  <button
-                    aria-pressed={tab === 1}
-                    className={`feature-tab flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
-                      tab !== 1 ? 'border-slate-700 opacity-50' : 'border-purple-700 shadow-sm shadow-purple-500/25'
-                    }`}
-                    onClick={() => setTab(1)}
-                  >
-                    <svg className="shrink-0 mr-3 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                      <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12Zm0 14V2H2v12h12Zm-3-7H5a1 1 0 1 1 0-2h6a1 1 0 0 1 0 2Zm0 4H5a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2Z" />
-                    </svg>
-                    <span>Simplify your security</span>
-                  </button>
-
-                  <button
-                    aria-pressed={tab === 2}
-                    className={`feature-tab flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
-                      tab !== 2 ? 'border-slate-700 opacity-50' : 'border-purple-700 shadow-sm shadow-purple-500/25'
-                    }`}
-                    onClick={() => setTab(2)}
-                  >
-                    <svg className="shrink-0 mr-3 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                      <path d="M2 6H0V2a2 2 0 0 1 2-2h4v2H2v4ZM16 6h-2V2h-4V0h4a2 2 0 0 1 2 2v4ZM14 16h-4v-2h4v-4h2v4a2 2 0 0 1-2 2ZM6 16H2a2 2 0 0 1-2-2v-4h2v4h4v2Z" />
-                    </svg>
-                    <span>Customer identity</span>
-                  </button>
-
-                  <button
-                    aria-pressed={tab === 3}
-                    className={`feature-tab flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
-                      tab !== 3 ? 'border-slate-700 opacity-50' : 'border-purple-700 shadow-sm shadow-purple-500/25'
-                    }`}
-                    onClick={() => setTab(3)}
-                  >
-                    <svg className="shrink-0 mr-3 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                      <path d="M14.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8ZM15 7c.6 0 1 .4 1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8c.6 0 1 .4 1 1s-.4 1-1 1C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6c0-.6.4-1 1-1Z" />
-                    </svg>
-                    <span>Adaptable authentication</span>
-                  </button>
-                </div>
-              </div>
-
-              {/* Right column (keep exactly as in dark variant) */}
-              {/* Copy the same illustration / particles / transitions markup from components/features.tsx */}
-              <div className="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
-                {/* 🔁 Keep your existing right-side illustration/animation block here, unchanged */}
-                {/* This preserves height/spacing so the buttons never sink below the rounded background */}
-              </div>
-            </div>
+        {/* Right icon area */}
+        <div className="relative mt-16 lg:mt-0 flex justify-center items-center">
+          <div className="w-40 h-40 flex items-center justify-center rounded-2xl bg-white shadow-xl">
+            {(() => {
+              const Icon = features[selected].icon
+              return <Icon className="h-12 w-12 text-gray-900" />
+            })()}
           </div>
         </div>
       </div>
-
-      {/* Light-theme overrides for tab colors/hover without changing layout */}
-      <style jsx>{`
-        /* Scope to light theme only */
-        :global(html.light) .feature-tab {
-          /* default (unselected) in light */
-          color: #475569 !important;          /* text-slate-600 */
-          background: rgba(255,255,255,0.60) !important;
-          border-color: #e5e7eb !important;   /* slate-200-ish */
-        }
-        :global(html.light) .feature-tab svg {
-          fill: currentColor !important;       /* icon follows text color */
-        }
-        :global(html.light) .feature-tab:hover {
-          color: #0f172a !important;           /* text-slate-900 on hover */
-          border-color: #d1d5db !important;    /* a hair darker on hover */
-        }
-        /* Selected */
-        :global(html.light) .feature-tab[aria-pressed="true"] {
-          color: #0f172a !important;           /* black text when selected */
-          background: rgba(255,255,255,0.85) !important;
-          border-color: #7c3aed !important;    /* purple border (selector) */
-          box-shadow: 0 0 0 2px rgba(124,58,237,0.35) !important; /* subtle glow */
-          opacity: 1 !important;               /* ignore the "opacity-50" from dark defaults */
-        }
-      `}</style>
     </section>
   )
 }
