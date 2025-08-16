@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import Particles from './particles'
 import Illustration from '@/public/images/glow-top.svg'
+import HaloIllustration from '@/public/images/features-illustration-light.png' // 🔁 adjust path if different
 
 export default function FeaturesLight() {
   const [tab, setTab] = useState<number>(1)
@@ -13,7 +14,7 @@ export default function FeaturesLight() {
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Illustration (unchanged) */}
+        {/* Illustration (background top glow) */}
         <div
           className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden"
           aria-hidden="true"
@@ -35,12 +36,11 @@ export default function FeaturesLight() {
             {/* Section content */}
             <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
 
-              {/* Left column (text + tabs) */}
+              {/* Left column */}
               <div
                 className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center"
                 data-aos="fade-down"
               >
-                {/* Eyebrow — solid for light */}
                 <div>
                   <div
                     className="inline-flex font-semibold pb-3"
@@ -55,17 +55,14 @@ export default function FeaturesLight() {
                   </div>
                 </div>
 
-                {/* Title — keep original gradient styling from dark file */}
                 <h3 className="h3 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-3">
                   Simplify your security with authentication services
                 </h3>
 
-                {/* Subtext */}
                 <p className="feature-subtext text-lg mb-8 dark:text-slate-400">
                   Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.
                 </p>
 
-                {/* Tabs — keep original sizing/spacing; only change colors via CSS below */}
                 <div className="mt-8 max-w-xs max-md:mx-auto space-y-2">
                   <button
                     aria-pressed={tab === 1}
@@ -108,40 +105,47 @@ export default function FeaturesLight() {
                 </div>
               </div>
 
-              {/* Right column (keep exactly as in dark variant) */}
-              {/* Copy the same illustration / particles / transitions markup from components/features.tsx */}
-              <div className="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
-                {/* 🔁 Keep your existing right-side illustration/animation block here, unchanged */}
-                {/* This preserves height/spacing so the buttons never sink below the rounded background */}
+              {/* Right column with halo circles */}
+              <div className="md:w-5/12 lg:w-1/2 relative flex items-center justify-center" data-aos="fade-up" data-aos-delay="100">
+                <div className="absolute inset-0 -z-10">
+                  <Particles className="absolute inset-0 -z-10" />
+                </div>
+                <div className="relative">
+                  <Image
+                    src={HaloIllustration}
+                    alt="Halo illustration"
+                    className="mx-auto"
+                    width={400}
+                    height={400}
+                    priority
+                  />
+                </div>
               </div>
+
             </div>
           </div>
         </div>
       </div>
 
-      {/* Light-theme overrides for tab colors/hover without changing layout */}
       <style jsx>{`
-        /* Scope to light theme only */
         :global(html.light) .feature-tab {
-          /* default (unselected) in light */
-          color: #475569 !important;          /* text-slate-600 */
+          color: #475569 !important;
           background: rgba(255,255,255,0.60) !important;
-          border-color: #e5e7eb !important;   /* slate-200-ish */
+          border-color: #e5e7eb !important;
         }
         :global(html.light) .feature-tab svg {
-          fill: currentColor !important;       /* icon follows text color */
+          fill: currentColor !important;
         }
         :global(html.light) .feature-tab:hover {
-          color: #0f172a !important;           /* text-slate-900 on hover */
-          border-color: #d1d5db !important;    /* a hair darker on hover */
+          color: #0f172a !important;
+          border-color: #d1d5db !important;
         }
-        /* Selected */
         :global(html.light) .feature-tab[aria-pressed="true"] {
-          color: #0f172a !important;           /* black text when selected */
+          color: #0f172a !important;
           background: rgba(255,255,255,0.85) !important;
-          border-color: #7c3aed !important;    /* purple border (selector) */
-          box-shadow: 0 0 0 2px rgba(124,58,237,0.35) !important; /* subtle glow */
-          opacity: 1 !important;               /* ignore the "opacity-50" from dark defaults */
+          border-color: #7c3aed !important;
+          box-shadow: 0 0 0 2px rgba(124,58,237,0.35) !important;
+          opacity: 1 !important;
         }
       `}</style>
     </section>
