@@ -12,9 +12,20 @@ export default function ThemeAwareFeatures04() {
   const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  // Avoid hydration mismatch by rendering only after mount
   useEffect(() => setMounted(true), [])
-  if (!mounted) return null
+
+  if (!mounted) {
+    return (
+      <section aria-hidden="true">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+          {/* matches features-04 paddings */}
+          <div className="pt-16 pb-12 md:pt-32 md:pb-20">
+            <div className="min-h-[560px] md:min-h-[620px]" />
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   const activeTheme = theme ?? resolvedTheme
   return activeTheme === 'light' ? <Features04Light /> : <Features04Dark />
