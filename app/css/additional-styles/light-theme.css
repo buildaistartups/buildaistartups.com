@@ -205,3 +205,12 @@
 .light .feature-subtext {
   color: var(--color-slate-200) !important; /* stronger contrast */
 }
+/* Eyebrow style - light mode only */
+.eyebrow-light {
+  font-weight: 600;              /* similar to font-semibold */
+  padding-bottom: 1.5rem;        /* pb-6 */
+  color: #7500D6;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: #7500D6;
+}
