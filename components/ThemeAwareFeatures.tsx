@@ -15,6 +15,13 @@ export default function ThemeAwareFeatures() {
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
 
-  const active = theme ?? resolvedTheme
-  return active === 'light' ? <FeaturesLight /> : <FeaturesDark />
+  // Prefer explicit user choice; fall back to resolved system theme
+  const active =
+    theme && theme !== 'system'
+      ? theme
+      : resolvedTheme
+
+  return active === 'light'
+    ? <FeaturesLight key="features-light" />
+    : <FeaturesDark key="features-dark" />
 }
