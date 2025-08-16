@@ -13,7 +13,7 @@ export default function FeaturesLight() {
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Illustration behind the whole block */}
+        {/* Background illustration */}
         <div
           className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden"
           aria-hidden="true"
@@ -31,25 +31,27 @@ export default function FeaturesLight() {
 
         <div className="pt-16 pb-12 md:pt-52 md:pb-20">
           <div>
-            {/* Section content */}
+            {/* Two columns */}
             <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
 
-              {/* Content */}
+              {/* Left: text + tabs */}
               <div
                 className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center"
                 data-aos="fade-down"
               >
-                {/* Eyebrow — solid #7500D6 for light mode */}
+                {/* Eyebrow — solid for light mode */}
                 <div>
                   <div className="inline-flex font-semibold pb-3 text-[#7500D6]">
                     The security first platform
                   </div>
                 </div>
 
-                <h3 className="h3 bg-clip-text text-transparent bg-gradient-to-r from-slate-700 via-slate-900 to-slate-700 pb-3">
+                {/* Heading — solid dark (no gradient) */}
+                <h3 className="h3 text-slate-800 pb-3">
                   Simplify your security with authentication services
                 </h3>
 
+                {/* Subtext — readable slate in light mode */}
                 <p className="feature-subtext text-lg mb-8 text-slate-600">
                   Define access roles for the end-users, and extend your authorization capabilities
                   to implement dynamic access control.
@@ -57,16 +59,17 @@ export default function FeaturesLight() {
 
                 {/* Tabs */}
                 <div className="mt-8 max-w-xs max-md:mx-auto space-y-2">
+
                   {/* Tab 1 */}
                   <button
+                    onClick={() => setTab(1)}
                     className={[
                       'group flex items-center text-sm font-medium rounded-md border w-full px-3 py-2 transition duration-150 ease-in-out',
-                      'bg-white/80 backdrop-blur',
+                      'bg-white/85 backdrop-blur',
                       tab === 1
-                        ? 'text-slate-900 border-purple-500 ring-1 ring-purple-500 shadow-sm'
-                        : 'text-slate-400 border-slate-200 hover:text-slate-900 hover:border-slate-300'
+                        ? 'border-purple-500 ring-1 ring-purple-500 shadow-sm'
+                        : 'border-slate-200 hover:border-slate-300'
                     ].join(' ')}
-                    onClick={() => setTab(1)}
                   >
                     <svg
                       className={`shrink-0 mr-3 ${tab === 1 ? 'fill-slate-900' : 'fill-slate-400 group-hover:fill-slate-900'}`}
@@ -76,21 +79,21 @@ export default function FeaturesLight() {
                     >
                       <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12Zm0 14V2H2v12h12Zm-3-7H5a1 1 0 1 1 0-2h6a1 1 0 0 1 0 2Zm0 4H5a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2Z" />
                     </svg>
-                    <span className={tab === 1 ? 'text-slate-900' : 'group-hover:text-slate-900'}>
+                    <span className={tab === 1 ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-900'}>
                       Simplify your security
                     </span>
                   </button>
 
                   {/* Tab 2 */}
                   <button
+                    onClick={() => setTab(2)}
                     className={[
                       'group flex items-center text-sm font-medium rounded-md border w-full px-3 py-2 transition duration-150 ease-in-out',
-                      'bg-white/80 backdrop-blur',
+                      'bg-white/85 backdrop-blur',
                       tab === 2
-                        ? 'text-slate-900 border-purple-500 ring-1 ring-purple-500 shadow-sm'
-                        : 'text-slate-400 border-slate-200 hover:text-slate-900 hover:border-slate-300'
+                        ? 'border-purple-500 ring-1 ring-purple-500 shadow-sm'
+                        : 'border-slate-200 hover:border-slate-300'
                     ].join(' ')}
-                    onClick={() => setTab(2)}
                   >
                     <svg
                       className={`shrink-0 mr-3 ${tab === 2 ? 'fill-slate-900' : 'fill-slate-400 group-hover:fill-slate-900'}`}
@@ -100,21 +103,21 @@ export default function FeaturesLight() {
                     >
                       <path d="M2 6H0V2a2 2 0 0 1 2-2h4v2H2v4ZM16 6h-2V2h-4V0h4a2 2 0 0 1 2 2v4ZM14 16h-4v-2h4v-4h2v4a2 2 0 0 1-2 2ZM6 16H2a2 2 0 0 1-2-2v-4h2v4h4v2Z" />
                     </svg>
-                    <span className={tab === 2 ? 'text-slate-900' : 'group-hover:text-slate-900'}>
+                    <span className={tab === 2 ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-900'}>
                       Customer identity
                     </span>
                   </button>
 
                   {/* Tab 3 */}
                   <button
+                    onClick={() => setTab(3)}
                     className={[
                       'group flex items-center text-sm font-medium rounded-md border w-full px-3 py-2 transition duration-150 ease-in-out',
-                      'bg-white/80 backdrop-blur',
+                      'bg-white/85 backdrop-blur',
                       tab === 3
-                        ? 'text-slate-900 border-purple-500 ring-1 ring-purple-500 shadow-sm'
-                        : 'text-slate-400 border-slate-200 hover:text-slate-900 hover:border-slate-300'
+                        ? 'border-purple-500 ring-1 ring-purple-500 shadow-sm'
+                        : 'border-slate-200 hover:border-slate-300'
                     ].join(' ')}
-                    onClick={() => setTab(3)}
                   >
                     <svg
                       className={`shrink-0 mr-3 ${tab === 3 ? 'fill-slate-900' : 'fill-slate-400 group-hover:fill-slate-900'}`}
@@ -124,14 +127,14 @@ export default function FeaturesLight() {
                     >
                       <path d="M14.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8ZM15 7c.6 0 1 .4 1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8c.6 0 1 .4 1 1s-.4 1-1 1C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6c0-.6.4-1 1-1Z" />
                     </svg>
-                    <span className={tab === 3 ? 'text-slate-900' : 'group-hover:text-slate-900'}>
+                    <span className={tab === 3 ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-900'}>
                       Adaptable authentication
                     </span>
                   </button>
                 </div>
               </div>
 
-              {/* Image / halo / grid / icon — restored from the dark variant */}
+              {/* Right: halo + grid + animated icon */}
               <div className="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
                 <div className="relative py-24 -mt-12">
 
@@ -140,7 +143,8 @@ export default function FeaturesLight() {
 
                   <div className="flex items-center justify-center">
                     <div className="relative w-48 h-48 flex justify-center items-center">
-                      {/* Halo effect */}
+
+                      {/* Halo */}
                       <svg
                         className="absolute inset-0 -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 will-change-transform pointer-events-none blur-md"
                         width="480"
@@ -165,14 +169,14 @@ export default function FeaturesLight() {
                       {/* Grid */}
                       <div className="absolute inset-0 -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[500px] h-[500px] rounded-full overflow-hidden [mask-image:_radial-gradient(black,_transparent_60%)]">
                         <div className="h-[200%] animate-endless">
-                          <div className="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,var(--color-white)_48px,var(--color-white)_49px)] blur-[2px] opacity-20" />
+                          <div className="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,white_48px,white_49px)] blur-[2px] opacity-20" />
                           <div className="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,var(--color-purple-500)_48px,var(--color-purple-500)_49px)]" />
-                          <div className="absolute inset-0 [background:repeating-linear-gradient(90deg,transparent,transparent_48px,var(--color-white)_48px,var(--color-white)_49px)] blur-[2px] opacity-20" />
+                          <div className="absolute inset-0 [background:repeating-linear-gradient(90deg,transparent,transparent_48px,white_48px,white_49px)] blur-[2px] opacity-20" />
                           <div className="absolute inset-0 [background:repeating-linear-gradient(90deg,transparent,transparent_48px,var(--color-purple-500)_48px,var(--color-purple-500)_49px)]" />
                         </div>
                       </div>
 
-                      {/* Central icon that swaps with tab */}
+                      {/* Center icon (switches with tab) */}
                       <Transition
                         as="div"
                         show={tab === 1}
