@@ -4,8 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Illustration from '@/public/images/glow-top.svg'
 
-/* ---------------- Inline icons (no extra deps) ---------------- */
-
+/* ---------- Small inline icons (no external deps) ---------- */
 function IconFileText(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -36,10 +35,8 @@ function IconRefresh(props: React.SVGProps<SVGSVGElement>) {
   )
 }
 
-/* ---------------- Component ---------------- */
-
 export default function FeaturesLight() {
-  const [tab, setTab] = useState<number>(0)
+  const [tab, setTab] = useState(0)
 
   const tabs = [
     { title: 'Simplify your security', Icon: IconFileText },
@@ -47,14 +44,11 @@ export default function FeaturesLight() {
     { title: 'Adaptable authentication', Icon: IconRefresh },
   ]
 
-  const bodyCopy =
-    'Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.'
-
   return (
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Background illustration (top glow) */}
+        {/* Glow background (same as dark, but lighter) */}
         <div className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
           <div className="absolute left-1/2 -translate-x-1/2 top-0 -z-10">
             <Image src={Illustration} className="max-w-none" width={1404} height={658} alt="Features Illustration" />
@@ -62,77 +56,98 @@ export default function FeaturesLight() {
         </div>
 
         <div className="pt-16 pb-12 md:pt-52 md:pb-20">
-          <div>
-            {/* Content grid (text left, visual right) */}
-            <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
+          <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
 
-              {/* Left: Copy + tabs */}
-              <div className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center" data-aos="fade-down">
-                {/* Eyebrow – solid for light */}
-                <div className="inline-flex font-semibold pb-3" style={{ color: '#7500D6' }}>
-                  The security first platform
-                </div>
+            {/* Left column */}
+            <div className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center" data-aos="fade-down">
+              {/* Eyebrow – solid purple */}
+              <div className="inline-flex font-semibold pb-3" style={{ color: '#7500D6' }}>
+                The security first platform
+              </div>
 
-                {/* Title (solid dark for light mode so it isn’t washed out) */}
-                <h3 className="h3 text-slate-900 pb-3">
-                  Simplify your security with authentication services
-                </h3>
+              {/* Title — readable on light */}
+              <h3 className="h3 text-slate-900 pb-3">
+                Simplify your security with authentication services
+              </h3>
 
-                {/* Body text (readable on purple background) */}
-                <p className="feature-subtext text-lg mb-8 text-slate-700">
-                  {bodyCopy}
-                </p>
+              {/* Body copy */}
+              <p className="text-lg text-slate-700 mb-8">
+                Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.
+              </p>
 
-                {/* Tabs */}
-                <div className="mt-8 max-w-md max-md:mx-auto space-y-3">
-                  {tabs.map(({ title, Icon }, i) => {
-                    const active = tab === i
-                    return (
-                      <button
-                        key={title}
-                        onClick={() => setTab(i)}
-                        className={[
-                          'flex items-center text-base rounded-md border w-full px-4 py-3 transition-all duration-150 ease-in-out',
-                          active
-                            ? // Active: black text & icon, purple border
-                              'bg-white text-slate-900 border-purple-500 shadow-[0_0_0_1px_rgba(168,85,247,.35)]'
-                            : // Inactive: light gray text, turns black on hover
-                              'bg-white/80 text-slate-500 border-slate-300 hover:text-slate-900 hover:border-slate-400',
-                        ].join(' ')}
+              {/* Tabs */}
+              <div className="mt-8 max-w-md max-md:mx-auto space-y-3">
+                {tabs.map(({ title, Icon }, i) => {
+                  const active = tab === i
+                  return (
+                    <button
+                      key={title}
+                      onClick={() => setTab(i)}
+                      className={[
+                        'group flex items-center rounded-md border w-full px-4 py-3 transition-all duration-150 ease-in-out',
+                        active
+                          ? 'bg-white border-purple-500 shadow-[0_0_0_1px_rgba(168,85,247,.35)]'
+                          : 'bg-white/80 border-slate-300 hover:border-slate-400',
+                      ].join(' ')}
+                      /* Force black text when selected to avoid theme overrides */
+                      style={active ? { color: '#0f172a' } : { color: '#64748b' }} // inactive = slate-500
+                    >
+                      <Icon
+                        className="shrink-0 mr-3 h-5 w-5 transition-colors"
+                        style={active ? { color: '#0f172a' } : undefined} // selected = black
+                      />
+                      <span
+                        className="truncate transition-colors"
+                        style={active ? { color: '#0f172a' } : undefined} // selected = black
                       >
-                        <Icon
-                          className={[
-                            'shrink-0 mr-3 h-5 w-5 transition-colors',
-                            active ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-900',
-                          ].join(' ')}
-                        />
-                        <span className="truncate">{title}</span>
-                      </button>
-                    )
-                  })}
-                </div>
+                        {title}
+                      </span>
+                    </button>
+                  )
+                })}
               </div>
-
-              {/* Right: Visual with soft halo */}
-              <div className="md:w-5/12 lg:w-1/2">
-                <div className="relative mx-auto md:mx-0 h-[320px] w-full flex items-center justify-center">
-                  {/* Halo layers */}
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <div className="w-[440px] h-[440px] rounded-full bg-purple-400/25 blur-3xl animate-pulse" />
-                    <div className="absolute w-[320px] h-[320px] rounded-full bg-purple-300/20 blur-3xl animate-[ping_2.5s_linear_infinite]" />
-                  </div>
-
-                  {/* Tile with current icon */}
-                  <div className="relative z-10 w-40 h-40 rounded-2xl bg-white shadow-xl flex items-center justify-center">
-                    {(() => {
-                      const ActiveIcon = tabs[tab].Icon
-                      return <ActiveIcon className="h-12 w-12 text-slate-900" />
-                    })()}
-                  </div>
-                </div>
-              </div>
-
             </div>
+
+            {/* Right column — grid + halo + tile */}
+            <div className="md:w-5/12 lg:w-1/2">
+              <div className="relative mx-auto md:mx-0 h-[340px] w-full flex items-center justify-center overflow-hidden rounded-2xl">
+                {/* Subtle grid */}
+                <svg
+                  className="absolute inset-0 w-full h-full opacity-[0.22]"
+                  aria-hidden="true"
+                  viewBox="0 0 400 400"
+                  preserveAspectRatio="none"
+                >
+                  <defs>
+                    <pattern id="light-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#8b5cf6" strokeWidth="0.6" />
+                    </pattern>
+                    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#a78bfa" stopOpacity="0.35" />
+                      <stop offset="60%" stopColor="#a78bfa" stopOpacity="0.18" />
+                      <stop offset="100%" stopColor="#a78bfa" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#light-grid)" />
+                  <rect width="100%" height="100%" fill="url(#halo)" />
+                </svg>
+
+                {/* Pulsing halo circles */}
+                <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                  <div className="w-[420px] h-[420px] rounded-full bg-purple-400/25 blur-3xl animate-pulse" />
+                  <div className="absolute w-[300px] h-[300px] rounded-full bg-purple-300/25 blur-3xl animate-[ping_2.6s_linear_infinite]" />
+                </div>
+
+                {/* Floating tile with the active icon */}
+                <div className="relative z-10 w-40 h-40 rounded-2xl bg-white shadow-xl flex items-center justify-center">
+                  {(() => {
+                    const ActiveIcon = tabs[tab].Icon
+                    return <ActiveIcon className="h-12 w-12 text-slate-900" />
+                  })()}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
