@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Transition } from '@headlessui/react'
 import Particles from './particles'
 import Illustration from '@/public/images/glow-top.svg'
 
@@ -13,7 +12,7 @@ export default function FeaturesLight() {
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Illustration (unchanged) */}
+        {/* Illustration background */}
         <div
           className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden"
           aria-hidden="true"
@@ -32,15 +31,14 @@ export default function FeaturesLight() {
 
         <div className="pt-16 pb-12 md:pt-52 md:pb-20">
           <div>
-            {/* Section content */}
             <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
 
-              {/* Left column (text + tabs) */}
+              {/* Left column */}
               <div
                 className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center"
                 data-aos="fade-down"
               >
-                {/* Eyebrow — solid for light */}
+                {/* Eyebrow */}
                 <div>
                   <div
                     className="inline-flex font-semibold pb-3"
@@ -55,7 +53,7 @@ export default function FeaturesLight() {
                   </div>
                 </div>
 
-                {/* Title — keep original gradient styling from dark file */}
+                {/* Title */}
                 <h3 className="h3 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-3">
                   Simplify your security with authentication services
                 </h3>
@@ -65,16 +63,18 @@ export default function FeaturesLight() {
                   Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.
                 </p>
 
-                {/* Tabs — keep original sizing/spacing; only change colors via CSS below */}
+                {/* Tabs */}
                 <div className="mt-8 max-w-xs max-md:mx-auto space-y-2">
                   <button
                     aria-pressed={tab === 1}
-                    className={`feature-tab flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
-                      tab !== 1 ? 'border-slate-700 opacity-50' : 'border-purple-700 shadow-sm shadow-purple-500/25'
+                    className={`feature-tab flex items-center text-sm font-medium rounded-sm border w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
+                      tab !== 1
+                        ? 'border-slate-700 opacity-50'
+                        : 'border-purple-700 shadow-sm shadow-purple-500/25'
                     }`}
                     onClick={() => setTab(1)}
                   >
-                    <svg className="shrink-0 mr-3 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                    <svg className="shrink-0 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                       <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12Zm0 14V2H2v12h12Zm-3-7H5a1 1 0 1 1 0-2h6a1 1 0 0 1 0 2Zm0 4H5a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2Z" />
                     </svg>
                     <span>Simplify your security</span>
@@ -82,12 +82,14 @@ export default function FeaturesLight() {
 
                   <button
                     aria-pressed={tab === 2}
-                    className={`feature-tab flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
-                      tab !== 2 ? 'border-slate-700 opacity-50' : 'border-purple-700 shadow-sm shadow-purple-500/25'
+                    className={`feature-tab flex items-center text-sm font-medium rounded-sm border w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
+                      tab !== 2
+                        ? 'border-slate-700 opacity-50'
+                        : 'border-purple-700 shadow-sm shadow-purple-500/25'
                     }`}
                     onClick={() => setTab(2)}
                   >
-                    <svg className="shrink-0 mr-3 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                    <svg className="shrink-0 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                       <path d="M2 6H0V2a2 2 0 0 1 2-2h4v2H2v4ZM16 6h-2V2h-4V0h4a2 2 0 0 1 2 2v4ZM14 16h-4v-2h4v-4h2v4a2 2 0 0 1-2 2ZM6 16H2a2 2 0 0 1-2-2v-4h2v4h4v2Z" />
                     </svg>
                     <span>Customer identity</span>
@@ -95,12 +97,14 @@ export default function FeaturesLight() {
 
                   <button
                     aria-pressed={tab === 3}
-                    className={`feature-tab flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
-                      tab !== 3 ? 'border-slate-700 opacity-50' : 'border-purple-700 shadow-sm shadow-purple-500/25'
+                    className={`feature-tab flex items-center text-sm font-medium rounded-sm border w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
+                      tab !== 3
+                        ? 'border-slate-700 opacity-50'
+                        : 'border-purple-700 shadow-sm shadow-purple-500/25'
                     }`}
                     onClick={() => setTab(3)}
                   >
-                    <svg className="shrink-0 mr-3 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                    <svg className="shrink-0 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                       <path d="M14.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8ZM15 7c.6 0 1 .4 1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8c.6 0 1 .4 1 1s-.4 1-1 1C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6c0-.6.4-1 1-1Z" />
                     </svg>
                     <span>Adaptable authentication</span>
@@ -108,61 +112,43 @@ export default function FeaturesLight() {
                 </div>
               </div>
 
-              {/* Right column — halo rebuilt with CSS + Particles (no external image) */}
-              <div className="md:w-5/12 lg:w-1/2 relative flex items-center justify-center" data-aos="fade-up" data-aos-delay="100">
-                <div className="relative w-full max-w-md aspect-square">
-                  {/* Particles */}
-                  <Particles className="absolute inset-0 opacity-40 -z-10" />
+              {/* Right column (with halo + particles) */}
+              <div className="relative md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
+                {/* Halo circles */}
+                <div className="absolute inset-0 rounded-[2rem] -z-10 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.35)_0%,rgba(168,85,247,0.15)_35%,transparent_65%)]" />
+                <div className="absolute inset-0 -z-10 opacity-50 [mask-image:radial-gradient(circle_at_center,black,transparent_70%)] bg-[linear-gradient(90deg,rgba(124,58,237,.35)_1px,transparent_1px),linear-gradient(0deg,rgba(124,58,237,.35)_1px,transparent_1px)] bg-[size:56px_56px]" />
 
-                  {/* Radial glow */}
-                  <div className="absolute inset-0 rounded-[2rem] -z-10
-                    bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.35)_0%,rgba(168,85,247,0.15)_35%,transparent_65%)]" />
+                {/* Particles */}
+                <Particles className="absolute inset-0 -z-10" />
 
-                  {/* Subtle grid */}
-                  <div className="absolute inset-0 -z-10 opacity-50
-                    [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]
-                    bg-[linear-gradient(90deg,rgba(124,58,237,.35)_1px,transparent_1px),linear-gradient(0deg,rgba(124,58,237,.35)_1px,transparent_1px)]
-                    bg-[size:56px_56px]" />
-
-                  {/* Floating tile with icon (pure inline SVG) */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-28 h-28 rounded-2xl bg-white shadow-xl shadow-purple-400/30 flex items-center justify-center rotate-12">
-                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                        <path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z" fill="#0f172a"/>
-                      </svg>
-                    </div>
-                  </div>
-                </div>
+                {/* Placeholder illustration / content */}
+                <div className="aspect-square bg-white/40 backdrop-blur rounded-[2rem]" />
               </div>
-
             </div>
           </div>
         </div>
       </div>
 
-      {/* Light-theme overrides for tab colors/hover without changing layout */}
+      {/* Light-theme overrides */}
       <style jsx>{`
-        /* Scope to light theme only */
         :global(html.light) .feature-tab {
-          /* default (unselected) in light */
-          color: #475569 !important;          /* text-slate-600 */
+          color: #475569 !important;
           background: rgba(255,255,255,0.60) !important;
-          border-color: #e5e7eb !important;   /* slate-200-ish */
+          border-color: #e5e7eb !important;
         }
         :global(html.light) .feature-tab svg {
-          fill: currentColor !important;       /* icon follows text color */
+          fill: currentColor !important;
         }
         :global(html.light) .feature-tab:hover {
-          color: #0f172a !important;           /* text-slate-900 on hover */
-          border-color: #d1d5db !important;    /* a hair darker on hover */
+          color: #0f172a !important;
+          border-color: #d1d5db !important;
         }
-        /* Selected */
         :global(html.light) .feature-tab[aria-pressed="true"] {
-          color: #0f172a !important;           /* black text when selected */
+          color: #0f172a !important;
           background: rgba(255,255,255,0.85) !important;
-          border-color: #7c3aed !important;    /* purple border (selector) */
-          box-shadow: 0 0 0 2px rgba(124,58,237,0.35) !important; /* subtle glow */
-          opacity: 1 !important;               /* ignore the "opacity-50" from dark defaults */
+          border-color: #7c3aed !important;
+          box-shadow: 0 0 0 2px rgba(124,58,237,0.35) !important;
+          opacity: 1 !important;
         }
       `}</style>
     </section>
