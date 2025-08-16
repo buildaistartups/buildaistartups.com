@@ -13,9 +13,22 @@ export default function ThemeAwareFeatures() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
-  if (!mounted) return null
 
-  // Prefer explicit user choice; fall back to resolved system theme
+  // Reserve space so layout doesn't jump before mount
+  if (!mounted) {
+    return (
+      <section aria-hidden="true">
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+          {/* match the section paddings used by features-light/features */}
+          <div className="pt-16 pb-12 md:pt-52 md:pb-20">
+            {/* conservative min-height to cover the tabs + art area */}
+            <div className="min-h-[620px] md:min-h-[720px]" />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   const active =
     theme && theme !== 'system'
       ? theme
