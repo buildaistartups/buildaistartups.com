@@ -1,87 +1,141 @@
 'use client'
 
 import { useState } from 'react'
-import { FileText, ScanLine, RefreshCcw } from 'lucide-react'
+import Image from 'next/image'
+import Illustration from '@/public/images/glow-top.svg'
 
-const features = [
-  {
-    title: 'Simplify your security',
-    description:
-      'Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.',
-    icon: FileText,
-  },
-  {
-    title: 'Customer identity',
-    description:
-      'Easily manage customer identities and provide seamless login experiences across platforms.',
-    icon: ScanLine,
-  },
-  {
-    title: 'Adaptable authentication',
-    description:
-      'Implement adaptable authentication strategies that balance security and user experience.',
-    icon: RefreshCcw,
-  },
-]
+/* ---------------- Inline icons (no extra deps) ---------------- */
+
+function IconFileText(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <path d="M14 2v6h6" />
+      <path d="M16 13H8" />
+      <path d="M16 17H8" />
+    </svg>
+  )
+}
+function IconScan(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+      <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+      <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+      <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+      <rect x="8" y="8" width="8" height="8" rx="2" />
+    </svg>
+  )
+}
+function IconRefresh(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M21 12a9 9 0 1 1-3-6.7" />
+      <path d="M21 3v6h-6" />
+    </svg>
+  )
+}
+
+/* ---------------- Component ---------------- */
 
 export default function FeaturesLight() {
-  const [selected, setSelected] = useState(0)
+  const [tab, setTab] = useState<number>(0)
+
+  const tabs = [
+    { title: 'Simplify your security', Icon: IconFileText },
+    { title: 'Customer identity', Icon: IconScan },
+    { title: 'Adaptable authentication', Icon: IconRefresh },
+  ]
+
+  const bodyCopy =
+    'Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.'
 
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
-      {/* Background halo circles */}
-      <div className="absolute inset-0 flex justify-center items-center">
-        <div className="absolute w-[800px] h-[800px] rounded-full bg-purple-400/30 blur-3xl animate-pulse" />
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-purple-300/20 blur-3xl animate-ping" />
-      </div>
+    <section>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 grid lg:grid-cols-2 lg:gap-x-16 items-center">
-        {/* Left content */}
-        <div>
-          <p className="text-sm font-semibold text-purple-600">The security first platform</p>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Simplify your security with authentication services
-          </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-700">
-            {features[selected].description}
-          </p>
-
-          {/* Tabs */}
-          <div className="mt-8 flex flex-col gap-3">
-            {features.map((feature, idx) => {
-              const Icon = feature.icon
-              const isActive = idx === selected
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setSelected(idx)}
-                  className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-base font-medium transition-all
-                    ${isActive
-                      ? 'border-purple-500 bg-white text-black'
-                      : 'border-gray-300 bg-white/70 text-gray-500 hover:text-black hover:border-gray-400'
-                    }`}
-                >
-                  <Icon
-                    className={`h-5 w-5 transition-colors ${
-                      isActive ? 'text-black' : 'text-gray-400 group-hover:text-black'
-                    }`}
-                  />
-                  {feature.title}
-                </button>
-              )
-            })}
+        {/* Background illustration (top glow) */}
+        <div className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 -z-10">
+            <Image src={Illustration} className="max-w-none" width={1404} height={658} alt="Features Illustration" />
           </div>
         </div>
 
-        {/* Right icon area */}
-        <div className="relative mt-16 lg:mt-0 flex justify-center items-center">
-          <div className="w-40 h-40 flex items-center justify-center rounded-2xl bg-white shadow-xl">
-            {(() => {
-              const Icon = features[selected].icon
-              return <Icon className="h-12 w-12 text-gray-900" />
-            })()}
+        <div className="pt-16 pb-12 md:pt-52 md:pb-20">
+          <div>
+            {/* Content grid (text left, visual right) */}
+            <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
+
+              {/* Left: Copy + tabs */}
+              <div className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center" data-aos="fade-down">
+                {/* Eyebrow – solid for light */}
+                <div className="inline-flex font-semibold pb-3" style={{ color: '#7500D6' }}>
+                  The security first platform
+                </div>
+
+                {/* Title (solid dark for light mode so it isn’t washed out) */}
+                <h3 className="h3 text-slate-900 pb-3">
+                  Simplify your security with authentication services
+                </h3>
+
+                {/* Body text (readable on purple background) */}
+                <p className="feature-subtext text-lg mb-8 text-slate-700">
+                  {bodyCopy}
+                </p>
+
+                {/* Tabs */}
+                <div className="mt-8 max-w-md max-md:mx-auto space-y-3">
+                  {tabs.map(({ title, Icon }, i) => {
+                    const active = tab === i
+                    return (
+                      <button
+                        key={title}
+                        onClick={() => setTab(i)}
+                        className={[
+                          'flex items-center text-base rounded-md border w-full px-4 py-3 transition-all duration-150 ease-in-out',
+                          active
+                            ? // Active: black text & icon, purple border
+                              'bg-white text-slate-900 border-purple-500 shadow-[0_0_0_1px_rgba(168,85,247,.35)]'
+                            : // Inactive: light gray text, turns black on hover
+                              'bg-white/80 text-slate-500 border-slate-300 hover:text-slate-900 hover:border-slate-400',
+                        ].join(' ')}
+                      >
+                        <Icon
+                          className={[
+                            'shrink-0 mr-3 h-5 w-5 transition-colors',
+                            active ? 'text-slate-900' : 'text-slate-400 group-hover:text-slate-900',
+                          ].join(' ')}
+                        />
+                        <span className="truncate">{title}</span>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
+              {/* Right: Visual with soft halo */}
+              <div className="md:w-5/12 lg:w-1/2">
+                <div className="relative mx-auto md:mx-0 h-[320px] w-full flex items-center justify-center">
+                  {/* Halo layers */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-[440px] h-[440px] rounded-full bg-purple-400/25 blur-3xl animate-pulse" />
+                    <div className="absolute w-[320px] h-[320px] rounded-full bg-purple-300/20 blur-3xl animate-[ping_2.5s_linear_infinite]" />
+                  </div>
+
+                  {/* Tile with current icon */}
+                  <div className="relative z-10 w-40 h-40 rounded-2xl bg-white shadow-xl flex items-center justify-center">
+                    {(() => {
+                      const ActiveIcon = tabs[tab].Icon
+                      return <ActiveIcon className="h-12 w-12 text-slate-900" />
+                    })()}
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   )
