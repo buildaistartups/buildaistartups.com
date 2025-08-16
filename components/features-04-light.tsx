@@ -4,7 +4,10 @@ export default function Features04() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Blurred shape (original) */}
-        <div className="absolute top-0 -mt-24 left-0 -ml-16 blur-2xl opacity-70 pointer-events-none -z-10" aria-hidden="true">
+        <div
+          className="absolute top-0 -mt-24 left-0 -ml-16 blur-2xl opacity-70 pointer-events-none -z-10"
+          aria-hidden="true"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
             <defs>
               <linearGradient id="bs4-a" x1="19.609%" x2="50%" y1="14.544%" y2="100%">
@@ -12,7 +15,12 @@ export default function Features04() {
                 <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
               </linearGradient>
             </defs>
-            <path fill="url(#bs4-a)" fillRule="evenodd" d="m0 0 461 369-284 58z" transform="matrix(1 0 0 -1 0 427)" />
+            <path
+              fill="url(#bs4-a)"
+              fillRule="evenodd"
+              d="m0 0 461 369-284 58z"
+              transform="matrix(1 0 0 -1 0 427)"
+            />
           </svg>
         </div>
 
@@ -29,13 +37,21 @@ export default function Features04() {
             </p>
           </div>
 
-          {/* Rows with gradient section labels + items (original) */}
+          {/* Rows */}
           <div className="divide-y divide-slate-800">
             {/* Row 1 */}
             <div className="py-8 first-of-type:pt-0 last-of-type:pb-0">
               <div>
-                {/* gradient label restored */}
-                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">
+                {/* Eyebrow — solid #7500D6 */}
+                <div
+                  className="inline-flex font-semibold pb-6"
+                  style={{
+                    color: '#7500D6',
+                    background: 'none',
+                    WebkitBackgroundClip: 'initial',
+                    WebkitTextFillColor: '#7500D6',
+                  }}
+                >
                   API Authorization
                 </div>
               </div>
@@ -86,12 +102,22 @@ export default function Features04() {
             {/* Row 2 */}
             <div className="py-8">
               <div>
-                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">
+                {/* Eyebrow — solid #7500D6 */}
+                <div
+                  className="inline-flex font-semibold pb-6"
+                  style={{
+                    color: '#7500D6',
+                    background: 'none',
+                    WebkitBackgroundClip: 'initial',
+                    WebkitTextFillColor: '#7500D6',
+                  }}
+                >
                   User Management
                 </div>
               </div>
 
               <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-2">
+                {/* Features unchanged */}
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -127,12 +153,22 @@ export default function Features04() {
             {/* Row 3 */}
             <div className="py-8">
               <div>
-                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">
+                {/* Eyebrow — solid #7500D6 */}
+                <div
+                  className="inline-flex font-semibold pb-6"
+                  style={{
+                    color: '#7500D6',
+                    background: 'none',
+                    WebkitBackgroundClip: 'initial',
+                    WebkitTextFillColor: '#7500D6',
+                  }}
+                >
                   Standard Security
                 </div>
               </div>
 
               <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-2">
+                {/* Features unchanged */}
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
