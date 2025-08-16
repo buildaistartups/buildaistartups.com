@@ -5,7 +5,7 @@ export const metadata = {
 
 import ThemeAwareHero from '@/components/ThemeAwareHero'
 import Clients from '@/components/clients'
-import ThemeAwareFeatures from '@/components/ThemeAwareFeatures'  // ⟵ use theme-aware Features
+import ThemeAwareFeatures from '@/components/ThemeAwareFeatures'  // ← NEW import
 import Features02 from '@/components/features-02'
 import Features03 from '@/components/features-03'
 import ThemeAwareTestimonials from '@/components/ThemeAwareTestimonials'
@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <ThemeAwareHero />
       <Clients />
-      <ThemeAwareFeatures />        {/* ⟵ this swaps dark/light Features */}
+      <ThemeAwareFeatures />       {/* ← uses light/dark correctly */}
       <Features02 />
       <Features03 />
       <ThemeAwareTestimonials />
