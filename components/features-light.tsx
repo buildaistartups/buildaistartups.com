@@ -5,7 +5,6 @@ import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import Particles from './particles'
 import Illustration from '@/public/images/glow-top.svg'
-import HaloIllustration from '@/public/images/features-illustration-light.png' // 🔁 adjust path if different
 
 export default function FeaturesLight() {
   const [tab, setTab] = useState<number>(1)
@@ -14,7 +13,7 @@ export default function FeaturesLight() {
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Illustration (background top glow) */}
+        {/* Illustration (unchanged) */}
         <div
           className="absolute inset-0 -z-10 -mx-28 rounded-t-[3rem] pointer-events-none overflow-hidden"
           aria-hidden="true"
@@ -36,11 +35,12 @@ export default function FeaturesLight() {
             {/* Section content */}
             <div className="max-w-xl mx-auto md:max-w-none flex flex-col md:flex-row md:space-x-8 lg:space-x-16 xl:space-x-20 space-y-8 space-y-reverse md:space-y-0">
 
-              {/* Left column */}
+              {/* Left column (text + tabs) */}
               <div
                 className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center"
                 data-aos="fade-down"
               >
+                {/* Eyebrow — solid for light */}
                 <div>
                   <div
                     className="inline-flex font-semibold pb-3"
@@ -55,14 +55,17 @@ export default function FeaturesLight() {
                   </div>
                 </div>
 
+                {/* Title — keep original gradient styling from dark file */}
                 <h3 className="h3 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-3">
                   Simplify your security with authentication services
                 </h3>
 
+                {/* Subtext */}
                 <p className="feature-subtext text-lg mb-8 dark:text-slate-400">
                   Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.
                 </p>
 
+                {/* Tabs — keep original sizing/spacing; only change colors via CSS below */}
                 <div className="mt-8 max-w-xs max-md:mx-auto space-y-2">
                   <button
                     aria-pressed={tab === 1}
@@ -105,20 +108,30 @@ export default function FeaturesLight() {
                 </div>
               </div>
 
-              {/* Right column with halo circles */}
+              {/* Right column — halo rebuilt with CSS + Particles (no external image) */}
               <div className="md:w-5/12 lg:w-1/2 relative flex items-center justify-center" data-aos="fade-up" data-aos-delay="100">
-                <div className="absolute inset-0 -z-10">
-                  <Particles className="absolute inset-0 -z-10" />
-                </div>
-                <div className="relative">
-                  <Image
-                    src={HaloIllustration}
-                    alt="Halo illustration"
-                    className="mx-auto"
-                    width={400}
-                    height={400}
-                    priority
-                  />
+                <div className="relative w-full max-w-md aspect-square">
+                  {/* Particles */}
+                  <Particles className="absolute inset-0 opacity-40 -z-10" />
+
+                  {/* Radial glow */}
+                  <div className="absolute inset-0 rounded-[2rem] -z-10
+                    bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.35)_0%,rgba(168,85,247,0.15)_35%,transparent_65%)]" />
+
+                  {/* Subtle grid */}
+                  <div className="absolute inset-0 -z-10 opacity-50
+                    [mask-image:radial-gradient(circle_at_center,black,transparent_70%)]
+                    bg-[linear-gradient(90deg,rgba(124,58,237,.35)_1px,transparent_1px),linear-gradient(0deg,rgba(124,58,237,.35)_1px,transparent_1px)]
+                    bg-[size:56px_56px]" />
+
+                  {/* Floating tile with icon (pure inline SVG) */}
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-28 h-28 rounded-2xl bg-white shadow-xl shadow-purple-400/30 flex items-center justify-center rotate-12">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 3L4 14h6l-1 7 9-11h-6l1-7z" fill="#0f172a"/>
+                      </svg>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -127,25 +140,29 @@ export default function FeaturesLight() {
         </div>
       </div>
 
+      {/* Light-theme overrides for tab colors/hover without changing layout */}
       <style jsx>{`
+        /* Scope to light theme only */
         :global(html.light) .feature-tab {
-          color: #475569 !important;
+          /* default (unselected) in light */
+          color: #475569 !important;          /* text-slate-600 */
           background: rgba(255,255,255,0.60) !important;
-          border-color: #e5e7eb !important;
+          border-color: #e5e7eb !important;   /* slate-200-ish */
         }
         :global(html.light) .feature-tab svg {
-          fill: currentColor !important;
+          fill: currentColor !important;       /* icon follows text color */
         }
         :global(html.light) .feature-tab:hover {
-          color: #0f172a !important;
-          border-color: #d1d5db !important;
+          color: #0f172a !important;           /* text-slate-900 on hover */
+          border-color: #d1d5db !important;    /* a hair darker on hover */
         }
+        /* Selected */
         :global(html.light) .feature-tab[aria-pressed="true"] {
-          color: #0f172a !important;
+          color: #0f172a !important;           /* black text when selected */
           background: rgba(255,255,255,0.85) !important;
-          border-color: #7c3aed !important;
-          box-shadow: 0 0 0 2px rgba(124,58,237,0.35) !important;
-          opacity: 1 !important;
+          border-color: #7c3aed !important;    /* purple border (selector) */
+          box-shadow: 0 0 0 2px rgba(124,58,237,0.35) !important; /* subtle glow */
+          opacity: 1 !important;               /* ignore the "opacity-50" from dark defaults */
         }
       `}</style>
     </section>
