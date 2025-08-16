@@ -3,7 +3,7 @@ export default function Features04() {
     <section className="relative">
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* Blurred shape */}
+        {/* Blurred shape (original) */}
         <div className="absolute top-0 -mt-24 left-0 -ml-16 blur-2xl opacity-70 pointer-events-none -z-10" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
             <defs>
@@ -18,19 +18,28 @@ export default function Features04() {
 
         <div className="pt-16 pb-12 md:pt-32 md:pb-20">
 
-          {/* Section header */}
+          {/* Section header (original) */}
           <div className="max-w-3xl pb-12 md:pb-20">
-            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Why trust us?</h2>
-            <p className="text-lg text-slate-400">Many desktop publishing packages and web page editors now use lorem ipsum as their default model text, and a search will uncover many web sites still in their infancy.</p>
+            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
+              Why trust us?
+            </h2>
+            <p className="text-lg text-slate-400">
+              Many desktop publishing packages and web page editors now use lorem ipsum as their default model text, and a search will
+              uncover many web sites still in their infancy.
+            </p>
           </div>
 
-          {/* Rows */}
+          {/* Rows with gradient section labels + items (original) */}
           <div className="divide-y divide-slate-800">
-            {/* Row */}
+            {/* Row 1 */}
             <div className="py-8 first-of-type:pt-0 last-of-type:pb-0">
               <div>
-                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">API Authorization</div>
+                {/* gradient label restored */}
+                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">
+                  API Authorization
+                </div>
               </div>
+
               <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-2">
                 {/* Feature */}
                 <div>
@@ -40,18 +49,25 @@ export default function Features04() {
                     </svg>
                     <h4 className="font-medium text-slate-50">Discussions</h4>
                   </div>
-                  <p className="text-sm text-slate-400">Login box must find the right balance for the user convenience, privacy and security.</p>
+                  <p className="text-sm text-slate-400">
+                    Login box must find the right balance for the user convenience, privacy and security.
+                  </p>
                 </div>
+
                 {/* Feature */}
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                      <path d="M15 9a3.841 3.841 0 0 0-2.661 1.545A2.524 2.524 0 0 0 10 9a1 1 0 1 0 0 2c.361 0 .57.279.89 1.284C10.243 13.08 9.441 14 9 14a1 1 0 0 0 0 2 3.841 3.841 0 0 0 2.661-1.545A2.524 2.524 0 0 0 14 16a1 1 0 0 0 0-2c-.361 0-.571-.279-.89-1.284C13.757 11.92 14.559 11 15 11a1 1 0 0 0 0-2Z" /><path d="M10 8a1 1 0 0 0 0-2H7.825c.432-2.421.983-4 2.175-4a1 1 0 0 1 1 1 1 1 0 0 0 2 0 3 3 0 0 0-3-3C7.193 0 6.313 2.9 5.793 6H3a1 1 0 1 0 0 2h2.49c-.506 3.52-1 6-2.49 6a1 1 0 0 1-1-1 1 1 0 0 0-2 0 3 3 0 0 0 3 3c3.367 0 3.964-4.175 4.49-7.858L7.51 8H10Z" />
+                      <path d="M15 9a3.841 3.841 0 0 0-2.661 1.545A2.524 2.524 0 0 0 10 9a1 1 0 1 0 0 2c.361 0 .57.279.89 1.284C10.243 13.08 9.441 14 9 14a1 1 0 0 0 0 2 3.841 3.841 0 0 0 2.661-1.545A2.524 2.524 0 0 0 14 16a1 1 0 0 0 0-2c-.361 0-.571-.279-.89-1.284C13.757 11.92 14.559 11 15 11a1 1 0 0 0 0-2Z" />
+                      <path d="M10 8a1 1 0 0 0 0-2H7.825c.432-2.421.983-4 2.175-4a1 1 0 0 1 1 1 1 1 0 0 0 2 0 3 3 0 0 0-3-3C7.193 0 6.313 2.9 5.793 6H3a1 1 0 1 0 0 2h2.49c-.506 3.52-1 6-2.49 6a1 1 0 0 1-1-1 1 1 0 0 0-2 0 3 3 0 0 0 3 3c3.367 0 3.964-4.175 4.49-7.858L7.51 8H10Z" />
                     </svg>
                     <h4 className="font-medium text-slate-50">Team views</h4>
                   </div>
-                  <p className="text-sm text-slate-400">Login box must find the right balance for the user convenience, privacy and security.</p>
+                  <p className="text-sm text-slate-400">
+                    Login box must find the right balance for the user convenience, privacy and security.
+                  </p>
                 </div>
+
                 {/* Feature */}
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
@@ -60,17 +76,22 @@ export default function Features04() {
                     </svg>
                     <h4 className="font-medium text-slate-50">Powerful search</h4>
                   </div>
-                  <p className="text-sm text-slate-400">Login box must find the right balance for the user convenience, privacy and security.</p>
+                  <p className="text-sm text-slate-400">
+                    Login box must find the right balance for the user convenience, privacy and security.
+                  </p>
                 </div>
               </div>
             </div>
-            {/* Row */}
+
+            {/* Row 2 */}
             <div className="py-8">
               <div>
-                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">User Management</div>
+                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">
+                  User Management
+                </div>
               </div>
+
               <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-2">
-                {/* Feature */}
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -80,7 +101,7 @@ export default function Features04() {
                   </div>
                   <p className="text-sm text-slate-400">Login box must find the right balance for the user convenience, privacy and security.</p>
                 </div>
-                {/* Feature */}
+
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -90,7 +111,7 @@ export default function Features04() {
                   </div>
                   <p className="text-sm text-slate-400">Login box must find the right balance for the user convenience, privacy and security.</p>
                 </div>
-                {/* Feature */}
+
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -102,13 +123,16 @@ export default function Features04() {
                 </div>
               </div>
             </div>
-            {/* Row */}
+
+            {/* Row 3 */}
             <div className="py-8">
               <div>
-                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">Standard Security</div>
+                <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-6">
+                  Standard Security
+                </div>
               </div>
+
               <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-2">
-                {/* Feature */}
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -118,7 +142,7 @@ export default function Features04() {
                   </div>
                   <p className="text-sm text-slate-400">Login box must find the right balance for the user convenience, privacy and security.</p>
                 </div>
-                {/* Feature */}
+
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
@@ -128,7 +152,7 @@ export default function Features04() {
                   </div>
                   <p className="text-sm text-slate-400">Login box must find the right balance for the user convenience, privacy and security.</p>
                 </div>
-                {/* Feature */}
+
                 <div>
                   <div className="flex items-center space-x-2 mb-1">
                     <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import Particles from './particles'
@@ -31,12 +30,20 @@ export default function Features() {
 
               {/* Content */}
               <div className="md:w-7/12 lg:w-1/2 order-1 md:order-none max-md:text-center" data-aos="fade-down">
-                {/* Content #1 */}
+                {/* Eyebrow — gradient in dark (original), lavender in light via .light .eyebrow-text */}
                 <div>
-                  <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">The security first platform</div>
+                  <div className="inline-flex font-medium pb-3 bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 eyebrow-text">
+                    The security first platform
+                  </div>
                 </div>
-                <h3 className="h3 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-3">Simplify your security with authentication services</h3>
-                <p className="text-lg text-slate-400 mb-8">Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.</p>
+
+                <h3 className="h3 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-3">
+                  Simplify your security with authentication services
+                </h3>
+                <p className="feature-subtext text-lg mb-8 dark:text-slate-400">
+                  Define access roles for the end-users, and extend your authorization capabilities to implement dynamic access control.
+                </p>
+
                 <div className="mt-8 max-w-xs max-md:mx-auto space-y-2">
                   <button className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${tab !== 1 ? 'border-slate-700 opacity-50' : 'border-purple-700 shadow-sm shadow-purple-500/25'}`} onClick={() => setTab(1)}>
                     <svg className="shrink-0 fill-slate-300 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
