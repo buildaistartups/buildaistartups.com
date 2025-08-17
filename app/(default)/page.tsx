@@ -10,7 +10,7 @@ import Features02 from '@/components/features-02'
 import Features03 from '@/components/features-03'
 import ThemeAwareTestimonials from '@/components/ThemeAwareTestimonials'
 import ThemeAwareFeatures04 from '@/components/ThemeAwareFeatures04'
-import ThemeAwarePricingSection from './ThemeAwarePricingSection'   // ⟵ theme-aware pricing
+import ThemeAwarePricingSection from './ThemeAwarePricingSection'   // ⟵ theme-aware pricing section
 import Testimonials from '@/components/testimonials'
 import Cta from '@/components/cta'
 
