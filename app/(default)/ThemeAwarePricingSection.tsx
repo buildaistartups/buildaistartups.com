@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react'
 const PricingDark = dynamic(() => import('./pricing-section'), { ssr: false })
 const PricingLight = dynamic(() => import('./pricing-section-light'), { ssr: false })
 
-export default function ThemeAwarePricing() {
+export default function ThemeAwarePricingSection() {
   const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
