@@ -31,6 +31,9 @@ export default function Home() {
       <ThemeAwareFeatures04 />
 
       {/* Pricing section (dark/light) */}
+      <ThemeAwarePricingSection />
+
+      {/* Pricing (dark/light) */}
       <ThemeAwarePricing />
 
       <Testimonials />
