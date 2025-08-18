@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
-import Pricing from '@/components/pricing' // keep as-is if you render table elsewhere
+import Pricing from '@/components/pricing' // keep as-is if you render the table here
 
 export default function PricingSection() {
   return (
@@ -19,24 +19,28 @@ export default function PricingSection() {
         <div className="py-12 md:py-20">
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            {/* Eyebrow (solid purple) */}
+            {/* Eyebrow (solid color) */}
             <div className="inline-flex font-medium pb-3" style={{ color: '#7500D6' }}>
               Pricing plans
             </div>
 
-            {/* Title — explicit text classes (no gradient clip) */}
-            <h2 className="pb-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
+            {/* Title — avoid global .h2 / h2 gradient by using an ARIA heading */}
+            <div
+              role="heading"
+              aria-level={2}
+              className="relative z-10 pb-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900"
+            >
               Flexible plans and features
-            </h2>
+            </div>
 
-            {/* Paragraph — readable neutral on white */}
-            <p className="text-lg md:text-xl text-slate-600">
+            {/* Paragraph — readable on light background */}
+            <p className="relative z-10 text-lg md:text-xl text-slate-600">
               All the lorem ipsum generators on the Internet tend to repeat predefined chunks as
               necessary, making this the first true generator on the Internet.
             </p>
           </div>
 
-          {/* Pricing table (leave as-is if dark/light is controlled elsewhere) */}
+          {/* Pricing table */}
           <Pricing />
         </div>
       </div>
