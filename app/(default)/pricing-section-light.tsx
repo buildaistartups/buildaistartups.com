@@ -19,28 +19,41 @@ export default function PricingSection() {
         <div className="py-12 md:py-20">
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            {/* Eyebrow (solid color) */}
-            <div className="inline-flex font-medium pb-3" style={{ color: '#7500D6' }}>
+            {/* Eyebrow (solid brand color) */}
+            <div
+              className="inline-flex font-medium pb-3"
+              style={{ color: '#7500D6' }}
+            >
               Pricing plans
             </div>
 
-            {/* Title — avoid global .h2 / h2 gradient by using an ARIA heading */}
+            {/* Title — force real text color to defeat any global gradient/text-transparent */}
             <div
               role="heading"
               aria-level={2}
-              className="relative z-10 pb-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900"
+              className="pb-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight"
+              style={{
+                color: '#0F172A',               // slate-900
+                WebkitTextFillColor: '#0F172A', // overrides text-transparent + bg-clip-text
+              }}
             >
               Flexible plans and features
             </div>
 
-            {/* Paragraph — readable on light background */}
-            <p className="relative z-10 text-lg md:text-xl text-slate-600">
+            {/* Paragraph — readable on light bg, same hard override to avoid gradients */}
+            <p
+              className="text-lg md:text-xl"
+              style={{
+                color: '#475569',               // slate-600
+                WebkitTextFillColor: '#475569', // overrides any transparent text
+              }}
+            >
               All the lorem ipsum generators on the Internet tend to repeat predefined chunks as
               necessary, making this the first true generator on the Internet.
             </p>
           </div>
 
-          {/* Pricing table */}
+          {/* Pricing table (unchanged) */}
           <Pricing />
         </div>
       </div>
