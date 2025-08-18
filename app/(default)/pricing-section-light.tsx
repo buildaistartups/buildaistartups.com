@@ -27,25 +27,25 @@ export default function PricingSection() {
               Pricing plans
             </div>
 
-            {/* Title — force real text color to defeat any global gradient/text-transparent */}
+            {/* Title — same dark gray as "Why trust us?" */}
             <div
               role="heading"
               aria-level={2}
               className="pb-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight"
               style={{
-                color: '#0F172A',               // slate-900
-                WebkitTextFillColor: '#0F172A', // overrides text-transparent + bg-clip-text
+                color: '#1E293B',               // slate-800
+                WebkitTextFillColor: '#1E293B',
               }}
             >
               Flexible plans and features
             </div>
 
-            {/* Paragraph — readable on light bg, same hard override to avoid gradients */}
+            {/* Paragraph — same medium gray as in the screenshot */}
             <p
               className="text-lg md:text-xl"
               style={{
-                color: '#475569',               // slate-600
-                WebkitTextFillColor: '#475569', // overrides any transparent text
+                color: '#64748B',               // slate-500
+                WebkitTextFillColor: '#64748B',
               }}
             >
               All the lorem ipsum generators on the Internet tend to repeat predefined chunks as
