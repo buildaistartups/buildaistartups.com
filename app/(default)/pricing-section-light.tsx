@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
-import Pricing from '@/components/pricing' // keep as-is if you render the table here
+import Pricing from '@/components/pricing' // keep as-is if you render table here
 
 export default function PricingSection() {
   return (
@@ -27,24 +27,22 @@ export default function PricingSection() {
               Pricing plans
             </div>
 
-            {/* Title — same dark gray as "Why trust us?" */}
-            <div
-              role="heading"
-              aria-level={2}
+            {/* Title — solid, no gradient classes */}
+            <h2
               className="pb-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight"
               style={{
-                color: '#1E293B',               // slate-800
+                color: '#1E293B',             // slate-800
                 WebkitTextFillColor: '#1E293B',
               }}
             >
               Flexible plans and features
-            </div>
+            </h2>
 
-            {/* Paragraph — same medium gray as in the screenshot */}
+            {/* Paragraph — medium gray */}
             <p
               className="text-lg md:text-xl"
               style={{
-                color: '#64748B',               // slate-500
+                color: '#64748B',             // slate-500
                 WebkitTextFillColor: '#64748B',
               }}
             >
