@@ -21,11 +21,11 @@ export default function PricingSection() {
               Pricing plans
             </div>
 
-            {/* Title – force solid grey, no gradient */}
+            {/* Title — smaller and solid (no gradient) */}
             <h2
-              className="pb-4 font-extrabold leading-tight tracking-tight text-4xl md:text-6xl xl:text-7xl"
+              className="pb-4 font-extrabold tracking-tight leading-tight text-3xl sm:text-4xl md:text-5xl"
               style={{
-                color: '#334155', // slate-700 (matches your “Why trust us?” heading tone)
+                color: '#334155',              // slate-700
                 background: 'none',
                 WebkitBackgroundClip: 'initial',
                 backgroundClip: 'initial',
@@ -36,12 +36,12 @@ export default function PricingSection() {
               Flexible plans and features
             </h2>
 
-            {/* Paragraph – readable grey */}
+            {/* Paragraph — readable grey */}
             <p
-              className="text-lg md:text-xl leading-relaxed mx-auto"
+              className="text-base sm:text-lg md:text-xl leading-relaxed mx-auto"
               style={{
-                color: '#64748B', // slate-500 (matches your reference paragraph tone)
-                maxWidth: '60ch',
+                color: '#64748B',              // slate-500
+                maxWidth: '65ch',
                 background: 'none',
                 WebkitBackgroundClip: 'initial',
                 backgroundClip: 'initial',
@@ -54,7 +54,7 @@ export default function PricingSection() {
             </p>
           </div>
 
-          {/* Pricing table (leave as-is if you render it here) */}
+          {/* Pricing table */}
           <Pricing />
         </div>
       </div>
