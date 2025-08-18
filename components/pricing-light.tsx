@@ -1,6 +1,8 @@
-// components/pricing-light.tsx
+'use client'
 
-// Tiny local check icon to avoid extra dependency
+import { useState } from 'react'
+
+// Local check icon (no extra deps)
 function CheckIcon({ className = '', size = 16 }: { className?: string; size?: number }) {
   return (
     <svg
@@ -22,45 +24,49 @@ function CheckIcon({ className = '', size = 16 }: { className?: string; size?: n
 }
 
 export default function PricingLight() {
+  const [annual, setAnnual] = useState(true)
+
   return (
-    <section className="relative">
-      {/* Radial gradient */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10" aria-hidden="true">
-        <div className="absolute flex items-center justify-center top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 w-1/3 aspect-square">
-          <div className="absolute inset-0 translate-z-0 bg-purple-500 rounded-full blur-[120px] opacity-50" />
-        </div>
-      </div>
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20">
-          {/* Header */}
-          <div className="max-w-4xl mx-auto text-center pb-12 md:pb-20">
-            <div className="pb-3 text-base md:text-lg font-medium" style={{ color: '#7500D6' }}>
-              Pricing plans
+    <div className="relative isolate">
+      {/* Table wrapper — gives the whole table a subtle light/gray background,
+          and prevents the section radial gradient from washing it out */}
+      <div className="rounded-3xl ring-1 ring-gray-200 bg-slate-50/95 shadow-sm overflow-hidden">
+        {/* 4-column grid: labels + 3 plans (same layout as dark) */}
+        <div className="grid md:grid-cols-4">
+          {/* ===== Column A: Labels / Toggle (unchanged structure, light colors) ===== */}
+          <div className="p-6 md:p-8 bg-slate-50">
+            {/* Toggle */}
+            <div className="pb-6 border-b border-gray-200">
+              <div className="flex items-center gap-3 text-sm text-slate-600">
+                <span>Monthly</span>
+                <label className="relative inline-flex cursor-pointer items-center">
+                  <input
+                    type="checkbox"
+                    className="peer sr-only"
+                    checked={annual}
+                    onChange={() => setAnnual(!annual)}
+                    aria-label="Pay yearly"
+                  />
+                  <span className="h-6 w-11 rounded-full bg-gray-300 transition-colors peer-checked:bg-purple-600 after:absolute after:left-0.5 after:top-0.5 after:h-5 after:w-5 after:rounded-full after:bg-white after:transition-transform peer-checked:after:translate-x-[1.25rem]" />
+                </label>
+                <span className="text-slate-600">
+                  Yearly <span className="text-teal-600">(-20%)</span>
+                </span>
+              </div>
             </div>
-            <h2 className="h2 !text-slate-700 !bg-none !bg-transparent !bg-clip-border">
-              Flexible plans and features
-            </h2>
-            <p className="text-lg md:text-xl leading-relaxed !text-slate-600">
-              All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary,
-              making this the first true generator on the Internet.
-            </p>
-          </div>
 
-          {/* Pricing table */}
-          <div className="grid md:grid-cols-4 gap-6 items-start lg:gap-8">
-            {/* Left column (features labels) */}
-            <div className="hidden md:block text-sm text-slate-600">
-              <div className="font-semibold mb-4">Usage</div>
-              <ul className="space-y-3 mb-8">
+            {/* Labels list */}
+            <div className="pt-6 text-sm text-slate-700">
+              <div className="font-semibold text-slate-800 mb-3">Usage</div>
+              <ul className="space-y-3 border-b border-gray-200 pb-6">
                 <li>Social Connections</li>
                 <li>Custom Domains</li>
                 <li>User Role Management</li>
                 <li>External Databases</li>
               </ul>
 
-              <div className="font-semibold mb-4">Features</div>
-              <ul className="space-y-3 mb-8">
+              <div className="font-semibold text-slate-800 mt-6 mb-3">Features</div>
+              <ul className="space-y-3 border-b border-gray-200 pb-6">
                 <li>Custom Connection</li>
                 <li>Advanced Deployment Options</li>
                 <li>Extra Add-ons</li>
@@ -69,83 +75,134 @@ export default function PricingLight() {
                 <li>Enterprise Add-ons</li>
               </ul>
 
-              <div className="font-semibold mb-4">Support</div>
+              <div className="font-semibold text-slate-800 mt-6 mb-3">Support</div>
               <ul className="space-y-3">
                 <li>Premium Support</li>
               </ul>
             </div>
+          </div>
 
-            {/* Pro */}
-            <div className="bg-slate-100 rounded-2xl shadow-lg p-6 flex flex-col">
-              <div className="text-center mb-6">
-                <div className="text-3xl font-bold">$24</div>
-                <div className="text-slate-600 text-sm">Everything at your fingertips.</div>
+          {/* ===== Column B: Pro plan ===== */}
+          <div className="p-6 md:p-8 bg-white/95 ring-0 md:ring-l-1 md:ring-gray-200">
+            {/* Header */}
+            <div className="pb-6 mb-6 border-b border-gray-200">
+              <div className="text-slate-900 font-medium mb-1">Pro</div>
+              <div className="flex items-end gap-1">
+                <span className="text-slate-500">$</span>
+                <span className="text-3xl font-bold text-slate-900">
+                  {annual ? '24' : '29'}
+                </span>
+                <span className="text-slate-500 text-sm">/mo</span>
               </div>
-              <button className="btn bg-purple-600 text-white hover:bg-purple-700 mb-6">Get Started →</button>
-              <ul className="text-sm text-slate-600 space-y-3">
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> 100
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> 4
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> Unlimited
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> 1
-                </li>
-              </ul>
+              <div className="text-slate-600 mt-1">Everything at your fingertips.</div>
             </div>
+            {/* CTA */}
+            <div className="pb-6 mb-6 border-b border-gray-200">
+              <a
+                href="#0"
+                className="btn-sm w-full inline-flex items-center justify-center rounded-lg bg-white text-slate-900 ring-1 ring-gray-300 hover:bg-slate-100 transition"
+              >
+                Get Started →
+              </a>
+            </div>
+            {/* Feature values */}
+            <ul className="text-sm text-slate-700">
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> 100
+              </li>
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> 4
+              </li>
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> Unlimited
+              </li>
+              <li className="flex items-center gap-2 py-2">
+                <CheckIcon className="text-purple-600" /> 1
+              </li>
+            </ul>
+          </div>
 
-            {/* Team (highlighted) */}
-            <div className="bg-slate-100 rounded-2xl shadow-lg p-6 flex flex-col border-2 border-purple-500">
-              <div className="text-center mb-6">
-                <div className="text-3xl font-bold">$49</div>
-                <div className="text-slate-600 text-sm">Everything at your fingertips.</div>
+          {/* ===== Column C: Team plan (purple highlight) ===== */}
+          <div className="relative p-6 md:p-8 bg-white/95 ring-2 ring-purple-500 rounded-none md:rounded-2xl md:shadow-sm md:m-3">
+            {/* Header */}
+            <div className="pb-6 mb-6 border-b border-gray-200">
+              <div className="text-slate-900 font-medium mb-1">Team</div>
+              <div className="flex items-end gap-1">
+                <span className="text-slate-500">$</span>
+                <span className="text-3xl font-bold text-slate-900">
+                  {annual ? '49' : '54'}
+                </span>
+                <span className="text-slate-500 text-sm">/mo</span>
               </div>
-              <button className="btn bg-purple-600 text-white hover:bg-purple-700 mb-6">Get Started →</button>
-              <ul className="text-sm text-slate-600 space-y-3">
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> 250
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> Unlimited
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> Unlimited
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> 5
-                </li>
-              </ul>
+              <div className="text-slate-600 mt-1">Everything at your fingertips.</div>
             </div>
+            {/* CTA */}
+            <div className="pb-6 mb-6 border-b border-gray-200">
+              <a
+                href="#0"
+                className="btn-sm w-full inline-flex items-center justify-center rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition"
+              >
+                Get Started →
+              </a>
+            </div>
+            {/* Feature values */}
+            <ul className="text-sm text-slate-700">
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> 250
+              </li>
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> Unlimited
+              </li>
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> Unlimited
+              </li>
+              <li className="flex items-center gap-2 py-2">
+                <CheckIcon className="text-purple-600" /> 5
+              </li>
+            </ul>
+          </div>
 
-            {/* Enterprise */}
-            <div className="bg-slate-100 rounded-2xl shadow-lg p-6 flex flex-col">
-              <div className="text-center mb-6">
-                <div className="text-3xl font-bold">$79</div>
-                <div className="text-slate-600 text-sm">Everything at your fingertips.</div>
+          {/* ===== Column D: Enterprise plan ===== */}
+          <div className="p-6 md:p-8 bg-white/95">
+            {/* Header */}
+            <div className="pb-6 mb-6 border-b border-gray-200">
+              <div className="text-slate-900 font-medium mb-1">Enterprise</div>
+              <div className="flex items-end gap-1">
+                <span className="text-slate-500">$</span>
+                <span className="text-3xl font-bold text-slate-900">
+                  {annual ? '79' : '85'}
+                </span>
+                <span className="text-slate-500 text-sm">/mo</span>
               </div>
-              <button className="btn bg-purple-600 text-white hover:bg-purple-700 mb-6">Get Started →</button>
-              <ul className="text-sm text-slate-600 space-y-3">
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> Unlimited
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> Unlimited
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> Unlimited
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckIcon className="text-purple-600" /> Unlimited
-                </li>
-              </ul>
+              <div className="text-slate-600 mt-1">Everything at your fingertips.</div>
             </div>
+            {/* CTA */}
+            <div className="pb-6 mb-6 border-b border-gray-200">
+              <a
+                href="#0"
+                className="btn-sm w-full inline-flex items-center justify-center rounded-lg bg-white text-slate-900 ring-1 ring-gray-300 hover:bg-slate-100 transition"
+              >
+                Get Started →
+              </a>
+            </div>
+            {/* Feature values */}
+            <ul className="text-sm text-slate-700">
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> Unlimited
+              </li>
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> Unlimited
+              </li>
+              <li className="flex items-center gap-2 py-2 border-b border-gray-200">
+                <CheckIcon className="text-purple-600" /> Unlimited
+              </li>
+              <li className="flex items-center gap-2 py-2">
+                <CheckIcon className="text-purple-600" /> Unlimited
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
