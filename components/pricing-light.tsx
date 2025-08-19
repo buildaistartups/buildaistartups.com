@@ -1,140 +1,509 @@
-import React, { useState } from "react";
-import { Check } from "lucide-react";
-import { Switch } from "@/components/ui/switch";
-import { Button } from "@/components/ui/button";
+'use client'
+
+import { useState } from 'react'
+
+/** Small inline check icon (no external deps) */
+function CheckIcon({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width="12"
+      height="9"
+      viewBox="0 0 12 9"
+      aria-hidden="true"
+    >
+      <path
+        d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z"
+        fill="currentColor"
+      />
+    </svg>
+  )
+}
 
 export default function PricingLight() {
-  const [yearly, setYearly] = useState(false);
-
-  const plans = [
-    {
-      name: "Pro",
-      price: 24,
-      features: {
-        usage: ["100", "4", "Unlimited", "1"],
-        features: [true, true, true, false, false, false],
-        support: [false],
-      },
-    },
-    {
-      name: "Team",
-      price: 49,
-      features: {
-        usage: ["250", "Unlimited", "Unlimited", "5"],
-        features: [true, true, true, true, false, false],
-        support: [true],
-      },
-    },
-    {
-      name: "Enterprise",
-      price: 79,
-      features: {
-        usage: ["Unlimited", "Unlimited", "Unlimited", "Unlimited"],
-        features: [true, true, true, true, true, true],
-        support: [true],
-      },
-    },
-  ];
-
-  const sections = [
-    {
-      name: "Usage",
-      items: [
-        "Social Connections",
-        "Custom Domains",
-        "User Role Management",
-        "External Databases",
-      ],
-    },
-    {
-      name: "Features",
-      items: [
-        "Custom Connection",
-        "Advanced Deployment Options",
-        "Extra Add-ons",
-        "Admin Roles",
-        "Deploy and Monitor",
-        "Enterprise Add-ons",
-      ],
-    },
-    {
-      name: "Support",
-      items: ["Premium Support"],
-    },
-  ];
+  const [annual, setAnnual] = useState<boolean>(true)
 
   return (
-    <div className="bg-gray-50 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="sm:align-center sm:flex sm:flex-col">
-          <Switch
-            checked={yearly}
-            onCheckedChange={setYearly}
-            className="mb-8"
-          />
-          <div className="grid grid-cols-4 gap-8">
-            <div className="space-y-10">
-              {sections.map((section) => (
-                <div key={section.name}>
-                  <p className="text-sm font-semibold text-black mb-4">{section.name}</p>
-                  <ul className="space-y-4">
-                    {section.items.map((item) => (
-                      <li key={item} className="text-sm text-gray-600">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+    <div className="relative">
+      {/* Blurred shape (kept subtle for light mode) */}
+      <div
+        className="max-md:hidden absolute bottom-0 -mb-20 left-2/3 -translate-x-1/2 blur-2xl opacity-50 pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
+          <defs>
+            <linearGradient id="bs5-a" x1="19.609%" x2="50%" y1="14.544%" y2="100%">
+              <stop offset="0%" stopColor="#A855F7" />
+              <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#bs5-a)" fillRule="evenodd" d="m661 736 461 369-284 58z" transform="matrix(1 0 0 -1 -661 1163)" />
+        </svg>
+      </div>
+
+      {/* Content grid – identical layout to dark version, but light tokens */}
+      <div
+        className={[
+          'grid md:grid-cols-4 xl:-mx-6 text-sm',
+          // spacing
+          '[&>div:nth-of-type(-n+4)]:py-6 [&>div:nth-last-of-type(-n+4)]:pb-6',
+          'max-md:[&>div:nth-last-of-type(-n+4)]:mb-8',
+          'max-md:[&>div:nth-of-type(-n+4):nth-of-type(n+1)]:rounded-t-3xl',
+          'max-md:[&>div:nth-last-of-type(-n+4)]:rounded-b-3xl',
+          // outer card corners
+          'md:[&>div:nth-of-type(2)]:rounded-tl-3xl md:[&>div:nth-of-type(4)]:rounded-tr-3xl',
+          'md:[&>div:nth-last-of-type(3)]:rounded-bl-3xl md:[&>div:nth-last-of-type(1)]:rounded-br-3xl',
+          // light backgrounds (grey instead of dark blue)
+          '[&>div]:bg-white [&>div]:shadow-sm [&>div]:ring-1 [&>div]:ring-slate-200',
+          // the first column (left labels) transparent in dark; in light we keep white, so remove special-case
+          'max-md:[&>div:nth-of-type(4n+5)]:hidden max-md:[&>div:nth-of-type(4n+2)]:order-1 max-md:[&>div:nth-of-type(4n+3)]:order-2 max-md:[&>div:nth-of-type(4n+4)]:order-3 max-md:md:[&>div:nth-of-type(n)]:mb-0',
+          // highlighted middle column outline (Team)
+          '[&>div:nth-of-type(4n+3)]:relative',
+          '[&>div:nth-of-type(4n+3)]:before:absolute',
+          '[&>div:nth-of-type(4n+3)]:before:-inset-px',
+          '[&>div:nth-of-type(4n+3)]:before:rounded-[inherit]',
+          '[&>div:nth-of-type(4n+3)]:before:border-x-2',
+          '[&>div:nth-of-type(3)]:before:border-t-2',
+          '[&>div:nth-last-of-type(2)]:before:border-b-2',
+          '[&>div:nth-of-type(4n+3)]:before:border-purple-500',
+          '[&>div:nth-of-type(4n+3)]:before:-z-10',
+          '[&>div:nth-of-type(4n+3)]:before:pointer-events-none',
+        ].join(' ')}
+      >
+        {/* Pricing toggle */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="pb-5 md:border-b border-slate-200">
+            {/* Toggle switch */}
+            <div className="max-md:text-center">
+              <div className="inline-flex items-center whitespace-nowrap">
+                <div className="text-sm text-slate-600 font-medium mr-2 md:max-lg:hidden">Monthly</div>
+                <div className="relative">
+                  <input
+                    type="checkbox"
+                    id="toggle"
+                    className="peer sr-only"
+                    checked={annual}
+                    onChange={() => setAnnual(!annual)}
+                  />
+                  {/* light switch */}
+                  <label
+                    htmlFor="toggle"
+                    className="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-slate-300 px-0.5 outline-slate-300 transition-colors before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-xs before:transition-transform before:duration-150 peer-checked:bg-purple-500 peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-slate-400 peer-focus-visible:peer-checked:outline-purple-500"
+                  >
+                    <span className="sr-only">Pay Yearly</span>
+                  </label>
                 </div>
-              ))}
-            </div>
-
-            {plans.map((plan) => (
-              <div
-                key={plan.name}
-                className="rounded-2xl bg-white shadow-lg p-8 ring-1 ring-gray-200"
-              >
-                <h3 className="text-lg font-semibold text-purple-600">{plan.name}</h3>
-                <p className="mt-4 flex items-baseline">
-                  <span className="text-4xl font-bold tracking-tight text-black">
-                    ${yearly ? plan.price * 12 * 0.8 : plan.price}
-                  </span>
-                  <span className="text-lg font-medium text-black">/mo</span>
-                </p>
-                <p className="mt-6 text-sm text-gray-600">
-                  Everything at your fingertips.
-                </p>
-                <Button className="mt-8 w-full bg-purple-500 text-white hover:bg-purple-600">
-                  {plan.name === "Team" ? "Get Started" : "→"}
-                </Button>
-
-                <div className="mt-10 space-y-8">
-                  {sections.map((section) => (
-                    <div key={section.name}>
-                      <ul className="space-y-4">
-                        {section.items.map((item, i) => (
-                          <li key={item} className="flex items-center">
-                            {plan.features[section.name.toLowerCase()][i] ? (
-                              <Check className="h-5 w-5 flex-none text-purple-500" />
-                            ) : (
-                              <span className="h-5 w-5 flex-none" />
-                            )}
-                            <span className="ml-3 text-sm text-gray-900">
-                              {typeof plan.features[section.name.toLowerCase()][i] ===
-                              "string"
-                                ? plan.features[section.name.toLowerCase()][i]
-                                : ""}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                <div className="text-sm text-slate-600 font-medium ml-2">
+                  Yearly <span className="text-teal-600">(-20%)</span>
                 </div>
               </div>
-            ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Pro price */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="grow pb-4 mb-4 border-b border-slate-200">
+            <div className="text-base font-medium text-purple-600 pb-0.5">Pro</div>
+            <div className="mb-1">
+              <span className="text-lg font-medium text-slate-900">$</span>
+              <span className="text-3xl font-bold text-slate-900">{annual ? '24' : '29'}</span>
+              <span className="text-sm text-slate-900 font-medium">/mo</span>
+            </div>
+            <div className="text-slate-600">Everything at your fingertips.</div>
+          </div>
+          <div className="pb-4 border-b border-slate-200">
+            <a
+              className="btn-sm text-slate-900 bg-linear-to-r from-white/90 via-white to-white/90 hover:bg-white w-full transition duration-150 ease-in-out group ring-1 ring-slate-200"
+              href="#0"
+            >
+              Get Started{' '}
+              <span className="tracking-normal text-purple-600 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                -&gt;
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* Team price */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="grow pb-4 mb-4 border-b border-slate-200">
+            <div className="text-base font-medium text-purple-600 pb-0.5">Team</div>
+            <div className="mb-1">
+              <span className="text-lg font-medium text-slate-900">$</span>
+              <span className="text-3xl font-bold text-slate-900">{annual ? '49' : '54'}</span>
+              <span className="text-sm text-slate-900 font-medium">/mo</span>
+            </div>
+            <div className="text-slate-600">Everything at your fingertips.</div>
+          </div>
+          <div className="pb-4 border-b border-slate-200">
+            <a
+              className="btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full transition duration-150 ease-in-out group"
+              href="#0"
+            >
+              Get Started{' '}
+              <span className="tracking-normal text-purple-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                -&gt;
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* Enterprise price */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="grow pb-4 mb-4 border-b border-slate-200">
+            <div className="text-base font-medium text-purple-600 pb-0.5">Enterprise</div>
+            <div className="mb-1">
+              <span className="text-lg font-medium text-slate-900">$</span>
+              <span className="text-3xl font-bold text-slate-900">{annual ? '79' : '85'}</span>
+              <span className="text-sm text-slate-900 font-medium">/mo</span>
+            </div>
+            <div className="text-slate-600">Everything at your fingertips.</div>
+          </div>
+          <div className="pb-4 border-b border-slate-200">
+            <a
+              className="btn-sm text-slate-900 bg-linear-to-r from-white/90 via-white to-white/90 hover:bg-white w-full transition duration-150 ease-in-out group ring-1 ring-slate-200"
+              href="#0"
+            >
+              Get Started{' '}
+              <span className="tracking-normal text-purple-600 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                -&gt;
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* # Usage (left labels column) */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4">Usage</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Usage</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Usage</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Usage</div>
+        </div>
+
+        {/* Social Connections */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Social Connections</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              100 <span className="md:hidden">Social Connections</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              250 <span className="md:hidden">Social Connections</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              Unlimited <span className="md:hidden">Social Connections</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Custom Domains */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Custom Domains</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              4 <span className="md:hidden">Custom Domains</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              Unlimited <span className="md:hidden">Custom Domains</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              Unlimited <span className="md:hidden">Custom Domains</span>
+            </span>
+          </div>
+        </div>
+
+        {/* User Role Management */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">User Role Management</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              Unlimited <span className="md:hidden">User Role Management</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              Unlimited <span className="md:hidden">User Role Management</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              Unlimited <span className="md:hidden">User Role Management</span>
+            </span>
+          </div>
+        </div>
+
+        {/* External Databases */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">External Databases</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              1 <span className="md:hidden">External Databases</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              5 <span className="md:hidden">External Databases</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              Unlimited <span className="md:hidden">External Databases</span>
+            </span>
+          </div>
+        </div>
+
+        {/* # Features */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4">Features</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Features</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Features</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Features</div>
+        </div>
+
+        {/* Custom Connection */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Custom Connection</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Custom Connection</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Custom Connection</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Advanced Deployment Options */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Advanced Deployment Options</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Advanced Deployment Options</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Advanced Deployment Options</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Extra Add-ons */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Extra Add-ons</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Extra Add-ons</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Extra Add-ons</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Admin Roles */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Admin Roles</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center border-b border-slate-200 py-2 text-slate-700 max-md:hidden">
+            <span>
+              <span className="md:hidden">Admin Roles</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center border-b border-slate-200 py-2 text-slate-700 max-md:hidden">
+            <span>
+              <span className="md:hidden">Admin Roles</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Admin Roles</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Deploy and Monitor */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Deploy and Monitor</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center border-b border-slate-200 py-2 text-slate-700 max-md:hidden">
+            <span>
+              <span className="md:hidden">Deploy and Monitor</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center border-b border-slate-200 py-2 text-slate-700 max-md:hidden">
+            <span>
+              <span className="md:hidden">Deploy and Monitor</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Deploy and Monitor</span>
+            </span>
+          </div>
+        </div>
+
+        {/* Enterprise Add-ons */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Enterprise Add-ons</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center border-b border-slate-200 py-2 text-slate-700 max-md:hidden">
+            <span>
+              <span className="md:hidden">Enterprise Add-ons</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center border-b border-slate-200 py-2 text-slate-700 max-md:hidden">
+            <span>
+              <span className="md:hidden">Enterprise Add-ons</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Enterprise Add-ons</span>
+            </span>
+          </div>
+        </div>
+
+        {/* # Support */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4">Support</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 hidden">Support</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Support</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-black font-semibold mt-4 md:hidden">Support</div>
+        </div>
+
+        {/* Premium Support */}
+        <div className="px-6 flex flex-col justify-end">
+          <div className="py-2 text-slate-700 border-b border-slate-200">Premium Support</div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center border-b border-slate-200 py-2 text-slate-700 max-md:hidden">
+            <span>
+              <span className="md:hidden">Premium Support</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Premium Support</span>
+            </span>
+          </div>
+        </div>
+        <div className="px-6 flex flex-col justify-end">
+          <div className="flex items-center h-full border-b border-slate-200 py-2 text-slate-700">
+            <CheckIcon className="shrink-0 text-purple-600 mr-3" />
+            <span>
+              <span className="md:hidden">Premium Support</span>
+            </span>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
