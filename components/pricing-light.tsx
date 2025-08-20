@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+// app/(default)/pricing-section-light.tsx
+import Pricing from '@/components/pricing-light' // <- use the light table
 
 export default function Pricing() {
   const [annual, setAnnual] = useState<boolean>(true)
