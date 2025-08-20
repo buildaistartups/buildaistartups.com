@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
 import Pricing from '@/components/pricing' // keep as-is if you render table elsewhere
+import Pricing from '@/components/pricing-light' // <- use the light table
 
 export default function PricingSection() {
   return (
