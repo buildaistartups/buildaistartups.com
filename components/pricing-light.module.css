@@ -52,7 +52,7 @@
   right: 0;
   bottom: 0;
   border: 2px solid #8b5cf6;
-  border-radius: 12px;
+  border-radius: 0; /* Remove rounded corners */
   pointer-events: none;
   z-index: 1;
 }
@@ -60,8 +60,8 @@
 /* Remove individual borders and use single outline for featured column */
 .gridRow:first-child .planCell.featured::before {
   border-top: 2px solid #8b5cf6;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-top-left-radius: 0; /* Straight corners */
+  border-top-right-radius: 0; /* Straight corners */
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -69,8 +69,8 @@
 
 .gridRow:last-child .planCell.featured::before {
   border-bottom: 2px solid #8b5cf6;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 0; /* Straight corners */
+  border-bottom-right-radius: 0; /* Straight corners */
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
