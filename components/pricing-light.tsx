@@ -7,6 +7,7 @@ type Plan = {
   name: string
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
+  // Usage rows (counts): [Social Connections, Custom Domains, User Role Management, External Databases]
   features: string[]
   featured?: boolean
 }
@@ -33,6 +34,8 @@ export default function PricingLight() {
         <aside className={styles.labelsCol}>
           <div className={styles.toggleLine} style={{ marginBottom: 14 }}>
             <span>Monthly</span>
+
+            {/* Toggle */}
             <span
               role="switch"
               aria-checked={annual}
@@ -43,6 +46,9 @@ export default function PricingLight() {
                 position: 'relative', display: 'inline-block', cursor: 'pointer',
                 boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.08)',
               }}
+              aria-label="Toggle annual billing"
+              tabIndex={0}
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setAnnual((s) => !s)}
             >
               <span
                 style={{
@@ -52,6 +58,7 @@ export default function PricingLight() {
                 }}
               />
             </span>
+
             <span>Yearly</span>
             <span className={styles.discount}>(-20%)</span>
           </div>
@@ -88,10 +95,17 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
       ? `${styles.btn} ${styles.btnPrimary}`
       : `${styles.btn} ${styles.btnNeutral}`
 
+  // Row counts pulled from LABEL_GROUPS to keep layout in sync
+  const usageCount   = LABEL_GROUPS[0].rows.length // 4
+  const featuresCount = LABEL_GROUPS[1].rows.length // 4
+  const supportCount  = LABEL_GROUPS[2].rows.length // 1
+
   return (
     <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
+      {/* Plan name (forced purple in CSS) */}
       <div className={styles.h3}>{plan.name}</div>
 
+      {/* Price line */}
       <div className={styles.priceRow}>
         <span className={styles.curr}>$</span>
         <span className={styles.value}>{price}</span>
@@ -99,24 +113,47 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
       </div>
 
       <p className={styles.blurb}>Everything at your fingertips.</p>
-      <button className={btnClass} type="button">Get Started →</button>
-      <hr className={styles.hr} />
 
-      {renderRow('' + plan.features[0])}
-      {renderRow('' + plan.features[1])}
-      {renderRow('' + plan.features[2])}
-      {renderRow('' + plan.features[3])}
+      <button className={btnClass} type="button">
+        Get Started →
+      </button>
+
+      {/* Group: Usage (numbers) */}
+      <hr className={styles.hr} />
+      {Array.from({ length: usageCount }).map((_, i) =>
+        renderRowValue(plan.features[i] ?? '')
+      )}
+
+      {/* Group: Features (checks only) */}
+      <hr className={styles.hr} />
+      {Array.from({ length: featuresCount }).map((_, i) => renderRowCheck(i))}
+
+      {/* Group: Support (checks only) */}
+      <hr className={styles.hr} />
+      {Array.from({ length: supportCount }).map((_, i) => renderRowCheck(i))}
     </section>
   )
 }
 
-function renderRow(content: string) {
+function renderRowValue(content: string) {
   return (
     <div className={styles.row}>
       <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
         <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
       </svg>
       <span>{content}</span>
+    </div>
+  )
+}
+
+function renderRowCheck(key?: number) {
+  return (
+    <div className={styles.row} key={key}>
+      <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+        <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+      </svg>
+      {/* empty span keeps consistent height/alignment */}
+      <span style={{ visibility: 'hidden' }}>.</span>
     </div>
   )
 }
