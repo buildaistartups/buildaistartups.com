@@ -14,7 +14,7 @@
 .gridRow {
   display: grid;
   grid-template-columns: 300px 1fr 1fr 1fr;
-  gap: 0 2px; /* Add 2px horizontal gap between columns, 0 vertical gap */
+  gap: 0; /* Remove grid gap */
   margin-bottom: 0;
 }
 
@@ -23,6 +23,7 @@
   padding: 12px 20px;
   display: flex;
   align-items: center;
+  margin-right: 2px; /* Add margin to create spacing */
 }
 
 .planCell {
@@ -30,11 +31,17 @@
   border-left: none;
   border-right: none;
   border-top: none;
-  border-bottom: none; /* Remove all default borders */
+  border-bottom: none;
   padding: 12px 20px;
   display: flex;
   align-items: center;
   position: relative;
+  margin-right: 2px; /* Add margin to create spacing */
+}
+
+/* Remove margin from last column */
+.planCell:last-child {
+  margin-right: 0;
 }
 
 /* Add border under toggle row - only for label cell */
@@ -133,7 +140,7 @@
 
 .planCell.featured {
   background: #ffffff;
-  border-bottom: none; /* Remove default border */
+  border-bottom: none;
   position: relative;
 }
 
@@ -365,5 +372,10 @@
     border: 1px solid #e5e7eb;
     border-radius: 8px;
     margin-bottom: 5px;
+    margin-right: 0;
+  }
+  
+  .planCell {
+    margin-right: 0;
   }
 }
