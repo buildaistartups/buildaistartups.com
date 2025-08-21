@@ -37,10 +37,36 @@
   position: relative;
 }
 
+/* Remove border under button row */
+.gridRow:nth-child(2) .planCell {
+  border-bottom: none;
+}
+
+/* Add border under toggle row */
+.gridRow:nth-child(2) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Remove border under Usage section title */
+.gridRow:nth-child(3) .planCell,
+.gridRow:nth-child(3) .labelCell {
+  border-bottom: none;
+}
+
 .planCell.featured {
   background: #ffffff;
-  border-bottom: 1px solid #e5e7eb; /* Keep gray horizontal borders */
+  border-bottom: 1px solid #e5e7eb;
   position: relative;
+}
+
+/* Remove border under button row for featured column too */
+.gridRow:nth-child(2) .planCell.featured {
+  border-bottom: none;
+}
+
+/* Remove border under Usage section for featured column */
+.gridRow:nth-child(3) .planCell.featured {
+  border-bottom: none;
 }
 
 /* Create purple outline using pseudo-elements */
@@ -52,7 +78,7 @@
   right: 0;
   bottom: 0;
   border: 2px solid #8b5cf6;
-  border-radius: 0; /* Remove rounded corners */
+  border-radius: 0;
   pointer-events: none;
   z-index: 1;
 }
@@ -60,8 +86,8 @@
 /* Remove individual borders and use single outline for featured column */
 .gridRow:first-child .planCell.featured::before {
   border-top: 2px solid #8b5cf6;
-  border-top-left-radius: 0; /* Straight corners */
-  border-top-right-radius: 0; /* Straight corners */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -69,8 +95,8 @@
 
 .gridRow:last-child .planCell.featured::before {
   border-bottom: 2px solid #8b5cf6;
-  border-bottom-left-radius: 0; /* Straight corners */
-  border-bottom-right-radius: 0; /* Straight corners */
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
