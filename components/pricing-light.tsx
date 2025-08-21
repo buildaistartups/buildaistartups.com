@@ -3,142 +3,154 @@
 import { useState } from 'react'
 import styles from './pricing-light.module.css'
 
-export default function Pricing() {
+type Plan = {
+  name: string
+  price: { monthly: number; yearly: number }
+  ctaStyle: 'primary' | 'neutral'
+  features: string[]
+  featured?: boolean
+}
+
+const PLANS: Plan[] = [
+  {
+    name: 'Pro',
+    price: { monthly: 29, yearly: 24 },
+    ctaStyle: 'neutral',
+    features: ['100', '4', 'Unlimited', '1'],
+  },
+  {
+    name: 'Team',
+    price: { monthly: 54, yearly: 49 },
+    ctaStyle: 'primary',
+    features: ['250', 'Unlimited', 'Unlimited', '5'],
+    featured: true,
+  },
+  {
+    name: 'Enterprise',
+    price: { monthly: 85, yearly: 79 },
+    ctaStyle: 'neutral',
+    features: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'],
+  },
+]
+
+// left-hand labels
+const LABEL_GROUPS = [
+  {
+    title: 'Usage',
+    rows: ['Social Connections', 'Custom Domains', 'User Role Management', 'External Databases'],
+  },
+  {
+    title: 'Features',
+    rows: ['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons', 'Admin Roles'],
+  },
+  {
+    title: 'Support',
+    rows: ['Premium Support'],
+  },
+]
+
+export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
   return (
-    <div className={`${styles.pricingRoot}`}>
-      {/* 4-column layout: labels + 3 plan cards */}
-      <div className="grid md:grid-cols-4 gap-6">
-        {/* ===== Left labels column ===== */}
-        <div className={`${styles.leftCol} ${styles.cardShadow} p-6`}>
-          {/* Toggle */}
-          <div className={`pb-5 ${styles.borderBottom}`}>
-            <div className="flex items-center gap-3">
-              <span className={`${styles.primaryText} text-sm`}>Monthly</span>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  className="sr-only peer"
-                  checked={annual}
-                  onChange={() => setAnnual(v => !v)}
-                />
-                <div className="w-11 h-6 bg-slate-300 rounded-full peer peer-checked:bg-purple-500 transition-colors" />
-                <span
-                  className="absolute left-[2px] top-[2px] h-5 w-5 bg-white rounded-full shadow transition-transform peer-checked:translate-x-5"
-                  aria-hidden
-                />
-              </label>
-              <span className={`${styles.primaryText} text-sm`}>
-                Yearly <span className="text-purple-600">(20%)</span>
-              </span>
+    <div className={styles.forceText}>
+      <div className={styles.wrap}>
+        {/* Labels column */}
+        <aside className={styles.labelsCol}>
+          <div className={styles.toggleLine} style={{ marginBottom: 14 }}>
+            <span>Monthly</span>
+            {/* simple faux switch just for layout parity */}
+            <span
+              role="switch"
+              aria-checked={annual}
+              onClick={() => setAnnual((s) => !s)}
+              style={{
+                width: 42,
+                height: 22,
+                borderRadius: 9999,
+                background: annual ? '#8b5cf6' : '#e5e7eb',
+                position: 'relative',
+                display: 'inline-block',
+                cursor: 'pointer',
+                boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.08)',
+              }}
+            >
+              <span
+                style={{
+                  position: 'absolute',
+                  top: 2,
+                  left: annual ? 22 : 2,
+                  width: 18,
+                  height: 18,
+                  borderRadius: '9999px',
+                  background: '#fff',
+                  transition: 'left .15s ease',
+                }}
+              />
+            </span>
+            <span>Yearly</span>
+            <span className={styles.discount}>(-20%)</span>
+          </div>
+
+          {LABEL_GROUPS.map((group, gi) => (
+            <div key={gi} style={{ marginTop: gi === 0 ? 8 : 18 }}>
+              <div className={styles.h3}>{group.title}</div>
+              <hr className={styles.hr} />
+              {group.rows.map((r, i) => (
+                <div key={i} className={styles.row}>
+                  <span>{r}</span>
+                </div>
+              ))}
             </div>
-          </div>
+          ))}
+        </aside>
 
-          {/* Sections */}
-          <div className="mt-6 space-y-8">
-            <Section title="Usage" rows={[
-              'Social Connections',
-              'Custom Domains',
-              'User Role Management',
-              'External Databases',
-            ]} />
-            <Section title="Features" rows={[
-              'Custom Connection',
-              'Advanced Deployment Options',
-              'Extra Add-ons',
-              'Admin Roles',
-              'Deploy and Monitor',
-              'Enterprise Add-ons',
-            ]} />
-            <Section title="Support" rows={['Premium Support']} />
-          </div>
-        </div>
-
-        {/* ===== Plan cards ===== */}
-        <PlanCard
-          name="Pro"
-          price={annual ? '24' : '29'}
-          outline={false}
-          buttonClass={styles.ctaGrey}
-          rows={['100', '4', 'Unlimited', '1']}
-        />
-
-        <PlanCard
-          name="Team"
-          price={annual ? '49' : '54'}
-          outline={true}
-          buttonClass={styles.ctaPurple}
-          rows={['250', 'Unlimited', 'Unlimited', '5']}
-        />
-
-        <PlanCard
-          name="Enterprise"
-          price={annual ? '79' : '85'}
-          outline={false}
-          buttonClass={styles.ctaGrey}
-          rows={['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited']}
-        />
+        {/* Plan cards */}
+        {PLANS.map((plan) => (
+          <PlanCard key={plan.name} plan={plan} annual={annual} />
+        ))}
       </div>
     </div>
   )
 }
 
-/* ---------- helpers ---------- */
+function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
+  const price = annual ? plan.price.yearly : plan.price.monthly
+  const btnClass =
+    plan.ctaStyle === 'primary'
+      ? `${styles.btn} ${styles.btnPrimary}`
+      : `${styles.btn} ${styles.btnNeutral}`
 
-function Section({ title, rows }: { title: string; rows: string[] }) {
   return (
-    <div>
-      <div className="font-semibold text-base text-slate-900">{title}</div>
-      <ul className="mt-3">
-        {rows.map((t) => (
-          <li key={t} className={`py-3 ${styles.borderBottom} ${styles.primaryText}`}>
-            {t}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
+      <div className={styles.h3}>{plan.name}</div>
+
+      <div className={styles.priceRow}>
+        <span className={styles.curr}>$</span>
+        <span className={styles.value}>{price}</span>
+        <span className={styles.per}>/mo</span>
+      </div>
+
+      <p className={styles.blurb}>Everything at your fingertips.</p>
+      <button className={btnClass} type="button">Get Started →</button>
+      <hr className={styles.hr} />
+
+      {/* features list for this plan */}
+      {renderFeatureRow(plan, 0, plan.features[0])}
+      {renderFeatureRow(plan, 1, plan.features[1])}
+      {renderFeatureRow(plan, 2, plan.features[2])}
+      {renderFeatureRow(plan, 3, plan.features[3])}
+    </section>
   )
 }
 
-function PlanCard({
-  name, price, outline, buttonClass, rows,
-}: {
-  name: string; price: string; outline: boolean; buttonClass: string; rows: string[];
-}) {
+function renderFeatureRow(plan: Plan, key: number, content?: string) {
   return (
-    <div className={[
-      styles.card,
-      styles.cardShadow,
-      outline ? styles.outlinePurple : '',
-      'p-6',
-    ].join(' ')}>
-      <div className="text-lg font-semibold text-slate-900">{name}</div>
-
-      <div className="mt-2">
-        <span className={`text-lg ${styles.secondaryText}`}>$</span>
-        <span className="text-4xl font-extrabold text-slate-900">{price}</span>
-        <span className={`text-sm ml-1 ${styles.secondaryText}`}>/mo</span>
-      </div>
-
-      <div className={`mt-3 ${styles.secondaryText}`}>Everything at your fingertips.</div>
-
-      <div className={`mt-4 pb-4 ${styles.borderBottom}`}>
-        <button type="button" className={`w-full rounded-md px-4 py-3 text-center font-medium transition ${buttonClass}`}>
-          Get Started →
-        </button>
-      </div>
-
-      <ul className="mt-4">
-        {rows.map((v, i) => (
-          <li key={i} className={`flex items-center gap-3 py-3 ${styles.borderBottom}`}>
-            <svg className={styles.checkIcon} width="12" height="9" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-            </svg>
-            <span className="text-slate-900">{v}</span>
-          </li>
-        ))}
-      </ul>
+    <div key={key} className={styles.row}>
+      <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+        <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+      </svg>
+      <span>{content ?? ''}</span>
     </div>
   )
 }
