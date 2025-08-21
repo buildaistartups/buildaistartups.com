@@ -130,7 +130,7 @@ function PlanCard({
 }: { 
   plan: Plan; 
   annual: boolean; 
-  headerRef?: React.RefObject<HTMLDivElement>;
+  headerRef?: React.RefObject<HTMLDivElement | null>;
 }) {
   const price = annual ? plan.price.yearly : plan.price.monthly
 
