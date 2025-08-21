@@ -27,7 +27,7 @@
 }
 
 .toggleContainer {
-  margin-bottom: 30px;
+  margin-bottom: 10px; /* Reduced from 30px to move toggle up */
 }
 
 .toggleLine {
@@ -63,14 +63,14 @@
 }
 
 .labelGroup {
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Reduced from 30px to tighten spacing */
 }
 
 .groupTitle {
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduced from 20px */
 }
 
 .labelRow {
@@ -142,7 +142,7 @@
 
 .buttonContainer {
   padding: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 10px; /* Reduced from 30px to move content up */
 }
 
 .btn {
@@ -182,7 +182,7 @@
 }
 
 .sectionSpacer {
-  height: 20px; /* Space to align with group titles */
+  height: 10px; /* Reduced from 20px to move content up */
 }
 
 .featureRow {
