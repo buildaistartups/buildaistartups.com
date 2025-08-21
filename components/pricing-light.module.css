@@ -1,29 +1,59 @@
-/* pricing-light.module.css */
+/* Light theme styles for the pricing table */
+
 .primaryText {
-  color: #f8fafc !important;
-  font-weight: 500 !important;
+  color: #0f172a !important; /* slate-900 */
 }
 
 .secondaryText {
-  color: #94a3b8 !important;
-  font-size: 14px !important;
+  color: #475569 !important; /* slate-600 */
 }
 
-.purpleText {
-  color: #a855f7 !important;
-  font-weight: 600 !important;
+.leftCol {
+  background: #f8fafc !important; /* slate-50-ish */
+  border-radius: 16px;
+}
+
+.card {
+  background: #ffffff !important;
+  border-radius: 16px;
+}
+
+.cardShadow {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.02);
+}
+
+.outlinePurple {
+  border: 2px solid #8b5cf6 !important; /* purple-500 */
 }
 
 .customBorder {
-  border-color: #1e293b !important;
+  border-color: #e5e7eb !important; /* gray-200 */
   border-width: 1px !important;
   border-style: solid !important;
 }
 
 .borderBottom {
-  border-bottom: 1px solid #1e293b !important;
+  border-bottom: 1px solid #e5e7eb !important; /* row divider */
+}
+
+.ctaGrey {
+  background: #e5e7eb !important; /* gray-200 */
+  color: #0f172a !important;
+}
+
+.ctaGrey:hover {
+  background: #d1d5db !important; /* gray-300 */
+}
+
+.ctaPurple {
+  background: #8b5cf6 !important;
+  color: #ffffff !important;
+}
+
+.ctaPurple:hover {
+  background: #7c3aed !important;
 }
 
 .checkIcon {
-  fill: #a855f7 !important;
+  fill: #8b5cf6 !important;
 }
