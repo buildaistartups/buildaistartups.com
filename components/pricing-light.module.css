@@ -5,7 +5,7 @@
   --surface: #ffffff;            /* card surface */
   --surface-muted: #f5f7fb;      /* left label column surface */
   --text: #0f172a;               /* primary text (near black) */
-  --text-subtle: #334155;        /* not used here, reserved */
+  --text-subtle: #334155;        /* reserved */
   --row: #e5e7eb;                /* row/border dividers */
   --btn-neutral: #e5e7eb;        /* gray button bg */
   --btn-neutral-hover: #e2e8f0;
@@ -20,13 +20,14 @@
 /* tighter gap + slightly slimmer labels column so cards sit closer */
 .wrap {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr 1.1fr 1.1fr;
-  gap: 16px; /* was 24px */
+  grid-template-columns: 0.84fr 1fr 1fr 1fr; /* labels a bit slimmer; three equal cards */
+  gap: 10px; /* tighter spacing so columns appear close together */
 }
 
 @media (max-width: 1023px) {
   .wrap {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 }
 
@@ -35,7 +36,7 @@
   background: var(--surface-muted);
   border: 1px solid var(--row);
   border-radius: var(--radius);
-  padding: 20px 18px;
+  padding: 18px 16px;
   color: var(--text);
 }
 
@@ -44,14 +45,13 @@
   border: 1px solid var(--row);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 20px;
   color: var(--text);
   position: relative;
 
-  /* prevent bottom rows/checks from getting clipped */
-  padding-bottom: 28px;          /* extra breathing room */
-  overflow: visible;
+  /* roomy interior + make sure nothing clips at the bottom */
+  padding: 20px 18px 40px; /* bottom padding increased so bottom rows/checks always show */
   min-height: 100%;
+  overflow: visible;
 }
 
 .featured {
@@ -64,7 +64,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--purple) !important; /* force purple headings */
+  color: var(--purple) !important; /* purple headings */
 }
 
 .priceRow {
@@ -121,10 +121,10 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 42px;
+  height: 44px;
   border-radius: 9999px;
   font-weight: 700;
-  transition: background .15s ease, transform .05s ease;
+  transition: background .15s ease, transform .05s ease, filter .15s ease;
   user-select: none;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .discount {
-  color: var(--green);
+  color: var(--green) !important;  /* green (-20%) */
   font-weight: 700;
 }
 
