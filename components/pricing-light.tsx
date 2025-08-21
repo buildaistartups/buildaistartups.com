@@ -7,23 +7,21 @@ export default function Pricing() {
   const [annual, setAnnual] = useState(true)
 
   return (
-    <div className="relative">
-      {/* 4-column grid: left labels + 3 plan cards */}
+    <div className={`${styles.pricingRoot}`}>
+      {/* 4-column layout: labels + 3 plan cards */}
       <div className="grid md:grid-cols-4 gap-6">
         {/* ===== Left labels column ===== */}
         <div className={`${styles.leftCol} ${styles.cardShadow} p-6`}>
-          {/* Toggle row */}
+          {/* Toggle */}
           <div className={`pb-5 ${styles.borderBottom}`}>
             <div className="flex items-center gap-3">
               <span className={`${styles.primaryText} text-sm`}>Monthly</span>
-
-              {/* simple toggle */}
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
                   type="checkbox"
                   className="sr-only peer"
                   checked={annual}
-                  onChange={() => setAnnual((v) => !v)}
+                  onChange={() => setAnnual(v => !v)}
                 />
                 <div className="w-11 h-6 bg-slate-300 rounded-full peer peer-checked:bg-purple-500 transition-colors" />
                 <span
@@ -31,14 +29,13 @@ export default function Pricing() {
                   aria-hidden
                 />
               </label>
-
               <span className={`${styles.primaryText} text-sm`}>
                 Yearly <span className="text-purple-600">(20%)</span>
               </span>
             </div>
           </div>
 
-          {/* Sections & rows */}
+          {/* Sections */}
           <div className="mt-6 space-y-8">
             <Section title="Usage" rows={[
               'Social Connections',
@@ -48,16 +45,17 @@ export default function Pricing() {
             ]} />
             <Section title="Features" rows={[
               'Custom Connection',
-              'Advanced Deployment',
+              'Advanced Deployment Options',
               'Extra Add-ons',
               'Admin Roles',
               'Deploy and Monitor',
               'Enterprise Add-ons',
             ]} />
+            <Section title="Support" rows={['Premium Support']} />
           </div>
         </div>
 
-        {/* ===== Plans ===== */}
+        {/* ===== Plan cards ===== */}
         <PlanCard
           name="Pro"
           price={annual ? '24' : '29'}
@@ -86,7 +84,7 @@ export default function Pricing() {
   )
 }
 
-/* ---------- Helpers ---------- */
+/* ---------- helpers ---------- */
 
 function Section({ title, rows }: { title: string; rows: string[] }) {
   return (
@@ -104,52 +102,33 @@ function Section({ title, rows }: { title: string; rows: string[] }) {
 }
 
 function PlanCard({
-  name,
-  price,
-  outline,
-  buttonClass,
-  rows,
+  name, price, outline, buttonClass, rows,
 }: {
-  name: string
-  price: string
-  outline: boolean
-  buttonClass: string
-  rows: string[]
+  name: string; price: string; outline: boolean; buttonClass: string; rows: string[];
 }) {
   return (
-    <div
-      className={[
-        styles.card,
-        styles.cardShadow,
-        outline ? styles.outlinePurple : '',
-        'p-6',
-      ].join(' ')}
-    >
+    <div className={[
+      styles.card,
+      styles.cardShadow,
+      outline ? styles.outlinePurple : '',
+      'p-6',
+    ].join(' ')}>
       <div className="text-lg font-semibold text-slate-900">{name}</div>
 
-      {/* Price */}
       <div className="mt-2">
         <span className={`text-lg ${styles.secondaryText}`}>$</span>
         <span className="text-4xl font-extrabold text-slate-900">{price}</span>
         <span className={`text-sm ml-1 ${styles.secondaryText}`}>/mo</span>
       </div>
 
-      {/* Tagline */}
-      <div className={`mt-3 ${styles.secondaryText}`}>
-        Everything at your fingertips.
-      </div>
+      <div className={`mt-3 ${styles.secondaryText}`}>Everything at your fingertips.</div>
 
-      {/* CTA */}
       <div className={`mt-4 pb-4 ${styles.borderBottom}`}>
-        <button
-          type="button"
-          className={`w-full rounded-md px-4 py-3 text-center font-medium transition ${buttonClass}`}
-        >
+        <button type="button" className={`w-full rounded-md px-4 py-3 text-center font-medium transition ${buttonClass}`}>
           Get Started →
         </button>
       </div>
 
-      {/* Rows */}
       <ul className="mt-4">
         {rows.map((v, i) => (
           <li key={i} className={`flex items-center gap-3 py-3 ${styles.borderBottom}`}>
