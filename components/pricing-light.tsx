@@ -1,17 +1,38 @@
+// components/pricing-light.tsx
 'use client'
 
 import { useState } from 'react'
 
 export default function Pricing() {
-  const [annual, setAnnual] = useState(true)
+  const [annual, setAnnual] = useState<boolean>(true)
 
   return (
     <div className="relative">
-      {/* Pricing grid */}
+      {/* (Optional) very soft background glow */}
+      <div
+        className="max-md:hidden absolute bottom-0 -mb-20 left-2/3 -translate-x-1/2 blur-2xl opacity-40 pointer-events-none"
+        aria-hidden="true"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
+          <defs>
+            <linearGradient id="bs5-a" x1="19.609%" x2="50%" y1="14.544%" y2="100%">
+              <stop offset="0%" stopColor="#A855F7" />
+              <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <path
+            fill="url(#bs5-a)"
+            fillRule="evenodd"
+            d="m661 736 461 369-284 58z"
+            transform="matrix(1 0 0 -1 -661 1163)"
+          />
+        </svg>
+      </div>
+
+      {/* ==== GRID (1 labels column + 3 plan columns) ==== */}
       <div
         className="
-          grid md:grid-cols-4 xl:-mx-6 text-sm text-slate-900
-
+          grid md:grid-cols-4 xl:-mx-6 text-sm
           [&>div:nth-of-type(-n+4)]:py-6
           [&>div:nth-last-of-type(-n+4)]:pb-6
           max-md:[&>div:nth-last-of-type(-n+4)]:mb-8
@@ -22,44 +43,28 @@ export default function Pricing() {
           md:[&>div:nth-last-of-type(3)]:rounded-bl-3xl
           md:[&>div:nth-last-of-type(1)]:rounded-br-3xl
 
-          /* Light cards */
-          [&>div]:!bg-white
-          [&>div:nth-of-type(4n+1)]:!bg-slate-50  /* left label column a bit darker */
-
-          max-md:[&>div:nth-of-type(4n+5)]:hidden
-          max-md:[&>div:nth-of-type(4n+2)]:order-1
-          max-md:[&>div:nth-of-type(4n+3)]:order-2
-          max-md:[&>div:nth-of-type(4n+4)]:order-3
-
-          /* Purple selector rectangle for middle (Team) column */
-          [&>div:nth-of-type(4n+3)]:relative
-          [&>div:nth-of-type(4n+3)]:before:absolute
-          [&>div:nth-of-type(4n+3)]:before:-inset-px
-          [&>div:nth-of-type(4n+3)]:before:rounded-[inherit]
-          [&>div:nth-of-type(4n+3)]:before:border-x-2
-          [&>div:nth-of-type(3)]:before:border-t-2
-          [&>div:nth-last-of-type(2)]:before:border-b-2
-          [&>div:nth-of-type(4n+3)]:before:border-purple-500
-          [&>div:nth-of-type(4n+3)]:before:-z-10
+          /* Light theme enforcement */
+          [&>div]:!bg-slate-100               /* all plan cards */
+          [&>div:nth-of-type(4n+1)]:!bg-slate-50 /* labels column lighter */
         "
       >
-        {/* Toggle column */}
+        {/* ===== Toggle column ===== */}
         <div className="px-6 flex flex-col justify-end">
-          <div className="pb-5 md:border-b !border-black">
+          <div className="pb-5 md:border-b !border-slate-900/80">
             <div className="max-md:text-center">
               <div className="inline-flex items-center whitespace-nowrap">
                 <div className="text-sm !text-slate-900 font-medium mr-2 md:max-lg:hidden">Monthly</div>
                 <div className="relative">
                   <input
-                    id="toggle"
                     type="checkbox"
+                    id="toggle"
                     className="peer sr-only"
                     checked={annual}
                     onChange={() => setAnnual(!annual)}
                   />
                   <label
                     htmlFor="toggle"
-                    className="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-slate-400 px-0.5 transition-colors before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-xs before:transition-transform peer-checked:bg-purple-500 peer-checked:before:translate-x-full"
+                    className="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-slate-400 px-0.5 outline-slate-400 transition-colors before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-xs before:transition-transform before:duration-150 peer-checked:bg-purple-500 peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-focus-visible:peer-checked:outline-purple-500"
                   >
                     <span className="sr-only">Pay Yearly</span>
                   </label>
@@ -70,104 +75,194 @@ export default function Pricing() {
               </div>
             </div>
           </div>
+
+          {/* Section labels */}
+          <div className="py-6">
+            <div className="py-2 text-slate-900 font-semibold mt-4">Usage</div>
+            {[
+              'Social Connections',
+              'Custom Domains',
+              'User Role Management',
+              'External Databases',
+            ].map((label) => (
+              <div key={label} className="py-2 text-slate-900 border-b !border-slate-900/80">
+                {label}
+              </div>
+            ))}
+
+            <div className="py-2 text-slate-900 font-semibold mt-6">Features</div>
+            {[
+              'Custom Connection',
+              'Advanced Deployment Options',
+              'Extra Add-ons',
+              'Admin Roles',
+              'Deploy and Monitor',
+              'Enterprise Add-ons',
+            ].map((label) => (
+              <div key={label} className="py-2 text-slate-900 border-b !border-slate-900/80">
+                {label}
+              </div>
+            ))}
+
+            <div className="py-2 text-slate-900 font-semibold mt-6">Support</div>
+            <div className="py-2 text-slate-900 border-b !border-slate-900/80">Premium Support</div>
+          </div>
         </div>
 
-        {/* ===== Pro (non-selected) ===== */}
-        <div className="px-6 flex flex-col justify-end">
-          <div className="grow pb-4 mb-4 border-b !border-black">
-            <div className="text-base font-medium">Pro</div>
+        {/* ===== Pro ===== */}
+        <div className="px-6 flex flex-col justify-end rounded-3xl">
+          <div className="grow pb-4 mb-4 border-b !border-slate-900/80">
+            <div className="text-base font-semibold !text-slate-900 pb-0.5">Pro</div>
             <div className="mb-1">
-              <span className="text-lg font-medium">$</span>
-              <span className="text-3xl font-bold">{annual ? '24' : '29'}</span>
-              <span className="text-sm font-medium">/mo</span>
+              <span className="text-lg font-medium !text-slate-900">$</span>
+              <span className="text-3xl font-extrabold !text-slate-900">{annual ? '24' : '29'}</span>
+              <span className="text-sm !text-slate-900 font-medium">/mo</span>
             </div>
-            <div>Everything at your fingertips.</div>
+            <div className="!text-slate-900">Everything at your fingertips.</div>
           </div>
-          <div className="pb-4 border-b !border-black">
-            <a className="btn-sm !text-slate-900 !bg-slate-200 hover:!bg-slate-300 w-full transition group" href="#0">
-              Get Started
-              <span className="ml-1 group-hover:translate-x-0.5 transition">-&gt;</span>
+          <div className="pb-4 border-b !border-slate-900/80">
+            <a
+              className="btn-sm !text-slate-900 !bg-slate-300 hover:!bg-slate-400 w-full transition duration-150 ease-in-out group"
+              href="#0"
+            >
+              Get Started <span className="tracking-normal !text-slate-900 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
             </a>
           </div>
+
+        {/* Pro features (row borders strong) */}
+          {[
+            '100',
+            '4',
+            'Unlimited',
+            '1',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '']
+            .map((txt, i) => (
+              <div key={i} className="flex items-center border-b !border-slate-900/80 py-2 text-slate-900">
+                {txt ? (
+                  <>
+                    <svg className="shrink-0 fill-purple-600 mr-3" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                      <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+                    </svg>
+                    <span>{txt}</span>
+                  </>
+                ) : (
+                  <span className="h-5" />
+                )}
+              </div>
+            ))}
         </div>
 
-        {/* ===== Team (featured) ===== */}
-        <div className="px-6 flex flex-col justify-end">
-          <div className="grow pb-4 mb-4 border-b !border-black">
-            <div className="text-base font-medium">Team</div>
+        {/* ===== Team (featured, purple ring) ===== */}
+        <div className="px-6 flex flex-col justify-end rounded-3xl ring-2 ring-purple-500">
+          <div className="grow pb-4 mb-4 border-b !border-slate-900/80">
+            <div className="text-base font-semibold !text-slate-900 pb-0.5">Team</div>
             <div className="mb-1">
-              <span className="text-lg font-medium">$</span>
-              <span className="text-3xl font-bold">{annual ? '49' : '54'}</span>
-              <span className="text-sm font-medium">/mo</span>
+              <span className="text-lg font-medium !text-slate-900">$</span>
+              <span className="text-3xl font-extrabold !text-slate-900">{annual ? '49' : '54'}</span>
+              <span className="text-sm !text-slate-900 font-medium">/mo</span>
             </div>
-            <div>Everything at your fingertips.</div>
+            <div className="!text-slate-900">Everything at your fingertips.</div>
           </div>
-          <div className="pb-4 border-b !border-black">
-            <a className="btn-sm text-white bg-purple-500 hover:bg-purple-600 w-full transition group" href="#0">
-              Get Started <span className="ml-1 group-hover:translate-x-0.5 transition">-&gt;</span>
+          <div className="pb-4 border-b !border-slate-900/80">
+            <a
+              className="btn-sm text-white bg-purple-600 hover:bg-purple-700 w-full transition duration-150 ease-in-out group"
+              href="#0"
+            >
+              Get Started <span className="tracking-normal text-purple-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
             </a>
           </div>
+
+          {[
+            '250',
+            'Unlimited',
+            'Unlimited',
+            '5',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '']
+            .map((txt, i) => (
+              <div key={i} className="flex items-center border-b !border-slate-900/80 py-2 text-slate-900">
+                {txt ? (
+                  <>
+                    <svg className="shrink-0 fill-purple-600 mr-3" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                      <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+                    </svg>
+                    <span>{txt}</span>
+                  </>
+                ) : (
+                  <span className="h-5" />
+                )}
+              </div>
+            ))}
         </div>
 
-        {/* ===== Enterprise (non-selected) ===== */}
-        <div className="px-6 flex flex-col justify-end">
-          <div className="grow pb-4 mb-4 border-b !border-black">
-            <div className="text-base font-medium">Enterprise</div>
+        {/* ===== Enterprise ===== */}
+        <div className="px-6 flex flex-col justify-end rounded-3xl">
+          <div className="grow pb-4 mb-4 border-b !border-slate-900/80">
+            <div className="text-base font-semibold !text-slate-900 pb-0.5">Enterprise</div>
             <div className="mb-1">
-              <span className="text-lg font-medium">$</span>
-              <span className="text-3xl font-bold">{annual ? '79' : '85'}</span>
-              <span className="text-sm font-medium">/mo</span>
+              <span className="text-lg font-medium !text-slate-900">$</span>
+              <span className="text-3xl font-extrabold !text-slate-900">{annual ? '79' : '85'}</span>
+              <span className="text-sm !text-slate-900 font-medium">/mo</span>
             </div>
-            <div>Everything at your fingertips.</div>
+            <div className="!text-slate-900">Everything at your fingertips.</div>
           </div>
-          <div className="pb-4 border-b !border-black">
-            <a className="btn-sm !text-slate-900 !bg-slate-200 hover:!bg-slate-300 w-full transition group" href="#0">
-              Get Started <span className="ml-1 group-hover:translate-x-0.5 transition">-&gt;</span>
+          <div className="pb-4 border-b !border-slate-900/80">
+            <a
+              className="btn-sm !text-slate-900 !bg-slate-300 hover:!bg-slate-400 w-full transition duration-150 ease-in-out group"
+              href="#0"
+            >
+              Get Started <span className="tracking-normal !text-slate-900 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
             </a>
           </div>
+
+          {[
+            'Unlimited',
+            'Unlimited',
+            'Unlimited',
+            'Unlimited',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '']
+            .map((txt, i) => (
+              <div key={i} className="flex items-center border-b !border-slate-900/80 py-2 text-slate-900">
+                {txt ? (
+                  <>
+                    <svg className="shrink-0 fill-purple-600 mr-3" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
+                      <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+                    </svg>
+                    <span>{txt}</span>
+                  </>
+                ) : (
+                  <span className="h-5" />
+                )}
+              </div>
+            ))}
         </div>
-
-        {/* ===== Row labels & rows (all black text + black dividers) ===== */}
-        <div className="px-6 flex flex-col justify-end">
-          <div className="py-2 font-medium mt-4">Usage</div>
-        </div>
-        <div className="px-6 flex flex-col justify-end"><div className="py-2 font-medium mt-4 md:hidden">Usage</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="py-2 font-medium mt-4 md:hidden">Usage</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="py-2 font-medium mt-4 md:hidden">Usage</div></div>
-
-        {/* Social Connections */}
-        <div className="px-6 flex flex-col justify-end"><div className="py-2 border-b !border-black">Social Connections</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>100</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>250</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>Unlimited</div></div>
-
-        {/* Custom Domains */}
-        <div className="px-6 flex flex-col justify-end"><div className="py-2 border-b !border-black">Custom Domains</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>4</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>Unlimited</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>Unlimited</div></div>
-
-        {/* User Role Management */}
-        <div className="px-6 flex flex-col justify-end"><div className="py-2 border-b !border-black">User Role Management</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>Unlimited</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>Unlimited</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>Unlimited</div></div>
-
-        {/* External Databases */}
-        <div className="px-6 flex flex-col justify-end"><div className="py-2 border-b !border-black">External Databases</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>1</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>5</div></div>
-        <div className="px-6 flex flex-col justify-end"><div className="flex items-center h-full py-2 border-b !border-black"><Dot/>Unlimited</div></div>
       </div>
     </div>
-  )
-}
-
-/** small purple check bullet */
-function Dot() {
-  return (
-    <svg className="shrink-0 fill-purple-600 mr-3" xmlns="http://www.w3.org/2000/svg" width="12" height="9">
-      <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-    </svg>
   )
 }
