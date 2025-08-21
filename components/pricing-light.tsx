@@ -48,18 +48,25 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
   const headerRef = useRef<HTMLDivElement>(null)
-  const [headerHeight, setHeaderHeight] = useState(0)
+  const buttonRef = useRef<HTMLDivElement>(null)
+  const [buttonOffset, setButtonOffset] = useState(0)
 
   useEffect(() => {
-    if (headerRef.current) {
-      const updateHeight = () => {
-        const height = headerRef.current?.offsetHeight || 0
-        setHeaderHeight(height)
+    if (headerRef.current && buttonRef.current) {
+      const updateOffset = () => {
+        const headerRect = headerRef.current?.getBoundingClientRect()
+        const buttonRect = buttonRef.current?.getBoundingClientRect()
+        
+        if (headerRect && buttonRect) {
+          // Calculate the offset from the top of the card to the button
+          const offset = buttonRect.top - headerRect.top
+          setButtonOffset(offset)
+        }
       }
       
-      updateHeight()
-      window.addEventListener('resize', updateHeight)
-      return () => window.removeEventListener('resize', updateHeight)
+      updateOffset()
+      window.addEventListener('resize', updateOffset)
+      return () => window.removeEventListener('resize', updateOffset)
     }
   }, [])
 
@@ -68,8 +75,8 @@ export default function PricingLight() {
       <div className={styles.wrap}>
         {/* Left labels column */}
         <aside className={styles.labelsCol}>
-          {/* Spacer to match card headers */}
-          <div style={{ height: headerHeight + 20 }}></div>
+          {/* Spacer to align toggle with buttons */}
+          <div style={{ height: buttonOffset }}></div>
 
           {/* Toggle aligned with buttons */}
           <div className={styles.toggleContainer}>
@@ -116,6 +123,7 @@ export default function PricingLight() {
             plan={plan} 
             annual={annual} 
             headerRef={index === 0 ? headerRef : undefined}
+            buttonRef={index === 0 ? buttonRef : undefined}
           />
         ))}
       </div>
@@ -126,11 +134,13 @@ export default function PricingLight() {
 function PlanCard({ 
   plan, 
   annual, 
-  headerRef 
+  headerRef,
+  buttonRef
 }: { 
   plan: Plan; 
   annual: boolean; 
   headerRef?: React.RefObject<HTMLDivElement | null>;
+  buttonRef?: React.RefObject<HTMLDivElement | null>;
 }) {
   const price = annual ? plan.price.yearly : plan.price.monthly
 
@@ -151,7 +161,7 @@ function PlanCard({
       </div>
 
       {/* Button aligned with toggle */}
-      <div className={styles.buttonContainer}>
+      <div className={styles.buttonContainer} ref={buttonRef}>
         <button className={`${styles.btn} ${plan.ctaStyle === 'primary' ? styles.btnPrimary : styles.btnSecondary}`}>
           Get Started →
         </button>
@@ -159,7 +169,6 @@ function PlanCard({
 
       {/* Usage section */}
       <div className={styles.section}>
-        <div className={styles.sectionSpacer}></div>
         {plan.features.map((value, i) => (
           <div key={i} className={styles.featureRow}>
             <svg className={styles.checkIcon} viewBox="0 0 16 16">
