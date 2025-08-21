@@ -27,10 +27,7 @@
 
 .planCell {
   background: #ffffff;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom: none;
+  border: none;
   padding: 12px 18px;
   display: flex;
   align-items: center;
@@ -48,132 +45,130 @@
   padding-right: 20px;
 }
 
+/* Featured column - completely separate styling */
+.planCell.featured {
+  background: #ffffff;
+  border-left: 2px solid #8b5cf6;
+  border-right: 2px solid #8b5cf6;
+  border-top: none;
+  border-bottom: none;
+  position: relative;
+}
+
+/* First row of featured column */
+.gridRow:first-child .planCell.featured {
+  border-top: 2px solid #8b5cf6;
+}
+
+/* Last row of featured column */
+.gridRow:last-child .planCell.featured {
+  border-bottom: 2px solid #8b5cf6;
+}
+
 /* Add border under toggle row - only for label cell */
 .gridRow:nth-child(2) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
 
-/* Add borders only under specific feature rows */
-/* Social Connections - row 4 */
+/* Regular plan cells (non-featured) borders */
 .gridRow:nth-child(4) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(4) .planCell:not(.featured) {
+.gridRow:nth-child(4) .planCell:nth-child(2),
+.gridRow:nth-child(4) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Custom Domains - row 5 */
 .gridRow:nth-child(5) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(5) .planCell:not(.featured) {
+.gridRow:nth-child(5) .planCell:nth-child(2),
+.gridRow:nth-child(5) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* User Role Management - row 6 */
 .gridRow:nth-child(6) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(6) .planCell:not(.featured) {
+.gridRow:nth-child(6) .planCell:nth-child(2),
+.gridRow:nth-child(6) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* External Databases - row 7 */
 .gridRow:nth-child(7) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(7) .planCell:not(.featured) {
+.gridRow:nth-child(7) .planCell:nth-child(2),
+.gridRow:nth-child(7) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Custom Connection - row 9 */
 .gridRow:nth-child(9) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(9) .planCell:not(.featured) {
+.gridRow:nth-child(9) .planCell:nth-child(2),
+.gridRow:nth-child(9) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Advanced Deployment Options - row 10 */
 .gridRow:nth-child(10) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(10) .planCell:not(.featured) {
+.gridRow:nth-child(10) .planCell:nth-child(2),
+.gridRow:nth-child(10) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Extra Add-ons - row 11 */
 .gridRow:nth-child(11) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(11) .planCell:not(.featured) {
+.gridRow:nth-child(11) .planCell:nth-child(2),
+.gridRow:nth-child(11) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Admin Roles - row 12 */
 .gridRow:nth-child(12) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(12) .planCell:not(.featured) {
+.gridRow:nth-child(12) .planCell:nth-child(2),
+.gridRow:nth-child(12) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Deploy and Monitor - row 13 */
 .gridRow:nth-child(13) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(13) .planCell:not(.featured) {
+.gridRow:nth-child(13) .planCell:nth-child(2),
+.gridRow:nth-child(13) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Enterprise Add-ons - row 14 */
 .gridRow:nth-child(14) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(14) .planCell:not(.featured) {
+.gridRow:nth-child(14) .planCell:nth-child(2),
+.gridRow:nth-child(14) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Premium Support - row 16 */
 .gridRow:nth-child(16) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(16) .planCell:not(.featured) {
+.gridRow:nth-child(16) .planCell:nth-child(2),
+.gridRow:nth-child(16) .planCell:nth-child(4) {
   border-bottom: 1px solid #e5e7eb;
-}
-
-.planCell.featured {
-  background: #ffffff;
-  border: 2px solid #8b5cf6;
-  border-top: 2px solid #8b5cf6;
-  border-bottom: 2px solid #8b5cf6;
-  position: relative;
-}
-
-/* Override borders for first and last featured rows */
-.gridRow:first-child .planCell.featured {
-  border-top: 2px solid #8b5cf6;
-}
-
-.gridRow:last-child .planCell.featured {
-  border-bottom: 2px solid #8b5cf6;
-}
-
-.gridRow:not(:first-child):not(:last-child) .planCell.featured {
-  border-top: none;
-  border-bottom: none;
 }
 
 /* Header styles */
