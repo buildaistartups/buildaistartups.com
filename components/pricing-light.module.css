@@ -14,16 +14,15 @@
 .gridRow {
   display: grid;
   grid-template-columns: 300px 1fr 1fr 1fr;
-  gap: 0; /* Remove grid gap */
+  gap: 0;
   margin-bottom: 0;
 }
 
 .labelCell {
   background: transparent;
-  padding: 12px 20px;
+  padding: 12px 18px 12px 20px; /* Reduce right padding to create visual gap */
   display: flex;
   align-items: center;
-  margin-right: 2px; /* Add margin to create spacing */
 }
 
 .planCell {
@@ -32,27 +31,34 @@
   border-right: none;
   border-top: none;
   border-bottom: none;
-  padding: 12px 20px;
+  padding: 12px 18px; /* Reduce horizontal padding to create visual gaps */
   display: flex;
   align-items: center;
   position: relative;
-  margin-right: 2px; /* Add margin to create spacing */
+  margin: 0 1px; /* Add small margins */
 }
 
-/* Remove margin from last column */
-.planCell:last-child {
+.planCell:first-of-type {
+  margin-left: 2px; /* Add gap after label column */
+  padding-left: 20px;
+}
+
+.planCell:last-of-type {
   margin-right: 0;
+  padding-right: 20px;
 }
 
 /* Add border under toggle row - only for label cell */
 .gridRow:nth-child(2) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px; /* Create gap in border */
 }
 
-/* Add borders only under specific feature rows - separate for each column */
+/* Add borders only under specific feature rows */
 /* Social Connections - row 4 */
 .gridRow:nth-child(4) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(4) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -61,6 +67,7 @@
 /* Custom Domains - row 5 */
 .gridRow:nth-child(5) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(5) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -69,6 +76,7 @@
 /* User Role Management - row 6 */
 .gridRow:nth-child(6) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(6) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -77,6 +85,7 @@
 /* External Databases - row 7 */
 .gridRow:nth-child(7) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(7) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -85,6 +94,7 @@
 /* Custom Connection - row 9 */
 .gridRow:nth-child(9) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(9) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -93,6 +103,7 @@
 /* Advanced Deployment Options - row 10 */
 .gridRow:nth-child(10) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(10) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -101,6 +112,7 @@
 /* Extra Add-ons - row 11 */
 .gridRow:nth-child(11) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(11) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -109,6 +121,7 @@
 /* Admin Roles - row 12 */
 .gridRow:nth-child(12) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(12) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -117,6 +130,7 @@
 /* Deploy and Monitor - row 13 */
 .gridRow:nth-child(13) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(13) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -125,6 +139,7 @@
 /* Enterprise Add-ons - row 14 */
 .gridRow:nth-child(14) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(14) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -133,6 +148,7 @@
 /* Premium Support - row 16 */
 .gridRow:nth-child(16) .labelCell {
   border-bottom: 1px solid #e5e7eb;
+  margin-right: 2px;
 }
 .gridRow:nth-child(16) .planCell {
   border-bottom: 1px solid #e5e7eb;
@@ -373,9 +389,11 @@
     border-radius: 8px;
     margin-bottom: 5px;
     margin-right: 0;
+    padding: 12px 20px;
   }
   
   .planCell {
-    margin-right: 0;
+    margin: 0;
+    padding: 12px 20px;
   }
 }
