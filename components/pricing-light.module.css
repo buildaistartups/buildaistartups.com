@@ -1,7 +1,8 @@
 /* components/pricing-light.module.css */
 
-/* ---- Tokens ------------------------------------------------------------ */
-:root {
+/* ---- Tokens (scoped) -------------------------------------------------- */
+/* Attach this class to the outer wrapper in the TSX */
+.vars {
   --surface: #ffffff;            /* card surface */
   --surface-muted: #f5f7fb;      /* left label column surface */
   --text: #0f172a;               /* slate-900-ish (black for light) */
@@ -9,14 +10,14 @@
   --row: #e5e7eb;                /* borders between rows */
   --btn-neutral: #e5e7eb;        /* gray button bg */
   --btn-neutral-hover: #e2e8f0;
-  --purple: #8b5cf6;             /* outline + checks (purple-500/600) */
+  --purple: #8b5cf6;             /* outline + checks */
   --purple-dark: #7c3aed;
   --green: #10b981;              /* discount */
   --radius: 16px;
   --shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
 }
 
-/* ---- Layout ------------------------------------------------------------ */
+/* ---- Layout ----------------------------------------------------------- */
 .wrap {
   display: grid;
   grid-template-columns: 1fr 1.4fr 1.4fr 1.4fr;
@@ -29,7 +30,7 @@
   }
 }
 
-/* ---- Columns ----------------------------------------------------------- */
+/* ---- Columns ---------------------------------------------------------- */
 .labelsCol {
   background: var(--surface-muted);
   border: 1px solid var(--row);
@@ -53,7 +54,7 @@
   outline-offset: 0;
 }
 
-/* ---- Text -------------------------------------------------------------- */
+/* ---- Text ------------------------------------------------------------- */
 .h3 {
   font-size: 1.1rem;
   font-weight: 600;
@@ -85,7 +86,7 @@
   margin-bottom: 14px;
 }
 
-/* ---- Rows / dividers --------------------------------------------------- */
+/* ---- Rows / dividers -------------------------------------------------- */
 .hr {
   border: 0;
   border-top: 1px solid var(--row);
@@ -108,7 +109,7 @@
   flex: 0 0 12px;
 }
 
-/* ---- Buttons ----------------------------------------------------------- */
+/* ---- Buttons ---------------------------------------------------------- */
 .btn {
   display: inline-flex;
   justify-content: center;
@@ -135,7 +136,7 @@
 .btnPrimary:hover { filter: brightness(.98); }
 .btnPrimary:active { transform: translateY(1px); }
 
-/* ---- Toggle (top line) ------------------------------------------------- */
+/* ---- Toggle line ------------------------------------------------------ */
 .toggleLine {
   display: flex;
   align-items: center;
@@ -148,7 +149,7 @@
   font-weight: 600;
 }
 
-/* Kill any Tailwind color utilities that might sneak in */
+/* Force text to black in case a parent has Tailwind text utilities */
 .forceText * {
   color: var(--text) !important;
 }
