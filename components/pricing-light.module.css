@@ -1,1 +1,29 @@
+/* pricing-light.module.css */
+.primaryText {
+  color: #f8fafc !important;
+  font-weight: 500 !important;
+}
 
+.secondaryText {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
+}
+
+.purpleText {
+  color: #a855f7 !important;
+  font-weight: 600 !important;
+}
+
+.customBorder {
+  border-color: #1e293b !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+
+.borderBottom {
+  border-bottom: 1px solid #1e293b !important;
+}
+
+.checkIcon {
+  fill: #a855f7 !important;
+}
