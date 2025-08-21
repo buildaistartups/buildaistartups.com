@@ -7,7 +7,7 @@ type Plan = {
   name: 'Pro' | 'Team' | 'Enterprise'
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
-  features: string[]        // Usage values (4 rows)
+  features: string[]
   featured?: boolean
 }
 
@@ -23,7 +23,7 @@ const LABEL_GROUPS = [
   { title: 'Support',  rows: ['Premium Support'] },
 ]
 
-// check-marks pattern identical to your dark table
+// Checkmark pattern identical to dark table
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
   Team: new Set([
@@ -49,21 +49,25 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
-  // measure plan header once -> mirror in labels column
-  const headRef = useRef<HTMLDivElement | null>(null)
+  // Measure plan header & the left "Usage + divider" block,
+  // then set --head-h = (planHeader - usageHeader)
+  const planHeadRef = useRef<HTMLDivElement | null>(null)
+  const usageBlockRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
-    const el = headRef.current
-    if (!el) return
     const update = () => {
-      const h = el.getBoundingClientRect().height + 16 /* .head padding-bottom */
+      const headH = planHeadRef.current?.getBoundingClientRect().height ?? 0
+      const usageH = usageBlockRef.current?.getBoundingClientRect().height ?? 0
+      const shim = Math.max(0, Math.round(headH - usageH))
+      // apply to all pricing roots on the page
       document.querySelectorAll<HTMLElement>('.' + styles.vars).forEach(root => {
-        root.style.setProperty('--head-h', `${h}px`)
+        root.style.setProperty('--head-h', `${shim}px`)
       })
     }
     update()
     const ro = new ResizeObserver(update)
-    ro.observe(el)
+    if (planHeadRef.current) ro.observe(planHeadRef.current)
+    if (usageBlockRef.current) ro.observe(usageBlockRef.current)
     window.addEventListener('resize', update)
     return () => {
       ro.disconnect()
@@ -102,29 +106,57 @@ export default function PricingLight() {
             <span className={styles.discount}>(-20%)</span>
           </div>
 
-          {/* Spacer to push first label row to the same baseline as the first plan row */}
+          {/* Spacer BEFORE the "Usage + divider" block (we subtract its height) */}
           <div className={styles.headShim} />
 
-          {/* Groups (Usage / Features / Support) */}
-          {LABEL_GROUPS.map((g, gi) => (
-            <div key={gi} style={{ marginTop: gi === 0 ? 0 : 18 }}>
-              <div className={styles.h3}>{g.title}</div>
-              <hr className={styles.hr} />
-              {g.rows.map((r, i) => (
-                <div key={i} className={styles.row}>
-                  <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-                  </svg>
-                  <span>{r}</span>
-                </div>
-              ))}
+          {/* Usage group header we measure */}
+          <div ref={usageBlockRef}>
+            <div className={styles.h3}>Usage</div>
+            <hr className={styles.hr} />
+          </div>
+
+          {/* Usage rows */}
+          {LABEL_GROUPS[0].rows.map((r, i) => (
+            <div key={r} className={styles.row}>
+              <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+                <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+              </svg>
+              <span>{r}</span>
             </div>
           ))}
+
+          {/* Features group */}
+          <div style={{ marginTop: 18 }}>
+            <div className={styles.h3}>Features</div>
+            <hr className={styles.hr} />
+            {LABEL_GROUPS[1].rows.map((r) => (
+              <div key={r} className={styles.row}>
+                <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+                  <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+                </svg>
+                <span>{r}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Support group */}
+          <div style={{ marginTop: 18 }}>
+            <div className={styles.h3}>Support</div>
+            <hr className={styles.hr} />
+            {LABEL_GROUPS[2].rows.map((r) => (
+              <div key={r} className={styles.row}>
+                <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+                  <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+                </svg>
+                <span>{r}</span>
+              </div>
+            ))}
+          </div>
         </aside>
 
         {/* Plan cards */}
         {PLANS.map((p, idx) => (
-          <PlanCard key={p.name} plan={p} annual={annual} headRef={idx === 0 ? headRef : undefined} />
+          <PlanCard key={p.name} plan={p} annual={annual} headRef={idx === 0 ? planHeadRef : undefined} />
         ))}
       </div>
     </div>
@@ -148,7 +180,7 @@ function PlanCard({
 
   return (
     <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
-      {/* Header (measured on the first card) */}
+      {/* Plan header (measured on the first card) */}
       <div className={styles.head} ref={headRef}>
         <div className={styles.h3}>{plan.name}</div>
 
@@ -162,34 +194,24 @@ function PlanCard({
         <button className={btnClass} type="button">Get Started →</button>
       </div>
 
-      {/* === Match the labels column structure exactly === */}
-      
-      {/* Group: Usage */}
-      <div style={{ marginTop: 0 }}>
-        <hr className={styles.hr} />
-        {plan.features.map((v, i) => renderValueRow(v, i))}
-      </div>
+      {/* Usage (values) */}
+      <hr className={styles.hr} />
+      {plan.features.map((v, i) => valueRow(v, i))}
 
-      {/* Group: Features */}
-      <div style={{ marginTop: 18 }}>
-        <hr className={styles.hr} />
-        {LABEL_GROUPS[1].rows.map((label, i) =>
-          renderCheckRow(FEATURE_CHECKS[plan.name].has(label), i)
-        )}
-      </div>
+      {/* Features (checks pattern mirrors dark table) */}
+      <hr className={styles.hr} />
+      {LABEL_GROUPS[1].rows.map((label, i) =>
+        checkRow(FEATURE_CHECKS[plan.name].has(label), i)
+      )}
 
-      {/* Group: Support */}
-      <div style={{ marginTop: 18 }}>
-        <hr className={styles.hr} />
-        {LABEL_GROUPS[2].rows.map((label, i) =>
-          renderCheckRow(FEATURE_CHECKS[plan.name].has(label), i)
-        )}
-      </div>
+      {/* Support */}
+      <hr className={styles.hr} />
+      {checkRow(FEATURE_CHECKS[plan.name].has('Premium Support'))}
     </section>
   )
 }
 
-function renderValueRow(content: string, key?: number) {
+function valueRow(content: string, key?: number) {
   return (
     <div className={styles.row} key={key}>
       <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
@@ -200,7 +222,7 @@ function renderValueRow(content: string, key?: number) {
   )
 }
 
-function renderCheckRow(checked: boolean, key?: number) {
+function checkRow(checked: boolean, key?: number) {
   return (
     <div className={styles.row} key={key}>
       {checked ? (
