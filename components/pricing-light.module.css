@@ -61,9 +61,19 @@
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--purple) !important; /* purple headings */
+  color: var(--purple) !important; /* purple headings on cards */
 }
 
+/* Left labels section titles */
+.labelTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 2px;
+  margin-bottom: 8px;
+}
+
+/* Pricing row (currency/value/per) */
 .priceRow {
   display: flex;
   align-items: baseline;
@@ -89,13 +99,14 @@
   margin-bottom: 14px;
 }
 
-/* ---- Rows / dividers ------------------------------------------------- */
+/* ---- Dividers / rows ------------------------------------------------- */
 .hr {
   border: 0;
   border-top: 1px solid var(--row);
   margin: 14px 0;
 }
 
+/* Rows inside the plan cards */
 .row {
   display: flex;
   align-items: center;
@@ -105,11 +116,21 @@
 }
 .row:last-child { border-bottom: 0; }
 
+/* Rows inside the labels column (no check icon, single top divider) */
+.labelRow {
+  padding: 10px 0;
+  border-top: 1px solid var(--row);
+}
+
+/* Small purple check used inside plan cards */
 .check {
   width: 12px;
   height: 9px;
   fill: var(--purple);
   flex: 0 0 12px;
+}
+.invisible {
+  visibility: hidden;
 }
 
 /* ---- Buttons --------------------------------------------------------- */
@@ -156,5 +177,3 @@
 .forceText * { color: var(--text) !important; }
 /* ...but allow the green discount to punch through */
 .forceText .discount { color: var(--green) !important; }
-/* ...and force plan titles (inside cards) to remain purple */
-.forceText .card .h3 { color: var(--purple) !important; }
