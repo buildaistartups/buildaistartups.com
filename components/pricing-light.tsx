@@ -82,6 +82,9 @@ export default function PricingLight() {
             {/* Labels column */}
             <div className={styles.labelCell}>
               {row.type === 'header' && (
+                <div></div> // Empty for header row
+              )}
+              {row.type === 'button' && (
                 <div className={styles.toggleLine}>
                   <span>Monthly</span>
                   <span
