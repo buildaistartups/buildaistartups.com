@@ -13,15 +13,17 @@
   --green: #10b981;
   --radius: 16px;
   --shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+
+  /* computed at runtime = planHeader - usageHeader */
+  --head-h: 0px;
 }
 
 /* ---- Grid ------------------------------------------------------------ */
 .wrap {
   display: grid;
-  grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels slimmer; three equal cards */
+  grid-template-columns: 0.82fr 1fr 1fr 1fr;
   gap: 2px; /* ultra-tight spacing */
 }
-
 @media (max-width: 1023px) {
   .wrap {
     grid-template-columns: 1fr;
@@ -38,12 +40,10 @@
   color: var(--text);
 }
 
-/* spacer that matches the measured plan header height */
-.headShim {
-  height: var(--head-h, 0px);
-}
+/* Spacer to align first label row with first plan row:
+   height = plan header - (Usage title + its divider) */
+.headShim { height: var(--head-h); }
 
-/* plan cards */
 .card {
   background: var(--surface);
   border: 1px solid var(--row);
@@ -51,63 +51,38 @@
   box-shadow: var(--shadow);
   color: var(--text);
   position: relative;
-  padding: 20px 18px 40px;
+  padding: 20px 18px 40px; /* extra bottom room */
   min-height: 100%;
   overflow: visible;
 }
+.featured { outline: 2px solid var(--purple); }
 
-.featured {
-  outline: 2px solid var(--purple);
-  outline-offset: 0;
-}
-
-/* header inside each plan card (height is mirrored via .headShim) */
-.head {
-  padding-bottom: 16px; /* <- this is mirrored by .headShim via --head-h */
-}
+/* Plan header (this is what we measure) */
+.head { padding-bottom: 16px; }
 
 /* ---- Text ------------------------------------------------------------ */
 .h3 {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--purple) !important; /* purple headings */
+  color: var(--purple) !important;
 }
-
 .priceRow {
   display: flex;
   align-items: baseline;
   gap: 6px;
   margin: 2px 0 10px;
 }
+.curr, .per { color: var(--text); font-weight: 600; }
+.value { font-size: 2rem; line-height: 1.1; font-weight: 800; color: var(--text); }
+.blurb { color: var(--text); margin-bottom: 14px; }
 
-.curr,
-.per {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.value {
-  font-size: 2rem;
-  line-height: 1.1;
-  font-weight: 800;
-  color: var(--text);
-}
-
-.blurb {
-  color: var(--text);
-  margin-bottom: 14px;
-}
-
-/* ---- Rows / dividers ------------------------------------------------- */
-/* identical margins both in labelsCol and card -> baselines align */
+/* ---- Dividers & Rows (identical both sides) -------------------------- */
 .hr {
   border: 0;
   border-top: 1px solid var(--row);
   margin: 16px 0;
 }
-
-/* identical row height & borders everywhere */
 .row {
   display: flex;
   align-items: center;
@@ -116,13 +91,7 @@
   border-bottom: 1px solid var(--row);
 }
 .row:last-child { border-bottom: 0; }
-
-.check {
-  width: 12px;
-  height: 9px;
-  fill: var(--purple);
-  flex: 0 0 12px;
-}
+.check { width: 12px; height: 9px; fill: var(--purple); flex: 0 0 12px; }
 
 /* ---- Buttons --------------------------------------------------------- */
 .btn {
@@ -136,11 +105,7 @@
   transition: background .15s ease, transform .05s ease, filter .15s ease;
   user-select: none;
 }
-
-.btnNeutral {
-  background: var(--btn-neutral);
-  color: var(--text);
-}
+.btnNeutral { background: var(--btn-neutral); color: var(--text); }
 .btnNeutral:hover { background: var(--btn-neutral-hover); }
 .btnNeutral:active { transform: translateY(1px); }
 
@@ -158,12 +123,8 @@
   gap: 10px;
   color: var(--text);
 }
+.discount { color: var(--green) !important; font-weight: 700; }
 
-.discount {
-  color: var(--green) !important;  /* green (-20%) */
-  font-weight: 700;
-}
-
-/* Keep text black even if parent has Tailwind text utilities */
+/* Force readable black text */
 .forceText * { color: var(--text) !important; }
 .forceText .discount { color: var(--green) !important; }
