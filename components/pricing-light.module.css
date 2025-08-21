@@ -8,6 +8,7 @@
 .gridContainer {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .gridRow {
@@ -33,28 +34,52 @@
   padding: 12px 20px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .planCell.featured {
   background: #ffffff;
-  border-left: 2px solid #8b5cf6;
-  border-right: 2px solid #8b5cf6;
-  border-top: 2px solid #8b5cf6;
-  border-bottom: 1px solid #e5e7eb; /* Keep same gray horizontal border */
-  border-radius: 0;
+  border-bottom: 1px solid #e5e7eb; /* Keep gray horizontal borders */
+  position: relative;
 }
 
-/* Special styling for first and last featured rows */
-.gridRow:nth-child(1) .planCell.featured {
+/* Create purple outline using pseudo-elements */
+.planCell.featured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #8b5cf6;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Remove individual borders and use single outline for featured column */
+.gridRow:first-child .planCell.featured::before {
   border-top: 2px solid #8b5cf6;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
-.gridRow:last-child .planCell.featured {
-  border-bottom: 2px solid #8b5cf6; /* Only the very last row gets purple bottom border */
+.gridRow:last-child .planCell.featured::before {
+  border-bottom: 2px solid #8b5cf6;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.gridRow:not(:first-child):not(:last-child) .planCell.featured::before {
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
 }
 
 /* Header styles */
@@ -62,6 +87,8 @@
   text-align: center;
   padding: 20px 0;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .planName {
@@ -106,6 +133,8 @@
 .buttonCell {
   width: 100%;
   padding: 8px 0;
+  position: relative;
+  z-index: 2;
 }
 
 .btn {
@@ -190,6 +219,8 @@
   gap: 12px;
   font-size: 14px;
   color: #374151;
+  position: relative;
+  z-index: 2;
 }
 
 .checkIcon {
