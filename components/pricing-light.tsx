@@ -3,26 +3,46 @@
 import { useState } from 'react'
 import styles from './pricing-light.module.css'
 
+type PlanKey = 'Pro' | 'Team' | 'Enterprise'
+
 type Plan = {
-  name: string
+  name: PlanKey
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
-  // Usage rows (counts): [Social Connections, Custom Domains, User Role Management, External Databases]
-  features: string[]
+  // Usage values (these are the numbers/strings that appear in the first 4 rows)
+  usage: [string, string, string, string]
   featured?: boolean
 }
 
-const PLANS: Plan[] = [
-  { name: 'Pro',         price: { monthly: 29, yearly: 24 }, ctaStyle: 'neutral', features: ['100','4','Unlimited','1'] },
-  { name: 'Team',        price: { monthly: 54, yearly: 49 }, ctaStyle: 'primary', features: ['250','Unlimited','Unlimited','5'], featured: true },
-  { name: 'Enterprise',  price: { monthly: 85, yearly: 79 }, ctaStyle: 'neutral', features: ['Unlimited','Unlimited','Unlimited','Unlimited'] },
-]
-
+/** Left column groups & rows (no checkmarks here). */
 const LABEL_GROUPS = [
-  { title: 'Usage',    rows: ['Social Connections','Custom Domains','User Role Management','External Databases'] },
-  { title: 'Features', rows: ['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles'] },
+  { title: 'Usage',    rows: ['Social Connections', 'Custom Domains', 'User Role Management', 'External Databases'] },
+  { title: 'Features', rows: ['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons', 'Admin Roles', 'Deploy and Monitor', 'Enterprise Add-ons'] },
   { title: 'Support',  rows: ['Premium Support'] },
 ]
+
+/** Plans: price + usage values */
+const PLANS: Plan[] = [
+  { name: 'Pro',  price: { monthly: 29, yearly: 24 }, ctaStyle: 'neutral',  usage: ['100', '4', 'Unlimited', '1'] },
+  { name: 'Team', price: { monthly: 54, yearly: 49 }, ctaStyle: 'primary',  usage: ['250', 'Unlimited', 'Unlimited', '5'], featured: true },
+  { name: 'Enterprise', price: { monthly: 85, yearly: 79 }, ctaStyle: 'neutral', usage: ['Unlimited', 'Unlimited', 'Unlimited', 'Unlimited'] },
+]
+
+/** Feature matrix (second group): which rows get a check per plan.
+ *  Order corresponds to LABEL_GROUPS[1].rows
+ */
+const FEATURES: Record<PlanKey, boolean[]> = {
+  Pro:         [true,  true,  true,  false, false, false],
+  Team:        [true,  true,  true,  true,  true,  false],
+  Enterprise:  [true,  true,  true,  true,  true,  true ],
+}
+
+/** Support matrix (third group): which plans have Premium Support. */
+const SUPPORT: Record<PlanKey, boolean> = {
+  Pro: false,
+  Team: true,
+  Enterprise: true,
+}
 
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
@@ -30,12 +50,11 @@ export default function PricingLight() {
   return (
     <div className={`${styles.vars} ${styles.forceText}`}>
       <div className={styles.wrap}>
-        {/* Left labels column */}
+        {/* Left labels column (no checkmarks, no duplicate borders) */}
         <aside className={styles.labelsCol}>
+          {/* Toggle */}
           <div className={styles.toggleLine} style={{ marginBottom: 14 }}>
             <span>Monthly</span>
-
-            {/* Toggle */}
             <span
               role="switch"
               aria-checked={annual}
@@ -46,9 +65,6 @@ export default function PricingLight() {
                 position: 'relative', display: 'inline-block', cursor: 'pointer',
                 boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.08)',
               }}
-              aria-label="Toggle annual billing"
-              tabIndex={0}
-              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setAnnual((s) => !s)}
             >
               <span
                 style={{
@@ -58,28 +74,23 @@ export default function PricingLight() {
                 }}
               />
             </span>
-
             <span>Yearly</span>
             <span className={styles.discount}>(-20%)</span>
           </div>
 
           {LABEL_GROUPS.map((g, gi) => (
-            <div key={gi} style={{ marginTop: gi === 0 ? 8 : 18 }}>
-              <div className={styles.h3}>{g.title}</div>
-              <hr className={styles.hr} />
+            <div key={gi} style={{ marginTop: gi === 0 ? 6 : 18 }}>
+              <div className={styles.labelTitle}>{g.title}</div>
               {g.rows.map((r, i) => (
-                <div key={i} className={styles.row}>
-                  <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-                  </svg>
-                  <span>{r}</span>
+                <div key={i} className={styles.labelRow}>
+                  {r}
                 </div>
               ))}
             </div>
           ))}
         </aside>
 
-        {/* Plan cards */}
+        {/* Three plan cards */}
         {PLANS.map((p) => (
           <PlanCard key={p.name} plan={p} annual={annual} />
         ))}
@@ -95,17 +106,13 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
       ? `${styles.btn} ${styles.btnPrimary}`
       : `${styles.btn} ${styles.btnNeutral}`
 
-  // Row counts pulled from LABEL_GROUPS to keep layout in sync
-  const usageCount   = LABEL_GROUPS[0].rows.length // 4
-  const featuresCount = LABEL_GROUPS[1].rows.length // 4
-  const supportCount  = LABEL_GROUPS[2].rows.length // 1
+  const featureBools = FEATURES[plan.name]
+  const supportBool  = SUPPORT[plan.name]
 
   return (
     <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
-      {/* Plan name (forced purple in CSS) */}
       <div className={styles.h3}>{plan.name}</div>
 
-      {/* Price line */}
       <div className={styles.priceRow}>
         <span className={styles.curr}>$</span>
         <span className={styles.value}>{price}</span>
@@ -113,47 +120,32 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
       </div>
 
       <p className={styles.blurb}>Everything at your fingertips.</p>
+      <button className={btnClass} type="button">Get Started →</button>
 
-      <button className={btnClass} type="button">
-        Get Started →
-      </button>
-
-      {/* Group: Usage (numbers) */}
+      {/* Usage rows */}
       <hr className={styles.hr} />
-      {Array.from({ length: usageCount }).map((_, i) =>
-        renderRowValue(plan.features[i] ?? '')
-      )}
+      {plan.usage.map((val, idx) => (
+        <CardRow key={`u-${idx}`} checked={true} content={val} />
+      ))}
 
-      {/* Group: Features (checks only) */}
-      <hr className={styles.hr} />
-      {Array.from({ length: featuresCount }).map((_, i) => renderRowCheck(i))}
+      {/* Features rows (checks based on matrix) */}
+      {featureBools.map((ok, idx) => (
+        <CardRow key={`f-${idx}`} checked={ok} content="" />
+      ))}
 
-      {/* Group: Support (checks only) */}
-      <hr className={styles.hr} />
-      {Array.from({ length: supportCount }).map((_, i) => renderRowCheck(i))}
+      {/* Support row */}
+      <CardRow checked={supportBool} content="" />
     </section>
   )
 }
 
-function renderRowValue(content: string) {
+function CardRow({ checked, content }: { checked: boolean; content: string }) {
   return (
     <div className={styles.row}>
-      <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+      <svg className={`${styles.check} ${checked ? '' : styles.invisible}`} viewBox="0 0 12 9" aria-hidden="true">
         <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
       </svg>
       <span>{content}</span>
-    </div>
-  )
-}
-
-function renderRowCheck(key?: number) {
-  return (
-    <div className={styles.row} key={key}>
-      <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-        <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-      </svg>
-      {/* empty span keeps consistent height/alignment */}
-      <span style={{ visibility: 'hidden' }}>.</span>
     </div>
   )
 }
