@@ -14,7 +14,7 @@
 .gridRow {
   display: grid;
   grid-template-columns: 300px 1fr 1fr 1fr;
-  gap: 2px;
+  gap: 0 2px; /* Add 2px horizontal gap between columns, 0 vertical gap */
   margin-bottom: 0;
 }
 
