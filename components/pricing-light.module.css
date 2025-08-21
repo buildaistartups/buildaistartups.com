@@ -1,15 +1,13 @@
-/* Light theme styles for the pricing table */
-
-.primaryText {
-  color: #0f172a !important; /* slate-900 */
+/* Light theme styles for pricing table */
+.pricingRoot {
+  color: #0f172a; /* slate-900 default text */
 }
 
-.secondaryText {
-  color: #475569 !important; /* slate-600 */
-}
+.primaryText { color: #0f172a !important; }       /* headings, price numbers */
+.secondaryText { color: #475569 !important; }     /* $ /mo, tagline, meta */
 
 .leftCol {
-  background: #f8fafc !important; /* slate-50-ish */
+  background: #f8fafc !important; /* very light grey */
   border-radius: 16px;
 }
 
@@ -19,41 +17,25 @@
 }
 
 .cardShadow {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 1px 1px rgba(0,0,0,.02);
 }
 
 .outlinePurple {
-  border: 2px solid #8b5cf6 !important; /* purple-500 */
+  border: 2px solid #8b5cf6 !important; /* purple focus box */
 }
 
-.customBorder {
-  border-color: #e5e7eb !important; /* gray-200 */
-  border-width: 1px !important;
-  border-style: solid !important;
-}
-
-.borderBottom {
-  border-bottom: 1px solid #e5e7eb !important; /* row divider */
-}
+.borderBottom { border-bottom: 1px solid #e5e7eb !important; } /* row lines */
 
 .ctaGrey {
-  background: #e5e7eb !important; /* gray-200 */
+  background: #e5e7eb !important;
   color: #0f172a !important;
 }
-
-.ctaGrey:hover {
-  background: #d1d5db !important; /* gray-300 */
-}
+.ctaGrey:hover { background: #d1d5db !important; }
 
 .ctaPurple {
   background: #8b5cf6 !important;
-  color: #ffffff !important;
+  color: #fff !important;
 }
+.ctaPurple:hover { background: #7c3aed !important; }
 
-.ctaPurple:hover {
-  background: #7c3aed !important;
-}
-
-.checkIcon {
-  fill: #8b5cf6 !important;
-}
+.checkIcon { fill: #8b5cf6 !important; } /* purple checks */
