@@ -163,19 +163,28 @@ function PlanCard({
       </div>
 
       {/* === Match the labels column structure exactly === */}
+      
       {/* Group: Usage */}
-      <hr className={styles.hr} />
-      {plan.features.map((v, i) => renderValueRow(v, i))}
+      <div style={{ marginTop: 0 }}>
+        <hr className={styles.hr} />
+        {plan.features.map((v, i) => renderValueRow(v, i))}
+      </div>
 
       {/* Group: Features */}
-      <hr className={styles.hr} />
-      {LABEL_GROUPS[1].rows.map((label, i) =>
-        renderCheckRow(FEATURE_CHECKS[plan.name].has(label), i)
-      )}
+      <div style={{ marginTop: 18 }}>
+        <hr className={styles.hr} />
+        {LABEL_GROUPS[1].rows.map((label, i) =>
+          renderCheckRow(FEATURE_CHECKS[plan.name].has(label), i)
+        )}
+      </div>
 
       {/* Group: Support */}
-      <hr className={styles.hr} />
-      {renderCheckRow(FEATURE_CHECKS[plan.name].has('Premium Support'))}
+      <div style={{ marginTop: 18 }}>
+        <hr className={styles.hr} />
+        {LABEL_GROUPS[2].rows.map((label, i) =>
+          renderCheckRow(FEATURE_CHECKS[plan.name].has(label), i)
+        )}
+      </div>
     </section>
   )
 }
