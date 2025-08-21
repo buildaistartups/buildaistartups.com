@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import styles from './pricing-light.module.css'
 
 type Plan = {
@@ -47,158 +47,117 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
 
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const [headerHeight, setHeaderHeight] = useState(0)
 
-  useEffect(() => {
-    if (headerRef.current) {
-      const updateHeight = () => {
-        const height = headerRef.current?.offsetHeight || 0
-        setHeaderHeight(height)
-      }
-      
-      updateHeight()
-      window.addEventListener('resize', updateHeight)
-      return () => window.removeEventListener('resize', updateHeight)
-    }
-  }, [])
+  // Create all rows data for perfect alignment
+  const allRows = [
+    // Header row
+    { type: 'header' },
+    // Button row
+    { type: 'button' },
+    // Usage section
+    { type: 'section', title: 'Usage' },
+    { type: 'feature', label: 'Social Connections', values: ['100', '250', 'Unlimited'] },
+    { type: 'feature', label: 'Custom Domains', values: ['4', 'Unlimited', 'Unlimited'] },
+    { type: 'feature', label: 'User Role Management', values: ['Unlimited', 'Unlimited', 'Unlimited'] },
+    { type: 'feature', label: 'External Databases', values: ['1', '5', 'Unlimited'] },
+    // Features section
+    { type: 'section', title: 'Features' },
+    { type: 'check', label: 'Custom Connection', checks: [true, true, true] },
+    { type: 'check', label: 'Advanced Deployment Options', checks: [true, true, true] },
+    { type: 'check', label: 'Extra Add-ons', checks: [true, true, true] },
+    { type: 'check', label: 'Admin Roles', checks: [false, true, true] },
+    { type: 'check', label: 'Deploy and Monitor', checks: [false, true, true] },
+    { type: 'check', label: 'Enterprise Add-ons', checks: [false, true, true] },
+    // Support section
+    { type: 'section', title: 'Support' },
+    { type: 'check', label: 'Premium Support', checks: [false, true, true] },
+  ]
 
   return (
     <div className={styles.container}>
-      <div className={styles.wrap}>
-        {/* Left labels column */}
-        <aside className={styles.labelsCol}>
-          {/* Spacer to match card headers + button height */}
-          <div style={{ height: headerHeight + 64 }}></div>
-
-          {/* Toggle aligned with buttons */}
-          <div className={styles.toggleContainer}>
-            <div className={styles.toggleLine}>
-              <span>Monthly</span>
-              <span
-                role="switch"
-                aria-checked={annual}
-                onClick={() => setAnnual((s) => !s)}
-                className={styles.toggle}
-                style={{
-                  background: annual ? '#8b5cf6' : '#4a5568',
-                }}
-              >
-                <span
-                  className={styles.toggleThumb}
-                  style={{
-                    left: annual ? 22 : 2,
-                  }}
-                />
-              </span>
-              <span>Yearly</span>
-              <span className={styles.discount}>(-20%)</span>
-            </div>
-          </div>
-
-          {/* Groups */}
-          {LABEL_GROUPS.map((g, gi) => (
-            <div key={gi} className={styles.labelGroup}>
-              <div className={styles.groupTitle}>{g.title}</div>
-              {g.rows.map((r, i) => (
-                <div key={i} className={styles.labelRow}>
-                  <span>{r}</span>
+      <div className={styles.gridContainer}>
+        {allRows.map((row, index) => (
+          <div key={index} className={styles.gridRow}>
+            {/* Labels column */}
+            <div className={styles.labelCell}>
+              {row.type === 'header' && (
+                <div className={styles.toggleLine}>
+                  <span>Monthly</span>
+                  <span
+                    role="switch"
+                    aria-checked={annual}
+                    onClick={() => setAnnual((s) => !s)}
+                    className={styles.toggle}
+                    style={{
+                      background: annual ? '#8b5cf6' : '#4a5568',
+                    }}
+                  >
+                    <span
+                      className={styles.toggleThumb}
+                      style={{
+                        left: annual ? 22 : 2,
+                      }}
+                    />
+                  </span>
+                  <span>Yearly</span>
+                  <span className={styles.discount}>(-20%)</span>
                 </div>
-              ))}
+              )}
+              {row.type === 'section' && (
+                <div className={styles.sectionTitle}>{row.title}</div>
+              )}
+              {(row.type === 'feature' || row.type === 'check') && (
+                <div className={styles.featureLabel}>{row.label}</div>
+              )}
             </div>
-          ))}
-        </aside>
 
-        {/* Plan cards */}
-        {PLANS.map((plan, index) => (
-          <PlanCard 
-            key={plan.name} 
-            plan={plan} 
-            annual={annual} 
-            headerRef={index === 0 ? headerRef : undefined}
-          />
+            {/* Plan columns */}
+            {PLANS.map((plan, planIndex) => (
+              <div key={plan.name} className={`${styles.planCell} ${plan.featured ? styles.featured : ''}`}>
+                {row.type === 'header' && (
+                  <div className={styles.planHeader}>
+                    <div className={styles.planName}>{plan.name}</div>
+                    <div className={styles.priceRow}>
+                      <span className={styles.currency}>$</span>
+                      <span className={styles.price}>{annual ? plan.price.yearly : plan.price.monthly}</span>
+                      <span className={styles.period}>/mo</span>
+                    </div>
+                    <p className={styles.description}>Everything at your fingertips.</p>
+                  </div>
+                )}
+                {row.type === 'button' && (
+                  <div className={styles.buttonCell}>
+                    <button className={`${styles.btn} ${plan.ctaStyle === 'primary' ? styles.btnPrimary : styles.btnSecondary}`}>
+                      Get Started →
+                    </button>
+                  </div>
+                )}
+                {row.type === 'feature' && (
+                  <div className={styles.featureValue}>
+                    <svg className={styles.checkIcon} viewBox="0 0 16 16">
+                      <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                    <span>{row.values[planIndex]}</span>
+                  </div>
+                )}
+                {row.type === 'check' && (
+                  <div className={styles.featureValue}>
+                    {row.checks[planIndex] ? (
+                      <svg className={styles.checkIcon} viewBox="0 0 16 16">
+                        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                      </svg>
+                    ) : (
+                      <div className={styles.emptyCheck}></div>
+                    )}
+                    <span></span>
+                  </div>
+                )}
+                {row.type === 'section' && <div className={styles.emptySectionCell}></div>}
+              </div>
+            ))}
+          </div>
         ))}
       </div>
     </div>
-  )
-}
-
-function PlanCard({ 
-  plan, 
-  annual, 
-  headerRef 
-}: { 
-  plan: Plan; 
-  annual: boolean; 
-  headerRef?: React.RefObject<HTMLDivElement | null>;
-}) {
-  const price = annual ? plan.price.yearly : plan.price.monthly
-
-  return (
-    <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
-      {/* Header */}
-      <div 
-        className={styles.cardHeader} 
-        ref={headerRef}
-      >
-        <div className={styles.planName}>{plan.name}</div>
-        <div className={styles.priceRow}>
-          <span className={styles.currency}>$</span>
-          <span className={styles.price}>{price}</span>
-          <span className={styles.period}>/mo</span>
-        </div>
-        <p className={styles.description}>Everything at your fingertips.</p>
-        <button className={`${styles.btn} ${plan.ctaStyle === 'primary' ? styles.btnPrimary : styles.btnSecondary}`}>
-          Get Started →
-        </button>
-      </div>
-
-      {/* Usage section */}
-      <div className={styles.section}>
-        <div className={styles.groupTitle} style={{ visibility: 'hidden' }}>Usage</div>
-        {plan.features.map((value, i) => (
-          <div key={i} className={styles.featureRow}>
-            <svg className={styles.checkIcon} viewBox="0 0 16 16">
-              <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-            </svg>
-            <span>{value}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Features section */}
-      <div className={styles.section}>
-        <div className={styles.groupTitle} style={{ visibility: 'hidden' }}>Features</div>
-        {LABEL_GROUPS[1].rows.map((label, i) => (
-          <div key={i} className={styles.featureRow}>
-            {FEATURE_CHECKS[plan.name].has(label) ? (
-              <svg className={styles.checkIcon} viewBox="0 0 16 16">
-                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-              </svg>
-            ) : (
-              <div className={styles.emptyCheck}></div>
-            )}
-            <span></span>
-          </div>
-        ))}
-      </div>
-
-      {/* Support section */}
-      <div className={styles.section}>
-        <div className={styles.groupTitle} style={{ visibility: 'hidden' }}>Support</div>
-        {LABEL_GROUPS[2].rows.map((label, i) => (
-          <div key={i} className={styles.featureRow}>
-            {FEATURE_CHECKS[plan.name].has(label) ? (
-              <svg className={styles.checkIcon} viewBox="0 0 16 16">
-                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-              </svg>
-            ) : (
-              <div className={styles.emptyCheck}></div>
-            )}
-            <span></span>
-          </div>
-        ))}
-      </div>
-    </section>
   )
 }
