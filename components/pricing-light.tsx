@@ -7,7 +7,7 @@ type Plan = {
   name: 'Pro' | 'Team' | 'Enterprise'
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
-  features: string[]
+  features: string[]        // Usage values (4 rows)
   featured?: boolean
 }
 
@@ -23,42 +23,60 @@ const LABEL_GROUPS = [
   { title: 'Support',  rows: ['Premium Support'] },
 ]
 
+// check-marks pattern identical to your dark table
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
   Team: new Set(['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Premium Support']),
-  Enterprise: new Set(['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Deploy and Monitor','Enterprise Add-ons','Premium Support']),
+  Enterprise: new Set([
+    'Custom Connection','Advanced Deployment Options','Extra Add-ons',
+    'Admin Roles','Deploy and Monitor','Enterprise Add-ons','Premium Support'
+  ]),
 }
 
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
-  // elements we measure from the first card
+  // we measure from the FIRST card only
   const headRef = useRef<HTMLDivElement | null>(null)
   const btnRef  = useRef<HTMLButtonElement | null>(null)
   const usageBlockRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const update = () => {
-      const headH  = headRef.current?.offsetHeight ?? 0      // includes padding
-      const usageH = usageBlockRef.current?.offsetHeight ?? 0
-      const btnTop = btnRef.current ? (btnRef.current.offsetTop + btnRef.current.offsetHeight / 2) : 0
+      const headEl = headRef.current
+      const btnEl  = btnRef.current
+      const usageEl = usageBlockRef.current
+
+      const headH  = headEl?.offsetHeight ?? 0           // header height (with padding)
+      const usageH = usageEl?.offsetHeight ?? 0          // "Usage" title + hr height
+      const shimH  = Math.max(0, headH - usageH)         // height of the left shim
+
+      // button center RELATIVE to header top
+      let btnCenterInHead = 0
+      if (headEl && btnEl) {
+        const headRect = headEl.getBoundingClientRect()
+        const btnRect  = btnEl.getBoundingClientRect()
+        btnCenterInHead = (btnRect.top + btnRect.height / 2) - headRect.top
+      }
+      // position inside the shim: subtract the usage block height, clamp 0..shimH
+      let btnTopWithinShim = Math.max(0, btnCenterInHead - usageH)
+      if (!isFinite(btnTopWithinShim) || shimH <= 0) btnTopWithinShim = shimH / 2
+      btnTopWithinShim = Math.min(shimH, Math.max(0, btnTopWithinShim))
 
       document.querySelectorAll<HTMLElement>('.' + styles.vars).forEach(root => {
-        // height to push labels so first label row aligns with first value row
-        root.style.setProperty('--head-h', `${Math.max(0, headH - usageH)}px`)
-        // vertical center of the first button (for the toggle)
-        root.style.setProperty('--btn-top', btnTop ? `${btnTop}px` : '50%')
+        root.style.setProperty('--head-h', `${shimH}px`)
+        root.style.setProperty('--btn-top', `${btnTopWithinShim}px`)
       })
     }
 
-    // run twice to catch font/layout settling
+    // run after layout settles (double rAF)
     const raf = () => requestAnimationFrame(() => requestAnimationFrame(update))
     raf()
 
     const ro = new ResizeObserver(raf)
     headRef.current && ro.observe(headRef.current)
-    usageBlockRef.current && ro.observe(usageBlockRef.current)
     btnRef.current && ro.observe(btnRef.current)
+    usageBlockRef.current && ro.observe(usageBlockRef.current)
     window.addEventListener('resize', raf)
     return () => {
       ro.disconnect()
@@ -69,10 +87,10 @@ export default function PricingLight() {
   return (
     <div className={`${styles.vars} ${styles.forceText}`}>
       <div className={styles.wrap}>
-        {/* ============== Left labels column ============== */}
+        {/* ========= LEFT LABELS COLUMN ========= */}
         <aside className={styles.labelsCol}>
+          {/* reserve header space + anchor the toggle inside it */}
           <div className={styles.headShim}>
-            {/* Toggle aligned to the first button */}
             <div className={`${styles.toggleLine} ${styles.toggleAnchor}`}>
               <span>Monthly</span>
               <span
@@ -99,7 +117,7 @@ export default function PricingLight() {
             </div>
           </div>
 
-          {/* "Usage" header + hr (we measure this block) */}
+          {/* Usage header (measured to align first rows) */}
           <div ref={usageBlockRef}>
             <div className={styles.h3}>Usage</div>
             <hr className={styles.hr} />
@@ -142,7 +160,7 @@ export default function PricingLight() {
           </div>
         </aside>
 
-        {/* ============== Plan cards ============== */}
+        {/* ========= PLAN CARDS ========= */}
         {PLANS.map((p, idx) => (
           <PlanCard
             key={p.name}
