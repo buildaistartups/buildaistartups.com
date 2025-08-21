@@ -115,8 +115,7 @@ export default function PricingLight() {
             key={plan.name} 
             plan={plan} 
             annual={annual} 
-            isFirst={index === 0}
-            headerRef={index === 0 ? headerRef : null}
+            headerRef={index === 0 ? headerRef : undefined}
           />
         ))}
       </div>
@@ -127,13 +126,11 @@ export default function PricingLight() {
 function PlanCard({ 
   plan, 
   annual, 
-  isFirst,
   headerRef 
 }: { 
   plan: Plan; 
   annual: boolean; 
-  isFirst: boolean;
-  headerRef: React.RefObject<HTMLDivElement> | null;
+  headerRef?: React.RefObject<HTMLDivElement>;
 }) {
   const price = annual ? plan.price.yearly : plan.price.monthly
 
@@ -142,7 +139,7 @@ function PlanCard({
       {/* Header */}
       <div 
         className={styles.cardHeader} 
-        ref={isFirst ? headerRef : undefined}
+        ref={headerRef}
       >
         <div className={styles.planName}>{plan.name}</div>
         <div className={styles.priceRow}>
