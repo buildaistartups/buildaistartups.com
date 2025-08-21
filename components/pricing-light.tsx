@@ -17,12 +17,6 @@ const PLANS: Plan[] = [
   { name: 'Enterprise', price: { monthly: 85, yearly: 79 }, ctaStyle: 'neutral', features: ['Unlimited','Unlimited','Unlimited','Unlimited'] },
 ]
 
-const LABEL_GROUPS = [
-  { title: 'Usage', rows: ['Social Connections','Custom Domains','User Role Management','External Databases'] },
-  { title: 'Features', rows: ['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Deploy and Monitor','Enterprise Add-ons'] },
-  { title: 'Support', rows: ['Premium Support'] },
-]
-
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
   Team: new Set([
@@ -45,11 +39,18 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   ]),
 }
 
+type TableRow = 
+  | { type: 'header' }
+  | { type: 'button' }
+  | { type: 'section'; title: string }
+  | { type: 'feature'; label: string; values: string[] }
+  | { type: 'check'; label: string; checks: boolean[] }
+
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
   // Create all rows data for perfect alignment
-  const allRows = [
+  const allRows: TableRow[] = [
     // Header row
     { type: 'header' },
     // Button row
