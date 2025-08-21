@@ -1,7 +1,7 @@
 // app/(default)/pricing-section-light.tsx
 import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
-import Pricing from '@/components/pricing' // keep as-is if you render table elsewhere
+import Pricing from '@/components/pricing-light' // keep as-is if you render table elsewhere
 
 export default function PricingSection() {
   return (
