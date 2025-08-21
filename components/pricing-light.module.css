@@ -24,10 +24,7 @@
 }
 
 @media (max-width: 1023px) {
-  .wrap {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+  .wrap { grid-template-columns: 1fr; gap: 12px; }
 }
 
 /* ---- Columns --------------------------------------------------------- */
@@ -35,7 +32,7 @@
   background: var(--surface-muted);
   border: 1px solid var(--row);
   border-radius: var(--radius);
-  padding: 18px 16px;
+  padding: 18px 16px 16px;
   color: var(--text);
 }
 
@@ -51,87 +48,59 @@
   overflow: visible;
 }
 
-.featured {
-  outline: 2px solid var(--purple);
-  outline-offset: 0;
-}
+.featured { outline: 2px solid var(--purple); outline-offset: 0; }
 
-/* ---- Text ------------------------------------------------------------ */
+/* ---- Headings / price ------------------------------------------------ */
 .h3 {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--purple) !important; /* purple headings on cards */
+  color: var(--purple) !important; /* force purple headings */
 }
 
-/* Left labels section titles */
-.labelTitle {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-top: 2px;
-  margin-bottom: 8px;
-}
-
-/* Pricing row (currency/value/per) */
 .priceRow {
   display: flex;
   align-items: baseline;
   gap: 6px;
   margin: 2px 0 10px;
 }
+.curr, .per { color: var(--text); font-weight: 600; }
+.value { font-size: 2rem; line-height: 1.1; font-weight: 800; color: var(--text); }
+.blurb { color: var(--text); margin-bottom: 14px; }
 
-.curr,
-.per {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.value {
-  font-size: 2rem;
-  line-height: 1.1;
-  font-weight: 800;
+/* ---- Sections & rows (normalized table model) ----------------------- */
+.sectionTitle {
+  font-weight: 700;
+  margin: 16px 0 8px;
   color: var(--text);
 }
 
-.blurb {
-  color: var(--text);
-  margin-bottom: 14px;
-}
+.rows { border-top: 1px solid var(--row); } /* single divider per section */
 
-/* ---- Dividers / rows ------------------------------------------------- */
-.hr {
-  border: 0;
-  border-top: 1px solid var(--row);
-  margin: 14px 0;
-}
-
-/* Rows inside the plan cards */
 .row {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--row);
 }
 .row:last-child { border-bottom: 0; }
 
-/* Rows inside the labels column (no check icon, single top divider) */
-.labelRow {
-  padding: 10px 0;
-  border-top: 1px solid var(--row);
+.rowSpacer {          /* used inside plan cards where labels have a section title */
+  height: 41px;       /* matches .row height (10 + line + 10-ish) for alignment */
+  border-bottom: 1px solid var(--row);
 }
 
-/* Small purple check used inside plan cards */
+.cellLabel { flex: 1 1 auto; }
+.cellValue { flex: 1 1 auto; }
+
 .check {
   width: 12px;
   height: 9px;
   fill: var(--purple);
   flex: 0 0 12px;
 }
-.invisible {
-  visibility: hidden;
-}
+.blank { width: 12px; height: 9px; flex: 0 0 12px; } /* keeps alignment when no check */
 
 /* ---- Buttons --------------------------------------------------------- */
 .btn {
@@ -145,11 +114,7 @@
   transition: background .15s ease, transform .05s ease, filter .15s ease;
   user-select: none;
 }
-
-.btnNeutral {
-  background: var(--btn-neutral);
-  color: var(--text);
-}
+.btnNeutral { background: var(--btn-neutral); color: var(--text); }
 .btnNeutral:hover { background: var(--btn-neutral-hover); }
 .btnNeutral:active { transform: translateY(1px); }
 
@@ -167,13 +132,8 @@
   gap: 10px;
   color: var(--text);
 }
+.discount { color: var(--green) !important; font-weight: 700; }
 
-.discount {
-  color: var(--green) !important;  /* green (-20%) */
-  font-weight: 700;
-}
-
-/* Keep text black even if parent has Tailwind text utilities */
+/* ---- Utilities ------------------------------------------------------- */
 .forceText * { color: var(--text) !important; }
-/* ...but allow the green discount to punch through */
 .forceText .discount { color: var(--green) !important; }
