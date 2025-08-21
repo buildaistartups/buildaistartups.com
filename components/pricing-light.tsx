@@ -7,7 +7,7 @@ type Plan = {
   name: 'Pro' | 'Team' | 'Enterprise'
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
-  features: string[]
+  features: string[]        // Usage values (4 rows)
   featured?: boolean
 }
 
@@ -23,7 +23,7 @@ const LABEL_GROUPS = [
   { title: 'Support',  rows: ['Premium Support'] },
 ]
 
-// which feature rows show a check (to match your dark table)
+// which feature rows show a check (matching your dark theme)
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
   Team: new Set([
@@ -49,7 +49,7 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
-  // measure actual header height and feed it into the CSS var --head-h
+  // Measure the actual header height so the left column can offset to the same baseline.
   const headRef = useRef<HTMLDivElement | null>(null)
   const [headH, setHeadH] = useState<number | null>(null)
 
@@ -58,7 +58,7 @@ export default function PricingLight() {
     const el = headRef.current
     const apply = () => setHeadH(el.getBoundingClientRect().height)
     apply()
-    const ro = new ResizeObserver(() => apply())
+    const ro = new ResizeObserver(apply)
     ro.observe(el)
     window.addEventListener('resize', apply)
     return () => {
@@ -75,6 +75,7 @@ export default function PricingLight() {
       <div className={styles.wrap}>
         {/* Left labels column */}
         <aside className={styles.labelsCol}>
+          {/* Toggle */}
           <div className={styles.toggleLine} style={{ marginBottom: 14 }}>
             <span>Monthly</span>
             <span
@@ -100,9 +101,10 @@ export default function PricingLight() {
             <span className={styles.discount}>(-20%)</span>
           </div>
 
-          {/* Spacer that will exactly match the card header height */}
+          {/* Spacer that matches the plan header height */}
           <div className={styles.headShim} />
 
+          {/* Groups (Usage / Features / Support) */}
           {LABEL_GROUPS.map((g, gi) => (
             <div key={gi} style={{ marginTop: gi === 0 ? 0 : 18 }}>
               <div className={styles.h3}>{g.title}</div>
@@ -125,8 +127,7 @@ export default function PricingLight() {
             key={p.name}
             plan={p}
             annual={annual}
-            /* measure header once on the first card */
-            headRef={idx === 0 ? headRef : undefined}
+            headRef={idx === 0 ? headRef : undefined} // measure only once
           />
         ))}
       </div>
@@ -151,7 +152,7 @@ function PlanCard({
 
   return (
     <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
-      {/* header with fixed min-height controlled by --head-h; ref on first card */}
+      {/* Header (measured on the first card) */}
       <div className={styles.head} ref={headRef}>
         <div className={styles.h3}>{plan.name}</div>
 
@@ -165,28 +166,27 @@ function PlanCard({
         <button className={btnClass} type="button">Get Started →</button>
       </div>
 
+      {/* === Match the labels column structure exactly === */}
+      {/* Group: Usage */}
       <hr className={styles.hr} />
+      {plan.features.map((v, i) => renderValueRow(v, i))}
 
-      {/* Usage rows */}
-      {renderValueRow(plan.features[0])}
-      {renderValueRow(plan.features[1])}
-      {renderValueRow(plan.features[2])}
-      {renderValueRow(plan.features[3])}
-
-      {/* Features rows (checks per plan) */}
-      {LABEL_GROUPS[1].rows.map((label) =>
-        renderCheckRow(FEATURE_CHECKS[plan.name].has(label))
+      {/* Group: Features */}
+      <hr className={styles.hr} />
+      {LABEL_GROUPS[1].rows.map((label, i) =>
+        renderCheckRow(FEATURE_CHECKS[plan.name].has(label), i)
       )}
 
-      {/* Support row */}
+      {/* Group: Support */}
+      <hr className={styles.hr} />
       {renderCheckRow(FEATURE_CHECKS[plan.name].has('Premium Support'))}
     </section>
   )
 }
 
-function renderValueRow(content: string) {
+function renderValueRow(content: string, key?: number) {
   return (
-    <div className={styles.row}>
+    <div className={styles.row} key={key}>
       <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
         <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
       </svg>
@@ -195,9 +195,9 @@ function renderValueRow(content: string) {
   )
 }
 
-function renderCheckRow(checked: boolean) {
+function renderCheckRow(checked: boolean, key?: number) {
   return (
-    <div className={styles.row}>
+    <div className={styles.row} key={key}>
       {checked ? (
         <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
           <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
