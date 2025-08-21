@@ -7,108 +7,69 @@ type Plan = {
   name: 'Pro' | 'Team' | 'Enterprise'
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
-  features: string[]        // Usage values (4 rows)
+  features: string[]
   featured?: boolean
 }
 
 const PLANS: Plan[] = [
-  { name: 'Pro',        price: { monthly: 29, yearly: 24 }, ctaStyle: 'neutral', features: ['100','4','Unlimited','1'] },
-  { name: 'Team',       price: { monthly: 54, yearly: 49 }, ctaStyle: 'primary', features: ['250','Unlimited','Unlimited','5'], featured: true },
+  { name: 'Pro', price: { monthly: 29, yearly: 24 }, ctaStyle: 'neutral', features: ['100','4','Unlimited','1'] },
+  { name: 'Team', price: { monthly: 54, yearly: 49 }, ctaStyle: 'primary', features: ['250','Unlimited','Unlimited','5'], featured: true },
   { name: 'Enterprise', price: { monthly: 85, yearly: 79 }, ctaStyle: 'neutral', features: ['Unlimited','Unlimited','Unlimited','Unlimited'] },
 ]
 
 const LABEL_GROUPS = [
-  { title: 'Usage',    rows: ['Social Connections','Custom Domains','User Role Management','External Databases'] },
+  { title: 'Usage', rows: ['Social Connections','Custom Domains','User Role Management','External Databases'] },
   { title: 'Features', rows: ['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Deploy and Monitor','Enterprise Add-ons'] },
-  { title: 'Support',  rows: ['Premium Support'] },
+  { title: 'Support', rows: ['Premium Support'] },
 ]
 
-// check-marks pattern identical to your dark table
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
-  Team: new Set(['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Premium Support']),
+  Team: new Set([
+    'Custom Connection',
+    'Advanced Deployment Options',
+    'Extra Add-ons',
+    'Admin Roles',
+    'Deploy and Monitor',
+    'Enterprise Add-ons',
+    'Premium Support',
+  ]),
   Enterprise: new Set([
-    'Custom Connection','Advanced Deployment Options','Extra Add-ons',
-    'Admin Roles','Deploy and Monitor','Enterprise Add-ons','Premium Support'
+    'Custom Connection',
+    'Advanced Deployment Options',
+    'Extra Add-ons',
+    'Admin Roles',
+    'Deploy and Monitor',
+    'Enterprise Add-ons',
+    'Premium Support',
   ]),
 }
 
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
-  // we measure from the FIRST card only
-  const headRef = useRef<HTMLDivElement | null>(null)
-  const btnRef  = useRef<HTMLButtonElement | null>(null)
-  const usageBlockRef = useRef<HTMLDivElement | null>(null)
-
-  useEffect(() => {
-    const update = () => {
-      const headEl = headRef.current
-      const btnEl  = btnRef.current
-      const usageEl = usageBlockRef.current
-
-      const headH  = headEl?.offsetHeight ?? 0           // header height (with padding)
-      const usageH = usageEl?.offsetHeight ?? 0          // "Usage" title + hr height
-      const shimH  = Math.max(0, headH - usageH)         // height of the left shim
-
-      // button center RELATIVE to header top
-      let btnCenterInHead = 0
-      if (headEl && btnEl) {
-        const headRect = headEl.getBoundingClientRect()
-        const btnRect  = btnEl.getBoundingClientRect()
-        btnCenterInHead = (btnRect.top + btnRect.height / 2) - headRect.top
-      }
-      // position inside the shim: subtract the usage block height, clamp 0..shimH
-      let btnTopWithinShim = Math.max(0, btnCenterInHead - usageH)
-      if (!isFinite(btnTopWithinShim) || shimH <= 0) btnTopWithinShim = shimH / 2
-      btnTopWithinShim = Math.min(shimH, Math.max(0, btnTopWithinShim))
-
-      document.querySelectorAll<HTMLElement>('.' + styles.vars).forEach(root => {
-        root.style.setProperty('--head-h', `${shimH}px`)
-        root.style.setProperty('--btn-top', `${btnTopWithinShim}px`)
-      })
-    }
-
-    // run after layout settles (double rAF)
-    const raf = () => requestAnimationFrame(() => requestAnimationFrame(update))
-    raf()
-
-    const ro = new ResizeObserver(raf)
-    headRef.current && ro.observe(headRef.current)
-    btnRef.current && ro.observe(btnRef.current)
-    usageBlockRef.current && ro.observe(usageBlockRef.current)
-    window.addEventListener('resize', raf)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener('resize', raf)
-    }
-  }, [])
-
   return (
-    <div className={`${styles.vars} ${styles.forceText}`}>
+    <div className={styles.container}>
       <div className={styles.wrap}>
-        {/* ========= LEFT LABELS COLUMN ========= */}
+        {/* Left labels column */}
         <aside className={styles.labelsCol}>
-          {/* reserve header space + anchor the toggle inside it */}
-          <div className={styles.headShim}>
-            <div className={`${styles.toggleLine} ${styles.toggleAnchor}`}>
+          {/* Toggle */}
+          <div className={styles.toggleContainer}>
+            <div className={styles.toggleLine}>
               <span>Monthly</span>
               <span
                 role="switch"
                 aria-checked={annual}
-                onClick={() => setAnnual(s => !s)}
+                onClick={() => setAnnual((s) => !s)}
+                className={styles.toggle}
                 style={{
-                  width: 42, height: 22, borderRadius: 9999,
-                  background: annual ? 'var(--purple)' : 'var(--btn-neutral)',
-                  position: 'relative', display: 'inline-block', cursor: 'pointer',
-                  boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.08)',
+                  background: annual ? '#8b5cf6' : '#4a5568',
                 }}
               >
                 <span
+                  className={styles.toggleThumb}
                   style={{
-                    position: 'absolute', top: 2, left: annual ? 22 : 2,
-                    width: 18, height: 18, borderRadius: '9999px',
-                    background: '#fff', transition: 'left .15s ease',
+                    left: annual ? 22 : 2,
                   }}
                 />
               </span>
@@ -117,133 +78,89 @@ export default function PricingLight() {
             </div>
           </div>
 
-          {/* Usage header (measured to align first rows) */}
-          <div ref={usageBlockRef}>
-            <div className={styles.h3}>Usage</div>
-            <hr className={styles.hr} />
-          </div>
-
-          {/* Usage rows */}
-          {LABEL_GROUPS[0].rows.map((r) => (
-            <div key={r} className={styles.row}>
-              <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-                <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-              </svg>
-              <span>{r}</span>
+          {/* Groups */}
+          {LABEL_GROUPS.map((g, gi) => (
+            <div key={gi} className={styles.labelGroup}>
+              <div className={styles.groupTitle}>{g.title}</div>
+              {g.rows.map((r, i) => (
+                <div key={i} className={styles.labelRow}>
+                  <span>{r}</span>
+                </div>
+              ))}
             </div>
           ))}
-
-          {/* Features */}
-          <div style={{ marginTop: 18 }}>
-            <div className={styles.h3}>Features</div>
-            <hr className={styles.hr} />
-            {LABEL_GROUPS[1].rows.map((r) => (
-              <div key={r} className={styles.row}>
-                <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-                  <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-                </svg>
-                <span>{r}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Support */}
-          <div style={{ marginTop: 18 }}>
-            <div className={styles.h3}>Support</div>
-            <hr className={styles.hr} />
-            <div className={styles.row}>
-              <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-                <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-              </svg>
-              <span>Premium Support</span>
-            </div>
-          </div>
         </aside>
 
-        {/* ========= PLAN CARDS ========= */}
-        {PLANS.map((p, idx) => (
-          <PlanCard
-            key={p.name}
-            plan={p}
-            annual={annual}
-            headRef={idx === 0 ? headRef : undefined}
-            buttonRef={idx === 0 ? btnRef : undefined}
-          />
+        {/* Plan cards */}
+        {PLANS.map((plan) => (
+          <PlanCard key={plan.name} plan={plan} annual={annual} />
         ))}
       </div>
     </div>
   )
 }
 
-function PlanCard({
-  plan, annual, headRef, buttonRef,
-}: {
-  plan: Plan
-  annual: boolean
-  headRef?: React.Ref<HTMLDivElement>
-  buttonRef?: React.Ref<HTMLButtonElement>
-}) {
+function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
   const price = annual ? plan.price.yearly : plan.price.monthly
-  const btnClass =
-    plan.ctaStyle === 'primary'
-      ? `${styles.btn} ${styles.btnPrimary}`
-      : `${styles.btn} ${styles.btnNeutral}`
 
   return (
     <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
-      {/* Header (measured on the first card) */}
-      <div className={styles.head} ref={headRef}>
-        <div className={styles.h3}>{plan.name}</div>
-
+      {/* Header */}
+      <div className={styles.cardHeader}>
+        <div className={styles.planName}>{plan.name}</div>
         <div className={styles.priceRow}>
-          <span className={styles.curr}>$</span>
-          <span className={styles.value}>{price}</span>
-          <span className={styles.per}>/mo</span>
+          <span className={styles.currency}>$</span>
+          <span className={styles.price}>{price}</span>
+          <span className={styles.period}>/mo</span>
         </div>
-
-        <p className={styles.blurb}>Everything at your fingertips.</p>
-        <button className={btnClass} type="button" ref={buttonRef}>
+        <p className={styles.description}>Everything at your fingertips.</p>
+        <button className={`${styles.btn} ${plan.ctaStyle === 'primary' ? styles.btnPrimary : styles.btnSecondary}`}>
           Get Started →
         </button>
       </div>
 
-      {/* Group: Usage */}
-      <hr className={styles.hr} />
-      {plan.features.map((v, i) => (
-        <div className={styles.row} key={i}>
-          <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-            <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-          </svg>
-          <span>{v}</span>
-        </div>
-      ))}
-
-      {/* Group: Features */}
-      <hr className={styles.hr} />
-      {LABEL_GROUPS[1].rows.map((label, i) => (
-        <div className={styles.row} key={i}>
-          {FEATURE_CHECKS[plan.name].has(label) ? (
-            <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-              <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+      {/* Usage section */}
+      <div className={styles.section}>
+        {plan.features.map((value, i) => (
+          <div key={i} className={styles.featureRow}>
+            <svg className={styles.checkIcon} viewBox="0 0 16 16">
+              <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
             </svg>
-          ) : (
-            <span style={{ width: 12, height: 9 }} />
-          )}
-          <span />
-        </div>
-      ))}
+            <span>{value}</span>
+          </div>
+        ))}
+      </div>
 
-      {/* Group: Support */}
-      <hr className={styles.hr} />
-      <div className={styles.row}>
-        {FEATURE_CHECKS[plan.name].has('Premium Support') ? (
-          <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-            <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-          </svg>
-        ) : (
-          <span style={{ width: 12, height: 9 }} />
-        )}
-        <span />
+      {/* Features section */}
+      <div className={styles.section}>
+        {LABEL_GROUPS[1].rows.map((label, i) => (
+          <div key={i} className={styles.featureRow}>
+            {FEATURE_CHECKS[plan.name].has(label) ? (
+              <svg className={styles.checkIcon} viewBox="0 0 16 16">
+                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+            ) : (
+              <div className={styles.emptyCheck}></div>
+            )}
+            <span></span>
+          </div>
+        ))}
+      </div>
+
+      {/* Support section */}
+      <div className={styles.section}>
+        {LABEL_GROUPS[2].rows.map((label, i) => (
+          <div key={i} className={styles.featureRow}>
+            {FEATURE_CHECKS[plan.name].has(label) ? (
+              <svg className={styles.checkIcon} viewBox="0 0 16 16">
+                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+              </svg>
+            ) : (
+              <div className={styles.emptyCheck}></div>
+            )}
+            <span></span>
+          </div>
+        ))}
       </div>
     </section>
   )
