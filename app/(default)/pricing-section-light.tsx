@@ -1,3 +1,4 @@
+// app/(default)/pricing-section-light.tsx
 import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
 import Pricing from '@/components/pricing' // keep as-is if you render table elsewhere
@@ -15,27 +16,27 @@ export default function PricingSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Content */}
-          <div className="max-w-4xl mx-auto text-center pb-12 md:pb-20">
-            {/* Eyebrow — solid purple */}
-            <div className="pb-3 text-base md:text-lg font-medium" style={{ color: '#7500D6' }}>
-              Pricing plans
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+            <div>
+              {/* Eyebrow — solid #7500D6, keep existing font-size from your styles */}
+              <div className="inline-flex font-medium pb-3" style={{ color: '#7500D6' }}>
+                Pricing plans
+              </div>
             </div>
 
-            {/* Title
-                Keep .h2 for the SAME sizes as dark theme.
-                Force solid readable color + neutralize any gradient/clip from the global .h2 */}
-            <h2 className="h2 !text-slate-700 !bg-none !bg-transparent !bg-clip-border">
+            {/* Title — keep gradient exactly like your reference */}
+            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
               Flexible plans and features
             </h2>
 
-            {/* Paragraph — same size scale as dark, solid readable gray */}
-            <p className="text-lg md:text-xl leading-relaxed !text-slate-600">
+            {/* Paragraph — same rule as reference */}
+            <p className="text-lg text-slate-400">
               All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary,
               making this the first true generator on the Internet.
             </p>
           </div>
 
-          {/* If you’re injecting the pricing table via ThemeAwarePricing elsewhere, remove this */}
+          {/* If you’re injecting the pricing table via ThemeAwarePricing elsewhere, you can remove this */}
           <Pricing />
         </div>
       </div>
