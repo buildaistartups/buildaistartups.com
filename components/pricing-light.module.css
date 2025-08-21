@@ -14,15 +14,16 @@
   --radius: 16px;
   --shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
 
-  /* set by JS; safe fallbacks prevent overlap when JS hasn’t run yet */
-  --head-h: 120px;
+  /* measured in JS; fallbacks keep things usable before JS runs */
+  --head-h: 120px; /* total height of card head (up to & incl. button) */
   --btn-top: 50%;
 }
 
 /* ---- Grid ------------------------------------------------------------ */
 .wrap {
   display: grid;
-  grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels slimmer; three equal cards */
+  /* four equal columns so the labels column matches card widths */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 2px; /* ultra-tight spacing */
 }
 
@@ -32,27 +33,33 @@
 
 /* ---- Columns --------------------------------------------------------- */
 .labelsCol {
+  position: relative; /* for absolute toggle placement */
   background: var(--surface-muted);
   border: 1px solid var(--row);
   border-radius: var(--radius);
   padding: 20px 18px 24px;
   color: var(--text);
+  min-width: 0; /* allow equal shrink with the grid */
 }
 
 /* spacer that matches the measured plan header height */
 .headShim {
-  position: relative;
   height: var(--head-h);
   min-height: 120px; /* safety */
 }
 
-/* toggle is vertically centered to the first Get Started button */
-.toggleAnchor {
+/* place the toggle over the header space so it aligns with buttons */
+.toggleLine {
   position: absolute;
-  left: 0;
-  top: var(--btn-top);
+  left: 18px;
+  right: 18px;
+  top: calc(var(--head-h) - 22px); /* centerline of a 44px button */
   transform: translateY(-50%);
-  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  margin: 0 !important; /* defeat inline margin-bottom */
 }
 
 /* plan cards */
@@ -66,6 +73,7 @@
   padding: 20px 18px 40px;
   min-height: 100%;
   overflow: visible;
+  min-width: 0; /* allow equal shrink with the grid */
 }
 .featured { outline: 2px solid var(--purple); }
 .head { padding-bottom: 16px; }
@@ -84,9 +92,24 @@
 
 /* ---- Rows / dividers ------------------------------------------------- */
 .hr { border: 0; border-top: 1px solid var(--row); margin: 16px 0; }
-.row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--row); }
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--row);
+}
 .row:last-child { border-bottom: 0; }
 .check { width: 12px; height: 9px; fill: var(--purple); flex: 0 0 12px; }
+
+/* prevent wrapping of labels so rows align perfectly with values */
+.labelsCol .row {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.labelsCol .row span { white-space: inherit; }
 
 /* ---- Buttons --------------------------------------------------------- */
 .btn {
@@ -105,8 +128,7 @@
 .btnPrimary:hover { filter: brightness(.98); }
 .btnPrimary:active { transform: translateY(1px); }
 
-/* ---- Toggle line ----------------------------------------------------- */
-.toggleLine { display: flex; align-items: center; gap: 10px; color: var(--text); }
+/* ---- Toggle line accent ---------------------------------------------- */
 .discount { color: var(--green) !important; font-weight: 700; }
 
 /* Keep text black even if parent has Tailwind text utilities */
