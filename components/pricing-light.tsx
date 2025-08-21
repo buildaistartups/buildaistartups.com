@@ -23,7 +23,7 @@ const LABEL_GROUPS = [
   { title: 'Support',  rows: ['Premium Support'] },
 ]
 
-// which feature rows show a check (matching your dark theme)
+// check-marks pattern identical to your dark table
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
   Team: new Set([
@@ -49,29 +49,30 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
-  // Measure the actual header height so the left column can offset to the same baseline.
+  // measure plan header once -> mirror in labels column
   const headRef = useRef<HTMLDivElement | null>(null)
-  const [headH, setHeadH] = useState<number | null>(null)
 
   useEffect(() => {
-    if (!headRef.current) return
     const el = headRef.current
-    const apply = () => setHeadH(el.getBoundingClientRect().height)
-    apply()
-    const ro = new ResizeObserver(apply)
+    if (!el) return
+    const update = () => {
+      const h = el.getBoundingClientRect().height + 16 /* .head padding-bottom */
+      document.querySelectorAll<HTMLElement>('.' + styles.vars).forEach(root => {
+        root.style.setProperty('--head-h', `${h}px`)
+      })
+    }
+    update()
+    const ro = new ResizeObserver(update)
     ro.observe(el)
-    window.addEventListener('resize', apply)
+    window.addEventListener('resize', update)
     return () => {
       ro.disconnect()
-      window.removeEventListener('resize', apply)
+      window.removeEventListener('resize', update)
     }
   }, [])
 
   return (
-    <div
-      className={`${styles.vars} ${styles.forceText}`}
-      style={headH ? ({ ['--head-h' as any]: `${headH}px` }) : undefined}
-    >
+    <div className={`${styles.vars} ${styles.forceText}`}>
       <div className={styles.wrap}>
         {/* Left labels column */}
         <aside className={styles.labelsCol}>
@@ -101,7 +102,7 @@ export default function PricingLight() {
             <span className={styles.discount}>(-20%)</span>
           </div>
 
-          {/* Spacer that matches the plan header height */}
+          {/* Spacer to push first label row to the same baseline as the first plan row */}
           <div className={styles.headShim} />
 
           {/* Groups (Usage / Features / Support) */}
@@ -123,12 +124,7 @@ export default function PricingLight() {
 
         {/* Plan cards */}
         {PLANS.map((p, idx) => (
-          <PlanCard
-            key={p.name}
-            plan={p}
-            annual={annual}
-            headRef={idx === 0 ? headRef : undefined} // measure only once
-          />
+          <PlanCard key={p.name} plan={p} annual={annual} headRef={idx === 0 ? headRef : undefined} />
         ))}
       </div>
     </div>
