@@ -20,13 +20,13 @@
 .wrap {
   display: grid;
   grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels slimmer; three equal cards */
-  gap: 4px; /* tighter spacing */
+  gap: 2px; /* ultra-tight spacing */
 }
 
 @media (max-width: 1023px) {
   .wrap {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 }
 
