@@ -5,7 +5,6 @@
   --surface: #ffffff;
   --surface-muted: #f5f7fb;
   --text: #0f172a;
-  --text-subtle: #334155;
   --row: #e5e7eb;
   --btn-neutral: #e5e7eb;
   --btn-neutral-hover: #e2e8f0;
@@ -14,9 +13,6 @@
   --green: #10b981;
   --radius: 16px;
   --shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
-
-  /* shared header height so labels and plan rows start at the same Y */
-  --head-h: 200px;  /* tweak 190–210 if you want pixel-perfect */
 }
 
 /* ---- Grid ------------------------------------------------------------ */
@@ -25,8 +21,12 @@
   grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels slimmer; three equal cards */
   gap: 2px; /* ultra-tight spacing */
 }
+
 @media (max-width: 1023px) {
-  .wrap { grid-template-columns: 1fr; gap: 12px; }
+  .wrap {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 }
 
 /* ---- Columns --------------------------------------------------------- */
@@ -34,13 +34,16 @@
   background: var(--surface-muted);
   border: 1px solid var(--row);
   border-radius: var(--radius);
-  padding: 18px 16px 20px;
+  padding: 20px 18px 24px;
   color: var(--text);
 }
 
-/* spacer to push “Usage/Social Connections” down to match plan rows */
-.headShim { height: var(--head-h); }
+/* spacer that matches the measured plan header height */
+.headShim {
+  height: var(--head-h, 0px);
+}
 
+/* plan cards */
 .card {
   background: var(--surface);
   border: 1px solid var(--row);
@@ -48,21 +51,20 @@
   box-shadow: var(--shadow);
   color: var(--text);
   position: relative;
-  padding: 0 18px 40px; /* top is managed by .head; extra bottom room */
+  padding: 20px 18px 40px;
   min-height: 100%;
   overflow: visible;
 }
 
-/* header block inside the card; its height lines up with .headShim */
-.head {
-  min-height: var(--head-h);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 18px 0 12px;
+.featured {
+  outline: 2px solid var(--purple);
+  outline-offset: 0;
 }
 
-.featured { outline: 2px solid var(--purple); outline-offset: 0; }
+/* header inside each plan card (height is mirrored via .headShim) */
+.head {
+  padding-bottom: 16px; /* <- this is mirrored by .headShim via --head-h */
+}
 
 /* ---- Text ------------------------------------------------------------ */
 .h3 {
@@ -80,7 +82,10 @@
 }
 
 .curr,
-.per { color: var(--text); font-weight: 600; }
+.per {
+  color: var(--text);
+  font-weight: 600;
+}
 
 .value {
   font-size: 2rem;
@@ -89,20 +94,25 @@
   color: var(--text);
 }
 
-.blurb { color: var(--text); margin-bottom: 14px; }
+.blurb {
+  color: var(--text);
+  margin-bottom: 14px;
+}
 
 /* ---- Rows / dividers ------------------------------------------------- */
+/* identical margins both in labelsCol and card -> baselines align */
 .hr {
   border: 0;
   border-top: 1px solid var(--row);
-  margin: 14px 0;
+  margin: 16px 0;
 }
 
+/* identical row height & borders everywhere */
 .row {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 0;
+  padding: 10px 0;
   border-bottom: 1px solid var(--row);
 }
 .row:last-child { border-bottom: 0; }
@@ -127,7 +137,10 @@
   user-select: none;
 }
 
-.btnNeutral { background: var(--btn-neutral); color: var(--text); }
+.btnNeutral {
+  background: var(--btn-neutral);
+  color: var(--text);
+}
 .btnNeutral:hover { background: var(--btn-neutral-hover); }
 .btnNeutral:active { transform: translateY(1px); }
 
@@ -146,9 +159,11 @@
   color: var(--text);
 }
 
-.discount { color: var(--green) !important; font-weight: 700; }
+.discount {
+  color: var(--green) !important;  /* green (-20%) */
+  font-weight: 700;
+}
 
 /* Keep text black even if parent has Tailwind text utilities */
 .forceText * { color: var(--text) !important; }
-/* ...but allow the green discount to punch through */
 .forceText .discount { color: var(--green) !important; }
