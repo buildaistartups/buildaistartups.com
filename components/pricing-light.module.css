@@ -14,23 +14,20 @@
   --radius: 16px;
   --shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
 
-  /* set by JS */
-  --head-h: 0px;        /* header height minus "Usage" block height */
-  --btn-top: 0px;       /* center of the first Get Started button (inside header) */
+  /* set by JS; safe fallbacks prevent overlap when JS hasn’t run yet */
+  --head-h: 120px;
+  --btn-top: 50%;
 }
 
 /* ---- Grid ------------------------------------------------------------ */
 .wrap {
   display: grid;
-  grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels slimmer; three equal cards */
-  gap: 2px; /* ultra-tight spacing */
+  grid-template-columns: 0.82fr 1fr 1fr 1fr;
+  gap: 2px;
 }
 
 @media (max-width: 1023px) {
-  .wrap {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+  .wrap { grid-template-columns: 1fr; gap: 12px; }
 }
 
 /* ---- Columns --------------------------------------------------------- */
@@ -42,18 +39,19 @@
   color: var(--text);
 }
 
-/* The shim area equals (card header height - height of "Usage" heading+hr).
-   We also use it as a positioning surface for the toggle, so make it relative. */
+/* space that mirrors the plan header height (so first rows align) */
 .headShim {
   position: relative;
-  height: var(--head-h, 0px);
+  height: var(--head-h);
+  min-height: 120px; /* safety */
 }
 
-/* Place the toggle so its center aligns with the first Get Started button */
+/* We place the toggle inside the shim and vertically center it to the
+   first card button using --btn-top (with 50% fallback). */
 .toggleAnchor {
   position: absolute;
   left: 0;
-  top: var(--btn-top, 0px);
+  top: var(--btn-top);
   transform: translateY(-50%);
   width: 100%;
 }
@@ -71,22 +69,17 @@
   overflow: visible;
 }
 
-.featured {
-  outline: 2px solid var(--purple);
-  outline-offset: 0;
-}
+.featured { outline: 2px solid var(--purple); }
 
-/* header inside each plan card (we measure this) */
-.head {
-  padding-bottom: 16px;
-}
+/* header inside each plan card (measured by JS) */
+.head { padding-bottom: 16px; }
 
 /* ---- Text ------------------------------------------------------------ */
 .h3 {
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--purple) !important; /* purple headings */
+  color: var(--purple) !important;
 }
 
 .priceRow {
@@ -96,11 +89,7 @@
   margin: 2px 0 10px;
 }
 
-.curr,
-.per {
-  color: var(--text);
-  font-weight: 600;
-}
+.curr, .per { color: var(--text); font-weight: 600; }
 
 .value {
   font-size: 2rem;
@@ -109,20 +98,15 @@
   color: var(--text);
 }
 
-.blurb {
-  color: var(--text);
-  margin-bottom: 14px;
-}
+.blurb { color: var(--text); margin-bottom: 14px; }
 
 /* ---- Rows / dividers ------------------------------------------------- */
-/* identical margins both in labelsCol and card -> baselines align */
 .hr {
   border: 0;
   border-top: 1px solid var(--row);
   margin: 16px 0;
 }
 
-/* identical row height & borders everywhere */
 .row {
   display: flex;
   align-items: center;
@@ -132,12 +116,7 @@
 }
 .row:last-child { border-bottom: 0; }
 
-.check {
-  width: 12px;
-  height: 9px;
-  fill: var(--purple);
-  flex: 0 0 12px;
-}
+.check { width: 12px; height: 9px; fill: var(--purple); flex: 0 0 12px; }
 
 /* ---- Buttons --------------------------------------------------------- */
 .btn {
@@ -151,11 +130,7 @@
   transition: background .15s ease, transform .05s ease, filter .15s ease;
   user-select: none;
 }
-
-.btnNeutral {
-  background: var(--btn-neutral);
-  color: var(--text);
-}
+.btnNeutral { background: var(--btn-neutral); color: var(--text); }
 .btnNeutral:hover { background: var(--btn-neutral-hover); }
 .btnNeutral:active { transform: translateY(1px); }
 
@@ -167,17 +142,8 @@
 .btnPrimary:active { transform: translateY(1px); }
 
 /* ---- Toggle line ----------------------------------------------------- */
-.toggleLine {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-}
-
-.discount {
-  color: var(--green) !important;  /* green (-20%) */
-  font-weight: 700;
-}
+.toggleLine { display: flex; align-items: center; gap: 10px; color: var(--text); }
+.discount { color: var(--green) !important; font-weight: 700; }
 
 /* Keep text black even if parent has Tailwind text utilities */
 .forceText * { color: var(--text) !important; }
