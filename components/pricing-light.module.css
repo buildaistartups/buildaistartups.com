@@ -1,8 +1,8 @@
 .container {
-  background: linear-gradient(135deg, #1a1b3a 0%, #2d1b69 50%, #1a1b3a 100%);
+  background: #f8fafc;
   min-height: 100vh;
   padding: 40px 20px;
-  color: #ffffff;
+  color: #1f2937;
 }
 
 .gridContainer {
@@ -18,24 +18,23 @@
 }
 
 .labelCell {
-  background: transparent;
+  background: #f1f5f9;
   padding: 12px 20px;
   display: flex;
   align-items: center;
 }
 
 .planCell {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   padding: 12px 20px;
   display: flex;
   align-items: center;
 }
 
 .planCell.featured {
-  border: 1px solid #8b5cf6;
-  background: rgba(139, 92, 246, 0.1);
+  border: 2px solid #8b5cf6;
+  background: #faf5ff;
 }
 
 /* Header styles */
@@ -48,12 +47,12 @@
 .planName {
   font-size: 18px;
   font-weight: 600;
-  color: #a0aec0;
+  color: #374151;
   margin-bottom: 10px;
 }
 
 .featured .planName {
-  color: #d8b4fe;
+  color: #7c3aed;
 }
 
 .priceRow {
@@ -67,23 +66,23 @@
 .currency {
   font-size: 18px;
   font-weight: 600;
-  color: #ffffff;
+  color: #111827;
 }
 
 .price {
   font-size: 36px;
   font-weight: 700;
-  color: #ffffff;
+  color: #111827;
 }
 
 .period {
   font-size: 16px;
-  color: #a0aec0;
+  color: #6b7280;
 }
 
 .description {
   font-size: 14px;
-  color: #a0aec0;
+  color: #6b7280;
   margin: 0;
 }
 
@@ -115,13 +114,13 @@
 }
 
 .btnSecondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #e5e7eb;
+  color: #374151;
+  border: 1px solid #d1d5db;
 }
 
 .btnSecondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: #d1d5db;
 }
 
 /* Toggle styles */
@@ -130,6 +129,7 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
+  color: #374151;
 }
 
 .toggle {
@@ -152,7 +152,7 @@
 }
 
 .discount {
-  color: #48bb78 !important;
+  color: #10b981 !important;
   font-weight: 600;
 }
 
@@ -160,12 +160,12 @@
 .sectionTitle {
   font-size: 16px;
   font-weight: 600;
-  color: #ffffff;
+  color: #111827;
 }
 
 .featureLabel {
   font-size: 14px;
-  color: #a0aec0;
+  color: #374151;
 }
 
 .featureValue {
@@ -173,7 +173,7 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
-  color: #a0aec0;
+  color: #374151;
 }
 
 .checkIcon {
@@ -205,8 +205,8 @@
   }
   
   .labelCell {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     border-radius: 8px;
     margin-bottom: 5px;
   }
