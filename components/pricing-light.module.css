@@ -22,8 +22,8 @@
 /* ---- Grid ------------------------------------------------------------ */
 .wrap {
   display: grid;
-  grid-template-columns: 0.82fr 1fr 1fr 1fr;
-  gap: 2px;
+  grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels slimmer; three equal cards */
+  gap: 2px; /* ultra-tight spacing */
 }
 
 @media (max-width: 1023px) {
@@ -39,15 +39,14 @@
   color: var(--text);
 }
 
-/* space that mirrors the plan header height (so first rows align) */
+/* spacer that matches the measured plan header height */
 .headShim {
   position: relative;
   height: var(--head-h);
   min-height: 120px; /* safety */
 }
 
-/* We place the toggle inside the shim and vertically center it to the
-   first card button using --btn-top (with 50% fallback). */
+/* toggle is vertically centered to the first Get Started button */
 .toggleAnchor {
   position: absolute;
   left: 0;
@@ -68,10 +67,7 @@
   min-height: 100%;
   overflow: visible;
 }
-
 .featured { outline: 2px solid var(--purple); }
-
-/* header inside each plan card (measured by JS) */
 .head { padding-bottom: 16px; }
 
 /* ---- Text ------------------------------------------------------------ */
@@ -79,61 +75,29 @@
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--purple) !important;
+  color: var(--purple) !important; /* purple headings */
 }
-
-.priceRow {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  margin: 2px 0 10px;
-}
-
+.priceRow { display: flex; align-items: baseline; gap: 6px; margin: 2px 0 10px; }
 .curr, .per { color: var(--text); font-weight: 600; }
-
-.value {
-  font-size: 2rem;
-  line-height: 1.1;
-  font-weight: 800;
-  color: var(--text);
-}
-
+.value { font-size: 2rem; line-height: 1.1; font-weight: 800; color: var(--text); }
 .blurb { color: var(--text); margin-bottom: 14px; }
 
 /* ---- Rows / dividers ------------------------------------------------- */
-.hr {
-  border: 0;
-  border-top: 1px solid var(--row);
-  margin: 16px 0;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--row);
-}
+.hr { border: 0; border-top: 1px solid var(--row); margin: 16px 0; }
+.row { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--row); }
 .row:last-child { border-bottom: 0; }
-
 .check { width: 12px; height: 9px; fill: var(--purple); flex: 0 0 12px; }
 
 /* ---- Buttons --------------------------------------------------------- */
 .btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 44px;
-  border-radius: 9999px;
-  font-weight: 700;
+  display: inline-flex; justify-content: center; align-items: center;
+  width: 100%; height: 44px; border-radius: 9999px; font-weight: 700;
   transition: background .15s ease, transform .05s ease, filter .15s ease;
   user-select: none;
 }
 .btnNeutral { background: var(--btn-neutral); color: var(--text); }
 .btnNeutral:hover { background: var(--btn-neutral-hover); }
 .btnNeutral:active { transform: translateY(1px); }
-
 .btnPrimary {
   background: linear-gradient(90deg, var(--purple) 0%, var(--purple-dark) 100%);
   color: #fff;
