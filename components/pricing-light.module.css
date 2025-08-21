@@ -17,11 +17,10 @@
 }
 
 /* ---- Grid ------------------------------------------------------------ */
-/* tighter gap + slightly slimmer labels column so cards sit closer */
 .wrap {
   display: grid;
-  grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels a bit slimmer; three equal cards */
-  gap: 6px; /* was 10px -> bring columns even closer */
+  grid-template-columns: 0.82fr 1fr 1fr 1fr; /* labels slimmer; three equal cards */
+  gap: 4px; /* tighter spacing */
 }
 
 @media (max-width: 1023px) {
@@ -47,9 +46,7 @@
   box-shadow: var(--shadow);
   color: var(--text);
   position: relative;
-
-  /* roomy interior + ensure bottom rows/checks never clip */
-  padding: 20px 18px 40px;
+  padding: 20px 18px 40px; /* extra bottom room so rows aren’t clipped */
   min-height: 100%;
   overflow: visible;
 }
