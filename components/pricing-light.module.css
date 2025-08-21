@@ -1,41 +1,154 @@
-/* Light theme styles for pricing table */
-.pricingRoot {
-  color: #0f172a; /* slate-900 default text */
+/* components/pricing-light.module.css */
+
+/* ---- Tokens ------------------------------------------------------------ */
+:root {
+  --surface: #ffffff;            /* card surface */
+  --surface-muted: #f5f7fb;      /* left label column surface */
+  --text: #0f172a;               /* slate-900-ish (black for light) */
+  --text-subtle: #334155;        /* slate-700-ish */
+  --row: #e5e7eb;                /* borders between rows */
+  --btn-neutral: #e5e7eb;        /* gray button bg */
+  --btn-neutral-hover: #e2e8f0;
+  --purple: #8b5cf6;             /* outline + checks (purple-500/600) */
+  --purple-dark: #7c3aed;
+  --green: #10b981;              /* discount */
+  --radius: 16px;
+  --shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
 }
 
-.primaryText { color: #0f172a !important; }       /* headings, price numbers */
-.secondaryText { color: #475569 !important; }     /* $ /mo, tagline, meta */
+/* ---- Layout ------------------------------------------------------------ */
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.4fr 1.4fr;
+  gap: 24px;
+}
 
-.leftCol {
-  background: #f8fafc !important; /* very light grey */
-  border-radius: 16px;
+@media (max-width: 1023px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Columns ----------------------------------------------------------- */
+.labelsCol {
+  background: var(--surface-muted);
+  border: 1px solid var(--row);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  color: var(--text);
 }
 
 .card {
-  background: #ffffff !important;
-  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--row);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+  color: var(--text);
+  position: relative;
 }
 
-.cardShadow {
-  box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 1px 1px rgba(0,0,0,.02);
+.featured {
+  outline: 2px solid var(--purple);
+  outline-offset: 0;
 }
 
-.outlinePurple {
-  border: 2px solid #8b5cf6 !important; /* purple focus box */
+/* ---- Text -------------------------------------------------------------- */
+.h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
-.borderBottom { border-bottom: 1px solid #e5e7eb !important; } /* row lines */
-
-.ctaGrey {
-  background: #e5e7eb !important;
-  color: #0f172a !important;
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 2px 0 10px;
 }
-.ctaGrey:hover { background: #d1d5db !important; }
 
-.ctaPurple {
-  background: #8b5cf6 !important;
-  color: #fff !important;
+.curr,
+.per {
+  color: var(--text);
+  font-weight: 500;
 }
-.ctaPurple:hover { background: #7c3aed !important; }
 
-.checkIcon { fill: #8b5cf6 !important; } /* purple checks */
+.value {
+  font-size: 2rem;
+  line-height: 1.1;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.blurb {
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+/* ---- Rows / dividers --------------------------------------------------- */
+.hr {
+  border: 0;
+  border-top: 1px solid var(--row);
+  margin: 14px 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--row);
+}
+.row:last-child { border-bottom: 0; }
+
+.check {
+  width: 12px;
+  height: 9px;
+  fill: var(--purple);
+  flex: 0 0 12px;
+}
+
+/* ---- Buttons ----------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 42px;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: background .15s ease, transform .05s ease;
+  user-select: none;
+}
+
+.btnNeutral {
+  background: var(--btn-neutral);
+  color: var(--text);
+}
+.btnNeutral:hover { background: var(--btn-neutral-hover); }
+.btnNeutral:active { transform: translateY(1px); }
+
+.btnPrimary {
+  background: linear-gradient(90deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: #fff;
+}
+.btnPrimary:hover { filter: brightness(.98); }
+.btnPrimary:active { transform: translateY(1px); }
+
+/* ---- Toggle (top line) ------------------------------------------------- */
+.toggleLine {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.discount {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* Kill any Tailwind color utilities that might sneak in */
+.forceText * {
+  color: var(--text) !important;
+}
