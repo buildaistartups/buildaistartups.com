@@ -47,13 +47,31 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
 
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
+  const headerRef = useRef<HTMLDivElement>(null)
+  const [headerHeight, setHeaderHeight] = useState(0)
+
+  useEffect(() => {
+    if (headerRef.current) {
+      const updateHeight = () => {
+        const height = headerRef.current?.offsetHeight || 0
+        setHeaderHeight(height)
+      }
+      
+      updateHeight()
+      window.addEventListener('resize', updateHeight)
+      return () => window.removeEventListener('resize', updateHeight)
+    }
+  }, [])
 
   return (
     <div className={styles.container}>
       <div className={styles.wrap}>
         {/* Left labels column */}
         <aside className={styles.labelsCol}>
-          {/* Toggle */}
+          {/* Spacer to match card headers */}
+          <div style={{ height: headerHeight + 20 }}></div>
+
+          {/* Toggle aligned with buttons */}
           <div className={styles.toggleContainer}>
             <div className={styles.toggleLine}>
               <span>Monthly</span>
@@ -92,21 +110,34 @@ export default function PricingLight() {
         </aside>
 
         {/* Plan cards */}
-        {PLANS.map((plan) => (
-          <PlanCard key={plan.name} plan={plan} annual={annual} />
+        {PLANS.map((plan, index) => (
+          <PlanCard 
+            key={plan.name} 
+            plan={plan} 
+            annual={annual} 
+            headerRef={index === 0 ? headerRef : undefined}
+          />
         ))}
       </div>
     </div>
   )
 }
 
-function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
+function PlanCard({ 
+  plan, 
+  annual, 
+  headerRef 
+}: { 
+  plan: Plan; 
+  annual: boolean; 
+  headerRef?: React.RefObject<HTMLDivElement>
+}) {
   const price = annual ? plan.price.yearly : plan.price.monthly
 
   return (
     <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
       {/* Header */}
-      <div className={styles.cardHeader}>
+      <div className={styles.cardHeader} ref={headerRef}>
         <div className={styles.planName}>{plan.name}</div>
         <div className={styles.priceRow}>
           <span className={styles.currency}>$</span>
@@ -114,6 +145,10 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
           <span className={styles.period}>/mo</span>
         </div>
         <p className={styles.description}>Everything at your fingertips.</p>
+      </div>
+
+      {/* Button aligned with toggle */}
+      <div className={styles.buttonContainer}>
         <button className={`${styles.btn} ${plan.ctaStyle === 'primary' ? styles.btnPrimary : styles.btnSecondary}`}>
           Get Started →
         </button>
@@ -121,6 +156,7 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
 
       {/* Usage section */}
       <div className={styles.section}>
+        <div className={styles.sectionSpacer}></div>
         {plan.features.map((value, i) => (
           <div key={i} className={styles.featureRow}>
             <svg className={styles.checkIcon} viewBox="0 0 16 16">
@@ -133,6 +169,7 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
 
       {/* Features section */}
       <div className={styles.section}>
+        <div className={styles.sectionSpacer}></div>
         {LABEL_GROUPS[1].rows.map((label, i) => (
           <div key={i} className={styles.featureRow}>
             {FEATURE_CHECKS[plan.name].has(label) ? (
@@ -149,6 +186,7 @@ function PlanCard({ plan, annual }: { plan: Plan; annual: boolean }) {
 
       {/* Support section */}
       <div className={styles.section}>
+        <div className={styles.sectionSpacer}></div>
         {LABEL_GROUPS[2].rows.map((label, i) => (
           <div key={i} className={styles.featureRow}>
             {FEATURE_CHECKS[plan.name].has(label) ? (
