@@ -7,7 +7,7 @@ type Plan = {
   name: 'Pro' | 'Team' | 'Enterprise'
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
-  features: string[]        // Usage values (4 rows)
+  features: string[]
   featured?: boolean
 }
 
@@ -23,84 +23,62 @@ const LABEL_GROUPS = [
   { title: 'Support',  rows: ['Premium Support'] },
 ]
 
-/** Checkmarks pattern = exactly as requested in your spec */
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
-  Team: new Set([
-    'Custom Connection',
-    'Advanced Deployment Options',
-    'Extra Add-ons',
-    'Admin Roles',
-    'Premium Support',
-  ]),
-  Enterprise: new Set([
-    'Custom Connection',
-    'Advanced Deployment Options',
-    'Extra Add-ons',
-    'Admin Roles',
-    'Deploy and Monitor',
-    'Enterprise Add-ons',
-    'Premium Support',
-  ]),
+  Team: new Set(['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Premium Support']),
+  Enterprise: new Set(['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Deploy and Monitor','Enterprise Add-ons','Premium Support']),
 }
 
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
-  // measure the first plan header + its button position,
-  // and the height of the "Usage" title+hr block
+  // elements we measure from the first card
   const headRef = useRef<HTMLDivElement | null>(null)
-  const btnRef = useRef<HTMLButtonElement | null>(null)
+  const btnRef  = useRef<HTMLButtonElement | null>(null)
   const usageBlockRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const update = () => {
-      const headEl = headRef.current
-      const btnEl  = btnRef.current
-      const usageEl = usageBlockRef.current
-
-      const headH  = headEl?.getBoundingClientRect().height ?? 0
-      const usageH = usageEl?.getBoundingClientRect().height ?? 0
-
-      // center of the button relative to the header top
-      let btnTop = 0
-      if (headEl && btnEl) {
-        const hRect = headEl.getBoundingClientRect()
-        const bRect = btnEl.getBoundingClientRect()
-        btnTop = (bRect.top - hRect.top) + bRect.height / 2
-      }
+      const headH  = headRef.current?.offsetHeight ?? 0      // includes padding
+      const usageH = usageBlockRef.current?.offsetHeight ?? 0
+      const btnTop = btnRef.current ? (btnRef.current.offsetTop + btnRef.current.offsetHeight / 2) : 0
 
       document.querySelectorAll<HTMLElement>('.' + styles.vars).forEach(root => {
-        root.style.setProperty('--head-h', `${Math.max(0, Math.round(headH - usageH))}px`)
-        root.style.setProperty('--btn-top', `${Math.round(btnTop)}px`)
+        // height to push labels so first label row aligns with first value row
+        root.style.setProperty('--head-h', `${Math.max(0, headH - usageH)}px`)
+        // vertical center of the first button (for the toggle)
+        root.style.setProperty('--btn-top', btnTop ? `${btnTop}px` : '50%')
       })
     }
 
-    update()
-    const ro = new ResizeObserver(update)
-    if (headRef.current) ro.observe(headRef.current)
-    if (usageBlockRef.current) ro.observe(usageBlockRef.current)
-    if (btnRef.current) ro.observe(btnRef.current)
-    window.addEventListener('resize', update)
+    // run twice to catch font/layout settling
+    const raf = () => requestAnimationFrame(() => requestAnimationFrame(update))
+    raf()
+
+    const ro = new ResizeObserver(raf)
+    headRef.current && ro.observe(headRef.current)
+    usageBlockRef.current && ro.observe(usageBlockRef.current)
+    btnRef.current && ro.observe(btnRef.current)
+    window.addEventListener('resize', raf)
     return () => {
       ro.disconnect()
-      window.removeEventListener('resize', update)
+      window.removeEventListener('resize', raf)
     }
   }, [])
 
   return (
     <div className={`${styles.vars} ${styles.forceText}`}>
       <div className={styles.wrap}>
-        {/* ================= Left labels column ================= */}
+        {/* ============== Left labels column ============== */}
         <aside className={styles.labelsCol}>
-          {/* Header mirror area: we use it as a positioning surface for the toggle */}
           <div className={styles.headShim}>
+            {/* Toggle aligned to the first button */}
             <div className={`${styles.toggleLine} ${styles.toggleAnchor}`}>
               <span>Monthly</span>
               <span
                 role="switch"
                 aria-checked={annual}
-                onClick={() => setAnnual((s) => !s)}
+                onClick={() => setAnnual(s => !s)}
                 style={{
                   width: 42, height: 22, borderRadius: 9999,
                   background: annual ? 'var(--purple)' : 'var(--btn-neutral)',
@@ -121,7 +99,7 @@ export default function PricingLight() {
             </div>
           </div>
 
-          {/* "Usage" heading + hr — we measure this block */}
+          {/* "Usage" header + hr (we measure this block) */}
           <div ref={usageBlockRef}>
             <div className={styles.h3}>Usage</div>
             <hr className={styles.hr} />
@@ -137,7 +115,7 @@ export default function PricingLight() {
             </div>
           ))}
 
-          {/* Features group */}
+          {/* Features */}
           <div style={{ marginTop: 18 }}>
             <div className={styles.h3}>Features</div>
             <hr className={styles.hr} />
@@ -151,7 +129,7 @@ export default function PricingLight() {
             ))}
           </div>
 
-          {/* Support group */}
+          {/* Support */}
           <div style={{ marginTop: 18 }}>
             <div className={styles.h3}>Support</div>
             <hr className={styles.hr} />
@@ -164,7 +142,7 @@ export default function PricingLight() {
           </div>
         </aside>
 
-        {/* ================= Plan cards ================= */}
+        {/* ============== Plan cards ============== */}
         {PLANS.map((p, idx) => (
           <PlanCard
             key={p.name}
@@ -180,10 +158,7 @@ export default function PricingLight() {
 }
 
 function PlanCard({
-  plan,
-  annual,
-  headRef,
-  buttonRef,
+  plan, annual, headRef, buttonRef,
 }: {
   plan: Plan
   annual: boolean
