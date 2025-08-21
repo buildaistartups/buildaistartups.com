@@ -64,6 +64,11 @@
   color: var(--purple) !important; /* purple headings */
 }
 
+/* safety: if the plan titles are plain h-tags without .h3 */
+.card :is(h1, h2, h3, .planTitle, .plan-name, .planName) {
+  color: var(--purple) !important;
+}
+
 .priceRow {
   display: flex;
   align-items: baseline;
