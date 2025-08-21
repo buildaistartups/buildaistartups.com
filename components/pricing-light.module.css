@@ -60,7 +60,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(4) .planCell {
+.gridRow:nth-child(4) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -69,7 +69,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(5) .planCell {
+.gridRow:nth-child(5) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -78,7 +78,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(6) .planCell {
+.gridRow:nth-child(6) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -87,7 +87,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(7) .planCell {
+.gridRow:nth-child(7) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -96,7 +96,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(9) .planCell {
+.gridRow:nth-child(9) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -105,7 +105,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(10) .planCell {
+.gridRow:nth-child(10) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -114,7 +114,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(11) .planCell {
+.gridRow:nth-child(11) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -123,7 +123,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(12) .planCell {
+.gridRow:nth-child(12) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -132,7 +132,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(13) .planCell {
+.gridRow:nth-child(13) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -141,7 +141,7 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(14) .planCell {
+.gridRow:nth-child(14) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -150,68 +150,30 @@
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
-.gridRow:nth-child(16) .planCell {
+.gridRow:nth-child(16) .planCell:not(.featured) {
   border-bottom: 1px solid #e5e7eb;
 }
 
 .planCell.featured {
   background: #ffffff;
-  border-bottom: none;
+  border: 2px solid #8b5cf6;
+  border-top: 2px solid #8b5cf6;
+  border-bottom: 2px solid #8b5cf6;
   position: relative;
 }
 
-/* REMOVE all gray borders from featured column to prevent crossing over purple border */
-.gridRow:nth-child(4) .planCell.featured,
-.gridRow:nth-child(5) .planCell.featured,
-.gridRow:nth-child(6) .planCell.featured,
-.gridRow:nth-child(7) .planCell.featured,
-.gridRow:nth-child(9) .planCell.featured,
-.gridRow:nth-child(10) .planCell.featured,
-.gridRow:nth-child(11) .planCell.featured,
-.gridRow:nth-child(12) .planCell.featured,
-.gridRow:nth-child(13) .planCell.featured,
-.gridRow:nth-child(14) .planCell.featured,
-.gridRow:nth-child(16) .planCell.featured {
-  border-bottom: none !important; /* Remove gray borders from featured column */
-}
-
-/* Create purple outline using pseudo-elements */
-.planCell.featured::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border: 2px solid #8b5cf6;
-  border-radius: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Remove individual borders and use single outline for featured column */
-.gridRow:first-child .planCell.featured::before {
+/* Override borders for first and last featured rows */
+.gridRow:first-child .planCell.featured {
   border-top: 2px solid #8b5cf6;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom: none;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 
-.gridRow:last-child .planCell.featured::before {
+.gridRow:last-child .planCell.featured {
   border-bottom: 2px solid #8b5cf6;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top: none;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
-.gridRow:not(:first-child):not(:last-child) .planCell.featured::before {
+.gridRow:not(:first-child):not(:last-child) .planCell.featured {
   border-top: none;
   border-bottom: none;
-  border-radius: 0;
 }
 
 /* Header styles */
