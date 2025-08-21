@@ -3,104 +3,63 @@
 import { useState } from 'react'
 import styles from './pricing-light.module.css'
 
-/* -------------------- Table Model ------------------------------------ */
-/** One normalized sequence of rows for labels + plan cards */
-type Row =
-  | { kind: 'section'; title: string }
-  | { kind: 'item'; key: string; label: string }
-
-const ROWS: Row[] = [
-  { kind: 'section', title: 'Usage' },
-  { kind: 'item', key: 'social', label: 'Social Connections' },
-  { kind: 'item', key: 'domains', label: 'Custom Domains' },
-  { kind: 'item', key: 'roles', label: 'User Role Management' },
-  { kind: 'item', key: 'db', label: 'External Databases' },
-
-  { kind: 'section', title: 'Features' },
-  { kind: 'item', key: 'custom_connection', label: 'Custom Connection' },
-  { kind: 'item', key: 'deploy', label: 'Advanced Deployment Options' },
-  { kind: 'item', key: 'addons', label: 'Extra Add-ons' },
-  { kind: 'item', key: 'admin_roles', label: 'Admin Roles' },
-
-  { kind: 'section', title: 'Support' },
-  { kind: 'item', key: 'premium_support', label: 'Premium Support' },
-]
-
-/** What each plan shows in each row (string renders value; true renders ✓; false renders empty) */
-type PlanKey = 'Pro' | 'Team' | 'Enterprise'
-type CellMap = Record<PlanKey, Record<string, string | boolean>>
-
-const CELLS: CellMap = {
-  Pro: {
-    social: '100',
-    domains: '4',
-    roles: 'Unlimited',
-    db: '1',
-
-    custom_connection: true,
-    deploy: true,
-    addons: true,
-    admin_roles: true,
-
-    premium_support: false,
-  },
-  Team: {
-    social: '250',
-    domains: 'Unlimited',
-    roles: 'Unlimited',
-    db: '5',
-
-    custom_connection: true,
-    deploy: true,
-    addons: true,
-    admin_roles: true,
-
-    premium_support: true,
-  },
-  Enterprise: {
-    social: 'Unlimited',
-    domains: 'Unlimited',
-    roles: 'Unlimited',
-    db: 'Unlimited',
-
-    custom_connection: true,
-    deploy: true,
-    addons: true,
-    admin_roles: true,
-
-    premium_support: true,
-  },
-}
-
-/* -------------------- Plans (price + CTA style) ---------------------- */
-type PlanMeta = {
-  name: PlanKey
+type Plan = {
+  name: 'Pro' | 'Team' | 'Enterprise'
   price: { monthly: number; yearly: number }
   ctaStyle: 'primary' | 'neutral'
+  features: string[]
   featured?: boolean
 }
-const PLANS: PlanMeta[] = [
-  { name: 'Pro',        price: { monthly: 29, yearly: 24 }, ctaStyle: 'neutral' },
-  { name: 'Team',       price: { monthly: 54, yearly: 49 }, ctaStyle: 'primary', featured: true },
-  { name: 'Enterprise', price: { monthly: 85, yearly: 79 }, ctaStyle: 'neutral' },
+
+const PLANS: Plan[] = [
+  { name: 'Pro',        price: { monthly: 29, yearly: 24 }, ctaStyle: 'neutral', features: ['100','4','Unlimited','1'] },
+  { name: 'Team',       price: { monthly: 54, yearly: 49 }, ctaStyle: 'primary', features: ['250','Unlimited','Unlimited','5'], featured: true },
+  { name: 'Enterprise', price: { monthly: 85, yearly: 79 }, ctaStyle: 'neutral', features: ['Unlimited','Unlimited','Unlimited','Unlimited'] },
 ]
 
-/* ========================== Component ================================= */
+const LABEL_GROUPS = [
+  { title: 'Usage',    rows: ['Social Connections','Custom Domains','User Role Management','External Databases'] },
+  { title: 'Features', rows: ['Custom Connection','Advanced Deployment Options','Extra Add-ons','Admin Roles','Deploy and Monitor','Enterprise Add-ons'] },
+  { title: 'Support',  rows: ['Premium Support'] },
+]
+
+// Which “Features” rows get a check per plan (to match the dark layout)
+const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
+  Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
+  Team: new Set([
+    'Custom Connection',
+    'Advanced Deployment Options',
+    'Extra Add-ons',
+    'Admin Roles',
+    'Deploy and Monitor',
+    'Enterprise Add-ons',
+    'Premium Support',
+  ]),
+  Enterprise: new Set([
+    'Custom Connection',
+    'Advanced Deployment Options',
+    'Extra Add-ons',
+    'Admin Roles',
+    'Deploy and Monitor',
+    'Enterprise Add-ons',
+    'Premium Support',
+  ]),
+}
+
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
   return (
     <div className={`${styles.vars} ${styles.forceText}`}>
       <div className={styles.wrap}>
-        {/* Left labels column (drives alignment) */}
+        {/* Left labels column */}
         <aside className={styles.labelsCol}>
-          {/* Toggle */}
           <div className={styles.toggleLine} style={{ marginBottom: 14 }}>
             <span>Monthly</span>
             <span
               role="switch"
               aria-checked={annual}
-              onClick={() => setAnnual((s) => !s)}
+              onClick={() => setAnnual(s => !s)}
               style={{
                 width: 42, height: 22, borderRadius: 9999,
                 background: annual ? 'var(--purple)' : 'var(--btn-neutral)',
@@ -120,121 +79,87 @@ export default function PricingLight() {
             <span className={styles.discount}>(-20%)</span>
           </div>
 
-          {/* Sectioned labels */}
-          {grouped(ROWS).map((group, gi) => (
-            <div key={gi} style={{ marginTop: gi === 0 ? 4 : 16 }}>
-              <div className={styles.sectionTitle}>{group.title}</div>
-              <div className={styles.rows}>
-                {group.items.map((r) => (
-                  <div key={r.key} className={styles.row}>
-                    {/* small decorative check like the dark layout */}
-                    <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-                      <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-                    </svg>
-                    <span className={styles.cellLabel}>{r.label}</span>
-                  </div>
-                ))}
-              </div>
+          {/* Spacer to align “Social Connections” with the first plan row */}
+          <div className={styles.headShim} />
+
+          {LABEL_GROUPS.map((g, gi) => (
+            <div key={gi} style={{ marginTop: gi === 0 ? 0 : 18 }}>
+              <div className={styles.h3}>{g.title}</div>
+              <hr className={styles.hr} />
+              {g.rows.map((r, i) => (
+                <div key={i} className={styles.row}>
+                  {/* Purple check shown only to mirror the visual bullets in the left column */}
+                  <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+                    <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+                  </svg>
+                  <span>{r}</span>
+                </div>
+              ))}
             </div>
           ))}
         </aside>
 
-        {/* Plan cards — render the exact same sequence of rows */}
+        {/* Plan columns */}
         {PLANS.map((p) => (
-          <PlanCard key={p.name} meta={p} cells={CELLS[p.name]} annual={annual} />
+          <section key={p.name} className={`${styles.card} ${p.featured ? styles.featured : ''}`}>
+            {/* header with fixed min-height to line up with labels shim */}
+            <div className={styles.head}>
+              <div className={styles.h3}>{p.name}</div>
+
+              <div className={styles.priceRow}>
+                <span className={styles.curr}>$</span>
+                <span className={styles.value}>{annual ? p.price.yearly : p.price.monthly}</span>
+                <span className={styles.per}>/mo</span>
+              </div>
+
+              <p className={styles.blurb}>Everything at your fingertips.</p>
+              <button
+                className={`${styles.btn} ${p.ctaStyle === 'primary' ? styles.btnPrimary : styles.btnNeutral}`}
+                type="button"
+              >
+                Get Started →
+              </button>
+            </div>
+
+            <hr className={styles.hr} />
+
+            {/* Usage rows (always values) */}
+            {['0','1','2','3'].map((idx) => renderValueRow(p.features[Number(idx)]))}
+
+            {/* Features rows with checks following the dark-theme pattern */}
+            {LABEL_GROUPS[1].rows.map((label) => renderCheckRow(FEATURE_CHECKS[p.name].has(label)))}
+
+            {/* Support row (Premium Support) */}
+            {renderCheckRow(FEATURE_CHECKS[p.name].has('Premium Support'))}
+          </section>
         ))}
       </div>
     </div>
   )
 }
 
-/* -------------------- Subcomponents ---------------------------------- */
-function PlanCard({
-  meta,
-  cells,
-  annual,
-}: {
-  meta: PlanMeta
-  cells: Record<string, string | boolean>
-  annual: boolean
-}) {
-  const price = annual ? meta.price.yearly : meta.price.monthly
-  const btnClass =
-    meta.ctaStyle === 'primary'
-      ? `${styles.btn} ${styles.btnPrimary}`
-      : `${styles.btn} ${styles.btnNeutral}`
-
+function renderValueRow(content: string) {
   return (
-    <section className={`${styles.card} ${meta.featured ? styles.featured : ''}`}>
-      <div className={styles.h3}>{meta.name}</div>
-
-      <div className={styles.priceRow}>
-        <span className={styles.curr}>$</span>
-        <span className={styles.value}>{price}</span>
-        <span className={styles.per}>/mo</span>
-      </div>
-
-      <p className={styles.blurb}>Everything at your fingertips.</p>
-      <button className={btnClass} type="button">Get Started →</button>
-
-      {/* Render rows in the exact order; add section spacers to align with labels */}
-      {grouped(ROWS).map((group, gi) => (
-        <div key={gi} style={{ marginTop: 10 }}>
-          {/* top divider for the section inside cards */}
-          <div className={styles.rowSpacer} />
-          {group.items.map((r) => (
-            <div key={r.key} className={styles.row}>
-              {renderCell(cells[r.key])}
-            </div>
-          ))}
-        </div>
-      ))}
-    </section>
+    <div className={styles.row}>
+      <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+        <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+      </svg>
+      <span>{content}</span>
+    </div>
   )
 }
 
-/* Cell renderer: string -> check + text; true -> check only; false -> blank */
-function renderCell(v: string | boolean | undefined) {
-  if (typeof v === 'string') {
-    return (
-      <>
-        <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-          <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-        </svg>
-        <span className={styles.cellValue}>{v}</span>
-      </>
-    )
-  }
-  if (v === true) {
-    return (
-      <>
-        <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
-          <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
-        </svg>
-        <span className={styles.cellValue}></span>
-      </>
-    )
-  }
+function renderCheckRow(checked: boolean) {
   return (
-    <>
-      <span className={styles.blank} />
-      <span className={styles.cellValue}></span>
-    </>
+    <div className={styles.row}>
+      {checked ? (
+        <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
+          <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
+        </svg>
+      ) : (
+        <span style={{ width: 12, height: 9 }} />
+      )}
+      <span />
+    </div>
   )
-}
-
-/* Utility to split ROWS into sections with items */
-function grouped(rows: Row[]) {
-  const out: { title: string; items: Extract<Row, { kind: 'item' }>[] }[] = []
-  let current: { title: string; items: Extract<Row, { kind: 'item' }>[] } | null = null
-  for (const r of rows) {
-    if (r.kind === 'section') {
-      current = { title: r.title, items: [] }
-      out.push(current)
-    } else {
-      if (!current) { current = { title: '', items: [] }; out.push(current) }
-      current.items.push(r)
-    }
-  }
-  return out
 }
