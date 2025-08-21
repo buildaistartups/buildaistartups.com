@@ -1,130 +1,29 @@
-/* components/pricing-light.module.css */
-
-/* ---- Tokens (scoped to the pricing wrapper) -------------------------- */
-.vars {
-  --surface: #ffffff;
-  --surface-muted: #f5f7fb;
-  --text: #0f172a;
-  --row: #e5e7eb;
-  --btn-neutral: #e5e7eb;
-  --btn-neutral-hover: #e2e8f0;
-  --purple: #8b5cf6;
-  --purple-dark: #7c3aed;
-  --green: #10b981;
-  --radius: 16px;
-  --shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
-
-  /* computed at runtime = planHeader - usageHeader */
-  --head-h: 0px;
+/* pricing-light.module.css */
+.primaryText {
+  color: #f8fafc !important;
+  font-weight: 500 !important;
 }
 
-/* ---- Grid ------------------------------------------------------------ */
-.wrap {
-  display: grid;
-  grid-template-columns: 0.82fr 1fr 1fr 1fr;
-  gap: 2px; /* ultra-tight spacing */
-}
-@media (max-width: 1023px) {
-  .wrap {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
+.secondaryText {
+  color: #94a3b8 !important;
+  font-size: 14px !important;
 }
 
-/* ---- Columns --------------------------------------------------------- */
-.labelsCol {
-  background: var(--surface-muted);
-  border: 1px solid var(--row);
-  border-radius: var(--radius);
-  padding: 20px 18px 24px;
-  color: var(--text);
+.purpleText {
+  color: #a855f7 !important;
+  font-weight: 600 !important;
 }
 
-/* Spacer to align first label row with first plan row:
-   height = plan header - (Usage title + its divider) */
-.headShim { height: var(--head-h); }
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--row);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  color: var(--text);
-  position: relative;
-  padding: 20px 18px 40px; /* extra bottom room */
-  min-height: 100%;
-  overflow: visible;
+.customBorder {
+  border-color: #1e293b !important;
+  border-width: 1px !important;
+  border-style: solid !important;
 }
-.featured { outline: 2px solid var(--purple); }
 
-/* Plan header (this is what we measure) */
-.head { padding-bottom: 16px; }
+.borderBottom {
+  border-bottom: 1px solid #1e293b !important;
+}
 
-/* ---- Text ------------------------------------------------------------ */
-.h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: var(--purple) !important;
+.checkIcon {
+  fill: #a855f7 !important;
 }
-.priceRow {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-  margin: 2px 0 10px;
-}
-.curr, .per { color: var(--text); font-weight: 600; }
-.value { font-size: 2rem; line-height: 1.1; font-weight: 800; color: var(--text); }
-.blurb { color: var(--text); margin-bottom: 14px; }
-
-/* ---- Dividers & Rows (identical both sides) -------------------------- */
-.hr {
-  border: 0;
-  border-top: 1px solid var(--row);
-  margin: 16px 0;
-}
-.row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--row);
-}
-.row:last-child { border-bottom: 0; }
-.check { width: 12px; height: 9px; fill: var(--purple); flex: 0 0 12px; }
-
-/* ---- Buttons --------------------------------------------------------- */
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 44px;
-  border-radius: 9999px;
-  font-weight: 700;
-  transition: background .15s ease, transform .05s ease, filter .15s ease;
-  user-select: none;
-}
-.btnNeutral { background: var(--btn-neutral); color: var(--text); }
-.btnNeutral:hover { background: var(--btn-neutral-hover); }
-.btnNeutral:active { transform: translateY(1px); }
-
-.btnPrimary {
-  background: linear-gradient(90deg, var(--purple) 0%, var(--purple-dark) 100%);
-  color: #fff;
-}
-.btnPrimary:hover { filter: brightness(.98); }
-.btnPrimary:active { transform: translateY(1px); }
-
-/* ---- Toggle line ----------------------------------------------------- */
-.toggleLine {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-}
-.discount { color: var(--green) !important; font-weight: 700; }
-
-/* Force readable black text */
-.forceText * { color: var(--text) !important; }
-.forceText .discount { color: var(--green) !important; }
