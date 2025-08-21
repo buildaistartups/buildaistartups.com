@@ -30,16 +30,11 @@
   border-left: none;
   border-right: none;
   border-top: none;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: none; /* Remove all default borders */
   padding: 12px 20px;
   display: flex;
   align-items: center;
   position: relative;
-}
-
-/* Remove border under button row */
-.gridRow:nth-child(2) .planCell {
-  border-bottom: none;
 }
 
 /* Add border under toggle row */
@@ -47,48 +42,92 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Remove border under Usage section title */
-.gridRow:nth-child(3) .planCell,
-.gridRow:nth-child(3) .labelCell {
-  border-bottom: none;
+/* Add borders only under specific feature rows */
+/* Social Connections - row 4 */
+.gridRow:nth-child(4) .planCell,
+.gridRow:nth-child(4) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
 }
 
-/* Remove border under Features section title */
-.gridRow:nth-child(8) .planCell,
-.gridRow:nth-child(8) .labelCell {
-  border-bottom: none;
+/* Custom Domains - row 5 */
+.gridRow:nth-child(5) .planCell,
+.gridRow:nth-child(5) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
 }
 
-/* Remove border under Support section title */
-.gridRow:nth-child(15) .planCell,
-.gridRow:nth-child(15) .labelCell {
-  border-bottom: none;
+/* User Role Management - row 6 */
+.gridRow:nth-child(6) .planCell,
+.gridRow:nth-child(6) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* External Databases - row 7 */
+.gridRow:nth-child(7) .planCell,
+.gridRow:nth-child(7) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Custom Connection - row 9 */
+.gridRow:nth-child(9) .planCell,
+.gridRow:nth-child(9) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Advanced Deployment Options - row 10 */
+.gridRow:nth-child(10) .planCell,
+.gridRow:nth-child(10) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Extra Add-ons - row 11 */
+.gridRow:nth-child(11) .planCell,
+.gridRow:nth-child(11) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Admin Roles - row 12 */
+.gridRow:nth-child(12) .planCell,
+.gridRow:nth-child(12) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Deploy and Monitor - row 13 */
+.gridRow:nth-child(13) .planCell,
+.gridRow:nth-child(13) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Enterprise Add-ons - row 14 */
+.gridRow:nth-child(14) .planCell,
+.gridRow:nth-child(14) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Premium Support - row 16 */
+.gridRow:nth-child(16) .planCell,
+.gridRow:nth-child(16) .labelCell {
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .planCell.featured {
   background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: none; /* Remove default border */
   position: relative;
 }
 
-/* Remove border under button row for featured column too */
-.gridRow:nth-child(2) .planCell.featured {
-  border-bottom: none;
-}
-
-/* Remove border under Usage section for featured column */
-.gridRow:nth-child(3) .planCell.featured {
-  border-bottom: none;
-}
-
-/* Remove border under Features section for featured column */
-.gridRow:nth-child(8) .planCell.featured {
-  border-bottom: none;
-}
-
-/* Remove border under Support section for featured column */
-.gridRow:nth-child(15) .planCell.featured {
-  border-bottom: none;
+/* Apply same specific borders to featured column */
+.gridRow:nth-child(4) .planCell.featured,
+.gridRow:nth-child(5) .planCell.featured,
+.gridRow:nth-child(6) .planCell.featured,
+.gridRow:nth-child(7) .planCell.featured,
+.gridRow:nth-child(9) .planCell.featured,
+.gridRow:nth-child(10) .planCell.featured,
+.gridRow:nth-child(11) .planCell.featured,
+.gridRow:nth-child(12) .planCell.featured,
+.gridRow:nth-child(13) .planCell.featured,
+.gridRow:nth-child(14) .planCell.featured,
+.gridRow:nth-child(16) .planCell.featured {
+  border-bottom: 1px solid #e5e7eb;
 }
 
 /* Create purple outline using pseudo-elements */
