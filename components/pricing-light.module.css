@@ -26,15 +26,35 @@
 
 .planCell {
   background: #ffffff;
-  border: 1px solid #e5e7eb;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #e5e7eb;
   padding: 12px 20px;
   display: flex;
   align-items: center;
 }
 
 .planCell.featured {
-  border: 2px solid #8b5cf6;
-  background: #faf5ff;
+  background: #ffffff;
+  border-left: 2px solid #8b5cf6;
+  border-right: 2px solid #8b5cf6;
+  border-top: 2px solid #8b5cf6;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 0;
+}
+
+/* Special styling for first and last featured rows */
+.gridRow:nth-child(1) .planCell.featured {
+  border-top: 2px solid #8b5cf6;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.gridRow:last-child .planCell.featured {
+  border-bottom: 2px solid #8b5cf6;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 /* Header styles */
@@ -47,12 +67,8 @@
 .planName {
   font-size: 18px;
   font-weight: 600;
-  color: #374151;
+  color: #8b5cf6;
   margin-bottom: 10px;
-}
-
-.featured .planName {
-  color: #7c3aed;
 }
 
 .priceRow {
