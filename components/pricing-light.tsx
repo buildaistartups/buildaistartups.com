@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './pricing-light.module.css'
 
 type Plan = {
@@ -23,7 +23,7 @@ const LABEL_GROUPS = [
   { title: 'Support',  rows: ['Premium Support'] },
 ]
 
-// Which “Features” rows get a check per plan (to match the dark layout)
+// which feature rows show a check (to match your dark table)
 const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
   Pro: new Set(['Custom Connection', 'Advanced Deployment Options', 'Extra Add-ons']),
   Team: new Set([
@@ -49,8 +49,29 @@ const FEATURE_CHECKS: Record<Plan['name'], Set<string>> = {
 export default function PricingLight() {
   const [annual, setAnnual] = useState(true)
 
+  // measure actual header height and feed it into the CSS var --head-h
+  const headRef = useRef<HTMLDivElement | null>(null)
+  const [headH, setHeadH] = useState<number | null>(null)
+
+  useEffect(() => {
+    if (!headRef.current) return
+    const el = headRef.current
+    const apply = () => setHeadH(el.getBoundingClientRect().height)
+    apply()
+    const ro = new ResizeObserver(() => apply())
+    ro.observe(el)
+    window.addEventListener('resize', apply)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', apply)
+    }
+  }, [])
+
   return (
-    <div className={`${styles.vars} ${styles.forceText}`}>
+    <div
+      className={`${styles.vars} ${styles.forceText}`}
+      style={headH ? ({ ['--head-h' as any]: `${headH}px` }) : undefined}
+    >
       <div className={styles.wrap}>
         {/* Left labels column */}
         <aside className={styles.labelsCol}>
@@ -59,7 +80,7 @@ export default function PricingLight() {
             <span
               role="switch"
               aria-checked={annual}
-              onClick={() => setAnnual(s => !s)}
+              onClick={() => setAnnual((s) => !s)}
               style={{
                 width: 42, height: 22, borderRadius: 9999,
                 background: annual ? 'var(--purple)' : 'var(--btn-neutral)',
@@ -79,7 +100,7 @@ export default function PricingLight() {
             <span className={styles.discount}>(-20%)</span>
           </div>
 
-          {/* Spacer to align “Social Connections” with the first plan row */}
+          {/* Spacer that will exactly match the card header height */}
           <div className={styles.headShim} />
 
           {LABEL_GROUPS.map((g, gi) => (
@@ -88,7 +109,6 @@ export default function PricingLight() {
               <hr className={styles.hr} />
               {g.rows.map((r, i) => (
                 <div key={i} className={styles.row}>
-                  {/* Purple check shown only to mirror the visual bullets in the left column */}
                   <svg className={styles.check} viewBox="0 0 12 9" aria-hidden="true">
                     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
                   </svg>
@@ -99,42 +119,68 @@ export default function PricingLight() {
           ))}
         </aside>
 
-        {/* Plan columns */}
-        {PLANS.map((p) => (
-          <section key={p.name} className={`${styles.card} ${p.featured ? styles.featured : ''}`}>
-            {/* header with fixed min-height to line up with labels shim */}
-            <div className={styles.head}>
-              <div className={styles.h3}>{p.name}</div>
-
-              <div className={styles.priceRow}>
-                <span className={styles.curr}>$</span>
-                <span className={styles.value}>{annual ? p.price.yearly : p.price.monthly}</span>
-                <span className={styles.per}>/mo</span>
-              </div>
-
-              <p className={styles.blurb}>Everything at your fingertips.</p>
-              <button
-                className={`${styles.btn} ${p.ctaStyle === 'primary' ? styles.btnPrimary : styles.btnNeutral}`}
-                type="button"
-              >
-                Get Started →
-              </button>
-            </div>
-
-            <hr className={styles.hr} />
-
-            {/* Usage rows (always values) */}
-            {['0','1','2','3'].map((idx) => renderValueRow(p.features[Number(idx)]))}
-
-            {/* Features rows with checks following the dark-theme pattern */}
-            {LABEL_GROUPS[1].rows.map((label) => renderCheckRow(FEATURE_CHECKS[p.name].has(label)))}
-
-            {/* Support row (Premium Support) */}
-            {renderCheckRow(FEATURE_CHECKS[p.name].has('Premium Support'))}
-          </section>
+        {/* Plan cards */}
+        {PLANS.map((p, idx) => (
+          <PlanCard
+            key={p.name}
+            plan={p}
+            annual={annual}
+            /* measure header once on the first card */
+            headRef={idx === 0 ? headRef : undefined}
+          />
         ))}
       </div>
     </div>
+  )
+}
+
+function PlanCard({
+  plan,
+  annual,
+  headRef,
+}: {
+  plan: Plan
+  annual: boolean
+  headRef?: React.Ref<HTMLDivElement>
+}) {
+  const price = annual ? plan.price.yearly : plan.price.monthly
+  const btnClass =
+    plan.ctaStyle === 'primary'
+      ? `${styles.btn} ${styles.btnPrimary}`
+      : `${styles.btn} ${styles.btnNeutral}`
+
+  return (
+    <section className={`${styles.card} ${plan.featured ? styles.featured : ''}`}>
+      {/* header with fixed min-height controlled by --head-h; ref on first card */}
+      <div className={styles.head} ref={headRef}>
+        <div className={styles.h3}>{plan.name}</div>
+
+        <div className={styles.priceRow}>
+          <span className={styles.curr}>$</span>
+          <span className={styles.value}>{price}</span>
+          <span className={styles.per}>/mo</span>
+        </div>
+
+        <p className={styles.blurb}>Everything at your fingertips.</p>
+        <button className={btnClass} type="button">Get Started →</button>
+      </div>
+
+      <hr className={styles.hr} />
+
+      {/* Usage rows */}
+      {renderValueRow(plan.features[0])}
+      {renderValueRow(plan.features[1])}
+      {renderValueRow(plan.features[2])}
+      {renderValueRow(plan.features[3])}
+
+      {/* Features rows (checks per plan) */}
+      {LABEL_GROUPS[1].rows.map((label) =>
+        renderCheckRow(FEATURE_CHECKS[plan.name].has(label))
+      )}
+
+      {/* Support row */}
+      {renderCheckRow(FEATURE_CHECKS[plan.name].has('Premium Support'))}
+    </section>
   )
 }
 
