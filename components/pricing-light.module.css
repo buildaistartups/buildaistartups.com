@@ -27,7 +27,7 @@
 }
 
 .toggleContainer {
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .toggleLine {
@@ -35,6 +35,7 @@
   align-items: center;
   gap: 12px;
   font-size: 14px;
+  height: 44px; /* Match button height */
 }
 
 .toggle {
@@ -136,11 +137,16 @@
 .description {
   font-size: 14px;
   color: #a0aec0;
-  margin-bottom: 20px;
+  margin: 0;
+}
+
+.buttonContainer {
+  padding: 20px;
+  margin-bottom: 30px;
 }
 
 .btn {
-  width: calc(100% - 40px);
+  width: 100%;
   height: 44px;
   border-radius: 22px;
   border: none;
@@ -148,7 +154,6 @@
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin: 0 20px;
 }
 
 .btnPrimary {
@@ -174,6 +179,10 @@
 /* Feature Sections */
 .section {
   padding: 0 20px;
+}
+
+.sectionSpacer {
+  height: 20px; /* Space to align with group titles */
 }
 
 .featureRow {
