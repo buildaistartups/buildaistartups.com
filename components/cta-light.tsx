@@ -28,26 +28,21 @@ export default function Cta() {
             <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Take control of your business</h2>
             <p className="text-lg text-slate-400 mb-8">All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
             <div>
-              <button 
-                className="inline-flex items-center justify-center px-8 py-3 text-white font-semibold rounded-full transition-all duration-200 ease-in-out hover:transform hover:-translate-y-0.5 hover:shadow-lg"
+              <a 
+                className="btn text-white transition duration-150 ease-in-out group"
+                href="#0"
                 style={{
-                  background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)',
-                  fontSize: '16px',
-                  height: '48px',
-                  minWidth: '140px'
+                  background: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 92, 246, 0.4)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)';
-                  e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                Get Started 
-                <span className="ml-2 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">→</span>
-              </button>
+                Get Started <span className="tracking-normal text-white group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">→</span>
+              </a>
             </div>
           </div>
         </div>
