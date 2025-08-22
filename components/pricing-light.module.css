@@ -70,13 +70,13 @@
   margin-right: 4px;
 }
 
-/* Add gray borders to ALL columns including featured */
+/* Add gray borders to ALL columns including featured - with higher specificity */
 .gridRow:nth-child(4) .labelCell {
   border-bottom: 1px solid #e5e7eb;
   margin-right: 4px;
 }
 .gridRow:nth-child(4) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(5) .labelCell {
@@ -84,7 +84,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(5) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(6) .labelCell {
@@ -92,7 +92,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(6) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(7) .labelCell {
@@ -100,7 +100,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(7) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(9) .labelCell {
@@ -108,7 +108,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(9) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(10) .labelCell {
@@ -116,7 +116,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(10) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(11) .labelCell {
@@ -124,7 +124,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(11) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(12) .labelCell {
@@ -132,7 +132,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(12) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(13) .labelCell {
@@ -140,7 +140,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(13) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(14) .labelCell {
@@ -148,7 +148,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(14) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 .gridRow:nth-child(16) .labelCell {
@@ -156,7 +156,7 @@
   margin-right: 4px;
 }
 .gridRow:nth-child(16) .planCell {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb !important;
 }
 
 /* Header styles */
