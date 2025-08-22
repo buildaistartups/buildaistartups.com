@@ -10,9 +10,11 @@ import Features02 from '@/components/features-02'
 import Features03 from '@/components/features-03'
 import ThemeAwareTestimonials from '@/components/ThemeAwareTestimonials'
 import ThemeAwareFeatures04 from '@/components/ThemeAwareFeatures04'
-import ThemeAwarePricing from '@/components/ThemeAwarePricing'  // ⟵ orchestrator (picks dark/light section)
+import ThemeAwarePricing from '@/components/ThemeAwarePricing'
 import Testimonials from '@/components/testimonials'
-import Cta from '@/components/cta'
+
+// ⟵ use the theme-aware CTA instead of importing the dark CTA directly
+import ThemeAwareCTA from '@/components/ThemeAwareCTA'
 
 export default function Home() {
   return (
@@ -23,17 +25,12 @@ export default function Home() {
       <Features02 />
       <Features03 />
 
-      {/* Renders testimonials with dark/light variants automatically */}
       <ThemeAwareTestimonials />
-
-      {/* Renders features-04 with dark/light variants automatically */}
       <ThemeAwareFeatures04 />
-
-      {/* Pricing section (dark/light) */}
       <ThemeAwarePricing />
 
       <Testimonials />
-      <Cta />
+      <ThemeAwareCTA />
     </>
   )
 }
