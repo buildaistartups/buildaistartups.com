@@ -226,11 +226,13 @@
 }
 
 .btnPrimary {
-  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%); /* Light purple gradient */
   color: #ffffff;
+  border: none;
 }
 
 .btnPrimary:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); /* Full purple gradient on hover */
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
 }
@@ -449,14 +451,24 @@
   }
   
   .mobileCardButton.primary {
-    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%); /* Same light purple gradient for mobile */
     color: #ffffff;
+  }
+  
+  .mobileCardButton.primary:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); /* Full purple gradient on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
   }
   
   .mobileCardButton.secondary {
     background: #e5e7eb;
     color: #374151;
     border: 1px solid #d1d5db;
+  }
+  
+  .mobileCardButton.secondary:hover {
+    background: #d1d5db;
   }
   
   /* Sections */
