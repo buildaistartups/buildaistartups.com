@@ -45,9 +45,9 @@
   padding-right: 20px;
 }
 
-/* TEST: Make featured column background red to see if CSS is working */
+/* Featured column styling - white background with purple borders */
 .planCell.featured {
-  background: #ff0000 !important;
+  background: #ffffff !important;
   border: 2px solid #8b5cf6 !important;
   border-top: 2px solid #8b5cf6 !important;
   border-bottom: 2px solid #8b5cf6 !important;
