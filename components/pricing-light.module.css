@@ -226,7 +226,7 @@
 }
 
 .btnPrimary {
-  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%); /* Light purple gradient */
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%); /* Darker purple gradient */
   color: #ffffff;
   border: none;
 }
@@ -451,7 +451,7 @@
   }
   
   .mobileCardButton.primary {
-    background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%); /* Same light purple gradient for mobile */
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%); /* Same darker purple gradient for mobile */
     color: #ffffff;
   }
   
