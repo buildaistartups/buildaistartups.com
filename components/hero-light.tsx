@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Particles from './particles'
 import Illustration from '@/public/images/glow-bottom.svg'
 
-export default function Hero() {
+export default function HeroLight() {
   return (
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
@@ -11,9 +11,18 @@ export default function Hero() {
         <Particles className="absolute inset-0 -z-10" />
 
         {/* Illustration */}
-        <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
+        <div
+          className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
+          aria-hidden="true"
+        >
           <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
-            <Image src={Illustration} className="max-w-none" width={2146} priority alt="Hero Illustration" />
+            <Image
+              src={Illustration}
+              className="max-w-none"
+              width={2146}
+              priority
+              alt="Hero Illustration"
+            />
           </div>
         </div>
 
@@ -36,7 +45,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Title (no eyebrow line above) */}
+            {/* Title (gradient heading stays) */}
             <h1
               className="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4"
               data-aos="fade-down"
@@ -44,8 +53,14 @@ export default function Hero() {
               The API Security Framework
             </h1>
 
-            <p className="text-lg text-slate-300 mb-8 hero-subtext" data-aos="fade-down" data-aos-delay="200">
-              Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
+            {/* Subtext (light mode: slate-200 for readability) */}
+            <p
+              className="text-lg mb-8 hero-subtext text-slate-200"
+              data-aos="fade-down"
+              data-aos-delay="200"
+            >
+              Our landing page template works on all devices, so you only have to set it up once,
+              and get beautiful results forever.
             </p>
 
             <div
@@ -69,7 +84,12 @@ export default function Hero() {
                   className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full transition duration-150 ease-in-out"
                   href="#0"
                 >
-                  <svg className="shrink-0 fill-slate-300 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <svg
+                    className="shrink-0 fill-slate-300 mr-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                  >
                     <path d="m1.999 0 1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 0l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 10l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM6.292 7.586l2.646-2.647L11.06 7.06 8.413 9.707zM0 13.878l5.586-5.586 2.122 2.121L2.12 16z" />
                   </svg>
                   <span>Read the docs</span>
