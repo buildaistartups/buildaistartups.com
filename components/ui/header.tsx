@@ -1,10 +1,8 @@
-// components/ui/header.tsx
-import { getSession } from '@/lib/auth'
+// components/ui/header.tsx  (Server Component)
+import { getSession } from '@/lib/server/auth'
 import HeaderClient from './header-client'
 
 export default async function Header() {
-  // getSession uses next/headers (server-only); if this component is
-  // ever pulled into a client boundary by mistake, avoid crashing:
   let signedIn = false
   try {
     const session = await getSession()
@@ -12,6 +10,5 @@ export default async function Header() {
   } catch {
     signedIn = false
   }
-
   return <HeaderClient signedIn={signedIn} />
 }
