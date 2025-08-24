@@ -1,20 +1,19 @@
-// app/(default)/resources/docs/page.tsx
+// app/(default)/docs/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
-const docsUrl = `${siteUrl}/resources/docs`
 const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
   title: 'Docs — Build, ship, and grow with HyperNova | Build AI Startups',
   description:
     'Getting started, core concepts, API reference, webhooks, SDKs, security, and FAQs for Build AI Startups (HyperNova). From intent to live micro-SaaS.',
-  alternates: { canonical: docsUrl },
+  alternates: { canonical: `${siteUrl}/docs` },
   openGraph: {
     type: 'website',
-    url: docsUrl,
+    url: `${siteUrl}/docs`,
     title: 'Docs — Build, ship, and grow with HyperNova | Build AI Startups',
     description:
       'From intent to live micro-SaaS: Quick start, Concepts, API, Webhooks, SDKs, Security, FAQ.',
@@ -24,7 +23,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Docs — Build, ship, and grow with HyperNova | Build AI Startups',
-    description: 'Quick start, Concepts, API, Webhooks, SDKs, Security, and FAQ for HyperNova.',
+    description:
+      'Quick start, Concepts, API, Webhooks, SDKs, Security, and FAQ for HyperNova.',
     images: [ogImage],
   },
 }
@@ -43,7 +43,7 @@ const collectionPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Build AI Startups Documentation',
-  url: docsUrl,
+  url: `${siteUrl}/docs`,
   description:
     'Documentation hub for Build AI Startups (HyperNova): getting started, concepts, API, webhooks, SDKs, security, FAQ.',
 }
@@ -53,8 +53,7 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteUrl}/resources` },
-    { '@type': 'ListItem', position: 3, name: 'Docs', item: docsUrl },
+    { '@type': 'ListItem', position: 2, name: 'Docs', item: `${siteUrl}/docs` },
   ],
 }
 
