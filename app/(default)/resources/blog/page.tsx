@@ -122,7 +122,6 @@ const posts: Post[] = [
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 }
-
 function uniqueTags() {
   const set = new Set<string>()
   posts.forEach((p) => p.tags.forEach((t) => set.add(t)))
@@ -139,7 +138,6 @@ const breadcrumbJsonLd = {
     { '@type': 'ListItem', position: 3, name: 'Blog', item: pageUrl },
   ],
 }
-
 const blogJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
@@ -154,7 +152,6 @@ const blogJsonLd = {
     logo: `${siteUrl}/brand/logo-light.svg`,
   },
 }
-
 const itemListJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -166,8 +163,6 @@ const itemListJsonLd = {
     description: p.excerpt,
   })),
 }
-
-// Site search (for the blog section)
 const searchJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -179,13 +174,16 @@ const searchJsonLd = {
   },
 }
 
-export default function BlogIndex({
+// NOTE: Next.js 15 App Router expects `searchParams` as a Promise.
+// Make this component async and await it.
+export default async function BlogIndex({
   searchParams,
 }: {
-  searchParams?: { q?: string; tag?: string }
+  searchParams?: Promise<{ q?: string | string[]; tag?: string | string[] }>
 }) {
-  const q = (searchParams?.q || '').toString().trim().toLowerCase()
-  const tag = (searchParams?.tag || '').toString().trim()
+  const sp = (await searchParams) ?? {}
+  const q = String((Array.isArray(sp.q) ? sp.q[0] : sp.q) ?? '').trim().toLowerCase()
+  const tag = String((Array.isArray(sp.tag) ? sp.tag[0] : sp.tag) ?? '').trim()
 
   const filtered = posts.filter((p) => {
     const matchesQ =
@@ -199,7 +197,6 @@ export default function BlogIndex({
 
   const featured = filtered.filter((p) => p.featured).slice(0, 2)
   const rest = filtered.filter((p) => !p.featured)
-
   const tags = uniqueTags()
 
   return (
@@ -222,16 +219,10 @@ export default function BlogIndex({
                 launching with the Builder, Ecosystem, Marketplace, and API.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a
-                  href="#featured"
-                  className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400"
-                >
+                <a href="#featured" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400">
                   Read featured posts
                 </a>
-                <Link
-                  href="/resources/docs"
-                  className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5"
-                >
+                <Link href="/resources/docs" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
                   Go to Docs
                 </Link>
               </div>
@@ -270,18 +261,11 @@ export default function BlogIndex({
                 </option>
               ))}
             </select>
-            <button
-              type="submit"
-              className="rounded-lg bg-violet-500 px-4 py-1.5 text-sm font-medium text-white hover:bg-violet-400"
-            >
+            <button type="submit" className="rounded-lg bg-violet-500 px-4 py-1.5 text-sm font-medium text-white hover:bg-violet-400">
               Apply
             </button>
             {(q || tag) && (
-              <Link
-                href="/resources/blog"
-                className="text-sm text-sky-300 hover:underline"
-                aria-label="Clear filters"
-              >
+              <Link href="/resources/blog" className="text-sm text-sky-300 hover:underline" aria-label="Clear filters">
                 Clear
               </Link>
             )}
@@ -308,7 +292,9 @@ export default function BlogIndex({
                       <img src={p.cover} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="p-5">
-                      <div className="text-xs text-slate-400">{formatDate(p.date)} • {p.minutes} min read</div>
+                      <div className="text-xs text-slate-400">
+                        {formatDate(p.date)} • {p.minutes} min read
+                      </div>
                       <h3 className="mt-1 text-xl font-semibold">{p.title}</h3>
                       <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
                       <div className="mt-2 flex flex-wrap gap-2">
@@ -341,7 +327,9 @@ export default function BlogIndex({
                       <img src={p.cover} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="p-5">
-                      <div className="text-xs text-slate-400">{formatDate(p.date)} • {p.minutes} min read</div>
+                      <div className="text-xs text-slate-400">
+                        {formatDate(p.date)} • {p.minutes} min read
+                      </div>
                       <h3 className="mt-1 text-lg font-semibold">{p.title}</h3>
                       <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
                       <div className="mt-2 flex flex-wrap gap-2">
@@ -418,16 +406,10 @@ export default function BlogIndex({
               Open the Builder, generate your repo, and talk to real users this week.
             </p>
             <div className="mt-6 flex items-center justify-center gap-3">
-              <Link
-                href="/generate"
-                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400"
-              >
+              <Link href="/generate" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400">
                 Generate now
               </Link>
-              <Link
-                href="/resources/templates"
-                className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5"
-              >
+              <Link href="/resources/templates" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5">
                 Start from a template
               </Link>
             </div>
