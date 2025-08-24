@@ -1,325 +1,287 @@
 // components/generate-form.tsx
 'use client'
 
-import { useState, useTransition } from 'react'
-import GenerateResultCard, { GeneratedProject } from './generate-result-card'
+import { useState, useTransition, FormEvent } from 'react'
 import Link from 'next/link'
+
+import GenerateResultCard from './generate-result-card'
+import type { GenerateResult as GeneratedProject } from './generate-result-types'
 
 type Mode = 'autopilot' | 'copilot'
 
-const examplePrompts = [
-  'AI that summarizes sales calls and pushes action items to Notion',
-  'Chrome extension that auto-drafts LinkedIn replies in my tone',
-  'API that cleans CSVs and returns tidy data & schema suggestions',
-  'Micro-SaaS to track churn risk signals for Stripe subscriptions',
-]
-
-const stacks = [
-  'Next.js + Supabase',
-  'Next.js + Firebase',
-  'FastAPI + Postgres',
-  'Cloudflare Workers + D1',
-]
-
-const templates = [
-  'SaaS App',
-  'API Service',
-  'Chrome Extension',
-  'Discord Bot',
-  'Data Dashboard',
-]
-
 export default function GenerateForm() {
-  const [intent, setIntent] = useState('')
-  const [audience, setAudience] = useState('')
-  const [niche, setNiche] = useState('')
-  const [monetization, setMonetization] = useState('subscription')
-  const [mode, setMode] = useState<Mode>('copilot')
-  const [template, setTemplate] = useState(templates[0])
-  const [stack, setStack] = useState(stacks[0])
-  const [connectGithub, setConnectGithub] = useState(false)
-  const [connectVercel, setConnectVercel] = useState(false)
-  const [connectDB, setConnectDB] = useState(false)
-  const [connectStripe, setConnectStripe] = useState(false)
-
-  const [pending, startTransition] = useTransition()
-  const [error, setError] = useState<string | null>(null)
+  const [isPending, startTransition] = useTransition()
+  const [mode, setMode] = useState<Mode>('autopilot')
   const [result, setResult] = useState<GeneratedProject | null>(null)
+  const [error, setError] = useState<string | null>(null)
 
-  function fill(p: string) {
-    setIntent(p)
-    window?.scrollTo?.({ top: document.getElementById('builder')?.offsetTop || 0, behavior: 'smooth' })
-  }
-
-  async function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError(null)
-    setResult(null)
+    const fd = new FormData(e.currentTarget)
+
+    const intent = String(fd.get('intent') || '').trim()
+    const audience = String(fd.get('audience') || '').trim()
+    const niche = String(fd.get('niche') || '').trim()
+    const complexity = String(fd.get('complexity') || 'm')
+
+    if (!intent) {
+      setError('Please describe what you want to build.')
+      return
+    }
 
     startTransition(async () => {
-      try {
-        const res = await fetch('/api/generate', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            intent,
-            audience,
-            niche,
-            monetization,
-            mode,
-            template,
-            stack,
-            // in production: pass OAuth tokens / repo targets after the user connects
-            integrations: {
-              github: connectGithub,
-              vercel: connectVercel,
-              db: connectDB,
-              stripe: connectStripe,
-            },
-          }),
-        })
-        const data = await res.json()
-        if (!res.ok || !data?.ok) {
-          throw new Error(data?.error || 'Generation failed')
-        }
-        setResult(data.project as GeneratedProject)
-      } catch (err: any) {
-        setError(err?.message || 'Something went wrong')
+      // In the real implementation, call your /api/generate endpoint here.
+      // For now, synthesize a deterministic preview object.
+      const name = suggestName(intent, niche)
+      const oneLiner = buildOneLiner(intent, audience)
+      const description = buildDesc(intent, audience, niche, complexity)
+
+      const generated: GeneratedProject = {
+        id: cryptoRandomId(),
+        name,
+        oneLiner,
+        description,
+        niche: niche || 'Indie makers / early-stage SaaS',
+        tags: ['SaaS', 'AI', 'MVP'],
+        stack: 'Next.js · Supabase · Stripe · Vercel',
+        prd: buildPRD(name, oneLiner, audience, niche, complexity, mode),
       }
+
+      setResult(generated)
     })
   }
 
   return (
-    <div className="grid lg:grid-cols-3 gap-6">
-      {/* Left: form */}
-      <form onSubmit={onSubmit} className="lg:col-span-2 rounded-3xl border border-white/10 bg-slate-900/40 p-6">
-        <div className="grid md:grid-cols-2 gap-5">
-          <div className="md:col-span-2">
-            <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="intent">
-              Your intent <span className="text-slate-500 font-normal">(one sentence)</span>
+    <div className="grid gap-8 md:grid-cols-[1.1fr,1.5fr]">
+      {/* Left: Form */}
+      <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
+        <h2 className="text-lg font-semibold text-slate-100">Describe your startup</h2>
+        <p className="mt-1 text-sm text-slate-400">
+          One sentence is enough. We’ll generate the PRD, repo plan, and go-to-market.
+        </p>
+
+        <form onSubmit={onSubmit} className="mt-6 space-y-5">
+          <div>
+            <label htmlFor="intent" className="block text-sm font-medium text-slate-300">
+              What do you want to build? *
             </label>
             <textarea
               id="intent"
-              className="form-textarea w-full"
-              rows={3}
-              placeholder="E.g., Build an AI that turns customer calls into action items, drafts follow-ups, and syncs CRM."
-              value={intent}
-              onChange={(e) => setIntent(e.target.value)}
+              name="intent"
               required
-            />
-            <div className="mt-2 text-xs text-slate-500">Clear intent → better plans, repos, and UIs.</div>
-          </div>
-
-          <div>
-            <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="audience">
-              Target audience <span className="text-slate-500 font-normal">(optional)</span>
-            </label>
-            <input
-              id="audience"
-              className="form-input w-full"
-              placeholder="Sales managers at B2B SaaS, indie creators, etc."
-              value={audience}
-              onChange={(e) => setAudience(e.target.value)}
+              rows={3}
+              placeholder="Example: An AI tool that summarizes customer interviews and pushes action items to Notion."
+              className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-purple-500/60"
             />
           </div>
 
-          <div>
-            <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="niche">
-              Niche / Market <span className="text-slate-500 font-normal">(optional)</span>
-            </label>
-            <input
-              id="niche"
-              className="form-input w-full"
-              placeholder="SaaS analytics, DevTools, HR, Design, Finance…"
-              value={niche}
-              onChange={(e) => setNiche(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="template">
-              Template
-            </label>
-            <select
-              id="template"
-              className="form-select w-full"
-              value={template}
-              onChange={(e) => setTemplate(e.target.value)}
-            >
-              {templates.map((t) => (
-                <option key={t} value={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="stack">
-              Preferred stack
-            </label>
-            <select
-              id="stack"
-              className="form-select w-full"
-              value={stack}
-              onChange={(e) => setStack(e.target.value)}
-            >
-              {stacks.map((s) => (
-                <option key={s} value={s}>
-                  {s}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <span className="block text-sm text-slate-300 font-medium mb-2">Mode</span>
-            <div className="flex items-center gap-3">
-              <label className="inline-flex items-center gap-2 text-sm text-slate-300">
-                <input
-                  type="radio"
-                  name="mode"
-                  value="copilot"
-                  checked={mode === 'copilot'}
-                  onChange={() => setMode('copilot')}
-                />
-                Copilot <span className="text-slate-500">(review gates)</span>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <label htmlFor="audience" className="block text-sm font-medium text-slate-300">
+                Who is it for?
               </label>
-              <label className="inline-flex items-center gap-2 text-sm text-slate-300">
-                <input
-                  type="radio"
-                  name="mode"
-                  value="autopilot"
-                  checked={mode === 'autopilot'}
-                  onChange={() => setMode('autopilot')}
-                />
-                Autopilot <span className="text-slate-500">(ships when green)</span>
+              <input
+                type="text"
+                id="audience"
+                name="audience"
+                placeholder="e.g., Product Managers, Indie hackers"
+                className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-purple-500/60"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="niche" className="block text-sm font-medium text-slate-300">
+                Niche (optional)
               </label>
+              <input
+                type="text"
+                id="niche"
+                name="niche"
+                placeholder="e.g., Sales ops, EdTech, SEO tools"
+                className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-purple-500/60"
+              />
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm text-slate-300 font-medium mb-1" htmlFor="monetization">
-              Monetization
-            </label>
-            <select
-              id="monetization"
-              className="form-select w-full"
-              value={monetization}
-              onChange={(e) => setMonetization(e.target.value)}
-            >
-              <option value="subscription">Subscription</option>
-              <option value="usage">Usage-based</option>
-              <option value="one-time">One-time</option>
-              <option value="freemium">Freemium</option>
-              <option value="ads">Ads/Affiliate</option>
-            </select>
-          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <fieldset>
+              <legend className="mb-2 block text-sm font-medium text-slate-300">
+                Mode
+              </legend>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={() => setMode('autopilot')}
+                  className={`rounded-lg border px-3 py-1.5 text-sm ${
+                    mode === 'autopilot'
+                      ? 'border-purple-500 bg-purple-500/10 text-slate-100'
+                      : 'border-white/10 bg-slate-900/60 text-slate-300 hover:text-white'
+                  }`}
+                >
+                  Autopilot
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setMode('copilot')}
+                  className={`rounded-lg border px-3 py-1.5 text-sm ${
+                    mode === 'copilot'
+                      ? 'border-purple-500 bg-purple-500/10 text-slate-100'
+                      : 'border-white/10 bg-slate-900/60 text-slate-300 hover:text-white'
+                  }`}
+                >
+                  Copilot (review)
+                </button>
+              </div>
+            </fieldset>
 
-          {/* Integrations */}
-          <div className="md:col-span-2">
-            <div className="text-sm text-slate-300 font-medium mb-1">Integrations</div>
-            <div className="grid sm:grid-cols-2 gap-3 text-sm text-slate-300">
-              <label className="inline-flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={connectGithub}
-                  onChange={(e) => setConnectGithub(e.target.checked)}
-                />
-                GitHub repo (private)
+            <div>
+              <label htmlFor="complexity" className="block text-sm font-medium text-slate-300">
+                Complexity
               </label>
-              <label className="inline-flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={connectVercel}
-                  onChange={(e) => setConnectVercel(e.target.checked)}
-                />
-                Vercel deploy
-              </label>
-              <label className="inline-flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={connectDB}
-                  onChange={(e) => setConnectDB(e.target.checked)}
-                />
-                Database (Supabase / Postgres)
-              </label>
-              <label className="inline-flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={connectStripe}
-                  onChange={(e) => setConnectStripe(e.target.checked)}
-                />
-                Stripe billing
-              </label>
-            </div>
-            <p className="mt-2 text-xs text-slate-500">
-              Not connected? We’ll still generate the full plan and repo outline. Connect
-              accounts after sign-in to autopublish. <Link href="/signin" className="underline">Sign in</Link>
-            </p>
-          </div>
-        </div>
-
-        {/* Actions */}
-        <div className="mt-6 flex items-center gap-3">
-          <button
-            type="submit"
-            disabled={pending}
-            className="btn text-white bg-purple-500 hover:bg-purple-600 shadow-xs disabled:opacity-60"
-          >
-            {pending ? 'Generating…' : 'Generate'}
-          </button>
-          <Link href="/resources/templates" className="btn text-slate-300 hover:text-white">
-            Browse templates
-          </Link>
-        </div>
-
-        {/* Examples */}
-        <div className="mt-6">
-          <div className="text-xs text-slate-500 mb-2">Examples</div>
-          <div className="flex flex-wrap gap-2">
-            {examplePrompts.map((p) => (
-              <button
-                key={p}
-                type="button"
-                onClick={() => fill(p)}
-                className="px-3 py-1.5 rounded-full border border-white/10 text-xs text-slate-300 hover:bg-white/5"
+              <select
+                id="complexity"
+                name="complexity"
+                defaultValue="m"
+                className="mt-2 w-full rounded-lg border border-white/10 bg-slate-900/60 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-2 focus:ring-purple-500/60"
               >
-                {p}
-              </button>
-            ))}
+                <option value="s">Small MVP</option>
+                <option value="m">Medium</option>
+                <option value="l">Large</option>
+              </select>
+            </div>
           </div>
-        </div>
 
-        {error && (
-          <p className="mt-4 text-sm text-red-300">
-            {error}
-          </p>
-        )}
-      </form>
+          {error && (
+            <div className="rounded-lg border border-rose-500/30 bg-rose-500/10 px-3 py-2 text-sm text-rose-200">
+              {error}
+            </div>
+          )}
 
-      {/* Right: results */}
-      <aside className="lg:col-span-1">
+          <div className="flex items-center gap-3 pt-2">
+            <button
+              type="submit"
+              disabled={isPending}
+              className="btn text-sm text-white bg-purple-500 hover:bg-purple-600 shadow-xs disabled:opacity-70"
+            >
+              {isPending ? 'Generating…' : 'Generate'}
+            </button>
+            <Link href="/pricing" className="text-sm text-slate-300 hover:text-white">
+              See pricing
+            </Link>
+          </div>
+        </form>
+      </div>
+
+      {/* Right: Result */}
+      <div>
         {!result ? (
-          <div className="rounded-3xl border border-white/10 bg-slate-900/40 p-6 h-full">
-            <h3 className="text-slate-200 font-medium">Your build preview</h3>
-            <p className="mt-2 text-sm text-slate-400">
-              After generation, you’ll see the PRD summary, features, pricing,
-              and launch checklist here.
-            </p>
-            <ul className="mt-4 space-y-2 text-sm text-slate-300">
-              <li>• Project name & one-liner</li>
-              <li>• Problem → solution</li>
-              <li>• Core features & data model</li>
-              <li>• Stack, integration plan</li>
-              <li>• Pricing & GTM</li>
-              <li>• Next steps & launch tasks</li>
-            </ul>
-          </div>
+          <EmptyState />
         ) : (
-          <GenerateResultCard project={result} />
+          <GenerateResultCard result={result} />
         )}
-      </aside>
+      </div>
+    </div>
+  )
+}
+
+/* ---------- helpers ---------- */
+
+function cryptoRandomId() {
+  // Safe fallback if Web Crypto isn't available for some reason
+  try {
+    return Array.from(crypto.getRandomValues(new Uint8Array(8)))
+      .map((b) => b.toString(16).padStart(2, '0'))
+      .join('')
+  } catch {
+    return Math.random().toString(36).slice(2, 10)
+  }
+}
+
+function suggestName(intent: string, niche?: string) {
+  const base = (niche || intent).trim().split(/\s+/)[0] || 'Nova'
+  const suffixes = ['Forge', 'Pilot', 'Flow', 'Spark', 'Kit', 'Loop', 'Lens', 'Mate', 'Dash']
+  return `${capitalize(base)} ${suffixes[Math.floor(Math.random() * suffixes.length)]}`.trim()
+}
+
+function buildOneLiner(intent: string, audience?: string) {
+  const who = audience?.trim() ? ` for ${audience.trim()}` : ''
+  return `${intent.replace(/\.$/, '')}${who}.`
+}
+
+function buildDesc(intent: string, audience?: string, niche?: string, complexity?: string) {
+  const size =
+    complexity === 's' ? 'a focused MVP'
+      : complexity === 'l' ? 'a full-featured product'
+      : 'a solid, production-ready MVP'
+
+  const who = audience?.trim() ? ` for ${audience.trim()}` : ''
+  const seg = niche?.trim() ? ` in ${niche.trim()}` : ''
+  return `HyperNova will plan and build ${size}${who}${seg}. You’ll get a repo, UI, docs, pricing, a landing page, and initial growth experiments wired automatically.`
+}
+
+function buildPRD(
+  name: string,
+  oneLiner: string,
+  audience?: string,
+  niche?: string,
+  complexity?: string,
+  mode: Mode = 'autopilot',
+) {
+  return [
+    `# PRD — ${name}`,
+    ``,
+    `## One-liner`,
+    oneLiner,
+    ``,
+    `## Target`,
+    `Audience: ${audience || 'General early adopters'}`,
+    `Niche: ${niche || 'SaaS / Automation'}`,
+    ``,
+    `## Scope`,
+    complexity === 's'
+      ? `Small MVP: core value, minimal onboarding, simple billing.`
+      : complexity === 'l'
+        ? `Large scope: multi-tenant, roles, advanced analytics, integrations.`
+        : `Medium scope: core value + onboarding, billing, and analytics.`,
+    ``,
+    `## Build Mode`,
+    mode === 'autopilot'
+      ? `Autopilot — ship when all gates are green.`
+      : `Copilot — require review approvals for merges and deploys.`,
+    ``,
+    `## Stack`,
+    `- Next.js (App Router), Tailwind`,
+    `- API routes, Postgres (Supabase)`,
+    `- Auth (provider TBD)`,
+    `- Stripe billing`,
+    `- Vercel deploy`,
+    ``,
+    `## Gates`,
+    `- Lint + TypeCheck`,
+    `- Unit tests`,
+    `- Basic e2e smoke`,
+    `- Security & license scan`,
+  ].join('\n')
+}
+
+function capitalize(s: string) {
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+function EmptyState() {
+  return (
+    <div className="rounded-2xl border border-dashed border-white/10 p-8 text-center text-slate-400">
+      <div className="mx-auto mb-3 grid h-16 w-16 place-items-center rounded-full border border-white/10 bg-slate-900/60">
+        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" className="text-slate-500">
+          <path
+            fill="currentColor"
+            d="M12 2a1 1 0 0 1 .894.553l2.382 4.764 5.259.764a1 1 0 0 1 .554 1.705l-3.8 3.704.898 5.234a1 1 0 0 1-1.451 1.054L12 18.897l-4.686 2.462a1 1 0 0 1-1.45-1.054l.898-5.234-3.8-3.704a1 1 0 0 1 .554-1.705l5.259-.764L11.106 2.553A1 1 0 0 1 12 2Z"
+          />
+        </svg>
+      </div>
+      <p className="text-sm">Your generated project will appear here.</p>
+      <p className="mt-1 text-xs text-slate-500">Describe your idea on the left and click Generate.</p>
     </div>
   )
 }
