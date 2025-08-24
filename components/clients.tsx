@@ -1,60 +1,65 @@
-import Image from 'next/image'
+import Link from 'next/link'
 import Particles from './particles'
 
-import Client01 from '@/public/images/client-01.svg'
-import Client02 from '@/public/images/client-02.svg'
-import Client03 from '@/public/images/client-03.svg'
-import Client04 from '@/public/images/client-04.svg'
-import Client05 from '@/public/images/client-05.svg'
-import Client06 from '@/public/images/client-06.svg'
-import Client07 from '@/public/images/client-07.svg'
-import Client08 from '@/public/images/client-08.svg'
-import Client09 from '@/public/images/client-09.svg'
+const badges = [
+  { label: 'GitHub', href: '/resources/docs#github' },
+  { label: 'Vercel', href: '/resources/docs#vercel' },
+  { label: 'Stripe', href: '/resources/docs#stripe' },
+  { label: 'Postgres', href: '/resources/docs#postgres' },
+  { label: 'OpenAI', href: '/resources/docs#openai' },
+  { label: 'Cloudflare', href: '/resources/docs#cloudflare' },
+  { label: 'Supabase', href: '/resources/docs#supabase' },
+  { label: 'S3', href: '/resources/docs#s3' },
+  { label: 'Pinecone', href: '/resources/docs#vector' },
+]
 
-const logos = [
-  { src: Client01, alt: "Client 01" },
-  { src: Client02, alt: "Client 02" },
-  { src: Client03, alt: "Client 03" },
-  { src: Client04, alt: "Client 04" },
-  { src: Client05, alt: "Client 05" },
-  { src: Client06, alt: "Client 06" },
-  { src: Client07, alt: "Client 07" },
-  { src: Client08, alt: "Client 08" },
-  { src: Client09, alt: "Client 09" },
-];
+function Badge({ label, href }: { label: string; href: string }) {
+  return (
+    <li className="mx-3">
+      <Link
+        href={href}
+        className="inline-flex items-center rounded-full border border-white/10 bg-slate-900/30 px-4 py-2 text-sm text-slate-300 transition hover:text-white hover:bg-slate-900/40"
+      >
+        <span className="mr-2 h-1.5 w-1.5 rounded-full bg-purple-400/90" />
+        {label}
+      </Link>
+    </li>
+  )
+}
 
 export default function Clients() {
   return (
     <section>
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Particles animation */}
-        <div className="absolute inset-0 max-w-6xl mx-auto px-4 sm:px-6">
-          <Particles className="absolute inset-0 -z-10" quantity={5} />
+        <div className="absolute inset-0 mx-auto max-w-6xl px-4 sm:px-6">
+          <Particles className="absolute inset-0 -z-10" quantity={6} />
         </div>
 
         <div className="py-12 md:py-16">
+          <p className="mb-6 text-center text-sm font-medium tracking-wide text-slate-400">
+            Works with your stack — no lock-in
+          </p>
+
           <div className="overflow-hidden">
             <div className="inline-flex w-full flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-              <ul className="flex animate-infinite-scroll items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-8">
-                {logos.map((logo, index) => (
-                  <li key={index}>
-                    <Image src={logo.src} alt={logo.alt} />
-                  </li>
+              <ul className="flex animate-infinite-scroll items-center [&>li]:shrink-0">
+                {badges.map((b) => (
+                  <Badge key={b.label} {...b} />
                 ))}
               </ul>
-              <ul
-                className="flex animate-infinite-scroll items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-8"
-                aria-hidden="true"
-              >
-                {logos.map((logo, index) => (
-                  <li key={index}>
-                    <Image src={logo.src} alt={logo.alt} />
-                  </li>
+              {/* Duplicate for seamless loop */}
+              <ul className="flex animate-infinite-scroll items-center [&>li]:shrink-0" aria-hidden="true">
+                {badges.map((b) => (
+                  <Badge key={`${b.label}-dup`} {...b} />
                 ))}
               </ul>
             </div>
           </div>
+
+          <p className="mt-6 text-center text-xs text-slate-500">
+            Want your logo here? <Link href="/contact" className="text-purple-400 hover:text-purple-300">Become a design partner</Link>.
+          </p>
         </div>
       </div>
     </section>
