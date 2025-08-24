@@ -38,7 +38,7 @@ export default function Clients() {
 
         <div className="py-12 md:py-16">
           <p className="mb-6 text-center text-sm font-medium tracking-wide text-slate-400">
-            Works with your stack — no lock-in
+            Plays nicely with your stack
           </p>
 
           <div className="overflow-hidden">
