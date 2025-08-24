@@ -1,7 +1,8 @@
 import './css/style.css'
 import { Inter } from 'next/font/google'
-import ThemeWrapper from './ThemeWrapper'
 import Script from 'next/script'
+import ThemeWrapper from './ThemeWrapper'
+import Header from '@/components/ui/header' // ✅ client header
 
 const inter = Inter({
   subsets: ['latin'],
@@ -9,10 +10,35 @@ const inter = Inter({
   display: 'swap',
 })
 
-// 👇 Metadata (unchanged)
 export const metadata = {
-  title: 'BuildAIStartups - Home',
-  description: 'Landing page for BuildAIStartups',
+  metadataBase: new URL('https://www.buildaistartups.com'),
+  title: {
+    default: 'Build AI Startups',
+    template: '%s · Build AI Startups',
+  },
+  description:
+    'Startups that build themselves. HyperNova turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
+  openGraph: {
+    title: 'Build AI Startups',
+    description:
+      'Startups that build themselves. HyperNova turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
+    url: '/',
+    siteName: 'Build AI Startups',
+    images: [{ url: '/brand/og-default.png', width: 1200, height: 630 }],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Build AI Startups',
+    description:
+      'Startups that build themselves. HyperNova turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
+    images: ['/brand/og-default.png'],
+  },
+  icons: { icon: '/favicon.ico' },
+  alternates: {
+    types: { 'application/rss+xml': '/resources/changelog/rss.xml' },
+  },
 }
 
 export default function RootLayout({
@@ -21,10 +47,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      {/* No-flash theme script: picks user setting or system and sets html class ASAP */}
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="dark light" />
+        {/* No-flash theme: set html class before hydration */}
         <Script id="no-flash-theme" strategy="beforeInteractive">
           {`(function () {
             try {
@@ -36,7 +62,6 @@ export default function RootLayout({
               html.classList.remove('light','dark');
               html.classList.add(finalTheme);
             } catch (e) {
-              // On any error, fall back to dark to match your defaultTheme
               var html = document.documentElement;
               html.classList.remove('light','dark');
               html.classList.add('dark');
@@ -45,10 +70,16 @@ export default function RootLayout({
         </Script>
       </head>
 
-      <body className={`${inter.variable} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}>
+      <body
+        className={`${inter.variable} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}
+      >
         <ThemeWrapper>
-          <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
-            {children}
+          <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+            <Header />
+            <main className="grow">{children}</main>
+            {/* If you have a footer component, add it here:
+                <Footer />
+            */}
           </div>
         </ThemeWrapper>
       </body>
