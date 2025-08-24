@@ -1,30 +1,35 @@
+// app/api/auth/oauth/[provider]/route.ts
 import { NextResponse } from 'next/server'
 
-export const runtime = 'nodejs'
+export const runtime = 'nodejs' // or 'edge' if you prefer
 
-type Params = { params: { provider: string } }
-
-export async function GET(_req: Request, { params }: Params) {
-  const { provider } = params
+export async function GET(
+  _req: Request,
+  context: { params: { provider: string } }
+) {
+  const { provider } = context.params
   return NextResponse.json(
     {
       ok: false,
       code: 'NOT_IMPLEMENTED',
       provider,
-      message: `OAuth for "${provider}" not implemented. Point this route to your provider init (e.g., NextAuth signIn('github')).`,
+      message: `OAuth for "${provider}" not implemented. Wire this to your provider init (e.g., NextAuth signIn('${provider}')).`,
     },
     { status: 501 },
   )
 }
 
-export async function POST(_req: Request, { params }: Params) {
-  const { provider } = params
+export async function POST(
+  _req: Request,
+  context: { params: { provider: string } }
+) {
+  const { provider } = context.params
   return NextResponse.json(
     {
       ok: false,
       code: 'NOT_IMPLEMENTED',
       provider,
-      message: `OAuth callback/POST for "${provider}" not implemented.`,
+      message: `OAuth POST/callback for "${provider}" not implemented.`,
     },
     { status: 501 },
   )
