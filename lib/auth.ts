@@ -1,5 +1,11 @@
 // lib/auth.ts
-// Client-safe shim: expose types only.
-// For server utilities, import from "@/lib/server/auth".
+// Re-export server auth helpers so existing imports keep working.
+export {
+  getSession,
+  requireSession,
+  isSignedIn,
+  setSessionCookie,
+  clearSessionCookie,
+} from './server/auth'
 
-export type { Session } from '@/lib/server/auth'
+export type { Session } from './server/auth'
