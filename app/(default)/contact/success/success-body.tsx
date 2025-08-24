@@ -1,13 +1,15 @@
+// app/(default)/contact/success/success-body.tsx
 'use client'
 
-import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import type { ReactNode } from 'react'
 
 export function SuccessBody() {
   const qs = useSearchParams()
   const reason = (qs.get('reason') || 'general').toLowerCase()
 
-  const byReason: Record<string, JSX.Element> = {
+  const byReason: Record<string, ReactNode> = {
     sales: (
       <p className="mt-8 text-slate-300">
         While you wait, you can compare plans on the{' '}
@@ -49,12 +51,8 @@ export function SuccessBody() {
         <Link href="/legal/security" className="text-sky-300 hover:underline">Security policy</Link>.
       </p>
     ),
-    other: (
-      <p className="mt-8 text-slate-300">Thanks for reaching out — we’ll be in touch soon.</p>
-    ),
-    general: (
-      <p className="mt-8 text-slate-300">Thanks for reaching out — we’ll be in touch soon.</p>
-    ),
+    other: <p className="mt-8 text-slate-300">Thanks for reaching out — we’ll be in touch soon.</p>,
+    general: <p className="mt-8 text-slate-300">Thanks for reaching out — we’ll be in touch soon.</p>,
   }
 
   return byReason[reason] ?? byReason.general
