@@ -2,9 +2,15 @@ const withMDX = require("@next/mdx")();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure `pageExtensions` to include MDX files
+  // Include MDX in Next’s page extensions
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-  // Optionally, add any other Next.js config below
+
+  // Redirect /resources/changelog/rss.xml → /api/rss
+  async redirects() {
+    return [
+      { source: "/resources/changelog/rss.xml", destination: "/api/rss", permanent: false },
+    ];
+  },
 };
 
 module.exports = withMDX(nextConfig);
