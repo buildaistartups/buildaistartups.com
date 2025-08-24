@@ -19,8 +19,13 @@ export async function generateStaticParams() {
   return allReleases().map((r) => ({ id: r.id }))
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const r = getRelease(params.id)
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>
+}): Promise<Metadata> {
+  const { id } = await params
+  const r = getRelease(id)
   if (!r) return {}
   const url = `${BASE_URL}/resources/changelog/${r.id}`
   const ogImage = '/brand/og-default.png'
@@ -44,8 +49,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   }
 }
 
-export default function ReleasePage({ params }: { params: Params }) {
-  const r = getRelease(params.id)
+export default async function ReleasePage({
+  params,
+}: {
+  params: Promise<Params>
+}) {
+  const { id } = await params
+  const r = getRelease(id)
   if (!r) notFound()
 
   const articleJsonLd = {
@@ -64,7 +74,12 @@ export default function ReleasePage({ params }: { params: Params }) {
 
   return (
     <>
-      <Script id="ld-article" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <Script
+        id="ld-article"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
 
       <main className="bg-slate-950 text-slate-200">
         <section className="mx-auto max-w-3xl px-6 pb-10 pt-20 sm:pt-28">
@@ -73,7 +88,9 @@ export default function ReleasePage({ params }: { params: Params }) {
           </Link>
 
           <div className="mt-4 flex items-center justify-between">
-            <div className={`inline-flex items-center rounded-full bg-gradient-to-r ${themeChip[r.theme]} px-3 py-1 text-xs font-medium text-white`}>
+            <div
+              className={`inline-flex items-center rounded-full bg-gradient-to-r ${themeChip[r.theme]} px-3 py-1 text-xs font-medium text-white`}
+            >
               {r.theme}
             </div>
             <time className="text-xs text-slate-400">{fmtDate(r.date)}</time>
@@ -87,7 +104,9 @@ export default function ReleasePage({ params }: { params: Params }) {
               .filter((k) => r.sections[k] && r.sections[k]!.length > 0)
               .map((k) => (
                 <div key={k} className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
-                  <div className="text-xs font-semibold tracking-wide text-slate-200">{sectionTitle[k]}</div>
+                  <div className="text-xs font-semibold tracking-wide text-slate-200">
+                    {sectionTitle[k]}
+                  </div>
                   <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-300">
                     {r.sections[k]!.map((li, i) => (
                       <li key={i} dangerouslySetInnerHTML={{ __html: li }} />
