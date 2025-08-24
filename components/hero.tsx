@@ -50,7 +50,7 @@ export default function Hero() {
               Give HyperNova a one-sentence brief. It researches the niche, drafts the spec, scaffolds the repo, ships the UI and docs, wires billing/analytics, deploys, and keeps improving from real usage.
             </p>
             <p className="text-base text-emerald-400/90" data-aos="fade-down" data-aos-delay="250">
-              No lock-in — your GitHub, your Vercel, your Stripe.
+              Own your stack — GitHub, Vercel, Stripe.
             </p>
 
             {/* CTAs — original styles preserved */}
