@@ -1,7 +1,7 @@
-// components/contact-form.tsx
 'use client'
 
 import { useState } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 type Reason =
   | 'sales'
@@ -12,9 +12,19 @@ type Reason =
   | 'security'
   | 'other'
 
-export default function ContactForm() {
+interface Props {
+  redirectOnSuccess?: boolean
+  successPath?: string
+}
+
+export default function ContactForm({
+  redirectOnSuccess = true,
+  successPath = '/contact/success',
+}: Props) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle')
   const [error, setError] = useState<string>('')
+  const router = useRouter()
+  const qs = useSearchParams()
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -25,8 +35,12 @@ export default function ContactForm() {
     const formData = new FormData(form)
     const payload = Object.fromEntries(formData.entries())
 
-    // Honeypot check (if filled, assume bot)
+    // Honeypot
     if (payload['company_website']) {
+      if (redirectOnSuccess) {
+        router.push(successPath)
+        return
+      }
       setStatus('ok')
       form.reset()
       return
@@ -39,8 +53,19 @@ export default function ContactForm() {
         body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error('Failed to send')
-      setStatus('ok')
-      form.reset()
+
+      // Preserve useful context in the redirect URL (topic/reason + any UTM in the current URL)
+      const reason = (payload['reason'] as string) || 'general'
+      const existingParams = qs.toString()
+      const tail = existingParams ? `&${existingParams}` : ''
+      const url = `${successPath}?reason=${encodeURIComponent(reason)}${tail}`
+
+      if (redirectOnSuccess) {
+        router.push(url)
+      } else {
+        setStatus('ok')
+        form.reset()
+      }
     } catch (err: any) {
       setStatus('error')
       setError(err?.message || 'Something went wrong. Please try again.')
@@ -50,9 +75,7 @@ export default function ContactForm() {
   return (
     <form className="grid gap-4 sm:grid-cols-2" onSubmit={onSubmit}>
       <div className="sm:col-span-1">
-        <label className="mb-1 block text-sm text-slate-300" htmlFor="name">
-          Name
-        </label>
+        <label className="mb-1 block text-sm text-slate-300" htmlFor="name">Name</label>
         <input
           id="name"
           name="name"
@@ -63,9 +86,7 @@ export default function ContactForm() {
       </div>
 
       <div className="sm:col-span-1">
-        <label className="mb-1 block text-sm text-slate-300" htmlFor="email">
-          Email
-        </label>
+        <label className="mb-1 block text-sm text-slate-300" htmlFor="email">Email</label>
         <input
           id="email"
           name="email"
@@ -77,9 +98,7 @@ export default function ContactForm() {
       </div>
 
       <div className="sm:col-span-1">
-        <label className="mb-1 block text-sm text-slate-300" htmlFor="company">
-          Company (optional)
-        </label>
+        <label className="mb-1 block text-sm text-slate-300" htmlFor="company">Company (optional)</label>
         <input
           id="company"
           name="company"
@@ -89,9 +108,7 @@ export default function ContactForm() {
       </div>
 
       <div className="sm:col-span-1">
-        <label className="mb-1 block text-sm text-slate-300" htmlFor="website">
-          Website (optional)
-        </label>
+        <label className="mb-1 block text-sm text-slate-300" htmlFor="website">Website (optional)</label>
         <input
           id="website"
           name="website"
@@ -102,9 +119,7 @@ export default function ContactForm() {
       </div>
 
       <div className="sm:col-span-1">
-        <label className="mb-1 block text-sm text-slate-300" htmlFor="reason">
-          Reason
-        </label>
+        <label className="mb-1 block text-sm text-slate-300" htmlFor="reason">Reason</label>
         <select
           id="reason"
           name="reason"
@@ -122,9 +137,7 @@ export default function ContactForm() {
       </div>
 
       <div className="sm:col-span-1">
-        <label className="mb-1 block text-sm text-slate-300" htmlFor="topic">
-          Topic (optional)
-        </label>
+        <label className="mb-1 block text-sm text-slate-300" htmlFor="topic">Topic (optional)</label>
         <input
           id="topic"
           name="topic"
@@ -134,9 +147,7 @@ export default function ContactForm() {
       </div>
 
       <div className="sm:col-span-2">
-        <label className="mb-1 block text-sm text-slate-300" htmlFor="message">
-          Message
-        </label>
+        <label className="mb-1 block text-sm text-slate-300" htmlFor="message">Message</label>
         <textarea
           id="message"
           name="message"
@@ -147,7 +158,7 @@ export default function ContactForm() {
         />
       </div>
 
-      {/* Honeypot (hidden from humans) */}
+      {/* Honeypot */}
       <div className="hidden">
         <label htmlFor="company_website">Company Website</label>
         <input id="company_website" name="company_website" tabIndex={-1} autoComplete="off" />
@@ -164,18 +175,4 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === 'sending'}
-          className="inline-flex items-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400 disabled:opacity-60"
-        >
-          {status === 'sending' ? 'Sending…' : 'Send message'}
-        </button>
-      </div>
-
-      {status === 'ok' && (
-        <p className="sm:col-span-2 text-sm text-teal-400">Thanks — your message has been sent.</p>
-      )}
-      {status === 'error' && (
-        <p className="sm:col-span-2 text-sm text-rose-400">Error: {error}</p>
-      )}
-    </form>
-  )
-}
+          className="inline-flex items-center rounded-lg bg-violet-500 px-5 py-
