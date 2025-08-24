@@ -83,12 +83,12 @@ export default function Header() {
                   </svg>
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
-                  <MenuItem href="/docs" title="Docs" desc="Build faster with HyperNova" />
-                  <MenuItem href="/templates" title="Templates" desc="Jump-start with starters" />
-                  <MenuItem href="/roadmap" title="Roadmap" desc="What’s now, next, later" />
-                  <MenuItem href="/blog" title="Blog" desc="Build-in-public & playbooks" />
-                  <MenuItem href="/changelog" title="Changelog" desc="Ship notes & releases" />
-                  <MenuItem href="/press" title="Press Kit" desc="Logos, shots, bio" />
+                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" />
+                  <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" />
+                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What’s now, next, later" />
+                  <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" />
+                  <MenuItem href="/resources/changelog" title="Changelog" desc="Ship notes & releases" />
+                  <MenuItem href="/resources/press" title="Press Kit" desc="Logos, shots, bio" />
                 </div>
               </li>
 
