@@ -49,7 +49,7 @@ export default function Hero() {
             <p className="text-lg text-slate-300 mb-3 hero-subtext" data-aos="fade-down" data-aos-delay="200">
               Give HyperNova a one-sentence brief. It researches the niche, drafts the spec, scaffolds the repo, ships the UI and docs, wires billing/analytics, deploys, and keeps improving from real usage.
             </p>
-            <p className="text-base text-emerald-400/90" data-aos="fade-down" data-aos-delay="250">
+            <p className="text-sm font-medium text-violet-300/95 mb-4">
               Own your stack — GitHub, Vercel, Stripe.
             </p>
 
