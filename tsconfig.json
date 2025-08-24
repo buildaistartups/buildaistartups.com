@@ -19,7 +19,7 @@
     "resolveJsonModule": true,
     "incremental": true,
 
-    // Path alias (you already had this)
+    // Path alias
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
