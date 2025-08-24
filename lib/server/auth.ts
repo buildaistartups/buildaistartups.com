@@ -1,5 +1,6 @@
 // lib/server/auth.ts
 // Server utilities only — import these from Server Components or Route Handlers.
+import 'server-only'
 import { cookies, headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
@@ -25,7 +26,7 @@ export async function getSession(): Promise<Session | null> {
   const sid = cookieSid || devSid
   if (!sid) return null
 
-  // TODO: swap static user for real lookup by `sid`
+  // TODO: replace with real user lookup by `sid`
   return {
     sid,
     user: {
