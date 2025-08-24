@@ -1,12 +1,9 @@
 // lib/server/auth.ts
-import 'server-only'
+// Server utilities only — import these from Server Components or Route Handlers.
 import { cookies, headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
-/**
- * Minimal session shape for stubs.
- * Replace with your real lookup (NextAuth, custom JWT, DB) later.
- */
+/** Minimal session shape for stubs. Replace with real lookup later. */
 export type Session = {
   sid: string
   user: {
@@ -17,13 +14,7 @@ export type Session = {
   } | null
 }
 
-/**
- * Reads a session from:
- *  - Cookie `sid`
- *  - or dev override header `x-mock-user` (useful in previews)
- *
- * Next 15 note: cookies()/headers() can be async; we await both.
- */
+/** Read session from cookie `sid` or dev header `x-mock-user`. */
 export async function getSession(): Promise<Session | null> {
   const cookieStore = await cookies()
   const cookieSid = cookieStore.get('sid')?.value
@@ -34,7 +25,7 @@ export async function getSession(): Promise<Session | null> {
   const sid = cookieSid || devSid
   if (!sid) return null
 
-  // TODO: Replace this static user with a real user lookup by `sid`
+  // TODO: swap static user for real lookup by `sid`
   return {
     sid,
     user: {
@@ -45,32 +36,34 @@ export async function getSession(): Promise<Session | null> {
   }
 }
 
-/** Redirects to /signin if no session (use inside Server Components/Route Handlers). */
+/** Guard: redirect to /signin when not authenticated. */
 export async function requireSession(): Promise<Session> {
   const session = await getSession()
   if (!session) redirect('/signin')
   return session
 }
 
-/** Helper to set a session cookie (when you wire real auth). */
-export async function setSessionCookie(sid: string, maxAgeSeconds = 60 * 60 * 24 * 30) {
+/** Helpers to set/clear the session cookie — call from server contexts only. */
+export async function setSessionCookie(
+  sid: string,
+  maxAgeSeconds = 60 * 60 * 24 * 30, // 30 days
+) {
   const cookieStore = await cookies()
   cookieStore.set('sid', sid, {
     httpOnly: true,
-    secure: true,      // set false only on localhost if needed
+    secure: true,
     sameSite: 'lax',
     path: '/',
     maxAge: maxAgeSeconds,
   })
 }
 
-/** Helper to clear the session cookie. */
 export async function clearSessionCookie() {
   const cookieStore = await cookies()
   cookieStore.delete('sid')
 }
 
-/** Tiny convenience boolean for guards in Server Components/Actions. */
+/** Convenience boolean for simple guards. */
 export async function isSignedIn(): Promise<boolean> {
   return (await getSession()) !== null
 }
