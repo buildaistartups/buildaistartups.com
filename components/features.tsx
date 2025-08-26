@@ -2,9 +2,22 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Transition } from '@headlessui/react'
 import Particles from './particles'
 import Illustration from '@/public/images/glow-top.svg'
+
+const TAB_ROUTES: Record<1 | 2 | 3, string> = {
+  1: '/product/builder/research-spec',
+  2: '/product/builder/generate-ui',
+  3: '/product/builder/deploy-iterate',
+}
+
+const TAB_COPY: Record<1 | 2 | 3, string> = {
+  1: 'HyperNova maps the niche, analyzes competitors, drafts a PRD, and turns your one-line brief into a crisp plan with clear acceptance criteria.',
+  2: 'We scaffold a production-ready Next.js app with a polished UI, docs, auth, billing, and analytics wired — pushed to your own GitHub.',
+  3: 'One-click deploy to Vercel, observe real usage, and let HyperNova propose improvements, iterate specs, and ship updates safely.',
+}
 
 export default function Features() {
   const [tab, setTab] = useState<number>(1)
@@ -40,7 +53,7 @@ export default function Features() {
 
                 <p className="feature-subtext text-lg mb-8 dark:text-slate-400">
                   Describe your idea in a sentence. HyperNova researches the niche, drafts the product spec,
-                  scaffolds a production-ready repo, ships the UI & docs, wires auth/billing/analytics, and deploys.
+                  scaffolds a production-ready repo, ships the UI &amp; docs, wires auth/billing/analytics, and deploys.
                   You keep everything under your own GitHub, Vercel, and Stripe.
                 </p>
 
@@ -74,6 +87,19 @@ export default function Features() {
                     </svg>
                     <span>Deploy, learn, iterate</span>
                   </button>
+                </div>
+
+                {/* Tab detail + Learn more */}
+                <div className="rounded-md border border-slate-700/60 bg-slate-900/30 p-4 mt-4 max-w-lg max-md:mx-auto">
+                  <p className="text-sm text-slate-300">{TAB_COPY[tab as 1 | 2 | 3]}</p>
+                  <div className="mt-3">
+                    <Link
+                      href={TAB_ROUTES[tab as 1 | 2 | 3]}
+                      className="inline-flex items-center text-sm font-medium text-purple-400 hover:text-purple-300 transition"
+                    >
+                      Learn more <span className="ml-1">-&gt;</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
