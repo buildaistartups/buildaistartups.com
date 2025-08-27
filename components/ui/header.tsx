@@ -6,7 +6,7 @@ import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import ThemeToggle from './ThemeToggle'
 
-/** Single chevron icon that rotates via CSS (no re-render jitter) */
+/** Chevron icon that only rotates via CSS (no remount flicker) */
 function Chevron() {
   return (
     <svg
@@ -29,16 +29,13 @@ function Chevron() {
 }
 
 export default function Header() {
-  // Lightweight client-side check: presence of 'sid' cookie === "signed in"
   const [signedIn, setSignedIn] = useState(false)
 
   useEffect(() => {
-    const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
+    const hasSid = document.cookie.split('; ').some(c => c.startsWith('sid='))
     setSignedIn(hasSid)
-
-    // Refresh when the tab comes into focus in case auth changed elsewhere
     const refresh = () => {
-      const has = document.cookie.split('; ').some((c) => c.startsWith('sid='))
+      const has = document.cookie.split('; ').some(c => c.startsWith('sid='))
       setSignedIn(has)
     }
     window.addEventListener('visibilitychange', refresh)
@@ -49,7 +46,6 @@ export default function Header() {
     }
   }, [])
 
-  // Keyboard open helper: focus first link in the dropdown panel
   const focusFirstItem = useCallback((btn: HTMLButtonElement | null) => {
     if (!btn) return
     const panel = btn.nextElementSibling as HTMLElement | null
@@ -57,7 +53,6 @@ export default function Header() {
     firstLink?.focus()
   }, [])
 
-  // Handle Enter/ArrowDown to open menus for keyboard users
   const onMenuKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLButtonElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -71,6 +66,13 @@ export default function Header() {
     },
     [focusFirstItem],
   )
+
+  // Common classes for dropdown buttons:
+  // - remove Stellar’s decorative star with `after:content-[''] after:hidden`
+  const dropBtn =
+    'inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 ' +
+    'transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none ' +
+    "after:content-[''] after:hidden"
 
   return (
     <header className="absolute z-30 w-full">
@@ -88,7 +90,7 @@ export default function Header() {
               <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  className={dropBtn}
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
@@ -108,7 +110,7 @@ export default function Header() {
               <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  className={dropBtn}
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
@@ -128,7 +130,7 @@ export default function Header() {
               <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  className={dropBtn}
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
@@ -160,7 +162,7 @@ export default function Header() {
               <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  className={dropBtn}
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
