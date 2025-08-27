@@ -50,18 +50,18 @@ export default function ResearchSpec() {
           <li><code>/docs/market-notes.md</code> – scan &amp; competitor table</li>
           <li><code>/docs/prd.md</code> – user stories, flows, criteria</li>
         </ul>
+      </div>
 
-        <div className="mt-10">
-          <Link
-            href="/generate"
-            className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group"
-          >
-            Generate Startup
-            <span className="tracking-normal text-purple-500 ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">
-              -&gt;
-            </span>
-          </Link>
-        </div>
+      <div className="not-prose mt-10">
+        <Link
+          href="/generate"
+          className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group"
+        >
+          Generate Startup
+          <span className="tracking-normal text-purple-500 ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">
+            -&gt;
+          </span>
+        </Link>
       </div>
     </section>
   )
