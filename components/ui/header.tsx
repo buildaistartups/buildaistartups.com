@@ -6,36 +6,30 @@ import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import ThemeToggle from './ThemeToggle'
 
-/** Chevron icon that only rotates via CSS (no remount flicker) */
-function Chevron() {
+function Chevron({ className = '' }: { className?: string }) {
   return (
     <svg
-      aria-hidden="true"
-      viewBox="0 0 20 20"
-      className="ml-1.5 h-4 w-4 shrink-0 origin-center transition-transform duration-200 ease-out
-                 will-change-transform pointer-events-none group-hover:rotate-180 group-focus-within:rotate-180
-                 motion-reduce:transform-none"
+      className={`ml-1 h-4 w-4 transition-transform duration-150 ${className}`}
+      viewBox="0 0 16 16"
       fill="none"
+      aria-hidden="true"
     >
-      <path
-        d="M6 8l4 4 4-4"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
 
 export default function Header() {
+  // Lightweight client-side check: presence of 'sid' cookie === "signed in"
   const [signedIn, setSignedIn] = useState(false)
 
   useEffect(() => {
-    const hasSid = document.cookie.split('; ').some(c => c.startsWith('sid='))
+    const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
     setSignedIn(hasSid)
+
+    // Refresh when the tab comes into focus in case auth changed elsewhere
     const refresh = () => {
-      const has = document.cookie.split('; ').some(c => c.startsWith('sid='))
+      const has = document.cookie.split('; ').some((c) => c.startsWith('sid='))
       setSignedIn(has)
     }
     window.addEventListener('visibilitychange', refresh)
@@ -46,6 +40,7 @@ export default function Header() {
     }
   }, [])
 
+  // Keyboard open helper: focus first link in the dropdown panel
   const focusFirstItem = useCallback((btn: HTMLButtonElement | null) => {
     if (!btn) return
     const panel = btn.nextElementSibling as HTMLElement | null
@@ -53,6 +48,7 @@ export default function Header() {
     firstLink?.focus()
   }, [])
 
+  // Handle Enter/ArrowDown to open menus for keyboard users
   const onMenuKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLButtonElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -67,13 +63,6 @@ export default function Header() {
     [focusFirstItem],
   )
 
-  // Common classes for dropdown buttons:
-  // - remove Stellar’s decorative star with `after:content-[''] after:hidden`
-  const dropBtn =
-    'inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 ' +
-    'transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none ' +
-    "after:content-[''] after:hidden"
-
   return (
     <header className="absolute z-30 w-full">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -87,16 +76,16 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow flex-wrap items-center justify-center">
               {/* Product */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
                 <button
                   type="button"
-                  className={dropBtn}
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
                 >
                   Product
-                  <Chevron />
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" />
@@ -107,16 +96,16 @@ export default function Header() {
               </li>
 
               {/* Solutions */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
                 <button
                   type="button"
-                  className={dropBtn}
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
                 >
                   Solutions
-                  <Chevron />
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" />
@@ -127,16 +116,16 @@ export default function Header() {
               </li>
 
               {/* Resources */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
                 <button
                   type="button"
-                  className={dropBtn}
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
                 >
                   Resources
-                  <Chevron />
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" />
@@ -149,7 +138,7 @@ export default function Header() {
               </li>
 
               {/* Pricing */}
-              <li className="mx-2 lg:mx-3">
+              <li className="mx-2 lg:mx-3 before:hidden after:hidden">
                 <Link
                   className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
                   href="/pricing"
@@ -159,16 +148,16 @@ export default function Header() {
               </li>
 
               {/* Company */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
                 <button
                   type="button"
-                  className={dropBtn}
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
                   onKeyDown={onMenuKeyDown}
                 >
                   Company
-                  <Chevron />
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/about" title="About" desc="Mission & principles" />
