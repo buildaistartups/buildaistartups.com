@@ -6,6 +6,28 @@ import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import ThemeToggle from './ThemeToggle'
 
+/** Single chevron icon that rotates via CSS (no re-render jitter) */
+function Chevron() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 20 20"
+      className="ml-1.5 h-4 w-4 shrink-0 origin-center transition-transform duration-200 ease-out
+                 will-change-transform pointer-events-none group-hover:rotate-180 group-focus-within:rotate-180
+                 motion-reduce:transform-none"
+      fill="none"
+    >
+      <path
+        d="M6 8l4 4 4-4"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
 export default function Header() {
   // Lightweight client-side check: presence of 'sid' cookie === "signed in"
   const [signedIn, setSignedIn] = useState(false)
@@ -72,18 +94,7 @@ export default function Header() {
                   onKeyDown={onMenuKeyDown}
                 >
                   Product
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" />
@@ -103,18 +114,7 @@ export default function Header() {
                   onKeyDown={onMenuKeyDown}
                 >
                   Solutions
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" />
@@ -134,18 +134,7 @@ export default function Header() {
                   onKeyDown={onMenuKeyDown}
                 >
                   Resources
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" />
@@ -177,18 +166,7 @@ export default function Header() {
                   onKeyDown={onMenuKeyDown}
                 >
                   Company
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron />
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/about" title="About" desc="Mission & principles" />
