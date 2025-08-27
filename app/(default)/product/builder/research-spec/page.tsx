@@ -1,3 +1,5 @@
+import PrimaryCta from '@/components/ui/primary-cta'
+
 export const metadata = {
   title: 'Research & Spec – BuildAIStartups',
   description:
@@ -50,9 +52,7 @@ export default function ResearchSpec() {
         </ul>
 
         <div className="mt-10">
-          <a href="/generate" className="btn text-slate-900 bg-white hover:bg-white/90">
-            Generate Startup -&gt;
-          </a>
+          <PrimaryCta href="/generate" />
         </div>
       </div>
     </section>
