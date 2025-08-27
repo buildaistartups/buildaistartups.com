@@ -48,18 +48,19 @@ export default function DeployIterate() {
           <li>Migrations &amp; test scaffolds for critical paths</li>
           <li>Rollbacks and preview checks built-in</li>
         </ul>
+      </div>
 
-        <div className="mt-10">
-          <Link
-            href="/generate"
-            className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group"
-          >
-            Generate Startup
-            <span className="tracking-normal text-purple-500 ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">
-              -&gt;
-            </span>
-          </Link>
-        </div>
+      {/* CTA outside prose so typography styles don't override it */}
+      <div className="not-prose mt-10">
+        <Link
+          href="/generate"
+          className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group"
+        >
+          Generate Startup
+          <span className="tracking-normal text-purple-500 ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">
+            -&gt;
+          </span>
+        </Link>
       </div>
     </section>
   )
