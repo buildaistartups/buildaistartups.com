@@ -6,6 +6,19 @@ import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import ThemeToggle from './ThemeToggle'
 
+function Chevron({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      className={`ml-1 h-4 w-4 transition-transform duration-150 ${className}`}
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
   const router = useRouter()
 
@@ -18,6 +31,15 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
 
   return (
     <header className="absolute z-30 w-full">
+      {/* Hard override to remove Stellar's decorative pseudo-elements on triggers */}
+      <style jsx>{`
+        button[data-no-star]::before,
+        button[data-no-star]::after {
+          display: none !important;
+          content: none !important;
+        }
+      `}</style>
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center md:h-20">
           {/* Branding */}
@@ -31,24 +53,16 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
               {/* Product */}
               <li className="relative group mx-2 lg:mx-3">
                 <button
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:outline-none"
-                  aria-haspopup="true"
+                  type="button"
+                  data-no-star
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded="false"
                 >
                   Product
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" />
                   <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Startups that help each other grow" />
                   <MenuItem href="/product/marketplace" title="Marketplace" desc="Launch, list, license, exit" />
@@ -59,24 +73,16 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
               {/* Solutions */}
               <li className="relative group mx-2 lg:mx-3">
                 <button
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:outline-none"
-                  aria-haspopup="true"
+                  type="button"
+                  data-no-star
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded="false"
                 >
                   Solutions
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" />
                   <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" />
                   <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" />
@@ -87,24 +93,16 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
               {/* Resources */}
               <li className="relative group mx-2 lg:mx-3">
                 <button
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:outline-none"
-                  aria-haspopup="true"
+                  type="button"
+                  data-no-star
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded="false"
                 >
                   Resources
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" />
                   <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" />
                   <MenuItem href="/resources/roadmap" title="Roadmap" desc="What’s now, next, later" />
@@ -114,7 +112,7 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                 </div>
               </li>
 
-              {/* Pricing (single link) */}
+              {/* Pricing */}
               <li className="mx-2 lg:mx-3">
                 <Link
                   className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
@@ -127,24 +125,16 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
               {/* Company */}
               <li className="relative group mx-2 lg:mx-3">
                 <button
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:outline-none"
-                  aria-haspopup="true"
+                  type="button"
+                  data-no-star
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded="false"
                 >
                   Company
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                  <Chevron className="group-hover:rotate-180 group-focus-within:rotate-180" />
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/about" title="About" desc="Mission & principles" />
                   <MenuItem href="/contact" title="Contact" desc="Say hello" />
                 </div>
@@ -209,7 +199,9 @@ function MenuItem({ href, title, desc }: { href: string; title: string; desc: st
   return (
     <Link
       href={href}
-      className="block rounded-lg px-3 py-2.5 text-left transition hover:bg-white/5 focus:bg-white/5"
+      className="block rounded-lg px-3 py-2.5 text-left transition hover:bg-white/5 focus:bg-white/5 focus:outline-none"
+      role="menuitem"
+      tabIndex={0}
     >
       <div className="text-sm font-medium text-slate-100">{title}</div>
       <div className="text-xs text-slate-400">{desc}</div>
