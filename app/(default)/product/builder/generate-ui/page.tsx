@@ -1,4 +1,4 @@
-import PrimaryCta from '@/components/ui/primary-cta'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Generate Repo & UI – BuildAIStartups',
@@ -61,7 +61,15 @@ docs/`}
         </pre>
 
         <div className="mt-10">
-          <PrimaryCta href="/generate" />
+          <Link
+            href="/generate"
+            className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group"
+          >
+            Generate Startup
+            <span className="tracking-normal text-purple-500 ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">
+              -&gt;
+            </span>
+          </Link>
         </div>
       </div>
     </section>
