@@ -27,7 +27,6 @@ export default function Header() {
     const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
     setSignedIn(hasSid)
 
-    // Refresh when the tab comes into focus in case auth changed elsewhere
     const refresh = () => {
       const has = document.cookie.split('; ').some((c) => c.startsWith('sid='))
       setSignedIn(has)
@@ -48,7 +47,6 @@ export default function Header() {
     firstLink?.focus()
   }, [])
 
-  // Handle Enter/ArrowDown to open menus for keyboard users
   const onMenuKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLButtonElement>) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -65,6 +63,15 @@ export default function Header() {
 
   return (
     <header className="absolute z-30 w-full">
+      {/* hard override to nuke Stellar's decorative stars on menu triggers */}
+      <style jsx>{`
+        button[data-no-star]::before,
+        button[data-no-star]::after {
+          display: none !important;
+          content: none !important;
+        }
+      `}</style>
+
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center md:h-20">
           {/* Branding */}
@@ -76,9 +83,10 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow flex-wrap items-center justify-center">
               {/* Product */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
+                  data-no-star
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
@@ -96,9 +104,10 @@ export default function Header() {
               </li>
 
               {/* Solutions */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
+                  data-no-star
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
@@ -116,9 +125,10 @@ export default function Header() {
               </li>
 
               {/* Resources */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
+                  data-no-star
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
@@ -138,7 +148,7 @@ export default function Header() {
               </li>
 
               {/* Pricing */}
-              <li className="mx-2 lg:mx-3 before:hidden after:hidden">
+              <li className="mx-2 lg:mx-3">
                 <Link
                   className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
                   href="/pricing"
@@ -148,9 +158,10 @@ export default function Header() {
               </li>
 
               {/* Company */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40 before:hidden after:hidden">
+              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
                 <button
                   type="button"
+                  data-no-star
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded="false"
@@ -169,7 +180,6 @@ export default function Header() {
 
           {/* Right controls */}
           <div className="ml-auto flex items-center gap-x-3 md:gap-x-4">
-            {/* Swap: Sign in -> Dashboard (Generate always present) */}
             <Link
               className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
               href={signedIn ? '/app' : '/signin'}
@@ -177,7 +187,6 @@ export default function Header() {
               {signedIn ? 'Dashboard' : 'Sign in'}
             </Link>
 
-            {/* Primary CTA — always shown */}
             <Link
               className="btn-sm group relative w-full whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
               href="/generate"
@@ -190,12 +199,10 @@ export default function Header() {
               </span>
             </Link>
 
-            {/* Theme toggle (desktop only) */}
             <span className="hidden md:block">
               <ThemeToggle />
             </span>
 
-            {/* Mobile menu button */}
             <MobileMenu />
           </div>
         </div>
