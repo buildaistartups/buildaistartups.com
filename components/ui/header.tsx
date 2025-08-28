@@ -9,6 +9,7 @@ import ThemeToggle from './ThemeToggle'
 export default function Header() {
   // Lightweight client-side check: presence of 'sid' cookie === "signed in"
   const [signedIn, setSignedIn] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
@@ -25,6 +26,13 @@ export default function Header() {
       window.removeEventListener('visibilitychange', refresh)
       window.removeEventListener('focus', refresh)
     }
+  }, [])
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => setOpenDropdown(null)
+    document.addEventListener('click', handleClickOutside)
+    return () => document.removeEventListener('click', handleClickOutside)
   }, [])
 
   // Keyboard open helper: focus first link in the dropdown panel
@@ -50,6 +58,15 @@ export default function Header() {
     [focusFirstItem],
   )
 
+  const toggleDropdown = (dropdown: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    setOpenDropdown(openDropdown === dropdown ? null : dropdown)
+  }
+
+  const closeDropdown = () => {
+    setOpenDropdown(null)
+  }
+
   return (
     <header className="absolute z-30 w-full">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -63,13 +80,14 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow flex-wrap items-center justify-center">
               {/* Product */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="relative mx-2 lg:mx-3">
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
-                  aria-expanded="false"
+                  aria-expanded={openDropdown === 'product'}
                   onKeyDown={onMenuKeyDown}
+                  onClick={(e) => toggleDropdown('product', e)}
                 >
                   Product
                   <svg
@@ -85,22 +103,25 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" />
-                  <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Startups that help each other grow" />
-                  <MenuItem href="/product/marketplace" title="Marketplace" desc="Launch, list, license, exit" />
-                  <MenuItem href="/product/api" title="API" desc="Programmatic access to the engine" />
+                <div className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                  openDropdown === 'product' ? 'visible opacity-100' : 'invisible opacity-0'
+                }`}>
+                  <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" onClose={closeDropdown} />
+                  <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Startups that help each other grow" onClose={closeDropdown} />
+                  <MenuItem href="/product/marketplace" title="Marketplace" desc="Launch, list, license, exit" onClose={closeDropdown} />
+                  <MenuItem href="/product/api" title="API" desc="Programmatic access to the engine" onClose={closeDropdown} />
                 </div>
               </li>
 
               {/* Solutions */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="relative mx-2 lg:mx-3">
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
-                  aria-expanded="false"
+                  aria-expanded={openDropdown === 'solutions'}
                   onKeyDown={onMenuKeyDown}
+                  onClick={(e) => toggleDropdown('solutions', e)}
                 >
                   Solutions
                   <svg
@@ -116,22 +137,25 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" />
-                  <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" />
-                  <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" />
-                  <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Autonomous incubator" />
+                <div className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                  openDropdown === 'solutions' ? 'visible opacity-100' : 'invisible opacity-0'
+                }`}>
+                  <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" onClose={closeDropdown} />
+                  <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" onClose={closeDropdown} />
+                  <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" onClose={closeDropdown} />
+                  <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Autonomous incubator" onClose={closeDropdown} />
                 </div>
               </li>
 
               {/* Resources */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="relative mx-2 lg:mx-3">
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
-                  aria-expanded="false"
+                  aria-expanded={openDropdown === 'resources'}
                   onKeyDown={onMenuKeyDown}
+                  onClick={(e) => toggleDropdown('resources', e)}
                 >
                   Resources
                   <svg
@@ -147,13 +171,15 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" />
-                  <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" />
-                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's now, next, later" />
-                  <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" />
-                  <MenuItem href="/resources/changelog" title="Changelog" desc="Ship notes & releases" />
-                  <MenuItem href="/resources/press" title="Press Kit" desc="Logos, shots, bio" />
+                <div className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                  openDropdown === 'resources' ? 'visible opacity-100' : 'invisible opacity-0'
+                }`}>
+                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" onClose={closeDropdown} />
+                  <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" onClose={closeDropdown} />
+                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's now, next, later" onClose={closeDropdown} />
+                  <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" onClose={closeDropdown} />
+                  <MenuItem href="/resources/changelog" title="Changelog" desc="Ship notes & releases" onClose={closeDropdown} />
+                  <MenuItem href="/resources/press" title="Press Kit" desc="Logos, shots, bio" onClose={closeDropdown} />
                 </div>
               </li>
 
@@ -168,13 +194,14 @@ export default function Header() {
               </li>
 
               {/* Company */}
-              <li className="group relative mx-2 lg:mx-3 focus-within:z-40">
+              <li className="relative mx-2 lg:mx-3">
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
-                  aria-expanded="false"
+                  aria-expanded={openDropdown === 'company'}
                   onKeyDown={onMenuKeyDown}
+                  onClick={(e) => toggleDropdown('company', e)}
                 >
                   Company
                   <svg
@@ -190,9 +217,11 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <MenuItem href="/about" title="About" desc="Mission & principles" />
-                  <MenuItem href="/contact" title="Contact" desc="Say hello" />
+                <div className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                  openDropdown === 'company' ? 'visible opacity-100' : 'invisible opacity-0'
+                }`}>
+                  <MenuItem href="/about" title="About" desc="Mission & principles" onClose={closeDropdown} />
+                  <MenuItem href="/contact" title="Contact" desc="Say hello" onClose={closeDropdown} />
                 </div>
               </li>
             </ul>
@@ -235,13 +264,14 @@ export default function Header() {
   )
 }
 
-function MenuItem({ href, title, desc }: { href: string; title: string; desc: string }) {
+function MenuItem({ href, title, desc, onClose }: { href: string; title: string; desc: string; onClose: () => void }) {
   return (
     <Link
       href={href}
       className="block rounded-lg px-3 py-2.5 text-left transition hover:bg-white/5 focus:bg-white/5 focus:outline-none"
       role="menuitem"
       tabIndex={0}
+      onClick={onClose}
     >
       <div className="text-sm font-medium text-slate-100">{title}</div>
       <div className="text-xs text-slate-400">{desc}</div>
