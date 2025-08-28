@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
@@ -10,6 +10,7 @@ export default function Header() {
   // Lightweight client-side check: presence of 'sid' cookie === "signed in"
   const [signedIn, setSignedIn] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const headerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
@@ -30,9 +31,13 @@ export default function Header() {
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = () => setOpenDropdown(null)
-    document.addEventListener('click', handleClickOutside)
-    return () => document.removeEventListener('click', handleClickOutside)
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   // Keyboard open helper: focus first link in the dropdown panel
@@ -58,8 +63,7 @@ export default function Header() {
     [focusFirstItem],
   )
 
-  const toggleDropdown = (dropdown: string, e: React.MouseEvent) => {
-    e.stopPropagation()
+  const toggleDropdown = (dropdown: string) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown)
   }
 
@@ -68,7 +72,7 @@ export default function Header() {
   }
 
   return (
-    <header className="absolute z-30 w-full">
+    <header className="absolute z-30 w-full" ref={headerRef}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center md:h-20">
           {/* Branding */}
@@ -87,7 +91,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'product'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={(e) => toggleDropdown('product', e)}
+                  onClick={() => toggleDropdown('product')}
                 >
                   Product
                   <svg
@@ -121,7 +125,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'solutions'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={(e) => toggleDropdown('solutions', e)}
+                  onClick={() => toggleDropdown('solutions')}
                 >
                   Solutions
                   <svg
@@ -155,7 +159,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'resources'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={(e) => toggleDropdown('resources', e)}
+                  onClick={() => toggleDropdown('resources')}
                 >
                   Resources
                   <svg
@@ -201,7 +205,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'company'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={(e) => toggleDropdown('company', e)}
+                  onClick={() => toggleDropdown('company')}
                 >
                   Company
                   <svg
