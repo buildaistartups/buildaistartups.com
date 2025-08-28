@@ -63,8 +63,8 @@ export default function Header() {
     [focusFirstItem],
   )
 
-  const toggleDropdown = (dropdown: string) => {
-    setOpenDropdown(openDropdown === dropdown ? null : dropdown)
+  const openDropdownOnHover = (dropdown: string) => {
+    setOpenDropdown(dropdown)
   }
 
   const closeDropdown = () => {
@@ -91,7 +91,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'product'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={() => toggleDropdown('product')}
+                  onMouseEnter={() => openDropdownOnHover('product')}
                 >
                   Product
                   <svg
@@ -107,9 +107,12 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
-                  openDropdown === 'product' ? 'visible opacity-100' : 'invisible opacity-0'
-                }`}>
+                <div 
+                  className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                    openDropdown === 'product' ? 'visible opacity-100' : 'invisible opacity-0'
+                  }`}
+                  onMouseEnter={() => openDropdownOnHover('product')}
+                >
                   <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" onClose={closeDropdown} />
                   <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Startups that help each other grow" onClose={closeDropdown} />
                   <MenuItem href="/product/marketplace" title="Marketplace" desc="Launch, list, license, exit" onClose={closeDropdown} />
@@ -125,7 +128,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'solutions'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={() => toggleDropdown('solutions')}
+                  onMouseEnter={() => openDropdownOnHover('solutions')}
                 >
                   Solutions
                   <svg
@@ -141,9 +144,12 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
-                  openDropdown === 'solutions' ? 'visible opacity-100' : 'invisible opacity-0'
-                }`}>
+                <div 
+                  className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                    openDropdown === 'solutions' ? 'visible opacity-100' : 'invisible opacity-0'
+                  }`}
+                  onMouseEnter={() => openDropdownOnHover('solutions')}
+                >
                   <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" onClose={closeDropdown} />
                   <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" onClose={closeDropdown} />
                   <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" onClose={closeDropdown} />
@@ -159,7 +165,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'resources'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={() => toggleDropdown('resources')}
+                  onMouseEnter={() => openDropdownOnHover('resources')}
                 >
                   Resources
                   <svg
@@ -175,9 +181,12 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
-                  openDropdown === 'resources' ? 'visible opacity-100' : 'invisible opacity-0'
-                }`}>
+                <div 
+                  className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                    openDropdown === 'resources' ? 'visible opacity-100' : 'invisible opacity-0'
+                  }`}
+                  onMouseEnter={() => openDropdownOnHover('resources')}
+                >
                   <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" onClose={closeDropdown} />
                   <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" onClose={closeDropdown} />
                   <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's now, next, later" onClose={closeDropdown} />
@@ -192,6 +201,7 @@ export default function Header() {
                 <Link
                   className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
                   href="/pricing"
+                  onMouseEnter={closeDropdown}
                 >
                   Pricing
                 </Link>
@@ -205,7 +215,7 @@ export default function Header() {
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'company'}
                   onKeyDown={onMenuKeyDown}
-                  onClick={() => toggleDropdown('company')}
+                  onMouseEnter={() => openDropdownOnHover('company')}
                 >
                   Company
                   <svg
@@ -221,9 +231,12 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
-                  openDropdown === 'company' ? 'visible opacity-100' : 'invisible opacity-0'
-                }`}>
+                <div 
+                  className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
+                    openDropdown === 'company' ? 'visible opacity-100' : 'invisible opacity-0'
+                  }`}
+                  onMouseEnter={() => openDropdownOnHover('company')}
+                >
                   <MenuItem href="/about" title="About" desc="Mission & principles" onClose={closeDropdown} />
                   <MenuItem href="/contact" title="Contact" desc="Say hello" onClose={closeDropdown} />
                 </div>
@@ -237,6 +250,7 @@ export default function Header() {
             <Link
               className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
               href={signedIn ? '/app' : '/signin'}
+              onMouseEnter={closeDropdown}
             >
               {signedIn ? 'Dashboard' : 'Sign in'}
             </Link>
@@ -245,6 +259,7 @@ export default function Header() {
             <Link
               className="btn-sm group relative w-full whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
               href="/generate"
+              onMouseEnter={closeDropdown}
             >
               <span className="relative inline-flex items-center">
                 Generate Startup
@@ -255,12 +270,14 @@ export default function Header() {
             </Link>
 
             {/* Theme toggle (desktop only) */}
-            <span className="hidden md:block">
+            <span className="hidden md:block" onMouseEnter={closeDropdown}>
               <ThemeToggle />
             </span>
 
             {/* Mobile menu button */}
-            <MobileMenu />
+            <div onMouseEnter={closeDropdown}>
+              <MobileMenu />
+            </div>
           </div>
         </div>
       </div>
