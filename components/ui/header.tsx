@@ -73,7 +73,7 @@ export default function Header() {
                 >
                   Product
                   <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
+                    className="ml-1 h-4 w-4 transition-transform duration-150"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -104,7 +104,7 @@ export default function Header() {
                 >
                   Solutions
                   <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
+                    className="ml-1 h-4 w-4 transition-transform duration-150"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -135,7 +135,7 @@ export default function Header() {
                 >
                   Resources
                   <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
+                    className="ml-1 h-4 w-4 transition-transform duration-150"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
@@ -150,7 +150,7 @@ export default function Header() {
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" />
                   <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" />
-                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What’s now, next, later" />
+                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's now, next, later" />
                   <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" />
                   <MenuItem href="/resources/changelog" title="Changelog" desc="Ship notes & releases" />
                   <MenuItem href="/resources/press" title="Press Kit" desc="Logos, shots, bio" />
@@ -178,7 +178,7 @@ export default function Header() {
                 >
                   Company
                   <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180 group-focus-within:rotate-180"
+                    className="ml-1 h-4 w-4 transition-transform duration-150"
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
