@@ -152,7 +152,22 @@ export default function Features02() {
                             and API routes—pushed to your GitHub with sensible conventions.
                           </p>
                         </div>
+
+                        <div className="mt-3">
+                          <Link
+                            href="/product/builder/generate-ui"
+                            className="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none"
+                          >
+                            <span className="relative inline-flex items-center">
+                              Learn more
+                              <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </span>
+                          </Link>
+                        </div>
                       </div>
+
                       {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden md:pb-8">
                         <Image
@@ -191,7 +206,22 @@ export default function Features02() {
                             are prewired, and the feedback loop keeps your PRD in sync.
                           </p>
                         </div>
+
+                        <div className="mt-3">
+                          <Link
+                            href="/product/builder/deploy-iterate"
+                            className="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none"
+                          >
+                            <span className="relative inline-flex items-center">
+                              Learn more
+                              <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </span>
+                          </Link>
+                        </div>
                       </div>
+
                       {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden md:pb-8">
                         <Image
