@@ -34,7 +34,7 @@ export default function Features03() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
-              More than a login box
+              Beyond auth: a launch-ready app shell
             </h2>
             <p className="text-lg text-slate-400">
               HyperNova scaffolds a launch-ready app shell — authentication flows, user settings, pricing & checkout
