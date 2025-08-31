@@ -52,46 +52,35 @@ export default function Cta() {
               your Stripe. No lock-in.
             </p>
 
-            {/* Buttons — pill style */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {/* Primary: white gradient pill */}
+            {/* Buttons — compact pill size */}
+            <div className="flex items-center justify-center gap-3">
+              {/* Primary (white) */}
               <a
                 href="/generate"
-                className="group inline-flex items-center rounded-full px-6 py-3 text-base font-semibold text-slate-900
-                           bg-[linear-gradient(90deg,rgba(255,255,255,.85),rgba(255,255,255,1),rgba(255,255,255,.85))]
-                           hover:bg-white transition-colors duration-150
-                           ring-1 ring-inset ring-white/30
-                           shadow-[inset_0_0_0_1px_rgba(255,255,255,.35),0_1px_1px_rgba(0,0,0,.06),0_12px_30px_rgba(124,58,237,.25)]"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm md:text-base font-semibold text-slate-900
+                           bg-linear-to-r from-white/95 via-white to-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.15)]
+                           ring-1 ring-white/20 hover:ring-white/30 hover:shadow-[0_4px_18px_rgba(0,0,0,0.22)]
+                           transition-all duration-150 ease-in-out"
               >
                 Generate Startup
-                <svg
-                  className="ml-2 h-4 w-4 text-purple-500 transition-transform duration-150 group-hover:translate-x-0.5"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M11.293 4.293a1 1 0 011.414 0l4.999 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-3.293-3.293a1 1 0 010-1.414z" />
-                </svg>
+                <span className="text-purple-600">→</span>
               </a>
 
-              {/* Secondary: purple gradient pill with wand icon */}
+              {/* Secondary (purple) */}
               <a
                 href="/resources/docs"
-                className="group inline-flex items-center rounded-full px-6 py-3 text-base font-semibold text-slate-100
-                           bg-gradient-to-r from-purple-700/80 via-purple-600/80 to-purple-500/80
-                           hover:from-purple-700 hover:via-purple-600 hover:to-purple-500
-                           ring-1 ring-white/10
-                           shadow-[inset_0_0_0_1px_rgba(255,255,255,.08)]
-                           transition-colors duration-150"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm md:text-base font-semibold text-white
+                           bg-linear-to-r from-purple-600 to-purple-500
+                           ring-1 ring-white/10 hover:brightness-110 transition-all duration-150 ease-in-out"
               >
+                {/* wand icon */}
                 <svg
-                  className="mr-2 h-4 w-4 opacity-90"
+                  aria-hidden="true"
+                  className="h-4 w-4 md:h-5 md:w-5 opacity-90"
                   viewBox="0 0 24 24"
                   fill="currentColor"
-                  aria-hidden="true"
                 >
-                  {/* magic wand-ish icon */}
-                  <path d="M6 19L19 6l-1.414-1.414L4.586 17.586 6 19zM20 4l-2-2 1-1 2 2-1 1zM16 4l-1-3 1-1 1 3-1 1zM22 10l-3-1 1-1 3 1-1 1zM8 20l-3-1 1-1 3 1-1 1z" />
+                  <path d="M7 2h2v2H7zM15 20h2v2h-2zM19 7h2v2h-2zM2 15h2v2H2zM16.95 7.05l-9.9 9.9a1.5 1.5 0 1 0 2.12 2.12l9.9-9.9a1.5 1.5 0 1 0-2.12-2.12Z" />
                 </svg>
                 Read the docs
               </a>
@@ -100,5 +89,5 @@ export default function Cta() {
         </div>
       </div>
     </section>
-  );
+  )
 }
