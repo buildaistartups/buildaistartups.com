@@ -52,23 +52,23 @@ export default function Cta() {
               your Stripe. No lock-in.
             </p>
 
-            {/* Buttons — NORMAL size (uses btn-sm scale) */}
+            {/* Buttons — EXACT same sizing as hero buttons */}
             <div className="flex items-center justify-center gap-3">
-              {/* Primary (white, small) */}
+              {/* Primary (white pill) */}
               <a
                 href="/generate"
-                className="btn-sm inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold
-                           text-slate-900 bg-white/95 hover:bg-white shadow-md ring-1 ring-black/5
+                className="inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-semibold
+                           text-slate-900 bg-white/95 hover:bg-white shadow-sm ring-1 ring-black/5
                            transition-colors"
               >
                 Generate Startup
                 <span className="text-purple-600">→</span>
               </a>
 
-              {/* Secondary (purple, small) */}
+              {/* Secondary (purple pill with wand icon) */}
               <a
                 href="/resources/docs"
-                className="btn-sm inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white
                            bg-linear-to-r from-purple-600 to-purple-500 hover:brightness-110 ring-1 ring-white/10
                            transition"
               >
