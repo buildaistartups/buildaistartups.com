@@ -52,31 +52,29 @@ export default function Cta() {
               your Stripe. No lock-in.
             </p>
 
-            {/* Buttons — compact pill size */}
+            {/* Buttons — NORMAL size (uses btn-sm scale) */}
             <div className="flex items-center justify-center gap-3">
-              {/* Primary (white) */}
+              {/* Primary (white, small) */}
               <a
                 href="/generate"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm md:text-base font-semibold text-slate-900
-                           bg-linear-to-r from-white/95 via-white to-white/90 shadow-[0_2px_12px_rgba(0,0,0,0.15)]
-                           ring-1 ring-white/20 hover:ring-white/30 hover:shadow-[0_4px_18px_rgba(0,0,0,0.22)]
-                           transition-all duration-150 ease-in-out"
+                className="btn-sm inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold
+                           text-slate-900 bg-white/95 hover:bg-white shadow-md ring-1 ring-black/5
+                           transition-colors"
               >
                 Generate Startup
                 <span className="text-purple-600">→</span>
               </a>
 
-              {/* Secondary (purple) */}
+              {/* Secondary (purple, small) */}
               <a
                 href="/resources/docs"
-                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm md:text-base font-semibold text-white
-                           bg-linear-to-r from-purple-600 to-purple-500
-                           ring-1 ring-white/10 hover:brightness-110 transition-all duration-150 ease-in-out"
+                className="btn-sm inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold text-white
+                           bg-linear-to-r from-purple-600 to-purple-500 hover:brightness-110 ring-1 ring-white/10
+                           transition"
               >
-                {/* wand icon */}
                 <svg
                   aria-hidden="true"
-                  className="h-4 w-4 md:h-5 md:w-5 opacity-90"
+                  className="h-4 w-4 opacity-90"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
