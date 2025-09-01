@@ -1,32 +1,33 @@
+// app/(auth)/signin/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthLogo from '../auth-logo'
 
+const BRAND = 'BuildAIStartups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const CANON = `${SITE}/signin`
 const OG = '/brand/og-default.png'
+const DESC = `Access your ${BRAND} account to generate, ship, and grow autonomous micro-SaaS with ${BRAND}.`
 
 export const metadata: Metadata = {
-  title: 'Sign in — BuildAIStartups',
-  description:
-    'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with BuildAIStartups.',
+  metadataBase: new URL(SITE),
+  title: `Sign in — ${BRAND}`,
+  description: DESC,
   alternates: { canonical: CANON },
   robots: { index: false, follow: true }, // auth pages should not be indexed
   openGraph: {
     type: 'website',
     url: CANON,
-    title: 'Sign in — BuildAIStartups',
-    description:
-      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with HyperNova.',
-    images: [{ url: OG, width: 1200, height: 630, alt: 'BuildAIStartups' }],
-    siteName: 'BuildAIStartups',
+    title: `Sign in — ${BRAND}`,
+    description: DESC,
+    images: [{ url: OG, width: 1200, height: 630, alt: BRAND }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sign in — BuildAIStartups',
-    description:
-      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with HyperNova.',
+    title: `Sign in — ${BRAND}`,
+    description: DESC,
     images: [OG],
   },
 }
@@ -79,6 +80,7 @@ export default function SignIn() {
                 type="email"
                 inputMode="email"
                 autoComplete="email"
+                autoFocus
                 required
                 placeholder="you@company.com"
               />
@@ -152,7 +154,7 @@ export default function SignIn() {
         {/* Social / OAuth (wire these to your provider routes) */}
         <div className="grid grid-cols-3 gap-3">
           <a
-            href="/api/auth/oauth/twitter" // replace with your auth route
+            href="/api/auth/oauth/twitter"
             className="btn text-slate-300 hover:text-white transition w-full group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none h-9"
             aria-label="Continue with X (Twitter)"
           >
