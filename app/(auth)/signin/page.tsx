@@ -8,25 +8,25 @@ const CANON = `${SITE}/signin`
 const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Sign in — Build AI Startups',
+  title: 'Sign in — BuildAIStartups',
   description:
-    'Access your Build AI Startups account to generate, ship, and grow autonomous micro-SaaS with HyperNova.',
+    'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with BuildAIStartups.',
   alternates: { canonical: CANON },
   robots: { index: false, follow: true }, // auth pages should not be indexed
   openGraph: {
     type: 'website',
     url: CANON,
-    title: 'Sign in — Build AI Startups',
+    title: 'Sign in — BuildAIStartups',
     description:
-      'Access your Build AI Startups account to generate, ship, and grow autonomous micro-SaaS with HyperNova.',
-    images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Startups' }],
-    siteName: 'Build AI Startups',
+      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with BuildAIStartups.',
+    images: [{ url: OG, width: 1200, height: 630, alt: 'BuildAIStartups' }],
+    siteName: 'BuildAIStartups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sign in — Build AI Startups',
+    title: 'Sign in — BuildAIStartups',
     description:
-      'Access your Build AI Startups account to generate, ship, and grow autonomous micro-SaaS with HyperNova.',
+      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with BuildAIStartups.',
     images: [OG],
   },
 }
