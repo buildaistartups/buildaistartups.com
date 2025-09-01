@@ -9,7 +9,7 @@ const PAGE_URL = `${SITE_URL}/contact/success`
 const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Message received — Build AI Startups',
+  title: 'Message received — BuildAIStartups',
   description:
     'Thanks for reaching out. We’ve received your message and will get back to you.',
   robots: { index: false, follow: true }, // keep thank-you pages out of the index
@@ -17,15 +17,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: 'Message received — Build AI Startups',
+    title: 'Message received — BuildAIStartups',
     description:
       'Thanks for reaching out. We’ll reply shortly.',
-    images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Startups — Contact Success' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: OG, width: 1200, height: 630, alt: 'BuildAIStartups — Contact Success' }],
+    siteName: 'BuildAIStartups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Message received — Build AI Startups',
+    title: 'Message received — BuildAIStartups',
     description: 'We’ll reply shortly.',
     images: [OG],
   },
