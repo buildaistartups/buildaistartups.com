@@ -3,29 +3,31 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const BRAND = 'BuildAIStartups'
+const SITE = 'https://www.buildaistartups.com'
+const CANON = `${SITE}/about`
+const OG = '/brand/og-default.png'
+const DESC =
+  'BuildAIStartups is an autonomous builder that turns a one-line intent into a production-ready micro-SaaS — repo, UI, docs, pricing, deployment, analytics, and growth — in a single loop.'
 
 export const metadata: Metadata = {
-  title: 'About | Build AI Startups',
-  description:
-    'Build AI Startups is the public platform for HyperNova—an autonomous engine that designs, codes, brands, deploys, and grows micro-SaaS in one loop.',
-  alternates: { canonical: `${siteUrl}/about` },
+  metadataBase: new URL(SITE),
+  title: `About | ${BRAND}`,
+  description: DESC,
+  alternates: { canonical: CANON },
   openGraph: {
     type: 'website',
-    url: `${siteUrl}/about`,
-    title: 'About | Build AI Startups',
-    description:
-      'Build AI Startups is the public platform for HyperNova—an autonomous engine that designs, codes, brands, deploys, and grows micro-SaaS in one loop.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups' }],
-    siteName: 'Build AI Startups',
+    url: CANON,
+    title: `About | ${BRAND}`,
+    description: DESC,
+    images: [{ url: OG, width: 1200, height: 630, alt: BRAND }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About | Build AI Startups',
-    description:
-      'Build AI Startups is the public platform for HyperNova—an autonomous engine that designs, codes, brands, deploys, and grows micro-SaaS in one loop.',
-    images: [ogImage],
+    title: `About | ${BRAND}`,
+    description: DESC,
+    images: [OG],
   },
 }
 
@@ -33,11 +35,11 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
-  url: siteUrl,
+  name: 'BuildAIStartups',
+  url: SITE,
   description:
-    'Autonomous engine that designs, codes, brands, deploys and grows micro-SaaS.',
-  logo: `${siteUrl}/brand/logo-light.svg`,
+    'An autonomous builder that designs, codes, brands, deploys, and grows micro-SaaS from a one-line intent.',
+  logo: `${SITE}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
   founder: { '@type': 'Person', name: 'Founder (Your Name)' },
 }
@@ -45,11 +47,11 @@ const orgJsonLd = {
 const webSiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Build AI Startups',
-  url: siteUrl,
+  name: 'BuildAIStartups',
+  url: SITE,
   potentialAction: {
     '@type': 'SearchAction',
-    target: `${siteUrl}/search?q={query}`,
+    target: `${SITE}/search?q={query}`,
     'query-input': 'required name=query',
   },
 }
@@ -74,17 +76,13 @@ export default function About() {
       <main className="bg-slate-950 text-slate-200">
         {/* Hero */}
         <section className="mx-auto max-w-4xl px-6 pb-8 pt-16 sm:pt-24">
-          <p className="text-sm uppercase tracking-widest text-slate-400">
-            Company
-          </p>
-          <h1 className="mt-2 text-4xl font-bold sm:text-5xl">
-            About Build AI Startups
-          </h1>
+          <p className="text-sm uppercase tracking-widest text-slate-400">Company</p>
+          <h1 className="mt-2 text-4xl font-bold sm:text-5xl">About BuildAIStartups</h1>
           <p className="mt-4 text-lg leading-relaxed text-slate-300">
-            <strong>Startups that build themselves.</strong> Build AI Startups is the
-            public platform for <em>HyperNova</em>, an autonomous engine that takes a
-            one-sentence intent and turns it into a production-ready micro-SaaS—complete
-            with repo, UI, docs, pricing, deployment, analytics, and growth experiments.
+            <strong>Startups that build themselves.</strong> {BRAND} turns a one-sentence
+            idea into a production-ready micro-SaaS — complete with repo, UI, docs, pricing,
+            deployment, analytics, and growth experiments — while you keep full ownership of
+            your code and infrastructure.
           </p>
         </section>
 
@@ -92,8 +90,8 @@ export default function About() {
         <section className="mx-auto max-w-4xl px-6 py-10">
           <h2 className="text-2xl font-semibold">Mission</h2>
           <p className="mt-3 text-slate-300">
-            <strong>Put world-class venture creation on autopilot</strong> so anyone can
-            go from idea to revenue in a single continuous loop.
+            <strong>Put world-class venture creation on autopilot</strong> so anyone can go
+            from idea to revenue in a single continuous loop.
           </p>
         </section>
 
@@ -102,16 +100,16 @@ export default function About() {
           <h2 className="text-2xl font-semibold">What we are (and how it fits)</h2>
           <ul className="mt-4 space-y-2 text-slate-300">
             <li>
-              <strong>Platform:</strong> BuildAIStartups.com — the UI where you
-              generate, review, and launch projects.
+              <strong>Platform:</strong> BuildAIStartups.com — the UI where you generate,
+              review, and launch projects.
             </li>
             <li>
-              <strong>Engine:</strong> <em>HyperNova 2.0</em> — the pipeline that
-              discovers, plans, builds, ships, and learns.
+              <strong>Engine:</strong> BuildAIStartups Engine — the pipeline that discovers,
+              plans, builds, ships, and learns.
             </li>
             <li>
-              <strong>Roadmap:</strong> <em>HyperNova 3.0</em> — vertical agents (e.g.,
-              fintech/health), stricter compliance packs, and acquisition automation.
+              <strong>Roadmap:</strong> Next — vertical agents (e.g., fintech/health),
+              stricter compliance packs, and transfer/acquisition helpers.
             </li>
           </ul>
         </section>
@@ -121,29 +119,23 @@ export default function About() {
           <h2 className="text-2xl font-semibold">How it works (at a glance)</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-slate-300">
             <li>
-              <strong>Set intent</strong> — Pick a niche or let HyperNova scout trends
-              and pains.
+              <strong>Set intent</strong> — Pick a niche or let the engine scout trends and pains.
             </li>
             <li>
-              <strong>Connect</strong> — Link GitHub, Vercel, database, and Stripe—no
-              lock-in.
+              <strong>Connect</strong> — Link GitHub, Vercel, database, and Stripe — no lock-in.
             </li>
             <li>
-              <strong>Autobuild</strong> — Spec → repo → UI → copy → docs → pricing →
-              landing.
+              <strong>Autobuild</strong> — Spec → repo → UI → copy → docs → pricing → landing.
             </li>
             <li>
-              <strong>Go live</strong> — Domain, analytics, SEO and onboarding wired
-              automatically.
+              <strong>Go live</strong> — Domain, analytics, SEO and onboarding wired automatically.
             </li>
             <li>
-              <strong>Self-improve</strong> — A/B copy, pricing, onboarding—driven by
-              usage signals.
+              <strong>Self-improve</strong> — A/B copy, pricing, onboarding — driven by usage signals.
             </li>
           </ol>
           <p className="mt-4 rounded-lg border border-white/10 bg-slate-900/40 p-4 text-sm text-slate-400">
-            <strong>Ownership:</strong> You own the code, infra, and revenue. We provide
-            the engine.
+            <strong>Ownership:</strong> You own the code, infra, and revenue. We provide the engine.
           </p>
         </section>
 
@@ -152,11 +144,10 @@ export default function About() {
           <h2 className="text-2xl font-semibold">What makes it different</h2>
           <ul className="mt-4 grid gap-3 text-slate-300 sm:grid-cols-2">
             <li>Full-loop autonomy — not just code snippets.</li>
-            <li>Ecosystem effects — generated startups cross-promote each other.</li>
+            <li>Ecosystem effects — generated startups can cross-promote each other.</li>
             <li>Monetization-first — pricing, billing, and growth experiments from day one.</li>
             <li>
-              Predictable builds — structured PRD (Spec DSL) + CI quality gates +{' '}
-              <strong>Build Score</strong>.
+              Predictable builds — structured PRD (Spec DSL) + CI quality gates + <strong>Build Score</strong>.
             </li>
             <li>No lock-in — your GitHub, your Vercel, your DB, your Stripe.</li>
           </ul>
@@ -167,7 +158,7 @@ export default function About() {
           <h2 className="text-2xl font-semibold">Principles</h2>
           <ul className="mt-4 grid gap-3 text-slate-300 sm:grid-cols-2">
             <li>Open-source first (where feasible)</li>
-            <li>No lock-in — user-owned repos and infra</li>
+            <li>User-owned repos and infra (no lock-in)</li>
             <li>Builder empathy — ship value in minutes, not months</li>
             <li>Safety by design — audit logs, approvals, license guardrails</li>
             <li>Transparent roadmap &amp; changelog</li>
@@ -179,19 +170,16 @@ export default function About() {
           <h2 className="text-2xl font-semibold">Governance &amp; Safety</h2>
           <ul className="mt-4 space-y-2 text-slate-300">
             <li>
-              <strong>Two modes:</strong> <em>Copilot</em> (review gates) and{' '}
-              <em>Autopilot</em> (ships when green).
+              <strong>Two modes:</strong> <em>Copilot</em> (review gates) and <em>Autopilot</em> (ships when green).
             </li>
             <li>
-              <strong>Quality gates:</strong> lint, tests, security scans, performance
-              budgets, license checks.
+              <strong>Quality gates:</strong> lint, tests, security scans, performance budgets, license checks.
             </li>
             <li>
               <strong>Spec DSL:</strong> structured PRD for reproducible builds.
             </li>
             <li>
-              <strong>Secrets:</strong> user-owned integrations, short-lived tokens,
-              secret scrubbing.
+              <strong>Secrets:</strong> user-owned integrations, short-lived tokens, secret scrubbing.
             </li>
           </ul>
         </section>
@@ -204,20 +192,16 @@ export default function About() {
               <strong>v0.1 —</strong> First public alpha: end-to-end build loop running.
             </li>
             <li>
-              <strong>v0.2 —</strong> Gold Templates (SaaS, API), CI gates,{' '}
-              <strong>Build Score</strong> badge.
+              <strong>v0.2 —</strong> Gold Templates (SaaS, API), CI gates, <strong>Build Score</strong> badge.
             </li>
             <li>
-              <strong>v0.3 —</strong> Ecosystem cross-promos, pricing generator, API
-              webhooks.
+              <strong>v0.3 —</strong> Ecosystem cross-promos, pricing generator, API webhooks.
             </li>
             <li>
-              <strong>Next —</strong> Prompt Packs, Marketplace beta, Transfer-readiness
-              checklist.
+              <strong>Next —</strong> Prompt Packs, Marketplace beta, Transfer-readiness checklist.
             </li>
             <li>
-              <strong>Later —</strong> Vertical agents, compliance packs, acquisition
-              automation.
+              <strong>Later —</strong> Vertical agents, compliance packs, acquisition automation.
             </li>
           </ul>
         </section>
@@ -251,13 +235,10 @@ export default function About() {
         <section className="mx-auto max-w-4xl px-6 py-10">
           <h2 className="text-2xl font-semibold">Founder’s note</h2>
           <blockquote className="mt-4 rounded-xl border border-white/10 bg-slate-900/40 p-5 text-slate-300">
-            “I built HyperNova because most ideas die in the gap between inspiration and
-            execution. By compressing the loop from intent to revenue—and letting builders
-            own everything—we make it practical to try more things, faster, with real
-            users.”
-            <footer className="mt-3 text-sm text-slate-400">
-              — <em>Founder, Build AI Startups</em>
-            </footer>
+            “I built {BRAND} because most ideas die in the gap between inspiration and
+            execution. By compressing the loop from intent to revenue — and letting builders
+            own everything — we make it practical to try more things, faster, with real users.”
+            <footer className="mt-3 text-sm text-slate-400">— <em>Founder, {BRAND}</em></footer>
           </blockquote>
         </section>
 
