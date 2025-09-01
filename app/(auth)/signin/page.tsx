@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: CANON,
     title: 'Sign in — BuildAIStartups',
     description:
-      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with BuildAIStartups.',
+      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with HyperNova.',
     images: [{ url: OG, width: 1200, height: 630, alt: 'BuildAIStartups' }],
     siteName: 'BuildAIStartups',
   },
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sign in — BuildAIStartups',
     description:
-      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with BuildAIStartups.',
+      'Access your BuildAIStartups account to generate, ship, and grow autonomous micro-SaaS with HyperNova.',
     images: [OG],
   },
 }
