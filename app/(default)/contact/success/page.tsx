@@ -1,15 +1,18 @@
+// app/(default)/contact/success/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Suspense } from 'react'
 import { SuccessBody } from './success-body'
 
+const BRAND = 'Build AI Startups'
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const PAGE_URL = `${SITE_URL}/contact/success`
 const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Message received — BuildAIStartups',
+  metadataBase: new URL(SITE_URL),
+  title: `Message received — ${BRAND}`,
   description:
     'Thanks for reaching out. We’ve received your message and will get back to you.',
   robots: { index: false, follow: true }, // keep thank-you pages out of the index
@@ -17,15 +20,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: 'Message received — BuildAIStartups',
-    description:
-      'Thanks for reaching out. We’ll reply shortly.',
-    images: [{ url: OG, width: 1200, height: 630, alt: 'BuildAIStartups — Contact Success' }],
-    siteName: 'BuildAIStartups',
+    title: `Message received — ${BRAND}`,
+    description: 'Thanks for reaching out. We’ll reply shortly.',
+    images: [{ url: OG, width: 1200, height: 630, alt: `${BRAND} — Contact Success` }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Message received — BuildAIStartups',
+    title: `Message received — ${BRAND}`,
     description: 'We’ll reply shortly.',
     images: [OG],
   },
@@ -42,31 +44,53 @@ export default function ContactSuccessPage() {
 
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
           <li>
-            <Link href="/resources/docs" className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5">
+            <Link
+              href="/resources/docs"
+              className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5"
+            >
               Read the Docs
             </Link>
           </li>
           <li>
-            <Link href="/pricing" className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5">
+            <Link
+              href="/pricing"
+              className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5"
+            >
               See Pricing
             </Link>
           </li>
           <li>
-            <Link href="/resources/templates" className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5">
+            <Link
+              href="/resources/templates"
+              className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5"
+            >
               Explore Templates
             </Link>
           </li>
           <li>
-            <Link href="/generate" className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5">
+            <Link
+              href="/generate"
+              className="block rounded-lg border border-white/10 bg-slate-900/40 px-4 py-3 hover:bg-white/5"
+            >
               Generate a Startup
             </Link>
           </li>
         </ul>
 
-        {/* Reason-aware guidance */}
+        {/* Reason-aware guidance (kept as-is) */}
         <Suspense fallback={null}>
           <SuccessBody />
         </Suspense>
+
+        <div className="mt-10">
+          <Link
+            href="/"
+            className="inline-flex items-center rounded-lg border border-white/10 px-4 py-2 text-sm hover:bg-white/5"
+            aria-label="Back to homepage"
+          >
+            ← Back to Home
+          </Link>
+        </div>
       </section>
     </main>
   )
