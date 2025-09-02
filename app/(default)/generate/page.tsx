@@ -3,30 +3,32 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import GenerateForm from '@/components/generate-form'
 
+const BRAND = 'Build AI Starups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const CANON = `${SITE}/generate`
 const OG = '/brand/og-default.png'
+const DESC =
+  'Turn a one-sentence idea into a production-ready micro-SaaS. Plan, scaffold, brand, price, deploy, and set up growth — all in one loop.'
 
 export const metadata: Metadata = {
-  title: 'Generate Startup — Build AI Startups',
-  description:
-    'Turn a one-sentence idea into a production-ready micro-SaaS. HyperNova plans, scaffolds, brands, prices, deploys, and sets up growth—all in one loop.',
+  metadataBase: new URL(SITE),
+  title: `Generate Startup — ${BRAND}`,
+  description: DESC,
   alternates: { canonical: CANON },
   openGraph: {
     type: 'website',
     url: CANON,
-    title: 'Generate your next startup — Build AI Startups',
-    description:
-      'Turn a one-sentence idea into a production-ready micro-SaaS. HyperNova plans, scaffolds, brands, prices, deploys, and sets up growth—all in one loop.',
-    images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Startups' }],
-    siteName: 'Build AI Startups',
+    title: `Generate your next startup — ${BRAND}`,
+    description: DESC,
+    images: [{ url: OG, width: 1200, height: 630, alt: BRAND }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Generate your next startup — Build AI Startups',
+    title: `Generate your next startup — ${BRAND}`,
     description:
-      'From intent to repo, landing page, pricing, and launch—fully automated.',
+      'From intent to repo, landing page, pricing, and launch — fully automated.',
     images: [OG],
   },
 }
@@ -39,13 +41,13 @@ export default function GeneratePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl">
             <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-2">
-              HyperNova Builder
+              {BRAND} Builder
             </div>
             <h1 className="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/70 via-slate-200 to-slate-200/70">
               Generate your next startup
             </h1>
             <p className="mt-4 text-lg text-slate-400">
-              Drop a one-sentence intent. HyperNova drafts a PRD, scaffolds the
+              Drop a one-sentence intent. The Builder drafts a PRD, scaffolds the
               repo, wires the UI, pricing, landing page, analytics, and a first
               set of growth experiments. You own the code, infra, and revenue.
             </p>
@@ -61,7 +63,7 @@ export default function GeneratePage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-purple-400" />
-                Your GitHub, Vercel, DB, Stripe—no lock-in
+                Your GitHub, Vercel, DB, Stripe — no lock-in
               </li>
               <li className="flex items-start gap-2">
                 <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-purple-400" />
@@ -134,8 +136,14 @@ export default function GeneratePage() {
           </div>
           <p className="mt-4 text-xs text-slate-500">
             By continuing you agree to our{' '}
-            <Link href="/legal/terms" className="underline">Terms</Link> and{' '}
-            <Link href="/legal/privacy" className="underline">Privacy Policy</Link>.
+            <Link href="/legal/terms" className="underline">
+              Terms
+            </Link>{' '}
+            and{' '}
+            <Link href="/legal/privacy" className="underline">
+              Privacy Policy
+            </Link>
+            .
           </p>
         </div>
       </section>
