@@ -47,7 +47,7 @@ const orgJsonLd = {
 const webSiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Build AI Starups',
+  name: 'Build AI Startups',
   url: SITE,
   potentialAction: {
     '@type': 'SearchAction',
@@ -100,7 +100,7 @@ export default function About() {
           <h2 className="text-2xl font-semibold">What we are (and how it fits)</h2>
           <ul className="mt-4 space-y-2 text-slate-300">
             <li>
-              <strong>Platform:</strong> BuildA IStartups.com — the UI where you generate,
+              <strong>Platform:</strong> buildaistartups.com — the UI where you generate,
               review, and launch projects.
             </li>
             <li>
@@ -225,7 +225,7 @@ export default function About() {
         <section className="mx-auto max-w-4xl px-6 py-10">
           <h2 className="text-2xl font-semibold">Founder’s note</h2>
           <blockquote className="mt-4 rounded-xl border border-white/10 bg-slate-900/40 p-5 text-slate-300">
-            “I built {BRAND} because most ideas die in the gap between inspiration and
+            “I created {BRAND} because most ideas die in the gap between inspiration and
             execution. By compressing the loop from intent to revenue — and letting builders
             own everything — we make it practical to try more things, faster, with real users.”
             <footer className="mt-3 text-sm text-slate-400">— <em>Founder, {BRAND}</em></footer>
