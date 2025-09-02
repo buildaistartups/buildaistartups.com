@@ -3,12 +3,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const BRAND = 'BuildAIStartups'
+const BRAND = 'Build AI Starups' // display brand (with space)
 const SITE = 'https://www.buildaistartups.com'
 const CANON = `${SITE}/about`
 const OG = '/brand/og-default.png'
 const DESC =
-  'BuildAIStartups is an autonomous builder that turns a one-line intent into a production-ready micro-SaaS — repo, UI, docs, pricing, deployment, analytics, and growth — in a single loop.'
+  `${BRAND} is an autonomous builder that turns a one-line intent into a production-ready micro-SaaS — repo, UI, docs, pricing, deployment, analytics, and growth — in a single loop.`
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'BuildAIStartups',
+  name: 'Build AI Starups',
   url: SITE,
   description:
     'An autonomous builder that designs, codes, brands, deploys, and grows micro-SaaS from a one-line intent.',
@@ -47,7 +47,7 @@ const orgJsonLd = {
 const webSiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'BuildAIStartups',
+  name: 'Build AI Starups',
   url: SITE,
   potentialAction: {
     '@type': 'SearchAction',
@@ -77,7 +77,7 @@ export default function About() {
         {/* Hero */}
         <section className="mx-auto max-w-4xl px-6 pb-8 pt-16 sm:pt-24">
           <p className="text-sm uppercase tracking-widest text-slate-400">Company</p>
-          <h1 className="mt-2 text-4xl font-bold sm:text-5xl">About BuildAIStartups</h1>
+          <h1 className="mt-2 text-4xl font-bold sm:text-5xl">About {BRAND}</h1>
           <p className="mt-4 text-lg leading-relaxed text-slate-300">
             <strong>Startups that build themselves.</strong> {BRAND} turns a one-sentence
             idea into a production-ready micro-SaaS — complete with repo, UI, docs, pricing,
@@ -100,11 +100,11 @@ export default function About() {
           <h2 className="text-2xl font-semibold">What we are (and how it fits)</h2>
           <ul className="mt-4 space-y-2 text-slate-300">
             <li>
-              <strong>Platform:</strong> BuildAIStartups.com — the UI where you generate,
+              <strong>Platform:</strong> BuildA IStartups.com — the UI where you generate,
               review, and launch projects.
             </li>
             <li>
-              <strong>Engine:</strong> BuildAIStartups Engine — the pipeline that discovers,
+              <strong>Engine:</strong> {BRAND} Engine — the pipeline that discovers,
               plans, builds, ships, and learns.
             </li>
             <li>
@@ -210,21 +210,11 @@ export default function About() {
         <section className="mx-auto max-w-4xl px-6 py-10">
           <h2 className="text-2xl font-semibold">Public metrics (updated periodically)</h2>
           <ul className="mt-4 grid gap-3 text-slate-300 sm:grid-cols-2">
-            <li>
-              <strong>Median time-to-MVP:</strong> N minutes
-            </li>
-            <li>
-              <strong>Build success rate:</strong> N% (all gates green)
-            </li>
-            <li>
-              <strong>Activation (first-value) rate:</strong> N%
-            </li>
-            <li>
-              <strong>Experiments shipped (30d):</strong> N
-            </li>
-            <li>
-              <strong>Marketplace GMV:</strong> $N (beta)
-            </li>
+            <li><strong>Median time-to-MVP:</strong> N minutes</li>
+            <li><strong>Build success rate:</strong> N% (all gates green)</li>
+            <li><strong>Activation (first-value) rate:</strong> N%</li>
+            <li><strong>Experiments shipped (30d):</strong> N</li>
+            <li><strong>Marketplace GMV:</strong> $N (beta)</li>
           </ul>
           <p className="mt-2 text-sm text-slate-400">
             Metrics are opt-in and anonymized; we’ll publish updates in the changelog.
