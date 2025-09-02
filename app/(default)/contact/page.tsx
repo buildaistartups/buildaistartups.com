@@ -10,16 +10,17 @@ const PAGE_URL = `${SITE_URL}/contact`
 const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Contact — Build AI Startups (HyperNova)',
+  metadataBase: new URL(SITE_URL),
+  title: 'Contact — Build AI Startups',
   description:
-    'Talk to sales, partnerships, press, or support. We help you go from intent to live product with ownership kept.',
+    'Talk to sales, partnerships, press, billing, or support. We help you go from intent to live product while keeping full ownership.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
     title: 'Contact — Build AI Startups',
     description:
-      'Reach the team behind HyperNova: sales, partnerships, press, billing, and technical support.',
+      'Talk to the Build AI Startups team: sales, partnerships, press, billing, and technical support.',
     images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Startups — Contact' }],
     siteName: 'Build AI Startups',
   },
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Contact — Build AI Startups',
     description:
-      'We’re here to help you launch and grow autonomous products.',
+      'We’re here to help you launch and grow products with full ownership.',
     images: [OG],
   },
 }
@@ -110,9 +111,11 @@ export default function ContactPage() {
         <section className="mx-auto max-w-6xl px-6 pb-10 pt-20 sm:pt-28">
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-widest text-slate-400">Contact</p>
-            <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Talk to the Build AI Startups team</h1>
+            <h1 className="mt-2 text-4xl font-bold sm:text-5xl">
+              Talk to the Build AI Startups team
+            </h1>
             <p className="mt-4 text-lg text-slate-300">
-              Sales, partnerships, press, billing, or product support—we’re here to help. You can also
+              Sales, partnerships, press, billing, or product support — we’re here to help. You can also
               email us directly at{' '}
               <a className="text-sky-300 hover:underline" href="mailto:hello@buildaistartups.com">
                 hello@buildaistartups.com
@@ -186,7 +189,7 @@ export default function ContactPage() {
               <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
                 <h3 className="text-lg font-semibold">Headquarters</h3>
                 <p className="mt-2 text-slate-300">
-                  Fully remote, operating across EU & US time zones.
+                  Fully remote, operating across EU &amp; US time zones.
                 </p>
                 <p className="mt-2 text-sm text-slate-400">
                   For legal notices, contact{' '}
@@ -198,7 +201,7 @@ export default function ContactPage() {
               </div>
 
               <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
-                <h3 className="text-lg font-semibold">Status & Docs</h3>
+                <h3 className="text-lg font-semibold">Status &amp; Docs</h3>
                 <ul className="mt-2 space-y-2 text-slate-300">
                   <li>
                     <Link href="/resources/changelog" className="text-sky-300 hover:underline">
@@ -246,7 +249,9 @@ export default function ContactPage() {
         <section className="border-t border-white/10 bg-slate-900/40 py-14">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-semibold">Prefer to start building?</h2>
-            <p className="mt-2 text-slate-300">Open the Builder and go from intent to live preview in minutes.</p>
+            <p className="mt-2 text-slate-300">
+              Open the Builder and go from intent to live preview in minutes.
+            </p>
             <div className="mt-6 flex items-center justify-center gap-3">
               <Link
                 href="/generate"
@@ -273,36 +278,54 @@ const quickCards = [
     title: 'Sales',
     copy: 'Evaluate plans, usage, and procurement details.',
     email: 'sales@buildaistartups.com',
-    links: [{ href: '/pricing', label: 'See pricing' }, { href: '/contact?topic=sales', label: 'Talk to sales' }],
+    links: [
+      { href: '/pricing', label: 'See pricing' },
+      { href: '/contact?topic=sales', label: 'Talk to sales' },
+    ],
   },
   {
     title: 'Support',
     copy: 'Questions on setup, integrations, or incidents.',
     email: 'support@buildaistartups.com',
-    links: [{ href: '/resources/docs', label: 'Read docs' }, { href: '/contact?topic=support', label: 'Open ticket' }],
+    links: [
+      { href: '/resources/docs', label: 'Read docs' },
+      { href: '/contact?topic=support', label: 'Open ticket' },
+    ],
   },
   {
     title: 'Partnerships',
     copy: 'OEM, integrations, co-marketing, and distribution.',
     email: 'partners@buildaistartups.com',
-    links: [{ href: '/integrations', label: 'Integrations' }, { href: '/contact?topic=partnerships', label: 'Propose a partnership' }],
+    links: [
+      { href: '/integrations', label: 'Integrations' },
+      { href: '/contact?topic=partnerships', label: 'Propose a partnership' },
+    ],
   },
   {
     title: 'Press',
     copy: 'Media requests, founder bio, and brand assets.',
     email: 'press@buildaistartups.com',
-    links: [{ href: '/resources/press', label: 'Press kit' }, { href: '/contact?topic=press', label: 'Contact press' }],
+    links: [
+      { href: '/resources/press', label: 'Press kit' },
+      { href: '/contact?topic=press', label: 'Contact press' },
+    ],
   },
   {
     title: 'Security',
     copy: 'Report vulnerabilities or request security info.',
     email: 'security@buildaistartups.com',
-    links: [{ href: '/legal/security', label: 'Security policy' }, { href: '/contact?topic=security', label: 'Report an issue' }],
+    links: [
+      { href: '/legal/security', label: 'Security policy' },
+      { href: '/contact?topic=security', label: 'Report an issue' },
+    ],
   },
   {
     title: 'Billing',
     copy: 'Invoices, refunds, or tax documentation.',
     email: 'billing@buildaistartups.com',
-    links: [{ href: '/pricing', label: 'Plans & fees' }, { href: '/contact?topic=billing', label: 'Billing help' }],
+    links: [
+      { href: '/pricing', label: 'Plans & fees' },
+      { href: '/contact?topic=billing', label: 'Billing help' },
+    ],
   },
 ]
