@@ -1,20 +1,54 @@
-export const metadata = {
-  title: 'Customers - BuildAIStartups',
-  description: 'Page description',
-}
-
+// app/(default)/customers/page.tsx
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Illustration from '@/public/images/page-illustration.svg'
 import Particles from '@/components/particles'
 import CustomersList from './customers-list'
 
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
+const CANON = `${SITE}/customers`
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
+  title: 'Customers — Build AI Startups',
+  description:
+    'See how teams use Build AI Startups to go from idea to production faster — with real code, real ownership, and real results.',
+  alternates: { canonical: CANON },
+  openGraph: {
+    type: 'website',
+    url: CANON,
+    title: 'Customers — Build AI Startups',
+    description:
+      'See how teams use Build AI Startups to go from idea to production faster — with real code, real ownership, and real results.',
+    images: [
+      {
+        url: '/brand/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'Build AI Startups',
+      },
+    ],
+    siteName: 'Build AI Startups',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Customers — Build AI Startups',
+    description:
+      'See how teams use Build AI Startups to go from idea to production faster — with real code, real ownership, and real results.',
+    images: ['/brand/og-default.png'],
+  },
+}
+
 export default function Customers() {
   return (
     <>
       <section className="relative">
-
         {/* Radial gradient */}
-        <div className="absolute flex items-center justify-center top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-[800px] aspect-square" aria-hidden="true">
+        <div
+          className="absolute flex items-center justify-center top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-[800px] aspect-square"
+          aria-hidden="true"
+        >
           <div className="absolute inset-0 translate-z-0 bg-purple-500 rounded-full blur-[120px] opacity-30"></div>
           <div className="absolute w-64 h-64 translate-z-0 bg-purple-400 rounded-full blur-[80px] opacity-70"></div>
         </div>
@@ -23,27 +57,41 @@ export default function Customers() {
         <Particles className="absolute inset-0 h-96 -z-10" quantity={15} />
 
         {/* Illustration */}
-        <div className="md:block absolute left-1/2 -translate-x-1/2 -mt-16 blur-2xl opacity-90 pointer-events-none -z-10" aria-hidden="true">
-          <Image src={Illustration} className="max-w-none" width={1440} height={427} alt="Page Illustration" />
+        <div
+          className="md:block absolute left-1/2 -translate-x-1/2 -mt-16 blur-2xl opacity-90 pointer-events-none -z-10"
+          aria-hidden="true"
+        >
+          <Image
+            src={Illustration}
+            className="max-w-none"
+            width={1440}
+            height={427}
+            alt="Background illustration"
+          />
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="pt-32 md:pt-40">
-
             {/* Section header */}
             <div className="text-center pb-12 md:pb-20">
-              <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">Leaders love Stellar</div>
-              <h1 className="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Trusted by leading companies</h1>
+              <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">
+                Leaders ship with Build AI Startups
+              </div>
+              <h1 className="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
+                Trusted by teams that move fast
+              </h1>
               <div className="max-w-3xl mx-auto">
-                <p className="text-lg text-slate-400">Stellar powers thousands of high-impact product teams. From next-gen startups who reach for the stars to established greats who change the world.</p>
+                <p className="text-lg text-slate-400">
+                  Build AI Startups powers ambitious builders — from indie makers to
+                  enterprise skunkworks — to go from one-line idea to live product
+                  with production code, clean design, and full ownership.
+                </p>
               </div>
             </div>
 
             <CustomersList />
-
           </div>
         </div>
-
       </section>
     </>
   )
