@@ -37,24 +37,26 @@ export default function Cta03() {
           <div className="max-w-3xl mx-auto text-center">
             <div>
               <div className="inline-flex font-medium pb-3 eyebrow-text">
-                Build AI Startups updates
+                Never miss an update
               </div>
             </div>
             <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
-              Get roadmap & changelog in your inbox
+              Product updates from Build AI Startups
             </h2>
             <p className="text-lg text-slate-400 mb-8">
-              Subscribe for product drops—new templates, features, and weekly ship notes.
-              No spam. Unsubscribe anytime.
+              Roadmap highlights, new templates, and changelog notes—no spam.
             </p>
-            <form className="inline-flex max-w-sm w-full" onSubmit={(e) => e.preventDefault()}>
+
+            {/* Server-safe form: no event handlers */}
+            <form className="inline-flex max-w-sm w-full" action="/api/subscribe" method="post">
               <div className="w-full flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
                 <input
                   type="email"
-                  className="form-input py-1.5 w-full mb-3 sm:mb-0 sm:mr-2 rounded-full bg-slate-800/30 border-slate-700"
-                  placeholder="you@email.com"
-                  aria-label="Your email"
+                  name="email"
                   required
+                  className="form-input py-1.5 w-full mb-3 sm:mb-0 sm:mr-2 rounded-full bg-slate-800/30 border-slate-700"
+                  placeholder="you@company.com"
+                  aria-label="Your email"
                 />
                 <button
                   className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group cta-primary"
@@ -67,9 +69,8 @@ export default function Cta03() {
                 </button>
               </div>
             </form>
-            <p className="mt-3 text-xs text-slate-500">
-              By subscribing, you agree to receive occasional emails from buildaistartups. One-click unsubscribe.
-            </p>
+
+            <p className="mt-2 text-xs text-slate-500">We’ll email only when there’s real news.</p>
           </div>
         </div>
       </div>
