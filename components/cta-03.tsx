@@ -36,25 +36,25 @@ export default function Cta03() {
           {/* Content */}
           <div className="max-w-3xl mx-auto text-center">
             <div>
-              {/* Changed to eyebrow-text */}
               <div className="inline-flex font-medium pb-3 eyebrow-text">
-                Never miss an update
+                Build AI Startups updates
               </div>
             </div>
             <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
-              Take control of your business
+              Get roadmap & changelog in your inbox
             </h2>
             <p className="text-lg text-slate-400 mb-8">
-              Find out about our latest product changes as we continue improving Stellar to enable your team to
-              collaborate better.
+              Subscribe for product drops—new templates, features, and weekly ship notes.
+              No spam. Unsubscribe anytime.
             </p>
-            <form className="inline-flex max-w-sm w-full">
+            <form className="inline-flex max-w-sm w-full" onSubmit={(e) => e.preventDefault()}>
               <div className="w-full flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
                 <input
                   type="email"
                   className="form-input py-1.5 w-full mb-3 sm:mb-0 sm:mr-2 rounded-full bg-slate-800/30 border-slate-700"
-                  placeholder="Your email"
+                  placeholder="you@email.com"
                   aria-label="Your email"
+                  required
                 />
                 <button
                   className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group cta-primary"
@@ -67,6 +67,9 @@ export default function Cta03() {
                 </button>
               </div>
             </form>
+            <p className="mt-3 text-xs text-slate-500">
+              By subscribing, you agree to receive occasional emails from buildaistartups. One-click unsubscribe.
+            </p>
           </div>
         </div>
       </div>
