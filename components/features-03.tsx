@@ -6,7 +6,6 @@ import FeatureImg04 from '@/public/images/feature-image-04.png'
 export default function Features03() {
   return (
     <section className="relative">
-
       {/* Blurred shape */}
       <div
         className="absolute top-0 -translate-y-1/4 left-1/2 -translate-x-1/2 blur-2xl opacity-50 pointer-events-none -z-10"
@@ -30,15 +29,14 @@ export default function Features03() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-16 pb-12 md:pt-32 md:pb-20 border-b border-slate-800">
-
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
             <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
               Beyond auth: a launch-ready app shell
             </h2>
             <p className="text-lg text-slate-400">
-              HyperNova scaffolds a launch-ready app shell — authentication flows, user settings, pricing & checkout
-              stubs, SEO’d marketing pages, docs-as-code, and analytics events — all styled, accessible, and pushed to
+              Build AI Startups scaffolds a launch-ready app shell — authentication flows, user settings, pricing &amp; checkout
+              stubs, SEO-friendly marketing pages, docs-as-code, and analytics events — all styled, accessible, and pushed to
               your GitHub. Swap the logo, pick a theme, and ship real product fast.
             </p>
           </div>
@@ -59,14 +57,13 @@ export default function Features03() {
                       src={FeatureImg04}
                       width={768}
                       height={400}
-                      alt="HyperNova launch-ready app shell preview"
+                      alt="Build AI Startups launch-ready app shell preview"
                     />
                   </div>
                 </HighlighterItem>
               </Highlighter>
             </div>
           </div>
-
         </div>
       </div>
     </section>
