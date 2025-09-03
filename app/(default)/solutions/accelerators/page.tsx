@@ -7,22 +7,22 @@ const siteUrl = 'https://www.buildaistartups.com'
 const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Accelerators & Universities — Cohort-in-a-Box for venture creation | Build AI Startups',
+  title: 'Accelerators & Universities — Cohort-in-a-Box for venture creation | Build AI Starups',
   description:
     'Run an AI venture program in days, not months. Cohort-in-a-Box: intake, structured specs, autobuilds, live demos, growth experiments, and a transfer-ready Marketplace.',
   alternates: { canonical: `${siteUrl}/solutions/accelerators` },
   openGraph: {
     type: 'website',
     url: `${siteUrl}/solutions/accelerators`,
-    title: 'Accelerators & Universities — Cohort-in-a-Box | Build AI Startups',
+    title: 'Accelerators & Universities — Cohort-in-a-Box | Build AI Starups',
     description:
       'A turnkey program: from intent → spec → repo → UI → pricing → deploy → experiments. Dashboards for mentors, IP clarity for teams.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Accelerators & Universities' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Accelerators & Universities' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Accelerators & Universities — Cohort-in-a-Box | Build AI Startups',
+    title: 'Accelerators & Universities — Cohort-in-a-Box | Build AI Starups',
     description:
       'Spin up a modern AI venture track with autobuilds, quality gates, and a ready Marketplace for demos, licensing, or exits.',
     images: [ogImage],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
+  name: 'Build AI Starups',
   url: siteUrl,
   logo: `${siteUrl}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
@@ -55,7 +55,7 @@ const programJsonLd = {
   name: 'AI Venture Creation Sprint',
   description:
     'A turnkey 2–6 week program where teams go from intent to live micro-SaaS with quality gates, experiments, and a transfer-ready checklist.',
-  provider: { '@type': 'Organization', name: 'Build AI Startups', url: siteUrl },
+  provider: { '@type': 'Organization', name: 'Build AI Starups', url: siteUrl },
   timeToComplete: 'P28D',
   occupationalCategory: 'Entrepreneurship / Product Management / Software',
   educationalProgramMode: ['online', 'asynchronous', 'blended'],
@@ -156,7 +156,7 @@ export default function AcceleratorsUniversitiesPage() {
 
         {/* Why programs choose this */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Why programs choose Build AI Startups</h2>
+          <h2 className="text-2xl font-semibold">Why programs choose Build AI Starups</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { t: 'Turnkey delivery', d: 'A complete venture track: from intake to demo day with minimal setup.' },
@@ -187,7 +187,7 @@ export default function AcceleratorsUniversitiesPage() {
               },
               {
                 t: 'Venture Studio Automation',
-                d: 'Always-on backlog. HyperNova scouts niches, seeds PRDs, and ships prototypes behind flags for partner review.',
+                d: 'Always-on backlog. Build AI Starups scouts niches, seeds PRDs, and ships prototypes behind flags for partner review.',
               },
             ].map((m, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
