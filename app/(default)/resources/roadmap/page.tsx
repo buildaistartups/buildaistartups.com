@@ -8,22 +8,22 @@ const pageUrl = `${siteUrl}/resources/roadmap`
 const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Roadmap — What we’re building next | Build AI Startups',
+  title: 'Roadmap — What we’re building next | Build AI Starups',
   description:
-    'Follow the HyperNova roadmap: what’s shipping now, what’s next, and what’s planned. Vote on features and track progress via the changelog.',
+    'Follow the Build AI Starups roadmap: what’s shipping now, what’s next, and what’s planned. Vote on features and track progress via the changelog.',
   alternates: { canonical: pageUrl },
   openGraph: {
     type: 'website',
     url: pageUrl,
-    title: 'Roadmap — What we’re building next | Build AI Startups',
+    title: 'Roadmap — What we’re building next | Build AI Starups',
     description:
-      'Now / Next / Later board, release timeline, and prioritization policy for HyperNova & Build AI Startups.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Roadmap' }],
-    siteName: 'Build AI Startups',
+      'Now / Next / Later board, release timeline, and prioritization policy for Build AI Starups.',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Roadmap' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Roadmap — What we’re building next | Build AI Startups',
+    title: 'Roadmap — What we’re building next | Build AI Starups',
     description:
       'See what’s shipping now, next, and later. Vote on features and track releases.',
     images: [ogImage],
@@ -185,10 +185,10 @@ const breadcrumbJsonLd = {
 const collectionJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Build AI Startups — Roadmap',
+  name: 'Build AI Starups — Roadmap',
   url: pageUrl,
   description:
-    'Public roadmap for HyperNova and Build AI Startups: Now / Next / Later board, milestones, and prioritization policy.',
+    'Public roadmap for Build AI Starups: Now / Next / Later board, milestones, and prioritization policy.',
 }
 
 const itemListJsonLd = {
@@ -315,7 +315,7 @@ export default function RoadmapPage() {
               <p className="text-sm uppercase tracking-widest text-slate-400">Resources</p>
               <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Roadmap — what we’re building next</h1>
               <p className="mt-4 text-lg text-slate-300">
-                Here’s the public roadmap for HyperNova & Build AI Startups. We ship in small, verifiable steps and record
+                Here’s the public roadmap for Build AI Starups. We ship in small, verifiable steps and record
                 changes in the <Link href="/changelog" className="text-sky-300 hover:underline">changelog</Link>.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
