@@ -23,7 +23,7 @@ export default function Features02() {
               Ship real products. On autopilot.
             </h2>
             <p className="text-lg text-slate-400">
-              HyperNova turns a one-sentence brief into a working product: researches the niche, drafts a PRD,
+              Build AI Starups turns a one-sentence brief into a working product: researches the niche, drafts a PRD,
               scaffolds a production repo, wires auth/billing/analytics, and deploys to your cloud. You own the code,
               the accounts, and the upside.
             </p>
@@ -94,7 +94,7 @@ export default function Features02() {
                               From brief to PRD
                             </h3>
                             <p className="text-slate-400">
-                              We analyze your idea, map the niche & competitors, and draft a shippable PRD with clear
+                              We analyze your idea, map the niche &amp; competitors, and draft a shippable PRD with clear
                               acceptance criteria and first-release scope.
                             </p>
                           </div>
@@ -145,11 +145,11 @@ export default function Features02() {
                       <div className="md:max-w-[480px] shrink-0 order-1 md:order-none p-6 pt-0 md:p-8">
                         <div>
                           <h3 className="inline-flex text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
-                            Production repo & UI
+                            Production repo &amp; UI
                           </h3>
                           <p className="text-slate-400">
                             Next.js 15 + TypeScript + Tailwind + shadcn/ui. Auth, docs, pricing, analytics hooks, tests,
-                            and API routes—pushed to your GitHub with sensible conventions.
+                            and API routes — pushed to your GitHub with sensible conventions.
                           </p>
                         </div>
 
@@ -245,7 +245,7 @@ export default function Features02() {
             <div>
               <div className="flex items-center space-x-2 mb-1">
                 <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                  <path d="M7.999 2.34a4.733 4.733 0 0 0-6.604 6.778l5.904 5.762a1 1 0 0 0 1.4 0l5.915-5.77a4.733 4.733 0 0 0-6.615-6.77Zm5.208 5.348-5.208 5.079-5.2-5.07a2.734 2.734 0 0 1 3.867-3.864c.182.19.335.404.455.638a1.04 1.04 0 0 0 1.756 0 2.724 2.724 0 0 1 5.122 1.294 2.7 2.7 0 0 1-.792 1.923Z" />
+                  <path d="M7.999 2.34a4.733 4.733 0 0 0-6.604 6.778l5.904 5.762a1 1 0 0 0 1.4 0l5.915-5.77a4.733 4.733 0 0 0-6.615-6.77Zm5.208 5.348-5.208 5.079-5.2-5.07a2.734 2.734 0 0 1 3.867-3.864c.182.19.335.404.455.638a1.04 1.04 0 0 0 1.756 0 2.724 2.724 0 0 1 5.122 1.294 2.7 2.7 0  1-.792 1.923Z" />
                 </svg>
                 <h4 className="font-medium text-slate-50">Own your stack</h4>
               </div>
@@ -286,7 +286,7 @@ export default function Features02() {
                 <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                   <path d="M14.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8ZM15 7c.6 0 1 .4 1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8c.6 0 1 .4 1 1s-.4 1-1 1C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6c0-.6.4-1 1-1Z" />
                 </svg>
-                <h4 className="font-medium text-slate-50">Auth & billing</h4>
+                <h4 className="font-medium text-slate-50">Auth &amp; billing</h4>
               </div>
               <p className="text-sm text-slate-400">
                 Email/password stubs and Stripe-ready wiring, with room to grow into OAuth/SAML when you need it.
