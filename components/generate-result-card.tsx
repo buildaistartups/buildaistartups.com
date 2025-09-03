@@ -52,11 +52,13 @@ export default function GenerateResultCard({
     image,
   } = result
 
-  const prd = (result.prd && result.prd.trim().length > 0)
-    ? result.prd!
-    : buildFallbackPRD(result)
+  const prd =
+    result.prd && result.prd.trim().length > 0
+      ? result.prd
+      : buildFallbackPRD(result)
 
-  const seed = encodeURIComponent(id || name || 'seed')
+  // Pass the raw seed; it will be URL-encoded where it’s used.
+  const seed = id || name || 'seed'
 
   return (
     <article
@@ -72,7 +74,7 @@ export default function GenerateResultCard({
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={image}
-            alt={name}
+            alt={name || 'Generated project preview'}
             className="h-full w-full object-cover"
             loading="lazy"
           />
@@ -110,7 +112,7 @@ export default function GenerateResultCard({
         )}
         {stack && (
           <div className="flex justify-between">
-            <dt className="text-slate-500">Suggested Stack</dt>
+            <dt className="text-slate-500">Suggested stack</dt>
             <dd className="text-slate-300">{stack}</dd>
           </div>
         )}
@@ -119,7 +121,7 @@ export default function GenerateResultCard({
       {/* Tags */}
       {Array.isArray(tags) && tags.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-1.5">
-          {tags.map((t) => (
+          {[...new Set(tags)].map((t) => (
             <span
               key={t}
               className="rounded-full border border-white/10 bg-slate-800/50 px-2.5 py-0.5 text-xs text-slate-300"
