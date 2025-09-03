@@ -9,24 +9,25 @@ const PAGE_URL = `${SITE_URL}/resources/press`
 const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Press Kit — Build AI Startups (HyperNova)',
+  metadataBase: new URL(SITE_URL),
+  title: 'Press Kit — Build AI Starups | Build AI Starups',
   description:
-    'Logos, product shots, founder bios, boilerplates, color & typography, and media-ready assets for Build AI Startups (HyperNova).',
+    'Logos, product shots, founder bios, boilerplates, color & typography, and media-ready assets for Build AI Starups.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: 'Press Kit — Build AI Startups',
+    title: 'Press Kit — Build AI Starups',
     description:
       'Media-ready assets, boilerplates, screenshots, and contact for press & analysts.',
-    images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Startups — Press Kit' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Starups — Press Kit' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Press Kit — Build AI Startups',
+    title: 'Press Kit — Build AI Starups',
     description:
-      'Logos, screenshots, founder bios, and media assets for Build AI Startups (HyperNova).',
+      'Logos, screenshots, founder bios, and media assets for Build AI Starups.',
     images: [OG],
   },
 }
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
+  name: 'Build AI Starups',
   url: SITE_URL,
   logo: `${SITE_URL}/brand/logo-light.svg`,
   sameAs: [
@@ -89,7 +90,7 @@ export default function PressPage() {
               <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Press Kit</h1>
               <p className="mt-4 text-lg text-slate-300">
                 Logos, screenshots, founder bios, boilerplates, and media-ready assets for{' '}
-                <strong>Build AI Startups</strong> (HyperNova).
+                <strong>Build AI Starups</strong>.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Link
@@ -113,7 +114,7 @@ export default function PressPage() {
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
                 <img
                   src="/media/press/press-collage.png"
-                  alt="Build AI Startups press visuals collage"
+                  alt="Build AI Starups press visuals collage"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -127,7 +128,7 @@ export default function PressPage() {
           <h2 className="text-2xl font-semibold">Fast facts</h2>
           <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { k: 'Name', v: 'Build AI Startups (HyperNova)' },
+              { k: 'Name', v: 'Build AI Starups' },
               { k: 'Category', v: 'Autonomous venture creation / AI DevOps' },
               { k: 'Status', v: 'Public alpha' },
               { k: 'Founded', v: '2025' },
@@ -149,27 +150,26 @@ export default function PressPage() {
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
               <div className="text-sm font-medium">25-word</div>
               <p className="mt-2 text-sm text-slate-300">
-                Build AI Startups (HyperNova) is an autonomous engine that turns a one-sentence intent into a production-ready
+                Build AI Starups is an autonomous builder that turns a one-sentence intent into a production-ready
                 micro-SaaS—spec, repo, UI, pricing, deploy, and growth.
               </p>
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
               <div className="text-sm font-medium">50-word</div>
               <p className="mt-2 text-sm text-slate-300">
-                Build AI Startups (HyperNova) automates the entire startup loop. From idea to live product, it generates specs,
+                Build AI Starups automates the entire startup loop. From idea to live product, it generates specs,
                 code, branding, pricing, docs, and launches—then runs experiments. Users own the repos, infra, and revenue;
-                HyperNova powers the build and improvement engine.
+                the platform powers the build and improvement engine.
               </p>
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
               <div className="text-sm font-medium">100-word</div>
               <p className="mt-2 text-sm text-slate-300">
-                Build AI Startups is the public platform for HyperNova—an autonomous venture engine. Provide a one-sentence intent
-                or a niche; HyperNova drafts the product spec, scaffolds the repo, builds the UI, wires authentication, billing,
-                analytics, and SEO, generates docs and pricing, and deploys a live preview. It then runs growth experiments and
-                ships improvements behind quality gates (tests, security, performance, licenses). Startups cross-promote within an
-                ecosystem to compound distribution. There’s no lock-in: users retain GitHub, Vercel, database, and Stripe access.
-                Builders launch faster; investors get diligence-ready assets. Startups that build themselves.
+                Build AI Starups is a public platform that turns a one-sentence intent into a live product. Provide a brief or a niche;
+                the system drafts the product spec, scaffolds the repo, builds the UI, wires authentication, billing, analytics, and SEO,
+                generates docs and pricing, and deploys a live preview. It then runs growth experiments and ships improvements behind
+                quality gates (tests, security, performance, licenses). Startups can cross-promote within an ecosystem to compound distribution.
+                There’s no lock-in: users retain GitHub, Vercel, database, and Stripe access. Builders launch faster; buyers get diligence-ready assets.
               </p>
             </div>
           </div>
@@ -182,7 +182,7 @@ export default function PressPage() {
             <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
               <div className="text-sm uppercase tracking-wider text-slate-400">One-liner</div>
               <p className="mt-2 text-slate-200">
-                From intent to revenue—HyperNova designs, codes, brands, deploys, and grows micro-SaaS autonomously.
+                From intent to revenue—Build AI Starups designs, codes, brands, deploys, and grows micro-SaaS autonomously.
               </p>
               <div className="mt-4 text-sm uppercase tracking-wider text-slate-400">Differentiators</div>
               <ul className="mt-2 list-disc pl-5 text-sm text-slate-300">
@@ -340,15 +340,15 @@ export default function PressPage() {
             <div className="md:col-span-2 rounded-2xl border border-white/10 bg-slate-900/40 p-6">
               <div className="text-sm uppercase tracking-wider text-slate-400">Bio (short)</div>
               <p className="mt-2 text-sm text-slate-300">
-                <strong>[Your Name]</strong> is the creator of HyperNova and founder of Build AI Startups. Previously shipped
+                <strong>[Your Name]</strong> is the creator of Build AI Starups. Previously shipped
                 developer tools and AI products used by thousands. Focused on compressing time-to-value in software creation.
               </p>
               <div className="mt-4 text-sm uppercase tracking-wider text-slate-400">Bio (long)</div>
               <p className="mt-2 text-sm text-slate-300">
                 [Your Name] is a builder focused on autonomous software systems. After leading projects across AI tooling and
-                developer experience, they created HyperNova—an engine that turns a one-sentence intent into a live product with
-                quality gates and a growth loop. Build AI Startups is the public platform for this engine, enabling founders,
-                teams, and investors to ship faster with ownership preserved. Based in Europe; working globally.
+                developer experience, they created Build AI Starups—a platform that turns a one-sentence intent into a live product with
+                quality gates and a growth loop. The platform enables founders, teams, and investors to ship faster with ownership preserved.
+                Based in Europe; working globally.
               </p>
             </div>
             <div className="space-y-4">
@@ -379,7 +379,7 @@ export default function PressPage() {
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <blockquote className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
               <p className="text-slate-200">
-                “Most ideas die between inspiration and execution. HyperNova compresses that gap—from intent to live product—while
+                “Most ideas die between inspiration and execution. Build AI Starups compresses that gap—from intent to live product—while
                 keeping ownership with the builder.”
               </p>
               <footer className="mt-3 text-sm text-slate-400">— [Your Name], Founder</footer>
@@ -425,7 +425,7 @@ export default function PressPage() {
             <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-6">
               <div className="text-sm uppercase tracking-wider text-slate-400">Headlines</div>
               <ul className="mt-2 list-disc pl-5 text-sm text-slate-300">
-                <li>“Startups that build themselves: Build AI Startups launches HyperNova.”</li>
+                <li>“Startups that build themselves: Build AI Starups launches the Builder.”</li>
                 <li>“From intent to revenue: a full-loop autonomous engine for micro-SaaS.”</li>
                 <li>“No lock-in AI: ship with your own repos, infra, and billing.”</li>
               </ul>
@@ -434,7 +434,7 @@ export default function PressPage() {
               <div className="text-sm uppercase tracking-wider text-slate-400">Social</div>
               <ul className="mt-2 list-disc pl-5 text-sm text-slate-300">
                 <li>
-                  “We built a system that takes a one-line idea → live product (repo, UI, pricing, deploy). Meet HyperNova:
+                  “We built a system that takes a one-line idea → live product (repo, UI, pricing, deploy). Meet the Builder:
                   buildaistartups.com”
                 </li>
                 <li>
