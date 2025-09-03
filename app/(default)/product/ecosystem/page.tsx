@@ -3,29 +3,33 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const BRAND = 'Build AI Starups'
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
+const CANON = `${SITE}/product/ecosystem`
+const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Ecosystem — Startups that help each other grow | Build AI Startups',
+  metadataBase: new URL(SITE),
+  title: `Ecosystem — Startups that help each other grow | ${BRAND}`,
   description:
-    'HyperNova Ecosystem adds cross-promotion, shared components, and referral economics so each generated startup boosts the others. Compound growth by design.',
-  alternates: { canonical: `${siteUrl}/product/ecosystem` },
+    'Ecosystem adds cross-promotion, shared components, and referral economics so each generated startup boosts the others. Compound growth by design.',
+  alternates: { canonical: CANON },
   openGraph: {
     type: 'website',
-    url: `${siteUrl}/product/ecosystem`,
-    title: 'Ecosystem — Startups that help each other grow | Build AI Startups',
+    url: CANON,
+    title: `Ecosystem — Startups that help each other grow | ${BRAND}`,
     description:
       'Cross-promotions, shared components, and referral engine turn single apps into a network with compounding growth.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Ecosystem' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: OG, width: 1200, height: 630, alt: `${BRAND} — Ecosystem` }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ecosystem — Startups that help each other grow | Build AI Startups',
+    title: `Ecosystem — Startups that help each other grow | ${BRAND}`,
     description:
       'Cross-promo placements, shared components, and referral economics for compounding growth.',
-    images: [ogImage],
+    images: [OG],
   },
 }
 
@@ -33,31 +37,31 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
-  url: siteUrl,
-  logo: `${siteUrl}/brand/logo-light.svg`,
+  name: BRAND,
+  url: SITE,
+  logo: `${SITE}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
 }
 
 const appJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'HyperNova Ecosystem Engine',
+  name: `${BRAND} Ecosystem Engine`,
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   description:
     'A cross-promotion and referral network that connects generated startups with shared components and compound growth.',
-  url: `${siteUrl}/product/ecosystem`,
-  brand: { '@type': 'Brand', name: 'Build AI Startups' },
+  url: CANON,
+  brand: { '@type': 'Brand', name: BRAND },
 }
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Product', item: `${siteUrl}/` },
-    { '@type': 'ListItem', position: 3, name: 'Ecosystem', item: `${siteUrl}/product/ecosystem` },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Product', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 3, name: 'Ecosystem', item: CANON },
   ],
 }
 
@@ -112,10 +116,30 @@ export default function EcosystemPage() {
   return (
     <>
       {/* Structured data */}
-      <Script id="ld-org" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-      <Script id="ld-app" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
-      <Script id="ld-bc" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <Script id="ld-faq" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <Script
+        id="ld-org"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+      <Script
+        id="ld-app"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }}
+      />
+      <Script
+        id="ld-bc"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <Script
+        id="ld-faq"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       <main className="bg-slate-950 text-slate-200">
         {/* Hero */}
@@ -273,7 +297,7 @@ export default function EcosystemPage() {
                 <li>Fraud detection & anomaly alerts</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4">
               <img src="/media/screens/referrals.png" alt="Referral engine and rewards" className="rounded-lg" />
             </div>
           </div>
@@ -310,21 +334,9 @@ export default function EcosystemPage() {
           <h2 className="text-2xl font-semibold">Live examples from the network</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              {
-                name: 'Creator Metrics',
-                vp: 'Analytics for YouTube creators',
-                tags: ['Analytics', 'Creator'],
-              },
-              {
-                name: 'FormPilot',
-                vp: 'Forms + automations for indie apps',
-                tags: ['Automation', 'Forms'],
-              },
-              {
-                name: 'InboxIQ',
-                vp: 'AI summaries for support inboxes',
-                tags: ['AI', 'Support'],
-              },
+              { name: 'Creator Metrics', vp: 'Analytics for YouTube creators', tags: ['Analytics', 'Creator'] },
+              { name: 'FormPilot', vp: 'Forms + automations for indie apps', tags: ['Automation', 'Forms'] },
+              { name: 'InboxIQ', vp: 'AI summaries for support inboxes', tags: ['AI', 'Support'] },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
                 <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50">
