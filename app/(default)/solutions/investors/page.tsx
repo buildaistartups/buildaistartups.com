@@ -1,14 +1,28 @@
+// app/(default)/solutions/investors/page.tsx
+import type { Metadata } from 'next'
+import Link from 'next/link'
 import Image from 'next/image'
 
-export const metadata = {
-  title: 'Investors – Continuous Deal Flow | BuildAIStartups',
+export const metadata: Metadata = {
+  title: 'Investors — Continuous Deal Flow | Build AI Starups',
   description:
     'Filter by market, traction proxies, and tech; review working products—not PDFs. Get cohort views, comparable dashboards, and exit-ready assets.',
+  alternates: { canonical: 'https://buildaistartups.com/solutions/investors' },
   openGraph: {
-    title: 'Investors – Continuous Deal Flow | BuildAIStartups',
+    type: 'website',
+    title: 'Investors — Continuous Deal Flow | Build AI Starups',
     description:
       'See instant demos, not decks. Pipeline scoring, comparable metrics, cohort views, and exit-ready assets.',
     url: 'https://buildaistartups.com/solutions/investors',
+    images: [{ url: '/brand/og-default.png', width: 1200, height: 630, alt: 'Build AI Starups — Investors' }],
+    siteName: 'Build AI Starups',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Investors — Continuous Deal Flow | Build AI Starups',
+    description:
+      'See instant demos, not decks. Pipeline scoring, comparable metrics, cohort views, and exit-ready assets.',
+    images: ['/brand/og-default.png'],
   },
 }
 
@@ -18,10 +32,10 @@ export default function Investors() {
       {/* Hero */}
       <header className="grid items-center gap-10 md:grid-cols-2">
         <div className="max-w-xl">
-          <div className="inline-flex font-medium pb-2 bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200">
+          <div className="inline-flex font-medium pb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200">
             Solutions · Investors
           </div>
-          <h1 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60">
+          <h1 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60">
             Continuous deal flow with instant demos.
           </h1>
           <p className="mt-4 text-lg text-slate-300">
@@ -30,8 +44,8 @@ export default function Investors() {
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            {/* Primary CTA (matches your gradient-border style) */}
-            <a
+            {/* Primary CTA */}
+            <Link
               href="/contact?reason=investor"
               className="btn group relative w-full sm:w-auto whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
             >
@@ -41,15 +55,15 @@ export default function Investors() {
                   -&gt;
                 </span>
               </span>
-            </a>
+            </Link>
 
             {/* Secondary */}
-            <a
+            <Link
               href="/product/builder"
               className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full sm:w-auto transition duration-150 ease-in-out"
             >
               How the builder works
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -116,7 +130,7 @@ export default function Investors() {
           Join the investor console beta and get curated cohorts delivered weekly.
         </p>
         <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
+          <Link
             href="/contact?reason=investor"
             className="btn group relative w-full sm:w-auto whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
           >
@@ -126,13 +140,13 @@ export default function Investors() {
                 -&gt;
               </span>
             </span>
-          </a>
-          <a
+          </Link>
+          <Link
             href="/resources/press"
             className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full sm:w-auto transition duration-150 ease-in-out"
           >
             Press & overview
-          </a>
+          </Link>
         </div>
       </div>
     </section>
@@ -151,7 +165,7 @@ function Card({
 }) {
   return (
     <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5 sm:p-6">
-      <div className="mb-2 text-sm font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200">
+      <div className="mb-2 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200">
         {subtitle}
       </div>
       <h3 className="text-lg font-semibold text-slate-100">{title}</h3>
