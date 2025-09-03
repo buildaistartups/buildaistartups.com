@@ -7,22 +7,22 @@ const siteUrl = 'https://www.buildaistartups.com'
 const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Indie Makers — Ship a real product this weekend | Build AI Startups',
+  title: 'Indie Makers — Ship a real product this weekend | Build AI Starups',
   description:
-    'HyperNova for Indie Makers: go from intent to live micro-SaaS in a weekend. Spec, repo, UI, docs, pricing, deploy — you own the code and revenue.',
+    'Build AI Starups for Indie Makers: go from intent to live micro-SaaS in a weekend. Spec, repo, UI, docs, pricing, deploy — you own the code and revenue.',
   alternates: { canonical: `${siteUrl}/solutions/indie` },
   openGraph: {
     type: 'website',
     url: `${siteUrl}/solutions/indie`,
-    title: 'Indie Makers — Ship a real product this weekend | Build AI Startups',
+    title: 'Indie Makers — Ship a real product this weekend | Build AI Starups',
     description:
       'From one-sentence brief to live micro-SaaS. Solo-friendly, no lock-in, growth packs included.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Indie Makers' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Indie Makers' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Indie Makers — Ship a real product this weekend | Build AI Startups',
+    title: 'Indie Makers — Ship a real product this weekend | Build AI Starups',
     description:
       'Spec → repo → UI → docs → pricing → deploy. Solo-friendly, no lock-in. Ship this weekend.',
     images: [ogImage],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
+  name: 'Build AI Starups',
   url: siteUrl,
   logo: `${siteUrl}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
@@ -54,7 +54,7 @@ const howToJsonLd = {
   '@type': 'HowTo',
   name: 'Weekend to Launch (Indie Maker plan)',
   description:
-    'A 2-day plan to ship a real micro-SaaS using HyperNova: intent to deploy with growth basics wired.',
+    'A 2-day plan to ship a real micro-SaaS using Build AI Starups: intent to deploy with growth basics wired.',
   totalTime: 'P2D',
   estimatedCost: {
     '@type': 'MonetaryAmount',
@@ -177,7 +177,7 @@ export default function IndieMakersPage() {
 
         {/* Why Indie Makers love this */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Why Indie Makers love HyperNova</h2>
+          <h2 className="text-2xl font-semibold">Why Indie Makers love Build AI Starups</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { t: 'Solo-friendly', d: 'Everything from spec to deploy handled. You focus on the problem & users.' },
@@ -198,7 +198,7 @@ export default function IndieMakersPage() {
           <h2 className="text-2xl font-semibold">How it works</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {[
-              { t: 'Set intent', d: 'Describe your niche and constraints. Or let HyperNova scout trends.' },
+              { t: 'Set intent', d: 'Describe your niche and constraints. Or let Build AI Starups scout trends.' },
               { t: 'Pick a starter kit', d: 'Choose SaaS, API, or Content kit. Swap anytime.' },
               { t: 'Autobuild', d: 'Spec → repo → UI → docs → pricing → landing.' },
               { t: 'Go live', d: 'Preview, domain, analytics. Flip to production when ready.' },
