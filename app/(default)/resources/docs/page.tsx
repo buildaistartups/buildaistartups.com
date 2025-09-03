@@ -8,23 +8,24 @@ const docsUrl = `${siteUrl}/resources/docs`
 const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Docs — Build, ship, and grow with HyperNova | Build AI Startups',
+  metadataBase: new URL(siteUrl),
+  title: 'Docs — Build, ship, and grow with Build AI Starups | Build AI Starups',
   description:
-    'Getting started, core concepts, API reference, webhooks, SDKs, security, and FAQs for Build AI Startups (HyperNova). From intent to live micro-SaaS.',
+    'Getting started, core concepts, API reference, webhooks, SDKs, security, and FAQs for Build AI Starups. From intent to live micro-SaaS.',
   alternates: { canonical: docsUrl },
   openGraph: {
     type: 'website',
     url: docsUrl,
-    title: 'Docs — Build, ship, and grow with HyperNova | Build AI Startups',
+    title: 'Docs — Build, ship, and grow with Build AI Starups | Build AI Starups',
     description:
       'From intent to live micro-SaaS: Quick start, Concepts, API, Webhooks, SDKs, Security, FAQ.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Docs' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Docs' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Docs — Build, ship, and grow with HyperNova | Build AI Startups',
-    description: 'Quick start, Concepts, API, Webhooks, SDKs, Security, and FAQ for HyperNova.',
+    title: 'Docs — Build, ship, and grow with Build AI Starups | Build AI Starups',
+    description: 'Quick start, Concepts, API, Webhooks, SDKs, and Security for Build AI Starups.',
     images: [ogImage],
   },
 }
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
+  name: 'Build AI Starups',
   url: siteUrl,
   logo: `${siteUrl}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
@@ -42,10 +43,10 @@ const orgJsonLd = {
 const collectionPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Build AI Startups Documentation',
+  name: 'Build AI Starups Documentation',
   url: docsUrl,
   description:
-    'Documentation hub for Build AI Startups (HyperNova): getting started, concepts, API, webhooks, SDKs, security, FAQ.',
+    'Documentation hub for Build AI Starups: getting started, concepts, API, webhooks, SDKs, security, FAQ.',
 }
 
 const breadcrumbJsonLd = {
@@ -64,7 +65,7 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Do I need the API to use Build AI Startups?',
+      name: 'Do I need the API to use Build AI Starups?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'No. The web app covers most workflows. The API is optional for automation, integrations, cohorts, and partners.',
@@ -120,7 +121,7 @@ export default function DocsHomePage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
               <p className="text-sm uppercase tracking-widest text-slate-400">Documentation</p>
-              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Docs — Build, ship, and grow with HyperNova</h1>
+              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Docs — Build, ship, and grow with Build AI Starups</h1>
               <p className="mt-4 text-lg text-slate-300">
                 Everything you need to go from a one-sentence intent to a live micro-SaaS. Start with the Quick Start,
                 then explore Concepts, API, Webhooks, and Security.
@@ -402,7 +403,7 @@ npx bas status --id BUILDX`}
             ))}
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm">
-            <Link href="/changelog" className="text-sky-300 hover:underline">Changelog →</Link>
+            <Link href="/resources/changelog" className="text-sky-300 hover:underline">Changelog →</Link>
             <span className="text-slate-600">•</span>
             <Link href="/contact" className="text-sky-300 hover:underline">Contact support →</Link>
           </div>
