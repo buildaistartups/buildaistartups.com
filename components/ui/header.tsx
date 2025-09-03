@@ -23,9 +23,17 @@ export default function Header() {
     }
     window.addEventListener('visibilitychange', refresh)
     window.addEventListener('focus', refresh)
+
+    // Close menus on Escape for accessibility
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenDropdown(null)
+    }
+    window.addEventListener('keydown', onKey)
+
     return () => {
       window.removeEventListener('visibilitychange', refresh)
       window.removeEventListener('focus', refresh)
+      window.removeEventListener('keydown', onKey)
     }
   }, [])
 
@@ -54,22 +62,22 @@ export default function Header() {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault()
         focusFirstItem(e.currentTarget)
+        setOpenDropdown(e.currentTarget.dataset.dropdown || null)
       }
       if (e.key === 'ArrowDown') {
         e.preventDefault()
         focusFirstItem(e.currentTarget)
+        setOpenDropdown(e.currentTarget.dataset.dropdown || null)
       }
     },
     [focusFirstItem],
   )
 
-  const openDropdownOnHover = (dropdown: string) => {
-    setOpenDropdown(dropdown)
+  const toggleDropdown = (name: string) => {
+    setOpenDropdown((cur) => (cur === name ? null : name))
   }
 
-  const closeDropdown = () => {
-    setOpenDropdown(null)
-  }
+  const closeDropdown = () => setOpenDropdown(null)
 
   return (
     <header className="absolute z-30 w-full" ref={headerRef}>
@@ -84,14 +92,20 @@ export default function Header() {
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow flex-wrap items-center justify-center">
               {/* Product */}
-              <li className="relative mx-2 lg:mx-3">
+              <li
+                className="relative mx-2 lg:mx-3"
+                onMouseLeave={closeDropdown}
+              >
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'product'}
+                  aria-controls="menu-product"
+                  data-dropdown="product"
                   onKeyDown={onMenuKeyDown}
-                  onMouseEnter={() => openDropdownOnHover('product')}
+                  onMouseEnter={() => setOpenDropdown('product')}
+                  onClick={() => toggleDropdown('product')}
                 >
                   Product
                   <svg
@@ -107,11 +121,13 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div 
+                <div
+                  id="menu-product"
+                  role="menu"
                   className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
                     openDropdown === 'product' ? 'visible opacity-100' : 'invisible opacity-0'
                   }`}
-                  onMouseEnter={() => openDropdownOnHover('product')}
+                  onMouseEnter={() => setOpenDropdown('product')}
                 >
                   <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" onClose={closeDropdown} />
                   <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Startups that help each other grow" onClose={closeDropdown} />
@@ -121,14 +137,20 @@ export default function Header() {
               </li>
 
               {/* Solutions */}
-              <li className="relative mx-2 lg:mx-3">
+              <li
+                className="relative mx-2 lg:mx-3"
+                onMouseLeave={closeDropdown}
+              >
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'solutions'}
+                  aria-controls="menu-solutions"
+                  data-dropdown="solutions"
                   onKeyDown={onMenuKeyDown}
-                  onMouseEnter={() => openDropdownOnHover('solutions')}
+                  onMouseEnter={() => setOpenDropdown('solutions')}
+                  onClick={() => toggleDropdown('solutions')}
                 >
                   Solutions
                   <svg
@@ -144,11 +166,13 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div 
+                <div
+                  id="menu-solutions"
+                  role="menu"
                   className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
                     openDropdown === 'solutions' ? 'visible opacity-100' : 'invisible opacity-0'
                   }`}
-                  onMouseEnter={() => openDropdownOnHover('solutions')}
+                  onMouseEnter={() => setOpenDropdown('solutions')}
                 >
                   <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" onClose={closeDropdown} />
                   <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" onClose={closeDropdown} />
@@ -158,14 +182,20 @@ export default function Header() {
               </li>
 
               {/* Resources */}
-              <li className="relative mx-2 lg:mx-3">
+              <li
+                className="relative mx-2 lg:mx-3"
+                onMouseLeave={closeDropdown}
+              >
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'resources'}
+                  aria-controls="menu-resources"
+                  data-dropdown="resources"
                   onKeyDown={onMenuKeyDown}
-                  onMouseEnter={() => openDropdownOnHover('resources')}
+                  onMouseEnter={() => setOpenDropdown('resources')}
+                  onClick={() => toggleDropdown('resources')}
                 >
                   Resources
                   <svg
@@ -181,13 +211,16 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div 
+                <div
+                  id="menu-resources"
+                  role="menu"
                   className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
                     openDropdown === 'resources' ? 'visible opacity-100' : 'invisible opacity-0'
                   }`}
-                  onMouseEnter={() => openDropdownOnHover('resources')}
+                  onMouseEnter={() => setOpenDropdown('resources')}
                 >
-                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" onClose={closeDropdown} />
+                  {/* Replaced “HyperNova” with “Build AI Startups” */}
+                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with Build AI Startups" onClose={closeDropdown} />
                   <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" onClose={closeDropdown} />
                   <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's now, next, later" onClose={closeDropdown} />
                   <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" onClose={closeDropdown} />
@@ -208,14 +241,20 @@ export default function Header() {
               </li>
 
               {/* Company */}
-              <li className="relative mx-2 lg:mx-3">
+              <li
+                className="relative mx-2 lg:mx-3"
+                onMouseLeave={closeDropdown}
+              >
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
                   aria-haspopup="menu"
                   aria-expanded={openDropdown === 'company'}
+                  aria-controls="menu-company"
+                  data-dropdown="company"
                   onKeyDown={onMenuKeyDown}
-                  onMouseEnter={() => openDropdownOnHover('company')}
+                  onMouseEnter={() => setOpenDropdown('company')}
+                  onClick={() => toggleDropdown('company')}
                 >
                   Company
                   <svg
@@ -231,11 +270,13 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <div 
+                <div
+                  id="menu-company"
+                  role="menu"
                   className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${
                     openDropdown === 'company' ? 'visible opacity-100' : 'invisible opacity-0'
                   }`}
-                  onMouseEnter={() => openDropdownOnHover('company')}
+                  onMouseEnter={() => setOpenDropdown('company')}
                 >
                   <MenuItem href="/about" title="About" desc="Mission & principles" onClose={closeDropdown} />
                   <MenuItem href="/contact" title="Contact" desc="Say hello" onClose={closeDropdown} />
