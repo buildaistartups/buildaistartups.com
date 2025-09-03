@@ -6,14 +6,16 @@ export default function Hero() {
   return (
     <section>
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
-
         {/* Particles animation */}
         <Particles className="absolute inset-0 -z-10" />
 
-        {/* Illustration */}
-        <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
+        {/* Illustration (decorative) */}
+        <div
+          className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
+          aria-hidden="true"
+        >
           <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
-            <Image src={Illustration} className="max-w-none" width={2146} priority alt="Hero Illustration" />
+            <Image src={Illustration} className="max-w-none" width={2146} priority alt="" />
           </div>
         </div>
 
@@ -28,7 +30,7 @@ export default function Hero() {
                   href="/resources/changelog"
                 >
                   <span className="relative inline-flex items-center">
-                    HyperNova 2.0 is in public beta{' '}
+                    Build AI Startups is in public beta{' '}
                     <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                       -&gt;
                     </span>
@@ -46,8 +48,14 @@ export default function Hero() {
             </h1>
 
             {/* Subtext */}
-            <p className="text-lg text-slate-300 mb-3 hero-subtext" data-aos="fade-down" data-aos-delay="200">
-              Give HyperNova a one-sentence brief. It researches the niche, drafts the spec, scaffolds the repo, ships the UI and docs, wires billing/analytics, deploys, and keeps improving from real usage.
+            <p
+              className="text-lg text-slate-300 mb-3 hero-subtext"
+              data-aos="fade-down"
+              data-aos-delay="200"
+            >
+              Give Build AI Startups a one-sentence brief. It researches the niche, drafts the
+              spec, scaffolds the repo, ships the UI and docs, wires billing/analytics, deploys,
+              and keeps improving from real usage.
             </p>
             <p className="text-sm font-medium text-violet-300/95 mb-4">
               Own your stack — GitHub, Vercel, Stripe.
@@ -75,14 +83,18 @@ export default function Hero() {
                   className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full transition duration-150 ease-in-out"
                   href="/resources/docs"
                 >
-                  <svg className="shrink-0 fill-slate-300 mr-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                  <svg
+                    className="shrink-0 fill-slate-300 mr-3"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                  >
                     <path d="m1.999 0 1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 0l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 10l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM6.292 7.586l2.646-2.647L11.06 7.06 8.413 9.707zM0 13.878l5.586-5.586 2.122 2.121L2.12 16z" />
                   </svg>
                   <span>Read the docs</span>
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </div>
