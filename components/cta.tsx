@@ -47,7 +47,7 @@ export default function Cta() {
             </h2>
 
             <p className="text-lg text-slate-400 mb-8">
-              HyperNova researches the niche, drafts the spec, scaffolds a production-ready repo, ships the UI &amp; docs,
+              Build AI Startups researches the niche, drafts the spec, scaffolds a production-ready repo, ships the UI &amp; docs,
               wires auth, billing &amp; analytics, and deploys to Vercel. You own everything — your GitHub, your Vercel,
               your Stripe. No lock-in.
             </p>
