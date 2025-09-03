@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Logo from './logo'
 
 export default function Footer() {
@@ -16,7 +17,15 @@ export default function Footer() {
                   <Logo />
                 </div>
                 <div className="text-sm text-slate-300">
-                  © BuildAIStartups.com <span className="text-slate-500">-</span> All rights reserved.
+                  © <span className="font-medium">Build AI Starups</span>{' '}
+                  <span className="text-slate-500">—</span>{' '}
+                  <a
+                    href="https://www.buildaistartups.com"
+                    className="hover:text-slate-200 underline-offset-2 hover:underline"
+                  >
+                    buildaistartups.com
+                  </a>{' '}
+                  <span className="text-slate-500">·</span> All rights reserved.
                 </div>
               </div>
               {/* Social links - commented out
@@ -52,19 +61,19 @@ export default function Footer() {
             <h6 className="text-sm text-slate-50 font-medium mb-2">Products</h6>
             <ul className="text-sm space-y-2">
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Features</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/product/builder">Features</Link>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Integrations</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/product/api">Integrations</Link>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Pricing & Plans</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/pricing">Pricing &amp; Plans</Link>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Changelog</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/changelog">Changelog</Link>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Our method</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/docs#concepts">Our method</Link>
               </li>
             </ul>
           </div>
@@ -74,19 +83,19 @@ export default function Footer() {
             <h6 className="text-sm text-slate-50 font-medium mb-2">Company</h6>
             <ul className="text-sm space-y-2">
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">About us</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/press">About us</Link>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Diversity & Inclusion</a>
+                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#">Diversity &amp; Inclusion</a>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Blog</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/blog">Blog</Link>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Careers</a>
+                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#">Careers</a>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Financial statements</a>
+                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#">Financial statements</a>
               </li>
             </ul>
           </div>
@@ -96,13 +105,13 @@ export default function Footer() {
             <h6 className="text-sm text-slate-50 font-medium mb-2">Resources</h6>
             <ul className="text-sm space-y-2">
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Community</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources">Community</Link>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Terms of service</a>
+                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#">Terms of service</a>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Report a vulnerability</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/contact?subject=Security%20issue">Report a vulnerability</Link>
               </li>
             </ul>
           </div>
@@ -112,16 +121,16 @@ export default function Footer() {
             <h6 className="text-sm text-slate-50 font-medium mb-2">Legals</h6>
             <ul className="text-sm space-y-2">
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Refund policy</a>
+                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#">Refund policy</a>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Terms & Conditions</a>
+                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#">Terms &amp; Conditions</a>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Privacy policy</a>
+                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#">Privacy policy</a>
               </li>
               <li>
-                <a className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Brand Kit</a>
+                <Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/press">Brand Kit</Link>
               </li>
             </ul>
           </div>
