@@ -3,28 +3,30 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
+const BRAND = 'Build AI Starups'
 const siteUrl = 'https://www.buildaistartups.com'
 const ogImage = '/brand/og-default.png'
+const CANON = `${siteUrl}/product/api`
+const DESC =
+  'Trigger builds, poll status, run experiments, fetch metrics, manage listings, and receive webhooks. Secure, scoped, and designed for automation.'
 
 export const metadata: Metadata = {
-  title: 'API — Programmatic access to HyperNova | Build AI Startups',
-  description:
-    'Trigger builds, poll status, run experiments, fetch metrics, manage listings, and receive webhooks. Secure, scoped, and designed for automation.',
-  alternates: { canonical: `${siteUrl}/product/api` },
+  metadataBase: new URL(siteUrl),
+  title: `API — Programmatic access | ${BRAND}`,
+  description: DESC,
+  alternates: { canonical: CANON },
   openGraph: {
     type: 'website',
-    url: `${siteUrl}/product/api`,
-    title: 'API — Programmatic access to HyperNova | Build AI Startups',
-    description:
-      'Trigger builds, poll status, run experiments, fetch metrics, manage listings, and receive webhooks.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — API' }],
-    siteName: 'Build AI Startups',
+    url: CANON,
+    title: `API — Programmatic access | ${BRAND}`,
+    description: DESC,
+    images: [{ url: ogImage, width: 1200, height: 630, alt: `${BRAND} — API` }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'API — Programmatic access to HyperNova | Build AI Startups',
-    description:
-      'Automation-first API: builds, experiments, metrics, marketplace, and webhooks.',
+    title: `API — Programmatic access | ${BRAND}`,
+    description: 'Automation-first API: builds, experiments, metrics, marketplace, and webhooks.',
     images: [ogImage],
   },
 }
@@ -33,7 +35,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
+  name: BRAND,
   url: siteUrl,
   logo: `${siteUrl}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
@@ -42,11 +44,11 @@ const orgJsonLd = {
 const webApiJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebAPI',
-  name: 'Build AI Startups API',
+  name: `${BRAND} API`,
   description:
-    'Programmatic access to the HyperNova engine for builds, experiments, metrics, and marketplace operations.',
-  documentation: `${siteUrl}/product/api`,
-  provider: { '@type': 'Organization', name: 'Build AI Startups', url: siteUrl },
+    'Programmatic access to the Build AI Starups platform for builds, experiments, metrics, and marketplace operations.',
+  documentation: CANON,
+  provider: { '@type': 'Organization', name: BRAND, url: siteUrl },
   endpointUrl: `${siteUrl}/api/v1`,
   termsOfService: `${siteUrl}/docs#terms`,
 }
@@ -57,7 +59,7 @@ const breadcrumbJsonLd = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
     { '@type': 'ListItem', position: 2, name: 'Product', item: `${siteUrl}/` },
-    { '@type': 'ListItem', position: 3, name: 'API', item: `${siteUrl}/product/api` },
+    { '@type': 'ListItem', position: 3, name: 'API', item: CANON },
   ],
 }
 
@@ -70,7 +72,8 @@ const faqJsonLd = {
       name: 'Is the API required to use the product?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. The website covers most use cases. The API is optional and exists for automation, integrations, and cohorts.',
+        text:
+          'No. The website covers most use cases. The API is optional and exists for automation, integrations, and cohorts.',
       },
     },
     {
@@ -78,7 +81,8 @@ const faqJsonLd = {
       name: 'How is the API secured?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Per-organization API keys with scopes and rate limits. Webhooks are HMAC-SHA256 signed and include replay protection.',
+        text:
+          'Per-organization API keys with scopes and rate limits. Webhooks are HMAC-SHA256 signed and include replay protection.',
       },
     },
     {
@@ -86,7 +90,8 @@ const faqJsonLd = {
       name: 'Is there versioning?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. Endpoints are namespaced by major version, e.g., /api/v1. Deprecations are announced in the changelog.',
+        text:
+          'Yes. Endpoints are namespaced by major version, e.g., /api/v1. Deprecations are announced in the changelog.',
       },
     },
     {
@@ -115,7 +120,7 @@ export default function ApiPage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
               <p className="text-sm uppercase tracking-widest text-slate-400">Product</p>
-              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">API — Programmatic access to HyperNova</h1>
+              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">API — Programmatic access to {BRAND}</h1>
               <p className="mt-4 text-lg text-slate-300">
                 Automate builds, run experiments, fetch metrics, manage marketplace listings, and subscribe to webhooks.
                 Secure, scoped, and designed for teams and partners.
@@ -316,7 +321,7 @@ console.log(build.id)`}
           <h2 className="text-2xl font-semibold">API FAQ</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <div>
-              <h3 className="text-base font-medium">Do I need the API to use Build AI Startups?</h3>
+              <h3 className="text-base font-medium">Do I need the API to use {BRAND}?</h3>
               <p className="mt-1 text-sm text-slate-300">
                 No. The UI covers 90% of workflows. The API is for automation, integrations, and partners.
               </p>
