@@ -87,7 +87,7 @@ const faqJsonLd = {
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'You own the code (private GitHub), infra (Vercel/DB/Stripe), and revenue. The Build AI Starups engine powers the build—no lock-in.',
+          'You own the code (private GitHub), infra (Vercel/DB/Stripe), and revenue. The Build AI Starups engine powers the build — no lock-in.',
       },
     },
     {
