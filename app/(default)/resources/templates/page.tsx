@@ -9,22 +9,22 @@ const ogImage = '/brand/og-default.png'
 
 // -------------------- SEO --------------------
 export const metadata: Metadata = {
-  title: 'Templates — SaaS, API, Content & Growth kits | Build AI Startups',
+  title: 'Templates — SaaS, API, Content & Growth kits | Build AI Starups',
   description:
-    'Production-ready starter kits for HyperNova: SaaS, API, Content/Docs, and Growth templates with pricing, auth, analytics, and tests pre-wired.',
+    'Production-ready starter kits for Build AI Starups: SaaS, API, Content/Docs, and Growth templates with pricing, auth, analytics, and tests pre-wired.',
   alternates: { canonical: pageUrl },
   openGraph: {
     type: 'website',
     url: pageUrl,
-    title: 'Templates — SaaS, API, Content & Growth kits | Build AI Startups',
+    title: 'Templates — SaaS, API, Content & Growth kits | Build AI Starups',
     description:
-      'Pick a template, customize the Spec, and HyperNova ships a repo with CI/tests, pricing, analytics, and docs.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Templates' }],
-    siteName: 'Build AI Startups',
+      'Pick a template, customize the Spec, and Build AI Starups ships a repo with CI/tests, pricing, analytics, and docs.',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Templates' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Templates — SaaS, API, Content & Growth kits | Build AI Startups',
+    title: 'Templates — SaaS, API, Content & Growth kits | Build AI Starups',
     description:
       'Starter kits for rapid venture creation: SaaS, API, Content/Docs, and Growth. Build loops with quality gates.',
     images: [ogImage],
@@ -45,10 +45,10 @@ const breadcrumbJsonLd = {
 const collectionJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Build AI Startups — Templates',
+  name: 'Build AI Starups — Templates',
   url: pageUrl,
   description:
-    'Production-ready starter templates for HyperNova: SaaS, API, Content/Docs, Growth, and AI components.',
+    'Production-ready starter templates for Build AI Starups: SaaS, API, Content/Docs, Growth, and AI components.',
 }
 
 const templates = [
@@ -172,7 +172,7 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'Do I need a template to build with HyperNova?',
+      name: 'Do I need a template to build with Build AI Starups?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'No. Templates help you move faster with proven scaffolds, but you can start from an empty Spec and build from scratch.',
@@ -222,7 +222,7 @@ export default function TemplatesPage() {
               <p className="text-sm uppercase tracking-widest text-slate-400">Resources</p>
               <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Templates — hit the ground shipping</h1>
               <p className="mt-4 text-lg text-slate-300">
-                Choose a production-ready starter kit, customize the Spec, and HyperNova will ship a repo with CI/tests,
+                Choose a production-ready starter kit, customize the Spec, and Build AI Starups will ship a repo with CI/tests,
                 pricing, analytics, and docs. <em>You own everything.</em>
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
