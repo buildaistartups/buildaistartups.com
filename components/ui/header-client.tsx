@@ -105,7 +105,7 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                   </svg>
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
-                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with HyperNova" />
+                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with Build AI Startups" />
                   <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" />
                   <MenuItem href="/resources/roadmap" title="Roadmap" desc="What’s now, next, later" />
                   <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" />
