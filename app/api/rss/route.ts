@@ -11,7 +11,9 @@ function esc(s: string) {
 }
 
 export async function GET() {
-  const items = allReleases()
+  const releases = allReleases()
+
+  const items = releases
     .map((r) => {
       const link = `${BASE_URL}/resources/changelog/${r.id}`
       const pubDate = new Date(r.date).toUTCString()
@@ -26,13 +28,21 @@ export async function GET() {
     })
     .join('\n')
 
+  const latest = releases.length
+    ? new Date(
+        Math.max(...releases.map((r) => new Date(r.date).getTime())),
+      ).toUTCString()
+    : new Date().toUTCString()
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Build AI Startups — Changelog</title>
+    <title>Build AI Starups — Changelog</title>
     <link>${BASE_URL}/resources/changelog</link>
-    <description>Release notes for HyperNova and Build AI Startups</description>
+    <description>Release notes for Build AI Starups</description>
     <language>en-us</language>
+    <lastBuildDate>${latest}</lastBuildDate>
+    <ttl>60</ttl>
     ${items}
   </channel>
 </rss>`
