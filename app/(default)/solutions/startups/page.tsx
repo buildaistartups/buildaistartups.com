@@ -7,22 +7,22 @@ const siteUrl = 'https://www.buildaistartups.com'
 const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Product Teams — compress roadmap from months to days | Build AI Startups',
+  title: 'Product Teams — compress roadmap from months to days | Build AI Starups',
   description:
-    'HyperNova for Product Teams: align PM, design, and engineering on a structured spec, generate repo-ready code, wire billing & analytics, and ship behind flags with quality gates.',
+    'Build AI Starups for Product Teams: align PM, design, and engineering on a structured spec, generate repo-ready code, wire billing & analytics, and ship behind flags with quality gates.',
   alternates: { canonical: `${siteUrl}/solutions/startups` },
   openGraph: {
     type: 'website',
     url: `${siteUrl}/solutions/startups`,
-    title: 'Product Teams — compress roadmap from months to days | Build AI Startups',
+    title: 'Product Teams — compress roadmap from months to days | Build AI Starups',
     description:
       'Go from intent to validated shipping artifacts: Spec DSL, repo + tests, pricing, docs, deploy & experiments — with review gates and audit logs.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Product Teams' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Product Teams' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Product Teams — compress roadmap from months to days | Build AI Startups',
+    title: 'Product Teams — compress roadmap from months to days | Build AI Starups',
     description:
       'Spec → repo → UI → docs → pricing → deploy & experiments. Review gates, audit logs, and team controls.',
     images: [ogImage],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
+  name: 'Build AI Starups',
   url: siteUrl,
   logo: `${siteUrl}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
@@ -54,7 +54,7 @@ const howToJsonLd = {
   '@type': 'HowTo',
   name: '30-Day Pilot Rollout (Product Teams)',
   description:
-    'A four-week plan to evaluate HyperNova with review gates, feature flags, and measurable outcomes.',
+    'A four-week plan to evaluate Build AI Starups with review gates, feature flags, and measurable outcomes.',
   totalTime: 'P30D',
   step: [
     { '@type': 'HowToStep', name: 'Week 1: Kickoff & Spec', text: 'Choose a pilot scope, connect GitHub/Vercel/Stripe, draft Spec DSL, align PM/Design/Eng.' },
@@ -73,7 +73,7 @@ const faqJsonLd = {
       name: 'Can we keep our existing stack and workflows?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. HyperNova outputs a standard Next.js/TypeScript repo with CI/tests and integrates with your GitHub/Vercel/Stripe/analytics. You can keep Jira/Linear/Notion/Slack for planning and comms.',
+        text: 'Yes. Build AI Starups outputs a standard Next.js/TypeScript repo with CI/tests and integrates with your GitHub/Vercel/Stripe/analytics. You can keep Jira/Linear/Notion/Slack for planning and comms.',
       },
     },
     {
@@ -142,9 +142,9 @@ export default function ProductTeamsPage() {
           </div>
         </section>
 
-        {/* Why Product Teams use HyperNova */}
+        {/* Why Product Teams use Build AI Starups */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Why product teams use HyperNova</h2>
+          <h2 className="text-2xl font-semibold">Why product teams use Build AI Starups</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { t: 'Cross-functional alignment', d: 'Spec DSL replaces vague docs. Everyone comments on the same structured plan.' },
