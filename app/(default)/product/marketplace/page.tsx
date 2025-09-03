@@ -3,29 +3,33 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const BRAND = 'Build AI Starups'
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
+const CANON = `${SITE}/product/marketplace`
+const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Marketplace — Launch. List. License. Exit. | Build AI Startups',
+  metadataBase: new URL(SITE),
+  title: `Marketplace — Launch. List. License. Exit. | ${BRAND}`,
   description:
     'List your generated products for acquisition or licensing. Live demos, due-diligence pages, transfer-readiness checklist, and transparent fees.',
-  alternates: { canonical: `${siteUrl}/product/marketplace` },
+  alternates: { canonical: CANON },
   openGraph: {
     type: 'website',
-    url: `${siteUrl}/product/marketplace`,
-    title: 'Marketplace — Launch. List. License. Exit. | Build AI Startups',
+    url: CANON,
+    title: `Marketplace — Launch. List. License. Exit. | ${BRAND}`,
     description:
       'A marketplace for AI-generated micro-SaaS: list, license, or sell with live demos, build scores, and transfer-readiness.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Marketplace' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: OG, width: 1200, height: 630, alt: `${BRAND} — Marketplace` }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Marketplace — Launch. List. License. Exit. | Build AI Startups',
+    title: `Marketplace — Launch. List. License. Exit. | ${BRAND}`,
     description:
       'Sell or license AI-generated micro-SaaS with live demos and due diligence built-in.',
-    images: [ogImage],
+    images: [OG],
   },
 }
 
@@ -33,31 +37,31 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
-  url: siteUrl,
-  logo: `${siteUrl}/brand/logo-light.svg`,
+  name: BRAND,
+  url: SITE,
+  logo: `${SITE}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
 }
 
 const appJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'Build AI Startups Marketplace',
+  name: `${BRAND} Marketplace`,
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   description:
     'A marketplace to list, license, or sell AI-generated micro-SaaS with live demos, due diligence pages, and transfer-readiness.',
-  url: `${siteUrl}/product/marketplace`,
-  brand: { '@type': 'Brand', name: 'Build AI Startups' },
+  url: CANON,
+  brand: { '@type': 'Brand', name: BRAND },
 }
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Product', item: `${siteUrl}/` },
-    { '@type': 'ListItem', position: 3, name: 'Marketplace', item: `${siteUrl}/product/marketplace` },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Product', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 3, name: 'Marketplace', item: CANON },
   ],
 }
 
@@ -112,10 +116,30 @@ export default function MarketplacePage() {
   return (
     <>
       {/* Structured data */}
-      <Script id="ld-org" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-      <Script id="ld-app" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
-      <Script id="ld-bc" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <Script id="ld-faq" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <Script
+        id="ld-org"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+      <Script
+        id="ld-app"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }}
+      />
+      <Script
+        id="ld-bc"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <Script
+        id="ld-faq"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
       <main className="bg-slate-950 text-slate-200">
         {/* Hero */}
@@ -348,14 +372,22 @@ export default function MarketplacePage() {
                   ))}
                 </div>
                 <div className="mt-2 flex items-center gap-3 text-xs text-slate-400">
-                  <span>Build Score: <span className="text-slate-200">{p.score}</span></span>
+                  <span>
+                    Build Score: <span className="text-slate-200">{p.score}</span>
+                  </span>
                   <span>•</span>
-                  <span>Transfer-ready: <span className="text-slate-200">{p.ready}</span></span>
+                  <span>
+                    Transfer-ready: <span className="text-slate-200">{p.ready}</span>
+                  </span>
                 </div>
                 <div className="mt-3 flex items-center gap-2">
-                  <Link href="#" className="text-sm text-sky-300 hover:underline">Live demo</Link>
+                  <Link href="#" className="text-sm text-sky-300 hover:underline">
+                    Live demo
+                  </Link>
                   <span className="text-slate-600">•</span>
-                  <Link href="#" className="text-sm text-sky-300 hover:underline">Due diligence</Link>
+                  <Link href="#" className="text-sm text-sky-300 hover:underline">
+                    Due diligence
+                  </Link>
                 </div>
               </div>
             ))}
