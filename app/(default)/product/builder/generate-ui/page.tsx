@@ -1,14 +1,32 @@
+// app/(default)/product/builder/generate-ui/page.tsx
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Generate Repo & UI – BuildAIStartups',
-  description:
-    'Scaffold a production-ready Next.js app with polished UI, docs, auth, billing, and analytics wired. Pushed to your own GitHub.',
+const BRAND = 'Build AI Starups'
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
+const CANON = `${SITE}/product/builder/generate-ui`
+const OG = '/brand/og-default.png'
+const DESC =
+  'Scaffold a production-ready Next.js app with polished UI, docs, auth, billing, and analytics wired. Pushed to your own GitHub.'
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE),
+  title: `Generate Repo & UI — ${BRAND}`,
+  description: DESC,
+  alternates: { canonical: CANON },
   openGraph: {
-    title: 'Generate Repo & UI – BuildAIStartups',
-    description:
-      'Next.js + Tailwind + shadcn/ui, auth, Stripe billing, analytics, and docs — under your GitHub.',
-    url: 'https://buildaistartups.com/product/builder/generate-ui',
+    type: 'website',
+    url: CANON,
+    title: `Generate Repo & UI — ${BRAND}`,
+    description: 'Next.js + Tailwind + shadcn/ui, auth, Stripe billing, analytics, and docs — under your GitHub.',
+    images: [{ url: OG, width: 1200, height: 630, alt: BRAND }],
+    siteName: BRAND,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Generate Repo & UI — ${BRAND}`,
+    description: DESC,
+    images: [OG],
   },
 }
 
