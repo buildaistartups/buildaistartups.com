@@ -15,8 +15,8 @@ type Payload = {
 }
 
 function toTitle(str: string) {
-  const s = (str || 'Nova').replace(/[^a-z0-9\s-]/gi, ' ').trim()
-  if (!s) return 'Nova'
+  const s = (str || 'Project').replace(/[^a-z0-9\s-]/gi, ' ').trim()
+  if (!s) return 'Project'
   return s
     .split(/\s+/)
     .slice(0, 3)
@@ -25,7 +25,7 @@ function toTitle(str: string) {
 }
 
 function slugify(str: string) {
-  return (str || 'nova').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+  return (str || 'project').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
 }
 
 export async function POST(req: Request) {
@@ -52,7 +52,7 @@ export async function POST(req: Request) {
       name,
       slug,
       oneLiner: `${template} for ${audience.toLowerCase()}`,
-      summary: `HyperNova turns “${intent}” into a production-ready ${template.toLowerCase()} targeting ${audience.toLowerCase()} in ${niche.toLowerCase()}. Mode: ${mode}.`,
+      summary: `Build AI Starups turns “${intent}” into a production-ready ${template.toLowerCase()} targeting ${audience.toLowerCase()} in ${niche.toLowerCase()}. Mode: ${mode}.`,
       problem:
         'Builders waste weeks stitching boilerplate, infra, pricing, and growth. Most ideas die before users ever see them.',
       solution:
