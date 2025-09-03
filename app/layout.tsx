@@ -1,3 +1,4 @@
+// app/layout.tsx
 import './css/style.css'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
@@ -13,26 +14,26 @@ const inter = Inter({
 export const metadata = {
   metadataBase: new URL('https://www.buildaistartups.com'),
   title: {
-    default: 'Build AI Startups',
-    template: '%s · Build AI Startups',
+    default: 'Build AI Starups',
+    template: '%s · Build AI Starups',
   },
   description:
-    'Startups that build themselves. HyperNova turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
+    'Startups that build themselves. Build AI Starups turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
   openGraph: {
-    title: 'Build AI Startups',
+    title: 'Build AI Starups',
     description:
-      'Startups that build themselves. HyperNova turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
+      'Startups that build themselves. Build AI Starups turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
     url: '/',
-    siteName: 'Build AI Startups',
+    siteName: 'Build AI Starups',
     images: [{ url: '/brand/og-default.png', width: 1200, height: 630 }],
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Build AI Startups',
+    title: 'Build AI Starups',
     description:
-      'Startups that build themselves. HyperNova turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
+      'Startups that build themselves. Build AI Starups turns a one-sentence intent into a production-ready micro-SaaS—code, UI, docs, pricing, deploy, and growth.',
     images: ['/brand/og-default.png'],
   },
   icons: { icon: '/favicon.ico' },
