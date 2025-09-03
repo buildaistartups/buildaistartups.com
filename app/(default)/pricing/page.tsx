@@ -10,24 +10,25 @@ const PAGE_URL = `${SITE_URL}/pricing`
 const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Pricing — Build AI Startups (HyperNova)',
+  metadataBase: new URL(SITE_URL),
+  title: 'Pricing — Build AI Starups',
   description:
     'Simple, transparent plans. From idea to live product with ownership kept: Indie, Startup, and Scale.',
   alternates: { canonical: PAGE_URL },
   openGraph: {
     type: 'website',
     url: PAGE_URL,
-    title: 'Pricing — Build AI Startups',
+    title: 'Pricing — Build AI Starups',
     description:
       'Choose a plan that matches your stage. 20% off yearly. You own repos, infra, and revenue.',
-    images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Startups — Pricing' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: OG, width: 1200, height: 630, alt: 'Build AI Starups — Pricing' }],
+    siteName: 'Build AI Starups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pricing — Build AI Startups',
+    title: 'Pricing — Build AI Starups',
     description:
-      'Indie, Startup, and Scale plans for HyperNova. Simple, transparent, and scalable.',
+      'Indie, Startup, and Scale plans. Simple, transparent, and scalable.',
     images: [OG],
   },
 }
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
 const offersJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
-  name: 'Build AI Startups Pricing',
+  name: 'Build AI Starups Pricing',
   url: PAGE_URL,
   itemListElement: [
     {
@@ -82,11 +83,11 @@ const faqJsonLd = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'What do I own when I use Build AI Startups?',
+      name: 'What do I own when I use Build AI Starups?',
       acceptedAnswer: {
         '@type': 'Answer',
         text:
-          'You own the code (private GitHub), infra (Vercel/DB/Stripe), and revenue. HyperNova powers the build engine—no lock-in.',
+          'You own the code (private GitHub), infra (Vercel/DB/Stripe), and revenue. The Build AI Starups engine powers the build—no lock-in.',
       },
     },
     {
@@ -157,11 +158,11 @@ const faqJsonLd = {
 
 const faqItems = [
   {
-    q: 'What do I own when I use Build AI Startups?',
+    q: 'What do I own when I use Build AI Starups?',
     a: (
       <p>
         Everything that matters: the code (your private GitHub), infra (your Vercel/DB/Stripe),
-        domains, and revenue. HyperNova powers the build engine—there’s no lock-in.
+        domains, and revenue. Our engine powers the build — there’s no lock-in.
       </p>
     ),
   },
@@ -178,7 +179,7 @@ const faqItems = [
   },
   {
     q: 'Do you offer yearly discounts?',
-    a: <p>Yes—yearly billing applies a 20% discount and increases some usage caps.</p>,
+    a: <p>Yes — yearly billing applies a 20% discount and increases some usage caps.</p>,
   },
   {
     q: 'Can I change plans later?',
@@ -235,7 +236,7 @@ export default function PricingPage() {
             <p className="text-sm uppercase tracking-widest text-slate-400">Pricing</p>
             <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Simple, transparent, and scalable</h1>
             <p className="mt-4 text-lg text-slate-300">
-              From intent to live product—choose a plan that matches your stage.{' '}
+              From intent to live product — choose a plan that matches your stage.{' '}
               <span className="text-slate-200 font-medium">20% off yearly.</span> No lock-in; you own your
               repos, infra, and revenue.
             </p>
