@@ -3,31 +3,34 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const siteUrl = 'https://www.buildaistartups.com'
-const pageUrl = `${siteUrl}/resources/blog`
-const ogImage = '/brand/og-default.png'
+const BRAND = 'Build AI Starups'
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
+const PAGE = `${SITE}/resources/blog`
+const OG = '/brand/og-default.png'
 
 // ---------------- SEO ----------------
 export const metadata: Metadata = {
-  title: 'Blog — Build AI Startups (HyperNova)',
+  metadataBase: new URL(SITE),
+  title: `Blog — ${BRAND}`,
   description:
-    'Deep dives, case studies, and release notes on autonomous venture creation. Learn how to go from intent to revenue with HyperNova.',
-  alternates: { canonical: pageUrl },
+    'Deep dives, case studies, and release notes on autonomous venture creation. Learn how to go from intent to revenue with Build AI Starups.',
+  alternates: { canonical: PAGE },
   openGraph: {
     type: 'website',
-    url: pageUrl,
-    title: 'Blog — Build AI Startups (HyperNova)',
+    url: PAGE,
+    title: `Blog — ${BRAND}`,
     description:
       'Insights on the Builder, Ecosystem effects, Marketplace diligence, and API automation.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Blog' }],
-    siteName: 'Build AI Startups',
+    images: [{ url: OG, width: 1200, height: 630, alt: `${BRAND} — Blog` }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog — Build AI Startups (HyperNova)',
+    title: `Blog — ${BRAND}`,
     description:
-      'Essays, guides, and case studies about autonomous startups and the HyperNova build loop.',
-    images: [ogImage],
+      'Essays, guides, and case studies about autonomous startups and the build loop.',
+    images: [OG],
   },
 }
 
@@ -46,7 +49,7 @@ type Post = {
 const posts: Post[] = [
   {
     slug: 'from-intent-to-revenue-the-hypernova-loop',
-    title: 'From Intent to Revenue: The HyperNova Build Loop',
+    title: 'From Intent to Revenue: The Build Loop',
     excerpt:
       'A step-by-step walkthrough of how a one-sentence idea becomes a production-ready micro-SaaS—spec, repo, UI, pricing, deploy, and growth.',
     date: '2025-08-02',
@@ -120,7 +123,11 @@ const posts: Post[] = [
 
 // -------------- Helpers --------------
 function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+  return new Date(iso).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  })
 }
 function uniqueTags() {
   const set = new Set<string>()
@@ -133,23 +140,23 @@ const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteUrl}/resources` },
-    { '@type': 'ListItem', position: 3, name: 'Blog', item: pageUrl },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Resources', item: `${SITE}/resources` },
+    { '@type': 'ListItem', position: 3, name: 'Blog', item: PAGE },
   ],
 }
 const blogJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  name: 'Build AI Startups — Blog',
-  url: pageUrl,
+  name: `${BRAND} — Blog`,
+  url: PAGE,
   description:
-    'Essays, case studies, and release notes about autonomous venture creation with HyperNova.',
+    'Essays, case studies, and release notes about autonomous venture creation.',
   publisher: {
     '@type': 'Organization',
-    name: 'Build AI Startups',
-    url: siteUrl,
-    logo: `${siteUrl}/brand/logo-light.svg`,
+    name: BRAND,
+    url: SITE,
+    logo: `${SITE}/brand/logo-light.svg`,
   },
 }
 const itemListJsonLd = {
@@ -158,7 +165,7 @@ const itemListJsonLd = {
   itemListElement: posts.map((p, i) => ({
     '@type': 'ListItem',
     position: i + 1,
-    url: `${pageUrl}/${p.slug}`,
+    url: `${PAGE}/${p.slug}`,
     name: p.title,
     description: p.excerpt,
   })),
@@ -166,10 +173,10 @@ const itemListJsonLd = {
 const searchJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  url: pageUrl,
+  url: PAGE,
   potentialAction: {
     '@type': 'SearchAction',
-    target: `${pageUrl}?q={search_term_string}`,
+    target: `${PAGE}?q={search_term_string}`,
     'query-input': 'required name=search_term_string',
   },
 }
@@ -182,7 +189,9 @@ export default async function BlogIndex({
   searchParams?: Promise<{ q?: string | string[]; tag?: string | string[] }>
 }) {
   const sp = (await searchParams) ?? {}
-  const q = String((Array.isArray(sp.q) ? sp.q[0] : sp.q) ?? '').trim().toLowerCase()
+  const q = String((Array.isArray(sp.q) ? sp.q[0] : sp.q) ?? '')
+    .trim()
+    .toLowerCase()
   const tag = String((Array.isArray(sp.tag) ? sp.tag[0] : sp.tag) ?? '').trim()
 
   const filtered = posts.filter((p) => {
@@ -202,44 +211,89 @@ export default async function BlogIndex({
   return (
     <>
       {/* JSON-LD */}
-      <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <Script id="ld-blog" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }} />
-      <Script id="ld-items" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
-      <Script id="ld-search" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(searchJsonLd) }} />
+      <Script
+        id="ld-breadcrumb"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <Script
+        id="ld-blog"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <Script
+        id="ld-items"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+      />
+      <Script
+        id="ld-search"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(searchJsonLd) }}
+      />
 
       <main className="bg-slate-950 text-slate-200">
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 pb-10 pt-20 sm:pt-28">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
-              <p className="text-sm uppercase tracking-widest text-slate-400">Resources</p>
-              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Blog — Ideas that ship</h1>
+              <p className="text-sm uppercase tracking-widest text-slate-400">
+                Resources
+              </p>
+              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">
+                Blog — Ideas that ship
+              </h1>
               <p className="mt-4 text-lg text-slate-300">
-                Essays, playbooks, and case studies on autonomous startups. Everything we learn while building HyperNova and
-                launching with the Builder, Ecosystem, Marketplace, and API.
+                Essays, playbooks, and case studies on autonomous startups.
+                Everything we learn while building and launching with the
+                Builder, Ecosystem, Marketplace, and API.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a href="#featured" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400">
+                <a
+                  href="#featured"
+                  className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400"
+                >
                   Read featured posts
                 </a>
-                <Link href="/resources/docs" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
+                <Link
+                  href="/resources/docs"
+                  className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5"
+                >
                   Go to Docs
                 </Link>
               </div>
-              <p className="mt-3 text-sm text-slate-400">Case studies · Spec DSL · Build Score · Ecosystem · Marketplace</p>
+              <p className="mt-3 text-sm text-slate-400">
+                Case studies · Spec DSL · Build Score · Ecosystem · Marketplace
+              </p>
             </div>
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/blog/blog-hero.png" alt="Blog hero" className="h-full w-full object-cover" />
+                <img
+                  src="/media/blog/blog-hero.png"
+                  alt="Blog hero"
+                  className="h-full w-full object-cover"
+                />
               </div>
-              <p className="mt-2 text-center text-xs text-slate-500">Stories from the build loop</p>
+              <p className="mt-2 text-center text-xs text-slate-500">
+                Stories from the build loop
+              </p>
             </div>
           </div>
 
           {/* Search + Tags */}
-          <form className="mt-10 flex flex-wrap items-center gap-3" action="/resources/blog" method="get">
+          <form
+            className="mt-10 flex flex-wrap items-center gap-3"
+            action="/resources/blog"
+            method="get"
+          >
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/40 px-3 py-1.5">
-              <svg width="16" height="16" fill="currentColor" className="text-slate-500"><path d="M11 11l4 4m-2.5-6A4.5 4.5 0 1 1 1.5 8a4.5 4.5 0 0 1 11 0z"/></svg>
+              <svg width="16" height="16" fill="currentColor" className="text-slate-500">
+                <path d="M11 11l4 4m-2.5-6A4.5 4.5 0 1 1 1.5 8a4.5 4.5 0 0 1 11 0z" />
+              </svg>
               <input
                 name="q"
                 defaultValue={q}
@@ -261,11 +315,18 @@ export default async function BlogIndex({
                 </option>
               ))}
             </select>
-            <button type="submit" className="rounded-lg bg-violet-500 px-4 py-1.5 text-sm font-medium text-white hover:bg-violet-400">
+            <button
+              type="submit"
+              className="rounded-lg bg-violet-500 px-4 py-1.5 text-sm font-medium text-white hover:bg-violet-400"
+            >
               Apply
             </button>
             {(q || tag) && (
-              <Link href="/resources/blog" className="text-sm text-sky-300 hover:underline" aria-label="Clear filters">
+              <Link
+                href="/resources/blog"
+                className="text-sm text-sky-300 hover:underline"
+                aria-label="Clear filters"
+              >
                 Clear
               </Link>
             )}
@@ -273,7 +334,10 @@ export default async function BlogIndex({
               <Link href="/resources/blog/rss.xml" className="text-slate-400 hover:text-slate-200">
                 RSS
               </Link>
-              <Link href="/contact?subject=Guest%20post%20proposal" className="text-slate-400 hover:text-slate-200">
+              <Link
+                href="/contact?subject=Guest%20post%20proposal"
+                className="text-slate-400 hover:text-slate-200"
+              >
                 Write for us
               </Link>
             </div>
@@ -286,10 +350,17 @@ export default async function BlogIndex({
             <h2 className="text-2xl font-semibold">Featured</h2>
             <div className="mt-6 grid gap-6 md:grid-cols-2">
               {featured.map((p) => (
-                <article key={p.slug} className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40">
+                <article
+                  key={p.slug}
+                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40"
+                >
                   <Link href={`/resources/blog/${p.slug}`}>
                     <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50">
-                      <img src={p.cover} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img
+                        src={p.cover}
+                        alt={p.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
                     <div className="p-5">
                       <div className="text-xs text-slate-400">
@@ -299,7 +370,10 @@ export default async function BlogIndex({
                       <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {p.tags.map((t) => (
-                          <span key={t} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
+                          <span
+                            key={t}
+                            className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300"
+                          >
                             {t}
                           </span>
                         ))}
@@ -321,10 +395,17 @@ export default async function BlogIndex({
           ) : (
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {rest.map((p) => (
-                <article key={p.slug} className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40">
+                <article
+                  key={p.slug}
+                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40"
+                >
                   <Link href={`/resources/blog/${p.slug}`}>
                     <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50">
-                      <img src={p.cover} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img
+                        src={p.cover}
+                        alt={p.title}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
                     </div>
                     <div className="p-5">
                       <div className="text-xs text-slate-400">
@@ -334,7 +415,10 @@ export default async function BlogIndex({
                       <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {p.tags.map((t) => (
-                          <span key={t} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
+                          <span
+                            key={t}
+                            className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300"
+                          >
                             {t}
                           </span>
                         ))}
@@ -356,7 +440,9 @@ export default async function BlogIndex({
                 <p className="mt-2 text-slate-300">
                   A short weekly email: shipped features, case studies, and practical tips for compressing time-to-value.
                 </p>
-                <p className="mt-2 text-xs text-slate-500">No spam. One-click unsubscribe.</p>
+                <p className="mt-2 text-xs text-slate-500">
+                  No spam. One-click unsubscribe.
+                </p>
               </div>
               <form
                 className="flex w-full items-center gap-2"
@@ -390,7 +476,10 @@ export default async function BlogIndex({
               { t: 'Useful today', d: 'Every post should help you ship faster this week.' },
               { t: 'Honest tradeoffs', d: 'We document what failed so you can avoid it.' },
             ].map((x) => (
-              <div key={x.t} className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
+              <div
+                key={x.t}
+                className="rounded-xl border border-white/10 bg-slate-900/40 p-5"
+              >
                 <div className="text-base font-medium">{x.t}</div>
                 <p className="mt-1 text-sm text-slate-400">{x.d}</p>
               </div>
@@ -406,10 +495,16 @@ export default async function BlogIndex({
               Open the Builder, generate your repo, and talk to real users this week.
             </p>
             <div className="mt-6 flex items-center justify-center gap-3">
-              <Link href="/generate" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400">
+              <Link
+                href="/generate"
+                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400"
+              >
                 Generate now
               </Link>
-              <Link href="/resources/templates" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5">
+              <Link
+                href="/resources/templates"
+                className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5"
+              >
                 Start from a template
               </Link>
             </div>
