@@ -54,6 +54,8 @@ export default function Cta03() {
                   type="email"
                   name="email"
                   required
+                  autoComplete="email"
+                  inputMode="email"
                   className="form-input py-1.5 w-full mb-3 sm:mb-0 sm:mr-2 rounded-full bg-slate-800/30 border-slate-700"
                   placeholder="you@company.com"
                   aria-label="Your email"
