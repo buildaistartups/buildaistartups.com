@@ -3,29 +3,33 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const BRAND = 'Build AI Starups'
+const SITE =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
+const CANON = `${SITE}/product/builder`
+const OG = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Builder — From brief to repo in minutes | Build AI Startups',
+  metadataBase: new URL(SITE),
+  title: `Builder — From brief to repo in minutes | ${BRAND}`,
   description:
-    'HyperNova Builder turns a plain-language intent into a production-ready Next.js app with repo, CI, tests, docs, pricing, and deploy. From idea to live preview—fast.',
-  alternates: { canonical: `${siteUrl}/product/builder` },
+    'The Builder turns a plain-language intent into a production-ready Next.js app with repo, CI, tests, docs, pricing, and deploy. From idea to live preview—fast.',
+  alternates: { canonical: CANON },
   openGraph: {
     type: 'website',
-    url: `${siteUrl}/product/builder`,
-    title: 'Builder — From brief to repo in minutes | Build AI Startups',
+    url: CANON,
+    title: `Builder — From brief to repo in minutes | ${BRAND}`,
     description:
-      'HyperNova Builder turns a plain-language intent into a production-ready Next.js app with repo, CI, tests, docs, pricing, and deploy.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Builder' }],
-    siteName: 'Build AI Startups',
+      'Turn a one-sentence brief into a production-ready Next.js app with repo, CI, tests, docs, pricing, and deploy.',
+    images: [{ url: OG, width: 1200, height: 630, alt: `${BRAND} — Builder` }],
+    siteName: BRAND,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Builder — From brief to repo in minutes | Build AI Startups',
+    title: `Builder — From brief to repo in minutes | ${BRAND}`,
     description:
       'Turn a one-sentence brief into a working app with CI, tests, docs, pricing, and deploy—automatically.',
-    images: [ogImage],
+    images: [OG],
   },
 }
 
@@ -33,57 +37,36 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Startups',
-  url: siteUrl,
-  logo: `${siteUrl}/brand/logo-light.svg`,
+  name: BRAND,
+  url: SITE,
+  logo: `${SITE}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
 }
 
 const appJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'HyperNova Builder',
+  name: `${BRAND} Builder`,
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'Web',
   description:
     'Turn a plain-language intent into a production-ready app with repo, CI, tests, docs, pricing, and deploy.',
   offers: [
-    {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-      name: 'Starter',
-      url: `${siteUrl}/pricing`,
-    },
-    {
-      '@type': 'Offer',
-      price: '49',
-      priceCurrency: 'USD',
-      name: 'Builder',
-      url: `${siteUrl}/pricing`,
-    },
-    {
-      '@type': 'Offer',
-      price: '149',
-      priceCurrency: 'USD',
-      name: 'Studio',
-      url: `${siteUrl}/pricing`,
-    },
+    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Starter', url: `${SITE}/pricing` },
+    { '@type': 'Offer', price: '49', priceCurrency: 'USD', name: 'Builder', url: `${SITE}/pricing` },
+    { '@type': 'Offer', price: '149', priceCurrency: 'USD', name: 'Studio', url: `${SITE}/pricing` },
   ],
-  brand: {
-    '@type': 'Brand',
-    name: 'Build AI Startups',
-  },
-  url: `${siteUrl}/product/builder`,
+  brand: { '@type': 'Brand', name: BRAND },
+  url: CANON,
 }
 
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Product', item: `${siteUrl}/` },
-    { '@type': 'ListItem', position: 3, name: 'Builder', item: `${siteUrl}/product/builder` },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
+    { '@type': 'ListItem', position: 2, name: 'Product', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 3, name: 'Builder', item: CANON },
   ],
 }
 
@@ -91,9 +74,24 @@ export default function BuilderPage() {
   return (
     <>
       {/* Structured data */}
-      <Script id="ld-org" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-      <Script id="ld-app" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
-      <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <Script
+        id="ld-org"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+      <Script
+        id="ld-app"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }}
+      />
+      <Script
+        id="ld-breadcrumb"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
 
       <main className="bg-slate-950 text-slate-200">
         {/* Hero */}
@@ -103,7 +101,7 @@ export default function BuilderPage() {
               <p className="text-sm uppercase tracking-widest text-slate-400">Product</p>
               <h1 className="mt-2 text-4xl font-bold sm:text-5xl">From brief to repo in minutes</h1>
               <p className="mt-4 text-lg text-slate-300">
-                HyperNova Builder turns a plain-language intent into a production-ready app—spec, repo, UI, copy,
+                The Builder turns a plain-language intent into a production-ready app—spec, repo, UI, copy,
                 docs, pricing, and deploy. No boilerplate. No waiting.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -113,7 +111,10 @@ export default function BuilderPage() {
                 >
                   Try the Builder
                 </Link>
-                <Link href="/pricing" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
+                <Link
+                  href="/pricing"
+                  className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5"
+                >
                   See pricing
                 </Link>
               </div>
@@ -138,7 +139,7 @@ export default function BuilderPage() {
           <h2 className="text-2xl font-semibold">How it works</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {[
-              { t: 'Set intent', d: 'Pick a niche or let HyperNova scout pains & trends.' },
+              { t: 'Set intent', d: 'Pick a niche or let the Builder scout pains & trends.' },
               { t: 'Connect', d: 'Link GitHub, Vercel, database, Stripe—no lock-in.' },
               { t: 'Autobuild', d: 'Spec → repo → UI → copy → docs → pricing → landing.' },
               { t: 'Go live', d: 'Preview, domain, analytics, SEO, onboarding wired.' },
@@ -159,7 +160,7 @@ export default function BuilderPage() {
             <div>
               <h3 className="text-xl font-semibold">Spec Studio</h3>
               <p className="mt-2 text-slate-300">
-                Define your goal, constraints, and audience. HyperNova writes a structured PRD (Spec DSL) covering
+                Define your goal, constraints, and audience. The Builder writes a structured PRD (Spec DSL) covering
                 problem, ICP, value props, features, data model, pages, pricing, and success metrics—easy to validate, easy to change.
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
@@ -311,7 +312,7 @@ export default function BuilderPage() {
           <h2 className="text-2xl font-semibold">Example: one build, programmatically</h2>
           <p className="mt-2 text-slate-300">UI first, but power users can script builds when needed.</p>
           <pre className="mt-4 overflow-auto rounded-xl border border-white/10 bg-slate-900/70 p-4 text-sm text-slate-200">
-{`curl -X POST ${siteUrl}/api/builds \\
+{`curl -X POST ${SITE}/api/builds \\
   -H "Authorization: Bearer <API_KEY>" \\
   -H "Content-Type: application/json" \\
   -d '{
