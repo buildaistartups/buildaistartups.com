@@ -1,7 +1,10 @@
 import Link from 'next/link'
+import { memo } from 'react'
 import Particles from './particles'
 
-const badges = [
+type BadgeItem = { label: string; href: string }
+
+const badges: BadgeItem[] = [
   { label: 'GitHub', href: '/resources/docs#github' },
   { label: 'Vercel', href: '/resources/docs#vercel' },
   { label: 'Stripe', href: '/resources/docs#stripe' },
@@ -13,11 +16,14 @@ const badges = [
   { label: 'Pinecone', href: '/resources/docs#vector' },
 ]
 
-function Badge({ label, href }: { label: string; href: string }) {
+const Badge = memo(function Badge({ label, href }: BadgeItem) {
   return (
     <li className="mx-3">
       <Link
         href={href}
+        prefetch={false}
+        title={`${label} docs`}
+        aria-label={`${label} docs`}
         className="inline-flex items-center rounded-full border border-white/10 bg-slate-900/30 px-4 py-2 text-sm text-slate-300 transition hover:text-white hover:bg-slate-900/40"
       >
         <span className="mr-2 h-1.5 w-1.5 rounded-full bg-purple-400/90" />
@@ -25,11 +31,11 @@ function Badge({ label, href }: { label: string; href: string }) {
       </Link>
     </li>
   )
-}
+})
 
 export default function Clients() {
   return (
-    <section>
+    <section aria-labelledby="integrations-heading">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         {/* Particles animation */}
         <div className="absolute inset-0 mx-auto max-w-6xl px-4 sm:px-6">
@@ -37,19 +43,29 @@ export default function Clients() {
         </div>
 
         <div className="py-12 md:py-16">
+          <h2 id="integrations-heading" className="sr-only">
+            Integrations
+          </h2>
           <p className="mb-6 text-center text-sm font-medium tracking-wide text-slate-400">
             Plays nicely with your stack
           </p>
 
           <div className="overflow-hidden">
-            <div className="inline-flex w-full flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
-              <ul className="flex animate-infinite-scroll items-center [&>li]:shrink-0">
+            <div className="inline-flex w-full flex-nowrap overflow-hidden motion-reduce:animate-none [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+              <ul
+                className="flex animate-infinite-scroll motion-reduce:animate-none items-center [&>li]:shrink-0"
+                role="list"
+                aria-label="Supported integrations"
+              >
                 {badges.map((b) => (
                   <Badge key={b.label} {...b} />
                 ))}
               </ul>
               {/* Duplicate for seamless loop */}
-              <ul className="flex animate-infinite-scroll items-center [&>li]:shrink-0" aria-hidden="true">
+              <ul
+                className="flex animate-infinite-scroll motion-reduce:animate-none items-center [&>li]:shrink-0"
+                aria-hidden="true"
+              >
                 {badges.map((b) => (
                   <Badge key={`${b.label}-dup`} {...b} />
                 ))}
@@ -58,7 +74,11 @@ export default function Clients() {
           </div>
 
           <p className="mt-6 text-center text-xs text-slate-500">
-            Want your logo here? <Link href="/contact" className="text-purple-400 hover:text-purple-300">Become a design partner</Link>.
+            Want your logo here?{' '}
+            <Link prefetch={false} href="/contact" className="text-purple-400 hover:text-purple-300">
+              Become a design partner
+            </Link>
+            .
           </p>
         </div>
       </div>
