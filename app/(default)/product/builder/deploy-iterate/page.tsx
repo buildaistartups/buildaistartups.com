@@ -1,14 +1,21 @@
+// app/(default)/product/builder/deploy-iterate/page.tsx
+import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata = {
-  title: 'Deploy, Learn, Iterate – BuildAIStartups',
+const BRAND = 'Build AI Starups'
+const PAGE_URL = 'https://buildaistartups.com/product/builder/deploy-iterate'
+
+export const metadata: Metadata = {
+  title: `Deploy, Learn, Iterate — ${BRAND}`,
   description:
-    'Deploy to Vercel, observe real usage, ship updates. HyperNova proposes improvements and keeps the spec in sync.',
+    'Deploy to Vercel, observe real usage, ship updates. Build AI Starups proposes improvements and keeps the spec in sync.',
+  alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: 'Deploy, Learn, Iterate – BuildAIStartups',
+    title: `Deploy, Learn, Iterate — ${BRAND}`,
     description:
       'Launch on Vercel, measure what matters, and iterate with AI-assisted changelogs and PRs.',
-    url: 'https://buildaistartups.com/product/builder/deploy-iterate',
+    url: PAGE_URL,
+    type: 'website',
   },
 }
 
@@ -23,7 +30,8 @@ export default function DeployIterate() {
           Deploy, learn, iterate
         </h1>
         <p className="mt-4 text-slate-300">
-          Push to Vercel, validate with real users, and let HyperNova suggest the next best change.
+          Push to Vercel, validate with real users, and let {BRAND} suggest the next best
+          change.
         </p>
       </header>
 
