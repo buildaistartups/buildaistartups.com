@@ -106,9 +106,7 @@ export default function GenerateForm() {
 
           <div className="grid gap-4 md:grid-cols-2">
             <fieldset>
-              <legend className="mb-2 block text-sm font-medium text-slate-300">
-                Mode
-              </legend>
+              <legend className="mb-2 block text-sm font-medium text-slate-300">Mode</legend>
               <div className="flex gap-2">
                 <button
                   type="button"
@@ -174,13 +172,7 @@ export default function GenerateForm() {
       </div>
 
       {/* Right: Result */}
-      <div>
-        {!result ? (
-          <EmptyState />
-        ) : (
-          <GenerateResultCard result={result} />
-        )}
-      </div>
+      <div>{!result ? <EmptyState /> : <GenerateResultCard result={result} />}</div>
     </div>
   )
 }
@@ -211,13 +203,15 @@ function buildOneLiner(intent: string, audience?: string) {
 
 function buildDesc(intent: string, audience?: string, niche?: string, complexity?: string) {
   const size =
-    complexity === 's' ? 'a focused MVP'
-      : complexity === 'l' ? 'a full-featured product'
+    complexity === 's'
+      ? 'a focused MVP'
+      : complexity === 'l'
+      ? 'a full-featured product'
       : 'a solid, production-ready MVP'
 
   const who = audience?.trim() ? ` for ${audience.trim()}` : ''
   const seg = niche?.trim() ? ` in ${niche.trim()}` : ''
-  return `HyperNova will plan and build ${size}${who}${seg}. You’ll get a repo, UI, docs, pricing, a landing page, and initial growth experiments wired automatically.`
+  return `Build AI Startups will plan and build ${size}${who}${seg}. You’ll get a repo, UI, docs, pricing, a landing page, and initial growth experiments wired automatically.`
 }
 
 function buildPRD(
@@ -242,8 +236,8 @@ function buildPRD(
     complexity === 's'
       ? `Small MVP: core value, minimal onboarding, simple billing.`
       : complexity === 'l'
-        ? `Large scope: multi-tenant, roles, advanced analytics, integrations.`
-        : `Medium scope: core value + onboarding, billing, and analytics.`,
+      ? `Large scope: multi-tenant, roles, advanced analytics, integrations.`
+      : `Medium scope: core value + onboarding, billing, and analytics.`,
     ``,
     `## Build Mode`,
     mode === 'autopilot'
