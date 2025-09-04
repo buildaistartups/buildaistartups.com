@@ -69,18 +69,9 @@ export default function Features() {
                   You keep everything under your own GitHub, Vercel, and Stripe.
                 </p>
 
-                {/* Tabs */}
-                <div
-                  className="mt-8 max-w-xs max-md:mx-auto space-y-2"
-                  role="tablist"
-                  aria-label="Builder steps"
-                >
+                <div className="mt-8 max-w-xs max-md:mx-auto space-y-2">
                   <button
-                    id="tab-1"
-                    role="tab"
-                    aria-selected={tab === 1}
-                    aria-controls="panel-features"
-                    className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500/60 ${
+                    className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
                       tab !== 1
                         ? 'border-slate-700 opacity-50'
                         : 'border-purple-700 shadow-sm shadow-purple-500/25'
@@ -92,7 +83,6 @@ export default function Features() {
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      aria-hidden="true"
                     >
                       <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12Zm0 14V2H2v12h12Zm-3-7H5a1 1 0 1 1 0-2h6a1 1 0 0 1 0 2Zm0 4H5a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2Z" />
                     </svg>
@@ -100,11 +90,7 @@ export default function Features() {
                   </button>
 
                   <button
-                    id="tab-2"
-                    role="tab"
-                    aria-selected={tab === 2}
-                    aria-controls="panel-features"
-                    className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500/60 ${
+                    className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
                       tab !== 2
                         ? 'border-slate-700 opacity-50'
                         : 'border-purple-700 shadow-sm shadow-purple-500/25'
@@ -116,7 +102,6 @@ export default function Features() {
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      aria-hidden="true"
                     >
                       <path d="M2 6H0V2a2 2 0 0 1 2-2h4v2H2v4ZM16 6h-2V2h-4V0h4a2 2 0 0 1 2 2v4ZM14 16h-4v-2h4v-4h2v4a2 2 0 0 1-2 2ZM6 16H2a2 2 0 0 1-2-2v-4h2v4h4v2Z" />
                     </svg>
@@ -124,11 +109,7 @@ export default function Features() {
                   </button>
 
                   <button
-                    id="tab-3"
-                    role="tab"
-                    aria-selected={tab === 3}
-                    aria-controls="panel-features"
-                    className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500/60 ${
+                    className={`flex items-center text-sm font-medium text-slate-50 rounded-sm border bg-slate-800/25 w-full px-3 py-2 transition duration-150 ease-in-out hover:opacity-100 ${
                       tab !== 3
                         ? 'border-slate-700 opacity-50'
                         : 'border-purple-700 shadow-sm shadow-purple-500/25'
@@ -140,7 +121,6 @@ export default function Features() {
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
-                      aria-hidden="true"
                     >
                       <path d="M14.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8ZM15 7c.6 0 1 .4 1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8c.6 0 1 .4 1 1s-.4 1-1 1C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6c0-.6.4-1 1-1Z" />
                     </svg>
@@ -149,13 +129,7 @@ export default function Features() {
                 </div>
 
                 {/* Tab detail + Learn more */}
-                <div
-                  id="panel-features"
-                  role="tabpanel"
-                  aria-labelledby={`tab-${tab}`}
-                  className="rounded-md border border-slate-700/60 bg-slate-900/30 p-4 mt-4 max-w-lg max-md:mx-auto"
-                  aria-live="polite"
-                >
+                <div className="rounded-md border border-slate-700/60 bg-slate-900/30 p-4 mt-4 max-w-lg max-md:mx-auto">
                   <p className="text-sm text-slate-300">{TAB_COPY[tab]}</p>
                   <div className="mt-3">
                     <Link
@@ -182,9 +156,9 @@ export default function Features() {
 
                   <div className="flex items-center justify-center">
                     <div className="relative w-48 h-48 flex justify-center items-center">
-                      {/* Halo (gentle pulse) */}
+                      {/* Halo */}
                       <svg
-                        className="absolute inset-0 -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform pointer-events-none blur-md"
+                        className="absolute inset-0 -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 will-change-transform pointer-events-none blur-md"
                         width="480"
                         height="480"
                         viewBox="0 0 480 480"
@@ -199,14 +173,26 @@ export default function Features() {
                           </linearGradient>
                         </defs>
                         <g fillRule="evenodd">
-                          <path className="pulse" fill="url(#pulse-a)" d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"/>
-                          <path className="pulse pulse-1" fill="url(#pulse-a)" d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"/>
-                          <path className="pulse pulse-2" fill="url(#pulse-a)" d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"/>
+                          <path
+                            className="pulse"
+                            fill="url(#pulse-a)"
+                            d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"
+                          />
+                          <path
+                            className="pulse pulse-1"
+                            fill="url(#pulse-a)"
+                            d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"
+                          />
+                          <path
+                            className="pulse pulse-2"
+                            fill="url(#pulse-a)"
+                            d="M240,0 C372.5484,0 480,107.4516 480,240 C480,372.5484 372.5484,480 240,480 C107.4516,480 0,372.5484 0,240 C0,107.4516 107.4516,0 240,0 Z M240,88.8 C156.4944,88.8 88.8,156.4944 88.8,240 C88.8,323.5056 156.4944,391.2 240,391.2 C323.5056,391.2 391.2,323.5056 391.2,240 C391.2,156.4944 323.5056,88.8 240,88.8 Z"
+                          />
                         </g>
                       </svg>
 
-                      {/* Grid (slow drift) */}
-                      <div className="absolute inset-0 -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[500px] h-[500px] rounded-full overflow-hidden [mask-image:_radial-gradient(black,_transparent_60%)]">
+                      {/* Grid */}
+                      <div className="absolute inset-0 -z-10 left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[500px] h-[500px] rounded-full overflow-hidden [mask-image:_radial-gradient(black,_transparent_60%)]">
                         <div className="h-[200%] animate-endless">
                           <div className="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,var(--color-white)_48px,var(--color-white)_49px)] blur-[2px] opacity-20" />
                           <div className="absolute inset-0 [background:repeating-linear-gradient(transparent,transparent_48px,var(--color-purple-500)_48px,var(--color-purple-500)_49px)]" />
@@ -266,27 +252,6 @@ export default function Features() {
           </div>
         </div>
       </div>
-
-      {/* Local animations (no global CSS dependency) */}
-      <style jsx>{`
-        @keyframes ringPulse {
-          0%, 100% { transform: scale(1); opacity: .75; }
-          50% { transform: scale(1.06); opacity: 1; }
-        }
-        .pulse { animation: ringPulse 8s cubic-bezier(.4,0,.2,1) infinite; }
-        .pulse-1 { animation-delay: .9s; }
-        .pulse-2 { animation-delay: 1.8s; }
-
-        @keyframes gridDrift {
-          0%   { transform: translateY(0); }
-          100% { transform: translateY(-50%); }
-        }
-        .animate-endless { animation: gridDrift 24s linear infinite; }
-
-        @media (prefers-reduced-motion: reduce) {
-          .pulse, .animate-endless { animation: none !important; }
-        }
-      `}</style>
     </section>
   )
 }
