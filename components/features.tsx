@@ -24,19 +24,18 @@ const TAB_COPY: Record<Tab, string> = {
 export default function Features() {
   const [tab, setTab] = useState<Tab>(1)
 
-  // --- Orb refs (fixes "possibly null" issue) ---
+  // Orb refs
   const sceneRef = useRef<HTMLDivElement | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
 
   useEffect(() => {
-    const scene = sceneRef.current
-    const c = canvasRef.current
-    if (!scene || !c) return
+    const sceneEl = sceneRef.current
+    const canvasEl = canvasRef.current
+    if (!sceneEl || !canvasEl) return
 
-    const ctx = c.getContext('2d')
+    const ctx = canvasEl.getContext('2d')
     if (!ctx) return
 
-    // DPR capped for perf
     const dpr = Math.min(window.devicePixelRatio || 1, 2)
 
     let w = 0
@@ -56,17 +55,14 @@ export default function Features() {
     }[] = []
 
     function resize() {
-      // ✅ guard scene usage
-      if (!scene) return
-      const rect = scene.getBoundingClientRect()
-      w = (c.width = Math.floor(rect.width * dpr))
-      h = (c.height = Math.floor(rect.height * dpr))
-      c.style.width = `${rect.width}px`
-      c.style.height = `${rect.height}px`
+      const rect = sceneEl.getBoundingClientRect()
+      w = canvasEl.width = Math.floor(rect.width * dpr)
+      h = canvasEl.height = Math.floor(rect.height * dpr)
+      canvasEl.style.width = `${rect.width}px`
+      canvasEl.style.height = `${rect.height}px`
       cx = w / 2
       cy = h / 2
 
-      // repopulate
       particles = Array.from({ length: 220 }, () => {
         const r = Math.pow(Math.random(), 0.8) * Math.min(w, h) * 0.45 + 40 * dpr
         return {
@@ -81,15 +77,14 @@ export default function Features() {
       })
     }
 
-    const ro = new ResizeObserver(resize)
-    ro.observe(scene)
+    const ro = new ResizeObserver(() => resize())
+    ro.observe(sceneEl)
     resize()
 
     function draw() {
       t += 1
       ctx.clearRect(0, 0, w, h)
 
-      // subtle radial glow
       const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.min(w, h) * 0.6)
       grd.addColorStop(0, 'rgba(124,58,237,0.05)')
       grd.addColorStop(1, 'rgba(2,6,23,0)')
@@ -103,13 +98,11 @@ export default function Features() {
         const y = cy + Math.sin(p.a) * p.r * (0.86 + Math.sin(p.a * 2) * 0.06)
         const alpha = 0.7 + Math.sin(t * 0.02 + p.tw) * 0.3
 
-        // glow
         ctx.beginPath()
         ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${alpha * 0.08})`
         ctx.arc(x, y, p.size * 3.2, 0, Math.PI * 2)
         ctx.fill()
 
-        // core
         ctx.beginPath()
         ctx.fillStyle = `hsla(${p.hue}, 90%, 70%, ${alpha})`
         ctx.arc(x, y, p.size, 0, Math.PI * 2)
@@ -245,32 +238,24 @@ export default function Features() {
               {/* Right column — AI Orb */}
               <div className="md:w-5/12 lg:w-1/2" data-aos="fade-up" data-aos-delay="100">
                 <div className="relative py-24 -mt-12">
-                  {/* keep your background particles */}
                   <Particles className="absolute inset-0 -z-10" quantity={8} staticity={30} />
 
                   <div ref={sceneRef} className="ai-orb__scene">
-                    {/* rotating halo */}
                     <div className="ai-orb__halo" aria-hidden="true" />
-
-                    {/* particle canvas */}
                     <canvas ref={canvasRef} className="ai-orb__field" />
 
-                    {/* glass orb + rings */}
                     <div className="ai-orb__orb">
                       <div className="ai-orb__ring r1" />
                       <div className="ai-orb__ring r2" />
                       <div className="ai-orb__ring r3" />
 
-                      {/* central logo plate */}
                       <div className="ai-orb__logoPlate">
-                        {/* Replace with your SVG if desired */}
                         <div className="ai-orb__brand">
                           Build AI Startups
                           <small>From one-line spec to shipped product</small>
                         </div>
                       </div>
 
-                      {/* orbiting chips */}
                       <div className="ai-orb__chip c1">
                         <span>Spec → PRD</span>
                       </div>
@@ -281,8 +266,12 @@ export default function Features() {
                         <span>Deploy</span>
                       </div>
 
-                      {/* signal paths */}
-                      <svg className="ai-orb__signals" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+                      <svg
+                        className="ai-orb__signals"
+                        viewBox="0 0 1000 1000"
+                        preserveAspectRatio="none"
+                        aria-hidden="true"
+                      >
                         <defs>
                           <linearGradient id="ai-orb-grad" x1="0" y1="0" x2="1" y2="1">
                             <stop offset="0%" stopColor="#a855f7" />
