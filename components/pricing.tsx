@@ -1,29 +1,56 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-// ---------- data ----------
+// ---- Pricing model (edit here, not in markup) ----
 type Plan = {
   id: 'indie' | 'startup' | 'scale'
   name: string
   blurb: string
   monthly: number
-  yearly: number
+  yearly: number // discounted price per month when billed yearly
   ctaHref: string
   ctaLabel?: string
   highlight?: boolean
 }
 
 const plans: Plan[] = [
-  { id: 'indie', name: 'Indie', blurb: 'Launch solo with ownership intact.', monthly: 29, yearly: 24, ctaHref: '/signup?plan=indie' },
-  { id: 'startup', name: 'Startup', blurb: 'Everything to ship and grow a product team.', monthly: 79, yearly: 63, ctaHref: '/signup?plan=startup', highlight: true },
-  { id: 'scale', name: 'Scale', blurb: 'Advanced controls, SLA and priority distribution.', monthly: 149, yearly: 119, ctaHref: '/contact?topic=sales', ctaLabel: 'Talk to us' },
+  {
+    id: 'indie',
+    name: 'Indie',
+    blurb: 'Launch solo with ownership intact.',
+    monthly: 29,
+    yearly: 24,
+    ctaHref: '/signup?plan=indie',
+  },
+  {
+    id: 'startup',
+    name: 'Startup',
+    blurb: 'Everything to ship and grow a product team.',
+    monthly: 79,
+    yearly: 63,
+    ctaHref: '/signup?plan=startup',
+    highlight: true, // visually emphasize
+  },
+  {
+    id: 'scale',
+    name: 'Scale',
+    blurb: 'Advanced controls, SLA and priority distribution.',
+    monthly: 149,
+    yearly: 119,
+    ctaHref: '/contact?topic=sales',
+    ctaLabel: 'Talk to us',
+  },
 ]
 
 type RowValue = boolean | string
 type Section = {
   title: string
-  rows: { label: string; values: Record<Plan['id'], RowValue>; note?: string }[]
+  rows: {
+    label: string
+    values: Record<Plan['id'], RowValue>
+    note?: string
+  }[]
 }
 
 const sections: Section[] = [
@@ -39,11 +66,28 @@ const sections: Section[] = [
   {
     title: 'Features',
     rows: [
-      { label: 'Builder (Spec → Repo → UI → Docs → Deploy)', values: { indie: true, startup: true, scale: true } },
-      { label: 'Gold templates', values: { indie: '3 packs', startup: 'All packs', scale: 'All + Custom' } },
-      { label: 'Ecosystem cross-promotion', values: { indie: 'Limited', startup: 'Standard', scale: 'Priority' }, note: 'Cross-promo across generated startups.' },
-      { label: 'Marketplace listing', values: { indie: 'Included (10% fee)', startup: 'Included (7%)', scale: 'Included (5%)' } },
-      { label: 'Compliance pack', values: { indie: 'Basic', startup: 'Standard', scale: 'Advanced' } },
+      {
+        label: 'Builder (Spec → Repo → UI → Docs → Deploy)',
+        values: { indie: true, startup: true, scale: true },
+      },
+      {
+        label: 'Gold templates',
+        values: { indie: '3 packs', startup: 'All packs', scale: 'All + Custom' },
+      },
+      {
+        label: 'Ecosystem cross-promotion',
+        values: { indie: 'Limited', startup: 'Standard', scale: 'Priority' },
+        // shorter note to keep the column tidy
+        note: 'Cross-promo across startups.',
+      },
+      {
+        label: 'Marketplace listing',
+        values: { indie: 'Included (10% fee)', startup: 'Included (7%)', scale: 'Included (5%)' },
+      },
+      {
+        label: 'Compliance pack',
+        values: { indie: 'Basic', startup: 'Standard', scale: 'Advanced' },
+      },
     ],
   },
   {
@@ -55,10 +99,13 @@ const sections: Section[] = [
       { label: 'SLA', values: { indie: '—', startup: '—', scale: '99.9%' } },
     ],
   },
-  { title: 'Support', rows: [{ label: 'Support', values: { indie: 'Community', startup: 'Email (48h)', scale: 'Priority (8h)' } }] },
+  {
+    title: 'Support',
+    rows: [{ label: 'Support', values: { indie: 'Community', startup: 'Email (48h)', scale: 'Priority (8h)' } }],
+  },
 ]
 
-// ---------- helpers ----------
+// ---- helpers ----
 const check = (
   <svg className="shrink-0 fill-purple-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9" aria-hidden="true">
     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
@@ -84,25 +131,78 @@ function priceFor(plan: Plan, annual: boolean) {
 export default function Pricing() {
   const [annual, setAnnual] = useState<boolean>(true)
 
-  // Which plan column is highlighted (0..2). Defaults to first if none.
-  const featuredIdx = Math.max(0, plans.findIndex((p) => p.highlight))
+  // --- single-column highlight ring (one rectangle) ---
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const highlightHeaderRef = useRef<HTMLDivElement | null>(null) // Startup card header block
+  const matrixRef = useRef<HTMLDivElement | null>(null) // Feature matrix (stops above footer note)
+  const [box, setBox] = useState<React.CSSProperties | null>(null)
 
-  // Tailwind-safe grid-line classes (4 cols: 1 = labels/toggle, 2..4 = plans)
-  const startCls = ['col-start-2', 'col-start-3', 'col-start-4'][featuredIdx]
-  const endCls   = ['col-end-3', 'col-end-4', 'col-end-5'][featuredIdx]
+  useEffect(() => {
+    function measure() {
+      const container = containerRef.current
+      const header = highlightHeaderRef.current
+      const matrix = matrixRef.current
+      if (!container || !header || !matrix) return
+
+      const c = container.getBoundingClientRect()
+      const h = header.getBoundingClientRect()
+      const m = matrix.getBoundingClientRect()
+
+      // Position the rectangle a bit ABOVE the plan title,
+      // and end it ABOVE the footer note.
+      const TOP_PADDING = 14   // px above "Startup"
+      const BOTTOM_PADDING = 14 // px above footer note
+      const left = h.left - c.left
+      const width = h.width
+      const top = Math.min(h.top, m.top) - c.top - TOP_PADDING
+      const height = m.bottom - c.top - BOTTOM_PADDING - top
+
+      setBox({ left, width, top, height, position: 'absolute' })
+    }
+
+    // measure now & on resize / reflow
+    const ro = new ResizeObserver(measure)
+    if (containerRef.current) ro.observe(containerRef.current)
+    if (highlightHeaderRef.current) ro.observe(highlightHeaderRef.current)
+    if (matrixRef.current) ro.observe(matrixRef.current)
+    measure()
+
+    window.addEventListener('resize', measure)
+    return () => {
+      window.removeEventListener('resize', measure)
+      ro.disconnect()
+    }
+  }, [annual]) // annual toggle shifts button sizes → re-measure
 
   return (
-    <div className="relative">
-      {/* ONE continuous column highlight (covers header cards + feature matrix) */}
+    <div className="relative" ref={containerRef}>
+      {/* ONE purple selection rectangle */}
+      {box && (
+        <div
+          aria-hidden
+          className="pointer-events-none z-20 rounded-[28px] ring-1 ring-purple-400/60 shadow-[0_0_0_1px_rgba(168,85,247,0.15)] before:absolute before:inset-0 before:rounded-[28px] before:bg-purple-500/10 before:opacity-70 before:blur-xl"
+          style={box}
+        />
+      )}
+
+      {/* Blurred shape */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 hidden md:grid grid-cols-4 xl:-mx-6 z-10"
+        className="max-md:hidden absolute bottom-0 -mb-20 left-2/3 -translate-x-1/2 blur-2xl opacity-70 pointer-events-none -z-10"
+        aria-hidden="true"
       >
-        <div className={`${startCls} ${endCls} mx-3 my-2 rounded-[2.25rem] ring-1 ring-purple-400/50 bg-purple-500/10`} />
+        <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
+          <defs>
+            <linearGradient id="bs5-a" x1="19.609%" x2="50%" y1="14.544%" y2="100%">
+              <stop offset="0%" stopColor="#A855F7" />
+              <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        <path fill="url(#bs5-a)" fillRule="evenodd" d="m661 736 461 369-284 58z" transform="matrix(1 0 0 -1 -661 1163)" />
+        </svg>
       </div>
 
       {/* Header row with toggle + plan cards */}
-      <div className="relative z-20 grid md:grid-cols-4 xl:-mx-6 text-sm">
+      <div className="grid md:grid-cols-4 xl:-mx-6 text-sm relative">
         {/* Toggle */}
         <div className="px-6 flex flex-col justify-end">
           <div className="pb-5 md:border-b border-slate-800">
@@ -110,13 +210,16 @@ export default function Pricing() {
               <div className="inline-flex items-center whitespace-nowrap">
                 <div className="text-sm text-slate-500 font-medium mr-2 md:max-lg:hidden">Monthly</div>
                 <div className="relative">
-                  <input id="toggle" type="checkbox" className="peer sr-only" checked={annual} onChange={() => setAnnual((s) => !s)} />
+                  <input
+                    id="toggle"
+                    type="checkbox"
+                    className="peer sr-only"
+                    checked={annual}
+                    onChange={() => setAnnual((s) => !s)}
+                  />
                   <label
                     htmlFor="toggle"
-                    className="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-slate-400 px-0.5 outline-slate-400 transition-colors
-                               before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-xs before:transition-transform before:duration-150
-                               peer-checked:bg-purple-500 peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2
-                               peer-focus-visible:outline-gray-400 peer-focus-visible:peer-checked:outline-purple-500"
+                    className="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-slate-400 px-0.5 outline-slate-400 transition-colors before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-xs before:transition-transform before:duration-150 peer-checked:bg-purple-500 peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-focus-visible:peer-checked:outline-purple-500"
                   >
                     <span className="sr-only">Pay yearly</span>
                   </label>
@@ -132,10 +235,14 @@ export default function Pricing() {
         {/* Plans */}
         {plans.map((plan) => (
           <div key={plan.id} className="px-6 flex flex-col justify-end">
-            <div className="grow pb-4 mb-4 border-b border-slate-800 relative">
+            <div
+              className="grow pb-4 mb-4 border-b border-slate-800 relative"
+              ref={plan.highlight ? highlightHeaderRef : undefined}
+            >
               {plan.highlight && (
-                // badge moved *down* so it sits cleanly inside the rounded highlight
-                <span className="absolute top-3 right-3 rounded-full bg-purple-600/20 px-2 py-1 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-500/40">
+                <span
+                  className="absolute top-1 right-1 rounded-full bg-purple-600/20 px-2 py-1 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-500/40"
+                >
                   Popular
                 </span>
               )}
@@ -156,7 +263,9 @@ export default function Pricing() {
               >
                 <span className="inline-flex items-center">
                   {plan.ctaLabel ?? 'Get started'}
-                  <span className={`${plan.highlight ? 'text-purple-300' : 'text-purple-500'} ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5`}>
+                  <span
+                    className={`${plan.highlight ? 'text-purple-300' : 'text-purple-500'} ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5`}
+                  >
                     -&gt;
                   </span>
                 </span>
@@ -166,8 +275,11 @@ export default function Pricing() {
         ))}
       </div>
 
-      {/* Feature matrix */}
-      <div className="relative z-20 mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-slate-700/10">
+      {/* Feature matrix (anchor for bottom of highlight) */}
+      <div
+        ref={matrixRef}
+        className="mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-slate-700/10 relative"
+      >
         {sections.map((section, si) => (
           <div key={section.title} className={si > 0 ? 'border-t border-slate-800' : ''}>
             <div className="px-6 py-3 text-slate-50 font-medium">{section.title}</div>
@@ -190,9 +302,10 @@ export default function Pricing() {
         ))}
       </div>
 
-      {/* Footer notes */}
+      {/* Footer notes (intentionally OUTSIDE highlight box) */}
       <p className="mt-3 text-xs text-slate-500">
-        All plans include user-owned repos/infra and license guardrails. Yearly billing applies 20% discount. Marketplace takes a per-plan fee as shown.
+        All plans include user-owned repos/infra and license guardrails. Yearly billing applies 20% discount. Marketplace takes a
+        per-plan fee as shown.
       </p>
     </div>
   )
