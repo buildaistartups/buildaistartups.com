@@ -37,14 +37,13 @@ import 'swiper/css/navigation'
 
 export default function IntegrationsCarousel() {
   const containerRef = useRef<HTMLDivElement | null>(null)
-  const swiperRef = useRef<any>(null) // avoid “Cannot use namespace 'Swiper' as a type”
+  const swiperRef = useRef<any>(null) // avoid TS namespace-type issue
 
   useEffect(() => {
     if (!containerRef.current) return
 
-    // Register plugin (older Swiper expects this)
-    // @ts-expect-error – safe across versions that still ship .use()
-    Swiper.use?.([Navigation])
+    // Register plugin if available (handles versions with/without .use)
+    ;(Swiper as any).use?.([Navigation])
 
     const instance = new Swiper(containerRef.current, {
       breakpoints: {
@@ -89,7 +88,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
+                  Build AI Starups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -120,7 +119,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
+                  Build AI Starups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -150,7 +149,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
+                  Build AI Starups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -181,7 +180,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
+                  Build AI Starups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -212,7 +211,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
+                  Build AI Starups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
