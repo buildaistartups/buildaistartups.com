@@ -23,11 +23,7 @@ const plans: Plan[] = [
 type RowValue = boolean | string
 type Section = {
   title: string
-  rows: {
-    label: string
-    values: Record<Plan['id'], RowValue>
-    note?: string
-  }[]
+  rows: { label: string; values: Record<Plan['id'], RowValue>; note?: string }[]
 }
 
 const sections: Section[] = [
@@ -59,10 +55,7 @@ const sections: Section[] = [
       { label: 'SLA', values: { indie: '—', startup: '—', scale: '99.9%' } },
     ],
   },
-  {
-    title: 'Support',
-    rows: [{ label: 'Support', values: { indie: 'Community', startup: 'Email (48h)', scale: 'Priority (8h)' } }],
-  },
+  { title: 'Support', rows: [{ label: 'Support', values: { indie: 'Community', startup: 'Email (48h)', scale: 'Priority (8h)' } }] },
 ]
 
 // ---------- helpers ----------
@@ -91,24 +84,27 @@ function priceFor(plan: Plan, annual: boolean) {
 export default function Pricing() {
   const [annual, setAnnual] = useState<boolean>(true)
 
-  // which plan column is highlighted (0..2); if none marked, default to 0
+  // Which plan column is highlighted (0..2). Defaults to first if none.
   const featuredIdx = Math.max(0, plans.findIndex((p) => p.highlight))
 
-  // tailwind-safe class maps for col-start / col-end (grid has 4 cols: 1=labels/toggle, 2..4=plans)
+  // Tailwind-safe grid-line classes (4 cols: 1 = labels/toggle, 2..4 = plans)
   const startCls = ['col-start-2', 'col-start-3', 'col-start-4'][featuredIdx]
   const endCls   = ['col-end-3', 'col-end-4', 'col-end-5'][featuredIdx]
 
   return (
     <div className="relative">
-      {/* Header row with toggle + plan cards */}
-      <div className="relative grid md:grid-cols-4 xl:-mx-6 text-sm">
-        {/* header highlight, snapped to grid column */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:grid grid-cols-4">
-          <div className={`${startCls} ${endCls} mx-3 rounded-[2.25rem] ring-1 ring-purple-400/50 bg-purple-500/10`} />
-        </div>
+      {/* ONE continuous column highlight (covers header cards + feature matrix) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 hidden md:grid grid-cols-4 xl:-mx-6 z-10"
+      >
+        <div className={`${startCls} ${endCls} mx-3 my-2 rounded-[2.25rem] ring-1 ring-purple-400/50 bg-purple-500/10`} />
+      </div>
 
+      {/* Header row with toggle + plan cards */}
+      <div className="relative z-20 grid md:grid-cols-4 xl:-mx-6 text-sm">
         {/* Toggle */}
-        <div className="px-6 flex flex-col justify-end relative z-10">
+        <div className="px-6 flex flex-col justify-end">
           <div className="pb-5 md:border-b border-slate-800">
             <div className="max-md:text-center">
               <div className="inline-flex items-center whitespace-nowrap">
@@ -135,10 +131,11 @@ export default function Pricing() {
 
         {/* Plans */}
         {plans.map((plan) => (
-          <div key={plan.id} className="px-6 flex flex-col justify-end relative z-10">
+          <div key={plan.id} className="px-6 flex flex-col justify-end">
             <div className="grow pb-4 mb-4 border-b border-slate-800 relative">
               {plan.highlight && (
-                <span className="absolute -top-2 right-0 rounded-full bg-purple-600/20 px-2 py-1 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-500/40">
+                // badge moved *down* so it sits cleanly inside the rounded highlight
+                <span className="absolute top-3 right-3 rounded-full bg-purple-600/20 px-2 py-1 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-500/40">
                   Popular
                 </span>
               )}
@@ -170,32 +167,27 @@ export default function Pricing() {
       </div>
 
       {/* Feature matrix */}
-      <div className="mt-6 relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-700/10">
-        {/* ONE continuous highlight that spans the whole matrix column */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:grid grid-cols-4">
-          <div className={`${startCls} ${endCls} mx-2 my-2 rounded-[1.75rem] ring-1 ring-purple-400/40 bg-purple-500/10`} />
-        </div>
-
-        <div className="relative z-10">
-          {sections.map((section, si) => (
-            <div key={section.title} className={si > 0 ? 'border-top border-slate-800' : ''}>
-              <div className="px-6 py-3 text-slate-50 font-medium">{section.title}</div>
-              <div className="divide-y divide-slate-800">
-                {section.rows.map((row) => (
-                  <div key={row.label} className="grid grid-cols-4">
-                    <div className="px-6 py-3 text-slate-300">{row.label}</div>
-                    {plans.map((p) => (
-                      <div key={p.id} className="px-6 py-3 text-slate-200 flex items-center">
-                        {displayValue(row.values[p.id])}
-                      </div>
-                    ))}
-                    {row.note && <div className="col-span-4 px-6 -mt-2 pb-3 text-[11px] text-slate-500">{row.note}</div>}
-                  </div>
-                ))}
-              </div>
+      <div className="relative z-20 mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-slate-700/10">
+        {sections.map((section, si) => (
+          <div key={section.title} className={si > 0 ? 'border-t border-slate-800' : ''}>
+            <div className="px-6 py-3 text-slate-50 font-medium">{section.title}</div>
+            <div className="divide-y divide-slate-800">
+              {section.rows.map((row) => (
+                <div key={row.label} className="grid grid-cols-4">
+                  <div className="px-6 py-3 text-slate-300">{row.label}</div>
+                  {plans.map((p) => (
+                    <div key={p.id} className="px-6 py-3 text-slate-200 flex items-center">
+                      {displayValue(row.values[p.id])}
+                    </div>
+                  ))}
+                  {row.note && (
+                    <div className="col-span-4 px-6 -mt-2 pb-3 text-[11px] text-slate-500">{row.note}</div>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       {/* Footer notes */}
