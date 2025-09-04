@@ -333,8 +333,8 @@ export default function Features() {
           height: 24rem;
           display: grid;
           place-items: center;
-          overflow: hidden;
-          border-radius: 1.25rem;
+          overflow: visible;
+          /* Removed background and border-radius */
         }
         @media (min-width: 768px) {
           .ai-orb__scene {
