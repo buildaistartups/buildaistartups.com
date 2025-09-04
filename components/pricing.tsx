@@ -149,13 +149,13 @@ export default function Pricing() {
       const m = matrix.getBoundingClientRect()
 
       // Position the rectangle to cover the entire "Startup" column
-      // from the header top to the matrix bottom
+      // from the header top to the matrix bottom - MAKE IT WIDER
       const TOP_PADDING = 12   // px above the "Startup" title
       const BOTTOM_PADDING = 12 // px below the last row
-      const SIDE_PADDING = 16   // Increased padding from both sides for more space
+      const SIDE_EXTENSION = 12   // EXTEND the rectangle beyond the content boundaries
       
-      const left = h.left - c.left + SIDE_PADDING
-      const width = h.width - (SIDE_PADDING * 2)
+      const left = h.left - c.left - SIDE_EXTENSION  // Move left border further left
+      const width = h.width + (SIDE_EXTENSION * 2)  // Make it wider by extending both sides
       const top = h.top - c.top - TOP_PADDING
       const height = m.bottom - h.top + TOP_PADDING + BOTTOM_PADDING
 
