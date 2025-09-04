@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // ---- Pricing model (edit here, not in markup) ----
 type Plan = {
@@ -77,6 +77,7 @@ const sections: Section[] = [
       {
         label: 'Ecosystem cross-promotion',
         values: { indie: 'Limited', startup: 'Standard', scale: 'Priority' },
+        // shorter note to keep the column tidy
         note: 'Cross-promo across startups.',
       },
       {
@@ -130,11 +131,63 @@ function priceFor(plan: Plan, annual: boolean) {
 export default function Pricing() {
   const [annual, setAnnual] = useState<boolean>(true)
 
+  // --- single-column highlight ring (one rectangle) ---
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const highlightHeaderRef = useRef<HTMLDivElement | null>(null) // Startup card header block
+  const matrixRef = useRef<HTMLDivElement | null>(null) // Feature matrix (stops above footer note)
+  const [box, setBox] = useState<React.CSSProperties | null>(null)
+
+  useEffect(() => {
+    function measure() {
+      const container = containerRef.current
+      const header = highlightHeaderRef.current
+      const matrix = matrixRef.current
+      if (!container || !header || !matrix) return
+
+      const c = container.getBoundingClientRect()
+      const h = header.getBoundingClientRect()
+      const m = matrix.getBoundingClientRect()
+
+      // Position the rectangle a bit ABOVE the plan title,
+      // and end it ABOVE the footer note.
+      const TOP_PADDING = 14   // px above "Startup"
+      const BOTTOM_PADDING = 14 // px above footer note
+      const left = h.left - c.left
+      const width = h.width
+      const top = Math.min(h.top, m.top) - c.top - TOP_PADDING
+      const height = m.bottom - c.top - BOTTOM_PADDING - top
+
+      setBox({ left, width, top, height, position: 'absolute' })
+    }
+
+    // measure now & on resize / reflow
+    const ro = new ResizeObserver(measure)
+    if (containerRef.current) ro.observe(containerRef.current)
+    if (highlightHeaderRef.current) ro.observe(highlightHeaderRef.current)
+    if (matrixRef.current) ro.observe(matrixRef.current)
+    measure()
+
+    window.addEventListener('resize', measure)
+    return () => {
+      window.removeEventListener('resize', measure)
+      ro.disconnect()
+    }
+  }, [annual]) // annual toggle shifts button sizes → re-measure
+
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
+      {/* ONE purple selection rectangle */}
+      {box && (
+        <div
+          aria-hidden
+          className="pointer-events-none z-20 rounded-[28px] ring-1 ring-purple-400/60 shadow-[0_0_0_1px_rgba(168,85,247,0.15)] before:absolute before:inset-0 before:rounded-[28px] before:bg-purple-500/10 before:opacity-70 before:blur-xl"
+          style={box}
+        />
+      )}
+
       {/* Blurred shape */}
       <div
-        className="max-md:hidden absolute bottom-0 -mb-20 left-2/3 -translate-x-1/2 blur-2xl opacity-70 pointer-events-none"
+        className="max-md:hidden absolute bottom-0 -mb-20 left-2/3 -translate-x-1/2 blur-2xl opacity-70 pointer-events-none -z-10"
         aria-hidden="true"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="434" height="427">
@@ -144,12 +197,12 @@ export default function Pricing() {
               <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
             </linearGradient>
           </defs>
-          <path fill="url(#bs5-a)" fillRule="evenodd" d="m661 736 461 369-284 58z" transform="matrix(1 0 0 -1 -661 1163)" />
+        <path fill="url(#bs5-a)" fillRule="evenodd" d="m661 736 461 369-284 58z" transform="matrix(1 0 0 -1 -661 1163)" />
         </svg>
       </div>
 
       {/* Header row with toggle + plan cards */}
-      <div className="grid md:grid-cols-4 xl:-mx-6 text-sm">
+      <div className="grid md:grid-cols-4 xl:-mx-6 text-sm relative">
         {/* Toggle */}
         <div className="px-6 flex flex-col justify-end">
           <div className="pb-5 md:border-b border-slate-800">
@@ -157,7 +210,13 @@ export default function Pricing() {
               <div className="inline-flex items-center whitespace-nowrap">
                 <div className="text-sm text-slate-500 font-medium mr-2 md:max-lg:hidden">Monthly</div>
                 <div className="relative">
-                  <input id="toggle" type="checkbox" className="peer sr-only" checked={annual} onChange={() => setAnnual((s) => !s)} />
+                  <input
+                    id="toggle"
+                    type="checkbox"
+                    className="peer sr-only"
+                    checked={annual}
+                    onChange={() => setAnnual((s) => !s)}
+                  />
                   <label
                     htmlFor="toggle"
                     className="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-slate-400 px-0.5 outline-slate-400 transition-colors before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow-xs before:transition-transform before:duration-150 peer-checked:bg-purple-500 peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-focus-visible:peer-checked:outline-purple-500"
@@ -176,9 +235,14 @@ export default function Pricing() {
         {/* Plans */}
         {plans.map((plan) => (
           <div key={plan.id} className="px-6 flex flex-col justify-end">
-            <div className="plan-card grow pb-4 mb-4 border-b border-slate-800 relative" data-highlight={plan.highlight ? 'true' : 'false'}>
+            <div
+              className="grow pb-4 mb-4 border-b border-slate-800 relative"
+              ref={plan.highlight ? highlightHeaderRef : undefined}
+            >
               {plan.highlight && (
-                <span className="absolute -top-2 right-0 rounded-full bg-purple-600/20 px-2 py-1 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-500/40">
+                <span
+                  className="absolute top-1 right-1 rounded-full bg-purple-600/20 px-2 py-1 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-500/40"
+                >
                   Popular
                 </span>
               )}
@@ -200,9 +264,7 @@ export default function Pricing() {
                 <span className="inline-flex items-center">
                   {plan.ctaLabel ?? 'Get started'}
                   <span
-                    className={`${
-                      plan.highlight ? 'text-purple-300' : 'text-purple-500'
-                    } ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5`}
+                    className={`${plan.highlight ? 'text-purple-300' : 'text-purple-500'} ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5`}
                   >
                     -&gt;
                   </span>
@@ -213,11 +275,11 @@ export default function Pricing() {
         ))}
       </div>
 
-      {/* Feature matrix */}
-      <div className="relative mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-slate-700/10">
-        {/* Column selection overlay (entire matrix) */}
-        <div id="selected-grid-col" aria-hidden="true" />
-
+      {/* Feature matrix (anchor for bottom of highlight) */}
+      <div
+        ref={matrixRef}
+        className="mt-6 overflow-hidden rounded-2xl border border-slate-800 bg-slate-700/10 relative"
+      >
         {sections.map((section, si) => (
           <div key={section.title} className={si > 0 ? 'border-t border-slate-800' : ''}>
             <div className="px-6 py-3 text-slate-50 font-medium">{section.title}</div>
@@ -226,16 +288,13 @@ export default function Pricing() {
                 <div key={row.label} className="grid grid-cols-4">
                   <div className="px-6 py-3 text-slate-300">{row.label}</div>
                   {plans.map((p) => (
-                    <div
-                      key={p.id}
-                      className={`py-3 text-slate-200 flex items-center ${
-                        p.highlight ? 'matrix-cell--selected px-8' : 'px-6'
-                      }`}
-                    >
+                    <div key={p.id} className="px-6 py-3 text-slate-200 flex items-center">
                       {displayValue(row.values[p.id])}
                     </div>
                   ))}
-                  {row.note && <div className="col-span-4 px-6 -mt-2 pb-3 text-[11px] text-slate-500">{row.note}</div>}
+                  {row.note && (
+                    <div className="col-span-4 px-6 -mt-2 pb-3 text-[11px] text-slate-500">{row.note}</div>
+                  )}
                 </div>
               ))}
             </div>
@@ -243,72 +302,11 @@ export default function Pricing() {
         ))}
       </div>
 
-      {/* Footer notes */}
+      {/* Footer notes (intentionally OUTSIDE highlight box) */}
       <p className="mt-3 text-xs text-slate-500">
         All plans include user-owned repos/infra and license guardrails. Yearly billing applies 20% discount. Marketplace takes a
         per-plan fee as shown.
       </p>
-
-      {/* Highlight styling + spacing adjustments */}
-      <style jsx global>{`
-        /* Tweak these to fine-tune the highlight box position */
-        :root {
-          --sel-top: -26px;     /* place top line a bit above the "Startup" label */
-          --sel-bottom: -56px;  /* push bottom line lower so it clears “Email (48h)” */
-          --sel-lr: -18px;      /* extra side room so borders don’t hug the text */
-        }
-
-        /* Header highlight (only around the highlighted plan card) */
-        .plan-card[data-highlight='true'] {
-          position: relative;
-        }
-        .plan-card[data-highlight='true']::after {
-          content: '';
-          position: absolute;
-          inset: var(--sel-top) var(--sel-lr) -14px var(--sel-lr); /* extend a bit below the header card */
-          border: 1px solid rgba(168, 85, 247, 0.55);
-          border-radius: 28px;
-          pointer-events: none;
-        }
-
-        /* Entire matrix column highlight (md+) */
-        #selected-grid-col {
-          display: none;
-        }
-        @media (min-width: 768px) {
-          #selected-grid-col {
-            display: block;
-            position: absolute;
-            inset: 0; /* anchor to matrix wrapper */
-            pointer-events: none;
-            z-index: 10;
-          }
-          #selected-grid-col::after {
-            content: '';
-            position: absolute;
-            /* The matrix uses grid-cols-4: [labels | indie | startup | scale]
-               So the selected (startup) column starts at 25% and ends at 75%. */
-            left: 25%;
-            right: 50%;
-            top: var(--sel-top);
-            bottom: var(--sel-bottom);
-            border: 1px solid rgba(168, 85, 247, 0.55);
-            border-radius: 28px;
-          }
-        }
-
-        /* Give selected column cells breathing room + center on md+ */
-        .matrix-cell--selected {
-          padding-left: 2rem !important;  /* px-8 */
-          padding-right: 2rem !important; /* px-8 */
-          text-align: inherit;
-        }
-        @media (min-width: 768px) {
-          .matrix-cell--selected {
-            text-align: center;
-          }
-        }
-      `}</style>
     </div>
   )
 }
