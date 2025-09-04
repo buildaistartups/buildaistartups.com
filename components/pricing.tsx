@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 
+// ---------- data ----------
 type Plan = {
   id: 'indie' | 'startup' | 'scale'
   name: string
@@ -64,6 +65,7 @@ const sections: Section[] = [
   },
 ]
 
+// ---------- helpers ----------
 const check = (
   <svg className="shrink-0 fill-purple-500" xmlns="http://www.w3.org/2000/svg" width="12" height="9" aria-hidden="true">
     <path d="M10.28.28 3.989 6.575 1.695 4.28A1 1 0 0 0 .28 5.695l3 3a1 1 0 0 0 1.414 0l7-7A1 1 0 0 0 10.28.28Z" />
@@ -89,22 +91,21 @@ function priceFor(plan: Plan, annual: boolean) {
 export default function Pricing() {
   const [annual, setAnnual] = useState<boolean>(true)
 
-  // which plan column is highlighted (0..2). default to 0 if none.
+  // which plan column is highlighted (0..2); if none marked, default to 0
   const featuredIdx = Math.max(0, plans.findIndex((p) => p.highlight))
-  const colLeftClass = ['left-1/4', 'left-1/2', 'left-3/4'][featuredIdx] ?? 'left-1/2'
+
+  // tailwind-safe class maps for col-start / col-end (grid has 4 cols: 1=labels/toggle, 2..4=plans)
+  const startCls = ['col-start-2', 'col-start-3', 'col-start-4'][featuredIdx]
+  const endCls   = ['col-end-3', 'col-end-4', 'col-end-5'][featuredIdx]
 
   return (
     <div className="relative">
       {/* Header row with toggle + plan cards */}
-      <div className="grid md:grid-cols-4 xl:-mx-6 text-sm relative">
-        {/* ONE header highlight rectangle */}
-        <div
-          aria-hidden
-          className={`pointer-events-none absolute hidden md:block inset-y-2 ${colLeftClass} w-1/4
-                      rounded-[2.25rem] ring-1 ring-purple-400/50
-                      [background:radial-gradient(60%_55%_at_50%_85%,rgba(168,85,247,.18),transparent_70%)]
-                      z-0`}
-        />
+      <div className="relative grid md:grid-cols-4 xl:-mx-6 text-sm">
+        {/* header highlight, snapped to grid column */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:grid grid-cols-4">
+          <div className={`${startCls} ${endCls} mx-3 rounded-[2.25rem] ring-1 ring-purple-400/50 bg-purple-500/10`} />
+        </div>
 
         {/* Toggle */}
         <div className="px-6 flex flex-col justify-end relative z-10">
@@ -141,14 +142,18 @@ export default function Pricing() {
                   Popular
                 </span>
               )}
-              <div className="text-base font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-0.5">{plan.name}</div>
+              <div className="text-base font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-0.5">
+                {plan.name}
+              </div>
               <div className="mb-1">{priceFor(plan, annual)}</div>
               <div className="text-slate-500">{plan.blurb}</div>
             </div>
             <div className="pb-4 border-b border-slate-800">
               <a
                 className={`btn-sm w-full transition duration-150 ease-in-out group ${
-                  plan.highlight ? 'text-white bg-purple-500 hover:bg-purple-600' : 'text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white'
+                  plan.highlight
+                    ? 'text-white bg-purple-500 hover:bg-purple-600'
+                    : 'text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white'
                 }`}
                 href={plan.ctaHref}
               >
@@ -164,20 +169,16 @@ export default function Pricing() {
         ))}
       </div>
 
-      {/* Feature matrix — ONE continuous column highlight */}
+      {/* Feature matrix */}
       <div className="mt-6 relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-700/10">
-        {/* the single tall rectangle for the whole matrix */}
-        <div
-          aria-hidden
-          className={`pointer-events-none absolute hidden md:block top-2 bottom-2 ${colLeftClass} w-1/4
-                      rounded-[1.75rem] ring-1 ring-purple-400/40
-                      [background:radial-gradient(70%_65%_at_50%_50%,rgba(168,85,247,.12),transparent_70%)]
-                      z-0`}
-        />
+        {/* ONE continuous highlight that spans the whole matrix column */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:grid grid-cols-4">
+          <div className={`${startCls} ${endCls} mx-2 my-2 rounded-[1.75rem] ring-1 ring-purple-400/40 bg-purple-500/10`} />
+        </div>
 
         <div className="relative z-10">
           {sections.map((section, si) => (
-            <div key={section.title} className={si > 0 ? 'border-t border-slate-800' : ''}>
+            <div key={section.title} className={si > 0 ? 'border-top border-slate-800' : ''}>
               <div className="px-6 py-3 text-slate-50 font-medium">{section.title}</div>
               <div className="divide-y divide-slate-800">
                 {section.rows.map((row) => (
