@@ -11,10 +11,9 @@ import CarouselImg03 from '@/public/images/carousel-icon-03.svg'
 import CarouselImg04 from '@/public/images/carousel-icon-04.svg'
 import CarouselImg05 from '@/public/images/carousel-icon-05.svg'
 
-// Import Swiper
-import Swiper, { Navigation } from 'swiper'
-import 'swiper/swiper.min.css'
-Swiper.use([Navigation])
+// Swiper (bundle = plugins pre-registered; simpler + avoids .use())
+import Swiper from 'swiper/bundle'
+import 'swiper/css/bundle'
 
 export default function TestimonialsCarousel() {
   const [swiperInitialized, setSwiperInitialized] = useState<boolean>(false)
@@ -55,8 +54,8 @@ export default function TestimonialsCarousel() {
               Build the essentials in hours
             </h2>
             <p className="text-lg text-slate-400">
-              Give HyperNova a one-sentence brief. It maps the niche, drafts the spec, scaffolds a polished Next.js repo,
-              and deploys to your Vercel—so you can learn from real users, fast.
+              Give Build AI Startups a one-sentence brief. It maps the niche, drafts the spec, scaffolds a polished
+              Next.js repo, and deploys to your Vercel—so you can learn from real users, fast.
             </p>
           </div>
 
@@ -72,7 +71,10 @@ export default function TestimonialsCarousel() {
                       quantity={3}
                       refresh={swiperInitialized}
                     />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                    <div
+                      className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square"
+                      aria-hidden="true"
+                    >
                       <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
                     </div>
                     <div className="flex flex-col p-6 h-full">
@@ -106,7 +108,10 @@ export default function TestimonialsCarousel() {
                       quantity={3}
                       refresh={swiperInitialized}
                     />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                    <div
+                      className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square"
+                      aria-hidden="true"
+                    >
                       <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
                     </div>
                     <div className="flex flex-col p-6 h-full">
@@ -140,7 +145,10 @@ export default function TestimonialsCarousel() {
                       quantity={3}
                       refresh={swiperInitialized}
                     />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                    <div
+                      className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square"
+                      aria-hidden="true"
+                    >
                       <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
                     </div>
                     <div className="flex flex-col p-6 h-full">
@@ -174,7 +182,10 @@ export default function TestimonialsCarousel() {
                       quantity={3}
                       refresh={swiperInitialized}
                     />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                    <div
+                      className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square"
+                      aria-hidden="true"
+                    >
                       <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
                     </div>
                     <div className="flex flex-col p-6 h-full">
@@ -208,7 +219,10 @@ export default function TestimonialsCarousel() {
                       quantity={3}
                       refresh={swiperInitialized}
                     />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                    <div
+                      className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square"
+                      aria-hidden="true"
+                    >
                       <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
                     </div>
                     <div className="flex flex-col p-6 h-full">
@@ -241,13 +255,21 @@ export default function TestimonialsCarousel() {
           <div className="flex mt-8 justify-end">
             <button className="carousel-prev relative z-20 w-12 h-12 flex items-center justify-center group">
               <span className="sr-only">Previous</span>
-              <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path d="M6.7 14.7l1.4-1.4L3.8 9H16V7H3.8l4.3-4.3-1.4-1.4L0 8z" />
               </svg>
             </button>
             <button className="carousel-next relative z-20 w-12 h-12 flex items-center justify-center group">
               <span className="sr-only">Next</span>
-              <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out"
+                viewBox="0 0 16 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path d="M9.3 14.7l-1.4-1.4L12.2 9H0V7h12.2L7.9 2.7l1.4-1.4L16 8z" />
               </svg>
             </button>
