@@ -149,13 +149,14 @@ export default function Pricing() {
       const m = matrix.getBoundingClientRect()
 
       // Position the rectangle a bit ABOVE the plan title,
-      // and end it ABOVE the footer note.
+      // and extend it BELOW the last row to cover "Email (48h)" text
       const TOP_PADDING = 14   // px above "Startup"
-      const BOTTOM_PADDING = 14 // px above footer note
-      const left = h.left - c.left
-      const width = h.width
+      const BOTTOM_EXTENSION = 20 // px below the matrix to cover support text
+      const LEFT_PADDING = 8   // px padding from left edge for spacing
+      const left = h.left - c.left + LEFT_PADDING
+      const width = h.width - (LEFT_PADDING * 2)
       const top = Math.min(h.top, m.top) - c.top - TOP_PADDING
-      const height = m.bottom - c.top - BOTTOM_PADDING - top
+      const height = m.bottom - c.top + BOTTOM_EXTENSION - top
 
       setBox({ left, width, top, height, position: 'absolute' })
     }
@@ -180,7 +181,7 @@ export default function Pricing() {
       {box && (
         <div
           aria-hidden
-          className="pointer-events-none z-20 rounded-[28px] ring-1 ring-purple-400/60 shadow-[0_0_0_1px_rgba(168,85,247,0.15)] before:absolute before:inset-0 before:rounded-[28px] before:bg-purple-500/10 before:opacity-70 before:blur-xl"
+          className="pointer-events-none z-20 ring-1 ring-purple-400/60 shadow-[0_0_0_1px_rgba(168,85,247,0.15)] before:absolute before:inset-0 before:bg-purple-500/10 before:opacity-70 before:blur-xl"
           style={box}
         />
       )}
