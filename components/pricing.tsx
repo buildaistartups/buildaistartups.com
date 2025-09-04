@@ -152,7 +152,7 @@ export default function Pricing() {
       // from the header top to the matrix bottom
       const TOP_PADDING = 12   // px above the "Startup" title
       const BOTTOM_PADDING = 12 // px below the last row
-      const SIDE_PADDING = 6   // px padding from both sides
+      const SIDE_PADDING = 16   // Increased padding from both sides for more space
       
       const left = h.left - c.left + SIDE_PADDING
       const width = h.width - (SIDE_PADDING * 2)
