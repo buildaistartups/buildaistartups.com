@@ -89,7 +89,7 @@ const sections: Section[] = [
       {
         label: 'Ecosystem cross-promotion',
         values: { indie: 'Limited', startup: 'Standard', scale: 'Priority' },
-        note: 'Surfaces across generated startups that compound distribution.',
+        note: 'Cross-promote across generated startups.',
       },
       {
         label: 'Marketplace listing',
