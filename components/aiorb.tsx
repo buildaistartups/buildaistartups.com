@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 export default function AIOrb() {
   const sceneRef = useRef<HTMLDivElement | null>(null)
@@ -109,8 +110,6 @@ export default function AIOrb() {
     <>
       {/* Orb Scene */}
       <div ref={sceneRef} className="ai-orb__scene">
-        {/* Removed the ai-orb__halo div */}
-
         <canvas ref={canvasRef} className="ai-orb__field" />
 
         <div className="ai-orb__orb">
@@ -119,9 +118,15 @@ export default function AIOrb() {
           <div className="ai-orb__ring r3" />
 
           <div className="ai-orb__logoPlate">
-            <div className="ai-orb__brand">
-              Build AI Startups
-              <small>From one-line spec to shipped product</small>
+            {/* Logo instead of text */}
+            <div className="ai-orb__logo">
+              <Image
+                src="/images/d_logo_sq.png"
+                alt="Logo"
+                width={80}
+                height={80}
+                className="ai-orb__logoImage"
+              />
             </div>
           </div>
 
@@ -185,8 +190,6 @@ export default function AIOrb() {
             height: 32rem;
           }
         }
-
-        /* Removed .ai-orb__halo styles */
 
         /* Central glass orb */
         .ai-orb__orb {
@@ -286,12 +289,12 @@ export default function AIOrb() {
           animation: ai-orbit3 22s linear infinite;
         }
 
-        /* Logo plate */
+        /* Logo plate - updated for logo */
         .ai-orb__logoPlate {
           position: relative;
           width: 64%;
-          aspect-ratio: 3.6/1.2;
-          border-radius: 22px;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
           display: grid;
           place-items: center;
           background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
@@ -320,29 +323,38 @@ export default function AIOrb() {
           opacity: 0.7;
           pointer-events: none;
         }
-        .ai-orb__brand {
-          font-weight: 800;
-          font-size: clamp(18px, 4.2vw, 36px);
-          letter-spacing: 0.3px;
-          line-height: 1;
-          background: linear-gradient(90deg, #fff, #e9d5ff 40%, #dbeafe);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          text-shadow: 0 4px 24px rgba(168, 85, 247, 0.25);
-          text-align: center;
+
+        /* Logo container */
+        .ai-orb__logo {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-        .ai-orb__brand small {
-          display: block;
-          font-weight: 600;
-          font-size: clamp(11px, 1.2vw, 12.5px);
-          letter-spacing: 0.4px;
-          margin-top: 6px;
-          background: linear-gradient(90deg, #a5b4fc, #a78bfa, #67e8f9);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-          opacity: 0.95;
+
+        /* Logo image styling */
+        :global(.ai-orb__logoImage) {
+          width: auto;
+          height: auto;
+          max-width: 60px;
+          max-height: 60px;
+          object-fit: contain;
+          filter: drop-shadow(0 4px 12px rgba(168, 85, 247, 0.4));
+        }
+
+        @media (min-width: 768px) {
+          :global(.ai-orb__logoImage) {
+            max-width: 70px;
+            max-height: 70px;
+          }
+        }
+
+        @media (min-width: 1024px) {
+          :global(.ai-orb__logoImage) {
+            max-width: 80px;
+            max-height: 80px;
+          }
         }
 
         /* Signals */
