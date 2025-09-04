@@ -109,7 +109,7 @@ export default function AIOrb() {
     <>
       {/* Orb Scene */}
       <div ref={sceneRef} className="ai-orb__scene">
-        <div className="ai-orb__halo" aria-hidden="true" />
+        {/* Removed the ai-orb__halo div */}
 
         <canvas ref={canvasRef} className="ai-orb__field" />
 
@@ -186,24 +186,7 @@ export default function AIOrb() {
           }
         }
 
-        .ai-orb__halo {
-          position: absolute;
-          inset: -10vmax;
-          background: radial-gradient(45% 55% at 50% 40%, rgba(20, 184, 166, 0.08), transparent 60%),
-            radial-gradient(65% 55% at 50% 60%, rgba(99, 102, 241, 0.08), transparent 60%),
-            conic-gradient(
-              from 0deg,
-              rgba(168, 85, 247, 0.15),
-              rgba(34, 211, 238, 0.15),
-              rgba(124, 58, 237, 0.15),
-              rgba(20, 184, 166, 0.15),
-              rgba(168, 85, 247, 0.15)
-            );
-          filter: blur(24px);
-          animation: ai-spin 38s linear infinite;
-          opacity: 0.7;
-          pointer-events: none;
-        }
+        /* Removed .ai-orb__halo styles */
 
         /* Central glass orb */
         .ai-orb__orb {
