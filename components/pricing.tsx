@@ -57,22 +57,10 @@ const sections: Section[] = [
   {
     title: 'Usage',
     rows: [
-      {
-        label: 'Build runs / month',
-        values: { indie: '10', startup: '50', scale: '200' },
-      },
-      {
-        label: 'Autopilot deploys / month',
-        values: { indie: '2', startup: '10', scale: 'Unlimited' },
-      },
-      {
-        label: 'Seats',
-        values: { indie: '1', startup: '5', scale: '20' },
-      },
-      {
-        label: 'API calls / month',
-        values: { indie: '50k', startup: '250k', scale: '1M' },
-      },
+      { label: 'Build runs / month', values: { indie: '10', startup: '50', scale: '200' } },
+      { label: 'Autopilot deploys / month', values: { indie: '2', startup: '10', scale: 'Unlimited' } },
+      { label: 'Seats', values: { indie: '1', startup: '5', scale: '20' } },
+      { label: 'API calls / month', values: { indie: '50k', startup: '250k', scale: '1M' } },
     ],
   },
   {
@@ -89,7 +77,7 @@ const sections: Section[] = [
       {
         label: 'Ecosystem cross-promotion',
         values: { indie: 'Limited', startup: 'Standard', scale: 'Priority' },
-        note: 'Cross-promote across generated startups.',
+        note: 'Cross-promo across generated startups.',
       },
       {
         label: 'Marketplace listing',
@@ -104,31 +92,16 @@ const sections: Section[] = [
   {
     title: 'Security & Control',
     rows: [
-      {
-        label: 'Private repos (your GitHub)',
-        values: { indie: true, startup: true, scale: true },
-      },
-      {
-        label: 'Your infra (Vercel/DB/Stripe)',
-        values: { indie: true, startup: true, scale: true },
-      },
-      {
-        label: 'SSO (SAML / OIDC)',
-        values: { indie: false, startup: false, scale: true },
-      },
-      {
-        label: 'SLA',
-        values: { indie: '—', startup: '—', scale: '99.9%' },
-      },
+      { label: 'Private repos (your GitHub)', values: { indie: true, startup: true, scale: true } },
+      { label: 'Your infra (Vercel/DB/Stripe)', values: { indie: true, startup: true, scale: true } },
+      { label: 'SSO (SAML / OIDC)', values: { indie: false, startup: false, scale: true } },
+      { label: 'SLA', values: { indie: '—', startup: '—', scale: '99.9%' } },
     ],
   },
   {
     title: 'Support',
     rows: [
-      {
-        label: 'Support',
-        values: { indie: 'Community', startup: 'Email (48h)', scale: 'Priority (8h)' },
-      },
+      { label: 'Support', values: { indie: 'Community', startup: 'Email (48h)', scale: 'Priority (8h)' } },
     ],
   },
 ]
@@ -159,6 +132,11 @@ function priceFor(plan: Plan, annual: boolean) {
 export default function Pricing() {
   const [annual, setAnnual] = useState<boolean>(true)
 
+  // figure out which plan is featured to place the purple rectangle
+  const featuredIdx = Math.max(0, plans.findIndex((p) => p.highlight)) // 0..2 (defaults to 0 if none)
+  // overlay sits in the grid of 4 columns: col 1 = labels/toggle, cols 2..4 = plans
+  const colLeftClass = ['left-1/4', 'left-1/2', 'left-3/4'][featuredIdx] ?? 'left-1/2'
+
   return (
     <div className="relative">
       {/* Blurred shape */}
@@ -178,9 +156,19 @@ export default function Pricing() {
       </div>
 
       {/* Header row with toggle + plan cards */}
-      <div className="grid md:grid-cols-4 xl:-mx-6 text-sm">
+      <div className="grid md:grid-cols-4 xl:-mx-6 text-sm relative">
+        {/* Purple selection rectangle (header area) */}
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute hidden md:block inset-y-2 ${colLeftClass} w-1/4
+                      rounded-[2.25rem] ring-1 ring-purple-400/50
+                      [background:radial-gradient(60%_55%_at_50%_85%,rgba(168,85,247,.22),transparent_70%)]
+                      [mask:linear-gradient(#000,transparent_85%)]
+                      z-0`}
+        />
+
         {/* Toggle */}
-        <div className="px-6 flex flex-col justify-end">
+        <div className="px-6 flex flex-col justify-end relative z-10">
           <div className="pb-5 md:border-b border-slate-800">
             <div className="max-md:text-center">
               <div className="inline-flex items-center whitespace-nowrap">
@@ -210,7 +198,7 @@ export default function Pricing() {
 
         {/* Plans */}
         {plans.map((plan) => (
-          <div key={plan.id} className="px-6 flex flex-col justify-end">
+          <div key={plan.id} className="px-6 flex flex-col justify-end relative z-10">
             <div className="grow pb-4 mb-4 border-b border-slate-800 relative">
               {plan.highlight && (
                 <span className="absolute -top-2 right-0 rounded-full bg-purple-600/20 px-2 py-1 text-[10px] font-semibold text-purple-300 ring-1 ring-purple-500/40">
@@ -234,7 +222,9 @@ export default function Pricing() {
               >
                 <span className="inline-flex items-center">
                   {plan.ctaLabel ?? 'Get started'}
-                  <span className={`${plan.highlight ? 'text-purple-300' : 'text-purple-500'} ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5`}>
+                  <span
+                    className={`${plan.highlight ? 'text-purple-300' : 'text-purple-500'} ml-1 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5`}
+                  >
                     -&gt;
                   </span>
                 </span>
@@ -249,20 +239,32 @@ export default function Pricing() {
         {sections.map((section, si) => (
           <div key={section.title} className={si > 0 ? 'border-t border-slate-800' : ''}>
             <div className="px-6 py-3 text-slate-50 font-medium">{section.title}</div>
-            <div className="divide-y divide-slate-800">
-              {section.rows.map((row) => (
-                <div key={row.label} className="grid grid-cols-4">
-                  <div className="px-6 py-3 text-slate-300">{row.label}</div>
-                  {plans.map((p) => (
-                    <div key={p.id} className="px-6 py-3 text-slate-200 flex items-center">
-                      {displayValue(row.values[p.id])}
-                    </div>
-                  ))}
-                  {row.note && (
-                    <div className="col-span-4 px-6 -mt-2 pb-3 text-[11px] text-slate-500">{row.note}</div>
-                  )}
-                </div>
-              ))}
+
+            {/* Section rows + purple column overlay */}
+            <div className="relative">
+              {/* Purple selection rectangle (per section) */}
+              <div
+                aria-hidden
+                className={`pointer-events-none absolute hidden md:block top-0 bottom-0 ${colLeftClass} w-1/4
+                            rounded-[1.75rem] ring-1 ring-purple-400/40
+                            [background:radial-gradient(60%_55%_at_50%_15%,rgba(168,85,247,.14),transparent_70%)]
+                            z-0`}
+              />
+              <div className="divide-y divide-slate-800 relative z-10">
+                {section.rows.map((row) => (
+                  <div key={row.label} className="grid grid-cols-4">
+                    <div className="px-6 py-3 text-slate-300">{row.label}</div>
+                    {plans.map((p) => (
+                      <div key={p.id} className="px-6 py-3 text-slate-200 flex items-center">
+                        {displayValue(row.values[p.id])}
+                      </div>
+                    ))}
+                    {row.note && (
+                      <div className="col-span-4 px-6 -mt-2 pb-3 text-[11px] text-slate-500">{row.note}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         ))}
