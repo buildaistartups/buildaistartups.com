@@ -4,12 +4,6 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Swiper core & modules (current API)
-import Swiper from 'swiper'
-import { Navigation } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/navigation'
-
 import IntegrationImg01 from '@/public/images/integrations-01.svg'
 import IntegrationImg02 from '@/public/images/integrations-02.svg'
 import IntegrationImg03 from '@/public/images/integrations-03.svg'
@@ -36,6 +30,11 @@ import Avatar17 from '@/public/images/avatar-17.jpg'
 import Avatar18 from '@/public/images/avatar-18.jpg'
 import Avatar19 from '@/public/images/avatar-19.jpg'
 
+// Swiper (root import for broad compatibility)
+import Swiper, { Navigation } from 'swiper'
+import 'swiper/swiper.min.css'
+import 'swiper/css/navigation'
+
 export default function IntegrationsCarousel() {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const swiperRef = useRef<any>(null) // avoid “Cannot use namespace 'Swiper' as a type”
@@ -43,8 +42,11 @@ export default function IntegrationsCarousel() {
   useEffect(() => {
     if (!containerRef.current) return
 
+    // Register plugin (older Swiper expects this)
+    // @ts-expect-error – safe across versions that still ship .use()
+    Swiper.use?.([Navigation])
+
     const instance = new Swiper(containerRef.current, {
-      modules: [Navigation],
       breakpoints: {
         320: { slidesPerView: 1 },
         640: { slidesPerView: 2 },
@@ -64,18 +66,18 @@ export default function IntegrationsCarousel() {
     swiperRef.current = instance
     return () => {
       try {
-        swiperRef.current?.destroy?.(true, true)
-      } catch {}
-      swiperRef.current = null
+        instance.destroy(true, true)
+      } catch {
+        // no-op
+      }
     }
   }, [])
 
   return (
     <>
-      {/* Swiper container */}
-      <div ref={containerRef} className="integrations-carousel swiper group">
+      <div ref={containerRef} className="stellar-carousel swiper-container group">
         <div className="swiper-wrapper w-fit">
-          {/* Slide 1 */}
+          {/* Item 1 */}
           <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
             <div className="flex flex-col p-5 h-full">
               <div className="flex items-center space-x-3 mb-3">
@@ -87,7 +89,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.
+                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -106,7 +108,7 @@ export default function IntegrationsCarousel() {
             </div>
           </div>
 
-          {/* Slide 2 */}
+          {/* Item 2 */}
           <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
             <div className="flex flex-col p-5 h-full">
               <div className="flex items-center space-x-3 mb-3">
@@ -118,7 +120,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.
+                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -136,7 +138,7 @@ export default function IntegrationsCarousel() {
             </div>
           </div>
 
-          {/* Slide 3 */}
+          {/* Item 3 */}
           <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
             <div className="flex flex-col p-5 h-full">
               <div className="flex items-center space-x-3 mb-3">
@@ -148,7 +150,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.
+                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -167,7 +169,7 @@ export default function IntegrationsCarousel() {
             </div>
           </div>
 
-          {/* Slide 4 */}
+          {/* Item 4 */}
           <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
             <div className="flex flex-col p-5 h-full">
               <div className="flex items-center space-x-3 mb-3">
@@ -179,7 +181,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.
+                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -198,7 +200,7 @@ export default function IntegrationsCarousel() {
             </div>
           </div>
 
-          {/* Slide 5 */}
+          {/* Item 5 */}
           <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
             <div className="flex flex-col p-5 h-full">
               <div className="flex items-center space-x-3 mb-3">
@@ -210,7 +212,7 @@ export default function IntegrationsCarousel() {
               </div>
               <div className="grow mb-4">
                 <div className="text-sm text-slate-400">
-                  Build AI Startups makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.
+                  Build AI Startups makes it easy to build extensions by providing an auth provider that handles the OAuth flow.
                 </div>
               </div>
               <div className="flex justify-between">
@@ -235,11 +237,15 @@ export default function IntegrationsCarousel() {
       <div className="flex py-8 justify-end">
         <button className="carousel-prev relative z-20 w-12 h-12 flex items-center justify-center group">
           <span className="sr-only">Previous</span>
-          <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M6.7 14.7l1.4-1.4L3.8 9H16V7H3.8l4.3-4.3-1.4-1.4L0 8z" /></svg>
+          <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.7 14.7l1.4-1.4L3.8 9H16V7H3.8l4.3-4.3-1.4-1.4L0 8z" />
+          </svg>
         </button>
         <button className="carousel-next relative z-20 w-12 h-12 flex items-center justify-center group">
           <span className="sr-only">Next</span>
-          <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M9.3 14.7l-1.4-1.4L12.2 9H0V7h12.2L7.9 2.7l1.4-1.4L16 8z" /></svg>
+          <svg className="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.3 14.7l-1.4-1.4L12.2 9H0V7h12.2L7.9 2.7l1.4-1.4L16 8z" />
+          </svg>
         </button>
       </div>
     </>
