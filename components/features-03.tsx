@@ -55,8 +55,8 @@ export default function Features03() {
                     </div>
                     <Image
                       src={FeatureImg04}
-                      width={768}
-                      height={400}
+                      width={1486}
+                      height={778}
                       alt="Build AI Startups launch-ready app shell preview"
                     />
                   </div>
