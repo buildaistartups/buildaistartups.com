@@ -1,0 +1,94 @@
+<svg width="536" height="230" viewBox="0 0 536 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6" />
+      <stop offset="100%" style="stop-color:#3b82f6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Terminal Window -->
+  <g transform="translate(20, 20)">
+    <rect width="496" height="190" fill="none" stroke="url(#techGradient)" stroke-width="3" rx="12"/>
+    
+    <!-- Terminal header -->
+    <rect width="496" height="35" fill="none" stroke="url(#techGradient)" stroke-width="2" rx="12"/>
+    <circle cx="25" cy="17" r="5" fill="#ef4444"/>
+    <circle cx="40" cy="17" r="5" fill="#f59e0b"/>
+    <circle cx="55" cy="17" r="5" fill="#10b981"/>
+    
+    <!-- GitHub icon -->
+    <circle cx="80" cy="17" r="12" fill="url(#techGradient)"/>
+    <path d="M80 8 Q85 8 85 13 Q85 18 80 18 Q75 18 75 13 Q75 8 80 8" fill="#ffffff"/>
+    <text x="100" y="21" font-family="monospace" font-size="12" fill="url(#techGradient)" font-weight="bold">Repository</text>
+    
+    <!-- File tree -->
+    <g transform="translate(15, 50)">
+      <text x="0" y="15" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">📁 src/</text>
+      <text x="20" y="30" font-family="monospace" font-size="10" fill="#8b5cf6">📄 app.tsx</text>
+      <text x="20" y="42" font-family="monospace" font-size="10" fill="#8b5cf6">📄 layout.tsx</text>
+      <text x="0" y="57" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">📁 components/</text>
+      <text x="20" y="72" font-family="monospace" font-size="10" fill="#10b981">📄 auth.tsx</text>
+      <text x="20" y="84" font-family="monospace" font-size="10" fill="#10b981">📄 dashboard.tsx</text>
+      <text x="0" y="99" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">📁 api/</text>
+      <text x="20" y="114" font-family="monospace" font-size="10" fill="#f59e0b">📄 users.ts</text>
+      <text x="20" y="126" font-family="monospace" font-size="10" fill="#f59e0b">📄 billing.ts</text>
+      <text x="0" y="141" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">📁 tests/</text>
+      <text x="0" y="156" font-family="monospace" font-size="11" fill="#6b7280" font-weight="bold">📄 package.json</text>
+    </g>
+    
+    <!-- Code preview -->
+    <g transform="translate(180, 50)">
+      <rect width="300" height="125" fill="none" stroke="url(#techGradient)" stroke-width="2" rx="6"/>
+      
+      <!-- Code lines with better contrast -->
+      <text x="10" y="20" font-family="monospace" font-size="10" fill="#6b7280">1</text>
+      <text x="25" y="20" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="bold">import</text>
+      <text x="70" y="20" font-family="monospace" font-size="10" fill="#8b5cf6">{ NextAuth }</text>
+      
+      <text x="10" y="35" font-family="monospace" font-size="10" fill="#6b7280">2</text>
+      <text x="25" y="35" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="bold">import</text>
+      <text x="70" y="35" font-family="monospace" font-size="10" fill="#8b5cf6">{ Stripe }</text>
+      
+      <text x="10" y="55" font-family="monospace" font-size="10" fill="#6b7280">4</text>
+      <text x="25" y="55" font-family="monospace" font-size="10" fill="#f59e0b" font-weight="bold">export</text>
+      <text x="70" y="55" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="bold">default</text>
+      <text x="120" y="55" font-family="monospace" font-size="10" fill="#8b5cf6" font-weight="bold">function</text>
+      
+      <text x="10" y="70" font-family="monospace" font-size="10" fill="#6b7280">5</text>
+      <text x="35" y="70" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="bold">const</text>
+      <text x="75" y="70" font-family="monospace" font-size="10" fill="#8b5cf6">session</text>
+      
+      <text x="10" y="85" font-family="monospace" font-size="10" fill="#6b7280">6</text>
+      <text x="35" y="85" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="bold">const</text>
+      <text x="75" y="85" font-family="monospace" font-size="10" fill="#8b5cf6">analytics</text>
+      
+      <text x="10" y="105" font-family="monospace" font-size="10" fill="#6b7280">8</text>
+      <text x="35" y="105" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="bold">return</text>
+      <text x="80" y="105" font-family="monospace" font-size="10" fill="#10b981">&lt;Dashboard /&gt;</text>
+    </g>
+  </g>
+  
+  <!-- Tech stack badges with outlines -->
+  <g transform="translate(20, 200)">
+    <rect width="60" height="20" fill="#000000" stroke="#8b5cf6" stroke-width="1" rx="10"/>
+    <text x="30" y="13" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">Next.js</text>
+    
+    <rect x="70" width="50" height="20" fill="#3178c6" stroke="#8b5cf6" stroke-width="1" rx="10"/>
+    <text x="95" y="13" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">TypeScript</text>
+    
+    <rect x="130" width="50" height="20" fill="#06b6d4" stroke="#8b5cf6" stroke-width="1" rx="10"/>
+    <text x="155" y="13" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">Tailwind</text>
+    
+    <rect x="190" width="40" height="20" fill="#8b5cf6" stroke="#3b82f6" stroke-width="1" rx="10"/>
+    <text x="210" y="13" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">Auth</text>
+    
+    <rect x="240" width="40" height="20" fill="#635bff" stroke="#8b5cf6" stroke-width="1" rx="10"/>
+    <text x="260" y="13" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">Stripe</text>
+  </g>
+  
+  <!-- Deployment indicator -->
+  <g transform="translate(450, 200)">
+    <circle cx="15" cy="10" r="8" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+    <text x="28" y="14" font-family="Arial" font-size="10" fill="#10b981" font-weight="bold">Deployed</text>
+  </g>
+</svg>
