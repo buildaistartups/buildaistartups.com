@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Particles from './particles'
 import Highlighter, { HighlighterItem } from './highlighter'
 
-// Updated imports for new feature images
 import FeatureImg01 from '@/public/images/ai-analysis-feature.svg'
 import FeatureImg02 from '@/public/images/code-repository-feature.svg'
 import FeatureImg03 from '@/public/images/deployment-cycle-feature.svg'
@@ -20,11 +19,11 @@ export default function Features02() {
         <div className="pt-16 md:pt-32">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
+            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
               Ship real products. On autopilot.
             </h2>
             <p className="text-lg text-slate-400">
-              Build AI Startups turns a one-sentence brief into a working product: researches the niche, drafts a PRD,
+              Build AI Starups turns a one-sentence brief into a working product: researches the niche, drafts a PRD,
               scaffolds a production repo, wires auth/billing/analytics, and deploys to your cloud. You own the code,
               the accounts, and the upside.
             </p>
@@ -55,18 +54,18 @@ export default function Features02() {
 
             {/* Grid */}
             <Highlighter className="grid md:grid-cols-12 gap-6 group">
-              {/* Box #1 - AI Analysis */}
+              {/* Box #1 */}
               <div className="md:col-span-12" data-aos="fade-down">
                 <HighlighterItem>
                   <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                      {/* Enhanced gradient effects */}
+                      {/* Blurred shape */}
                       <div className="absolute right-0 top-0 blur-2xl" aria-hidden="true">
                         <svg xmlns="http://www.w3.org/2000/svg" width="342" height="393">
                           <defs>
                             <linearGradient id="bs-a" x1="19.609%" x2="50%" y1="14.544%" y2="100%">
-                              <stop offset="0%" stopColor="#8B5CF6" />
-                              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+                              <stop offset="0%" stopColor="#6366F1" />
+                              <stop offset="100%" stopColor="#6366F1" stopOpacity="0" />
                             </linearGradient>
                           </defs>
                           <path
@@ -78,25 +77,25 @@ export default function Features02() {
                           />
                         </svg>
                       </div>
-                      
-                      {/* Enhanced radial gradient */}
+                      {/* Radial gradient */}
                       <div
                         className="absolute flex items-center justify-center bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 h-full aspect-square"
                         aria-hidden="true"
                       >
-                        <div className="absolute inset-0 translate-z-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full blur-[120px] opacity-70" />
-                        <div className="absolute w-1/4 h-1/4 translate-z-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-[40px]" />
+                        <div className="absolute inset-0 translate-z-0 bg-purple-500 rounded-full blur-[120px] opacity-70" />
+                        <div className="absolute w-1/4 h-1/4 translate-z-0 bg-purple-400 rounded-full blur-[40px]" />
                       </div>
 
                       {/* Text */}
                       <div className="md:max-w-[480px] shrink-0 order-1 md:order-none p-6 pt-0 md:p-8 md:pr-0">
                         <div className="mb-5">
                           <div>
-                            <h3 className="inline-flex text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
+                            <h3 className="inline-flex text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
                               From brief to PRD
                             </h3>
                             <p className="text-slate-400">
-                              Our AI analyzes your idea, maps the competitive landscape, identifies market opportunities, and drafts a comprehensive PRD with clear acceptance criteria and strategic first-release scope.
+                              We analyze your idea, map the niche &amp; competitors, and draft a shippable PRD with clear
+                              acceptance criteria and first-release scope.
                             </p>
                           </div>
                         </div>
@@ -108,22 +107,21 @@ export default function Features02() {
                             <span className="relative inline-flex items-center">
                               Learn more
                               <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                                →
+                                -&gt;
                               </span>
                             </span>
                           </Link>
                         </div>
                       </div>
 
-                      {/* Updated Image */}
+                      {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden">
                         <Image
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:relative md:left-0 md:translate-x-0 drop-shadow-2xl"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:relative md:left-0 md:translate-x-0"
                           src={FeatureImg01}
                           width="504"
                           height="400"
-                          alt="AI-powered analysis transforming brief to comprehensive PRD"
-                          priority
+                          alt="Brief to PRD illustration"
                         />
                       </div>
                     </div>
@@ -131,27 +129,27 @@ export default function Features02() {
                 </HighlighterItem>
               </div>
 
-              {/* Box #2 - Code Repository */}
+              {/* Box #2 */}
               <div className="md:col-span-7" data-aos="fade-down">
                 <HighlighterItem>
                   <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
                     <div className="flex flex-col">
-                      {/* Enhanced radial gradient */}
+                      {/* Radial gradient */}
                       <div
                         className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
                         aria-hidden="true"
                       >
-                        <div className="absolute inset-0 translate-z-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full blur-[80px] opacity-60" />
+                        <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]" />
                       </div>
-                      
                       {/* Text */}
                       <div className="md:max-w-[480px] shrink-0 order-1 md:order-none p-6 pt-0 md:p-8">
                         <div>
-                          <h3 className="inline-flex text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
-                            Production repo & UI
+                          <h3 className="inline-flex text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
+                            Production repo &amp; UI
                           </h3>
                           <p className="text-slate-400">
-                            Next.js 15 + TypeScript + Tailwind + shadcn/ui. Complete with authentication, documentation, pricing pages, analytics hooks, comprehensive tests, and API routes — all pushed to your GitHub with industry best practices.
+                            Next.js 15 + TypeScript + Tailwind + shadcn/ui. Auth, docs, pricing, analytics hooks, tests,
+                            and API routes — pushed to your GitHub with sensible conventions.
                           </p>
                         </div>
 
@@ -163,21 +161,21 @@ export default function Features02() {
                             <span className="relative inline-flex items-center">
                               Learn more
                               <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                                →
+                                -&gt;
                               </span>
                             </span>
                           </Link>
                         </div>
                       </div>
 
-                      {/* Updated Image */}
+                      {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden md:pb-8">
                         <Image
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0 drop-shadow-xl"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0"
                           src={FeatureImg02}
                           width={536}
                           height={230}
-                          alt="Modern development environment with code generation and repository structure"
+                          alt="Scaffolded repo & UI illustration"
                         />
                       </div>
                     </div>
@@ -185,27 +183,27 @@ export default function Features02() {
                 </HighlighterItem>
               </div>
 
-              {/* Box #3 - Deployment Cycle */}
+              {/* Box #3 */}
               <div className="md:col-span-5" data-aos="fade-down">
                 <HighlighterItem>
                   <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
                     <div className="flex flex-col">
-                      {/* Enhanced radial gradient */}
+                      {/* Radial gradient */}
                       <div
                         className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/2 aspect-square"
                         aria-hidden="true"
                       >
-                        <div className="absolute inset-0 translate-z-0 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full blur-[80px] opacity-60" />
+                        <div className="absolute inset-0 translate-z-0 bg-slate-800 rounded-full blur-[80px]" />
                       </div>
-                      
                       {/* Text */}
                       <div className="md:max-w-[480px] shrink-0 order-1 md:order-none p-6 pt-0 md:p-8">
                         <div>
-                          <h3 className="inline-flex text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
+                          <h3 className="inline-flex text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-1">
                             Deploy, learn, iterate
                           </h3>
                           <p className="text-slate-400">
-                            One-click deployment to Vercel with integrated Stripe and Postgres. Pre-configured analytics for page views, sign-ups, activations, and payments. Continuous feedback loop keeps your PRD synchronized with real user data.
+                            One-click deploy to Vercel with Stripe and Postgres stubs. Events for page/sign-up/activate/pay
+                            are prewired, and the feedback loop keeps your PRD in sync.
                           </p>
                         </div>
 
@@ -217,21 +215,21 @@ export default function Features02() {
                             <span className="relative inline-flex items-center">
                               Learn more
                               <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                                →
+                                -&gt;
                               </span>
                             </span>
                           </Link>
                         </div>
                       </div>
 
-                      {/* Updated Image */}
+                      {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden md:pb-8">
                         <Image
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0 drop-shadow-xl"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0"
                           src={FeatureImg03}
                           width={230}
                           height={230}
-                          alt="Continuous deployment and iteration cycle with analytics dashboard"
+                          alt="Deploy & iterate illustration"
                         />
                       </div>
                     </div>
@@ -241,83 +239,83 @@ export default function Features02() {
             </Highlighter>
           </div>
 
-          {/* Enhanced Features list */}
+          {/* Features list */}
           <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-            {/* Feature 1 */}
-            <div className="group">
+            {/* Feature */}
+            <div>
               <div className="flex items-center space-x-2 mb-1">
-                <svg className="shrink-0 fill-slate-300 group-hover:fill-purple-400 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                   <path d="M7.999 2.34a4.733 4.733 0 0 0-6.604 6.778l5.904 5.762a1 1 0 0 0 1.4 0l5.915-5.77a4.733 4.733 0 0 0-6.615-6.77Zm5.208 5.348-5.208 5.079-5.2-5.07a2.734 2.734 0 0 1 3.867-3.864c.182.19.335.404.455.638a1.04 1.04 0 0 0 1.756 0 2.724 2.724 0 0 1 5.122 1.294 2.7 2.7 0 0 1-.792 1.923Z" />
                 </svg>
-                <h4 className="font-medium text-slate-50 group-hover:text-white transition-colors duration-200">Own your stack</h4>
+                <h4 className="font-medium text-slate-50">Own your stack</h4>
               </div>
-              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-200">
-                Complete ownership — your GitHub repositories, Vercel deployments, Stripe accounts. Zero vendor lock-in, maximum control.
+              <p className="text-sm text-slate-400">
+                No lock-in — use your GitHub, your Vercel, your Stripe. You keep the repos and the keys.
               </p>
             </div>
 
-            {/* Feature 2 */}
-            <div className="group">
+            {/* Feature */}
+            <div>
               <div className="flex items-center space-x-2 mb-1">
-                <svg className="shrink-0 fill-slate-300 group-hover:fill-blue-400 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                   <path d="M11 0c1.3 0 2.6.5 3.5 1.5 1 .9 1.5 2.2 1.5 3.5 0 1.3-.5 2.6-1.4 3.5l-1.2 1.2c-.2.2-.5.3-.7.3-.2 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l1.1-1.2c.6-.5.9-1.3.9-2.1s-.3-1.6-.9-2.2C12 1.7 10 1.7 8.9 2.8L7.7 4c-.4.4-1 .4-1.4 0-.4-.4-.4-1 0-1.4l1.2-1.1C8.4.5 9.7 0 11 0ZM8.3 12c.4-.4 1-.5 1.4-.1.4.4.4 1 0 1.4l-1.2 1.2C7.6 15.5 6.3 16 5 16c-1.3 0-2.6-.5-3.5-1.5C.5 13.6 0 12.3 0 11c0-1.3.5-2.6 1.5-3.5l1.1-1.2c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4L2.9 8.9c-.6.5-.9 1.3-.9 2.1s.3 1.6.9 2.2c1.1 1.1 3.1 1.1 4.2 0L8.3 12Zm1.1-6.8c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-4.2 4.2c-.2.2-.5.3-.7.3-.2 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l4.2-4.2Z" />
                 </svg>
-                <h4 className="font-medium text-slate-50 group-hover:text-white transition-colors duration-200">Composable architecture</h4>
+                <h4 className="font-medium text-slate-50">Composable templates</h4>
               </div>
-              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-200">
-                Modular SaaS, API, marketplace, and custom templates. Mix, match, and extend components as your product scales.
+              <p className="text-sm text-slate-400">
+                Start from SaaS, API, marketplace, or custom recipes — mix and match modules as your product evolves.
               </p>
             </div>
 
-            {/* Feature 3 */}
-            <div className="group">
+            {/* Feature */}
+            <div>
               <div className="flex items-center space-x-2 mb-1">
-                <svg className="shrink-0 fill-slate-300 group-hover:fill-emerald-400 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                   <path d="M14 0a2 2 0 0 1 2 2v4a1 1 0 0 1-2 0V2H2v12h4a1 1 0 0 1 0 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12Zm-1.957 10.629 3.664 3.664a1 1 0 0 1-1.414 1.414l-3.664-3.664-.644 2.578a.5.5 0 0 1-.476.379H9.5a.5.5 0 0 1-.48-.362l-2-7a.5.5 0 0 1 .618-.618l7 2a.5.5 0 0 1-.017.965l-2.578.644Z" />
                 </svg>
-                <h4 className="font-medium text-slate-50 group-hover:text-white transition-colors duration-200">Real-time analytics</h4>
+                <h4 className="font-medium text-slate-50">Observability hooks</h4>
               </div>
-              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-200">
-                Pre-configured tracking for user journeys, conversion funnels, and business metrics. Learn from day one.
+              <p className="text-sm text-slate-400">
+                Page, sign-up, activation, and pay events are prewired so you can learn from day one.
               </p>
             </div>
 
-            {/* Feature 4 */}
-            <div className="group">
+            {/* Feature */}
+            <div>
               <div className="flex items-center space-x-2 mb-1">
-                <svg className="shrink-0 fill-slate-300 group-hover:fill-yellow-400 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                   <path d="M14.3.3c.4-.4 1-.4 1.4 0 .4.4.4 1 0 1.4l-8 8c-.2.2-.4.3-.7.3-.3 0-.5-.1-.7-.3-.4-.4-.4-1 0-1.4l8-8ZM15 7c.6 0 1 .4 1 1 0 4.4-3.6 8-8 8s-8-3.6-8-8 3.6-8 8-8c.6 0 1 .4 1 1s-.4 1-1 1C4.7 2 2 4.7 2 8s2.7 6 6 6 6-2.7 6-6c0-.6.4-1 1-1Z" />
                 </svg>
-                <h4 className="font-medium text-slate-50 group-hover:text-white transition-colors duration-200">Enterprise-ready auth</h4>
+                <h4 className="font-medium text-slate-50">Auth &amp; billing</h4>
               </div>
-              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-200">
-                Secure authentication with Stripe billing integration. Scale from MVP to enterprise with OAuth and SAML support.
+              <p className="text-sm text-slate-400">
+                Email/password stubs and Stripe-ready wiring, with room to grow into OAuth/SAML when you need it.
               </p>
             </div>
 
-            {/* Feature 5 */}
-            <div className="group">
+            {/* Feature */}
+            <div>
               <div className="flex items-center space-x-2 mb-1">
-                <svg className="shrink-0 fill-slate-300 group-hover:fill-indigo-400 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                   <path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12Zm0 14V2H2v12h12Zm-3-7H5a1 1 0 1 1 0-2h6a1 1 0 0 1 0 2Zm0 4H5a1 1 0 0 1 0-2h6a1 1 0 0 1 0 2Z" />
                 </svg>
-                <h4 className="font-medium text-slate-50 group-hover:text-white transition-colors duration-200">Living documentation</h4>
+                <h4 className="font-medium text-slate-50">Docs as code</h4>
               </div>
-              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-200">
-                PRD, technical specs, and market research stored in <code className="font-mono text-purple-400">/docs/*</code> — version-controlled and always current.
+              <p className="text-sm text-slate-400">
+                PRD, brief, and market notes live in <code className="font-mono">/docs/*</code> and evolve with your repo.
               </p>
             </div>
 
-            {/* Feature 6 */}
-            <div className="group">
+            {/* Feature */}
+            <div>
               <div className="flex items-center space-x-2 mb-1">
-                <svg className="shrink-0 fill-slate-300 group-hover:fill-red-400 transition-colors duration-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                <svg className="shrink-0 fill-slate-300" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
                   <path d="M14.574 5.67a13.292 13.292 0 0 1 1.298 1.842 1 1 0 0 1 0 .98C15.743 8.716 12.706 14 8 14a6.391 6.391 0 0 1-1.557-.2l1.815-1.815C10.97 11.82 13.06 9.13 13.82 8c-.163-.243-.39-.56-.669-.907l1.424-1.424ZM.294 15.706a.999.999 0 0 1-.002-1.413l2.53-2.529C1.171 10.291.197 8.615.127 8.49a.998.998 0 0 1-.002-.975C.251 7.29 3.246 2 8 2c1.331 0 2.515.431 3.548 1.038L14.293.293a.999.999 0 1 1 1.414 1.414l-14 14a.997.997 0 0 1-1.414 0ZM2.18 8a12.603 12.603 0 0 0 2.06 2.347l1.833-1.834A1.925 1.925 0 0 1 6 8a2 2 0 0 1 2-2c.178 0 .348.03.512.074l1.566-1.566C9.438 4.201 8.742 4 8 4 5.146 4 2.958 6.835 2.181 8Z" />
                 </svg>
-                <h4 className="font-medium text-slate-50 group-hover:text-white transition-colors duration-200">Production-grade reliability</h4>
+                <h4 className="font-medium text-slate-50">Safe by default</h4>
               </div>
-              <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-200">
-                Built-in CI/CD, automated testing, preview deployments, and instant rollbacks. Ship with confidence from day one.
+              <p className="text-sm text-slate-400">
+                Reviewable PRs, preview deploys, and rollbacks built-in so you can move fast without breaking prod.
               </p>
             </div>
           </div>
