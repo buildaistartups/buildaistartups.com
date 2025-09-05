@@ -173,8 +173,8 @@ export default function Features02() {
                         <Image
                           className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0"
                           src={FeatureImg02}
-                          width={536}
-                          height={230}
+                          width={253}
+                          height={253}
                           alt="Scaffolded repo & UI illustration"
                         />
                       </div>
@@ -227,8 +227,8 @@ export default function Features02() {
                         <Image
                           className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0"
                           src={FeatureImg03}
-                          width={230}
-                          height={230}
+                          width={253}
+                          height={253}
                           alt="Deploy & iterate illustration"
                         />
                       </div>
