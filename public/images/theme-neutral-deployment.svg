@@ -1,0 +1,111 @@
+<svg width="230" height="230" viewBox="0 0 230 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cycleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981" />
+      <stop offset="50%" style="stop-color:#3b82f6" />
+      <stop offset="100%" style="stop-color:#8b5cf6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Central deployment cycle -->
+  <g transform="translate(115, 115)">
+    <!-- Outer cycle ring -->
+    <circle cx="0" cy="0" r="80" fill="none" stroke="url(#cycleGradient)" stroke-width="6" opacity="0.9" stroke-dasharray="8,4">
+      <animateTransform attributeName="transform" type="rotate" values="0;360" dur="10s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Inner cycle ring -->
+    <circle cx="0" cy="0" r="60" fill="none" stroke="url(#cycleGradient)" stroke-width="3" opacity="0.7" stroke-dasharray="5,3">
+      <animateTransform attributeName="transform" type="rotate" values="360;0" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Center hub -->
+    <circle cx="0" cy="0" r="30" fill="none" stroke="url(#cycleGradient)" stroke-width="3"/>
+    <circle cx="0" cy="0" r="20" fill="url(#cycleGradient)" opacity="0.1"/>
+    
+    <!-- Central analytics icon -->
+    <rect x="-8" y="-5" width="3" height="10" fill="url(#cycleGradient)"/>
+    <rect x="-3" y="-8" width="3" height="16" fill="url(#cycleGradient)"/>
+    <rect x="2" y="-3" width="3" height="8" fill="url(#cycleGradient)"/>
+    <rect x="7" y="-6" width="3" height="12" fill="url(#cycleGradient)"/>
+    
+    <!-- Deploy node -->
+    <g transform="translate(0, -70)">
+      <circle cx="0" cy="0" r="15" fill="#10b981" stroke="#ffffff" stroke-width="3"/>
+      <text x="0" y="25" font-family="Arial" font-size="10" fill="#10b981" text-anchor="middle" font-weight="bold">Deploy</text>
+      <!-- Rocket icon -->
+      <path d="M-4,-10 L0,-15 L4,-10 L2,-5 L-2,-5 Z" fill="#ffffff"/>
+    </g>
+    
+    <!-- Learn node -->
+    <g transform="translate(60, 35)">
+      <circle cx="0" cy="0" r="15" fill="#3b82f6" stroke="#ffffff" stroke-width="3"/>
+      <text x="0" y="25" font-family="Arial" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="bold">Learn</text>
+      <!-- Chart icon -->
+      <rect x="-5" y="-3" width="2" height="8" fill="#ffffff"/>
+      <rect x="-2" y="-5" width="2" height="10" fill="#ffffff"/>
+      <rect x="1" y="-2" width="2" height="6" fill="#ffffff"/>
+      <rect x="4" y="-4" width="2" height="8" fill="#ffffff"/>
+    </g>
+    
+    <!-- Iterate node -->
+    <g transform="translate(-60, 35)">
+      <circle cx="0" cy="0" r="15" fill="#8b5cf6" stroke="#ffffff" stroke-width="3"/>
+      <text x="0" y="25" font-family="Arial" font-size="10" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Iterate</text>
+      <!-- Refresh icon -->
+      <path d="M-5,-3 Q-5,-8 0,-8 Q5,-8 5,-3 M3,-5 L5,-3 L3,-1" stroke="#ffffff" stroke-width="2" fill="none"/>
+    </g>
+  </g>
+  
+  <!-- Analytics dashboard -->
+  <g transform="translate(20, 20)">
+    <rect width="80" height="50" fill="none" stroke="#10b981" stroke-width="2" rx="6"/>
+    
+    <!-- Mini chart -->
+    <polyline points="10,35 20,25 30,30 40,20 50,25 60,15" stroke="#10b981" stroke-width="3" fill="none"/>
+    
+    <!-- Metrics -->
+    <text x="10" y="15" font-family="Arial" font-size="8" fill="#10b981" font-weight="bold">Users: 1,247</text>
+    <text x="10" y="45" font-family="Arial" font-size="8" fill="#10b981" font-weight="bold">Conv: 12.3%</text>
+  </g>
+  
+  <!-- Vercel deployment status -->
+  <g transform="translate(130, 20)">
+    <rect width="80" height="30" fill="none" stroke="#3b82f6" stroke-width="2" rx="6"/>
+    <circle cx="15" cy="15" r="5" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+    <text x="25" y="18" font-family="Arial" font-size="10" fill="#3b82f6" font-weight="bold">Vercel</text>
+    <text x="10" y="28" font-family="Arial" font-size="8" fill="#10b981" font-weight="bold">✓ Deployed</text>
+  </g>
+  
+  <!-- Stripe integration -->
+  <g transform="translate(20, 160)">
+    <rect width="60" height="30" fill="none" stroke="#8b5cf6" stroke-width="2" rx="6"/>
+    <rect x="5" y="5" width="50" height="20" fill="#635bff" rx="4"/>
+    <text x="30" y="18" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">Stripe</text>
+    <text x="30" y="28" font-family="Arial" font-size="8" fill="#8b5cf6" text-anchor="middle" font-weight="bold">$2,450</text>
+  </g>
+  
+  <!-- Database connection -->
+  <g transform="translate(150, 160)">
+    <rect width="60" height="30" fill="none" stroke="#3b82f6" stroke-width="2" rx="6"/>
+    <rect x="5" y="5" width="50" height="20" fill="#336791" rx="4"/>
+    <text x="30" y="18" font-family="Arial" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="bold">Postgres</text>
+    <text x="30" y="28" font-family="Arial" font-size="8" fill="#3b82f6" text-anchor="middle" font-weight="bold">Connected</text>
+  </g>
+  
+  <!-- Connection lines -->
+  <path d="M115 45 Q115 80 115 90" stroke="#3b82f6" stroke-width="2" opacity="0.7" stroke-dasharray="4,2"/>
+  <path d="M50 160 Q80 140 95 125" stroke="#8b5cf6" stroke-width="2" opacity="0.7" stroke-dasharray="4,2"/>
+  <path d="M180 160 Q150 140 135 125" stroke="#3b82f6" stroke-width="2" opacity="0.7" stroke-dasharray="4,2"/>
+  
+  <!-- Floating data points -->
+  <circle cx="40" cy="100" r="3" fill="#10b981" opacity="0.8">
+    <animate attributeName="cy" values="100;90;100" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="190" cy="120" r="3" fill="#3b82f6" opacity="0.8">
+    <animate attributeName="cy" values="120;110;120" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="115" cy="200" r="3" fill="#8b5cf6" opacity="0.8">
+    <animate attributeName="cy" values="200;190;200" dur="4s" repeatCount="indefinite"/>
+  </circle>
+</svg>
