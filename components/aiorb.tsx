@@ -121,7 +121,7 @@ export default function AIOrb() {
             {/* Logo instead of text */}
             <div className="ai-orb__logo">
               <Image
-                src="/images/d_logo_sq.png"
+                src="/images/d_logo_sq.svg"
                 alt="Logo"
                 width={80}
                 height={80}
