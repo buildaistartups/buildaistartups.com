@@ -3,9 +3,9 @@ import Link from 'next/link'
 import Particles from './particles'
 import Highlighter, { HighlighterItem } from './highlighter'
 
-import FeatureImg01 from '@/public/images/ai-analysis-feature.svg'
-import FeatureImg02 from '@/public/images/code-repository-feature.svg'
-import FeatureImg03 from '@/public/images/deployment-cycle-feature.svg'
+import FeatureImg01 from '@/public/images/ai-analysis-feature.png'
+import FeatureImg02 from '@/public/images/code-repository-feature.png'
+import FeatureImg03 from '@/public/images/deployment-cycle-feature.png'
 
 export default function Features02() {
   return (
