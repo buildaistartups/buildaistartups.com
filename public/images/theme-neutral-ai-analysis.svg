@@ -1,0 +1,104 @@
+<svg width="504" height="400" viewBox="0 0 504 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6" />
+      <stop offset="100%" style="stop-color:#3b82f6" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1" />
+      <stop offset="100%" style="stop-color:#8b5cf6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- AI Brain/Analysis Center -->
+  <g transform="translate(50, 80)">
+    <!-- Central AI node -->
+    <circle cx="100" cy="80" r="40" fill="url(#aiGradient)" opacity="0.9"/>
+    <circle cx="100" cy="80" r="30" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+    <circle cx="100" cy="80" r="20" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.5"/>
+    
+    <!-- AI Text -->
+    <text x="100" y="85" font-family="Arial" font-size="14" fill="#ffffff" text-anchor="middle" font-weight="bold">AI</text>
+    
+    <!-- Neural network connections -->
+    <path d="M60 60 L100 80 L140 60" stroke="url(#aiGradient)" stroke-width="3" opacity="0.8"/>
+    <path d="M60 100 L100 80 L140 100" stroke="url(#aiGradient)" stroke-width="3" opacity="0.8"/>
+    <path d="M80 40 L100 80 L120 40" stroke="url(#accentGradient)" stroke-width="3" opacity="0.8"/>
+    
+    <!-- Data input nodes -->
+    <circle cx="60" cy="60" r="10" fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="60" cy="100" r="10" fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="80" cy="40" r="10" fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
+    
+    <!-- Analysis output nodes -->
+    <circle cx="140" cy="60" r="10" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="140" cy="100" r="10" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="120" cy="40" r="10" fill="#10b981" stroke="#ffffff" stroke-width="2"/>
+  </g>
+  
+  <!-- Input Brief -->
+  <g transform="translate(20, 200)">
+    <rect width="120" height="80" fill="none" stroke="url(#aiGradient)" stroke-width="3" rx="8"/>
+    <rect x="10" y="15" width="80" height="4" fill="url(#aiGradient)" opacity="0.7"/>
+    <rect x="10" y="25" width="100" height="4" fill="url(#aiGradient)" opacity="0.7"/>
+    <rect x="10" y="35" width="60" height="4" fill="url(#aiGradient)" opacity="0.7"/>
+    <text x="60" y="55" font-family="Arial" font-size="12" fill="url(#aiGradient)" text-anchor="middle" font-weight="bold">Brief</text>
+  </g>
+  
+  <!-- Market Analysis -->
+  <g transform="translate(200, 150)">
+    <rect width="100" height="60" fill="none" stroke="#3b82f6" stroke-width="2" rx="6"/>
+    <circle cx="30" cy="30" r="15" fill="none" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="30" cy="30" r="8" fill="#3b82f6" opacity="0.7"/>
+    <rect x="50" y="20" width="40" height="3" fill="#8b5cf6"/>
+    <rect x="50" y="28" width="30" height="3" fill="#8b5cf6"/>
+    <rect x="50" y="36" width="35" height="3" fill="#8b5cf6"/>
+    <text x="50" y="52" font-family="Arial" font-size="10" fill="#3b82f6" font-weight="bold">Market</text>
+  </g>
+  
+  <!-- Competitor Analysis -->
+  <g transform="translate(200, 230)">
+    <rect width="100" height="60" fill="none" stroke="#8b5cf6" stroke-width="2" rx="6"/>
+    <rect x="15" y="20" width="12" height="15" fill="#ef4444" opacity="0.8"/>
+    <rect x="32" y="15" width="12" height="20" fill="#f59e0b" opacity="0.8"/>
+    <rect x="49" y="25" width="12" height="10" fill="#10b981" opacity="0.8"/>
+    <text x="50" y="52" font-family="Arial" font-size="10" fill="#8b5cf6" font-weight="bold">Compete</text>
+  </g>
+  
+  <!-- Output PRD -->
+  <g transform="translate(350, 180)">
+    <rect width="130" height="100" fill="none" stroke="url(#accentGradient)" stroke-width="3" rx="8"/>
+    <rect x="15" y="20" width="100" height="6" fill="url(#accentGradient)" opacity="0.8"/>
+    <rect x="15" y="32" width="80" height="4" fill="url(#accentGradient)" opacity="0.6"/>
+    <rect x="15" y="42" width="90" height="4" fill="url(#accentGradient)" opacity="0.6"/>
+    <rect x="15" y="52" width="70" height="4" fill="url(#accentGradient)" opacity="0.6"/>
+    <rect x="15" y="62" width="85" height="4" fill="url(#accentGradient)" opacity="0.6"/>
+    <rect x="15" y="72" width="75" height="4" fill="url(#accentGradient)" opacity="0.6"/>
+    <text x="80" y="88" font-family="Arial" font-size="12" fill="url(#accentGradient)" text-anchor="middle" font-weight="bold">PRD</text>
+  </g>
+  
+  <!-- Connecting arrows -->
+  <path d="M140 240 Q180 220 200 200" stroke="url(#aiGradient)" stroke-width="3" fill="none" marker-end="url(#arrowhead)" opacity="0.8"/>
+  <path d="M300 215 Q325 200 350 200" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrowhead2)" opacity="0.8"/>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="url(#aiGradient)"/>
+    </marker>
+    <marker id="arrowhead2" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#10b981"/>
+    </marker>
+  </defs>
+  
+  <!-- Floating particles for AI effect -->
+  <circle cx="80" cy="50" r="3" fill="#8b5cf6" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="420" cy="80" r="3" fill="#3b82f6" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="120" r="3" fill="#10b981" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+  </circle>
+</svg>
