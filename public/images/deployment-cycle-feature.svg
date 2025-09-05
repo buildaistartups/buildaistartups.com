@@ -5,14 +5,7 @@
       <stop offset="50%" style="stop-color:#3b82f6" />
       <stop offset="100%" style="stop-color:#8b5cf6" />
     </linearGradient>
-    <linearGradient id="dashboardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e293b" />
-      <stop offset="100%" style="stop-color:#0f172a" />
-    </linearGradient>
   </defs>
-  
-  <!-- Background -->
-  <rect width="230" height="230" fill="url(#dashboardBg)" rx="16"/>
   
   <!-- Central deployment cycle -->
   <g transform="translate(115, 115)">
@@ -71,7 +64,7 @@
   
   <!-- Vercel deployment status -->
   <g transform="translate(130, 20)">
-    <rect width="80" height="30" fill="#000000" rx="4"/>
+    <rect width="80" height="30" fill="#000000" rx="4" opacity="0.8"/>
     <circle cx="15" cy="15" r="4" fill="#10b981"/>
     <text x="25" y="18" font-family="Arial" font-size="8" fill="#ffffff">Vercel</text>
     <text x="10" y="28" font-family="Arial" font-size="6" fill="#10b981">✓ Deployed</text>
@@ -79,14 +72,14 @@
   
   <!-- Stripe integration -->
   <g transform="translate(20, 160)">
-    <rect width="60" height="30" fill="#635bff" rx="4"/>
+    <rect width="60" height="30" fill="#635bff" rx="4" opacity="0.8"/>
     <text x="30" y="18" font-family="Arial" font-size="8" fill="#ffffff" text-anchor="middle">Stripe</text>
     <text x="30" y="28" font-family="Arial" font-size="6" fill="#ffffff" text-anchor="middle">$2,450</text>
   </g>
   
   <!-- Database connection -->
   <g transform="translate(150, 160)">
-    <rect width="60" height="30" fill="#336791" rx="4"/>
+    <rect width="60" height="30" fill="#336791" rx="4" opacity="0.8"/>
     <text x="30" y="18" font-family="Arial" font-size="8" fill="#ffffff" text-anchor="middle">Postgres</text>
     <text x="30" y="28" font-family="Arial" font-size="6" fill="#ffffff" text-anchor="middle">Connected</text>
   </g>
