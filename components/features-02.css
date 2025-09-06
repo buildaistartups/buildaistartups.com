@@ -1,0 +1,17 @@
+.featureImg01 {
+  width: 504px;
+  height: 400px;
+  object-fit: contain;
+}
+
+.featureImg02 {
+  width: 536px;
+  height: 230px;
+  object-fit: contain;
+}
+
+.featureImg03 {
+  width: 230px;
+  height: 230px;
+  object-fit: contain;
+}
