@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Particles from './particles'
 import Highlighter, { HighlighterItem } from './highlighter'
+import './features-02.css'
 
 import FeatureImg01 from '@/public/images/ai-analysis-feature.png'
 import FeatureImg02 from '@/public/images/code-repository-feature.svg'
@@ -117,7 +118,7 @@ export default function Features02() {
                       {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden">
                         <Image
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:relative md:left-0 md:translate-x-0"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:relative md:left-0 md:translate-x-0 featureImg01"
                           src={FeatureImg01}
                           width="504"
                           height="400"
@@ -171,7 +172,7 @@ export default function Features02() {
                       {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden md:pb-8">
                         <Image
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0 featureImg02"
                           src={FeatureImg02}
                           width={536}
                           height={230}
@@ -225,7 +226,7 @@ export default function Features02() {
                       {/* Image */}
                       <div className="relative w-full h-64 md:h-auto overflow-hidden md:pb-8">
                         <Image
-                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0"
+                          className="absolute bottom-0 left-1/2 -translate-x-1/2 mx-auto max-w-none md:max-w-full md:relative md:left-0 md:translate-x-0 featureImg03"
                           src={FeatureImg03}
                           width={230}
                           height={230}
