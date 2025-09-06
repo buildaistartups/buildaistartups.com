@@ -4,7 +4,7 @@ import Particles from './particles'
 import Highlighter, { HighlighterItem } from './highlighter'
 import './features-02.css'
 
-import FeatureImg01 from '@/public/images/ai-analysis-feature.png'
+import FeatureImg01 from '@/public/images/ai-analysis-feature.svg'
 import FeatureImg02 from '@/public/images/code-repository-feature.svg'
 import FeatureImg03 from '@/public/images/deployment-cycle-feature.svg'
 
