@@ -3,20 +3,9 @@
   height: 400px;
   object-fit: contain;
   display: block;
-  margin: 0 auto;
-  padding: 2rem 0; /* Adds space above and below the image */
+  margin: 2rem auto;
+  padding: 0;
 }
-
-/* Alternative approach - you can try either one */
-/* 
-.featureImg04 {
-  width: 768px;
-  height: 400px;
-  object-fit: contain;
-  display: block;
-  margin: 2rem auto; /* Adds margin above and below instead of padding */
-}
-*/
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -24,6 +13,6 @@
     width: 100%;
     height: auto;
     max-width: 768px;
-    padding: 1.5rem 0; /* Slightly less padding on mobile */
+    margin: 1.5rem auto;
   }
 }
