@@ -7,7 +7,7 @@ const BRAND = 'Build AI Starups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const CANON = `${SITE}/product/builder`
-const OG = '/brand/og-default.png'
+const OG = '/og/product-builder.svg' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -122,12 +122,13 @@ export default function BuilderPage() {
               <p className="mt-2 text-sm text-slate-500">Open-source models · Deploys to Vercel · Stripe payments · GitHub first</p>
             </div>
             <div className="relative">
-              {/* Replace with an actual capture of the build flow if you have it */}
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <video className="h-full w-full" autoPlay muted loop playsInline poster="/media/screens/builder-overview.png">
-                  <source src="/media/screens/builder-overview.webm" type="video/webm" />
-                  <source src="/media/screens/builder-overview.mp4" type="video/mp4" />
-                </video>
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/product/builder/hero.svg" 
+                  alt="Build AI Startups Builder workflow - from intent to spec to repo to live preview" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Intent → Spec → Repo → Live preview</p>
             </div>
@@ -169,16 +170,26 @@ export default function BuilderPage() {
                 <li>Perfect for PR review & approvals</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/spec-studio.png" alt="Spec Studio" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/builder/flow-research-spec.svg" 
+                alt="Spec Studio workflow - research and specification process" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/repo-forge.png" alt="Repo Forge" className="rounded-lg" />
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/builder/flow-generate-ui.svg" 
+                alt="Repo Forge workflow - code generation and repository setup" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
             <div className="order-1 md:order-2">
               <h3 className="text-xl font-semibold">Repo Forge</h3>
@@ -209,22 +220,32 @@ export default function BuilderPage() {
                 <li>Programmatic SEO pages (topic clusters)</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/ui-workshop.png" alt="UI Workshop" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/builder/shell-preview.svg" 
+                alt="UI Workshop - generated application interface preview" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
 
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/deploy-checks.png" alt="One-click Deploy" className="rounded-lg" />
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/builder/flow-deploy-iterate.svg" 
+                alt="Deploy and iterate workflow - deployment and optimization process" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
             <div className="order-1 md:order-2">
               <h3 className="text-xl font-semibold">One-click Deploy</h3>
               <p className="mt-2 text-slate-300">
                 Automatic deploys to Vercel with preview links, health checks, analytics wiring, and Stripe test mode. Flip to
-                production when you’re ready.
+                production when you're ready.
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
                 <li>Preview → canary → full; auto-rollback on errors</li>
@@ -251,6 +272,29 @@ export default function BuilderPage() {
                 {t}
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Quality & Features */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <h2 className="text-2xl font-semibold">Built for speed and quality</h2>
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-3">
+              <img src="/images/product/builder/badges/fast-bolt.svg" alt="Lightning fast" className="h-5 w-5" />
+              <span className="text-slate-300">Lightning fast generation</span>
+            </div>
+            <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-3">
+              <img src="/images/product/builder/badges/quality.svg" alt="Quality assured" className="h-5 w-5" />
+              <span className="text-slate-300">Production-ready quality</span>
+            </div>
+            <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-3">
+              <img src="/images/product/builder/badges/github.svg" alt="GitHub integration" className="h-5 w-5" />
+              <span className="text-slate-300">Your GitHub, your code</span>
+            </div>
+            <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-3">
+              <img src="/images/product/builder/badges/fast-speedometer.svg" alt="High performance" className="h-5 w-5" />
+              <span className="text-slate-300">Optimized performance</span>
+            </div>
           </div>
         </section>
 
@@ -359,7 +403,7 @@ export default function BuilderPage() {
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-semibold">Generate your first startup</h2>
             <p className="mt-2 text-slate-300">
-              Worst case: you learn. Best case: you launch. It’s all yours—code, infra, and revenue.
+              Worst case: you learn. Best case: you launch. It's all yours—code, infra, and revenue.
             </p>
             <div className="mt-6 flex items-center justify-center gap-3">
               <Link
