@@ -7,7 +7,7 @@ const BRAND = 'Build AI Starups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const CANON = `${SITE}/product/ecosystem`
-const OG = '/brand/og-default.png'
+const OG = '/og/product-ecosystem.png' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -169,11 +169,13 @@ export default function EcosystemPage() {
               <p className="mt-3 text-sm text-slate-400">Opt-in · Capped · Transparent analytics</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <video className="h-full w-full" autoPlay muted loop playsInline poster="/media/screens/ecosystem-graph.png">
-                  <source src="/media/screens/ecosystem-graph.webm" type="video/webm" />
-                  <source src="/media/screens/ecosystem-graph.mp4" type="video/mp4" />
-                </video>
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/product/ecosystem/hero.svg" 
+                  alt="Ecosystem network graph showing interconnected startups with cross-promotion flows" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Cross-promotions · Shared components · Referrals</p>
             </div>
@@ -218,11 +220,29 @@ export default function EcosystemPage() {
           </div>
         </section>
 
+        {/* Distribution Loop */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">The compound growth flywheel</h2>
+            <p className="mt-2 text-slate-300">Each new app amplifies the entire network</p>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+              <img 
+                src="/images/product/ecosystem/distribution-loop.svg" 
+                alt="Ecosystem growth flywheel showing compound network effects" 
+                className="h-64 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Controls & brand safety */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
-              <h3 className="text-xl font-semibold">You’re in control</h3>
+              <h3 className="text-xl font-semibold">You're in control</h3>
               <p className="mt-2 text-slate-300">
                 Ecosystem is opt-in with strict controls—so it boosts your product without compromising experience.
               </p>
@@ -233,28 +253,38 @@ export default function EcosystemPage() {
                 <li><strong>Placement quality:</strong> Small, contextual, and dismissible.</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/cross-promo.png" alt="Cross-promotion placement controls" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/ecosystem/cross-promo.svg" 
+                alt="Cross-promotion placement controls and app interface mockups" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
 
-        {/* Analytics & transparency */}
+        {/* Network Effects Visualization */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/ecosystem-stats.png" alt="Ecosystem analytics and attribution" className="rounded-lg" />
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/ecosystem/network-effects.svg" 
+                alt="Network effects growth visualization showing exponential connections" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
             <div className="order-1 md:order-2">
-              <h3 className="text-xl font-semibold">Transparent performance</h3>
+              <h3 className="text-xl font-semibold">Network effects at scale</h3>
               <p className="mt-2 text-slate-300">
-                See what’s shown where, to whom, and why. We expose placement logs and outcomes so you can tune for quality.
+                Each new app doesn't just add one more option—it creates exponential connections and opportunities for the entire network.
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li>Impressions, clicks, activations, attributed revenue</li>
-                <li>Top routes and surfaces driving conversions</li>
-                <li>Category/ICP match breakdowns</li>
-                <li>Export to CSV/Notion/Looker via API</li>
+                <li>2 apps = 1 connection</li>
+                <li>4 apps = 6 possible connections</li>
+                <li>8 apps = 28 possible connections</li>
+                <li>More surfaces = compound growth for everyone</li>
               </ul>
             </div>
           </div>
@@ -262,10 +292,24 @@ export default function EcosystemPage() {
 
         {/* Shared components */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Shared components (faster together)</h2>
-          <p className="mt-2 text-slate-300">
-            Reuse the things every SaaS needs—wired once, consistent everywhere.
-          </p>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Shared components (faster together)</h2>
+            <p className="mt-2 text-slate-300">
+              Reuse the things every SaaS needs—wired once, consistent everywhere.
+            </p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/ecosystem/shared-components.svg" 
+                alt="Shared component architecture showing modular building blocks" 
+                className="h-48 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               'Auth (email/OAuth), profile & teams',
@@ -282,7 +326,7 @@ export default function EcosystemPage() {
           </div>
         </section>
 
-        {/* Referrals & economics */}
+        {/* Attribution Flow */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
@@ -297,8 +341,13 @@ export default function EcosystemPage() {
                 <li>Fraud detection & anomaly alerts</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/referrals.png" alt="Referral engine and rewards" className="rounded-lg" />
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/ecosystem/attribution-flow.svg" 
+                alt="Referral attribution flow showing user journey and rewards" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
@@ -310,7 +359,7 @@ export default function EcosystemPage() {
             <li>Turn on <em>Ecosystem</em> in your project dashboard.</li>
             <li>Select categories/ICP and choose placements (onboarding, empty state, docs, footer).</li>
             <li>Set impression caps and optional allow/deny rules.</li>
-            <li>Review & publish. Analytics start as soon as it’s live.</li>
+            <li>Review & publish. Analytics start as soon as it's live.</li>
           </ol>
           <div className="mt-6 flex items-center gap-3">
             <Link
@@ -329,18 +378,38 @@ export default function EcosystemPage() {
           <p className="mt-3 text-sm text-slate-400">Note: Ecosystem is available on Builder & Studio tiers.</p>
         </section>
 
-        {/* Example network cards (dummy content) */}
+        {/* Example network cards with partner logos */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">Live examples from the network</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { name: 'Creator Metrics', vp: 'Analytics for YouTube creators', tags: ['Analytics', 'Creator'] },
-              { name: 'FormPilot', vp: 'Forms + automations for indie apps', tags: ['Automation', 'Forms'] },
-              { name: 'InboxIQ', vp: 'AI summaries for support inboxes', tags: ['AI', 'Support'] },
+              { 
+                name: 'Creator Metrics', 
+                vp: 'Analytics for YouTube creators', 
+                tags: ['Analytics', 'Creator'],
+                logo: '/images/logos/partners/creator-metrics.svg'
+              },
+              { 
+                name: 'FormPilot', 
+                vp: 'Forms + automations for indie apps', 
+                tags: ['Automation', 'Forms'],
+                logo: '/images/logos/partners/form-pilot.svg'
+              },
+              { 
+                name: 'InboxIQ', 
+                vp: 'AI summaries for support inboxes', 
+                tags: ['AI', 'Support'],
+                logo: '/images/logos/partners/inbox-iq.svg'
+              },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50">
-                  <img src={`/media/projects/project-${i + 1}.png`} alt={p.name} className="h-full w-full object-cover" />
+                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-8">
+                  <img 
+                    src={p.logo} 
+                    alt={`${p.name} logo`} 
+                    className="h-16 w-auto opacity-80"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="mt-3 text-base font-medium">{p.name}</div>
                 <p className="text-sm text-slate-400">{p.vp}</p>
@@ -372,7 +441,7 @@ export default function EcosystemPage() {
             <div>
               <h3 className="text-base font-medium">Do I have to participate?</h3>
               <p className="mt-1 text-sm text-slate-300">
-                No. It’s strictly opt-in. You can enable/disable per app, control placements, and set caps.
+                No. It's strictly opt-in. You can enable/disable per app, control placements, and set caps.
               </p>
             </div>
             <div>
