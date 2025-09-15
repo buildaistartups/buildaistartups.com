@@ -7,7 +7,7 @@ const BRAND = 'Build AI Starups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const CANON = `${SITE}/product/marketplace`
-const OG = '/brand/og-default.png'
+const OG = '/og/product-marketplace.png' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -95,7 +95,7 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'What makes a project “transfer-ready”?',
+      name: 'What makes a project "transfer-ready"?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'A checklist covering domain, billing, env secrets, analytics, documentation, license status, and access handoff. Listings display a readiness badge.',
@@ -169,11 +169,13 @@ export default function MarketplacePage() {
               <p className="mt-3 text-sm text-slate-400">Transparent fees · Stripe Connect · Optional escrow</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <video className="h-full w-full" autoPlay muted loop playsInline poster="/media/screens/marketplace-grid.png">
-                  <source src="/media/screens/marketplace-grid.webm" type="video/webm" />
-                  <source src="/media/screens/marketplace-grid.mp4" type="video/mp4" />
-                </video>
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/product/marketplace/hero.svg" 
+                  alt="Marketplace storefront showing multiple micro-SaaS product listings with Build Scores" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Live demos · Build Score · Transfer-readiness</p>
             </div>
@@ -238,6 +240,24 @@ export default function MarketplacePage() {
           </div>
         </section>
 
+        {/* Checkout Flow */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Simple purchase flow</h2>
+            <p className="mt-2 text-slate-300">From discovery to handoff in minutes</p>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+              <img 
+                src="/images/product/marketplace/checkout-flow.svg" 
+                alt="Marketplace checkout flow from browse to payout" 
+                className="h-32 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Buyer experience */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
@@ -253,8 +273,67 @@ export default function MarketplacePage() {
                 <li>Clear license terms and usage rights</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/buyer-console.png" alt="Buyer console with filters and live demo" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/marketplace/live-demo.svg" 
+                alt="Live demo interface with interactive preview" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Licensing Options */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/marketplace/licensing-options.svg" 
+                alt="Different licensing models: Single Use, Multi Use, OEM" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Flexible licensing models</h3>
+              <p className="mt-2 text-slate-300">
+                Not ready for a full sale? Offer licensing instead. Clear terms, automated fulfillment, and recurring revenue.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li><strong>Single Use:</strong> One-time license for a specific project</li>
+                <li><strong>Multi Use:</strong> License for multiple projects or teams</li>
+                <li><strong>OEM:</strong> White-label licensing with reseller terms</li>
+                <li>Automated license key generation and delivery</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Transfer Readiness */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Transfer-ready checklist</h3>
+              <p className="mt-2 text-slate-300">
+                Every listing shows a transfer-readiness score. Buyers know exactly what they're getting and what's included.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Domain ownership and DNS configuration</li>
+                <li>Stripe account and billing setup</li>
+                <li>Environment variables and secrets</li>
+                <li>Analytics and monitoring accounts</li>
+                <li>Documentation and support materials</li>
+                <li>License compliance and IP verification</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/marketplace/transfer-checklist.svg" 
+                alt="Transfer-readiness checklist with completion indicators" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
@@ -262,7 +341,15 @@ export default function MarketplacePage() {
         {/* Fees & payouts */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-            <h2 className="text-2xl font-semibold">Fees & payouts</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/images/product/marketplace/badge-fee.svg" 
+                alt="Transparent fees badge" 
+                className="h-8 w-auto"
+                loading="lazy"
+              />
+              <h2 className="text-2xl font-semibold">Fees & payouts</h2>
+            </div>
             <p className="mt-2 text-slate-300">
               Simple, transparent pricing. No surprises. You set your price; we handle the rails.
             </p>
@@ -283,16 +370,39 @@ export default function MarketplacePage() {
           </div>
         </section>
 
+        {/* Escrow Protection */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/marketplace/escrow-protection.svg" 
+                alt="Secure escrow protection for buyers and sellers" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Secure transactions</h3>
+              <p className="mt-2 text-slate-300">
+                Optional escrow protection ensures both buyers and sellers are protected throughout the transaction.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Milestone-based payment releases</li>
+                <li>Stripe Connect secure payment processing</li>
+                <li>Dispute resolution and mediation</li>
+                <li>Automatic refunds for failed transfers</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Quality & compliance */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/diligence.png" alt="Due diligence and compliance" className="rounded-lg" />
-            </div>
-            <div className="order-1 md:order-2">
+            <div>
               <h3 className="text-xl font-semibold">Quality & compliance by default</h3>
               <p className="mt-2 text-slate-300">
-                Listings display Build Score and quality gates so buyers know what they’re getting. We also surface
+                Listings display Build Score and quality gates so buyers know what they're getting. We also surface
                 license status and basic compliance checks.
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
@@ -301,6 +411,14 @@ export default function MarketplacePage() {
                 <li>Privacy/PII flags for data sources (if relevant)</li>
                 <li>Audit trail for listing changes and negotiations</li>
               </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/marketplace/due-diligence.svg" 
+                alt="Due diligence dashboard with Build Score and quality metrics" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
@@ -359,8 +477,14 @@ export default function MarketplacePage() {
               },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50">
-                  <img src={`/media/projects/project-${i + 1}.png`} alt={p.name} className="h-full w-full object-cover" />
+                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-4">
+                  <img 
+                    src="/images/product/marketplace/listing-card.svg" 
+                    alt={`${p.name} marketplace listing card`} 
+                    className="max-h-full max-w-full h-auto w-auto object-contain opacity-80"
+                    loading="lazy"
+                    style={{ maxHeight: '120px', maxWidth: '200px' }}
+                  />
                 </div>
                 <div className="mt-3 text-base font-medium">{p.name}</div>
                 <p className="text-sm text-slate-400">{p.vp}</p>
@@ -412,7 +536,7 @@ export default function MarketplacePage() {
               </p>
             </div>
             <div>
-              <h3 className="text-base font-medium">What’s the commission?</h3>
+              <h3 className="text-base font-medium">What's the commission?</h3>
               <p className="mt-1 text-sm text-slate-300">
                 A small percentage on completed sales (varies by tier). Listing is free on Starter; included on Builder/Studio.
               </p>
@@ -430,7 +554,7 @@ export default function MarketplacePage() {
               </p>
             </div>
             <div>
-              <h3 className="text-base font-medium">What’s in the transfer-readiness checklist?</h3>
+              <h3 className="text-base font-medium">What's in the transfer-readiness checklist?</h3>
               <p className="mt-1 text-sm text-slate-300">
                 Domain, billing/Stripe, environment secrets, analytics, docs, support handoff, and license status. Listings show readiness badges.
               </p>
