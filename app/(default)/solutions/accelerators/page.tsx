@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/solutions-accelerators.png' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   title: 'Accelerators & Universities — Cohort-in-a-Box for venture creation | Build AI Starups',
@@ -146,8 +146,13 @@ export default function AcceleratorsUniversitiesPage() {
               <p className="mt-3 text-sm text-slate-400">Mentor dashboards · Integrity pack · IP clarity · Optional EU hosting</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/screens/accelerator-hero.png" alt="Cohort overview — teams, milestones, demos" className="h-full w-full object-cover" />
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/solutions/accelerators/hero.svg" 
+                  alt="Cohort management dashboard with teams, milestones, and progress tracking" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Cohort console with teams, gates, demos, and readiness</p>
             </div>
@@ -174,7 +179,22 @@ export default function AcceleratorsUniversitiesPage() {
 
         {/* Program models */}
         <section className="mx-auto max-w-6xl px-6 py-10">
-          <h2 className="text-2xl font-semibold">Program models</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Program models</h2>
+            <p className="mt-2 text-slate-300">Choose the format that fits your schedule and goals</p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/program-models.svg" 
+                alt="Three program models: Cohort-in-a-Box, Studio-in-a-Week, and Venture Studio" 
+                className="h-48 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
           <div className="mt-6 grid gap-5 md:grid-cols-3">
             {[
               {
@@ -198,9 +218,49 @@ export default function AcceleratorsUniversitiesPage() {
           </div>
         </section>
 
+        {/* Team Formation */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Intelligent team formation</h3>
+              <p className="mt-2 text-slate-300">
+                Automatically match students by interests, skills, and complementary strengths. 
+                Create balanced teams optimized for success.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Skill-based matching algorithms</li>
+                <li>Interest and theme alignment</li>
+                <li>Balanced team composition</li>
+                <li>Manual override options for instructors</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/team-formation.svg" 
+                alt="Automated team formation and skill matching system" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* How it works for cohorts */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">How a cohort runs</h2>
+          <div className="mt-6 mb-8">
+            <div className="flex justify-center">
+              <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+                <img 
+                  src="/images/solutions/accelerators/cohort-workflow.svg" 
+                  alt="Six-step cohort workflow from intake to demo day" 
+                  className="h-32 w-auto mx-auto"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+          
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-6">
             {[
               { t: 'Intake', d: 'Collect intents, interests, and constraints. Auto-group by theme or skill mix.' },
@@ -226,7 +286,7 @@ export default function AcceleratorsUniversitiesPage() {
               <h3 className="text-xl font-semibold">Mentor & admin console</h3>
               <p className="mt-2 text-slate-300">
                 Track progress, approvals, and Build Scores across teams. Keep humans in the loop with Copilot gates, or
-                allow Autopilot when everything’s green.
+                allow Autopilot when everything's green.
               </p>
               <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
                 <li>Cohort dashboard: teams, gates, demos, readiness badges</li>
@@ -243,15 +303,87 @@ export default function AcceleratorsUniversitiesPage() {
                 </Link>
               </div>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/cohort-console.png" alt="Mentor & admin console view" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/mentor-dashboard.svg" 
+                alt="Mentor and admin console with team oversight and approval queues" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Quality Gates */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/quality-gates.svg" 
+                alt="Educational quality gates and assessment system" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Academic quality gates</h3>
+              <p className="mt-2 text-slate-300">
+                Ensure consistent quality and learning outcomes with automated gates and manual review checkpoints.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Build Score thresholds for academic standards</li>
+                <li>Mentor approval requirements at key milestones</li>
+                <li>Automated quality checks and validation</li>
+                <li>Rubric-based assessment integration</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Student Success Journey */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Student success journey</h3>
+              <p className="mt-2 text-slate-300">
+                Track student progress from enrollment to demo day. Celebrate achievements and identify areas for support.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Learning progression tracking</li>
+                <li>Skill development milestones</li>
+                <li>Achievement badges and recognition</li>
+                <li>Portfolio building and showcase</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/student-journey.svg" 
+                alt="Student success journey from enrollment to graduation" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
 
         {/* Syllabus (matches partner materials) */}
         <section id="syllabus" className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Sample syllabus (4-week)</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Sample syllabus (4-week)</h2>
+            <p className="mt-2 text-slate-300">Structured learning with clear milestones and deliverables</p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/syllabus-timeline.svg" 
+                alt="Four-week syllabus timeline with learning objectives" 
+                className="h-32 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
               <div className="text-lg font-semibold">Weeks 1–2: From intent to repo</div>
@@ -277,9 +409,51 @@ export default function AcceleratorsUniversitiesPage() {
           </p>
         </section>
 
+        {/* Demo Day */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/demo-day.svg" 
+                alt="Demo day showcase with live presentations and evaluations" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Demo day showcase</h3>
+              <p className="mt-2 text-slate-300">
+                Culminate the program with live demos, real products, and meaningful presentations. 
+                Celebrate achievements and showcase real outcomes.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Live product demonstrations</li>
+                <li>Investor and industry audience</li>
+                <li>Build Score and readiness evaluation</li>
+                <li>Optional Marketplace listing ceremony</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Outcomes & KPIs */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Program outcomes & KPIs</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Program outcomes & KPIs</h2>
+            <p className="mt-2 text-slate-300">Measurable results that demonstrate program success</p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/outcomes-kpis.svg" 
+                alt="Program outcomes and KPI tracking dashboard" 
+                className="h-32 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { k: 'Median time-to-MVP', v: '1–7 days' },
@@ -300,10 +474,7 @@ export default function AcceleratorsUniversitiesPage() {
         {/* Integrity & compliance */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/integrity-pack.png" alt="Integrity & compliance pack" className="rounded-lg" />
-            </div>
-            <div className="order-1 md:order-2">
+            <div>
               <h3 className="text-xl font-semibold">Integrity & compliance by design</h3>
               <p className="mt-2 text-slate-300">
                 Every project includes audit logs, prompt history, and code provenance. The Integrity Pack provides policy templates,
@@ -316,13 +487,56 @@ export default function AcceleratorsUniversitiesPage() {
                 <li>Institution-specific IP templates</li>
               </ul>
             </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/integrity-pack.svg" 
+                alt="Academic integrity and compliance features" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* IP Ownership */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/accelerators/ip-ownership.svg" 
+                alt="Clear IP ownership structure and agreements" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Crystal clear IP ownership</h3>
+              <p className="mt-2 text-slate-300">
+                Default model: teams own their code and revenue. Institutions can request contributor licenses 
+                or attribution agreements as needed.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Team ownership by default</li>
+                <li>Institutional licensing options</li>
+                <li>Clear legal templates and agreements</li>
+                <li>Marketplace transfer protocols</li>
+              </ul>
+            </div>
           </div>
         </section>
 
         {/* Partner tiers */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-            <h2 className="text-2xl font-semibold">Partner tiers</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/images/solutions/accelerators/partner-tiers.svg" 
+                alt="Partner tier structure and features" 
+                className="h-8 w-auto"
+                loading="lazy"
+              />
+              <h2 className="text-2xl font-semibold">Partner tiers</h2>
+            </div>
             <p className="mt-2 text-slate-300">Start small and scale to full venture studio automation.</p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
