@@ -1,20 +1,23 @@
 // app/(default)/solutions/investors/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import Script from 'next/script'
+
+const siteUrl = 'https://www.buildaistartups.com'
+const ogImage = '/og/solutions-investors.png' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   title: 'Investors — Continuous Deal Flow | Build AI Starups',
   description:
     'Filter by market, traction proxies, and tech; review working products—not PDFs. Get cohort views, comparable dashboards, and exit-ready assets.',
-  alternates: { canonical: 'https://buildaistartups.com/solutions/investors' },
+  alternates: { canonical: `${siteUrl}/solutions/investors` },
   openGraph: {
     type: 'website',
+    url: `${siteUrl}/solutions/investors`,
     title: 'Investors — Continuous Deal Flow | Build AI Starups',
     description:
       'See instant demos, not decks. Pipeline scoring, comparable metrics, cohort views, and exit-ready assets.',
-    url: 'https://buildaistartups.com/solutions/investors',
-    images: [{ url: '/brand/og-default.png', width: 1200, height: 630, alt: 'Build AI Starups — Investors' }],
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Investors' }],
     siteName: 'Build AI Starups',
   },
   twitter: {
@@ -22,154 +25,419 @@ export const metadata: Metadata = {
     title: 'Investors — Continuous Deal Flow | Build AI Starups',
     description:
       'See instant demos, not decks. Pipeline scoring, comparable metrics, cohort views, and exit-ready assets.',
-    images: ['/brand/og-default.png'],
+    images: [ogImage],
   },
 }
 
-export default function Investors() {
-  return (
-    <section className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 md:py-28">
-      {/* Hero */}
-      <header className="grid items-center gap-10 md:grid-cols-2">
-        <div className="max-w-xl">
-          <div className="inline-flex font-medium pb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200">
-            Solutions · Investors
-          </div>
-          <h1 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60">
-            Continuous deal flow with instant demos.
-          </h1>
-          <p className="mt-4 text-lg text-slate-300">
-            Filter by market, traction proxies, and tech—then open a live demo.
-            See working products, not PDFs.
-          </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            {/* Primary CTA */}
-            <Link
-              href="/contact?reason=investor"
-              className="btn group relative w-full sm:w-auto whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
-            >
-              <span className="relative inline-flex items-center">
-                Request investor access
-                <span className="ml-1 translate-x-0 text-purple-500 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">
-                  -&gt;
-                </span>
-              </span>
-            </Link>
-
-            {/* Secondary */}
-            <Link
-              href="/product/builder"
-              className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full sm:w-auto transition duration-150 ease-in-out"
-            >
-              How the builder works
-            </Link>
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-1 shadow-2xl">
-            <Image
-              src="/media/screens/investor-console.png"
-              alt="Investor console view"
-              width={1440}
-              height={900}
-              priority
-              className="rounded-xl"
-            />
-          </div>
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-tr from-purple-500/10 via-fuchsia-400/5 to-indigo-400/10 blur-2xl"
-          />
-        </div>
-      </header>
-
-      {/* Value props */}
-      <div className="mt-20 grid gap-6 sm:gap-8 md:grid-cols-2">
-        <Card
-          title="Pipeline scoring"
-          subtitle="Market size, defensibility, speed."
-        >
-          Triaged automatically from the founder’s brief and repo signals:
-          addressable market notes, wedge defensibility, and time-to-demo. You get a
-          sortable, comparable score—plus links into the actual code and live app.
-        </Card>
-
-        <Card
-          title="Comparable metrics"
-          subtitle="Standardized dashboards."
-        >
-          Each project self-reports the same set of traction proxies: activation,
-          retention pings, early revenue toggles, and usage funnels—normalized so you
-          can compare apples to apples across sectors and stages.
-        </Card>
-
-        <Card
-          title="Cohort views"
-          subtitle="Track groups across time."
-        >
-          Build watchlists by thesis (e.g., “AI infra for SMB”, “EU fintech”)
-          and follow progress weekly. See pace-of-ship, PRD deltas, and live demo
-          links without chasing emails.
-        </Card>
-
-        <Card
-          title="Exit-ready assets"
-          subtitle="Docs & transfer helpers."
-        >
-          Every repo ships with a clean PRD, architecture notes, licenses,
-          and a handover checklist. When something hits, due diligence is days—not months.
-        </Card>
-      </div>
-
-      {/* Final CTA */}
-      <div className="mt-16 rounded-2xl border border-white/10 bg-slate-900/40 p-6 sm:p-8 text-center">
-        <h2 className="h4 text-slate-200">See live demos, not decks.</h2>
-        <p className="mt-2 text-slate-400">
-          Join the investor console beta and get curated cohorts delivered weekly.
-        </p>
-        <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="/contact?reason=investor"
-            className="btn group relative w-full sm:w-auto whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
-          >
-            <span className="relative inline-flex items-center">
-              Request investor access
-              <span className="ml-1 translate-x-0 text-purple-500 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">
-                -&gt;
-              </span>
-            </span>
-          </Link>
-          <Link
-            href="/resources/press"
-            className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full sm:w-auto transition duration-150 ease-in-out"
-          >
-            Press & overview
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
+// ---- JSON-LD Schemas ----
+const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Build AI Starups',
+  url: siteUrl,
+  logo: `${siteUrl}/brand/logo-light.svg`,
+  sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
 }
 
-/** Small presentational card component (local to this page) */
-function Card({
-  title,
-  subtitle,
-  children,
-}: {
-  title: string
-  subtitle?: string
-  children: React.ReactNode
-}) {
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: 'Solutions', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 3, name: 'Investors', item: `${siteUrl}/solutions/investors` },
+  ],
+}
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Investor Deal Flow Platform',
+  description: 'Continuous deal flow with live demos, pipeline scoring, and comparable metrics for investors.',
+  provider: { '@type': 'Organization', name: 'Build AI Starups', url: siteUrl },
+  serviceType: 'Investment Platform',
+  areaServed: 'Worldwide',
+}
+
+export default function InvestorsPage() {
   return (
-    <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5 sm:p-6">
-      <div className="mb-2 text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200">
-        {subtitle}
-      </div>
-      <h3 className="text-lg font-semibold text-slate-100">{title}</h3>
-      <p className="mt-2 text-slate-300">{children}</p>
-    </div>
+    <>
+      {/* Structured data */}
+      <Script id="ld-org" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
+      <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <Script id="ld-service" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+
+      <main className="bg-slate-950 text-slate-200">
+        {/* Hero */}
+        <section className="mx-auto max-w-6xl px-6 pb-10 pt-20 sm:pt-28">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <p className="text-sm uppercase tracking-widest text-slate-400">Solutions</p>
+              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Investors — continuous deal flow with instant demos</h1>
+              <p className="mt-4 text-lg text-slate-300">
+                Filter by market, traction proxies, and tech—then open a live demo. See working products, not PDFs. 
+                Get pipeline scoring, comparable metrics, and exit-ready assets.
+              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-3">
+                <Link
+                  href="/contact?reason=investor"
+                  className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400"
+                >
+                  Request investor access
+                </Link>
+                <Link
+                  href="/product/builder"
+                  className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5"
+                >
+                  How the builder works
+                </Link>
+              </div>
+              <p className="mt-3 text-sm text-slate-400">Live demos · Pipeline scoring · Cohort tracking · Exit-ready</p>
+            </div>
+            <div className="relative">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/solutions/investors/hero.svg" 
+                  alt="Investor dashboard with live demos and deal flow management" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
+              </div>
+              <p className="mt-2 text-center text-xs text-slate-500">Live demos · Scoring · Metrics · Cohorts</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Live Demos vs Decks */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">See live demos, not decks</h2>
+            <p className="mt-2 text-slate-300">Working products tell the real story</p>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+              <img 
+                src="/images/solutions/investors/live-demo.svg" 
+                alt="Live demo previews vs traditional pitch decks comparison" 
+                className="h-48 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Value propositions */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <h2 className="text-2xl font-semibold">Why investors love Build AI Starups</h2>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { t: 'Pipeline scoring', d: 'Automated triaging by market size, defensibility, and speed-to-demo.' },
+              { t: 'Comparable metrics', d: 'Standardized traction proxies across all startups for apples-to-apples comparison.' },
+              { t: 'Cohort tracking', d: 'Build watchlists by thesis and track progress without chasing emails.' },
+              { t: 'Exit-ready assets', d: 'Clean docs, architecture notes, and handover checklists for fast due diligence.' },
+            ].map((c, i) => (
+              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
+                <div className="text-base font-medium">{c.t}</div>
+                <p className="mt-1 text-sm text-slate-400">{c.d}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Pipeline Scoring */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Automated pipeline scoring</h3>
+              <p className="mt-2 text-slate-300">
+                Every startup gets automatically scored on market size, defensibility, and execution speed. 
+                Sort and filter by what matters to your thesis.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li><strong>Market signals:</strong> Addressable market size and growth indicators</li>
+                <li><strong>Defensibility:</strong> Technical moats and competitive positioning</li>
+                <li><strong>Execution speed:</strong> Time from idea to working demo</li>
+                <li><strong>Code quality:</strong> Architecture, tests, and technical debt analysis</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/pipeline-scoring.svg" 
+                alt="Automated pipeline scoring system with startup rankings" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Comparable Metrics */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/comparable-metrics.svg" 
+                alt="Standardized startup metrics dashboard for comparison" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Standardized metrics</h3>
+              <p className="mt-2 text-slate-300">
+                Every startup reports the same traction proxies. Compare activation rates, retention, and revenue 
+                across sectors and stages with confidence.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Normalized activation and retention metrics</li>
+                <li>Early revenue indicators and growth rates</li>
+                <li>Usage funnels and engagement patterns</li>
+                <li>Comparable cohort analysis across portfolio</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Cohort Tracking */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Cohort views & watchlists</h3>
+              <p className="mt-2 text-slate-300">
+                Build watchlists by investment thesis and track progress over time. See who's shipping, 
+                who's stalling, and who's ready for the next round.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Thesis-based grouping (AI infra, EU fintech, etc.)</li>
+                <li>Weekly progress updates and shipping velocity</li>
+                <li>PRD changes and feature development tracking</li>
+                <li>Live demo links updated automatically</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/cohort-tracking.svg" 
+                alt="Cohort tracking and watchlist management for investors" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Deal Flow Automation */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/deal-flow.svg" 
+                alt="Automated deal flow process from discovery to decision" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Automated deal flow</h3>
+              <p className="mt-2 text-slate-300">
+                Stop chasing decks and demos. Get a continuous stream of qualified opportunities 
+                with automated screening and scoring.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Automatic discovery of new startups</li>
+                <li>Thesis-based filtering and matching</li>
+                <li>Instant access to live demos and code</li>
+                <li>Streamlined evaluation workflow</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Portfolio Dashboard */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Portfolio management</h2>
+            <p className="mt-2 text-slate-300">Track performance across your entire portfolio</p>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/portfolio-dashboard.svg" 
+                alt="Comprehensive portfolio dashboard with performance tracking" 
+                className="h-48 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Exit-Ready Assets */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Exit-ready documentation</h3>
+              <p className="mt-2 text-slate-300">
+                Every startup ships with clean PRDs, architecture docs, and handover checklists. 
+                When something hits, due diligence takes days—not months.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Structured PRDs and technical documentation</li>
+                <li>Architecture diagrams and code quality reports</li>
+                <li>License compliance and IP documentation</li>
+                <li>Transfer-ready handover checklists</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/exit-ready.svg" 
+                alt="Exit-ready assets and documentation for fast due diligence" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Due Diligence Acceleration */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/due-diligence.svg" 
+                alt="Accelerated due diligence process comparison" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Accelerated due diligence</h3>
+              <p className="mt-2 text-slate-300">
+                Pre-organized documentation and standardized reporting cut due diligence time from months to days.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Pre-structured technical documentation</li>
+                <li>Automated code quality and security reports</li>
+                <li>Standardized financial and traction metrics</li>
+                <li>Ready-to-review legal and IP documentation</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Market Intelligence */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Market intelligence</h3>
+              <p className="mt-2 text-slate-300">
+                Get insights into emerging trends, market opportunities, and competitive landscapes 
+                across the entire startup ecosystem.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Trend analysis across sectors and technologies</li>
+                <li>Market size and opportunity assessment</li>
+                <li>Competitive landscape mapping</li>
+                <li>Investment thesis validation</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/market-intelligence.svg" 
+                alt="Market intelligence and trend analysis dashboard" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Investment Thesis Tracking */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/investors/thesis-tracking.svg" 
+                alt="Investment thesis tracking and validation system" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Thesis validation</h3>
+              <p className="mt-2 text-slate-300">
+                Track how your investment theses perform over time. See which bets are paying off 
+                and where to double down.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Thesis performance tracking and validation</li>
+                <li>Portfolio alignment with investment strategy</li>
+                <li>Market timing and opportunity assessment</li>
+                <li>Risk and return analysis by thesis</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Access Request */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+            <h2 className="text-2xl font-semibold">Investor console access</h2>
+            <p className="mt-2 text-slate-300">
+              Join the beta and get curated deal flow delivered weekly. See live demos, not decks.
+            </p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { feature: 'Live demo access', note: 'Instant access to working products' },
+                { feature: 'Pipeline scoring', note: 'Automated ranking and filtering' },
+                { feature: 'Cohort tracking', note: 'Thesis-based watchlists and progress' },
+              ].map((x, i) => (
+                <div key={i} className="rounded-lg border border-white/10 bg-slate-950/40 px-4 py-3">
+                  <div className="text-base font-semibold">{x.feature}</div>
+                  <div className="text-sm text-slate-400">{x.note}</div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 flex items-center gap-3">
+              <Link
+                href="/contact?reason=investor"
+                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400"
+              >
+                Request investor access
+              </Link>
+              <Link
+                href="/resources/press"
+                className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5"
+              >
+                Press & overview
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Final CTA */}
+        <section className="border-t border-white/10 bg-slate-900/40 py-14">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <h2 className="text-3xl font-semibold">See the future being built</h2>
+            <p className="mt-2 text-slate-300">
+              Get continuous access to live demos, standardized metrics, and exit-ready startups. 
+              Join the investor console beta today.
+            </p>
+            <div className="mt-6 flex items-center justify-center gap-3">
+              <Link
+                href="/contact?reason=investor"
+                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400"
+              >
+                Request investor access
+              </Link>
+              <Link
+                href="/product/builder"
+                className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5"
+              >
+                How it works
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
