@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/solutions-indie.png' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   title: 'Indie Makers — Ship a real product this weekend | Build AI Starups',
@@ -167,8 +167,13 @@ export default function IndieMakersPage() {
               <p className="mt-3 text-sm text-slate-400">Solo-friendly · Predictable builds · Deploy to Vercel</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/screens/indie-hero.png" alt="Indie Maker build flow overview" className="h-full w-full object-cover" />
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/solutions/indie/hero.svg" 
+                  alt="Indie maker weekend build journey from idea to live product" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Intent → Spec → Repo → UI → Pricing → Deploy</p>
             </div>
@@ -193,6 +198,24 @@ export default function IndieMakersPage() {
           </div>
         </section>
 
+        {/* Solo Workflow */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Built for solo builders</h2>
+            <p className="mt-2 text-slate-300">One person, one weekend, one shipped product</p>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+              <img 
+                src="/images/solutions/indie/solo-workflow.svg" 
+                alt="Solo developer workflow showing independence and efficiency" 
+                className="h-48 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* How it works for Indie Makers */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">How it works</h2>
@@ -210,6 +233,32 @@ export default function IndieMakersPage() {
                 <p className="mt-1 text-sm text-slate-400">{s.d}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Build Speed */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Weekend to launch speed</h3>
+              <p className="mt-2 text-slate-300">
+                Traditional development takes months. Build AI Startups compresses the entire cycle into a single weekend.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Friday: Set intent and connect accounts</li>
+                <li>Saturday: Build, test, and design</li>
+                <li>Sunday: Deploy and launch</li>
+                <li>Monday: Talk to real users</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/indie/build-speed.svg" 
+                alt="Weekend to launch speed indicator" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 
@@ -236,15 +285,61 @@ export default function IndieMakersPage() {
                 </Link>
               </div>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/indie-starterkits.png" alt="Starter kits overview" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/indie/starter-kits.svg" 
+                alt="Starter kits overview showing SaaS, API, and Content options" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* No Lock-in */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/indie/no-lockin.svg" 
+                alt="No lock-in diagram showing ownership of all accounts and services" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">You own everything</h3>
+              <p className="mt-2 text-slate-300">
+                No vendor lock-in. Everything lives in your accounts. Export, modify, or migrate anytime.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li><strong>Your GitHub:</strong> All code and repositories</li>
+                <li><strong>Your Vercel:</strong> Hosting and deployments</li>
+                <li><strong>Your Stripe:</strong> Payments and revenue</li>
+                <li><strong>Your Database:</strong> All user data and content</li>
+              </ul>
             </div>
           </div>
         </section>
 
         {/* What you own */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">What you own on day one</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">What you own on day one</h2>
+            <p className="mt-2 text-slate-300">Production-ready from the start</p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/indie/production-ready.svg" 
+                alt="Production-ready features checklist" 
+                className="h-32 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
               'GitHub repo with CI, tests, and docs',
@@ -265,8 +360,13 @@ export default function IndieMakersPage() {
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">Weekend to Launch</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/indie-weekend.png" alt="Weekend launch plan" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/indie/weekend-timeline.svg" 
+                alt="Weekend launch timeline from Friday to Sunday" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
             <ol className="list-decimal space-y-2 pl-5 text-slate-300">
               <li><strong>Friday night:</strong> Set intent, connect GitHub/Vercel/Stripe, generate Spec.</li>
@@ -275,6 +375,32 @@ export default function IndieMakersPage() {
               <li><strong>Sunday AM:</strong> Deploy preview, wire analytics, connect domain.</li>
               <li><strong>Sunday PM:</strong> Enable SEO pack, schedule launch posts & emails.</li>
             </ol>
+          </div>
+        </section>
+
+        {/* Growth Pack */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Growth basics included</h3>
+              <p className="mt-2 text-slate-300">
+                Don't just build and hope. Get the marketing fundamentals wired from day one.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>SEO-optimized landing pages</li>
+                <li>Email capture and sequences</li>
+                <li>Social media post templates</li>
+                <li>Analytics and conversion tracking</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/indie/growth-pack.svg" 
+                alt="Growth basics pack with SEO, email, and social tools" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
           </div>
         </section>
 
@@ -288,8 +414,14 @@ export default function IndieMakersPage() {
               { name: 'DocsCraft', vp: 'Docs & changelog generator', tags: ['DevTools', 'Content'] },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50">
-                  <img src={`/media/projects/project-${i + 1}.png`} alt={p.name} className="h-full w-full object-cover" />
+                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-4">
+                  <img 
+                    src="/images/solutions/indie/example-projects.svg" 
+                    alt={`${p.name} indie project example`} 
+                    className="max-h-full max-w-full h-auto w-auto object-contain opacity-80"
+                    loading="lazy"
+                    style={{ maxHeight: '120px', maxWidth: '200px' }}
+                  />
                 </div>
                 <div className="mt-3 text-base font-medium">{p.name}</div>
                 <p className="text-sm text-slate-400">{p.vp}</p>
@@ -305,12 +437,46 @@ export default function IndieMakersPage() {
           </div>
         </section>
 
+        {/* Success Story */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/indie/success-story.svg" 
+                alt="Weekend indie maker success story from idea to users" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Weekend success stories</h3>
+              <p className="mt-2 text-slate-300">
+                Real indie makers shipping real products in record time. From idea to paying customers in days, not months.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Friday: "I have an idea for creators"</li>
+                <li>Saturday: Building and testing</li>
+                <li>Sunday: Live product with users</li>
+                <li>Monday: First customer feedback</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* Indie-friendly pricing teaser */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-            <h2 className="text-2xl font-semibold">Indie-friendly pricing</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src="/images/solutions/indie/pricing-tiers.svg" 
+                alt="Indie-friendly pricing tiers" 
+                className="h-8 w-auto"
+                loading="lazy"
+              />
+              <h2 className="text-2xl font-semibold">Indie-friendly pricing</h2>
+            </div>
             <p className="mt-2 text-slate-300">
-              Start free. Upgrade when you’re ready for Autopilot, Ecosystem, and Marketplace.
+              Start free. Upgrade when you're ready for Autopilot, Ecosystem, and Marketplace.
             </p>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {[
@@ -353,7 +519,7 @@ export default function IndieMakersPage() {
             </div>
             <div>
               <h3 className="text-base font-medium">Can I monetize on day one?</h3>
-              <p className="mt-1 text-sm text-slate-300">Yes. Stripe test mode by default; flip to live when you’re ready.</p>
+              <p className="mt-1 text-sm text-slate-300">Yes. Stripe test mode by default; flip to live when you're ready.</p>
             </div>
           </div>
         </section>
