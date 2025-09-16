@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <linearGradient id="gradMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="gradAlt" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+
+    <!-- Arrowheads -->
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowHeadPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6"/>
+    </marker>
+
+    <!-- Subtle glow for nodes -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style><![CDATA[
+      .label { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; font-size: 18px; fill: #3b82f6; letter-spacing: .5px; }
+      .small { font-size: 14px; }
+      .pill { rx: 10; ry: 10; }
+      .nodeStroke { stroke: url(#gradMain); stroke-width: 4; fill: none; }
+      .pipe { stroke: url(#gradMain); stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .pipeAlt { stroke: url(#gradAlt); stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .chip { fill: none; stroke: url(#gradAlt); stroke-width: 2; }
+      .tag { fill: none; stroke: url(#gradMain); stroke-width: 2; }
+      .nodeFill { fill: none; stroke: url(#gradMain); stroke-width: 3; }
+      .ghost { opacity: .15; }
+    ]]></style>
+  </defs>
+
+  <!-- Decorative geometric accents (transparent background safe) -->
+  <g class="ghost">
+    <path d="M120 160 H520 M1080 840 H1480" class="nodeStroke"/>
+    <path d="M220 800 V400 M1380 200 V600" class="nodeStroke"/>
+    <circle cx="1400" cy="180" r="60" class="nodeStroke"/>
+    <rect x="110" y="720" width="120" height="120" class="nodeStroke" rx="18" ry="18"/>
+  </g>
+
+  <!-- Central API Hub (hexagon) -->
+  <g id="hub" filter="url(#softGlow)">
+    <polygon points="800,360 900,420 900,540 800,600 700,540 700,420" class="nodeFill"/>
+    <text x="800" y="472" text-anchor="middle" class="label">API HUB</text>
+    <text x="800" y="500" text-anchor="middle" class="label small">Routing • Auth • Transform</text>
+  </g>
+
+  <!-- REST endpoints (left) -->
+  <g id="rest1">
+    <rect x="180" y="300" width="280" height="70" class="tag" rx="12" ry="12"/>
+    <text x="205" y="340" class="label">REST • GET <tspan class="small">/v1/resources</tspan></text>
+  </g>
+  <g id="rest2">
+    <rect x="180" y="420" width="280" height="70" class="tag" rx="12" ry="12"/>
+    <text x="205" y="460" class="label">REST • POST <tspan class="small">/v1/events</tspan></text>
+  </g>
+
+  <!-- Pipes from REST to HUB with data packets -->
+  <path d="M460,335 C560,335 620,380 700,420" class="pipe" marker-end="url(#arrowHead)"/>
+  <path d="M460,455 C560,455 620,500 700,540" class="pipe" marker-end="url(#arrowHead)"/>
+
+  <!-- Data packets along the pipes -->
+  <rect x="560" y="325" width="26" height="14" class="chip pill" transform="rotate(14 573 332)"/>
+  <rect x="610" y="350" width="22" height="12" class="chip pill" transform="rotate(18 621 356)"/>
+  <rect x="580" y="445" width="26" height="14" class="chip pill" transform="rotate(-10 593 452)"/>
+  <rect x="635" y="470" width="22" height="12" class="chip pill" transform="rotate(-6 646 476)"/>
+
+  <!-- Upper service node (top-right) -->
+  <g id="serviceA">
+    <circle cx="1260" cy="280" r="54" class="nodeFill"/>
+    <text x="1260" y="285" text-anchor="middle" class="label">Service A</text>
+  </g>
+
+  <!-- Lower service node (right-mid) -->
+  <g id="serviceB">
+    <rect x="1200" y="450" width="120" height="120" class="nodeFill" rx="24" ry="24"/>
+    <text x="1260" y="515" text-anchor="middle" class="label">Service B</text>
+  </g>
+
+  <!-- Webhook endpoint (bottom-right) with generic webhook symbol -->
+  <g id="webhook" filter="url(#softGlow)">
+    <rect x="1120" y="720" width="260" height="90" class="tag" rx="16" ry="16"/>
+    <text x="1250" y="770" text-anchor="middle" class="label">WEBHOOK ENDPOINT</text>
+    <!-- triad symbol -->
+    <g transform="translate(1250,680)">
+      <circle cx="-30" cy="0" r="8" fill="#8b5cf6"/>
+      <circle cx="30" cy="0" r="8" fill="#3b82f6"/>
+      <circle cx="0" cy="36" r="8" fill="#8b5cf6"/>
+      <path d="M-24,-4 C-10,-20 10,-20 24,-4" class="nodeStroke" marker-end="url(#arrowHead)"/>
+      <path d="M20,4 C16,18 6,30 0,36" class="nodeStroke" marker-end="url(#arrowHeadPurple)"/>
+      <path d="M-20,4 C-16,18 -6,30 0,36" class="nodeStroke" marker-end="url(#arrowHead)"/>
+    </g>
+  </g>
+
+  <!-- Pipes from HUB to right-side services -->
+  <path d="M900,420 C1020,360 1120,320 1206,300" class="pipeAlt" marker-end="url(#arrowHead)"/>
+  <path d="M900,480 C1040,500 1100,520 1200,510" class="pipe" marker-end="url(#arrowHead)"/>
+  <path d="M820,600 C940,700 1080,760 1120,765" class="pipeAlt" marker-end="url(#arrowHeadPurple)"/>
+
+  <!-- More data packets -->
+  <rect x="980" y="380" width="26" height="14" class="chip pill" transform="rotate(-12 993 387)"/>
+  <rect x="1030" y="505" width="22" height="12" class="chip pill" transform="rotate(6 1041 511)"/>
+  <rect x="980" y="650" width="26" height="14" class="chip pill" transform="rotate(22 993 657)"/>
+
+  <!-- Connection nodes -->
+  <g id="nodes">
+    <circle cx="1040" cy="360" r="10" fill="#8b5cf6"/>
+    <circle cx="1120" cy="520" r="10" fill="#3b82f6"/>
+    <circle cx="1160" cy="760" r="10" fill="#8b5cf6"/>
+  </g>
+
+  <!-- Caption tags near pipes -->
+  <g>
+    <text x="620" y="315" class="label small">JSON packets</text>
+    <text x="980" y="480" class="label small">API connection</text>
+    <text x="930" y="690" class="label small">Webhook delivery</text>
+  </g>
+</svg>
