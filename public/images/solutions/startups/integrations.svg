@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <title>Enterprise Integration Architecture</title>
+  <desc>Central integration hub with secure connections to GitHub, Vercel, Stripe, Slack, Jira, and Notion</desc>
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="gradLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <radialGradient id="hubGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="1"/>
+    </radialGradient>
+
+    <!-- Soft glow for lines -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Drop shadow for nodes -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="2" result="offOut"/>
+      <feGaussianBlur in="offOut" stdDeviation="6" result="blurOut"/>
+      <feColorMatrix in="blurOut" type="matrix"
+        values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 .25 0"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+
+    <!-- Lock badge (security) -->
+    <g id="lock" stroke="url(#gradLine)" fill="none" stroke-width="2">
+      <rect x="-10" y="-2" width="20" height="14" rx="3" ry="3" fill="white" stroke="url(#gradLine)"/>
+      <path d="M -6,-2 v-5 a6,6 0 0 1 12,0 v5" stroke="url(#gradLine)" fill="none"/>
+      <circle cx="0" cy="5" r="2" fill="url(#gradLine)" stroke="none"/>
+    </g>
+
+    <!-- Shield badge -->
+    <g id="shield" stroke="url(#gradLine)" fill="white">
+      <path d="M0,-18 L12,-12 L12,2 C12,8 6,14 0,18 C-6,14 -12,8 -12,2 L-12,-12 Z" fill="white" stroke="url(#gradLine)" stroke-width="2"/>
+      <use href="#lock" x="0" y="-1" transform="scale(0.7)"/>
+    </g>
+
+    <!-- Simple brand icon glyphs (monochrome, purple-blue to keep palette) -->
+    <!-- GitHub: cat head silhouette -->
+    <g id="logo-github" fill="url(#gradLine)" stroke="none">
+      <circle cx="0" cy="6" r="16" fill="none" stroke="url(#gradLine)" stroke-width="2"/>
+      <path d="M -10,2 l 0,-6 a8,8 0 0 1 20,0 l 0,6
+               c 0,5 -4,10 -10,10 c -6,0 -10,-5 -10,-10 z
+               M -4,-8 l 0,-6 l 6,6 M 4,-8 l 0,-6 l -6,6" fill="none" stroke="url(#gradLine)" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Vercel: triangle -->
+    <g id="logo-vercel" fill="url(#gradLine)" stroke="none">
+      <polygon points="-18,12 0,-18 18,12" />
+    </g>
+
+    <!-- Stripe: stylized S -->
+    <g id="logo-stripe" fill="none" stroke="url(#gradLine)" stroke-width="3">
+      <path d="M -14,-6 c 4,-8 28,-8 24,4 c -4,10 -22,4 -20,14 c 2,8 22,8 26,0" stroke-linecap="round"/>
+    </g>
+
+    <!-- Slack: hashtag of rounded bars -->
+    <g id="logo-slack" fill="url(#gradLine)" stroke="none">
+      <rect x="-18" y="-6" width="36" height="12" rx="6" />
+      <rect x="-6" y="-18" width="12" height="36" rx="6" />
+    </g>
+
+    <!-- Jira: rotated kite -->
+    <g id="logo-jira" fill="url(#gradLine)" stroke="none">
+      <polygon points="0,-18 18,0 0,18 -18,0"/>
+      <polygon points="0,-10 10,0 0,10 -10,0" fill="white" opacity="0.9"/>
+    </g>
+
+    <!-- Notion: N in a square -->
+    <g id="logo-notion" fill="none" stroke="url(#gradLine)" stroke-width="2">
+      <rect x="-18" y="-18" width="36" height="36" rx="4" ry="4"/>
+      <path d="M -8,12 v-24 l 16,24 v-24" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+  </defs>
+
+  <!-- Connection lines with glow and locks -->
+<path d="M 800,500 L 800,120" stroke="url(#gradLine)" stroke-width="4" fill="none" filter="url(#glow)"/>
+<g transform="translate(800.0,310.0) rotate(-90.0)"><use href="#lock"/></g>
+<path d="M 800,500 L 420,220" stroke="url(#gradLine)" stroke-width="4" fill="none" filter="url(#glow)"/>
+<g transform="translate(610.0,360.0) rotate(-143.6)"><use href="#lock"/></g>
+<path d="M 800,500 L 240,520" stroke="url(#gradLine)" stroke-width="4" fill="none" filter="url(#glow)"/>
+<g transform="translate(520.0,510.0) rotate(178.0)"><use href="#lock"/></g>
+<path d="M 800,500 L 420,800" stroke="url(#gradLine)" stroke-width="4" fill="none" filter="url(#glow)"/>
+<g transform="translate(610.0,650.0) rotate(141.7)"><use href="#lock"/></g>
+<path d="M 800,500 L 1180,800" stroke="url(#gradLine)" stroke-width="4" fill="none" filter="url(#glow)"/>
+<g transform="translate(990.0,650.0) rotate(38.3)"><use href="#lock"/></g>
+<path d="M 800,500 L 1360,520" stroke="url(#gradLine)" stroke-width="4" fill="none" filter="url(#glow)"/>
+<g transform="translate(1080.0,510.0) rotate(2.0)"><use href="#lock"/></g>
+
+  <!-- Central Hub -->
+  <g transform="translate(800,500)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="110" fill="url(#hubGrad)" />
+    <circle cx="0" cy="0" r="112" fill="none" stroke="white" stroke-width="2" opacity="0.7"/>
+    <circle cx="0" cy="0" r="120" fill="none" stroke="url(#gradLine)" stroke-width="3" opacity="0.5" />
+    <text x="0" y="-6" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="24" fill="white" font-weight="600">Integration Hub</text>
+    <text x="0" y="22" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="14" fill="white" opacity="0.9">Orchestration • Webhooks • SSO</text>
+
+    <!-- Security shields around hub -->
+    <g transform="translate(0,-170)"><use href="#shield"/></g>
+    <g transform="translate(150,90)"><use href="#shield"/></g>
+    <g transform="translate(-150,90)"><use href="#shield"/></g>
+  </g>
+
+  <g transform="translate(800,120)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="64" fill="white" />
+    <circle cx="0" cy="0" r="66" fill="none" stroke="url(#gradLine)" stroke-width="3" opacity="0.8"/>
+    <g transform="scale(1.1)"><use href="#logo-github"/></g>
+    <text x="0" y="86" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="16" fill="#111827">GitHub</text>
+    <g transform="translate(46,-46) scale(0.6)"><use href="#lock"/></g>
+  </g>
+    
+  <g transform="translate(420,220)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="64" fill="white" />
+    <circle cx="0" cy="0" r="66" fill="none" stroke="url(#gradLine)" stroke-width="3" opacity="0.8"/>
+    <g transform="scale(1.1)"><use href="#logo-vercel"/></g>
+    <text x="0" y="86" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="16" fill="#111827">Vercel</text>
+    <g transform="translate(46,-46) scale(0.6)"><use href="#lock"/></g>
+  </g>
+    
+  <g transform="translate(240,520)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="64" fill="white" />
+    <circle cx="0" cy="0" r="66" fill="none" stroke="url(#gradLine)" stroke-width="3" opacity="0.8"/>
+    <g transform="scale(1.1)"><use href="#logo-stripe"/></g>
+    <text x="0" y="86" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="16" fill="#111827">Stripe</text>
+    <g transform="translate(46,-46) scale(0.6)"><use href="#lock"/></g>
+  </g>
+    
+  <g transform="translate(420,800)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="64" fill="white" />
+    <circle cx="0" cy="0" r="66" fill="none" stroke="url(#gradLine)" stroke-width="3" opacity="0.8"/>
+    <g transform="scale(1.1)"><use href="#logo-slack"/></g>
+    <text x="0" y="86" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="16" fill="#111827">Slack</text>
+    <g transform="translate(46,-46) scale(0.6)"><use href="#lock"/></g>
+  </g>
+    
+  <g transform="translate(1180,800)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="64" fill="white" />
+    <circle cx="0" cy="0" r="66" fill="none" stroke="url(#gradLine)" stroke-width="3" opacity="0.8"/>
+    <g transform="scale(1.1)"><use href="#logo-jira"/></g>
+    <text x="0" y="86" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="16" fill="#111827">Jira</text>
+    <g transform="translate(46,-46) scale(0.6)"><use href="#lock"/></g>
+  </g>
+    
+  <g transform="translate(1360,520)" filter="url(#shadow)">
+    <circle cx="0" cy="0" r="64" fill="white" />
+    <circle cx="0" cy="0" r="66" fill="none" stroke="url(#gradLine)" stroke-width="3" opacity="0.8"/>
+    <g transform="scale(1.1)"><use href="#logo-notion"/></g>
+    <text x="0" y="86" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui, -apple-system" font-size="16" fill="#111827">Notion</text>
+    <g transform="translate(46,-46) scale(0.6)"><use href="#lock"/></g>
+  </g>
+    </svg>
