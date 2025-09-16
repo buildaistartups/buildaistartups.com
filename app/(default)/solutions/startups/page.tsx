@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/solutions-startups.png' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   title: 'Product Teams — compress roadmap from months to days | Build AI Starups',
@@ -134,8 +134,13 @@ export default function ProductTeamsPage() {
               <p className="mt-3 text-sm text-slate-400">Spec DSL · Review gates · Feature flags · Analytics wiring</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/screens/product-teams-hero.png" alt="Product Teams overview — Spec to Deploy" className="h-full w-full object-cover" />
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/solutions/startups/hero.svg" 
+                  alt="Product team collaboration workflow from spec to deploy with review gates" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Intent → Spec → Repo → UI → Pricing → Flags → Deploy</p>
             </div>
@@ -160,6 +165,24 @@ export default function ProductTeamsPage() {
           </div>
         </section>
 
+        {/* Team Collaboration Flow */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Cross-functional alignment</h2>
+            <p className="mt-2 text-slate-300">PM, Design, and Engineering working from the same structured spec</p>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+              <img 
+                src="/images/solutions/startups/team-flow.svg" 
+                alt="Cross-functional team alignment around structured spec" 
+                className="h-48 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* How it works for teams */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">How it works (team flow)</h2>
@@ -180,7 +203,7 @@ export default function ProductTeamsPage() {
           </div>
         </section>
 
-        {/* Collaboration & controls */}
+        {/* Operating Modes */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
@@ -195,8 +218,39 @@ export default function ProductTeamsPage() {
                 <li><strong>Flags:</strong> gradual rollouts, canaries, and fast rollbacks.</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/team-approvals.png" alt="Team approvals and audit logs" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/operating-modes.svg" 
+                alt="Copilot vs Autopilot operating modes comparison" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Review Gates */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/review-gates.svg" 
+                alt="Review gates and approval workflow system" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Review gates & approvals</h3>
+              <p className="mt-2 text-slate-300">
+                Four key checkpoints ensure quality and alignment before each major milestone.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li><strong>Spec Review:</strong> PM/Design/Eng alignment on requirements</li>
+                <li><strong>Code Review:</strong> Architecture, tests, and implementation quality</li>
+                <li><strong>Pricing Review:</strong> Business model and monetization strategy</li>
+                <li><strong>Deploy Review:</strong> Final checks before production release</li>
+              </ul>
             </div>
           </div>
         </section>
@@ -204,10 +258,7 @@ export default function ProductTeamsPage() {
         {/* Quality & governance */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/quality-gates.png" alt="Quality gates and Build Score" className="rounded-lg" />
-            </div>
-            <div className="order-1 md:order-2">
+            <div>
               <h3 className="text-xl font-semibold">Quality you can trust</h3>
               <p className="mt-2 text-slate-300">
                 Builds must pass lint/types, unit/smoke tests, security scans, Lighthouse budgets, and license checks before shipping.
@@ -219,21 +270,121 @@ export default function ProductTeamsPage() {
                 <li>Dependency license status surfaced in PR</li>
               </ul>
             </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/quality-gates.svg" 
+                alt="Quality gates dashboard with Build Score metrics" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Build Score Metrics */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/build-score.svg" 
+                alt="Build Score calculation and metrics breakdown" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Build Score transparency</h3>
+              <p className="mt-2 text-slate-300">
+                Weighted metrics give you confidence in each build. Set thresholds that match your quality standards.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li><strong>Code Quality (25%):</strong> Lint, types, test coverage</li>
+                <li><strong>Security (25%):</strong> Vulnerability scans, dependency checks</li>
+                <li><strong>Performance (25%):</strong> Lighthouse scores, bundle size</li>
+                <li><strong>Documentation (25%):</strong> README, API docs, changelog</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* Feature Flags */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Feature flags & rollouts</h3>
+              <p className="mt-2 text-slate-300">
+                Ship behind flags, control rollouts, and rollback instantly if needed. Safe experimentation at scale.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Gradual percentage rollouts</li>
+                <li>Canary deployments with health checks</li>
+                <li>Instant rollback on failures</li>
+                <li>A/B testing integration</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/feature-flags.svg" 
+                alt="Feature flags system with gradual rollouts and controls" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Audit Logs */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/audit-logs.svg" 
+                alt="Audit logs and team activity tracking" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Complete audit trail</h3>
+              <p className="mt-2 text-slate-300">
+                Every action is logged with full context. Know who approved what, when, and why.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Approval history with timestamps</li>
+                <li>Change tracking and diffs</li>
+                <li>User attribution and roles</li>
+                <li>Compliance-ready exports</li>
+              </ul>
+            </div>
           </div>
         </section>
 
         {/* Integrations */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Integrations</h2>
-          <p className="mt-2 text-slate-300">User-owned tokens. Short-lived secrets. Keep your stack.</p>
-          <div className="mt-6 flex flex-wrap items-center gap-3 text-slate-300">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Enterprise integrations</h2>
+            <p className="mt-2 text-slate-300">User-owned tokens. Short-lived secrets. Keep your stack.</p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/integrations.svg" 
+                alt="Enterprise integrations ecosystem" 
+                className="h-32 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap justify-center items-center gap-3 text-slate-300">
             {['GitHub', 'Vercel', 'Supabase', 'Stripe', 'Plausible/PostHog', 'Slack', 'Linear/Jira', 'Notion'].map((n) => (
               <span key={n} className="rounded-md border border-white/10 bg-slate-900/40 px-3 py-1.5 text-sm">
                 {n}
               </span>
             ))}
           </div>
-          <p className="mt-3 text-sm text-slate-500">Note: Slack/Linear/Jira/Notion integrations roll out gradually.</p>
+          <p className="mt-3 text-center text-sm text-slate-500">Note: Slack/Linear/Jira/Notion integrations roll out gradually.</p>
         </section>
 
         {/* Starter kits for teams */}
@@ -259,8 +410,13 @@ export default function ProductTeamsPage() {
                 </Link>
               </div>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/team-starterkits.png" alt="Team starter kits" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/team-starter-kits.svg" 
+                alt="Team-ready starter kits with enterprise features" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
@@ -269,8 +425,13 @@ export default function ProductTeamsPage() {
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">30-Day Pilot Rollout</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-              <img src="/media/screens/pilot-plan.png" alt="30-day pilot plan timeline" className="rounded-lg" />
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/solutions/startups/pilot-timeline.svg" 
+                alt="30-day pilot rollout timeline with weekly milestones" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
             </div>
             <ol className="list-decimal space-y-2 pl-5 text-slate-300">
               <li><strong>Week 1:</strong> Kickoff, connect integrations, draft Spec, align stakeholders.</li>
