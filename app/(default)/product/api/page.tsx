@@ -5,7 +5,7 @@ import Script from 'next/script'
 
 const BRAND = 'Build AI Starups'
 const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/product-api.png' // Updated to use your new OG image
 const CANON = `${siteUrl}/product/api`
 const DESC =
   'Trigger builds, poll status, run experiments, fetch metrics, manage listings, and receive webhooks. Secure, scoped, and designed for automation.'
@@ -142,8 +142,13 @@ export default function ApiPage() {
               <p className="mt-3 text-sm text-slate-400">Versioned · Scoped · HMAC webhooks · Audit logs</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/screens/api-console.png" alt="API console and logs" className="h-full w-full object-cover" />
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/product/api/hero.svg" 
+                  alt="API connectivity with pipes, webhooks, and data flow visualization" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Minimal surface · Predictable contracts · Helpful errors</p>
             </div>
@@ -230,6 +235,24 @@ export class BAS {
           <p className="mt-3 text-sm text-slate-400">See the Docs for complete schemas and pagination details.</p>
         </section>
 
+        {/* Webhook Sequence */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-semibold">Webhook flow</h2>
+            <p className="mt-2 text-slate-300">Secure, signed events for real-time automation</p>
+          </div>
+          <div className="flex justify-center mb-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+              <img 
+                src="/images/product/api/webhook-sequence.svg" 
+                alt="Webhook sequence diagram showing API request to event trigger to handler response" 
+                className="h-32 w-auto mx-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Auth & security */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-start gap-10 md:grid-cols-2">
@@ -241,6 +264,14 @@ export class BAS {
                 <li><strong>Audit logs</strong> for every API call (who, when, what).</li>
                 <li><strong>IP allowlists</strong> (optional) and secret redaction.</li>
               </ul>
+              <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/50 p-4">
+                <img 
+                  src="/images/product/api/auth-scopes.svg" 
+                  alt="API authentication scopes and permissions diagram" 
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div>
               <h3 className="text-xl font-semibold">Webhooks</h3>
@@ -266,6 +297,27 @@ export function verify(signature: string, body: string, secret: string) {
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">SDKs & tooling</h2>
           <p className="mt-2 text-slate-300">Use the REST API directly or install the lightweight SDK.</p>
+          
+          {/* SDK Language Logos */}
+          <div className="mt-6 flex justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-2">
+              <img src="/images/logos/sdks/ts.svg" alt="TypeScript" className="h-6 w-6" />
+              <span className="text-sm text-slate-300">TypeScript</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-2">
+              <img src="/images/logos/sdks/python.svg" alt="Python" className="h-6 w-6" />
+              <span className="text-sm text-slate-300">Python</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-2">
+              <img src="/images/logos/sdks/go.svg" alt="Go" className="h-6 w-6" />
+              <span className="text-sm text-slate-300">Go</span>
+            </div>
+            <div className="flex items-center gap-2 rounded-xl border border-white/10 bg-slate-900/40 px-4 py-2">
+              <img src="/images/logos/sdks/ruby.svg" alt="Ruby" className="h-6 w-6" />
+              <span className="text-sm text-slate-300">Ruby</span>
+            </div>
+          </div>
+
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
               <div className="text-lg font-semibold">JavaScript/TypeScript</div>
@@ -286,6 +338,32 @@ console.log(build.id)`}
           <p className="mt-3 text-sm text-slate-400">More SDKs planned after GA; open to community contributions.</p>
         </section>
 
+        {/* API Console Interface */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <h3 className="text-xl font-semibold">Interactive API console</h3>
+              <p className="mt-2 text-slate-300">
+                Test endpoints, explore responses, and debug issues with our built-in API console.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Syntax highlighting and auto-completion</li>
+                <li>Real-time response inspection</li>
+                <li>Request history and favorites</li>
+                <li>Built-in authentication testing</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/api/console-interface.svg" 
+                alt="API console interface with code editor and testing tools" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Rate limits & errors */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="grid items-start gap-10 md:grid-cols-2">
@@ -296,9 +374,17 @@ console.log(build.id)`}
                 <li>Burst buckets for webhook receivers</li>
                 <li>Headers: <code>X-RateLimit-Limit</code>, <code>X-RateLimit-Remaining</code>, <code>X-RateLimit-Reset</code></li>
               </ul>
+              <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/50 p-4">
+                <img 
+                  src="/images/product/api/rate-limiting.svg" 
+                  alt="Rate limiting visualization with request buckets and throttling" 
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-              <h3 className="text-xl font-semibold">Errors</h3>
+              <h3 className="text-xl font-semibold">Error handling</h3>
               <p className="mt-2 text-slate-300">Consistent JSON error shapes with trace IDs.</p>
               <pre className="mt-3 overflow-auto rounded-xl border border-white/10 bg-slate-950/60 p-4 text-sm">
 {`{
@@ -309,11 +395,45 @@ console.log(build.id)`}
   }
 }`}
               </pre>
+              <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/50 p-4">
+                <img 
+                  src="/images/product/api/error-handling.svg" 
+                  alt="Error handling flow with validation and retry logic" 
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
           <p className="mt-3 text-sm text-slate-400">
             Breaking changes are announced in the <Link href="/changelog" className="text-sky-300 hover:underline">Changelog</Link>.
           </p>
+        </section>
+
+        {/* Audit Logs */}
+        <section className="mx-auto max-w-6xl px-6 py-10">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+              <img 
+                src="/images/product/api/audit-logs.svg" 
+                alt="API audit logs with timestamps and security tracking" 
+                className="w-full h-auto"
+                loading="lazy"
+              />
+            </div>
+            <div className="order-1 md:order-2">
+              <h3 className="text-xl font-semibold">Complete audit trail</h3>
+              <p className="mt-2 text-slate-300">
+                Every API call is logged with full context for security, debugging, and compliance.
+              </p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
+                <li>Request/response logging with timestamps</li>
+                <li>User attribution and IP tracking</li>
+                <li>Sensitive data redaction</li>
+                <li>Exportable logs for compliance</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         {/* FAQ */}
