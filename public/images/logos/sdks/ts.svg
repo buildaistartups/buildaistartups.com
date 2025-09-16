@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-label="TypeScript TS logo - square badge">
+  <defs>
+    <mask id="cutout-square" maskUnits="userSpaceOnUse">
+      <rect width="256" height="256" rx="28" fill="#ffffff"/>
+      <text x="128" y="128"
+            font-family="Inter, Roboto, 'Helvetica Neue', Arial, sans-serif"
+            font-weight="800"
+            font-size="120"
+            text-anchor="middle"
+            dominant-baseline="middle"
+            letter-spacing="2"
+            fill="#000000">TS</text>
+    </mask>
+  </defs>
+  <!-- Outside background is transparent; the badge uses currentColor so you can recolor via CSS -->
+  <rect width="256" height="256" rx="28" fill="currentColor" mask="url(#cutout-square)"/>
+</svg>
