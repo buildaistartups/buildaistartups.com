@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-label="Solo developer workflow: Idea → Spec → Code → Deploy → Users">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="grad-stroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="grad-fill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+
+    <!-- Soft glow for emphasis -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Arrowhead marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3B82F6" />
+    </marker>
+
+    <!-- Thin arrowhead for ring arcs -->
+    <marker id="arrow-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0EA5E9" />
+    </marker>
+
+    <!-- Node shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#7C3AED" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Center: Solo Developer -->
+  <g id="center-person" transform="translate(600,600)" filter="url(#shadow)">
+    <!-- radial efficiency ticks -->
+    <g opacity="0.12" stroke="#7C3AED" stroke-width="6" stroke-linecap="round">
+      <path d="M -250 0 L -280 0"/>
+      <path d="M 250 0 L 280 0"/>
+      <path d="M 0 -250 L 0 -280"/>
+      <path d="M 0 250 L 0 280"/>
+      <path d="M -177 -177 L -200 -200"/>
+      <path d="M 177 -177 L 200 -200"/>
+      <path d="M -177 177 L -200 200"/>
+      <path d="M 177 177 L 200 200"/>
+    </g>
+
+    <!-- Person icon circle -->
+    <circle cx="0" cy="0" r="90" fill="none" stroke="url(#grad-stroke)" stroke-width="8"/>
+    <!-- Person icon -->
+    <g fill="url(#grad-fill)">
+      <circle cx="0" cy="-20" r="24"/>
+      <path d="M -50 40 Q 0 0 50 40 Q 0 80 -50 40 Z"/>
+    </g>
+    <text x="0" y="130" fill="#2D1B69" font-size="28" font-weight="600" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">Solo Developer</text>
+    <text x="0" y="160" fill="#A78BFA" font-size="18" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">independent • efficient</text>
+  </g>
+
+<line x1="600" y1="600" x2="600.0" y2="330.0" stroke="url(#grad-stroke)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="600" y1="600" x2="856.8" y2="516.6" stroke="url(#grad-stroke)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="600" y1="600" x2="758.7" y2="818.4" stroke="url(#grad-stroke)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="600" y1="600" x2="441.3" y2="818.4" stroke="url(#grad-stroke)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+<line x1="600" y1="600" x2="343.2" y2="516.6" stroke="url(#grad-stroke)" stroke-width="6" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 600.0,240.0 A 360,360 0 0 1 942.4,488.8" fill="none" stroke="#0EA5E9" stroke-width="3.5" marker-end="url(#arrow-thin)" opacity="0.9"/>
+<path d="M 942.4,488.8 A 360,360 0 0 1 811.6,891.2" fill="none" stroke="#0EA5E9" stroke-width="3.5" marker-end="url(#arrow-thin)" opacity="0.9"/>
+<path d="M 811.6,891.2 A 360,360 0 0 1 388.4,891.2" fill="none" stroke="#0EA5E9" stroke-width="3.5" marker-end="url(#arrow-thin)" opacity="0.9"/>
+<path d="M 388.4,891.2 A 360,360 0 0 1 257.6,488.8" fill="none" stroke="#0EA5E9" stroke-width="3.5" marker-end="url(#arrow-thin)" opacity="0.9"/>
+<path d="M 257.6,488.8 A 360,360 0 0 1 600.0,240.0" fill="none" stroke="#0EA5E9" stroke-width="3.5" marker-end="url(#arrow-thin)" opacity="0.9"/>
+<g transform="translate(600.0,240.0)" filter="url(#shadow)">
+<circle cx="0" cy="0" r="70" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+<g>
+            <ellipse cx="0" cy="-10" rx="22" ry="26" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+            <rect x="-12" y="10" width="24" height="10" rx="2" fill="url(#grad-fill)"/>
+            <rect x="-14" y="22" width="28" height="8" rx="2" fill="#3B82F6"/>
+            <g stroke="#A78BFA" stroke-width="5" stroke-linecap="round">
+              <line x1="0" y1="-48" x2="0" y2="-60"/>
+              <line x1="30" y1="-20" x2="44" y2="-20"/>
+              <line x1="-30" y1="-20" x2="-44" y2="-20"/>
+            </g>
+        </g>
+<text x="0.0" y="-104.0" fill="#2D1B69" font-size="24" font-weight="700" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">Idea</text>
+<text x="0.0" y="-80.0" fill="#A78BFA" font-size="16" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">capture & validate</text>
+</g>
+<g transform="translate(942.4,488.8)" filter="url(#shadow)">
+<circle cx="0" cy="0" r="70" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+<g>
+            <path d="M -22 -28 H 10 L 26 -12 V 28 H -22 Z" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+            <path d="M 10 -28 V -12 H 26" fill="none" stroke="#3B82F6" stroke-width="6"/>
+            <g stroke="#A78BFA" stroke-width="5" stroke-linecap="round">
+              <line x1="-14" y1="-4" x2="14" y2="-4"/>
+              <line x1="-14" y1="8" x2="8" y2="8"/>
+              <line x1="-14" y1="20" x2="6" y2="20"/>
+            </g>
+        </g>
+<text x="98.9" y="-32.1" fill="#2D1B69" font-size="24" font-weight="700" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">Spec</text>
+<text x="98.9" y="-8.1" fill="#A78BFA" font-size="16" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">clear, lean scope</text>
+</g>
+<g transform="translate(811.6,891.2)" filter="url(#shadow)">
+<circle cx="0" cy="0" r="70" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+<g>
+            <path d="M -28 -6 L -12 -18 M -28 6 L -12 18" fill="none" stroke="url(#grad-stroke)" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 28 -6 L 12 -18 M 28 6 L 12 18" fill="none" stroke="url(#grad-stroke)" stroke-width="6" stroke-linecap="round"/>
+            <!-- small gear -->
+            <g transform="translate(0,-2)">
+              <circle cx="0" cy="0" r="10" fill="#3B82F6"/>
+              <g fill="#7C3AED">
+                <rect x="-2" y="-16" width="4" height="6"/>
+                <rect x="-2" y="10" width="4" height="6"/>
+                <rect x="-16" y="-2" width="6" height="4"/>
+                <rect x="10" y="-2" width="6" height="4"/>
+                <rect x="9" y="9" width="5" height="4" transform="rotate(45 11.5 11)"/>
+                <rect x="-14" y="-14" width="5" height="4" transform="rotate(45 -11.5 -12)"/>
+              </g>
+              <circle cx="0" cy="0" r="4" fill="#0EA5E9"/>
+            </g>
+        </g>
+<text x="61.1" y="84.1" fill="#2D1B69" font-size="24" font-weight="700" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">Code</text>
+<text x="61.1" y="108.1" fill="#A78BFA" font-size="16" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">automate & iterate</text>
+</g>
+<g transform="translate(388.4,891.2)" filter="url(#shadow)">
+<circle cx="0" cy="0" r="70" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+<g>
+            <!-- rocket body -->
+            <path d="M 0 -30 C 14 -30 20 -18 20 -6 C 20 12 10 20 0 28 C -10 20 -20 12 -20 -6 C -20 -18 -14 -30 0 -30 Z" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+            <circle cx="0" cy="-12" r="6" fill="#3B82F6"/>
+            <!-- flame -->
+            <path d="M 0 32 C 8 42 10 52 0 60 C -10 52 -8 42 0 32 Z" fill="#7C3AED"/>
+            <!-- speed lines -->
+            <g stroke="#0EA5E9" stroke-width="5" stroke-linecap="round" opacity="0.8">
+              <line x1="-56" y1="-10" x2="-30" y2="-10"/>
+              <line x1="-64" y1="4" x2="-34" y2="4"/>
+            </g>
+        </g>
+<text x="-61.1" y="84.1" fill="#2D1B69" font-size="24" font-weight="700" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">Deploy</text>
+<text x="-61.1" y="108.1" fill="#A78BFA" font-size="16" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">fast CI/CD</text>
+</g>
+<g transform="translate(257.6,488.8)" filter="url(#shadow)">
+<circle cx="0" cy="0" r="70" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+<g>
+            <!-- two user heads -->
+            <circle cx="-10" cy="-6" r="10" fill="#3B82F6"/>
+            <circle cx="14" cy="-10" r="8" fill="#7C3AED"/>
+            <!-- shoulders -->
+            <path d="M -34 16 Q -10 4 14 16 Q -10 28 -34 16 Z" fill="none" stroke="url(#grad-stroke)" stroke-width="6"/>
+            <!-- success bars -->
+            <g transform="translate(26,18)">
+              <rect x="0" y="-8" width="6" height="8" fill="#3B82F6"/>
+              <rect x="10" y="-14" width="6" height="14" fill="#3B82F6"/>
+              <rect x="20" y="-24" width="6" height="24" fill="#7C3AED"/>
+              <path d="M -2 -2 L 30 -30" stroke="#0EA5E9" stroke-width="4" marker-end="url(#arrow-thin)"/>
+            </g>
+        </g>
+<text x="-98.9" y="-32.1" fill="#2D1B69" font-size="24" font-weight="700" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">Users</text>
+<text x="-98.9" y="-8.1" fill="#A78BFA" font-size="16" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, sans-serif">measure impact</text>
+</g>
+
+<g transform="translate(717.6,761.8) scale(1.1)" opacity="0.9">
+  <circle cx="0" cy="0" r="16" fill="#3B82F6"/>
+  <g fill="#7C3AED">
+    <rect x="-3" y="-26" width="6" height="8"/>
+    <rect x="-3" y="18" width="6" height="8"/>
+    <rect x="-26" y="-3" width="8" height="6"/>
+    <rect x="18" y="-3" width="8" height="6"/>
+    <rect x="14" y="14" width="7" height="5" transform="rotate(45 17.5 16.5)"/>
+    <rect x="-21" y="-21" width="7" height="5" transform="rotate(45 -17.5 -18.5)"/>
+  </g>
+  <circle cx="0" cy="0" r="6" fill="#0EA5E9"/>
+</g>
+
+
+<g transform="translate(314.7,692.7)">
+  <path d="M -28 12 A 30 30 0 0 1 28 12" fill="none" stroke="#0EA5E9" stroke-width="5"/>
+  <line x1="0" y1="10" x2="18" y2="-8" stroke="#3B82F6" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="0" cy="10" r="4" fill="#7C3AED"/>
+</g>
+
+<g transform="translate(350,930)" filter="url(#glow)">
+  <rect x="-14" y="-30" rx="12" ry="12" width="280" height="48" fill="none" stroke="url(#grad-stroke)" stroke-width="3"/>
+  <text x="0" y="0" fill="#2D1B69" font-size="22" font-weight="600" font-family="Inter, Segoe UI, Roboto, sans-serif">Automation • Speed • Metrics</text>
+</g>
+</svg>
