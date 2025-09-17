@@ -35,17 +35,8 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                   aria-haspopup="true"
                 >
                   Product
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
@@ -63,24 +54,35 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                   aria-haspopup="true"
                 >
                   Solutions
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
                   </svg>
                 </button>
-                <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
-                  <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" />
-                  <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" />
-                  <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" />
-                  <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Autonomous incubator" />
+
+                {/* Two-column mega menu: By Role + By Use Case */}
+                <div className="invisible absolute left-1/2 z-40 mt-3 w-[680px] -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-4 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    {/* By Role */}
+                    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
+                      <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY ROLE</div>
+                      <ul className="space-y-3">
+                        <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" />
+                        <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" />
+                        <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" />
+                        <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Autonomous incubator" />
+                      </ul>
+                    </div>
+
+                    {/* By Use Case (verticals) */}
+                    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
+                      <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY USE CASE</div>
+                      <ul className="space-y-3">
+                        <MenuItem href="/vertical/ai-leadgen" title="Lead Gen Pipeline" desc="Capture → qualify → CRM → drip → pay" />
+                        <MenuItem href="/vertical/ai-support" title="Support Copilot" desc="Deflect tickets, summarize, escalate safely" />
+                      </ul>
+                      <div className="text-[11px] text-slate-500 mt-4">Examples, not limits.</div>
+                    </div>
+                  </div>
                 </div>
               </li>
 
@@ -91,17 +93,8 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                   aria-haspopup="true"
                 >
                   Resources
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
@@ -114,12 +107,9 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                 </div>
               </li>
 
-              {/* Pricing (single link) */}
+              {/* Pricing */}
               <li className="mx-2 lg:mx-3">
-                <Link
-                  className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
-                  href="/pricing"
-                >
+                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/pricing">
                   Pricing
                 </Link>
               </li>
@@ -131,17 +121,8 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                   aria-haspopup="true"
                 >
                   Company
-                  <svg
-                    className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
-                      clipRule="evenodd"
-                    />
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150 group-hover:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <div className="invisible absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 opacity-0 shadow-xl backdrop-blur transition-all duration-150 group-hover:visible group-hover:opacity-100">
@@ -155,24 +136,15 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
           {/* Right controls */}
           <div className="ml-auto flex items-center gap-x-3 md:gap-x-4">
             {!signedIn ? (
-              <Link
-                className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
-                href="/signin"
-              >
+              <Link className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/signin">
                 Sign in
               </Link>
             ) : (
               <>
-                <Link
-                  className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
-                  href="/app"
-                >
+                <Link className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/app">
                   Dashboard
                 </Link>
-                <button
-                  onClick={handleSignOut}
-                  className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
-                >
+                <button onClick={handleSignOut} className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white">
                   Sign out
                 </button>
               </>
@@ -190,12 +162,10 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
               </span>
             </Link>
 
-            {/* Theme toggle (desktop only) */}
             <span className="hidden md:block">
               <ThemeToggle />
             </span>
 
-            {/* Mobile menu button */}
             <MobileMenu />
           </div>
         </div>
@@ -207,10 +177,7 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
 /** Reusable dropdown item */
 function MenuItem({ href, title, desc }: { href: string; title: string; desc: string }) {
   return (
-    <Link
-      href={href}
-      className="block rounded-lg px-3 py-2.5 text-left transition hover:bg-white/5 focus:bg-white/5"
-    >
+    <Link href={href} className="block rounded-lg px-3 py-2.5 text-left transition hover:bg-white/5 focus:bg-white/5">
       <div className="text-sm font-medium text-slate-100">{title}</div>
       <div className="text-xs text-slate-400">{desc}</div>
     </Link>
