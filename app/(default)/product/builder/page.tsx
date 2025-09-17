@@ -5,7 +5,7 @@ import { verticals } from '@/lib/verticals'
 import BuilderVerticalPage from '@/components/builder/BuilderVerticalPage'
 
 // --- Brand / SEO constants ---
-const BRAND = 'Build AI Startups' // fixed typo
+const BRAND = 'Build AI Startups'
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const CANON = `${SITE}/product/builder`
 const OG = '/og/product-builder.svg'
@@ -71,13 +71,17 @@ const breadcrumbJsonLd = {
   ],
 }
 
-export default function Page({
+// NOTE: In your setup, searchParams is typed as a Promise.
+export default async function Page({
   searchParams,
 }: {
-  searchParams: { vertical?: string }
+  searchParams: Promise<Record<string, string | string[] | undefined>>
 }) {
-  const v = searchParams?.vertical as keyof typeof verticals | undefined
-  const vertical = v && verticals[v] ? verticals[v] : undefined
+  const sp = await searchParams
+  const raw = sp?.vertical
+  const verticalKey =
+    (Array.isArray(raw) ? raw[0] : raw) as keyof typeof verticals | undefined
+  const vertical = verticalKey && verticals[verticalKey] ? verticals[verticalKey] : undefined
 
   return (
     <>
@@ -89,7 +93,6 @@ export default function Page({
       <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
-      {/* Vertical-aware Builder */}
       <BuilderVerticalPage vertical={vertical} />
     </>
   )
