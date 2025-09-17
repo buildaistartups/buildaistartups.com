@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <!-- Palette -->
+    <style>
+      .stroke-slate { stroke: #94a3b8; }  /* slate-400 */
+      .fill-indigo { fill: #6366f1; }     /* indigo-500 */
+      .fill-indigo-600 { fill: #4f46e5; } /* indigo-600 */
+      .fill-violet { fill: #8b5cf6; }     /* violet-500 */
+      .fill-cyan { fill: #22d3ee; }       /* cyan-400 */
+      .fill-slate-800 { fill: #1f2937; }  /* slate-800 (for subtle inner areas) */
+      .fill-slate-900 { fill: #111827; }  /* slate-900 */
+      .no-fill { fill: none; }
+    </style>
+
+    <!-- Soft radial glow -->
+    <radialGradient id="indigoGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#4f46e5" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#4f46e5" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#4f46e5" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Generic shadow blur -->
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feBlend in="SourceGraphic" in2="blur" mode="normal"/>
+    </filter>
+
+    <!-- Icon symbols (stroke-only, rounded) -->
+    <g id="icon-book" stroke-linecap="round" stroke-linejoin="round" class="no-fill stroke-slate">
+      <path d="M2 5c0-1.657 1.343-3 3-3h8v14H5c-1.657 0-3-1.343-3-3V5z" transform="translate(0.5,0.5)"/>
+      <path d="M5 2h8" transform="translate(0.5,0.5)"/>
+      <path d="M5 6h6" transform="translate(0.5,0.5)"/>
+    </g>
+
+    <g id="icon-search" stroke-linecap="round" stroke-linejoin="round" class="no-fill stroke-slate">
+      <circle cx="7" cy="7" r="5"/>
+      <path d="M11 11l3 3"/>
+    </g>
+
+    <g id="icon-shield" stroke-linecap="round" stroke-linejoin="round" class="no-fill stroke-slate">
+      <path d="M8 2l6 3v4c0 4-3 6-6 7-3-1-6-3-6-7V5l6-3z"/>
+      <path d="M8 6v4"/>
+    </g>
+
+    <g id="icon-chart" stroke-linecap="round" stroke-linejoin="round" class="no-fill stroke-slate">
+      <path d="M1 13h14"/>
+      <path d="M3 11V7"/>
+      <path d="M7 11V4"/>
+      <path d="M11 11V8"/>
+    </g>
+
+    <g id="icon-sparkles" stroke-linecap="round" stroke-linejoin="round" class="no-fill stroke-slate">
+      <path d="M8 1l1.5 3.5L13 6l-3.5 1.5L8 11 6.5 7.5 3 6l3.5-1.5L8 1z"/>
+      <path d="M2 2.5l.5 1 .5-.5 1-.5-1-.5-.5-.5-.5 1z"/>
+      <path d="M13 10.5l.5 1 .5-.5 1-.5-1-.5-.5-.5-.5 1z"/>
+    </g>
+
+    <g id="icon-page-summary" stroke-linecap="round" stroke-linejoin="round" class="no-fill stroke-slate">
+      <path d="M4 1h6l3 3v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z"/>
+      <path d="M10 1v3h3"/>
+      <path d="M5 7h6M5 10h6"/>
+    </g>
+
+    <g id="icon-escalate" stroke-linecap="round" stroke-linejoin="round" class="no-fill stroke-slate">
+      <path d="M2 12h10l2 2H0l2-2z"/>
+      <path d="M6 12V5"/>
+      <path d="M3 8l3-3 3 3"/>
+    </g>
+
+    <!-- Chat bubble shapes (explicit stroke/fill) -->
+    <symbol id="bubble-right" viewBox="0 0 200 92">
+      <rect x="0" y="0" width="200" height="80" rx="12" ry="12" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+      <path d="M26 80c15 0 24 9 24 9s-6-9-5-18" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+    </symbol>
+
+    <symbol id="bubble-left" viewBox="0 0 200 92">
+      <rect x="0" y="12" width="200" height="80" rx="12" ry="12" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+      <path d="M174 12c-15 0-24-9-24-9s6 9 5 18" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+
+  <!-- Subtle background glow (transparent doc keeps glow on dark sites) -->
+  <g opacity="0.9">
+    <rect x="0" y="0" width="1600" height="900" fill="url(#indigoGlow)"/>
+  </g>
+
+  <!-- Central chat console -->
+  <g transform="translate(400,150)">
+    <!-- Outer console -->
+    <rect x="0" y="0" width="800" height="520" rx="28" ry="28"
+          class="no-fill stroke-slate" stroke-width="1.5"/>
+
+    <!-- Inner background panels (very subtle) -->
+    <rect x="12" y="12" width="776" height="496" rx="22" ry="22"
+          fill="#0b1020" opacity="0.35"/>
+
+    <!-- Vertical split -->
+    <line x1="320" y1="32" x2="320" y2="492" class="stroke-slate" stroke-width="1" opacity="0.5"/>
+
+    <!-- Left: Ticket list -->
+    <g transform="translate(28,40)">
+      <!-- Row 1 -->
+      <rect x="0" y="0" width="272" height="64" rx="14" class="no-fill stroke-slate" stroke-width="1.2"/>
+      <circle cx="18" cy="32" r="5" class="fill-cyan"/>
+      <rect x="38" y="18" width="200" height="10" rx="5" class="fill-indigo" opacity="0.35"/>
+      <rect x="38" y="36" width="160" height="10" rx="5" class="fill-indigo-600" opacity="0.25"/>
+
+      <!-- Row 2 -->
+      <rect x="0" y="84" width="272" height="64" rx="14" class="no-fill stroke-slate" stroke-width="1.2"/>
+      <circle cx="18" cy="116" r="5" class="fill-violet"/>
+      <rect x="38" y="102" width="180" height="10" rx="5" class="fill-indigo" opacity="0.35"/>
+      <rect x="38" y="120" width="120" height="10" rx="5" class="fill-indigo-600" opacity="0.25"/>
+
+      <!-- Row 3 -->
+      <rect x="0" y="168" width="272" height="64" rx="14" class="no-fill stroke-slate" stroke-width="1.2"/>
+      <circle cx="18" cy="200" r="5" class="fill-violet" opacity="0.7"/>
+      <rect x="38" y="186" width="140" height="10" rx="5" class="fill-indigo" opacity="0.35"/>
+      <rect x="38" y="204" width="190" height="10" rx="5" class="fill-indigo-600" opacity="0.25"/>
+    </g>
+
+    <!-- Right: Conversation area -->
+    <g transform="translate(352,40)">
+      <!-- Assistant bubble (top) -->
+      <g transform="translate(20,0)">
+        <use xlink:href="#bubble-left"/>
+        <rect x="16" y="28" width="168" height="10" rx="5" class="fill-indigo" opacity="0.5"/>
+        <rect x="16" y="46" width="140" height="10" rx="5" class="fill-violet" opacity="0.45"/>
+      </g>
+
+      <!-- Customer bubble (bottom) -->
+      <g transform="translate(20,140)">
+        <use xlink:href="#bubble-right"/>
+        <rect x="16" y="20" width="120" height="10" rx="5" class="fill-indigo-600" opacity="0.35"/>
+        <rect x="16" y="38" width="160" height="10" rx="5" class="fill-indigo" opacity="0.35"/>
+      </g>
+    </g>
+
+    <!-- Floating: Suggested reply panel -->
+    <g transform="translate(960,90)">
+      <g filter="url(#softBlur)" opacity="0.85">
+        <rect x="-240" y="-28" width="220" height="92" rx="16" class="fill-slate-900" opacity="0.6"/>
+        <rect x="-240" y="-28" width="220" height="92" rx="16" class="no-fill stroke-slate" stroke-width="1.2"/>
+        <!-- Sparkles icon -->
+        <g transform="translate(-220,-6) scale(1.4)">
+          <use xlink:href="#icon-sparkles" stroke-width="1.2"/>
+        </g>
+        <!-- Decorative bars (no text) -->
+        <rect x="-170" y="-2" width="140" height="10" rx="5" class="fill-indigo" opacity="0.45"/>
+        <rect x="-170" y="16" width="110" height="10" rx="5" class="fill-violet" opacity="0.4"/>
+      </g>
+    </g>
+
+    <!-- Chips below: summarize + escalate (icons only) -->
+    <g transform="translate(520,580)">
+      <g transform="translate(-120,0)">
+        <rect x="0" y="0" width="56" height="28" rx="14" class="no-fill stroke-slate" stroke-width="1.2"/>
+        <g transform="translate(16,6) scale(1.2)">
+          <use xlink:href="#icon-page-summary" stroke-width="1.2"/>
+        </g>
+      </g>
+      <g transform="translate(-48,0)">
+        <rect x="0" y="0" width="56" height="28" rx="14" class="no-fill stroke-slate" stroke-width="1.2"/>
+        <g transform="translate(18,6) scale(1.2)">
+          <use xlink:href="#icon-escalate" stroke-width="1.2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Surrounding capability mini-icons -->
+  <g transform="translate(800,450)">
+    <!-- Docs ingestion -->
+    <g transform="translate(-440,-160) scale(2)">
+      <use xlink:href="#icon-book" stroke-width="1.2"/>
+      <circle cx="17" cy="10" r="2" class="fill-cyan"/>
+    </g>
+    <!-- Search -->
+    <g transform="translate(420,-120) scale(2)">
+      <use xlink:href="#icon-search" stroke-width="1.2"/>
+      <circle cx="14" cy="14" r="2" class="fill-cyan"/>
+    </g>
+    <!-- Safety -->
+    <g transform="translate(-480,120) scale(2)">
+      <use xlink:href="#icon-shield" stroke-width="1.2"/>
+      <circle cx="16" cy="6" r="2" class="fill-cyan"/>
+    </g>
+    <!-- Analytics -->
+    <g transform="translate(460,160) scale(2)">
+      <use xlink:href="#icon-chart" stroke-width="1.2"/>
+      <circle cx="12" cy="4" r="2" class="fill-cyan"/>
+    </g>
+  </g>
+
+  <!-- Cyan highlight accents -->
+  <g opacity="0.4">
+    <circle cx="1150" cy="210" r="6" class="fill-cyan"/>
+    <circle cx="470" cy="630" r="5" class="fill-cyan"/>
+    <circle cx="300" cy="260" r="4" class="fill-cyan"/>
+  </g>
+</svg>
