@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <!-- Colors -->
+    <linearGradient id="indigoViolet" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#5B21B6" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#312E81" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#111827" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="b"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.9"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="g"/>
+      <feMerge>
+        <feMergeNode in="g"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Common styles -->
+    <style>
+      .panel { fill: rgba(17,24,39,0.75); stroke: #475569; stroke-opacity: .6; }
+      .stroke-mid { stroke: #94A3B8; stroke-opacity: .6; }
+      .divider { stroke: #334155; stroke-opacity:.6; }
+      .accent { stroke: url(#indigoViolet); }
+      .dot-low { fill: #22C55E; }
+      .dot-med { fill: #EAB308; }
+      .dot-high { fill: #EF4444; }
+      .cyan { stroke: #22D3EE; fill:#22D3EE; }
+      .muted { stroke: #64748B; }
+      .pill { fill: rgba(51,65,85,0.6); stroke:#475569; }
+      .pillAccent { fill: rgba(79,70,229,0.25); stroke: url(#indigoViolet); }
+      .line { stroke:#94A3B8; stroke-linecap:round; }
+    </style>
+  </defs>
+
+  <!-- Subtle halos behind modules (transparent canvas otherwise) -->
+  <g filter="url(#softBlur)">
+    <ellipse cx="533" cy="420" rx="360" ry="240" fill="url(#halo)"/>
+    <ellipse cx="1067" cy="420" rx="360" ry="240" fill="url(#halo)"/>
+  </g>
+
+  <!-- ===== 1) Agent Inbox ===== -->
+  <g transform="translate(140,180)">
+    <!-- container -->
+    <rect x="0" y="0" rx="28" ry="28" width="420" height="360" class="panel" />
+    <!-- header line -->
+    <line x1="0" y1="60" x2="420" y2="60" class="divider" stroke-width="2"/>
+    <!-- subtle header orbs -->
+    <circle cx="28" cy="30" r="6" fill="#4F46E5"/>
+    <circle cx="50" cy="30" r="6" fill="#7C3AED" />
+    <!-- ticket rows -->
+    <g transform="translate(20,88)" stroke-width="8">
+      <!-- row 1 -->
+      <circle cx="10" cy="12" r="6" class="dot-high"/>
+      <line x1="30" y1="12" x2="360" y2="12" class="line"/>
+      <!-- row 2 -->
+      <circle cx="10" cy="52" r="6" class="dot-med"/>
+      <line x1="30" y1="52" x2="330" y2="52" class="line"/>
+      <!-- row 3 -->
+      <circle cx="10" cy="92" r="6" class="dot-low"/>
+      <line x1="30" y1="92" x2="300" y2="92" class="line"/>
+      <!-- row 4 -->
+      <circle cx="10" cy="132" r="6" class="dot-med"/>
+      <line x1="30" y1="132" x2="340" y2="132" class="line"/>
+      <!-- row 5 -->
+      <circle cx="10" cy="172" r="6" class="dot-low"/>
+      <line x1="30" y1="172" x2="310" y2="172" class="line"/>
+    </g>
+  </g>
+
+  <!-- Arrow 1: Inbox -> Macros -->
+  <g transform="translate(580,320)" stroke-width="10" class="accent" filter="url(#glow)">
+    <line x1="0" y1="0" x2="140" y2="0" fill="none"/>
+    <path d="M140 -16 L180 0 L140 16" fill="url(#indigoViolet)" stroke="none"/>
+  </g>
+
+  <!-- ===== 2) Macros & Suggestions Panel ===== -->
+  <g transform="translate(780,160)">
+    <rect x="0" y="0" rx="28" ry="28" width="340" height="320" class="panel"/>
+    <line x1="0" y1="60" x2="340" y2="60" class="divider" stroke-width="2"/>
+    <!-- Wand icon (top-left) -->
+    <g transform="translate(24,20)">
+      <rect x="0" y="0" width="36" height="20" fill="none"/>
+      <g stroke="url(#indigoViolet)" stroke-width="3" stroke-linecap="round">
+        <line x1="4" y1="16" x2="28" y2="4"/>
+        <line x1="20" y1="18" x2="32" y2="18"/>
+        <line x1="30" y1="6" x2="34" y2="2"/>
+        <line x1="14" y1="2" x2="10" y2="0"/>
+      </g>
+    </g>
+    <!-- Pills list -->
+    <g transform="translate(24,92)">
+      <!-- pill 1 -->
+      <rect x="0" y="0" rx="14" ry="14" width="220" height="32" class="pillAccent"/>
+      <!-- pill 2 -->
+      <rect x="0" y="44" rx="14" ry="14" width="260" height="32" class="pill"/>
+      <!-- pill 3 -->
+      <rect x="0" y="88" rx="14" ry="14" width="200" height="32" class="pill"/>
+      <!-- pill 4 -->
+      <rect x="0" y="132" rx="14" ry="14" width="240" height="32" class="pill"/>
+    </g>
+  </g>
+
+  <!-- Arrow 2: Macros -> Auto-summary -->
+  <g transform="translate(1140,300)" stroke-width="10" class="accent" filter="url(#glow)">
+    <line x1="0" y1="0" x2="140" y2="0" fill="none"/>
+    <path d="M140 -16 L180 0 L140 16" fill="url(#indigoViolet)" stroke="none"/>
+  </g>
+
+  <!-- ===== 3) Auto-summary (document card) ===== -->
+  <g transform="translate(1280,200)">
+    <rect x="-260" y="0" rx="28" ry="28" width="260" height="300" class="panel"/>
+    <!-- Document card inside -->
+    <g transform="translate(-220,40)">
+      <!-- doc frame -->
+      <rect x="0" y="0" rx="16" ry="16" width="180" height="220" fill="rgba(2,6,23,0.6)" class="stroke-mid" stroke-width="2"/>
+      <!-- folded corner -->
+      <path d="M160,0 L180,20 L180,0 Z" fill="url(#indigoViolet)" opacity="0.9"/>
+      <!-- bullet lines -->
+      <g stroke-width="8">
+        <circle cx="16" cy="36" r="3.5" class="muted" fill="#64748B"/>
+        <line x1="28" y1="36" x2="152" y2="36" class="line"/>
+        <circle cx="16" cy="68" r="3.5" class="muted" fill="#64748B"/>
+        <line x1="28" y1="68" x2="132" y2="68" class="line"/>
+        <circle cx="16" cy="100" r="3.5" class="muted" fill="#64748B"/>
+        <line x1="28" y1="100" x2="148" y2="100" class="line"/>
+        <circle cx="16" cy="132" r="3.5" class="muted" fill="#64748B"/>
+        <line x1="28" y1="132" x2="120" y2="132" class="line"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- ===== QA strip (faint, with cyan checks) ===== -->
+  <g transform="translate(220,620)">
+    <rect x="0" y="0" rx="18" ry="18" width="1160" height="80" fill="rgba(2,6,23,0.35)" stroke="#334155" stroke-opacity=".5"/>
+    <!-- left icon: shield + check -->
+    <g transform="translate(40,22)">
+      <!-- shield -->
+      <path d="M20 0 L36 6 V22 C36 32 28 40 20 44 C12 40 4 32 4 22 V6 Z" fill="none" stroke="#94A3B8" stroke-width="2"/>
+      <!-- check -->
+      <path d="M11 22 L18 28 L29 15" fill="none" stroke="#22D3EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- right icon: smiley + check -->
+    <g transform="translate(100,22)">
+      <!-- face -->
+      <circle cx="22" cy="22" r="18" fill="none" stroke="#94A3B8" stroke-width="2"/>
+      <circle cx="16" cy="18" r="2.5" fill="#94A3B8"/>
+      <circle cx="28" cy="18" r="2.5" fill="#94A3B8"/>
+      <path d="M14 28 Q22 34 30 28" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+      <!-- check overlay -->
+      <path d="M34 8 L44 18 L58 2" fill="none" class="cyan" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <!-- faint separators -->
+    <line x1="200" y1="16" x2="200" y2="64" class="divider"/>
+  </g>
+
+  <!-- Subtle corner sparkles -->
+  <g stroke="url(#indigoViolet)" stroke-width="2" stroke-linecap="round" opacity=".7">
+    <line x1="150" y1="120" x2="170" y2="120"/>
+    <line x1="160" y1="110" x2="160" y2="130"/>
+    <line x1="1440" y1="760" x2="1460" y2="760"/>
+    <line x1="1450" y1="750" x2="1450" y2="770"/>
+  </g>
+</svg>
