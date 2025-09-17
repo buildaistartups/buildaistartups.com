@@ -1,3 +1,4 @@
+// app/(default)/page.tsx
 export const metadata = {
   title: 'Home - Build AI Startups',
   description: 'Page description',
@@ -12,9 +13,10 @@ import ThemeAwareTestimonials from '@/components/ThemeAwareTestimonials'
 import ThemeAwareFeatures04 from '@/components/ThemeAwareFeatures04'
 import ThemeAwarePricing from '@/components/ThemeAwarePricing'
 import Testimonials from '@/components/testimonials'
-
-// ⟵ use the theme-aware CTA instead of importing the dark CTA directly
 import ThemeAwareCTA from '@/components/ThemeAwareCTA'
+
+// NEW
+import PerfectForStripe from '@/components/utils/perfect-for-stripe'
 
 export default function Home() {
   return (
@@ -24,6 +26,9 @@ export default function Home() {
       <ThemeAwareFeatures />
       <Features02 />
       <Features03 />
+
+      {/* Vertical teaser stripe */}
+      <PerfectForStripe />
 
       <ThemeAwareTestimonials />
       <ThemeAwareFeatures04 />
