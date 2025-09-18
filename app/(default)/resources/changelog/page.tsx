@@ -5,7 +5,7 @@ import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const pageUrl = `${siteUrl}/resources/changelog`
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/resources-changelog.png'
 
 export const metadata: Metadata = {
   title: 'Changelog - Product updates & releases | Build AI Startups',
@@ -204,7 +204,7 @@ export default function ChangelogPage() {
             </div>
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/changelog/changelog-hero.png" alt="Changelog overview" className="h-full w-full object-cover" />
+                <img src="/images/resources/changelog/hero.svg" alt="Changelog overview" className="h-full w-full object-cover" />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Release timeline and updates</p>
             </div>
@@ -213,6 +213,9 @@ export default function ChangelogPage() {
 
         {/* Stats */}
         <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/changelog/release-stats.svg" alt="Release statistics" className="w-full h-32 object-contain" />
+          </div>
           <div className="grid gap-4 sm:grid-cols-4">
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-center">
               <div className="text-2xl font-bold text-violet-400">{releases.length}</div>
@@ -232,6 +235,13 @@ export default function ChangelogPage() {
               </div>
               <div className="text-sm text-slate-400">Breaking Changes</div>
             </div>
+          </div>
+        </section>
+
+        {/* Timeline Visualization */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/changelog/release-timeline.svg" alt="Release timeline visualization" className="w-full h-40 object-contain" />
           </div>
         </section>
 
@@ -305,6 +315,13 @@ export default function ChangelogPage() {
           </div>
         </section>
 
+        {/* Feature Categories */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/changelog/feature-categories.svg" alt="Feature categories" className="w-full h-32 object-contain" />
+          </div>
+        </section>
+
         {/* All Releases */}
         <section id="releases" className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold mb-6">All releases</h2>
@@ -320,9 +337,12 @@ export default function ChangelogPage() {
                       {release.theme}
                     </div>
                     {release.breaking && (
-                      <span className="rounded-full border border-red-500/30 bg-red-500/20 px-3 py-1 text-xs font-medium text-red-300">
-                        Breaking
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="rounded-full border border-red-500/30 bg-red-500/20 px-3 py-1 text-xs font-medium text-red-300">
+                          Breaking
+                        </span>
+                        <img src="/images/resources/changelog/breaking-changes.svg" alt="Breaking changes" className="w-4 h-4" />
+                      </div>
                     )}
                   </div>
                   <div className="text-sm text-slate-400">
@@ -375,9 +395,12 @@ export default function ChangelogPage() {
                 </div>
 
                 {release.migration && (
-                  <div className="mt-4 p-3 rounded-lg border border-yellow-500/30 bg-yellow-500/10">
-                    <h4 className="text-sm font-medium text-yellow-300 mb-1">Migration required</h4>
-                    <p className="text-sm text-slate-300">{release.migration}</p>
+                  <div className="mt-4 p-3 rounded-lg border border-yellow-500/30 bg-yellow-500/10 flex items-start gap-3">
+                    <img src="/images/resources/changelog/migration-guide.svg" alt="Migration guide" className="w-5 h-5 mt-0.5" />
+                    <div>
+                      <h4 className="text-sm font-medium text-yellow-300 mb-1">Migration required</h4>
+                      <p className="text-sm text-slate-300">{release.migration}</p>
+                    </div>
                   </div>
                 )}
               </div>
@@ -388,6 +411,9 @@ export default function ChangelogPage() {
         {/* Subscribe */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8 text-center">
+            <div className="mb-6">
+              <img src="/images/resources/changelog/notification-settings.svg" alt="Notification settings" className="w-24 h-24 mx-auto mb-4" />
+            </div>
             <h2 className="text-2xl font-semibold mb-2">Stay updated</h2>
             <p className="text-slate-300 mb-6">
               Get notified when we ship new features and updates.
