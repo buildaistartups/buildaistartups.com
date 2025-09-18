@@ -9,23 +9,20 @@ const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
   title: 'Roadmap — What we're building next | Build AI Startups',
-  description:
-    'Follow the Build AI Startups roadmap: what's shipping now, what's next, and what's planned. Vote on features and track progress via the changelog.',
+  description: 'Follow the Build AI Startups roadmap: what\'s shipping now, what\'s next, and what\'s planned. Vote on features and track progress via the changelog.',
   alternates: { canonical: pageUrl },
   openGraph: {
     type: 'website',
     url: pageUrl,
     title: 'Roadmap — What we're building next | Build AI Startups',
-    description:
-      'Now / Next / Later board, release timeline, and prioritization policy for Build AI Startups.',
+    description: 'Now / Next / Later board, release timeline, and prioritization policy for Build AI Startups.',
     images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Roadmap' }],
     siteName: 'Build AI Startups',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Roadmap — What we're building next | Build AI Startups',
-    description:
-      'See what's shipping now, next, and later. Vote on features and track releases.',
+    description: 'See what\'s shipping now, next, and later. Vote on features and track releases.',
     images: [ogImage],
   },
 }
@@ -47,8 +44,7 @@ const items: RoadmapItem[] = [
   {
     id: 'builder-gold-templates',
     title: 'Builder: Gold Templates (SaaS, API)',
-    summary:
-      'Production-grade starters with auth, Stripe, analytics, tests, and docs. Opinionated defaults and Spec DSL presets.',
+    summary: 'Production-grade starters with auth, Stripe, analytics, tests, and docs. Opinionated defaults and Spec DSL presets.',
     status: 'now',
     eta: 'Shipping',
     theme: 'Builder',
@@ -59,8 +55,7 @@ const items: RoadmapItem[] = [
   {
     id: 'build-score-v1',
     title: 'Build Score v1 + Quality Gates',
-    summary:
-      'Composite score from lint/types, tests, security scans, performance budgets, and license checks to gate Autopilot.',
+    summary: 'Composite score from lint/types, tests, security scans, performance budgets, and license checks to gate Autopilot.',
     status: 'now',
     eta: 'Shipping',
     theme: 'Integrity',
@@ -71,8 +66,7 @@ const items: RoadmapItem[] = [
   {
     id: 'ecosystem-cross-promos',
     title: 'Ecosystem: Cross-Promotions',
-    summary:
-      'Auto-network new launches with partner microsites and shared feeds. Incremental growth without extra ad spend.',
+    summary: 'Auto-network new launches with partner microsites and shared feeds. Incremental growth without extra ad spend.',
     status: 'now',
     eta: 'Shipping',
     theme: 'Ecosystem',
@@ -84,8 +78,7 @@ const items: RoadmapItem[] = [
   {
     id: 'marketplace-beta',
     title: 'Marketplace Beta (Listings & Diligence Packs)',
-    summary:
-      'List, license, or transfer projects with live demos, Build Score, and readiness checklist. Optional escrow.',
+    summary: 'List, license, or transfer projects with live demos, Build Score, and readiness checklist. Optional escrow.',
     status: 'next',
     eta: 'Q4',
     theme: 'Marketplace',
@@ -96,8 +89,7 @@ const items: RoadmapItem[] = [
   {
     id: 'api-v1',
     title: 'API v1 + Webhooks',
-    summary:
-      'Endpoints for ideas, builds, experiments, events, and Marketplace listings. Signed webhooks for lifecycle events.',
+    summary: 'Endpoints for ideas, builds, experiments, events, and Marketplace listings. Signed webhooks for lifecycle events.',
     status: 'next',
     eta: 'Q4',
     theme: 'API',
@@ -108,8 +100,7 @@ const items: RoadmapItem[] = [
   {
     id: 'prompt-packs',
     title: 'Prompt Packs & Blueprints',
-    summary:
-      'Reusable, auditable prompt sets and Spec patterns for common verticals and workflows.',
+    summary: 'Reusable, auditable prompt sets and Spec patterns for common verticals and workflows.',
     status: 'next',
     eta: 'Q4',
     theme: 'Templates',
@@ -121,8 +112,7 @@ const items: RoadmapItem[] = [
   {
     id: 'vertical-agents',
     title: 'Vertical Agents (3.0)',
-    summary:
-      'Domain-tuned agents for fintech, creator tools, and ops. Stricter compliance packs and data policies.',
+    summary: 'Domain-tuned agents for fintech, creator tools, and ops. Stricter compliance packs and data policies.',
     status: 'later',
     eta: 'H1',
     theme: 'Builder',
@@ -132,8 +122,7 @@ const items: RoadmapItem[] = [
   {
     id: 'acquisition-automation',
     title: 'Acquisition Automation',
-    summary:
-      'Buy-side console with allocation preferences, private rooms, and milestone-based escrow workflows.',
+    summary: 'Buy-side console with allocation preferences, private rooms, and milestone-based escrow workflows.',
     status: 'later',
     eta: 'H1',
     theme: 'Marketplace',
@@ -143,8 +132,7 @@ const items: RoadmapItem[] = [
   {
     id: 'studio-automation',
     title: 'Venture Studio Automation',
-    summary:
-      'Always-on idea scouting, Spec seeding, and prototype shipping behind flags for review by studios/accelerators.',
+    summary: 'Always-on idea scouting, Spec seeding, and prototype shipping behind flags for review by studios/accelerators.',
     status: 'later',
     eta: 'H1',
     theme: 'Ecosystem',
@@ -155,8 +143,7 @@ const items: RoadmapItem[] = [
   {
     id: 'docs-hub',
     title: 'Docs Hub & Quick Start',
-    summary:
-      'Documentation hub with Quick Start, Concepts, API overview, Webhooks, Security, and FAQ.',
+    summary: 'Documentation hub with Quick Start, Concepts, API overview, Webhooks, Security, and FAQ.',
     status: 'done',
     eta: 'Shipped',
     theme: 'Templates',
@@ -214,8 +201,7 @@ const collectionJsonLd = {
   '@type': 'CollectionPage',
   name: 'Build AI Startups — Roadmap',
   url: pageUrl,
-  description:
-    'Public roadmap for Build AI Startups: Now / Next / Later board, milestones, and prioritization policy.',
+  description: 'Public roadmap for Build AI Startups: Now / Next / Later board, milestones, and prioritization policy.',
 }
 
 const itemListJsonLd = {
@@ -257,7 +243,7 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'What's the difference between Copilot and Autopilot?',
+      name: 'What\'s the difference between Copilot and Autopilot?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Copilot requires human approvals at gates; Autopilot ships when all gates are green and the Build Score meets threshold.',
@@ -462,288 +448,6 @@ export default function RoadmapPage() {
                 </div>
               )}
             </Column>
-          </div>
-        </section>
-
-        {/* Themes */}
-        <section id="themes" className="mx-auto max-w-6xl px-6 py-10">
-          <h2 className="text-2xl font-semibold mb-6">Roadmap themes</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                t: 'Builder',
-                d: 'Compress the loop from intent → repo → deploy. Invest in Spec DSL, starter kits, CI, and Build Score.',
-                bg: themeColor.Builder,
-                icon: themeIcon.Builder,
-              },
-              { 
-                t: 'Ecosystem', 
-                d: 'Make every launch easier with cross-promos, shared feeds, and partner surfaces.', 
-                bg: themeColor.Ecosystem,
-                icon: themeIcon.Ecosystem,
-              },
-              { 
-                t: 'Marketplace', 
-                d: 'Turn working software into deals: listings, diligence packs, and transfer rails.', 
-                bg: themeColor.Marketplace,
-                icon: themeIcon.Marketplace,
-              },
-              { 
-                t: 'API', 
-                d: 'Unlock automation and pipelines with REST, webhooks, and (later) SDKs.', 
-                bg: themeColor.API,
-                icon: themeIcon.API,
-              },
-              { 
-                t: 'Integrity', 
-                d: 'Bake in safety, provenance, quality gates, and license hygiene.', 
-                bg: themeColor.Integrity,
-                icon: themeIcon.Integrity,
-              },
-              { 
-                t: 'Templates', 
-                d: 'Ship faster with reusable starters, prompt packs, and vertical blueprints.', 
-                bg: themeColor.Templates,
-                icon: themeIcon.Templates,
-              },
-            ].map((x) => (
-              <div key={x.t} className="rounded-2xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r ${x.bg}`}>
-                    <span className="text-lg">{x.icon}</span>
-                  </div>
-                  <div className="font-semibold">{x.t}</div>
-                </div>
-                <p className="text-sm text-slate-300 leading-relaxed">{x.d}</p>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-8 rounded-xl border border-white/10 bg-slate-900/50 p-6">
-            <img 
-              src="/media/roadmap/feature-themes.svg" 
-              alt="Visual representation of roadmap themes and their relationships" 
-              className="w-full h-auto rounded-lg"
-              loading="lazy"
-            />
-          </div>
-        </section>
-
-        {/* Timeline */}
-        <section id="timeline" className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold mb-6">Timeline</h2>
-          
-          <div className="grid gap-6 md:grid-cols-2 mb-8">
-            <div className="rounded-2xl border border-violet-500/30 bg-violet-500/10 p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">🚀</span>
-                <div className="text-lg font-semibold text-violet-300">This quarter</div>
-              </div>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-center gap-2">
-                  <span className="text-green-400">✅</span>
-                  Gold Templates (SaaS, API)
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-400">✅</span>
-                  Build Score v1 + quality gates
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-green-400">✅</span>
-                  Ecosystem cross-promotions (launch)
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-yellow-400">⏳</span>
-                  Marketplace beta (listings + diligence)
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-yellow-400">⏳</span>
-                  API v1 + webhooks
-                </li>
-              </ul>
-            </div>
-            
-            <div className="rounded-2xl border border-blue-500/30 bg-blue-500/10 p-6">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">📅</span>
-                <div className="text-lg font-semibold text-blue-300">Next quarter</div>
-              </div>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-center gap-2">
-                  <span className="text-slate-400">○</span>
-                  Prompt Packs & Blueprints
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-slate-400">○</span>
-                  Partner program for accelerators/cohorts
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-slate-400">○</span>
-                  Marketplace: offers, escrow milestones
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-slate-400">○</span>
-                  API feeds for investors
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6 mb-6">
-            <img 
-              src="/media/roadmap/timeline-visualization.svg" 
-              alt="Timeline visualization showing development phases and milestones" 
-              className="w-full h-auto rounded-lg"
-              loading="lazy"
-            />
-          </div>
-          
-          <p className="text-xs text-slate-500 text-center">
-            ETAs are directional and may change. We announce releases in the{' '}
-            <Link href="/resources/changelog" className="text-violet-400 hover:text-violet-300 transition-colors">
-              changelog
-            </Link>
-            .
-          </p>
-        </section>
-
-        {/* Prioritization policy */}
-        <section id="policy" className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold mb-6">How we prioritize</h2>
-          
-          <div className="grid gap-6 md:grid-cols-2 mb-8">
-            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">📊</span>
-                <div className="text-base font-medium">Signals we weigh</div>
-              </div>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-violet-400 mt-1">•</span>
-                  <div><strong>User value</strong>: time-to-value, breadth of impact</div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-violet-400 mt-1">•</span>
-                  <div><strong>Ecosystem effect</strong>: boosts other launches</div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-violet-400 mt-1">•</span>
-                  <div><strong>Technical leverage</strong>: unlocks compounding speed/quality</div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-violet-400 mt-1">•</span>
-                  <div><strong>Safety & integrity</strong>: raises bar for reliable autonomy</div>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xl">🎯</span>
-                <div className="text-base font-medium">What moves something to "Now"</div>
-              </div>
-              <ul className="space-y-3 text-sm text-slate-300">
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">•</span>
-                  <div>Clear spec, validated need, and owner capacity</div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">•</span>
-                  <div>Meets safety/quality bar; minimal external dependencies</div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-400 mt-1">•</span>
-                  <div>Stacks with current initiatives (Builder/Ecosystem/Marketplace)</div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
-            <img 
-              src="/media/roadmap/priority-matrix.svg" 
-              alt="Prioritization framework showing how features are evaluated and ranked" 
-              className="w-full h-auto rounded-lg"
-              loading="lazy"
-            />
-          </div>
-        </section>
-
-        {/* Feature requests */}
-        <section id="requests" className="mx-auto max-w-6xl px-6 py-12">
-          <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-            <div className="grid gap-6 md:grid-cols-2 md:items-center">
-              <div>
-                <h2 className="text-2xl font-semibold mb-3">Request a feature</h2>
-                <p className="text-slate-300 mb-4">
-                  Tell us what would unlock the most value for you. We read everything and update this page as plans evolve.
-                </p>
-                <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/contact?subject=Feature%20request" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400 transition-colors">
-                    💡 Submit a request
-                  </Link>
-                  <Link href="/resources/changelog" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors">
-                    📋 Read the changelog
-                  </Link>
-                </div>
-              </div>
-              <div className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
-                <div className="text-sm font-medium text-slate-300 mb-3">Most requested</div>
-                <div className="space-y-2 text-sm">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400">Mobile app</span>
-                    <span className="text-violet-400">89 votes</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400">Team collaboration</span>
-                    <span className="text-violet-400">67 votes</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-400">Custom domains</span>
-                    <span className="text-violet-400">54 votes</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ (mirrors JSON-LD) */}
-        <section id="faq" className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold mb-6">Roadmap FAQ</h2>
-          <div className="grid gap-6 md:grid-cols-2">
-            {[
-              {
-                q: 'How do I vote on an item?',
-                a: 'Click "Share feedback" on a card or use the feature request form. We aggregate signals by account.',
-                icon: '🗳️'
-              },
-              {
-                q: 'Will dates slip?',
-                a: 'Sometimes. We optimize for quality, safety, and reliability of the build loop.',
-                icon: '📅'
-              },
-              {
-                q: 'Where can I follow progress?',
-                a: 'Changelog posts major releases. Minor updates appear on product pages.',
-                icon: '📊'
-              },
-              {
-                q: 'Can partners influence priorities?',
-                a: 'Yes, via partner programs. See Accelerators & Universities for details.',
-                icon: '🤝'
-              },
-            ].map((faq, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
-                <div className="flex items-start gap-3">
-                  <div className="text-xl">{faq.icon}</div>
-                  <div>
-                    <h3 className="text-base font-medium text-slate-200 mb-2">{faq.q}</h3>
-                    <p className="text-sm text-slate-300">{faq.a}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 
