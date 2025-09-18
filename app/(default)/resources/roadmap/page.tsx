@@ -5,7 +5,7 @@ import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const pageUrl = `${siteUrl}/resources/roadmap`
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/resources-roadmap.png'
 
 export const metadata: Metadata = {
   title: 'Roadmap - What we are building next | Build AI Startups',
@@ -154,7 +154,7 @@ export default function RoadmapPage() {
   )
 
   const Card = ({ item }: { item: RoadmapItem }) => (
-    <div id={item.id} className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+    <div id={item.id} className="rounded-xl border border-white/10 bg-slate-950/40 p-4 hover:border-violet-500/30 transition-colors">
       <div className="flex items-center justify-between">
         <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${themeColor[item.theme]} px-3 py-1 text-xs font-medium text-white`}>
           <span>{item.theme}</span>
@@ -170,6 +170,12 @@ export default function RoadmapPage() {
           </span>
         ))}
       </div>
+      {item.votes && (
+        <div className="mt-2 flex items-center gap-2">
+          <img src="/images/resources/roadmap/feature-voting.svg" alt="Votes" className="w-4 h-4" />
+          <span className="text-xs text-slate-400">{item.votes} votes</span>
+        </div>
+      )}
       <div className="mt-3 flex items-center gap-3">
         {item.link ? (
           <Link href={item.link} className="text-sm text-sky-300 hover:underline">
@@ -191,6 +197,7 @@ export default function RoadmapPage() {
       <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <main className="bg-slate-950 text-slate-200">
+        {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 pb-10 pt-20 sm:pt-28">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
@@ -212,15 +219,75 @@ export default function RoadmapPage() {
             </div>
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/screens/roadmap-hero.png" alt="Roadmap overview" className="h-full w-full object-cover" />
+                <img src="/images/resources/roadmap/hero.svg" alt="Roadmap overview" className="h-full w-full object-cover" />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Board view, Timeline, Status & ETA</p>
             </div>
           </div>
         </section>
 
+        {/* Timeline View */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/roadmap/timeline-view.svg" alt="Development timeline" className="w-full h-32 object-contain" />
+          </div>
+        </section>
+
+        {/* Priority Matrix */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <h2 className="text-2xl font-semibold mb-6">Prioritization Framework</h2>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
+              <img src="/images/resources/roadmap/priority-matrix.svg" alt="Priority matrix" className="w-full h-32 object-contain mb-4" />
+              <h3 className="text-lg font-semibold mb-3">How We Prioritize</h3>
+              <ul className="space-y-2 text-sm text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-violet-400 mt-1">•</span>
+                  <span><strong>User Value:</strong> Direct impact on user outcomes and success</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">•</span>
+                  <span><strong>Ecosystem Impact:</strong> Network effects and platform growth</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-teal-400 mt-1">•</span>
+                  <span><strong>Technical Leverage:</strong> Foundation for future capabilities</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-400 mt-1">•</span>
+                  <span><strong>Safety & Quality:</strong> Risk mitigation and reliability</span>
+                </li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
+              <img src="/images/resources/roadmap/stakeholder-feedback.svg" alt="Stakeholder feedback" className="w-full h-32 object-contain mb-4" />
+              <h3 className="text-lg font-semibold mb-3">Community Input</h3>
+              <p className="text-slate-300 mb-4">
+                We actively collect feedback from users, partners, and the developer community to inform our roadmap decisions.
+              </p>
+              <Link 
+                href="/contact?subject=Feature%20request" 
+                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-4 py-2 text-sm font-medium text-white hover:bg-violet-400"
+              >
+                Submit Feature Request
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Progress Tracking */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/roadmap/progress-tracking.svg" alt="Progress tracking dashboard" className="w-full h-32 object-contain" />
+          </div>
+        </section>
+
+        {/* Roadmap Board */}
         <section id="board" className="mx-auto max-w-6xl px-6 py-8">
-          <h2 className="text-2xl font-semibold">Now / Next / Later</h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-semibold">Now / Next / Later</h2>
+            <img src="/images/resources/roadmap/board-view.svg" alt="Board view" className="h-8" />
+          </div>
           <div className="mt-6 grid gap-4 lg:grid-cols-4">
             <Column title="Now">
               {now.map((i) => <Card key={i.id} item={i} />)}
@@ -241,6 +308,40 @@ export default function RoadmapPage() {
           </div>
         </section>
 
+        {/* Release Planning */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <h2 className="text-2xl font-semibold mb-6">Release Planning</h2>
+          <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
+            <img src="/images/resources/roadmap/release-planning.svg" alt="Release planning workflow" className="w-full h-40 object-contain mb-4" />
+            <div className="grid gap-6 md:grid-cols-3">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-violet-400 mb-2">2-week</div>
+                <div className="text-sm text-slate-300">Sprint Cycles</div>
+                <div className="text-xs text-slate-400 mt-1">Fast iteration and feedback</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-400 mb-2">Monthly</div>
+                <div className="text-sm text-slate-300">Feature Releases</div>
+                <div className="text-xs text-slate-400 mt-1">Regular capability updates</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-teal-400 mb-2">Quarterly</div>
+                <div className="text-sm text-slate-300">Major Milestones</div>
+                <div className="text-xs text-slate-400 mt-1">Platform evolution</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Feature Dependencies */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <h2 className="text-2xl font-semibold mb-6">Feature Dependencies</h2>
+          <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
+            <img src="/images/resources/roadmap/feature-dependencies.svg" alt="Feature dependency mapping" className="w-full h-40 object-contain" />
+          </div>
+        </section>
+
+        {/* Final CTA */}
         <section className="border-t border-white/10 bg-slate-900/40 py-14">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-semibold">Help shape the roadmap</h2>
