@@ -5,7 +5,7 @@ import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const pageUrl = `${siteUrl}/resources/templates`
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/resources-templates.png'
 
 // -------------------- SEO --------------------
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ const templates = [
     summary:
       'Auth, teams, billing, entitlements, onboarding, settings, and email — production scaffold for B2B SaaS.',
     tags: ['SaaS', 'Stripe', 'Auth', 'Teams'],
-    preview: '/media/templates/saas-starter.png',
+    preview: '/images/resources/templates/saas-starter.svg',
     score: 92,
     route: '/generate?template=saas-starter',
     category: 'SaaS',
@@ -71,7 +71,7 @@ const templates = [
     summary:
       'Public API with keys, usage metering, rate limits, docs site, and examples. Ready for dev-tool products.',
     tags: ['API', 'Docs', 'Rate limits'],
-    preview: '/media/templates/api-starter.png',
+    preview: '/images/resources/templates/api-starter.svg',
     score: 89,
     route: '/generate?template=api-starter',
     category: 'API',
@@ -84,7 +84,7 @@ const templates = [
     summary:
       'Docs engine, changelog, blog, and programmatic SEO clusters; MDX-ready with sitemap & OpenGraph.',
     tags: ['Content', 'SEO', 'Docs'],
-    preview: '/media/templates/content-docs.png',
+    preview: '/images/resources/templates/content-docs.svg',
     score: 87,
     route: '/generate?template=content-docs',
     category: 'Content',
@@ -97,7 +97,7 @@ const templates = [
     summary:
       'High-converting landing with A/B hero, pricing experiments, social assets, and email capture wired.',
     tags: ['Growth', 'A/B', 'Landing'],
-    preview: '/media/templates/growth-microsite.png',
+    preview: '/images/resources/templates/growth-microsite.svg',
     score: 85,
     route: '/generate?template=growth-microsite',
     category: 'Growth',
@@ -109,7 +109,7 @@ const templates = [
     summary:
       'Embeddable chat widget with guardrails, docs context, analytics, and feedback loops.',
     tags: ['AI', 'Widget', 'Analytics'],
-    preview: '/media/templates/ai-widget.png',
+    preview: '/images/resources/templates/ai-widget.svg',
     score: 86,
     route: '/generate?template=ai-assistant-widget',
     category: 'AI',
@@ -121,7 +121,7 @@ const templates = [
     summary:
       'Stripe products/prices wiring, webhooks, customer portal, invoices, and dunning flows.',
     tags: ['Stripe', 'Billing', 'SaaS'],
-    preview: '/media/templates/stripe-kit.png',
+    preview: '/images/resources/templates/stripe-kit.svg',
     score: 88,
     route: '/generate?template=stripe-subscriptions',
     category: 'SaaS',
@@ -133,7 +133,7 @@ const templates = [
     summary:
       'Shared inbox + AI summaries and canned responses; roles, tags, and satisfaction metrics.',
     tags: ['SaaS', 'AI', 'Support'],
-    preview: '/media/templates/support-inbox.png',
+    preview: '/images/resources/templates/support-inbox.svg',
     score: 84,
     route: '/generate?template=support-inbox-ai',
     category: 'SaaS',
@@ -145,7 +145,7 @@ const templates = [
     summary:
       'Clustered content generator with schema, internal linking, and search-intent briefs.',
     tags: ['Content', 'SEO'],
-    preview: '/media/templates/seo-blog.png',
+    preview: '/images/resources/templates/seo-blog.svg',
     score: 83,
     route: '/generate?template=programmatic-seo-blog',
     category: 'Content',
@@ -157,7 +157,7 @@ const templates = [
     summary:
       'Self-serve billing, usage, invoices, entitlements, and team management for your users.',
     tags: ['SaaS', 'Stripe', 'Portal'],
-    preview: '/media/templates/customer-portal.png',
+    preview: '/images/resources/templates/customer-portal.svg',
     score: 82,
     route: '/generate?template=customer-portal',
     category: 'SaaS',
@@ -169,7 +169,7 @@ const templates = [
     summary:
       'Analytics dashboards, cohorts, and funnels; PostHog/Plausible wiring and weekly readouts.',
     tags: ['Analytics', 'Dashboards'],
-    preview: '/media/templates/reporting-kit.png',
+    preview: '/images/resources/templates/reporting-kit.svg',
     score: 81,
     route: '/generate?template=data-reporting-kit',
     category: 'Analytics',
@@ -264,7 +264,7 @@ export default function TemplatesPage() {
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-6">
                 <img 
-                  src="/media/templates/templates-hero.png" 
+                  src="/images/resources/templates/hero.svg" 
                   alt="Template gallery interface showing various starter kit options" 
                   className="h-full w-full object-contain"
                   loading="eager"
@@ -272,6 +272,11 @@ export default function TemplatesPage() {
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Pick a kit → customize Spec → build & deploy</p>
             </div>
+          </div>
+
+          {/* Template Categories Overview */}
+          <div className="mt-10 mb-6">
+            <img src="/images/resources/templates/categories.svg" alt="Template categories overview" className="w-full h-32 object-contain" />
           </div>
 
           {/* Stats */}
@@ -362,6 +367,13 @@ export default function TemplatesPage() {
                 </Link>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Code Generation Process */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/templates/code-generation.svg" alt="Code generation process" className="w-full h-32 object-contain" />
           </div>
         </section>
 
@@ -543,11 +555,18 @@ export default function TemplatesPage() {
 
           <div className="mt-8 rounded-xl border border-white/10 bg-slate-900/50 p-6">
             <img 
-              src="/media/templates/template-workflow.svg" 
+              src="/images/resources/templates/workflow.svg" 
               alt="Template workflow visualization showing selection to deployment process" 
               className="w-full h-auto rounded-lg"
               loading="lazy"
             />
+          </div>
+        </section>
+
+        {/* Template Customization */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/templates/customization.svg" alt="Template customization interface" className="w-full h-32 object-contain" />
           </div>
         </section>
 
@@ -580,12 +599,19 @@ export default function TemplatesPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/media/templates/build-score-badges.svg" 
+                src="/images/resources/templates/build-score.svg" 
                 alt="Build score badges and quality indicators" 
                 className="w-full h-auto rounded-lg"
                 loading="lazy"
               />
             </div>
+          </div>
+        </section>
+
+        {/* Quality Gates */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/templates/quality-gates.svg" alt="Quality gates system" className="w-full h-32 object-contain" />
           </div>
         </section>
 
