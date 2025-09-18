@@ -5,7 +5,7 @@ import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const pageUrl = `${siteUrl}/resources/press`
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/resources-press.png'
 
 export const metadata: Metadata = {
   title: 'Press Kit - Media resources & brand assets | Build AI Startups',
@@ -61,25 +61,25 @@ const mediaAssets: MediaAsset[] = [
   {
     name: 'Platform Screenshot',
     description: 'Main dashboard interface',
-    url: '/media/screenshots/dashboard.png',
+    url: '/images/resources/press/platform-screenshot.svg',
     type: 'screenshot',
-    format: 'PNG',
+    format: 'SVG',
     size: '2400x1600',
   },
   {
     name: 'Builder Interface',
     description: 'Spec DSL editor and generation flow',
-    url: '/media/screenshots/builder.png',
+    url: '/images/resources/press/builder-interface.svg',
     type: 'screenshot',
-    format: 'PNG',
+    format: 'SVG',
     size: '2400x1600',
   },
   {
     name: 'Product Demo',
     description: 'Overview of the platform capabilities',
-    url: '/media/press/overview.mp4',
+    url: '/images/resources/press/product-demo.svg',
     type: 'video',
-    format: 'MP4',
+    format: 'SVG',
     size: '1920x1080',
   },
 ]
@@ -125,10 +125,17 @@ export default function PressPage() {
             </div>
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/press/press-hero.png" alt="Press kit overview" className="h-full w-full object-cover" />
+                <img src="/images/resources/press/hero.svg" alt="Press kit overview" className="h-full w-full object-cover" />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Media assets and brand resources</p>
             </div>
+          </div>
+        </section>
+
+        {/* Media Kit Preview */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/press/media-kit.svg" alt="Media kit contents preview" className="w-full h-32 object-contain" />
           </div>
         </section>
 
@@ -173,11 +180,23 @@ export default function PressPage() {
           </div>
         </section>
 
-        {/* Logos */}
+        {/* Company Timeline */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/press/company-timeline.svg" alt="Company timeline and milestones" className="w-full h-40 object-contain" />
+          </div>
+        </section>
+
+        {/* Brand Assets */}
         <section id="assets" className="mx-auto max-w-6xl px-6 py-8">
           <h2 className="text-2xl font-semibold mb-6">Brand Assets</h2>
+          
           <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4">Logos</h3>
+            <div className="flex items-center gap-4 mb-4">
+              <h3 className="text-lg font-semibold">Logos</h3>
+              <img src="/images/resources/press/logo-variations.svg" alt="Logo variations" className="h-6" />
+            </div>
+            <img src="/images/resources/press/brand-assets.svg" alt="Brand assets overview" className="w-full mb-6" />
             <div className="grid gap-4 sm:grid-cols-3">
               {logos.map((asset) => (
                 <div key={asset.name} className="rounded-xl border border-white/10 bg-slate-900/40 p-6 text-center">
@@ -233,14 +252,7 @@ export default function PressPage() {
               {videos.map((asset) => (
                 <div key={asset.name} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
                   <div className="aspect-video w-full mb-3 overflow-hidden rounded-lg border border-white/10 bg-slate-950/40">
-                    <video
-                      className="h-full w-full object-cover"
-                      controls
-                      poster="/media/press/video-poster.png"
-                      src={asset.url}
-                    >
-                      Your browser does not support the video tag.
-                    </video>
+                    <img src={asset.url} alt={asset.name} className="h-full w-full object-cover" />
                   </div>
                   <div className="flex items-center justify-between">
                     <div>
@@ -262,11 +274,19 @@ export default function PressPage() {
           </div>
         </section>
 
+        {/* Press Coverage */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/press/press-coverage.svg" alt="Press coverage and media mentions" className="w-full h-32 object-contain" />
+          </div>
+        </section>
+
         {/* Brand Guidelines */}
         <section className="mx-auto max-w-6xl px-6 py-8">
           <h2 className="text-2xl font-semibold mb-6">Brand Guidelines</h2>
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
+              <img src="/images/resources/press/color-palette.svg" alt="Brand color palette" className="h-12 w-12 mb-4" />
               <h3 className="text-lg font-semibold mb-3">Colors</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
@@ -293,6 +313,7 @@ export default function PressPage() {
               </div>
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
+              <img src="/images/resources/press/usage-guidelines.svg" alt="Usage guidelines" className="h-12 w-12 mb-4" />
               <h3 className="text-lg font-semibold mb-3">Usage Guidelines</h3>
               <ul className="space-y-2 text-sm text-slate-300">
                 <li className="flex items-start gap-2">
@@ -323,6 +344,7 @@ export default function PressPage() {
         {/* Press Contact */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8 text-center">
+            <img src="/images/resources/press/contact-info.svg" alt="Press contact" className="w-32 h-32 mx-auto mb-4" />
             <h2 className="text-2xl font-semibold mb-2">Press Inquiries</h2>
             <p className="text-slate-300 mb-6">
               For interviews, product demos, or additional resources, contact our press team.
