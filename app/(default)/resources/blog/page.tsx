@@ -5,7 +5,7 @@ import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const pageUrl = `${siteUrl}/resources/blog`
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/resources-blog.png'
 
 export const metadata: Metadata = {
   title: 'Blog - Insights, case studies & updates | Build AI Startups',
@@ -47,7 +47,7 @@ const posts: BlogPost[] = [
     minutes: 5,
     tags: ['Announcement', 'Vision'],
     featured: true,
-    image: '/media/blog/introducing-build-ai-startups.png',
+    image: '/images/resources/blog/introducing-build-ai-startups.svg',
   },
   {
     slug: 'the-spec-dsl-explained',
@@ -56,7 +56,7 @@ const posts: BlogPost[] = [
     date: '2025-02-20',
     minutes: 8,
     tags: ['Technical', 'Spec DSL'],
-    image: '/media/blog/spec-dsl-explained.png',
+    image: '/images/resources/blog/spec-dsl-explained.svg',
   },
   {
     slug: 'build-score-quality-gates',
@@ -65,7 +65,7 @@ const posts: BlogPost[] = [
     date: '2025-03-10',
     minutes: 6,
     tags: ['Quality', 'Automation'],
-    image: '/media/blog/build-score-quality-gates.png',
+    image: '/images/resources/blog/build-score-quality-gates.svg',
   },
   {
     slug: 'ecosystem-cross-promotions',
@@ -74,7 +74,7 @@ const posts: BlogPost[] = [
     date: '2025-04-05',
     minutes: 7,
     tags: ['Ecosystem', 'Growth'],
-    image: '/media/blog/ecosystem-cross-promotions.png',
+    image: '/images/resources/blog/ecosystem-cross-promotions.svg',
   },
   {
     slug: 'case-study-24h-micro-saas',
@@ -84,7 +84,7 @@ const posts: BlogPost[] = [
     minutes: 9,
     tags: ['Case Study', 'Builder', 'Growth'],
     featured: true,
-    image: '/media/blog/case-study-24h-micro-saas.png',
+    image: '/images/resources/blog/case-study-24h-micro-saas.svg',
   },
   {
     slug: 'marketplace-beta-launch',
@@ -93,7 +93,7 @@ const posts: BlogPost[] = [
     date: '2025-06-01',
     minutes: 6,
     tags: ['Marketplace', 'Product'],
-    image: '/media/blog/marketplace-beta-launch.png',
+    image: '/images/resources/blog/marketplace-beta-launch.svg',
   },
 ]
 
@@ -137,7 +137,7 @@ export default function BlogPage() {
             </div>
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/blog/blog-hero.png" alt="Blog overview" className="h-full w-full object-cover" />
+                <img src="/images/resources/blog/hero.svg" alt="Blog overview" className="h-full w-full object-cover" />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Latest insights and case studies</p>
             </div>
@@ -224,6 +224,9 @@ export default function BlogPage() {
         {/* Newsletter signup */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8 text-center">
+            <div className="mb-6">
+              <img src="/images/resources/blog/newsletter-signup.svg" alt="Newsletter subscription" className="w-24 h-24 mx-auto mb-4" />
+            </div>
             <h2 className="text-2xl font-semibold mb-2">Stay updated</h2>
             <p className="text-slate-300 mb-6">
               Get the latest case studies, product updates, and insights delivered to your inbox.
