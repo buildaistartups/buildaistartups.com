@@ -8,24 +8,24 @@ const pageUrl = `${siteUrl}/resources/roadmap`
 const ogImage = '/brand/og-default.png'
 
 export const metadata: Metadata = {
-  title: 'Roadmap — What we’re building next | Build AI Starups',
+  title: 'Roadmap — What we're building next | Build AI Startups',
   description:
-    'Follow the Build AI Starups roadmap: what’s shipping now, what’s next, and what’s planned. Vote on features and track progress via the changelog.',
+    'Follow the Build AI Startups roadmap: what's shipping now, what's next, and what's planned. Vote on features and track progress via the changelog.',
   alternates: { canonical: pageUrl },
   openGraph: {
     type: 'website',
     url: pageUrl,
-    title: 'Roadmap — What we’re building next | Build AI Starups',
+    title: 'Roadmap — What we're building next | Build AI Startups',
     description:
-      'Now / Next / Later board, release timeline, and prioritization policy for Build AI Starups.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Roadmap' }],
-    siteName: 'Build AI Starups',
+      'Now / Next / Later board, release timeline, and prioritization policy for Build AI Startups.',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Roadmap' }],
+    siteName: 'Build AI Startups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Roadmap — What we’re building next | Build AI Starups',
+    title: 'Roadmap — What we're building next | Build AI Startups',
     description:
-      'See what’s shipping now, next, and later. Vote on features and track releases.',
+      'See what's shipping now, next, and later. Vote on features and track releases.',
     images: [ogImage],
   },
 }
@@ -39,6 +39,7 @@ type RoadmapItem = {
   theme: 'Builder' | 'Ecosystem' | 'Marketplace' | 'API' | 'Integrity' | 'Templates'
   tags: string[]
   link?: string
+  votes?: number
 }
 
 const items: RoadmapItem[] = [
@@ -53,6 +54,7 @@ const items: RoadmapItem[] = [
     theme: 'Builder',
     tags: ['SaaS', 'API', 'Spec DSL'],
     link: '/product/builder',
+    votes: 127,
   },
   {
     id: 'build-score-v1',
@@ -64,6 +66,7 @@ const items: RoadmapItem[] = [
     theme: 'Integrity',
     tags: ['Quality', 'CI', 'Security'],
     link: '/resources/docs#concepts',
+    votes: 89,
   },
   {
     id: 'ecosystem-cross-promos',
@@ -75,6 +78,7 @@ const items: RoadmapItem[] = [
     theme: 'Ecosystem',
     tags: ['Growth', 'Distribution'],
     link: '/product/ecosystem',
+    votes: 156,
   },
   // ---- NEXT ----
   {
@@ -87,6 +91,7 @@ const items: RoadmapItem[] = [
     theme: 'Marketplace',
     tags: ['Deals', 'Escrow', 'Transfer'],
     link: '/product/marketplace',
+    votes: 203,
   },
   {
     id: 'api-v1',
@@ -98,6 +103,7 @@ const items: RoadmapItem[] = [
     theme: 'API',
     tags: ['Developers', 'Automation'],
     link: '/product/api',
+    votes: 178,
   },
   {
     id: 'prompt-packs',
@@ -109,6 +115,7 @@ const items: RoadmapItem[] = [
     theme: 'Templates',
     tags: ['Spec DSL', 'Verticals'],
     link: '/resources/templates',
+    votes: 92,
   },
   // ---- LATER ----
   {
@@ -120,6 +127,7 @@ const items: RoadmapItem[] = [
     eta: 'H1',
     theme: 'Builder',
     tags: ['Agents', 'Compliance'],
+    votes: 145,
   },
   {
     id: 'acquisition-automation',
@@ -130,6 +138,7 @@ const items: RoadmapItem[] = [
     eta: 'H1',
     theme: 'Marketplace',
     tags: ['Investors', 'Workflow'],
+    votes: 67,
   },
   {
     id: 'studio-automation',
@@ -140,6 +149,7 @@ const items: RoadmapItem[] = [
     eta: 'H1',
     theme: 'Ecosystem',
     tags: ['Studios', 'Backlog'],
+    votes: 84,
   },
   // ---- DONE (sample) ----
   {
@@ -152,6 +162,7 @@ const items: RoadmapItem[] = [
     theme: 'Templates',
     tags: ['Docs', 'DX'],
     link: '/resources/docs',
+    votes: 234,
   },
 ]
 
@@ -162,6 +173,13 @@ const statusLabel: Record<RoadmapItem['status'], string> = {
   done: 'Shipped',
 }
 
+const statusIcon: Record<RoadmapItem['status'], string> = {
+  now: '🚀',
+  next: '⏳',
+  later: '🔮',
+  done: '✅',
+}
+
 const themeColor: Record<RoadmapItem['theme'], string> = {
   Builder: 'from-violet-500 to-fuchsia-500',
   Ecosystem: 'from-teal-400 to-emerald-500',
@@ -169,6 +187,15 @@ const themeColor: Record<RoadmapItem['theme'], string> = {
   API: 'from-sky-400 to-indigo-500',
   Integrity: 'from-rose-400 to-red-500',
   Templates: 'from-cyan-400 to-blue-500',
+}
+
+const themeIcon: Record<RoadmapItem['theme'], string> = {
+  Builder: '🏗️',
+  Ecosystem: '🌐',
+  Marketplace: '🏪',
+  API: '⚡',
+  Integrity: '🛡️',
+  Templates: '📋',
 }
 
 // -------- JSON-LD --------
@@ -185,10 +212,10 @@ const breadcrumbJsonLd = {
 const collectionJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Build AI Starups — Roadmap',
+  name: 'Build AI Startups — Roadmap',
   url: pageUrl,
   description:
-    'Public roadmap for Build AI Starups: Now / Next / Later board, milestones, and prioritization policy.',
+    'Public roadmap for Build AI Startups: Now / Next / Later board, milestones, and prioritization policy.',
 }
 
 const itemListJsonLd = {
@@ -230,7 +257,7 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'What’s the difference between Copilot and Autopilot?',
+      name: 'What's the difference between Copilot and Autopilot?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Copilot requires human approvals at gates; Autopilot ships when all gates are green and the Build Score meets threshold.',
@@ -255,46 +282,72 @@ export default function RoadmapPage() {
 
   const Column = ({
     title,
+    status,
     children,
+    count,
   }: {
     title: string
+    status: RoadmapItem['status']
     children: React.ReactNode
+    count: number
   }) => (
-    <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-4">
-      <div className="mb-3 text-sm font-semibold tracking-wide text-slate-200">{title}</div>
+    <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-4 hover:border-violet-500/30 transition-colors">
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2">
+          <span className="text-lg">{statusIcon[status]}</span>
+          <div className="text-sm font-semibold tracking-wide text-slate-200">{title}</div>
+        </div>
+        <div className="text-xs text-slate-400 bg-slate-950/40 px-2 py-1 rounded-full">
+          {count}
+        </div>
+      </div>
       <div className="space-y-3">{children}</div>
     </div>
   )
 
   const Card = ({ item }: { item: RoadmapItem }) => (
-    <div id={item.id} className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
-      <div className="flex items-center justify-between">
+    <div id={item.id} className="group rounded-xl border border-white/10 bg-slate-950/40 p-4 hover:border-violet-500/30 transition-all duration-300">
+      <div className="flex items-center justify-between mb-3">
         <div className={`inline-flex items-center gap-2 rounded-full bg-gradient-to-r ${themeColor[item.theme]} px-3 py-1 text-xs font-medium text-white`}>
+          <span>{themeIcon[item.theme]}</span>
           <span>{item.theme}</span>
         </div>
         <div className="text-xs text-slate-400">{item.eta || statusLabel[item.status]}</div>
       </div>
-      <div className="mt-2 text-base font-semibold text-slate-100">{item.title}</div>
-      <p className="mt-1 text-sm text-slate-400">{item.summary}</p>
-      <div className="mt-2 flex flex-wrap gap-2">
+      
+      <div className="text-base font-semibold text-slate-100 mb-2 group-hover:text-violet-300 transition-colors">
+        {item.title}
+      </div>
+      <p className="text-sm text-slate-400 mb-3 leading-relaxed">{item.summary}</p>
+      
+      <div className="flex flex-wrap gap-2 mb-3">
         {item.tags.map((t) => (
           <span key={t} className="rounded-md border border-white/10 bg-slate-900/60 px-2 py-0.5 text-xs text-slate-300">
             {t}
           </span>
         ))}
       </div>
-      <div className="mt-3 flex items-center gap-3">
-        {item.link ? (
-          <Link href={item.link} className="text-sm text-sky-300 hover:underline">
-            Learn more →
-          </Link>
-        ) : null}
-        <a
-          href={`/contact?subject=Roadmap: ${encodeURIComponent(item.title)}`}
-          className="text-sm text-slate-300 hover:underline"
-        >
-          Share feedback
-        </a>
+      
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          {item.link ? (
+            <Link href={item.link} className="text-sm text-violet-400 hover:text-violet-300 transition-colors">
+              Learn more →
+            </Link>
+          ) : null}
+          <a
+            href={`/contact?subject=Roadmap: ${encodeURIComponent(item.title)}`}
+            className="text-sm text-slate-400 hover:text-slate-300 transition-colors"
+          >
+            Share feedback
+          </a>
+        </div>
+        {item.votes && (
+          <div className="flex items-center gap-1 text-xs text-slate-500">
+            <span>👍</span>
+            <span>{item.votes}</span>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -313,175 +366,384 @@ export default function RoadmapPage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
               <p className="text-sm uppercase tracking-widest text-slate-400">Resources</p>
-              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Roadmap — what we’re building next</h1>
+              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Roadmap — what we're building next</h1>
               <p className="mt-4 text-lg text-slate-300">
-                Here’s the public roadmap for Build AI Starups. We ship in small, verifiable steps and record
-                changes in the <Link href="/changelog" className="text-sky-300 hover:underline">changelog</Link>.
+                Here's the public roadmap for Build AI Startups. We ship in small, verifiable steps and record
+                changes in the <Link href="/resources/changelog" className="text-violet-400 hover:text-violet-300 transition-colors">changelog</Link>.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a href="#board" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400">
-                  View the board
+                <a href="#board" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400 transition-colors">
+                  🗂️ View the board
                 </a>
-                <Link href="/contact?subject=Roadmap%20feedback" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
-                  Suggest a feature
+                <Link href="/contact?subject=Roadmap%20feedback" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors">
+                  💡 Suggest a feature
                 </Link>
               </div>
               <p className="mt-3 text-sm text-slate-400">Priorities: user value · ecosystem impact · technical leverage · safety</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-                <img src="/media/screens/roadmap-hero.png" alt="Roadmap overview mock" className="h-full w-full object-cover" />
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-6">
+                <img 
+                  src="/media/screens/roadmap-hero.png" 
+                  alt="Roadmap kanban board interface showing Now, Next, Later, and Shipped columns" 
+                  className="h-full w-full object-contain"
+                  loading="eager"
+                />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Board view · Timeline · Status & ETA</p>
             </div>
           </div>
         </section>
 
+        {/* Stats Overview */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="grid gap-4 sm:grid-cols-4">
+            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-center hover:border-violet-500/30 transition-colors">
+              <div className="text-2xl font-bold text-violet-400">{now.length}</div>
+              <div className="text-sm text-slate-400">Shipping Now</div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-center hover:border-blue-500/30 transition-colors">
+              <div className="text-2xl font-bold text-blue-400">{next.length}</div>
+              <div className="text-sm text-slate-400">Up Next</div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-center hover:border-teal-500/30 transition-colors">
+              <div className="text-2xl font-bold text-teal-400">{later.length}</div>
+              <div className="text-sm text-slate-400">Later</div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-center hover:border-green-500/30 transition-colors">
+              <div className="text-2xl font-bold text-green-400">{done.length}</div>
+              <div className="text-sm text-slate-400">Shipped</div>
+            </div>
+          </div>
+        </section>
+
         {/* Board: Now / Next / Later / Shipped */}
         <section id="board" className="mx-auto max-w-6xl px-6 py-8">
-          <h2 className="text-2xl font-semibold">Now / Next / Later</h2>
-          <div className="mt-6 grid gap-4 lg:grid-cols-4">
-            <Column title="Now">
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-2xl font-semibold">Now / Next / Later</h2>
+            <div className="text-sm text-slate-400">
+              Total votes: {items.reduce((sum, item) => sum + (item.votes || 0), 0)}
+            </div>
+          </div>
+          
+          <div className="grid gap-4 lg:grid-cols-4">
+            <Column title="Now" status="now" count={now.length}>
               {now.map((i) => <Card key={i.id} item={i} />)}
-              {now.length === 0 && <div className="text-sm text-slate-500">Nothing here yet.</div>}
+              {now.length === 0 && (
+                <div className="text-sm text-slate-500 text-center p-4 border border-dashed border-white/10 rounded-lg">
+                  Nothing here yet.
+                </div>
+              )}
             </Column>
-            <Column title="Next">
+            
+            <Column title="Next" status="next" count={next.length}>
               {next.map((i) => <Card key={i.id} item={i} />)}
-              {next.length === 0 && <div className="text-sm text-slate-500">Nothing here yet.</div>}
+              {next.length === 0 && (
+                <div className="text-sm text-slate-500 text-center p-4 border border-dashed border-white/10 rounded-lg">
+                  Nothing here yet.
+                </div>
+              )}
             </Column>
-            <Column title="Later">
+            
+            <Column title="Later" status="later" count={later.length}>
               {later.map((i) => <Card key={i.id} item={i} />)}
-              {later.length === 0 && <div className="text-sm text-slate-500">Nothing here yet.</div>}
+              {later.length === 0 && (
+                <div className="text-sm text-slate-500 text-center p-4 border border-dashed border-white/10 rounded-lg">
+                  Nothing here yet.
+                </div>
+              )}
             </Column>
-            <Column title="Shipped">
+            
+            <Column title="Shipped" status="done" count={done.length}>
               {done.map((i) => <Card key={i.id} item={i} />)}
-              {done.length === 0 && <div className="text-sm text-slate-500">Nothing here yet.</div>}
+              {done.length === 0 && (
+                <div className="text-sm text-slate-500 text-center p-4 border border-dashed border-white/10 rounded-lg">
+                  Nothing here yet.
+                </div>
+              )}
             </Column>
           </div>
         </section>
 
         {/* Themes */}
         <section id="themes" className="mx-auto max-w-6xl px-6 py-10">
-          <h2 className="text-2xl font-semibold">Roadmap themes</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <h2 className="text-2xl font-semibold mb-6">Roadmap themes</h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 t: 'Builder',
                 d: 'Compress the loop from intent → repo → deploy. Invest in Spec DSL, starter kits, CI, and Build Score.',
                 bg: themeColor.Builder,
+                icon: themeIcon.Builder,
               },
-              { t: 'Ecosystem', d: 'Make every launch easier with cross-promos, shared feeds, and partner surfaces.', bg: themeColor.Ecosystem },
-              { t: 'Marketplace', d: 'Turn working software into deals: listings, diligence packs, and transfer rails.', bg: themeColor.Marketplace },
-              { t: 'API', d: 'Unlock automation and pipelines with REST, webhooks, and (later) SDKs.', bg: themeColor.API },
-              { t: 'Integrity', d: 'Bake in safety, provenance, quality gates, and license hygiene.', bg: themeColor.Integrity },
-              { t: 'Templates', d: 'Ship faster with reusable starters, prompt packs, and vertical blueprints.', bg: themeColor.Templates },
+              { 
+                t: 'Ecosystem', 
+                d: 'Make every launch easier with cross-promos, shared feeds, and partner surfaces.', 
+                bg: themeColor.Ecosystem,
+                icon: themeIcon.Ecosystem,
+              },
+              { 
+                t: 'Marketplace', 
+                d: 'Turn working software into deals: listings, diligence packs, and transfer rails.', 
+                bg: themeColor.Marketplace,
+                icon: themeIcon.Marketplace,
+              },
+              { 
+                t: 'API', 
+                d: 'Unlock automation and pipelines with REST, webhooks, and (later) SDKs.', 
+                bg: themeColor.API,
+                icon: themeIcon.API,
+              },
+              { 
+                t: 'Integrity', 
+                d: 'Bake in safety, provenance, quality gates, and license hygiene.', 
+                bg: themeColor.Integrity,
+                icon: themeIcon.Integrity,
+              },
+              { 
+                t: 'Templates', 
+                d: 'Ship faster with reusable starters, prompt packs, and vertical blueprints.', 
+                bg: themeColor.Templates,
+                icon: themeIcon.Templates,
+              },
             ].map((x) => (
-              <div key={x.t} className="rounded-2xl border border-white/10 bg-slate-900/40 p-5">
-                <div className={`inline-flex rounded-full bg-gradient-to-r ${x.bg} px-3 py-1 text-xs font-medium text-white`}>{x.t}</div>
-                <p className="mt-3 text-sm text-slate-300">{x.d}</p>
+              <div key={x.t} className="rounded-2xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-r ${x.bg}`}>
+                    <span className="text-lg">{x.icon}</span>
+                  </div>
+                  <div className="font-semibold">{x.t}</div>
+                </div>
+                <p className="text-sm text-slate-300 leading-relaxed">{x.d}</p>
               </div>
             ))}
+          </div>
+          
+          <div className="mt-8 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <img 
+              src="/media/roadmap/feature-themes.svg" 
+              alt="Visual representation of roadmap themes and their relationships" 
+              className="w-full h-auto rounded-lg"
+              loading="lazy"
+            />
           </div>
         </section>
 
         {/* Timeline */}
         <section id="timeline" className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Timeline</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-              <div className="text-lg font-semibold">This quarter</div>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
-                <li>Gold Templates (SaaS, API) ✅</li>
-                <li>Build Score v1 + quality gates ✅</li>
-                <li>Ecosystem cross-promotions (launch) ✅</li>
-                <li>Marketplace beta (listings + diligence) →</li>
-                <li>API v1 + webhooks →</li>
+          <h2 className="text-2xl font-semibold mb-6">Timeline</h2>
+          
+          <div className="grid gap-6 md:grid-cols-2 mb-8">
+            <div className="rounded-2xl border border-violet-500/30 bg-violet-500/10 p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-xl">🚀</span>
+                <div className="text-lg font-semibold text-violet-300">This quarter</div>
+              </div>
+              <ul className="space-y-3 text-sm text-slate-300">
+                <li className="flex items-center gap-2">
+                  <span className="text-green-400">✅</span>
+                  Gold Templates (SaaS, API)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-400">✅</span>
+                  Build Score v1 + quality gates
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-400">✅</span>
+                  Ecosystem cross-promotions (launch)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-yellow-400">⏳</span>
+                  Marketplace beta (listings + diligence)
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-yellow-400">⏳</span>
+                  API v1 + webhooks
+                </li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-              <div className="text-lg font-semibold">Next quarter</div>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-300">
-                <li>Prompt Packs & Blueprints</li>
-                <li>Partner program for accelerators/cohorts</li>
-                <li>Marketplace: offers, escrow milestones</li>
-                <li>API feeds for investors</li>
+            
+            <div className="rounded-2xl border border-blue-500/30 bg-blue-500/10 p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-xl">📅</span>
+                <div className="text-lg font-semibold text-blue-300">Next quarter</div>
+              </div>
+              <ul className="space-y-3 text-sm text-slate-300">
+                <li className="flex items-center gap-2">
+                  <span className="text-slate-400">○</span>
+                  Prompt Packs & Blueprints
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-slate-400">○</span>
+                  Partner program for accelerators/cohorts
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-slate-400">○</span>
+                  Marketplace: offers, escrow milestones
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-slate-400">○</span>
+                  API feeds for investors
+                </li>
               </ul>
             </div>
           </div>
-          <p className="mt-4 text-xs text-slate-500">
-            ETAs are directional and may change. We announce releases in the <Link href="/changelog" className="text-sky-300 hover:underline">changelog</Link>.
+
+          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6 mb-6">
+            <img 
+              src="/media/roadmap/timeline-visualization.svg" 
+              alt="Timeline visualization showing development phases and milestones" 
+              className="w-full h-auto rounded-lg"
+              loading="lazy"
+            />
+          </div>
+          
+          <p className="text-xs text-slate-500 text-center">
+            ETAs are directional and may change. We announce releases in the{' '}
+            <Link href="/resources/changelog" className="text-violet-400 hover:text-violet-300 transition-colors">
+              changelog
+            </Link>
+            .
           </p>
         </section>
 
         {/* Prioritization policy */}
         <section id="policy" className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">How we prioritize</h2>
-          <div className="mt-4 grid gap-6 md:grid-cols-2">
+          <h2 className="text-2xl font-semibold mb-6">How we prioritize</h2>
+          
+          <div className="grid gap-6 md:grid-cols-2 mb-8">
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
-              <div className="text-base font-medium">Signals we weigh</div>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li><strong>User value</strong>: time-to-value, breadth of impact</li>
-                <li><strong>Ecosystem effect</strong>: boosts other launches</li>
-                <li><strong>Technical leverage</strong>: unlocks compounding speed/quality</li>
-                <li><strong>Safety & integrity</strong>: raises bar for reliable autonomy</li>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">📊</span>
+                <div className="text-base font-medium">Signals we weigh</div>
+              </div>
+              <ul className="space-y-3 text-sm text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-violet-400 mt-1">•</span>
+                  <div><strong>User value</strong>: time-to-value, breadth of impact</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-violet-400 mt-1">•</span>
+                  <div><strong>Ecosystem effect</strong>: boosts other launches</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-violet-400 mt-1">•</span>
+                  <div><strong>Technical leverage</strong>: unlocks compounding speed/quality</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-violet-400 mt-1">•</span>
+                  <div><strong>Safety & integrity</strong>: raises bar for reliable autonomy</div>
+                </li>
               </ul>
             </div>
+            
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
-              <div className="text-base font-medium">What moves something to “Now”</div>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li>Clear spec, validated need, and owner capacity</li>
-                <li>Meets safety/quality bar; minimal external dependencies</li>
-                <li>Stacks with current initiatives (Builder/Ecosystem/Marketplace)</li>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xl">🎯</span>
+                <div className="text-base font-medium">What moves something to "Now"</div>
+              </div>
+              <ul className="space-y-3 text-sm text-slate-300">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">•</span>
+                  <div>Clear spec, validated need, and owner capacity</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">•</span>
+                  <div>Meets safety/quality bar; minimal external dependencies</div>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-400 mt-1">•</span>
+                  <div>Stacks with current initiatives (Builder/Ecosystem/Marketplace)</div>
+                </li>
               </ul>
             </div>
+          </div>
+
+          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <img 
+              src="/media/roadmap/priority-matrix.svg" 
+              alt="Prioritization framework showing how features are evaluated and ranked" 
+              className="w-full h-auto rounded-lg"
+              loading="lazy"
+            />
           </div>
         </section>
 
         {/* Feature requests */}
         <section id="requests" className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-            <h2 className="text-2xl font-semibold">Request a feature</h2>
-            <p className="mt-2 text-slate-300">
-              Tell us what would unlock the most value for you. We read everything and update this page as plans evolve.
-            </p>
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-              <Link href="/contact?subject=Feature%20request" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400">
-                Submit a request
-              </Link>
-              <Link href="/changelog" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
-                Read the changelog
-              </Link>
-              <Link href="/resources/templates" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
-                Browse templates
-              </Link>
+            <div className="grid gap-6 md:grid-cols-2 md:items-center">
+              <div>
+                <h2 className="text-2xl font-semibold mb-3">Request a feature</h2>
+                <p className="text-slate-300 mb-4">
+                  Tell us what would unlock the most value for you. We read everything and update this page as plans evolve.
+                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/contact?subject=Feature%20request" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400 transition-colors">
+                    💡 Submit a request
+                  </Link>
+                  <Link href="/resources/changelog" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors">
+                    📋 Read the changelog
+                  </Link>
+                </div>
+              </div>
+              <div className="rounded-xl border border-white/10 bg-slate-950/40 p-4">
+                <div className="text-sm font-medium text-slate-300 mb-3">Most requested</div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400">Mobile app</span>
+                    <span className="text-violet-400">89 votes</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400">Team collaboration</span>
+                    <span className="text-violet-400">67 votes</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-400">Custom domains</span>
+                    <span className="text-violet-400">54 votes</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         {/* FAQ (mirrors JSON-LD) */}
         <section id="faq" className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Roadmap FAQ</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div>
-              <h3 className="text-base font-medium">How do I vote on an item?</h3>
-              <p className="mt-1 text-sm text-slate-300">
-                Click “Share feedback” on a card or use the feature request form. We aggregate signals by account.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-base font-medium">Will dates slip?</h3>
-              <p className="mt-1 text-sm text-slate-300">Sometimes. We optimize for quality, safety, and reliability of the build loop.</p>
-            </div>
-            <div>
-              <h3 className="text-base font-medium">Where can I follow progress?</h3>
-              <p className="mt-1 text-sm text-slate-300">Changelog posts major releases. Minor updates appear on product pages.</p>
-            </div>
-            <div>
-              <h3 className="text-base font-medium">Can partners influence priorities?</h3>
-              <p className="mt-1 text-sm text-slate-300">
-                Yes, via partner programs. See <Link href="/solutions/accelerators" className="text-sky-300 hover:underline">Accelerators & Universities</Link>.
-              </p>
-            </div>
+          <h2 className="text-2xl font-semibold mb-6">Roadmap FAQ</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                q: 'How do I vote on an item?',
+                a: 'Click "Share feedback" on a card or use the feature request form. We aggregate signals by account.',
+                icon: '🗳️'
+              },
+              {
+                q: 'Will dates slip?',
+                a: 'Sometimes. We optimize for quality, safety, and reliability of the build loop.',
+                icon: '📅'
+              },
+              {
+                q: 'Where can I follow progress?',
+                a: 'Changelog posts major releases. Minor updates appear on product pages.',
+                icon: '📊'
+              },
+              {
+                q: 'Can partners influence priorities?',
+                a: 'Yes, via partner programs. See Accelerators & Universities for details.',
+                icon: '🤝'
+              },
+            ].map((faq, i) => (
+              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
+                <div className="flex items-start gap-3">
+                  <div className="text-xl">{faq.icon}</div>
+                  <div>
+                    <h3 className="text-base font-medium text-slate-200 mb-2">{faq.q}</h3>
+                    <p className="text-sm text-slate-300">{faq.a}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -490,14 +752,14 @@ export default function RoadmapPage() {
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl font-semibold">Help shape the roadmap</h2>
             <p className="mt-2 text-slate-300">
-              Tell us what you’re building and we’ll optimize the Build loop for your outcomes.
+              Tell us what you're building and we'll optimize the Build loop for your outcomes.
             </p>
             <div className="mt-6 flex items-center justify-center gap-3">
-              <Link href="/contact?subject=Roadmap%20feedback" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400">
-                Suggest a feature
+              <Link href="/contact?subject=Roadmap%20feedback" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400 transition-colors">
+                💡 Suggest a feature
               </Link>
-              <Link href="/changelog" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5">
-                View changelog
+              <Link href="/resources/changelog" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors">
+                📋 View changelog
               </Link>
             </div>
           </div>
