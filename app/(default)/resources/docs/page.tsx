@@ -5,7 +5,7 @@ import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const docsUrl = `${siteUrl}/resources/docs`
-const ogImage = '/brand/og-default.png'
+const ogImage = '/og/resources-docs.png'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -139,7 +139,7 @@ export default function DocsHomePage() {
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-6">
                 <img 
-                  src="/media/screens/docs-hero.png" 
+                  src="/images/resources/docs/hero.svg" 
                   alt="Documentation interface overview showing organized sections and navigation" 
                   className="h-full w-full object-contain"
                   loading="eager"
@@ -147,6 +147,11 @@ export default function DocsHomePage() {
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">Start here → Quick Start · Concepts · API</p>
             </div>
+          </div>
+
+          {/* Search Interface */}
+          <div className="mt-8 mb-6">
+            <img src="/images/resources/docs/search-interface.svg" alt="Documentation search interface" className="w-full h-16 object-contain" />
           </div>
 
           {/* On-page nav */}
@@ -164,6 +169,11 @@ export default function DocsHomePage() {
               </a>
             ))}
           </div>
+        </section>
+
+        {/* Navigation Tree */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <img src="/images/resources/docs/navigation-tree.svg" alt="Documentation navigation structure" className="w-full h-32 object-contain" />
         </section>
 
         {/* Quick Start */}
@@ -199,7 +209,7 @@ export default function DocsHomePage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/media/docs/quick-start-flow.svg" 
+                src="/images/resources/docs/quick-start.svg" 
                 alt="Quick start workflow visualization" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -267,6 +277,10 @@ class BAS {
         <section id="concepts" className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold mb-6">Core Concepts</h2>
           
+          <div className="mb-8">
+            <img src="/images/resources/docs/concepts-overview.svg" alt="Core concepts overview diagram" className="w-full h-40 object-contain" />
+          </div>
+          
           <div className="grid gap-6 lg:grid-cols-2 mb-8">
             <div className="space-y-6">
               {[
@@ -327,15 +341,6 @@ class BAS {
               ))}
             </div>
           </div>
-
-          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
-            <img 
-              src="/media/screens/docs-concepts.png" 
-              alt="Spec DSL and Build Score workflow diagram" 
-              className="w-full rounded-lg"
-              loading="lazy"
-            />
-          </div>
         </section>
 
         {/* API Overview */}
@@ -350,6 +355,10 @@ class BAS {
             <Link href="/product/api" className="text-violet-400 hover:text-violet-300 text-sm transition-colors">
               Full API page →
             </Link>
+          </div>
+
+          <div className="mb-8">
+            <img src="/images/resources/docs/api-docs.svg" alt="API documentation overview" className="w-full h-32 object-contain" />
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2 mb-8">
@@ -385,15 +394,6 @@ class BAS {
             </div>
           </div>
 
-          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6 mb-6">
-            <img 
-              src="/media/docs/api-endpoints.svg" 
-              alt="API endpoints overview diagram" 
-              className="w-full h-auto"
-              loading="lazy"
-            />
-          </div>
-
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
               <div className="text-sm font-medium text-slate-300 mb-3">Authentication</div>
@@ -411,6 +411,13 @@ curl -H "Authorization: Bearer $BAS_API_KEY" \\
                 <strong>Higher limits:</strong> Available on paid plans
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Code Examples */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="mb-6">
+            <img src="/images/resources/docs/code-examples.svg" alt="Code examples and syntax highlighting" className="w-full h-32 object-contain" />
           </div>
         </section>
 
@@ -437,7 +444,7 @@ curl -H "Authorization: Bearer $BAS_API_KEY" \\
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/media/docs/webhook-flow.svg" 
+                src="/images/resources/docs/integration-guide.svg" 
                 alt="Webhook event flow diagram" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -607,7 +614,7 @@ npx bas status --id BUILDX`}
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/media/docs/security-shield.svg" 
+                src="/images/resources/docs/troubleshooting.svg" 
                 alt="Security and compliance illustration" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -661,7 +668,7 @@ npx bas status --id BUILDX`}
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/media/docs/build-score-diagram.svg" 
+                src="/images/resources/docs/concepts-overview.svg" 
                 alt="Build Score calculation diagram" 
                 className="w-full h-auto"
                 loading="lazy"
