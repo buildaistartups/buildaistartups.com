@@ -3,526 +3,255 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const BRAND = 'Build AI Startups'
-const SITE =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
-const PAGE = `${SITE}/resources/blog`
-const OG = '/brand/og-default.png'
+const siteUrl = 'https://www.buildaistartups.com'
+const pageUrl = `${siteUrl}/resources/blog`
+const ogImage = '/brand/og-default.png'
 
-// ---------------- SEO ----------------
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE),
-  title: `Blog — ${BRAND}`,
-  description:
-    'Deep dives, case studies, and release notes on autonomous venture creation. Learn how to go from intent to revenue with Build AI Startups.',
-  alternates: { canonical: PAGE },
+  title: 'Blog - Insights, case studies & updates | Build AI Startups',
+  description: 'Read about autonomous venture creation, case studies, product updates, and insights from the Build AI Startups team.',
+  alternates: { canonical: pageUrl },
   openGraph: {
     type: 'website',
-    url: PAGE,
-    title: `Blog — ${BRAND}`,
-    description:
-      'Insights on the Builder, Ecosystem effects, Marketplace diligence, and API automation.',
-    images: [{ url: OG, width: 1200, height: 630, alt: `${BRAND} — Blog` }],
-    siteName: BRAND,
+    url: pageUrl,
+    title: 'Blog - Insights, case studies & updates | Build AI Startups',
+    description: 'Case studies, product updates, and insights from Build AI Startups.',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups - Blog' }],
+    siteName: 'Build AI Startups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Blog — ${BRAND}`,
-    description:
-      'Essays, guides, and case studies about autonomous startups and the build loop.',
-    images: [OG],
+    title: 'Blog - Insights, case studies & updates | Build AI Startups',
+    description: 'Case studies, product updates, and insights from Build AI Startups.',
+    images: [ogImage],
   },
 }
 
-// -------------- Content --------------
-type Post = {
+type BlogPost = {
   slug: string
   title: string
   excerpt: string
-  date: string // ISO
+  date: string
   minutes: number
   tags: string[]
-  cover: string
   featured?: boolean
+  image?: string
 }
 
-const posts: Post[] = [
+const posts: BlogPost[] = [
   {
-    slug: 'from-intent-to-revenue-the-hypernova-loop',
-    title: 'From Intent to Revenue: The Build Loop',
-    excerpt:
-      'A step-by-step walkthrough of how a one-sentence idea becomes a production-ready micro-SaaS—spec, repo, UI, pricing, deploy, and growth.',
-    date: '2025-08-02',
+    slug: 'introducing-build-ai-startups',
+    title: 'Introducing Build AI Startups',
+    excerpt: 'From one-sentence intent to live product. We are building the autonomous venture creation platform.',
+    date: '2025-01-15',
+    minutes: 5,
+    tags: ['Announcement', 'Vision'],
+    featured: true,
+    image: '/media/blog/introducing-build-ai-startups.png',
+  },
+  {
+    slug: 'the-spec-dsl-explained',
+    title: 'The Spec DSL Explained',
+    excerpt: 'How we turn natural language requirements into structured specifications that drive code generation.',
+    date: '2025-02-20',
     minutes: 8,
-    tags: ['Builder', 'Spec DSL', 'Autonomy'],
-    cover: '/media/blog/loop-cover.png',
-    featured: true,
+    tags: ['Technical', 'Spec DSL'],
+    image: '/media/blog/spec-dsl-explained.png',
   },
   {
-    slug: 'spec-dsl-reproducible-startups',
-    title: 'Spec DSL: Reproducible Startups',
-    excerpt:
-      'Why a structured product spec (ICP, UX, data, pricing, integrations) makes autonomous builds predictable and reviewable.',
-    date: '2025-07-21',
+    slug: 'build-score-quality-gates',
+    title: 'Build Score and Quality Gates',
+    excerpt: 'How we ensure every generated product meets production standards through automated quality checks.',
+    date: '2025-03-10',
+    minutes: 6,
+    tags: ['Quality', 'Automation'],
+    image: '/media/blog/build-score-quality-gates.png',
+  },
+  {
+    slug: 'ecosystem-cross-promotions',
+    title: 'Ecosystem Cross-Promotions Launch',
+    excerpt: 'How startups built on our platform can cross-promote and compound their distribution efforts.',
+    date: '2025-04-05',
     minutes: 7,
-    tags: ['Spec DSL', 'Quality', 'DX'],
-    cover: '/media/blog/spec-dsl-cover.png',
-    featured: true,
-  },
-  {
-    slug: 'build-score-and-quality-gates',
-    title: 'Build Score & Quality Gates',
-    excerpt:
-      'How lint/types, tests, security scans, performance budgets, and license checks roll up into a single Build Score that governs Autopilot.',
-    date: '2025-07-10',
-    minutes: 6,
-    tags: ['Integrity', 'Security', 'Performance'],
-    cover: '/media/blog/build-score-cover.png',
-  },
-  {
-    slug: 'ecosystem-effects-cross-promotion',
-    title: 'Ecosystem Effects: Cross-Promotion Between Micro-SaaS',
-    excerpt:
-      'Generated products amplify each other via shared surfaces, partner microsites, and opt-in feeds—creating distribution that compounds.',
-    date: '2025-06-24',
-    minutes: 6,
     tags: ['Ecosystem', 'Growth'],
-    cover: '/media/blog/ecosystem-cover.png',
-  },
-  {
-    slug: 'marketplace-diligence-packs',
-    title: 'Marketplace Diligence Packs: Trust at a Glance',
-    excerpt:
-      'Live demo links, Build Score history, telemetry, and transfer-readiness checklists reduce friction for acquisitions and licenses.',
-    date: '2025-06-11',
-    minutes: 5,
-    tags: ['Marketplace', 'Investors'],
-    cover: '/media/blog/marketplace-cover.png',
-  },
-  {
-    slug: 'copilot-to-autopilot',
-    title: 'Going from Copilot to Autopilot',
-    excerpt:
-      'When to require approvals and when to let the system ship changes automatically. A practical safety playbook.',
-    date: '2025-05-30',
-    minutes: 5,
-    tags: ['Autonomy', 'Process'],
-    cover: '/media/blog/copilot-autopilot-cover.png',
+    image: '/media/blog/ecosystem-cross-promotions.png',
   },
   {
     slug: 'case-study-24h-micro-saas',
     title: 'Case Study: Shipping a Micro-SaaS in 24 Hours',
-    excerpt:
-      'We generated a working analytics product in one day. Here's the spec, repo diff, experiments, and first user feedback.',
+    excerpt: 'We generated a working analytics product in one day. Here is the spec, repo diff, experiments, and first user feedback.',
     date: '2025-05-12',
     minutes: 9,
     tags: ['Case Study', 'Builder', 'Growth'],
-    cover: '/media/blog/case-study-cover.png',
+    featured: true,
+    image: '/media/blog/case-study-24h-micro-saas.png',
+  },
+  {
+    slug: 'marketplace-beta-launch',
+    title: 'Marketplace Beta: List, License, Transfer',
+    excerpt: 'The marketplace for AI-generated startups is live. Create diligence packs and transfer ready projects.',
+    date: '2025-06-01',
+    minutes: 6,
+    tags: ['Marketplace', 'Product'],
+    image: '/media/blog/marketplace-beta-launch.png',
   },
 ]
 
-// -------------- Helpers --------------
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
-function uniqueTags() {
-  const set = new Set<string>()
-  posts.forEach((p) => p.tags.forEach((t) => set.add(t)))
-  return Array.from(set).sort()
-}
-
-// -------------- JSON-LD --------------
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE },
-    { '@type': 'ListItem', position: 2, name: 'Resources', item: `${SITE}/resources` },
-    { '@type': 'ListItem', position: 3, name: 'Blog', item: PAGE },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+    { '@type': 'ListItem', position: 2, name: 'Resources', item: `${siteUrl}/resources` },
+    { '@type': 'ListItem', position: 3, name: 'Blog', item: pageUrl },
   ],
 }
-const blogJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Blog',
-  name: `${BRAND} — Blog`,
-  url: PAGE,
-  description:
-    'Essays, case studies, and release notes about autonomous venture creation.',
-  publisher: {
-    '@type': 'Organization',
-    name: BRAND,
-    url: SITE,
-    logo: `${SITE}/brand/logo-light.svg`,
-  },
-}
-const itemListJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  itemListElement: posts.map((p, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    url: `${PAGE}/${p.slug}`,
-    name: p.title,
-    description: p.excerpt,
-  })),
-}
-const searchJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  url: PAGE,
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: `${PAGE}?q={search_term_string}`,
-    'query-input': 'required name=search_term_string',
-  },
-}
 
-// NOTE: Next.js 15 App Router expects `searchParams` as a Promise.
-// Make this component async and await it.
-export default async function BlogIndex({
-  searchParams,
-}: {
-  searchParams?: Promise<{ q?: string | string[]; tag?: string | string[] }>
-}) {
-  const sp = (await searchParams) ?? {}
-  const q = String((Array.isArray(sp.q) ? sp.q[0] : sp.q) ?? '')
-    .trim()
-    .toLowerCase()
-  const tag = String((Array.isArray(sp.tag) ? sp.tag[0] : sp.tag) ?? '').trim()
-
-  const filtered = posts.filter((p) => {
-    const matchesQ =
-      !q ||
-      p.title.toLowerCase().includes(q) ||
-      p.excerpt.toLowerCase().includes(q) ||
-      p.tags.some((t) => t.toLowerCase().includes(q))
-    const matchesTag = !tag || p.tags.includes(tag)
-    return matchesQ && matchesTag
-  })
-
-  const featured = filtered.filter((p) => p.featured).slice(0, 2)
-  const rest = filtered.filter((p) => !p.featured)
-  const tags = uniqueTags()
+export default function BlogPage() {
+  const featuredPosts = posts.filter(post => post.featured)
+  const recentPosts = posts.filter(post => !post.featured).slice(0, 6)
 
   return (
     <>
-      {/* JSON-LD */}
-      <Script
-        id="ld-breadcrumb"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <Script
-        id="ld-blog"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
-      />
-      <Script
-        id="ld-items"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
-      <Script
-        id="ld-search"
-        type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(searchJsonLd) }}
-      />
+      <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       <main className="bg-slate-950 text-slate-200">
         {/* Hero */}
         <section className="mx-auto max-w-6xl px-6 pb-10 pt-20 sm:pt-28">
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div>
-              <p className="text-sm uppercase tracking-widest text-slate-400">
-                Resources
-              </p>
-              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">
-                Blog — Ideas that ship
-              </h1>
+              <p className="text-sm uppercase tracking-widest text-slate-400">Resources</p>
+              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Blog - insights and case studies</h1>
               <p className="mt-4 text-lg text-slate-300">
-                Essays, playbooks, and case studies on autonomous startups.
-                Everything we learn while building and launching with the
-                Builder, Ecosystem, Marketplace, and API.
+                Read about autonomous venture creation, case studies, product updates, and insights from the Build AI Startups team.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a
-                  href="#featured"
-                  className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400"
-                >
+                <a href="#featured" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400">
                   Read featured posts
                 </a>
-                <Link
-                  href="/resources/docs"
-                  className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5"
-                >
-                  Go to Docs
+                <Link href="/resources/changelog" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
+                  View changelog
                 </Link>
               </div>
-              <p className="mt-3 text-sm text-slate-400">
-                Case studies · Spec DSL · Build Score · Ecosystem · Marketplace
-              </p>
+              <p className="mt-3 text-sm text-slate-400">Case studies, technical deep dives, product updates</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
-                <img
-                  src="/media/blog/blog-hero.png"
-                  alt="Blog content creation workflow illustration"
-                  className="h-full w-full object-contain"
-                  loading="eager"
-                />
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
+                <img src="/media/blog/blog-hero.png" alt="Blog overview" className="h-full w-full object-cover" />
               </div>
-              <p className="mt-2 text-center text-xs text-slate-500">
-                Stories from the build loop
-              </p>
-            </div>
-          </div>
-
-          {/* Search + Tags */}
-          <form
-            className="mt-10 flex flex-wrap items-center gap-3"
-            action="/resources/blog"
-            method="get"
-          >
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/40 px-3 py-1.5">
-              <svg width="16" height="16" fill="none" stroke="currentColor" className="text-slate-500" strokeWidth="2">
-                <circle cx="11" cy="11" r="8"/>
-                <path d="m21 21-4.35-4.35"/>
-              </svg>
-              <input
-                name="q"
-                defaultValue={q}
-                placeholder="Search posts"
-                className="bg-transparent text-sm outline-none placeholder:text-slate-500"
-                aria-label="Search blog posts"
-              />
-            </div>
-            <select
-              name="tag"
-              defaultValue={tag}
-              className="rounded-lg border border-white/10 bg-slate-900/40 px-3 py-1.5 text-sm"
-              aria-label="Filter by tag"
-            >
-              <option value="">All tags</option>
-              {tags.map((t) => (
-                <option value={t} key={t}>
-                  {t}
-                </option>
-              ))}
-            </select>
-            <button
-              type="submit"
-              className="rounded-lg bg-violet-500 px-4 py-1.5 text-sm font-medium text-white hover:bg-violet-400"
-            >
-              Apply
-            </button>
-            {(q || tag) && (
-              <Link
-                href="/resources/blog"
-                className="text-sm text-sky-300 hover:underline"
-                aria-label="Clear filters"
-              >
-                Clear
-              </Link>
-            )}
-            <div className="ml-auto flex items-center gap-4 text-sm">
-              <Link href="/resources/blog/rss.xml" className="text-slate-400 hover:text-slate-200">
-                RSS
-              </Link>
-              <Link
-                href="/contact?subject=Guest%20post%20proposal"
-                className="text-slate-400 hover:text-slate-200"
-              >
-                Write for us
-              </Link>
-            </div>
-          </form>
-        </section>
-
-        {/* Featured */}
-        {featured.length > 0 && (
-          <section id="featured" className="mx-auto max-w-6xl px-6 py-8">
-            <h2 className="text-2xl font-semibold">Featured</h2>
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {featured.map((p) => (
-                <article
-                  key={p.slug}
-                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 transition-all duration-300 hover:border-violet-500/50"
-                >
-                  <Link href={`/resources/blog/${p.slug}`}>
-                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50 p-6">
-                      <img
-                        src={p.cover}
-                        alt={p.title}
-                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <div className="text-xs text-slate-400">
-                        {formatDate(p.date)} • {p.minutes} min read
-                      </div>
-                      <h3 className="mt-1 text-xl font-semibold group-hover:text-violet-300 transition-colors">{p.title}</h3>
-                      <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {p.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                      <div className="mt-3 text-violet-400 group-hover:text-violet-300 transition-colors">Read more →</div>
-                    </div>
-                  </Link>
-                </article>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* All posts */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">All posts ({filtered.length})</h2>
-          {filtered.length === 0 ? (
-            <p className="mt-4 text-slate-400">No posts match your filters.</p>
-          ) : (
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {rest.map((p) => (
-                <article
-                  key={p.slug}
-                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 transition-all duration-300 hover:border-violet-500/50"
-                >
-                  <Link href={`/resources/blog/${p.slug}`}>
-                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50 p-4">
-                      <img
-                        src={p.cover}
-                        alt={p.title}
-                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="p-5">
-                      <div className="text-xs text-slate-400">
-                        {formatDate(p.date)} • {p.minutes} min read
-                      </div>
-                      <h3 className="mt-1 text-lg font-semibold group-hover:text-violet-300 transition-colors">{p.title}</h3>
-                      <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {p.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Link>
-                </article>
-              ))}
-            </div>
-          )}
-        </section>
-
-        {/* Newsletter CTA */}
-        <section className="mx-auto max-w-6xl px-6 pb-12">
-          <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 md:p-8">
-            <div className="grid gap-6 md:grid-cols-2 md:items-center">
-              <div>
-                <h2 className="text-2xl font-semibold">Get the Build Feed</h2>
-                <p className="mt-2 text-slate-300">
-                  A short weekly email: shipped features, case studies, and practical tips for compressing time-to-value.
-                </p>
-                <p className="mt-2 text-xs text-slate-500">
-                  No spam. One-click unsubscribe.
-                </p>
-              </div>
-              <form
-                className="flex w-full items-center gap-2"
-                action="https://formspree.io/f/your-form-id" // TODO: replace with your provider
-                method="POST"
-              >
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="you@company.com"
-                  className="h-11 w-full rounded-lg border border-white/10 bg-slate-950/60 px-3 text-sm outline-none placeholder:text-slate-500 focus:border-violet-500/50"
-                />
-                <button
-                  type="submit"
-                  className="h-11 whitespace-nowrap rounded-lg bg-violet-500 px-4 text-sm font-medium text-white hover:bg-violet-400 transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
+              <p className="mt-2 text-center text-xs text-slate-500">Latest insights and case studies</p>
             </div>
           </div>
         </section>
 
-        {/* Writing principles */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Our writing principles</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-3">
-            {[
-              { 
-                t: 'Show your work', 
-                d: 'Specs, diffs, metrics, and decisions—not just opinions.',
-                icon: '📊'
-              },
-              { 
-                t: 'Useful today', 
-                d: 'Every post should help you ship faster this week.',
-                icon: '⚡'
-              },
-              { 
-                t: 'Honest tradeoffs', 
-                d: 'We document what failed so you can avoid it.',
-                icon: '🎯'
-              },
-            ].map((x) => (
-              <div
-                key={x.t}
-                className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors"
-              >
-                <div className="text-2xl mb-2">{x.icon}</div>
-                <div className="text-base font-medium">{x.t}</div>
-                <p className="mt-1 text-sm text-slate-400">{x.d}</p>
-              </div>
+        {/* Featured Posts */}
+        <section id="featured" className="mx-auto max-w-6xl px-6 py-8">
+          <h2 className="text-2xl font-semibold mb-6">Featured</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {featuredPosts.map((post) => (
+              <article key={post.slug} className="group rounded-2xl border border-white/10 bg-slate-900/40 p-6 hover:border-violet-500/30 transition-colors">
+                {post.image && (
+                  <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 mb-4">
+                    <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
+                  </div>
+                )}
+                <div className="flex items-center gap-2 mb-2">
+                  {post.tags.map((tag) => (
+                    <span key={tag} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-violet-300 transition-colors">
+                  <Link href={`/resources/blog/${post.slug}`}>
+                    {post.title}
+                  </Link>
+                </h3>
+                <p className="text-slate-400 mb-4">{post.excerpt}</p>
+                <div className="flex items-center justify-between">
+                  <div className="text-sm text-slate-500">
+                    {new Date(post.date).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </div>
+                  <div className="text-sm text-slate-500">{post.minutes} min read</div>
+                </div>
+              </article>
             ))}
+          </div>
+        </section>
+
+        {/* Recent Posts */}
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <h2 className="text-2xl font-semibold mb-6">Recent posts</h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {recentPosts.map((post) => (
+              <article key={post.slug} className="group rounded-xl border border-white/10 bg-slate-900/40 p-4 hover:border-violet-500/30 transition-colors">
+                {post.image && (
+                  <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 mb-3">
+                    <img src={post.image} alt={post.title} className="h-full w-full object-cover" />
+                  </div>
+                )}
+                <div className="flex flex-wrap gap-1 mb-2">
+                  {post.tags.map((tag) => (
+                    <span key={tag} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-base font-semibold mb-2 group-hover:text-violet-300 transition-colors">
+                  <Link href={`/resources/blog/${post.slug}`}>
+                    {post.title}
+                  </Link>
+                </h3>
+                <p className="text-sm text-slate-400 mb-3">{post.excerpt}</p>
+                <div className="flex items-center justify-between text-xs text-slate-500">
+                  <div>
+                    {new Date(post.date).toLocaleDateString('en-US', { 
+                      month: 'short', 
+                      day: 'numeric' 
+                    })}
+                  </div>
+                  <div>{post.minutes} min</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* Newsletter signup */}
+        <section className="mx-auto max-w-6xl px-6 py-12">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8 text-center">
+            <h2 className="text-2xl font-semibold mb-2">Stay updated</h2>
+            <p className="text-slate-300 mb-6">
+              Get the latest case studies, product updates, and insights delivered to your inbox.
+            </p>
+            <div className="flex items-center justify-center gap-3">
+              <Link href="/contact?subject=Newsletter%20signup" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400">
+                Subscribe to updates
+              </Link>
+              <Link href="/resources/changelog" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5">
+                View changelog
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* Final CTA */}
         <section className="border-t border-white/10 bg-slate-900/40 py-14">
           <div className="mx-auto max-w-4xl px-6 text-center">
-            <h2 className="text-3xl font-semibold">Put the ideas to work</h2>
+            <h2 className="text-3xl font-semibold">Ready to build?</h2>
             <p className="mt-2 text-slate-300">
-              Open the Builder, generate your repo, and talk to real users this week.
+              Turn your idea into a live product with Build AI Startups.
             </p>
             <div className="mt-6 flex items-center justify-center gap-3">
-              <Link
-                href="/generate"
-                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400 transition-colors"
-              >
-                Generate now
+              <Link href="/generate" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400">
+                Start building
               </Link>
-              <Link
-                href="/resources/templates"
-                className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors"
-              >
-                Start from a template
+              <Link href="/product/builder" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5">
+                How it works
               </Link>
             </div>
           </div>
