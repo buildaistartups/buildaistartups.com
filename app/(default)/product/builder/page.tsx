@@ -71,12 +71,15 @@ const breadcrumbJsonLd = {
   ],
 }
 
-export default function Page({
+// Next.js 15 requires async handling of searchParams
+export default async function Page({
   searchParams,
 }: {
-  searchParams: { vertical?: string }
+  searchParams: Promise<{ vertical?: string }>
 }) {
-  const v = searchParams?.vertical as keyof typeof verticals | undefined
+  // Await the searchParams promise
+  const params = await searchParams
+  const v = params?.vertical as keyof typeof verticals | undefined
   const vertical = v && verticals[v] ? verticals[v] : undefined
 
   return (
