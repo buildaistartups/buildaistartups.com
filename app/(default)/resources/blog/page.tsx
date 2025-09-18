@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
-const BRAND = 'Build AI Starups'
+const BRAND = 'Build AI Startups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const PAGE = `${SITE}/resources/blog`
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: `Blog — ${BRAND}`,
   description:
-    'Deep dives, case studies, and release notes on autonomous venture creation. Learn how to go from intent to revenue with Build AI Starups.',
+    'Deep dives, case studies, and release notes on autonomous venture creation. Learn how to go from intent to revenue with Build AI Startups.',
   alternates: { canonical: PAGE },
   openGraph: {
     type: 'website',
@@ -113,7 +113,7 @@ const posts: Post[] = [
     slug: 'case-study-24h-micro-saas',
     title: 'Case Study: Shipping a Micro-SaaS in 24 Hours',
     excerpt:
-      'We generated a working analytics product in one day. Here’s the spec, repo diff, experiments, and first user feedback.',
+      'We generated a working analytics product in one day. Here's the spec, repo diff, experiments, and first user feedback.',
     date: '2025-05-12',
     minutes: 9,
     tags: ['Case Study', 'Builder', 'Growth'],
@@ -271,11 +271,12 @@ export default async function BlogIndex({
               </p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
                 <img
                   src="/media/blog/blog-hero.png"
-                  alt="Blog hero"
-                  className="h-full w-full object-cover"
+                  alt="Blog content creation workflow illustration"
+                  className="h-full w-full object-contain"
+                  loading="eager"
                 />
               </div>
               <p className="mt-2 text-center text-xs text-slate-500">
@@ -291,8 +292,9 @@ export default async function BlogIndex({
             method="get"
           >
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-slate-900/40 px-3 py-1.5">
-              <svg width="16" height="16" fill="currentColor" className="text-slate-500">
-                <path d="M11 11l4 4m-2.5-6A4.5 4.5 0 1 1 1.5 8a4.5 4.5 0 0 1 11 0z" />
+              <svg width="16" height="16" fill="none" stroke="currentColor" className="text-slate-500" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.35-4.35"/>
               </svg>
               <input
                 name="q"
@@ -352,21 +354,22 @@ export default async function BlogIndex({
               {featured.map((p) => (
                 <article
                   key={p.slug}
-                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40"
+                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 transition-all duration-300 hover:border-violet-500/50"
                 >
                   <Link href={`/resources/blog/${p.slug}`}>
-                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50">
+                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50 p-6">
                       <img
                         src={p.cover}
                         alt={p.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-5">
                       <div className="text-xs text-slate-400">
                         {formatDate(p.date)} • {p.minutes} min read
                       </div>
-                      <h3 className="mt-1 text-xl font-semibold">{p.title}</h3>
+                      <h3 className="mt-1 text-xl font-semibold group-hover:text-violet-300 transition-colors">{p.title}</h3>
                       <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {p.tags.map((t) => (
@@ -378,7 +381,7 @@ export default async function BlogIndex({
                           </span>
                         ))}
                       </div>
-                      <div className="mt-3 text-sky-300">Read more →</div>
+                      <div className="mt-3 text-violet-400 group-hover:text-violet-300 transition-colors">Read more →</div>
                     </div>
                   </Link>
                 </article>
@@ -397,21 +400,22 @@ export default async function BlogIndex({
               {rest.map((p) => (
                 <article
                   key={p.slug}
-                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40"
+                  className="group overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 transition-all duration-300 hover:border-violet-500/50"
                 >
                   <Link href={`/resources/blog/${p.slug}`}>
-                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50">
+                    <div className="aspect-[16/9] w-full overflow-hidden border-b border-white/10 bg-slate-900/50 p-4">
                       <img
                         src={p.cover}
                         alt={p.title}
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
                       />
                     </div>
                     <div className="p-5">
                       <div className="text-xs text-slate-400">
                         {formatDate(p.date)} • {p.minutes} min read
                       </div>
-                      <h3 className="mt-1 text-lg font-semibold">{p.title}</h3>
+                      <h3 className="mt-1 text-lg font-semibold group-hover:text-violet-300 transition-colors">{p.title}</h3>
                       <p className="mt-1 text-sm text-slate-400">{p.excerpt}</p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {p.tags.map((t) => (
@@ -434,7 +438,7 @@ export default async function BlogIndex({
         {/* Newsletter CTA */}
         <section className="mx-auto max-w-6xl px-6 pb-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6 md:p-8">
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 md:items-center">
               <div>
                 <h2 className="text-2xl font-semibold">Get the Build Feed</h2>
                 <p className="mt-2 text-slate-300">
@@ -454,11 +458,11 @@ export default async function BlogIndex({
                   name="email"
                   required
                   placeholder="you@company.com"
-                  className="h-11 w-full rounded-lg border border-white/10 bg-slate-950/60 px-3 text-sm outline-none placeholder:text-slate-500"
+                  className="h-11 w-full rounded-lg border border-white/10 bg-slate-950/60 px-3 text-sm outline-none placeholder:text-slate-500 focus:border-violet-500/50"
                 />
                 <button
                   type="submit"
-                  className="h-11 whitespace-nowrap rounded-lg bg-violet-500 px-4 text-sm font-medium text-white hover:bg-violet-400"
+                  className="h-11 whitespace-nowrap rounded-lg bg-violet-500 px-4 text-sm font-medium text-white hover:bg-violet-400 transition-colors"
                 >
                   Subscribe
                 </button>
@@ -470,16 +474,29 @@ export default async function BlogIndex({
         {/* Writing principles */}
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">Our writing principles</h2>
-          <div className="mt-4 grid gap-6 md:grid-cols-3">
+          <div className="mt-6 grid gap-6 md:grid-cols-3">
             {[
-              { t: 'Show your work', d: 'Specs, diffs, metrics, and decisions—not just opinions.' },
-              { t: 'Useful today', d: 'Every post should help you ship faster this week.' },
-              { t: 'Honest tradeoffs', d: 'We document what failed so you can avoid it.' },
+              { 
+                t: 'Show your work', 
+                d: 'Specs, diffs, metrics, and decisions—not just opinions.',
+                icon: '📊'
+              },
+              { 
+                t: 'Useful today', 
+                d: 'Every post should help you ship faster this week.',
+                icon: '⚡'
+              },
+              { 
+                t: 'Honest tradeoffs', 
+                d: 'We document what failed so you can avoid it.',
+                icon: '🎯'
+              },
             ].map((x) => (
               <div
                 key={x.t}
-                className="rounded-xl border border-white/10 bg-slate-900/40 p-5"
+                className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors"
               >
+                <div className="text-2xl mb-2">{x.icon}</div>
                 <div className="text-base font-medium">{x.t}</div>
                 <p className="mt-1 text-sm text-slate-400">{x.d}</p>
               </div>
@@ -497,13 +514,13 @@ export default async function BlogIndex({
             <div className="mt-6 flex items-center justify-center gap-3">
               <Link
                 href="/generate"
-                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400"
+                className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400 transition-colors"
               >
                 Generate now
               </Link>
               <Link
                 href="/resources/templates"
-                className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5"
+                className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors"
               >
                 Start from a template
               </Link>
