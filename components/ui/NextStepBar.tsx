@@ -21,7 +21,7 @@ export function NextStepBar() {
       if (Array.isArray(step.paths)) {
         return step.paths.some(p => pathname.startsWith(p))
       }
-      return pathname.startsWith(step.path)
+      return step.path ? pathname.startsWith(step.path) : false
     })
     return index >= 0 ? index : -1
   }
