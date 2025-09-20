@@ -1,10 +1,7 @@
-const withMDX = require("@next/mdx")();
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Include MDX in Next’s page extensions
-  pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
-
+  // Removed MDX configuration since @next/mdx is not in dependencies
+  
   // Keep the URL /resources/changelog/rss.xml but serve /api/rss content
   async rewrites() {
     return [
@@ -12,12 +9,13 @@ const nextConfig = {
     ];
   },
 
-  // If you also want other rewrites/redirects, add them here
-  // async redirects() {
-  //   return [
-  //     // Example: { source: "/docs", destination: "/resources/docs", permanent: true },
-  //   ];
-  // },
+  // Add useful redirects
+  async redirects() {
+    return [
+      // Redirect /docs to /resources/docs for backward compatibility
+      { source: "/docs", destination: "/resources/docs", permanent: true },
+    ];
+  },
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = nextConfig;
