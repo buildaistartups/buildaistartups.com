@@ -39,7 +39,8 @@ export async function POST(req: NextRequest) {
       )
     }
     
-    const plan = body as MiniPlanInput
+    // After validation, we know body conforms to MiniPlanInput
+    const plan: MiniPlanInput = body
     const forecast = generateForecast(plan)
     
     return NextResponse.json({ forecast })
