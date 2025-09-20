@@ -1,5 +1,14 @@
 import * as React from "react"
 
+// Move ToastAction component definition to the top or define the type differently
+const ToastAction = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentPropsWithoutRef<"button">
+>(({ className, ...props }, ref) => {
+  return <button ref={ref} className={className} {...props} />
+})
+ToastAction.displayName = "ToastAction"
+
 type ToastActionElement = React.ReactElement<typeof ToastAction>
 
 export type ToastProps = {
@@ -192,13 +201,5 @@ function useToast() {
     dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
   }
 }
-
-const ToastAction = React.forwardRef
-  HTMLButtonElement,
-  React.ComponentPropsWithoutRef<"button">
->(({ className, ...props }, ref) => {
-  return <button ref={ref} className={className} {...props} />
-})
-ToastAction.displayName = "ToastAction"
 
 export { useToast, toast, ToastAction }
