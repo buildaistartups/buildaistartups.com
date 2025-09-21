@@ -1,4 +1,5 @@
-import { NextStepBar } from '@/components/ui/NextStepBar'
+import Header from '@/components/ui/header'
+import Footer from '@/components/ui/footer'
 
 export default function DefaultLayout({
   children,
@@ -7,11 +8,11 @@ export default function DefaultLayout({
 }) {
   return (
     <>
-      <NextStepBar />
-      <main className="flex-1">
+      <Header />
+      <main className="grow">
         {children}
       </main>
-
+      <Footer />
     </>
   )
 }
