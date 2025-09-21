@@ -40,7 +40,7 @@ Swiper.use([Navigation])
 
 export default function IntegrationsCarousel() {
   const containerRef = useRef<HTMLDivElement | null>(null)
-  const swiperRef = useRef<Swiper | null>(null)
+  const swiperRef = useRef<any>(null)
 
   useEffect(() => {
     if (!containerRef.current) return
