@@ -11,6 +11,9 @@ export default function DefaultLayout({
       <main className="flex-1">
         {children}
       </main>
+
+      
+      <Footer />
     </>
   )
 }
