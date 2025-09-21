@@ -11,28 +11,30 @@ export default function JourneySection() {
   ]
 
   return (
-    <section className="relative">
+    <section className="relative bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12">
-            <h2 className="h2 mb-4">Your journey to $10K MRR</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Your journey to $10K MRR
+            </h2>
             <p className="text-xl text-gray-400">
               Six proven steps from idea to recurring revenue
             </p>
           </div>
 
           {/* Steps */}
-          <div className="max-w-5xl mx-auto grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+          <div className="max-w-5xl mx-auto grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             {steps.map((step) => (
               <Link
                 key={step.num}
                 href={step.href}
-                className="relative group"
+                className="relative group block"
               >
-                <div className="h-full bg-gray-800 rounded-lg p-5 hover:bg-gray-700 transition duration-150 ease-in-out">
-                  <div className="font-bold text-3xl text-purple-600 mb-2">{step.num}</div>
-                  <div className="font-bold text-lg mb-1">{step.title}</div>
+                <div className="h-full bg-gray-800 rounded-lg p-6 text-center hover:bg-gray-700 transition duration-150 ease-in-out">
+                  <div className="font-bold text-4xl text-purple-600 mb-3">{step.num}</div>
+                  <div className="font-semibold text-lg text-white mb-2">{step.title}</div>
                   <div className="text-sm text-gray-400">{step.desc}</div>
                 </div>
               </Link>
@@ -43,9 +45,10 @@ export default function JourneySection() {
           <div className="text-center mt-12">
             <Link 
               href="/start" 
-              className="btn text-white bg-purple-600 hover:bg-purple-700"
+              className="inline-flex items-center px-6 py-3 text-white bg-purple-600 hover:bg-purple-700 rounded-full font-medium transition duration-150 ease-in-out"
             >
               Start Your Journey
+              <span className="ml-2">→</span>
             </Link>
           </div>
         </div>
