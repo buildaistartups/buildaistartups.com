@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useCallback, useRef } from 'react'
 import Link from 'next/link'
-import { usePathname, useSearchParams } from 'next/navigation'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
 import ThemeToggle from './ThemeToggle'
@@ -11,8 +10,6 @@ export default function Header() {
   const [signedIn, setSignedIn] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const headerRef = useRef<HTMLElement>(null)
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
 
   useEffect(() => {
     const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
@@ -58,83 +55,15 @@ export default function Header() {
   const toggleDropdown = (name: string) => setOpenDropdown((cur) => (cur === name ? null : name))
   const closeDropdown = () => setOpenDropdown(null)
 
-  // Determine current step for numbered navigation
-  const getCurrentStep = () => {
-    if (pathname.startsWith('/start')) return 1
-    if (pathname.startsWith('/validate')) return 2
-    if (pathname.startsWith('/plan')) return 3
-    if (pathname.startsWith('/product/builder') || pathname.startsWith('/build')) return 4
-    if (pathname.startsWith('/grow') || pathname.startsWith('/launch')) return 5
-    return 0
-  }
-
-  const currentStep = getCurrentStep()
-  const vertical = searchParams.get('vertical')
-  const idea = searchParams.get('idea')
-  const ideaId = searchParams.get('ideaId')
-
-  const getStepHref = (step: number) => {
-    const params = new URLSearchParams()
-    if (vertical) params.append('vertical', vertical)
-    if (idea) params.append('idea', idea)
-    if (ideaId) params.append('ideaId', ideaId)
-    const query = params.toString()
-    
-    switch (step) {
-      case 1: return `/start${query ? `?${query}` : ''}`
-      case 2: return `/validate${query ? `?${query}` : ''}`
-      case 3: return `/plan${query ? `?${query}` : ''}`
-      case 4: return `/product/builder${query ? `?${query}` : ''}`
-      case 5: return `/grow${query ? `?${query}` : ''}`
-      default: return '/start'
-    }
-  }
-
-  const steps = [
-    { number: 1, label: 'Start', href: getStepHref(1) },
-    { number: 2, label: 'Validate', href: getStepHref(2) },
-    { number: 3, label: 'Plan', href: getStepHref(3) },
-    { number: 4, label: 'Build', href: getStepHref(4) },
-    { number: 5, label: 'Launch', href: getStepHref(5) },
-  ]
-
   return (
     <header className="absolute z-30 w-full" ref={headerRef}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex h-16 items-center md:h-20">
           <div><Logo /></div>
 
-          {/* Numbered Journey Navigation */}
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow flex-wrap items-center justify-center">
-              {steps.map((step) => (
-                <li key={step.number} className="mx-1 lg:mx-2">
-                  <Link
-                    href={step.href}
-                    className={`inline-flex items-center whitespace-nowrap text-sm font-medium transition duration-150 ease-in-out ${
-                      currentStep === step.number
-                        ? 'text-violet-400'
-                        : currentStep > step.number
-                        ? 'text-slate-100 hover:text-white'
-                        : 'text-slate-400 hover:text-slate-300'
-                    }`}
-                    onMouseEnter={closeDropdown}
-                  >
-                    <span className={`mr-2 flex h-6 w-6 items-center justify-center rounded-full text-xs ${
-                      currentStep === step.number
-                        ? 'bg-violet-500 text-white'
-                        : currentStep > step.number
-                        ? 'bg-violet-600/20 text-violet-300'
-                        : 'bg-slate-800 text-slate-400'
-                    }`}>
-                      {step.number}
-                    </span>
-                    {step.label}
-                  </Link>
-                </li>
-              ))}
-
-              {/* Traditional navigation for other pages */}
+              {/* Product */}
               <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
                 <button
                   type="button"
@@ -165,6 +94,52 @@ export default function Header() {
                 </div>
               </li>
 
+              {/* Solutions */}
+              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
+                <button
+                  type="button"
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded={openDropdown === 'solutions'}
+                  aria-controls="menu-solutions"
+                  data-dropdown="solutions"
+                  onKeyDown={onMenuKeyDown}
+                  onMouseEnter={() => setOpenDropdown('solutions')}
+                  onClick={() => toggleDropdown('solutions')}
+                >
+                  Solutions
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <div
+                  id="menu-solutions"
+                  role="menu"
+                  className={`absolute left-1/2 z-40 mt-3 w-[680px] -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-4 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'solutions' ? 'visible opacity-100' : 'invisible opacity-0'}`}
+                  onMouseEnter={() => setOpenDropdown('solutions')}
+                >
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
+                      <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY ROLE</div>
+                      <ul className="space-y-3">
+                        <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Autonomous incubator" onClose={closeDropdown} />
+                      </ul>
+                    </div>
+                    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
+                      <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY USE CASE</div>
+                      <ul className="space-y-3">
+                        <MenuItem href="/vertical/ai-leadgen" title="Lead Gen Pipeline" desc="Capture → qualify → CRM → drip → pay" onClose={closeDropdown} />
+                        <MenuItem href="/vertical/ai-support" title="Support Copilot" desc="Deflect tickets, summarize, escalate safely" onClose={closeDropdown} />
+                      </ul>
+                      <div className="text-[11px] text-slate-500 mt-4">Examples, not limits.</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
               {/* Resources */}
               <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
                 <button
@@ -190,6 +165,9 @@ export default function Header() {
                   onMouseEnter={() => setOpenDropdown('resources')}
                 >
                   <MenuItem href="/resources/docs" title="Docs" desc="Build faster with Build AI Startups" onClose={closeDropdown} />
+                  <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" onClose={closeDropdown} />
+                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's now, next, later" onClose={closeDropdown} />
+                  <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" onClose={closeDropdown} />
                   <MenuItem href="/resources/changelog" title="Changelog" desc="Ship notes & releases" onClose={closeDropdown} />
                   <MenuItem href="/resources/press" title="Press Kit" desc="Logos, shots, bio" onClose={closeDropdown} />
                 </div>
@@ -200,6 +178,35 @@ export default function Header() {
                 <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/pricing" onMouseEnter={closeDropdown}>
                   Pricing
                 </Link>
+              </li>
+
+              {/* Company */}
+              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
+                <button
+                  type="button"
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded={openDropdown === 'company'}
+                  aria-controls="menu-company"
+                  data-dropdown="company"
+                  onKeyDown={onMenuKeyDown}
+                  onMouseEnter={() => setOpenDropdown('company')}
+                  onClick={() => toggleDropdown('company')}
+                >
+                  Company
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <div
+                  id="menu-company"
+                  role="menu"
+                  className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'company' ? 'visible opacity-100' : 'invisible opacity-0'}`}
+                  onMouseEnter={() => setOpenDropdown('company')}
+                >
+                  <MenuItem href="/about" title="About" desc="Mission & principles" onClose={closeDropdown} />
+                  <MenuItem href="/contact" title="Contact" desc="Say hello" onClose={closeDropdown} />
+                </div>
               </li>
             </ul>
           </nav>
@@ -217,7 +224,7 @@ export default function Header() {
             >
               <span className="relative inline-flex items-center">
                 Generate Startup
-                <span className="ml-1 translate-x-0 text-purple-500 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">→</span>
+                <span className="ml-1 translate-x-0 text-purple-500 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">-&gt;</span>
               </span>
             </Link>
 
