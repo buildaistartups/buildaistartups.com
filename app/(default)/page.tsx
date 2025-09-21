@@ -5,6 +5,7 @@ export const metadata = {
 }
 
 import ThemeAwareHero from '@/components/ThemeAwareHero'
+import JourneySection from '@/components/journey-section'
 import Clients from '@/components/clients'
 import ThemeAwareFeatures from '@/components/ThemeAwareFeatures'
 import Features02 from '@/components/features-02'
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <>
       <ThemeAwareHero />
+      <JourneySection />
       <Clients />
       <ThemeAwareFeatures />
       <Features02 />
