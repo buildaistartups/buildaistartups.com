@@ -1,212 +1,110 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
-import type { MiniPlanInput, Forecast } from '@/lib/schemas'
+
+// Define types locally
+type MiniPlanInput = {
+  ideaId: string
+  vertical: 'ai-leadgen' | 'ai-support'
+  problemStatement: string
+  solution: string
+  targetUsers: string
+  mvpFeatures?: string[]
+  launchChannels?: string[]
+}
+
+type Forecast = {
+  revenueRange: {
+    low: number
+    high: number
+  }
+  timeToFirstCustomer: number
+  confidenceScore: number
+  assumptions: string[]
+}
 
 export async function POST(req: NextRequest) {
   try {
-    const { plan, forecast } = await req.json() as { plan: MiniPlanInput, forecast: Forecast }
-    
-    // Create PDF
+    const { plan, forecast }: { plan: MiniPlanInput; forecast: Forecast } = await req.json()
+
+    // Create PDF document
     const pdfDoc = await PDFDocument.create()
-    const page = pdfDoc.addPage([595, 842]) // A4
+    const page = pdfDoc.addPage([595, 842]) // A4 size
+    const font = await pdfDoc.embedFont(StandardFonts.Helvetica)
+    const boldFont = await pdfDoc.embedFont(StandardFonts.HelveticaBold)
+
     const { width, height } = page.getSize()
-    
-    // Load fonts
-    const helveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold)
-    const helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica)
-    
-    // Colors
-    const primaryColor = rgb(0.2, 0.4, 0.8)
-    const textColor = rgb(0.1, 0.1, 0.1)
-    
-    let y = height - 50
-    
-    // Header
-    page.drawText('AI Startup Mini Plan', {
-      x: 50,
-      y: y,
-      size: 24,
-      font: helveticaBold,
-      color: primaryColor
-    })
-    y -= 40
-    
-    // Date
-    page.drawText(new Date().toLocaleDateString(), {
-      x: 50,
-      y: y,
-      size: 10,
-      font: helvetica,
-      color: textColor
-    })
-    y -= 40
-    
-    // Problem & Solution
-    page.drawText('Problem Statement', {
-      x: 50,
-      y: y,
-      size: 14,
-      font: helveticaBold,
-      color: primaryColor
-    })
-    y -= 20
-    
-    // Word wrap helper
-    const drawWrappedText = (text: string, x: number, startY: number, maxWidth: number, font: any, size: number) => {
-      const words = text.split(' ')
-      let line = ''
-      let currentY = startY
-      
-      for (const word of words) {
-        const testLine = line + word + ' '
-        const testWidth = font.widthOfTextAtSize(testLine, size)
-        
-        if (testWidth > maxWidth && line !== '') {
-          page.drawText(line.trim(), { x, y: currentY, size, font, color: textColor })
-          currentY -= size + 4
-          line = word + ' '
-        } else {
-          line = testLine
-        }
-      }
-      
-      if (line) {
-        page.drawText(line.trim(), { x, y: currentY, size, font, color: textColor })
-        currentY -= size + 4
-      }
-      
-      return currentY
+    let yPosition = height - 50
+
+    // Helper function to add text
+    const addText = (text: string, size: number = 12, isBold: boolean = false) => {
+      page.drawText(text, {
+        x: 50,
+        y: yPosition,
+        size,
+        font: isBold ? boldFont : font,
+        color: rgb(0, 0, 0),
+      })
+      yPosition -= size + 5
     }
-    
-    y = drawWrappedText(plan.problemStatement, 50, y, 495, helvetica, 11)
-    y -= 20
-    
-    // Solution
-    page.drawText('Solution', {
-      x: 50,
-      y: y,
-      size: 14,
-      font: helveticaBold,
-      color: primaryColor
-    })
-    y -= 20
-    y = drawWrappedText(plan.solution, 50, y, 495, helvetica, 11)
-    y -= 20
-    
-    // Target Users
-    page.drawText('Target Users', {
-      x: 50,
-      y: y,
-      size: 14,
-      font: helveticaBold,
-      color: primaryColor
-    })
-    y -= 20
-    y = drawWrappedText(plan.targetUsers, 50, y, 495, helvetica, 11)
-    y -= 30
-    
+
+    // Title
+    addText('AI Startup Plan', 24, true)
+    yPosition -= 10
+
+    // Problem & Solution
+    addText('Problem Statement', 16, true)
+    addText(plan.problemStatement, 12)
+    yPosition -= 10
+
+    addText('Solution', 16, true)
+    addText(plan.solution, 12)
+    yPosition -= 10
+
+    addText('Target Users', 16, true)
+    addText(plan.targetUsers, 12)
+    yPosition -= 10
+
     // MVP Features
     if (plan.mvpFeatures && plan.mvpFeatures.length > 0) {
-      page.drawText('MVP Features', {
-        x: 50,
-        y: y,
-        size: 14,
-        font: helveticaBold,
-        color: primaryColor
-      })
-      y -= 20
-      
+      addText('MVP Features', 16, true)
       plan.mvpFeatures.forEach(feature => {
-        page.drawText(`• ${feature}`, {
-          x: 60,
-          y: y,
-          size: 11,
-          font: helvetica,
-          color: textColor
-        })
-        y -= 18
+        addText(`• ${feature}`, 12)
       })
-      y -= 10
+      yPosition -= 10
     }
-    
-    // Revenue Forecast
-    page.drawText('Revenue Forecast (6 months)', {
-      x: 50,
-      y: y,
-      size: 14,
-      font: helveticaBold,
-      color: primaryColor
-    })
-    y -= 20
-    
-    page.drawText(`$${forecast.revenueRange.low.toLocaleString()} - $${forecast.revenueRange.high.toLocaleString()} MRR`, {
-      x: 50,
-      y: y,
-      size: 16,
-      font: helveticaBold,
-      color: primaryColor
-    })
-    y -= 25
-    
-    page.drawText(`Time to first customer: ~${forecast.timeToFirstCustomer} days`, {
-      x: 50,
-      y: y,
-      size: 11,
-      font: helvetica,
-      color: textColor
-    })
-    y -= 18
-    
-    page.drawText(`Confidence: ${forecast.confidenceScore}%`, {
-      x: 50,
-      y: y,
-      size: 11,
-      font: helvetica,
-      color: textColor
-    })
-    y -= 30
-    
+
     // Launch Channels
     if (plan.launchChannels && plan.launchChannels.length > 0) {
-      page.drawText('Launch Channels', {
-        x: 50,
-        y: y,
-        size: 14,
-        font: helveticaBold,
-        color: primaryColor
+      addText('Launch Channels', 16, true)
+      plan.launchChannels.forEach(channel => {
+        addText(`• ${channel}`, 12)
       })
-      y -= 20
-      
-      page.drawText(plan.launchChannels.map(ch => ch.charAt(0).toUpperCase() + ch.slice(1)).join(' • '), {
-        x: 50,
-        y: y,
-        size: 11,
-        font: helvetica,
-        color: textColor
-      })
+      yPosition -= 10
     }
-    
-    // Footer
-    page.drawText('Generated by Build AI Startups', {
-      x: 50,
-      y: 40,
-      size: 9,
-      font: helvetica,
-      color: rgb(0.5, 0.5, 0.5)
+
+    // Forecast
+    addText('Revenue Forecast', 16, true)
+    addText(`Monthly Revenue (6 months): $${forecast.revenueRange.low.toLocaleString()} - $${forecast.revenueRange.high.toLocaleString()}`, 12)
+    addText(`Time to First Customer: ~${forecast.timeToFirstCustomer} days`, 12)
+    addText(`Confidence Score: ${forecast.confidenceScore}%`, 12)
+    yPosition -= 10
+
+    addText('Key Assumptions', 16, true)
+    forecast.assumptions.forEach(assumption => {
+      addText(`• ${assumption}`, 12)
     })
-    
+
     // Generate PDF bytes
     const pdfBytes = await pdfDoc.save()
-    
-    // Return as download
+
     return new NextResponse(pdfBytes, {
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="ai-startup-plan-${Date.now()}.pdf"`
-      }
+        'Content-Disposition': 'attachment; filename="ai-startup-plan.pdf"',
+      },
     })
   } catch (error) {
-    console.error('Error generating PDF:', error)
+    console.error('PDF generation error:', error)
     return NextResponse.json(
       { error: 'Failed to generate PDF' },
       { status: 500 }
