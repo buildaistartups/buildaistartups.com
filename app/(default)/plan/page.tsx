@@ -10,7 +10,27 @@ import { Label } from '@/components/ui/label'
 import { Checkbox } from '@/components/ui/checkbox'
 import { useToast } from '@/hooks/use-toast'
 import { Loader2, TrendingUp, Code, Download, ChevronRight, ChevronLeft } from 'lucide-react'
-import type { MiniPlanInput, Forecast } from '@/lib/schemas'
+
+// Define the types locally since they're not exported from schemas
+type MiniPlanInput = {
+  ideaId: string
+  vertical: 'ai-leadgen' | 'ai-support'
+  problemStatement: string
+  solution: string
+  targetUsers: string
+  mvpFeatures?: string[]
+  launchChannels?: string[]
+}
+
+type Forecast = {
+  revenueRange: {
+    low: number
+    high: number
+  }
+  timeToFirstCustomer: number
+  confidenceScore: number
+  assumptions: string[]
+}
 
 const MVP_FEATURES = {
   'ai-leadgen': [
@@ -71,9 +91,9 @@ export default function PlanPage() {
   const handleChannelToggle = (channel: string) => {
     setPlan(prev => ({
       ...prev,
-      launchChannels: prev.launchChannels?.includes(channel as any)
+      launchChannels: prev.launchChannels?.includes(channel)
         ? prev.launchChannels.filter(c => c !== channel)
-        : [...(prev.launchChannels || []), channel as any]
+        : [...(prev.launchChannels || []), channel]
     }))
   }
 
@@ -305,7 +325,7 @@ export default function PlanPage() {
                   <div key={channel.id} className="flex items-center space-x-2">
                     <Checkbox
                       id={channel.id}
-                      checked={plan.launchChannels?.includes(channel.id as any) || false}
+                      checked={plan.launchChannels?.includes(channel.id) || false}
                       onCheckedChange={() => handleChannelToggle(channel.id)}
                     />
                     <label
