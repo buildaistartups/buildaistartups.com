@@ -49,10 +49,12 @@ export default function JourneySection() {
           <div className="text-center mt-12">
             <Link 
               href="/start" 
-              className="inline-flex items-center px-8 py-4 text-white bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 rounded-full font-medium transition-all duration-150 ease-in-out shadow-lg hover:shadow-purple-500/25"
+              className="btn-sm text-white bg-purple-600 hover:bg-purple-700"
             >
-              Start Your Journey
-              <span className="ml-2">→</span>
+              <span className="relative inline-flex items-center">
+                Start Your Journey
+                <span className="ml-1 text-purple-300">→</span>
+              </span>
             </Link>
           </div>
         </div>
