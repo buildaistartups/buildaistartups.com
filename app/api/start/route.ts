@@ -1,136 +1,112 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { validateQuiz, ajvErrorsToMessage } from '@/lib/validate'
-import type { QuizInput, IdeaCard } from '@/lib/schemas'
+
+// Define types locally
+type QuizInput = {
+  experienceLevel: 'beginner' | 'intermediate' | 'advanced'
+  timePerWeek: number
+  budget: 'none' | 'low' | 'medium' | 'high'
+  skills: string[]
+  interests: string[]
+  audiences: string[]
+  goals: string[]
+  riskTolerance: 'low' | 'medium' | 'high'
+}
+
+type IdeaCard = {
+  id: string
+  title: string
+  description: string
+  vertical: string
+}
 
 // Idea database with vertical bias
 const ideaDatabase: IdeaCard[] = [
-  // AI Lead Generation ideas
   {
-    id: 'lead-1',
-    title: 'AI Cold Email Writer',
-    description: 'Generate personalized cold emails that actually get responses using GPT-4',
-    vertical: 'ai-leadgen',
-    difficulty: 'easy',
-    estimatedDays: 7,
-    techStack: ['Next.js', 'OpenAI API', 'Vercel']
+    id: 'leadgen-1',
+    title: 'AI Sales Outreach Assistant',
+    description: 'Automatically research prospects and generate personalized cold emails that actually get responses.',
+    vertical: 'ai-leadgen'
   },
   {
-    id: 'lead-2',
-    title: 'LinkedIn Outreach Bot',
-    description: 'Automate LinkedIn connection requests with AI-personalized messages',
-    vertical: 'ai-leadgen',
-    difficulty: 'medium',
-    estimatedDays: 14,
-    techStack: ['Next.js', 'Playwright', 'OpenAI API']
+    id: 'leadgen-2',
+    title: 'LinkedIn Connection Automator',
+    description: 'Smart LinkedIn outreach that personalizes messages based on prospect profiles and mutual connections.',
+    vertical: 'ai-leadgen'
   },
-  {
-    id: 'lead-3',
-    title: 'AI Sales Call Analyzer',
-    description: 'Transcribe and analyze sales calls to identify winning patterns',
-    vertical: 'ai-leadgen',
-    difficulty: 'hard',
-    estimatedDays: 30,
-    techStack: ['Next.js', 'Whisper API', 'OpenAI API', 'PostgreSQL']
-  },
-  // AI Support ideas
   {
     id: 'support-1',
-    title: 'AI Help Desk',
-    description: 'Smart chatbot that learns from your docs and past tickets',
-    vertical: 'ai-support',
-    difficulty: 'easy',
-    estimatedDays: 5,
-    techStack: ['Next.js', 'OpenAI API', 'Vercel KV']
+    title: 'Smart Customer Support Chatbot',
+    description: 'AI-powered support that handles 80% of customer queries with human-like responses.',
+    vertical: 'ai-support'
   },
   {
     id: 'support-2',
-    title: 'Email Auto-Responder',
-    description: 'AI that drafts support email responses for human review',
-    vertical: 'ai-support',
-    difficulty: 'medium',
-    estimatedDays: 10,
-    techStack: ['Next.js', 'OpenAI API', 'SendGrid']
+    title: 'Ticket Auto-Classifier',
+    description: 'Automatically categorize and route support tickets to the right team members.',
+    vertical: 'ai-support'
   },
   {
-    id: 'support-3',
-    title: 'Voice Support Assistant',
-    description: 'Phone support system powered by voice AI',
-    vertical: 'ai-support',
-    difficulty: 'hard',
-    estimatedDays: 21,
-    techStack: ['Next.js', 'Twilio', 'OpenAI API', 'ElevenLabs']
-  },
-  // Mixed difficulty backup ideas
-  {
-    id: 'lead-4',
-    title: 'AI Proposal Generator',
-    description: 'Create winning proposals from a few bullet points',
-    vertical: 'ai-leadgen',
-    difficulty: 'easy',
-    estimatedDays: 5,
-    techStack: ['Next.js', 'OpenAI API', 'PDF.js']
+    id: 'generic-1',
+    title: 'AI Content Generator',
+    description: 'Generate blog posts, social media content, and marketing copy tailored to your brand voice.',
+    vertical: 'generic'
   },
   {
-    id: 'support-4',
-    title: 'FAQ Bot Builder',
-    description: 'No-code tool to build AI FAQ bots from existing content',
-    vertical: 'ai-support',
-    difficulty: 'medium',
-    estimatedDays: 12,
-    techStack: ['Next.js', 'OpenAI API', 'Pinecone']
+    id: 'generic-2',
+    title: 'Document Intelligence Platform',
+    description: 'Extract insights and automate workflows from contracts, invoices, and business documents.',
+    vertical: 'generic'
   }
 ]
 
-function getIdeasForQuiz(quiz: QuizInput): IdeaCard[] {
-  let candidates = [...ideaDatabase]
-  
-  // Apply vertical preference bias
-  if (quiz.preferredVertical && quiz.preferredVertical !== 'other') {
-    const preferred = candidates.filter(idea => idea.vertical === quiz.preferredVertical)
-    const others = candidates.filter(idea => idea.vertical !== quiz.preferredVertical)
-    // 70% from preferred vertical, 30% from others
-    candidates = [...preferred, ...others.slice(0, 3)]
-  }
-  
-  // Filter by timeline and experience
-  return candidates.filter(idea => {
-    if (quiz.timeline === 'weekend' && idea.estimatedDays > 7) return false
-    if (quiz.timeline === 'month' && idea.estimatedDays > 30) return false
-    if (quiz.experience === 'none' && idea.difficulty === 'hard') return false
-    if (quiz.experience === 'some' && idea.difficulty === 'hard' && quiz.timeline === 'weekend') return false
-    return true
-  }).slice(0, 10)
-}
-
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json()
-    
-    // Validate input
-    if (!validateQuiz(body)) {
+    const quiz: QuizInput = await req.json()
+
+    // Simple validation
+    if (!quiz.experienceLevel || !quiz.skills || !quiz.interests || !quiz.audiences) {
       return NextResponse.json(
-        { error: ajvErrorsToMessage(validateQuiz.errors) },
+        { error: 'Missing required quiz fields' },
         { status: 400 }
       )
     }
-    
-    const quiz = body as QuizInput
-    const ideas = getIdeasForQuiz(quiz)
-    
-    // Ensure we return 8-10 ideas
-    if (ideas.length < 8) {
-      // Pad with easier ideas if needed
-      const padding = ideaDatabase
-        .filter(idea => idea.difficulty === 'easy' && !ideas.find(i => i.id === idea.id))
-        .slice(0, 8 - ideas.length)
-      ideas.push(...padding)
+
+    // Filter ideas based on quiz responses
+    let filteredIdeas = ideaDatabase
+
+    // Filter by interests (if any AI/tech related interests, show AI ideas)
+    const hasAIInterest = quiz.interests.some(interest => 
+      interest.toLowerCase().includes('ai') || 
+      interest.toLowerCase().includes('tech') ||
+      interest.toLowerCase().includes('automation')
+    )
+
+    if (hasAIInterest) {
+      filteredIdeas = filteredIdeas.filter(idea => idea.vertical !== 'generic')
     }
-    
+
+    // Filter by skills
+    if (quiz.skills.includes('sales') || quiz.skills.includes('marketing')) {
+      filteredIdeas = filteredIdeas.filter(idea => 
+        idea.vertical === 'ai-leadgen' || idea.vertical === 'generic'
+      )
+    }
+
+    if (quiz.skills.includes('support') || quiz.skills.includes('ops')) {
+      filteredIdeas = filteredIdeas.filter(idea => 
+        idea.vertical === 'ai-support' || idea.vertical === 'generic'
+      )
+    }
+
+    // Shuffle and limit results
+    const shuffled = filteredIdeas.sort(() => 0.5 - Math.random())
+    const ideas = shuffled.slice(0, 3)
+
     return NextResponse.json({ ideas })
   } catch (error) {
-    console.error('Error in /api/start:', error)
+    console.error('Start route error:', error)
     return NextResponse.json(
-      { error: 'Failed to process quiz' },
+      { error: 'Failed to generate ideas' },
       { status: 500 }
     )
   }
