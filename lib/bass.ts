@@ -124,7 +124,7 @@ export interface BASSAI {
     contentFiltering: {
       enabled: boolean;
       categories: Array<'hate' | 'violence'
-categories: Array<'hate' | 'violence' | 'sexual' | 'self-harm' | 'pii' | 'misinformation' | 'copyright' | 'custom'>;
+  categories: Array<'hate' | 'violence' | 'sexual' | 'self-harm' | 'pii' | 'misinformation' | 'copyright' | 'custom'>;
       threshold?: 'strict' | 'moderate' | 'minimal';
     };
     monitoring: {
