@@ -234,30 +234,30 @@ export default function AdminEvalsPage() {
                   <div>
                     <h4 className="font-medium mb-2">Recent Evaluations</h4>
                     <div className="space-y-2">
-                      {project.evaluations.slice(-5).reverse().map((eval, idx) => (
+                      {project.evaluations.slice(-5).reverse().map((evaluation, idx) => (
                         <div
-                          key={`${eval.timestamp}-${idx}`}
+                          key={`${evaluation.timestamp}-${idx}`}
                           className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-800 rounded"
                         >
                           <div className="flex items-center gap-3">
                             <span className={`px-2 py-1 rounded text-xs font-medium ${
-                              eval.subcategory === 'lead-gen' 
+                              evaluation.subcategory === 'lead-gen' 
                                 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300'
-                                : eval.subcategory === 'support'
+                                : evaluation.subcategory === 'support'
                                 ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300'
                                 : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
                             }`}>
-                              {eval.subcategory}
+                              {evaluation.subcategory}
                             </span>
                             <span className="text-sm">
-                              Score: <strong>{eval.value}%</strong>
+                              Score: <strong>{evaluation.value}%</strong>
                             </span>
                             <span className="text-sm text-gray-600 dark:text-gray-400">
-                              {eval.metadata.passed}/{eval.metadata.total} passed
+                              {evaluation.metadata.passed}/{evaluation.metadata.total} passed
                             </span>
                           </div>
                           <span className="text-xs text-gray-500">
-                            {formatTimestamp(eval.timestamp)}
+                            {formatTimestamp(evaluation.timestamp)}
                           </span>
                         </div>
                       ))}
