@@ -5,7 +5,6 @@
 @import './additional-styles/utility-patterns.css' layer(components);
 @import './additional-styles/theme.css';
 @import './additional-styles/light-theme.css';
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
