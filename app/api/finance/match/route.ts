@@ -100,7 +100,6 @@ const FUNDING_SOURCES = [
     id: 'openai-ventures',
     name: 'OpenAI Ventures',
     type: 'investor',
-    amount: '$500K -
     amount: '$500K - $10M',
     minAmount: 500000,
     maxAmount: 10000000,
