@@ -123,8 +123,7 @@ export interface BASSAI {
   safety: {
     contentFiltering: {
       enabled: boolean;
-      categories: Array<'hate' | 'violence'
-  categories: Array<'hate' | 'violence' | 'sexual' | 'self-harm' | 'pii' | 'misinformation' | 'copyright' | 'custom'>;
+      categories: Array<'hate' | 'violence' | 'sexual' | 'self-harm' | 'pii' | 'misinformation' | 'copyright' | 'custom'>;
       threshold?: 'strict' | 'moderate' | 'minimal';
     };
     monitoring: {
@@ -271,7 +270,7 @@ export interface BASSRoadmap {
     target: number;
     current?: number;
   }>;
-}
+  }
 
 export interface BASSResponsibleAI {
   principles?: string[];
@@ -380,7 +379,7 @@ export function createBASSTemplate(projectId: string, name: string): BASS {
 // Calculate Build Score from BASS data
 export function calculateBuildScore(bass: BASS): number {
   let score = 0;
-  let weights = {
+  const weights = {
     product: 0.25,
     market: 0.20,
     ai: 0.20,
@@ -434,7 +433,7 @@ export function calculateBuildScore(bass: BASS): number {
   let responsibleScore = 0;
   if (bass.responsibleAI?.principles && bass.responsibleAI.principles.length > 0) responsibleScore += 25;
   if (bass.responsibleAI?.ethicsBoard) responsibleScore += 25;
-  if (bass.responsibleAI?.biasAudits?.frequency !== 'never') responsibleScore += 25;
+  if (bass.responsibleAI?.biasAudits?.frequency && bass.responsibleAI.biasAudits.frequency !== 'never') responsibleScore += 25;
   if (bass.responsibleAI?.dataGovernance?.policy) responsibleScore += 25;
   score += responsibleScore * weights.responsible;
 
