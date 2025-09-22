@@ -1,12 +1,15 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-// Import Swiper core and required modules (v8 compatible)
-import Swiper, { Navigation } from 'swiper'
-import 'swiper/swiper.min.css'
+// Import Swiper React components and modules (v11+ style)
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 // Import images
 import IntegrationImg01 from '@/public/images/integrations-01.svg'
@@ -35,50 +38,30 @@ import Avatar17 from '@/public/images/avatar-17.jpg'
 import Avatar18 from '@/public/images/avatar-18.jpg'
 import Avatar19 from '@/public/images/avatar-19.jpg'
 
-// Configure Swiper
-Swiper.use([Navigation])
-
 export default function IntegrationsCarousel() {
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const swiperRef = useRef<any>(null)
-
-  useEffect(() => {
-    if (!containerRef.current) return
-
-    const instance = new Swiper(containerRef.current, {
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      },
-      grabCursor: true,
-      loop: false,
-      centeredSlides: false,
-      initialSlide: 0,
-      spaceBetween: 24,
-      navigation: {
-        nextEl: '.carousel-next',
-        prevEl: '.carousel-prev',
-      },
-    })
-
-    swiperRef.current = instance
-
-    return () => {
-      if (swiperRef.current) {
-        swiperRef.current.destroy(true, true)
-        swiperRef.current = null
-      }
-    }
-  }, [])
-
   return (
     <>
       {/* Carousel built with Swiper.js */}
-      <div className="swiper" ref={containerRef}>
-        <div className="swiper-wrapper">
-          {/* Card 1 */}
-          <div className="swiper-slide h-auto flex flex-col bg-slate-800 p-6 rounded-lg">
+      <Swiper
+        modules={[Navigation]}
+        breakpoints={{
+          320: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        grabCursor={true}
+        loop={false}
+        centeredSlides={false}
+        spaceBetween={24}
+        navigation={{
+          nextEl: '.carousel-next',
+          prevEl: '.carousel-prev',
+        }}
+        className="h-auto"
+      >
+        {/* Card 1 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
             <div className="flex items-center space-x-3 mb-3">
               <div className="relative">
                 <Image src={IntegrationImg01} width={48} height={48} alt="Integration 01" />
@@ -119,9 +102,11 @@ export default function IntegrationsCarousel() {
               </div>
             </div>
           </div>
+        </SwiperSlide>
 
-          {/* Card 2 */}
-          <div className="swiper-slide h-auto flex flex-col bg-slate-800 p-6 rounded-lg">
+        {/* Card 2 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
             <div className="flex items-center space-x-3 mb-3">
               <div className="relative">
                 <Image src={IntegrationImg02} width={48} height={48} alt="Integration 02" />
@@ -162,9 +147,11 @@ export default function IntegrationsCarousel() {
               </div>
             </div>
           </div>
+        </SwiperSlide>
 
-          {/* Card 3 */}
-          <div className="swiper-slide h-auto flex flex-col bg-slate-800 p-6 rounded-lg">
+        {/* Card 3 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
             <div className="flex items-center space-x-3 mb-3">
               <div className="relative">
                 <Image src={IntegrationImg03} width={48} height={48} alt="Integration 03" />
@@ -205,9 +192,11 @@ export default function IntegrationsCarousel() {
               </div>
             </div>
           </div>
+        </SwiperSlide>
 
-          {/* Card 4 */}
-          <div className="swiper-slide h-auto flex flex-col bg-slate-800 p-6 rounded-lg">
+        {/* Card 4 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
             <div className="flex items-center space-x-3 mb-3">
               <div className="relative">
                 <Image src={IntegrationImg04} width={48} height={48} alt="Integration 04" />
@@ -242,14 +231,14 @@ export default function IntegrationsCarousel() {
                 </div>
                 <button className="flex items-center space-x-2 font-medium text-sm text-slate-300 hover:text-white transition-colors">
                   <span className="sr-only">Like</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" /></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.80a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" /></svg>
                   <span>3.4K</span>
                 </button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
 
       {/* Arrows */}
       <div className="flex py-8 justify-end">
