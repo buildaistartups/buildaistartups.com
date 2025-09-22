@@ -7,7 +7,6 @@ const ajv = new Ajv({
   strict: false,
   allErrors: true,
   verbose: true,
-  schemaId: 'auto',
   discriminator: true,
 });
 
@@ -270,7 +269,7 @@ export interface BASSRoadmap {
     target: number;
     current?: number;
   }>;
-  }
+}
 
 export interface BASSResponsibleAI {
   principles?: string[];
