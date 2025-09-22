@@ -11,33 +11,20 @@ import CarouselImg03 from '@/public/images/carousel-icon-03.svg'
 import CarouselImg04 from '@/public/images/carousel-icon-04.svg'
 import CarouselImg05 from '@/public/images/carousel-icon-05.svg'
 
-// Swiper
-import Swiper, { Navigation } from 'swiper'
-import 'swiper/swiper.min.css'
-Swiper.use([Navigation])
+// Swiper React components and modules (v11+ style)
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 export default function TestimonialsCarouselLight() {
   const [swiperInitialized, setSwiperInitialized] = useState(false)
 
-  useEffect(() => {
-    new Swiper('.stellar-carousel', {
-      breakpoints: {
-        320: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      },
-      grabCursor: true,
-      loop: false,
-      centeredSlides: false,
-      initialSlide: 0,
-      spaceBetween: 24,
-      navigation: {
-        nextEl: '.carousel-next',
-        prevEl: '.carousel-prev',
-      },
-    })
+  const handleSwiperInit = () => {
     setSwiperInitialized(true)
-  }, [])
+  }
 
   return (
     <section>
@@ -70,181 +57,210 @@ export default function TestimonialsCarouselLight() {
 
           {/* Carousel */}
           <div className="relative before:absolute before:inset-0 before:-translate-x-full before:z-20 before:bg-linear-to-l before:from-transparent before:to-slate-900 before:to-20% after:absolute after:inset-0 after:translate-x-full after:z-20 after:bg-linear-to-r after:from-transparent after:to-slate-900 after:to-20%">
-            <div className="stellar-carousel swiper-container group">
-              <Highlighter className="swiper-wrapper w-fit" refresh={swiperInitialized}>
+            <Swiper
+              modules={[Navigation]}
+              breakpoints={{
+                320: { slidesPerView: 1 },
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              grabCursor={true}
+              loop={false}
+              centeredSlides={false}
+              spaceBetween={24}
+              navigation={{
+                nextEl: '.carousel-next',
+                prevEl: '.carousel-prev',
+              }}
+              onSwiper={handleSwiperInit}
+              className="stellar-carousel group"
+            >
+              <div className="swiper-wrapper">
+                <Highlighter className="w-fit flex" refresh={swiperInitialized}>
 
-                {/* Slide 1 */}
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <Particles
-                      className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
-                      quantity={3}
-                      refresh={swiperInitialized}
-                    />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg01} width={56} height={56} alt="Icon 01" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Anonymous User</div>
-                        <div className="text-slate-400 mb-3">
-                          Incorporate rich user profiling, and facilitate more transactions.
+                  {/* Slide 1 */}
+                  <SwiperSlide>
+                    <HighlighterItem className="h-auto group/slide">
+                      <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                        <Particles
+                          className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
+                          quantity={3}
+                          refresh={swiperInitialized}
+                        />
+                        <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                          <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
+                        </div>
+                        <div className="flex flex-col p-6 h-full">
+                          <Image className="mb-3" src={CarouselImg01} width={56} height={56} alt="Icon 01" />
+                          <div className="grow">
+                            <div className="font-bold text-lg mb-1">Anonymous User</div>
+                            <div className="text-slate-400 mb-3">
+                              Incorporate rich user profiling, and facilitate more transactions.
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <a
+                              className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
+                              href="#0"
+                            >
+                              Learn More{' '}
+                              <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <a
-                          className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
-                          href="#0"
-                        >
-                          Learn More{' '}
-                          <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                            -&gt;
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
+                    </HighlighterItem>
+                  </SwiperSlide>
 
-                {/* Slide 2 */}
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <Particles
-                      className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
-                      quantity={3}
-                      refresh={swiperInitialized}
-                    />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg02} width={56} height={56} alt="Icon 02" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Bot Detection</div>
-                        <div className="text-slate-400 mb-3">
-                          Incorporate rich user profiling, and facilitate more transactions.
+                  {/* Slide 2 */}
+                  <SwiperSlide>
+                    <HighlighterItem className="h-auto group/slide">
+                      <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                        <Particles
+                          className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
+                          quantity={3}
+                          refresh={swiperInitialized}
+                        />
+                        <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                          <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
+                        </div>
+                        <div className="flex flex-col p-6 h-full">
+                          <Image className="mb-3" src={CarouselImg02} width={56} height={56} alt="Icon 02" />
+                          <div className="grow">
+                            <div className="font-bold text-lg mb-1">Bot Detection</div>
+                            <div className="text-slate-400 mb-3">
+                              Incorporate rich user profiling, and facilitate more transactions.
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <a
+                              className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
+                              href="#0"
+                            >
+                              Learn More{' '}
+                              <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <a
-                          className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
-                          href="#0"
-                        >
-                          Learn More{' '}
-                          <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                            -&gt;
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
+                    </HighlighterItem>
+                  </SwiperSlide>
 
-                {/* Slide 3 */}
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <Particles
-                      className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
-                      quantity={3}
-                      refresh={swiperInitialized}
-                    />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg03} width={56} height={56} alt="Icon 03" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Social integrations</div>
-                        <div className="text-slate-400 mb-3">
-                          Incorporate rich user profiling, and facilitate more transactions.
+                  {/* Slide 3 */}
+                  <SwiperSlide>
+                    <HighlighterItem className="h-auto group/slide">
+                      <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                        <Particles
+                          className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
+                          quantity={3}
+                          refresh={swiperInitialized}
+                        />
+                        <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                          <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
+                        </div>
+                        <div className="flex flex-col p-6 h-full">
+                          <Image className="mb-3" src={CarouselImg03} width={56} height={56} alt="Icon 03" />
+                          <div className="grow">
+                            <div className="font-bold text-lg mb-1">Social integrations</div>
+                            <div className="text-slate-400 mb-3">
+                              Incorporate rich user profiling, and facilitate more transactions.
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <a
+                              className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
+                              href="#0"
+                            >
+                              Learn More{' '}
+                              <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <a
-                          className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
-                          href="#0"
-                        >
-                          Learn More{' '}
-                          <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                            -&gt;
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
+                    </HighlighterItem>
+                  </SwiperSlide>
 
-                {/* Slide 4 */}
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <Particles
-                      className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
-                      quantity={3}
-                      refresh={swiperInitialized}
-                    />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg04} width={56} height={56} alt="Icon 04" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Progressive Profiling</div>
-                        <div className="text-slate-400 mb-3">
-                          Incorporate rich user profiling, and facilitate more transactions.
+                  {/* Slide 4 */}
+                  <SwiperSlide>
+                    <HighlighterItem className="h-auto group/slide">
+                      <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                        <Particles
+                          className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
+                          quantity={3}
+                          refresh={swiperInitialized}
+                        />
+                        <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                          <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
+                        </div>
+                        <div className="flex flex-col p-6 h-full">
+                          <Image className="mb-3" src={CarouselImg04} width={56} height={56} alt="Icon 04" />
+                          <div className="grow">
+                            <div className="font-bold text-lg mb-1">Progressive Profiling</div>
+                            <div className="text-slate-400 mb-3">
+                              Incorporate rich user profiling, and facilitate more transactions.
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <a
+                              className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
+                              href="#0"
+                            >
+                              Learn More{' '}
+                              <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <a
-                          className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
-                          href="#0"
-                        >
-                          Learn More{' '}
-                          <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                            -&gt;
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
+                    </HighlighterItem>
+                  </SwiperSlide>
 
-                {/* Slide 5 */}
-                <HighlighterItem className="swiper-slide h-auto group/slide">
-                  <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
-                    <Particles
-                      className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
-                      quantity={3}
-                      refresh={swiperInitialized}
-                    />
-                    <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
-                      <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
-                    </div>
-                    <div className="flex flex-col p-6 h-full">
-                      <Image className="mb-3" src={CarouselImg05} width={56} height={56} alt="Icon 05" />
-                      <div className="grow">
-                        <div className="font-bold text-lg mb-1">Secure Access</div>
-                        <div className="text-slate-400 mb-3">
-                          Incorporate rich user profiling, and facilitate more transactions.
+                  {/* Slide 5 */}
+                  <SwiperSlide>
+                    <HighlighterItem className="h-auto group/slide">
+                      <div className="relative h-full bg-slate-900 rounded-[inherit] z-20 overflow-hidden">
+                        <Particles
+                          className="absolute inset-0 -z-10 opacity-0 group-[.swiper-slide-active]/slide:opacity-100 group-hover/slide:opacity-100 transition-opacity duration-500 ease-in-out"
+                          quantity={3}
+                          refresh={swiperInitialized}
+                        />
+                        <div className="absolute bottom-0 translate-y-1/2 left-1/2 -translate-x-1/2 pointer-events-none -z-10 w-1/3 aspect-square" aria-hidden="true">
+                          <div className="absolute inset-0 translate-z-0 rounded-full bg-slate-800 group-[.swiper-slide-active]/slide:bg-purple-500 transition-colors duration-500 ease-in-out blur-[60px]" />
+                        </div>
+                        <div className="flex flex-col p-6 h-full">
+                          <Image className="mb-3" src={CarouselImg05} width={56} height={56} alt="Icon 05" />
+                          <div className="grow">
+                            <div className="font-bold text-lg mb-1">Secure Access</div>
+                            <div className="text-slate-400 mb-3">
+                              Incorporate rich user profiling, and facilitate more transactions.
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <a
+                              className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
+                              href="#0"
+                            >
+                              Learn More{' '}
+                              <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <a
-                          className="text-sm font-medium text-slate-300 hover:text-black dark:hover:text-white inline-flex items-center transition duration-150 ease-in-out group"
-                          href="#0"
-                        >
-                          Learn More{' '}
-                          <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                            -&gt;
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </HighlighterItem>
+                    </HighlighterItem>
+                  </SwiperSlide>
 
-              </Highlighter>
-            </div>
+                </Highlighter>
+              </div>
+            </Swiper>
           </div>
 
           {/* Arrows */}
