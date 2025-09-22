@@ -19,8 +19,8 @@ interface EvalSummary {
 
 export async function POST(request: NextRequest) {
   try {
-    // Verify webhook secret
-    const headersList = headers();
+    // Verify webhook secret - await the headers() call in Next.js 15
+    const headersList = await headers();
     const authHeader = headersList.get('x-bais-secret');
     
     if (!authHeader || authHeader !== WEBHOOK_SECRET) {
