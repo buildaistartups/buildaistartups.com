@@ -3,7 +3,6 @@ import './css/style.css'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import ThemeWrapper from './ThemeWrapper'
-import Header from '@/components/ui/header' // ✅ client header
 
 const inter = Inter({
   subsets: ['latin'],
@@ -76,11 +75,7 @@ export default function RootLayout({
       >
         <ThemeWrapper>
           <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-            <Header />
-            <main className="grow">{children}</main>
-            {/* If you have a footer component, add it here:
-                <Footer />
-            */}
+            {children}
           </div>
         </ThemeWrapper>
       </body>
