@@ -268,4 +268,288 @@ export default function AdminEvalsPage() {
                   {/* Last Eval Details */}
                   {lastEvalDetails[project.projectId] && (
                     <div>
-                      <h4 className="font-medium mb-2">Last Evaluation Details
+                      <h4 className="font-medium mb-2">Last Evaluation Details </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {lastEvalDetails[project.projectId].items.slice(0, 6).map(item => (
+                          <div
+                            key={item.id}
+                            className={`p-3 rounded border ${
+                              item.passed
+                                ? 'border-green-300 bg-green-50 dark:border-green-800 dark:bg-green-900/20'
+                                : 'border-red-300 bg-red-50 dark:border-red-800 dark:bg-red-900/20'
+                            }`}
+                          >
+                            <div className="flex justify-between items-start mb-2">
+                              <span className="text-xs font-mono">{item.id}</span>
+                              <div className="flex items-center gap-1">
+                                {item.passed ? (
+                                  <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+                                ) : (
+                                  <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
+                                )}
+                                <span className="text-sm font-medium">{item.score}%</span>
+                              </div>
+                            </div>
+                            <div className="text-xs space-y-1">
+                              <div className="text-gray-600 dark:text-gray-400">
+                                <span className="font-medium">Input:</span> {item.input.substring(0, 50)}...
+                              </div>
+                              {item.actualOutput && (
+                                <div className="text-gray-500 dark:text-gray-500">
+                                  <span className="font-medium">Output:</span> {item.actualOutput.substring(0, 50)}...
+                                </div>
+                              )}
+                              {item.error && (
+                                <div className="text-red-600 dark:text-red-400">
+                                  Error: {item.error}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+            </Card>
+          ))
+        )}
+      </div>
+      {/* Webhook Info */}
+  <Card className="p-6 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800">
+    <h3 className="font-semibold mb-2">Webhook Endpoint</h3>
+    <code className="block p-3 bg-white dark:bg-gray-900 rounded text-sm mb-3">
+      POST /api/evals/webhook
+    </code>
+    <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+      External services can report evaluation results using the webhook endpoint.
+      Required header: <code className="px-1 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">X-BAIS-Secret</code>
+    </p>
+    <div className="text-xs text-gray-500 dark:text-gray-500">
+      Configure secret via environment variable: <code>BAIS_WEBHOOK_SECRET</code>
+    </div>
+  </Card>
+</div>
+    );
+}
+### components/investor/LastEvalCard.tsx
+```typescript
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Card } from '@/components/ui/card';
+import { CheckCircle, XCircle, AlertCircle, TrendingUp, TrendingDown } from 'lucide-react';
+
+interface EvalItem {
+  id: string;
+  type: 'lead-gen' | 'support';
+  input: string;
+  score: number;
+  passed: boolean;
+}
+
+interface EvalData {
+  timestamp: string;
+  totalItems: number;
+  passedItems: number;
+  failedItems: number;
+  averageScore: number;
+  items: EvalItem[];
+  verticals: {
+    'lead-gen': { passed: number; failed: number; avgScore: number };
+    'support': { passed: number; failed: number; avgScore: number };
+  };
+}
+
+interface LastEvalCardProps {
+  projectId: string;
+  className?: string;
+}
+
+export function LastEvalCard({ projectId, className = '' }: LastEvalCardProps) {
+  const [evalData, setEvalData] = useState<EvalData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    fetchLastEval();
+  }, [projectId]);
+
+  const fetchLastEval = async () => {
+    try {
+      // First get the eval report to find if there are any evals
+      const reportResponse = await fetch(`/api/evals/report?projectId=${projectId}`);
+      if (reportResponse.ok) {
+        const reportData = await reportResponse.json();
+        
+        // If we have evaluations, run a fresh one to get details
+        if (reportData.evaluations.length > 0 || true) { // Always run for demo
+          const runResponse = await fetch('/api/evals/run', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ projectId })
+          });
+          
+          if (runResponse.ok) {
+            const evalResult = await runResponse.json();
+            setEvalData(evalResult);
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Failed to fetch eval data:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <Card className={`p-4 ${className}`}>
+        <div className="animate-pulse">
+          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/3 mb-3"></div>
+          <div className="h-20 bg-gray-100 dark:bg-gray-800 rounded"></div>
+        </div>
+      </Card>
+    );
+  }
+
+  if (!evalData) {
+    return (
+      <Card className={`p-4 ${className}`}>
+        <div className="flex items-center gap-2 text-gray-500">
+          <AlertCircle className="h-4 w-4" />
+          <span className="text-sm">No evaluation data available</span>
+        </div>
+      </Card>
+    );
+  }
+
+  const passRate = Math.round((evalData.passedItems / evalData.totalItems) * 100);
+  const trend = passRate >= 70 ? 'up' : 'down';
+
+  return (
+    <Card className={`p-4 ${className}`}>
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="font-semibold flex items-center gap-2">
+          AI Evaluation Results
+          {trend === 'up' ? (
+            <TrendingUp className="h-4 w-4 text-green-500" />
+          ) : (
+            <TrendingDown className="h-4 w-4 text-red-500" />
+          )}
+        </h3>
+        <span className="text-xs text-gray-500">
+          {new Date(evalData.timestamp).toLocaleDateString()}
+        </span>
+      </div>
+
+      {/* Summary Stats */}
+      <div className="grid grid-cols-3 gap-3 mb-4">
+        <div className="text-center p-2 bg-gray-50 dark:bg-gray-800 rounded">
+          <div className="text-2xl font-bold">{evalData.averageScore}%</div>
+          <div className="text-xs text-gray-600 dark:text-gray-400">Avg Score</div>
+        </div>
+        <div className="text-center p-2 bg-green-50 dark:bg-green-900/20 rounded">
+          <div className="text-2xl font-bold text-green-600 dark:text-green-400">
+            {evalData.passedItems}
+          </div>
+          <div className="text-xs text-gray-600 dark:text-gray-400">Passed</div>
+        </div>
+        <div className="text-center p-2 bg-red-50 dark:bg-red-900/20 rounded">
+          <div className="text-2xl font-bold text-red-600 dark:text-red-400">
+            {evalData.failedItems}
+          </div>
+          <div className="text-xs text-gray-600 dark:text-gray-400">Failed</div>
+        </div>
+      </div>
+
+      {/* Vertical Breakdown */}
+      <div className="space-y-2 mb-4">
+        <div className="flex justify-between items-center p-2 bg-blue-50 dark:bg-blue-900/20 rounded">
+          <span className="text-sm font-medium">Lead Generation</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm">{evalData.verticals['lead-gen'].avgScore}%</span>
+            <div className="flex gap-1">
+              <span className="text-xs text-green-600 dark:text-green-400">
+                {evalData.verticals['lead-gen'].passed}✓
+              </span>
+              <span className="text-xs text-red-600 dark:text-red-400">
+                {evalData.verticals['lead-gen'].failed}✗
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-between items-center p-2 bg-green-50 dark:bg-green-900/20 rounded">
+          <span className="text-sm font-medium">Support</span>
+          <div className="flex items-center gap-2">
+            <span className="text-sm">{evalData.verticals['support'].avgScore}%</span>
+            <div className="flex gap-1">
+              <span className="text-xs text-green-600 dark:text-green-400">
+                {evalData.verticals['support'].passed}✓
+              </span>
+              <span className="text-xs text-red-600 dark:text-red-400">
+                {evalData.verticals['support'].failed}✗
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Expandable Details */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        className="w-full text-center text-sm text-blue-600 dark:text-blue-400 hover:underline"
+      >
+        {expanded ? 'Hide' : 'Show'} Test Details
+      </button>
+
+      {expanded && (
+        <div className="mt-4 pt-4 border-t space-y-2 max-h-64 overflow-y-auto">
+          {evalData.items.map(item => (
+            <div
+              key={item.id}
+              className={`p-2 rounded text-xs ${
+                item.passed
+                  ? 'bg-green-50 dark:bg-green-900/20'
+                  : 'bg-red-50 dark:bg-red-900/20'
+              }`}
+            >
+              <div className="flex justify-between items-center mb-1">
+                <span className="font-mono">{item.id}</span>
+                <div className="flex items-center gap-1">
+                  {item.passed ? (
+                    <CheckCircle className="h-3 w-3 text-green-600 dark:text-green-400" />
+                  ) : (
+                    <XCircle className="h-3 w-3 text-red-600 dark:text-red-400" />
+                  )}
+                  <span className="font-medium">{item.score}%</span>
+                </div>
+              </div>
+              <div className="text-gray-600 dark:text-gray-400 truncate">
+                {item.input}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Chip indicator for leaderboard */}
+      <div className="mt-4 pt-4 border-t">
+        <div className="flex justify-center">
+          <div className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium ${
+            passRate >= 90 ? 'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300' :
+            passRate >= 70 ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
+            passRate >= 50 ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-300' :
+            'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300'
+          }`}>
+            <span>AI Ready</span>
+            <span className="font-bold">{passRate}%</span>
+          </div>
+        </div>
+      </div>
+    </Card>
+  );
+}
