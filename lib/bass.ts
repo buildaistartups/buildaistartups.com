@@ -291,7 +291,7 @@ export function validateBASSData(data: unknown): { valid: boolean; errors?: any[
   const valid = validateBASS(data);
   return {
     valid: !!valid,
-    errors: valid ? undefined : validateBASS.errors,
+    errors: valid ? undefined : (validateBASS.errors || undefined),
   };
 }
 
