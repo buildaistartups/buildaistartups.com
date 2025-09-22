@@ -13,6 +13,12 @@ import {
   FileText, 
   TrendingUp, 
   Shield, 
+  Dollar
+  import { 
+  GitPullRequest, 
+  FileText, 
+  TrendingUp, 
+  Shield, 
   DollarSign,
   Brain,
   Target,
@@ -177,33 +183,6 @@ export default function ProjectDetailsPage() {
     });
   };
 
-  const getScoreColor = (score: number) => {
-    if (score >= 80) return 'text-green-600 dark:text-green-400';
-    if (score >= 60) return 'text-blue-600 dark:text-blue-400';
-    if (score >= 40) return 'text-yellow-600 dark:text-yellow-400';
-    return 'text-orange-600 dark:text-orange-400';
-  };
-
-  const getScoreEmoji = (score: number) => {
-    if (score >= 80) return '🚀';
-    if (score >= 60) return '✅';
-    if (score >= 40) return '🔧';
-    return '🏗️';
-  };
-
-  const formatNumber = (num: number): string => {
-    if (num >= 1000000000) {
-      return (num / 1000000000).toFixed(1) + 'B';
-    }
-    if (num >= 1000000) {
-      return (num / 1000000).toFixed(1) + 'M';
-    }
-    if (num >= 1000) {
-      return (num / 1000).toFixed(1) + 'K';
-    }
-    return num.toLocaleString();
-  };
-
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -223,6 +202,20 @@ export default function ProjectDetailsPage() {
       </div>
     );
   }
+
+  const getScoreColor = (score: number) => {
+    if (score >= 80) return 'text-green-600 dark:text-green-400';
+    if (score >= 60) return 'text-blue-600 dark:text-blue-400';
+    if (score >= 40) return 'text-yellow-600 dark:text-yellow-400';
+    return 'text-orange-600 dark:text-orange-400';
+  };
+
+  const getScoreEmoji = (score: number) => {
+    if (score >= 80) return '🚀';
+    if (score >= 60) return '✅';
+    if (score >= 40) return '🔧';
+    return '🏗️';
+  };
 
   return (
     <div className="container mx-auto p-6 max-w-7xl">
@@ -511,6 +504,7 @@ export default function ProjectDetailsPage() {
         </TabsContent>
 
         <TabsContent value="metrics" className="space-y-4">
+          {/* Metrics content */}
           <Card>
             <CardHeader>
               <CardTitle>Operational Metrics</CardTitle>
@@ -522,6 +516,7 @@ export default function ProjectDetailsPage() {
         </TabsContent>
 
         <TabsContent value="finance" className="space-y-4">
+          {/* Finance content */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -536,6 +531,7 @@ export default function ProjectDetailsPage() {
         </TabsContent>
 
         <TabsContent value="roadmap" className="space-y-4">
+          {/* Roadmap content */}
           <Card>
             <CardHeader>
               <CardTitle>Product Roadmap</CardTitle>
@@ -547,6 +543,7 @@ export default function ProjectDetailsPage() {
         </TabsContent>
 
         <TabsContent value="responsible" className="space-y-4">
+          {/* Responsible AI content */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -562,4 +559,17 @@ export default function ProjectDetailsPage() {
       </Tabs>
     </div>
   );
+}
+
+function formatNumber(num: number): string {
+  if (num >= 1000000000) {
+    return (num / 1000000000).toFixed(1) + 'B';
+  }
+  if (num >= 1000000) {
+    return (num / 1000000).toFixed(1) + 'M';
+  }
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + 'K';
+  }
+  return num.toLocaleString();
 }
