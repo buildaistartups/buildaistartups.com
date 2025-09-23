@@ -1,60 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { CogIcon, ExclamationTriangleIcon, CheckCircleIcon, ClockIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
-
-interface OpsTask {
-  id: string
-  name: string
-  description: string
-  estimatedDuration: number // minutes
-  integrations: string[]
-  outputs: string[]
-}
-
-interface OpsResult {
-  taskId: string
-  success: boolean
-  duration: number
-  outputs: Array<{
-    type: string
-    description: string
-    mockData?: any
-  }>
-  logs: string[]
-}
-
-interface OpsAgentProps {
-  projectId: string
-  onComplete?: (result: OpsResult) => void
-  className?: string
-}
-
-const AVAILABLE_TASKS: OpsTask[] = [
-  {
-    id: 'setup-analytics',
-    name: 'Setup Analytics Tracking',
-    description: 'Configure event tracking, conversion funnels, and dashboard alerts',
-    estimatedDuration: 8,
-    integrations: ['Google Analytics', 'Mixpanel', 'Vercel Analytics'],
-    outputs: ['Event schema', 'Dashboard config', 'Alert rules']
-  },
-  {
-    id: 'optimize-images',
-    name: 'Optimize Site Performance',
-    description: 'Compress images, analyze bundle size, implement caching headers',
-    estimatedDuration: 12,
-    integrations: ['Cloudinary', 'Vercel', 'Lighthouse CI'],
-    outputs: ['Performance report', 'Optimization diff', 'CDN config']
-  },
-  {
-    id: 'backup-setup',
-    name: 'Setup Automated Backups',
-    description: 'Configure database backups,
-    'use client'
-
-import { useState } from 'react'
-import { CogIcon, ExclamationTriangleIcon, CheckCircleIcon, ClockIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
+import { Settings, AlertTriangle, CheckCircle, Clock, Wrench } from 'lucide-react'
 
 interface OpsTask {
   id: string
@@ -278,10 +225,10 @@ export default function OpsAgent({
     return null
   }
 
-  const StatusIcon = status === 'running' ? ClockIcon :
-                   status === 'complete' ? CheckCircleIcon :
-                   status === 'error' ? ExclamationTriangleIcon :
-                   CogIcon
+  const StatusIcon = status === 'running' ? Clock :
+                   status === 'complete' ? CheckCircle :
+                   status === 'error' ? AlertTriangle :
+                   Settings
 
   return (
     <div className={`rounded-lg border border-white/10 bg-slate-950/40 p-4 ${className}`}>
@@ -322,7 +269,7 @@ export default function OpsAgent({
                 className="w-full text-left rounded-lg border border-white/10 bg-slate-900/30 p-3 transition hover:bg-slate-900/50 hover:border-white/20"
               >
                 <div className="flex items-center gap-3 mb-2">
-                  <WrenchScrewdriverIcon className="h-4 w-4 text-orange-400" />
+                  <Wrench className="h-4 w-4 text-orange-400" />
                   <div className="font-medium text-sm text-slate-100">{task.name}</div>
                   <div className="text-xs text-slate-400 ml-auto">~{task.estimatedDuration}m</div>
                 </div>
