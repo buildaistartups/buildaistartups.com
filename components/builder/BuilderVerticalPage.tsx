@@ -1,6 +1,7 @@
 // components/builder/BuilderVerticalPage.tsx
 'use client'
 
+import ResponsibleAI from '@/components/builder/ResponsibleAI'
 import type { Vertical } from '@/lib/verticals'
 import Link from 'next/link'
 
