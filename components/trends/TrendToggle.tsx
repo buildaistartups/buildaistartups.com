@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronDownIcon, ChevronRightIcon, SparklesIcon, BoltIcon, ShieldCheckIcon, CubeIcon, TrendingUpIcon } from '@heroicons/react/24/outline'
+import { ChevronDown, ChevronRight, Sparkles, Zap, ShieldCheck, Cube, TrendingUp } from 'lucide-react'
 import { TREND_PRESETS, type TrendId, type TrendPreset } from '@/lib/trends'
 
 export interface TrendToggleProps {
@@ -16,11 +16,11 @@ export interface TrendToggleProps {
 }
 
 const trendIcons: Record<TrendId, React.ComponentType<any>> = {
-  'gen-ai': SparklesIcon,
-  'agents': BoltIcon,
-  'compliance-heavy': ShieldCheckIcon,
-  'low-code-saas': CubeIcon,
-  'bootstrapper': TrendingUpIcon,
+  'gen-ai': Sparkles,
+  'agents': Zap,
+  'compliance-heavy': ShieldCheck,
+  'low-code-saas': Cube,
+  'bootstrapper': TrendingUp,
 }
 
 const trendColors: Record<TrendId, string> = {
@@ -70,7 +70,7 @@ export default function TrendToggle({
       >
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500/20">
-            <SparklesIcon className="h-4 w-4 text-violet-400" />
+            <Sparkles className="h-4 w-4 text-violet-400" />
           </div>
           <div>
             <h3 className="text-sm font-medium text-slate-100">Current Trends</h3>
@@ -80,9 +80,9 @@ export default function TrendToggle({
           </div>
         </div>
         {expanded ? (
-          <ChevronDownIcon className="h-4 w-4 text-slate-400" />
+          <ChevronDown className="h-4 w-4 text-slate-400" />
         ) : (
-          <ChevronRightIcon className="h-4 w-4 text-slate-400" />
+          <ChevronRight className="h-4 w-4 text-slate-400" />
         )}
       </button>
 
