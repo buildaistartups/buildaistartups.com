@@ -301,7 +301,7 @@ function GeneralBuilderPage() {
             </div>
           </div>
           <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-            <img src="/media/screens/spec-studio.png" alt="Spec Studio" className="rounded-lg" />
+            <img src="/images/product/builder/flow-research-spec.svg" alt="Spec Studio workflow" className="rounded-lg w-full h-auto" />
           </div>
         </div>
       </section>
@@ -309,7 +309,7 @@ function GeneralBuilderPage() {
       <section className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-            <img src="/media/screens/repo-forge.png" alt="Repo Forge" className="rounded-lg" />
+            <img src="/images/product/builder/flow-generate-ui.svg" alt="Repo Forge workflow" className="rounded-lg w-full h-auto" />
           </div>
           <div className="order-1 md:order-2">
             <h3 className="text-xl font-semibold">Repo Forge</h3>
@@ -354,7 +354,7 @@ function GeneralBuilderPage() {
             </ul>
           </div>
           <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-            <img src="/media/screens/ui-workshop.png" alt="UI Workshop" className="rounded-lg" />
+            <img src="/images/product/builder/shell-preview.svg" alt="UI Workshop preview" className="rounded-lg w-full h-auto" />
           </div>
         </div>
       </section>
@@ -362,7 +362,7 @@ function GeneralBuilderPage() {
       <section className="mx-auto max-w-6xl px-6 py-10">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-4">
-            <img src="/media/screens/one-click-deploy.png" alt="One-click Deploy" className="rounded-lg" />
+            <img src="/images/product/builder/flow-deploy-iterate.svg" alt="Deploy & Iterate workflow" className="rounded-lg w-full h-auto" />
           </div>
           <div className="order-1 md:order-2">
             <h3 className="text-xl font-semibold">One-click Deploy</h3>
@@ -407,21 +407,61 @@ function GeneralBuilderPage() {
               <li><strong>Documentation (25%):</strong> README, API docs, changelog</li>
             </ul>
           </div>
-          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-4">
-            <img
-              src="/images/resources/templates/build-score-badges.svg"
-              alt="Build score badges and quality indicators"
-              className="w-full h-auto rounded-lg"
-              loading="lazy"
-            />
+          <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex items-center gap-3">
+                <img src="/images/product/builder/badges/fast-bolt.svg" alt="Performance badge" className="w-8 h-8" />
+                <span className="text-sm text-slate-300">Fast builds</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <img src="/images/product/builder/badges/quality.svg" alt="Quality badge" className="w-8 h-8" />
+                <span className="text-sm text-slate-300">Quality gates</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <img src="/images/product/builder/badges/github.svg" alt="GitHub badge" className="w-8 h-8" />
+                <span className="text-sm text-slate-300">Your GitHub</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <img src="/images/product/builder/badges/fast-speedometer.svg" alt="Speed badge" className="w-8 h-8" />
+                <span className="text-sm text-slate-300">Optimized</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Quality Gates */}
+      {/* Quality Gates - simplified since we don't have the SVG */}
       <section className="mx-auto max-w-6xl px-6 py-8">
-        <div className="mb-6">
-          <img src="/images/resources/templates/quality-gates.svg" alt="Quality gates system" className="w-full h-32 object-contain" />
+        <h2 className="text-2xl font-semibold mb-6 text-center">Quality Gates System</h2>
+        <div className="grid gap-4 md:grid-cols-4">
+          <div className="text-center p-4">
+            <div className="w-12 h-12 rounded-full bg-violet-500/20 flex items-center justify-center mx-auto mb-2">
+              <span className="text-violet-400 font-semibold">1</span>
+            </div>
+            <h3 className="text-sm font-medium text-slate-200">Lint & Types</h3>
+            <p className="text-xs text-slate-400 mt-1">Code quality validation</p>
+          </div>
+          <div className="text-center p-4">
+            <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-2">
+              <span className="text-emerald-400 font-semibold">2</span>
+            </div>
+            <h3 className="text-sm font-medium text-slate-200">Security</h3>
+            <p className="text-xs text-slate-400 mt-1">Vulnerability scanning</p>
+          </div>
+          <div className="text-center p-4">
+            <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-2">
+              <span className="text-blue-400 font-semibold">3</span>
+            </div>
+            <h3 className="text-sm font-medium text-slate-200">Performance</h3>
+            <p className="text-xs text-slate-400 mt-1">Lighthouse metrics</p>
+          </div>
+          <div className="text-center p-4">
+            <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center mx-auto mb-2">
+              <span className="text-orange-400 font-semibold">4</span>
+            </div>
+            <h3 className="text-sm font-medium text-slate-200">Deploy</h3>
+            <p className="text-xs text-slate-400 mt-1">Production ready</p>
+          </div>
         </div>
       </section>
 
