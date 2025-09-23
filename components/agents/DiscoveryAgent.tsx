@@ -99,6 +99,7 @@ export default function DiscoveryAgent({
       setProgress('Logging evidence...')
       
       // Log to Evidence Ledger
+      const finalResults = results
       await fetch('/api/evidence', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -106,18 +107,18 @@ export default function DiscoveryAgent({
           projectId,
           type: 'note',
           title: `Discovery Agent: Analyzed ${mockSources.length} sources`,
-          detail: `Found ${results.reduce((sum, r) => sum + r.painPoints.length, 0)} unique pain points across ${mockSources.join(', ')}`,
+          detail: `Found ${finalResults.reduce((sum, r) => sum + r.painPoints.length, 0)} unique pain points across ${mockSources.join(', ')}`,
           meta: {
             agentType: 'discovery',
             sourcesScraped: mockSources.length,
-            painPointsFound: results.reduce((sum, r) => sum + r.painPoints.length, 0),
-            confidence: results.filter(r => r.confidence === 'high').length / results.length
+            painPointsFound: finalResults.reduce((sum, r) => sum + r.painPoints.length, 0),
+            confidence: finalResults.filter(r => r.confidence === 'high').length / finalResults.length
           }
         })
       })
 
       setStatus('complete')
-      onComplete?.(results)
+      onComplete?.(finalResults)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Discovery failed')
       setStatus('error')
