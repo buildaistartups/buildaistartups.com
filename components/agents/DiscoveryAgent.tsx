@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { MagnifyingGlassIcon, ExclamationTriangleIcon, CheckCircleIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { Search, AlertTriangle, CheckCircle, Clock } from 'lucide-react'
 
 interface DiscoveryResult {
   source: string
@@ -124,10 +124,10 @@ export default function DiscoveryAgent({
     }
   }
 
-  const StatusIcon = status === 'running' ? ClockIcon :
-                   status === 'complete' ? CheckCircleIcon :
-                   status === 'error' ? ExclamationTriangleIcon :
-                   MagnifyingGlassIcon
+  const StatusIcon = status === 'running' ? Clock :
+                   status === 'complete' ? CheckCircle :
+                   status === 'error' ? AlertTriangle :
+                   Search
 
   return (
     <div className={`rounded-lg border border-white/10 bg-slate-950/40 p-4 ${className}`}>
