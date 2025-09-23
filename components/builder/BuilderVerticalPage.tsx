@@ -223,11 +223,13 @@ function GeneralBuilderPage() {
             <p className="mt-2 text-sm text-slate-500">Open-source models · Deploys to Vercel · Stripe payments · GitHub first</p>
           </div>
           <div className="relative">
-            <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
-              <video className="h-full w-full" autoPlay muted loop playsInline poster="/media/screens/builder-overview.png">
-                <source src="/media/screens/builder-overview.webm" type="video/webm" />
-                <source src="/media/screens/builder-overview.mp4" type="video/mp4" />
-              </video>
+            <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+              <img 
+                src="/images/product/builder/hero.svg" 
+                alt="Build AI Startups Builder workflow" 
+                className="h-full w-full object-contain"
+                loading="eager"
+              />
             </div>
             <p className="mt-2 text-center text-xs text-slate-500">Intent → Spec → Repo → Live preview</p>
           </div>
