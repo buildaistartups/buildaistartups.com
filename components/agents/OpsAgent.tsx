@@ -82,13 +82,11 @@ export default function OpsAgent({
   const [selectedTask, setSelectedTask] = useState<OpsTask | null>(null)
   const [progress, setProgress] = useState('')
   const [result, setResult] = useState<OpsResult | null>(null)
-  const [error, setError] = useState('')
 
   const executeTask = async (task: OpsTask) => {
     setStatus('running')
     setSelectedTask(task)
     setResult(null)
-    setError('')
 
     const startTime = Date.now()
     const logs: string[] = []
@@ -116,7 +114,7 @@ export default function OpsAgent({
       }
 
       // Generate mock outputs based on task type
-      const outputs = task.outputs.map((output, i) => ({
+      const outputs = task.outputs.map((output) => ({
         type: output,
         description: generateMockOutput(task.id, output),
         mockData: generateMockData(task.id, output)
@@ -170,7 +168,6 @@ export default function OpsAgent({
       }
       
       setResult(errorResult)
-      setError(err instanceof Error ? err.message : 'Task execution failed')
       setStatus('error')
     }
   }
@@ -307,7 +304,7 @@ export default function OpsAgent({
       {/* Results */}
       {result && (
         <div className="mb-4">
-          <div className={`rounded-lg border p-3 ${
+      <div className={`rounded-lg border p-3 ${
             result.success 
               ? 'bg-green-500/10 border-green-500/20' 
               : 'bg-red-500/10 border-red-500/20'
@@ -365,7 +362,6 @@ export default function OpsAgent({
               setSelectedTask(null)
               setResult(null)
               setProgress('')
-              setError('')
             }}
             className="flex-1 rounded-lg border border-white/10 bg-slate-900/50 px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-slate-900"
           >
