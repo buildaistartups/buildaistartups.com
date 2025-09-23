@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronDown, ChevronRight, Sparkles, Zap, ShieldCheck, Cube, TrendingUp } from 'lucide-react'
+import { ChevronDown, ChevronRight, Sparkles, Zap, ShieldCheck, Box, TrendingUp } from 'lucide-react'
 import { TREND_PRESETS, type TrendId, type TrendPreset } from '@/lib/trends'
 
 export interface TrendToggleProps {
@@ -19,7 +19,7 @@ const trendIcons: Record<TrendId, React.ComponentType<any>> = {
   'gen-ai': Sparkles,
   'agents': Zap,
   'compliance-heavy': ShieldCheck,
-  'low-code-saas': Cube,
+  'low-code-saas': Box,
   'bootstrapper': TrendingUp,
 }
 
