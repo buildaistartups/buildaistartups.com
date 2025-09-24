@@ -35,7 +35,7 @@ interface DPARequest {
 
 export async function POST(req: NextRequest) {
   try {
-    const headersList = headers();
+    const headersList = await headers(); // ✅ Added 'await' here
     const authHeader = headersList.get('authorization');
     
     if (!authHeader?.startsWith('Bearer ')) {
