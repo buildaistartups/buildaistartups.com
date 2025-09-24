@@ -190,7 +190,6 @@ export default function Retention30({ projectId }: Props) {
   }
 
   const progressPercent = Math.round((state.completedCount / state.items.length) * 100)
-  const retentionColor = state.retentionRate >= 70 ? 'green' : state.ret
   const retentionColor = state.retentionRate >= 70 ? 'green' : state.retentionRate >= 40 ? 'yellow' : 'red'
 
   return (
@@ -215,6 +214,7 @@ export default function Retention30({ projectId }: Props) {
               type="number"
               value={state.retentionRate}
               onChange={(e) => updateRetentionRate(parseFloat(e.target.value) || 0)}
+              className="w-20 text-sm bg-slate-950/50 border border-white/10 rounded-md p-1 text
               className="w-20 text-sm bg-slate-950/50 border border-white/10 rounded-md p-1 text-slate-200"
               min="0"
               max="100"
