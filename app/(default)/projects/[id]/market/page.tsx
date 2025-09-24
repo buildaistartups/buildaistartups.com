@@ -1,5 +1,3 @@
-// app/(default)/projects/[id]/market/page.tsx
-
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -259,7 +257,7 @@ export default function MarketPage() {
                   </button>
                 </div>
               </div>
-            ) : (
+            ) : icpProfile ? (
               <div className="space-y-3">
                 <div>
                   <div className="text-xs text-slate-400 mb-1">PERSONA</div>
@@ -290,7 +288,7 @@ export default function MarketPage() {
                   </div>
                 )}
               </div>
-            )}
+            ) : null}
           </div>
 
           {/* PMF Meter */}
