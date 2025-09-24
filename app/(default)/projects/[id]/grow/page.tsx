@@ -6,17 +6,18 @@ import FirstTen from '@/components/grow/FirstTen'
 import Retention30 from '@/components/grow/Retention30'
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string
-  }
-  searchParams: {
+  }>
+  searchParams: Promise<{
     tab?: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params
   return {
-    title: `Grow Project ${params.id} | Build AI Startups`,
+    title: `Grow Project ${id} | Build AI Startups`,
     description: 'Track your path from first dollar to sustained growth with outcome-driven checklists.'
   }
 }
@@ -41,13 +42,16 @@ const tabs = [
 ]
 
 export default async function GrowProjectPage({ params, searchParams }: Props) {
-  const project = await getProject(params.id)
+  const { id } = await params
+  const { tab } = await searchParams
+  
+  const project = await getProject(id)
   
   if (!project) {
     notFound()
   }
 
-  const activeTab = searchParams.tab || 'first-dollar'
+  const activeTab = tab || 'first-dollar'
 
   return (
     <main className="bg-slate-950 text-slate-200 min-h-screen">
@@ -65,7 +69,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
             </div>
           </div>
           
-          <ProductScoreCard projectId={params.id} />
+          <ProductScoreCard projectId={id} />
         </div>
 
         <div className="mb-8">
@@ -73,7 +77,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
             {tabs.map((tab) => (
               <Link
                 key={tab.id}
-                href={`/projects/${params.id}/grow?tab=${tab.id}`}
+                href={`/projects/${id}/grow?tab=${tab.id}`}
                 className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-all ${
                   activeTab === tab.id
                     ? 'bg-violet-500 text-white shadow-sm'
@@ -97,7 +101,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
                   Each task builds toward revenue generation.
                 </p>
               </div>
-              <FirstDollar projectId={params.id} />
+              <FirstDollar projectId={id} />
             </div>
           )}
 
@@ -110,7 +114,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
                   Focus on systematic acquisition and early feedback loops.
                 </p>
               </div>
-              <FirstTen projectId={params.id} />
+              <FirstTen projectId={id} />
             </div>
           )}
 
@@ -123,7 +127,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
                   through better onboarding and lifecycle engagement.
                 </p>
               </div>
-              <Retention30 projectId={params.id} />
+              <Retention30 projectId={id} />
             </div>
           )}
         </div>
@@ -138,13 +142,13 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
             </div>
             <div className="flex gap-3">
               <Link
-                href={`/projects/${params.id}/evidence`}
+                href={`/projects/${id}/evidence`}
                 className="px-4 py-2 text-sm border border-white/10 rounded-md hover:bg-white/5 transition-colors"
               >
                 View Evidence
               </Link>
               <Link
-                href={`/projects/${params.id}/marketplace`}
+                href={`/projects/${id}/marketplace`}
                 className="px-4 py-2 text-sm bg-violet-500 text-white rounded-md hover:bg-violet-400 transition-colors"
               >
                 List on Marketplace
