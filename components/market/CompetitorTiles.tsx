@@ -22,11 +22,25 @@ type CompetitorTilesProps = {
   projectId: string
 }
 
+type NewCompetitorForm = {
+  name: string
+  url: string
+  description: string
+  pricing: string
+  strengths: string
+  weaknesses: string
+  marketShare: string
+  funding: string
+  employees: string
+  category: 'direct' | 'indirect' | 'substitute'
+  threat: 'high' | 'medium' | 'low'
+}
+
 export default function CompetitorTiles({ projectId }: CompetitorTilesProps) {
   const [competitors, setCompetitors] = useState<Competitor[]>([])
   const [loading, setLoading] = useState(true)
   const [showAddForm, setShowAddForm] = useState(false)
-  const [newCompetitor, setNewCompetitor] = useState({
+  const [newCompetitor, setNewCompetitor] = useState<NewCompetitorForm>({
     name: '',
     url: '',
     description: '',
@@ -36,8 +50,8 @@ export default function CompetitorTiles({ projectId }: CompetitorTilesProps) {
     marketShare: '',
     funding: '',
     employees: '',
-    category: 'direct' as const,
-    threat: 'medium' as const
+    category: 'direct',
+    threat: 'medium'
   })
 
   useEffect(() => {
@@ -209,7 +223,7 @@ export default function CompetitorTiles({ projectId }: CompetitorTilesProps) {
             />
             <select
               value={newCompetitor.category}
-              onChange={(e) => setNewCompetitor({ ...newCompetitor, category: e.target.value as 'direct' | 'indirect' | 'substitute' })}
+              onChange={(e) => setNewCompetitor({ ...newCompetitor, category: e.target.value as NewCompetitorForm['category'] })}
               className="bg-slate-800 border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-violet-500"
             >
               <option value="direct">Direct Competitor</option>
@@ -218,7 +232,7 @@ export default function CompetitorTiles({ projectId }: CompetitorTilesProps) {
             </select>
             <select
               value={newCompetitor.threat}
-              onChange={(e) => setNewCompetitor({ ...newCompetitor, threat: e.target.value as 'high' | 'medium' | 'low' })}
+              onChange={(e) => setNewCompetitor({ ...newCompetitor, threat: e.target.value as NewCompetitorForm['threat'] })}
               className="bg-slate-800 border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-violet-500"
             >
               <option value="low">Low Threat</option>
