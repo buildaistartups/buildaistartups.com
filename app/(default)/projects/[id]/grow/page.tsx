@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import FirstDollar from '@/components/grow/FirstDollar'
 import FirstTen from '@/components/grow/FirstTen'
 import Retention30 from '@/components/grow/Retention30'
@@ -22,7 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
+// Mock project validation (replace with your actual project lookup)
 async function getProject(id: string) {
+  // This would typically fetch from your database
+  // For now, we'll just validate that id exists
   if (!id || id.length < 3) {
     return null
   }
@@ -30,16 +32,10 @@ async function getProject(id: string) {
   return {
     id,
     name: `Project ${id}`,
-    vertical: 'ai-leadgen',
+    vertical: 'ai-leadgen', // This would come from your project data
     createdAt: new Date('2024-01-01')
   }
 }
-
-const tabs = [
-  { id: 'first-dollar', label: 'First $', icon: '💰' },
-  { id: 'first-ten', label: 'First 10 Users', icon: '👥' },
-  { id: 'retention', label: '30-Day Retention', icon: '🔄' }
-]
 
 export default async function GrowProjectPage({ params, searchParams }: Props) {
   const project = await getProject(params.id)
@@ -53,6 +49,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
   return (
     <main className="bg-slate-950 text-slate-200 min-h-screen">
       <div className="mx-auto max-w-6xl px-6 py-8">
+        {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
@@ -66,13 +63,19 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
             </div>
           </div>
           
+          {/* Product Score Card */}
           <ProductScoreCard projectId={params.id} />
         </div>
 
+        {/* Navigation Tabs - CORRECTED SECTION */}
         <div className="mb-8">
           <nav className="flex space-x-1 rounded-lg bg-slate-900/50 p-1">
-            {tabs.map((tab) => (
-              <Link
+            {[
+              { id: 'first-dollar', label: 'First $', icon: '💰' },
+              { id: 'first-ten', label: 'First 10 Users', icon: '👥' },
+              { id: 'retention', label: '30-Day Retention', icon: '🔄' }
+            ].map((tab) => (
+              
                 key={tab.id}
                 href={`/projects/${params.id}/grow?tab=${tab.id}`}
                 className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md transition-all ${
@@ -83,11 +86,12 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
               >
                 <span>{tab.icon}</span>
                 {tab.label}
-              </Link>
+              </a>
             ))}
           </nav>
         </div>
 
+        {/* Tab Content */}
         <div className="space-y-8">
           {activeTab === 'first-dollar' && (
             <div>
@@ -129,6 +133,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
           )}
         </div>
 
+        {/* Footer Actions */}
         <div className="mt-12 p-6 rounded-xl bg-slate-900/40 border border-white/10">
           <div className="flex items-center justify-between">
             <div>
@@ -138,18 +143,18 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
               </p>
             </div>
             <div className="flex gap-3">
-              <Link
+              
                 href={`/projects/${params.id}/evidence`}
                 className="px-4 py-2 text-sm border border-white/10 rounded-md hover:bg-white/5 transition-colors"
               >
                 View Evidence
-              </Link>
-              <Link
+              </a>
+              
                 href={`/projects/${params.id}/marketplace`}
                 className="px-4 py-2 text-sm bg-violet-500 text-white rounded-md hover:bg-violet-400 transition-colors"
               >
                 List on Marketplace
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -158,6 +163,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
   )
 }
 
+// Add the missing ProductScoreCard component
 function ProductScoreCard({ projectId }: { projectId: string }) {
   return (
     <div className="rounded-lg bg-slate-900/40 border border-white/10 p-4">
