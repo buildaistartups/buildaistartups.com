@@ -139,6 +139,23 @@ export default function BuilderVerticalPage({ vertical }: { vertical?: Vertical 
         </div>
       </section>
 
+      {/* Responsible AI Block - For AI verticals only */}
+      <ResponsibleAI enabled={true} ai={{
+        providers: ['openai', 'anthropic'],
+        guardrails: ['PII-scrub', 'toxicity-filter', 'escalation-on-low-confidence'],
+        data: {
+          privacy: 'no-pii',
+          retentionDays: 30,
+          sources: ['docs', 'knowledge-base']
+        },
+        confidenceThreshold: 0.85,
+        evals: [
+          { name: 'response_quality', metric: 'gpt-judge-5pt', target: 4.2 },
+          { name: 'hallucination_rate_pct', metric: 'fact-check-pct', target: 5 },
+          { name: 'safety_compliance', metric: 'guardrail-pass-rate', target: 99 }
+        ]
+      }} />
+
       {/* Final CTA */}
       <section className="border-t border-white/10 bg-slate-900/40 py-14">
         <div className="mx-auto max-w-4xl px-6 text-center">
@@ -433,6 +450,23 @@ function GeneralBuilderPage() {
         </div>
       </section>
 
+      {/* Responsible AI Block */}
+      <ResponsibleAI enabled={true} ai={{
+        providers: ['openai', 'anthropic'],
+        guardrails: ['PII-scrub', 'toxicity-filter', 'escalation-on-low-confidence'],
+        data: {
+          privacy: 'no-pii',
+          retentionDays: 30,
+          sources: ['docs', 'knowledge-base']
+        },
+        confidenceThreshold: 0.85,
+        evals: [
+          { name: 'response_quality', metric: 'gpt-judge-5pt', target: 4.2 },
+          { name: 'hallucination_rate_pct', metric: 'fact-check-pct', target: 5 },
+          { name: 'safety_compliance', metric: 'guardrail-pass-rate', target: 99 }
+        ]
+      }} />
+
       {/* Quality Gates - simplified since we don't have the SVG */}
       <section className="mx-auto max-w-6xl px-6 py-8">
         <h2 className="text-2xl font-semibold mb-6 text-center">Quality Gates System</h2>
@@ -508,7 +542,7 @@ function GeneralBuilderPage() {
   }
   modules:
   - auth: {
-      provider: "email+oauth",
+  provider: "email+oauth",
       roles: ["owner","admin","member"]
     }
   - billing: {
@@ -691,7 +725,7 @@ function GeneralBuilderPage() {
           </div>
           <div>
             <h3 className="text-base font-medium">Is there lock-in?</h3>
-            <p className="mt-1 text-sm text-slate-300">No. Your GitHub, your Vercel, your database, your Stripe—always.</p>
+            <p className="mt-1 text-slim text-slate-300">No. Your GitHub, your Vercel, your database, your Stripe—always.</p>
           </div>
         </div>
       </section>
