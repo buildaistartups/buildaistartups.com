@@ -1,8 +1,20 @@
 // app/api/market/icp/route.ts
 
 import { NextRequest, NextResponse } from 'next/server'
-import { ICPProfile } from '@/types/market'
-import { ICPStore } from '@/lib/dataStores'
+
+type ICPProfile = {
+  projectId: string
+  persona: string
+  jobTitle?: string
+  company?: string
+  pain?: string
+  budget?: string
+  decisionProcess?: string
+  ts: number
+}
+
+// In-memory store (replace with database later)
+const ICPStore: Record<string, ICPProfile> = {}
 
 function ok(data: unknown, status = 200) {
   return NextResponse.json(data, { 
