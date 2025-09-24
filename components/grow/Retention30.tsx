@@ -286,7 +286,7 @@ export default function Retention30({ projectId }: Props) {
                   </div>
                   
                   {item.href && (
-                    
+                    <a
                       href={item.href}
                       className="text-xs text-violet-400 hover:text-violet-300 underline"
                       target="_blank"
