@@ -26,8 +26,8 @@ interface CalendarDay {
   tasks: CalendarTask[]
 }
 
-// Content templates by vertical and channel
-const CONTENT_TEMPLATES = {
+// Content templates by vertical and channel - ensuring all channels exist
+const CONTENT_TEMPLATES: Record<Vertical, Record<Channel, string[]>> = {
   'ai-leadgen': {
     seo: [
       'Write "AI Lead Generation vs Traditional Methods" comparison',
@@ -41,11 +41,29 @@ const CONTENT_TEMPLATES = {
       'Create lead generation tips carousel',
       'Share customer success story'
     ],
+    email: [
+      'Create AI lead gen newsletter sequence',
+      'Write "Lead Quality Metrics" email course',
+      'Send case study to email list',
+      'Draft lead scoring email template'
+    ],
     partnerships: [
       'Reach out to CRM integrations',
       'Contact sales automation platforms',
       'Connect with marketing agencies',
       'Partner with lead gen communities'
+    ],
+    ads: [
+      'Create LinkedIn ads for lead gen tools',
+      'Test Google ads for "AI lead generation"',
+      'Launch Facebook ads targeting sales teams',
+      'Run Twitter ads for B2B prospects'
+    ],
+    community: [
+      'Share insights in sales communities',
+      'Answer questions in marketing forums',
+      'Post in LinkedIn sales groups',
+      'Engage in lead gen discussions'
     ]
   },
   'ai-support': {
@@ -61,11 +79,29 @@ const CONTENT_TEMPLATES = {
       'Create support team efficiency tips',
       'Showcase response time improvements'
     ],
+    email: [
+      'Send support automation newsletter',
+      'Create customer service email course',
+      'Share efficiency metrics via email',
+      'Draft support team email templates'
+    ],
     partnerships: [
       'Connect with helpdesk platforms',
       'Reach out to CX consultants',
       'Partner with customer success tools',
       'Join support community forums'
+    ],
+    ads: [
+      'Run ads targeting support managers',
+      'Test Google ads for "AI customer service"',
+      'Launch LinkedIn ads for CX teams',
+      'Create Facebook ads for support tools'
+    ],
+    community: [
+      'Engage in customer service forums',
+      'Share insights in support communities',
+      'Answer questions in CX groups',
+      'Post in helpdesk discussions'
     ]
   },
   saas: {
@@ -81,11 +117,29 @@ const CONTENT_TEMPLATES = {
       'Create product development timeline',
       'Showcase customer testimonials'
     ],
+    email: [
+      'Send SaaS growth newsletter',
+      'Create onboarding email sequence',
+      'Share metrics with email subscribers',
+      'Draft product update emails'
+    ],
     partnerships: [
       'Reach out to complementary SaaS tools',
       'Connect with integration platforms',
       'Partner with business consultants',
       'Join SaaS founder communities'
+    ],
+    ads: [
+      'Test Google ads for SaaS keywords',
+      'Run LinkedIn ads targeting founders',
+      'Launch Facebook ads for startups',
+      'Create Twitter ads for SaaS tools'
+    ],
+    community: [
+      'Share insights in founder communities',
+      'Engage in SaaS discussion groups',
+      'Answer questions in startup forums',
+      'Post in indie hacker communities'
     ]
   },
   api: {
@@ -101,11 +155,29 @@ const CONTENT_TEMPLATES = {
       'Create API use case threads',
       'Showcase integration examples'
     ],
+    email: [
+      'Send developer newsletter',
+      'Create API integration email course',
+      'Share usage examples via email',
+      'Draft developer onboarding emails'
+    ],
     partnerships: [
       'Connect with developer tools',
       'Reach out to API management platforms',
       'Partner with developer communities',
       'Join API provider networks'
+    ],
+    ads: [
+      'Run ads targeting developers',
+      'Test Google ads for "API tools"',
+      'Launch Stack Overflow ads',
+      'Create GitHub ads for devs'
+    ],
+    community: [
+      'Engage in developer forums',
+      'Share insights in API communities',
+      'Answer questions on Stack Overflow',
+      'Post in programming discussions'
     ]
   },
   content: {
@@ -121,11 +193,29 @@ const CONTENT_TEMPLATES = {
       'Create content planning templates',
       'Showcase content performance'
     ],
+    email: [
+      'Send content marketing newsletter',
+      'Create content strategy email course',
+      'Share performance metrics via email',
+      'Draft content creator emails'
+    ],
     partnerships: [
       'Connect with content creators',
       'Reach out to marketing agencies',
       'Partner with content platforms',
       'Join creator communities'
+    ],
+    ads: [
+      'Test ads for content creators',
+      'Run Google ads for "content marketing"',
+      'Launch LinkedIn ads for marketers',
+      'Create Facebook ads for creators'
+    ],
+    community: [
+      'Engage in content creator forums',
+      'Share insights in marketing communities',
+      'Answer questions in SEO groups',
+      'Post in content marketing discussions'
     ]
   }
 }
@@ -134,7 +224,7 @@ function generateCalendar(channels: Channel[], vertical: Vertical): CalendarDay[
   const today = new Date()
   const calendar: CalendarDay[] = []
   
-  const templates = CONTENT_TEMPLATES[vertical] || CONTENT_TEMPLATES.saas
+  const templates = CONTENT_TEMPLATES[vertical]
   
   for (let day = 1; day <= 30; day++) {
     const date = new Date(today)
@@ -144,7 +234,7 @@ function generateCalendar(channels: Channel[], vertical: Vertical): CalendarDay[
     
     // Generate tasks based on day and channels
     channels.forEach((channel, channelIndex) => {
-      const channelTasks = templates[channel] || templates.seo || []
+      const channelTasks = templates[channel] || []
       
       // Different task patterns for different days
       if (day % 7 === 1) { // Mondays - Planning
