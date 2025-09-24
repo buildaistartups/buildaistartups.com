@@ -94,7 +94,7 @@ export default function GrowthPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           channels: selectedChannels,
-          vertical: 'saas', // Could be dynamic based on project
+          vertical: 'saas',
           projectId
         })
       })
@@ -145,7 +145,7 @@ export default function GrowthPage() {
       
       if (response.ok) {
         await loadPipeline()
-        await loadGrowthScore() // Refresh score
+        await loadGrowthScore()
         setShowAddPipeline(false)
         setNewPipelineEntry({
           name: '',
@@ -320,7 +320,6 @@ export default function GrowthPage() {
                     <input
                       type="text"
                       placeholder="Name"
-                      value={
                       value={newPipelineEntry.name}
                       onChange={(e) => setNewPipelineEntry({...newPipelineEntry, name: e.target.value})}
                       className="px-3 py-2 bg-slate-800 border border-white/10 rounded-lg"
