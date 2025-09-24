@@ -23,52 +23,52 @@ const DEFAULT_CHECKLIST: ChecklistItem[] = [
   {
     id: 'onboarding-audit',
     title: 'Audit and optimize onboarding flow',
-    detail: 'Track drop-off points, simplify steps, add progress indicators',
+    detail: 'Track drop-off points, simplify steps, add progress indicators'
   },
   {
     id: 'welcome-sequence',
     title: 'Create comprehensive welcome email sequence',
-    detail: '7-day email series with tips, best practices, and success stories',
+    detail: '7-day email series with tips, best practices, and success stories'
   },
   {
     id: 'in-app-guidance',
     title: 'Add in-app guidance and tooltips',
-    detail: 'Progressive disclosure, contextual help, and feature discovery',
+    detail: 'Progressive disclosure, contextual help, and feature discovery'
   },
   {
     id: 'usage-analytics',
     title: 'Set up detailed usage analytics',
-    detail: 'Track feature adoption, session length, and engagement patterns',
+    detail: 'Track feature adoption, session length, and engagement patterns'
   },
   {
     id: 'health-scores',
     title: 'Build user health score system',
-    detail: 'Identify at-risk users based on activity and engagement',
+    detail: 'Identify at-risk users based on activity and engagement'
   },
   {
     id: 'lifecycle-emails',
     title: 'Launch lifecycle email campaigns',
-    detail: 'Re-engagement, feature announcements, and success tips',
+    detail: 'Re-engagement, feature announcements, and success tips'
   },
   {
     id: 'feedback-loops',
     title: 'Create continuous feedback loops',
-    detail: 'NPS surveys, feature polls, and exit interviews',
+    detail: 'NPS surveys, feature polls, and exit interviews'
   },
   {
     id: 'success-milestones',
     title: 'Define and celebrate user success milestones',
-    detail: 'Achievement badges, progress tracking, and congratulations',
+    detail: 'Achievement badges, progress tracking, and congratulations'
   },
   {
     id: 'customer-success',
     title: 'Implement proactive customer success outreach',
-    detail: 'Check-ins with new users, usage reviews, and support',
+    detail: 'Check-ins with new users, usage reviews, and support'
   },
   {
     id: 'retention-experiments',
     title: 'Run retention optimization experiments',
-    detail: 'A/B test different approaches to improve 30-day retention',
+    detail: 'A/B test different approaches to improve 30-day retention'
   }
 ]
 
@@ -86,7 +86,6 @@ export default function Retention30({ projectId }: Props) {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Load saved state from localStorage
   useEffect(() => {
     const saved = localStorage.getItem(`retention30-${projectId}`)
     if (saved) {
@@ -99,7 +98,6 @@ export default function Retention30({ projectId }: Props) {
     }
   }, [projectId])
 
-  // Save state to localStorage
   const saveState = (newState: RetentionState) => {
     setState(newState)
     localStorage.setItem(`retention30-${projectId}`, JSON.stringify(newState))
@@ -128,7 +126,6 @@ export default function Retention30({ projectId }: Props) {
 
     saveState(newState)
 
-    // Post evidence to the Evidence Ledger
     const completedItem = updatedItems.find(item => item.id === itemId)
     if (completedItem?.done) {
       await postEvidence(completedItem)
@@ -206,7 +203,6 @@ export default function Retention30({ projectId }: Props) {
           Keep users engaged and coming back. Focus on onboarding and lifecycle engagement.
         </p>
 
-        {/* Retention Rate Tracker */}
         <div className="mb-4">
           <div className="flex items-center justify-between mb-2">
             <label className="text-sm text-slate-300">30-Day Retention Rate (%)</label>
@@ -214,7 +210,6 @@ export default function Retention30({ projectId }: Props) {
               type="number"
               value={state.retentionRate}
               onChange={(e) => updateRetentionRate(parseFloat(e.target.value) || 0)}
-              className="w-20 text-sm bg-slate-950/50 border border-white/10 rounded-md p-1 text
               className="w-20 text-sm bg-slate-950/50 border border-white/10 rounded-md p-1 text-slate-200"
               min="0"
               max="100"
@@ -236,7 +231,6 @@ export default function Retention30({ projectId }: Props) {
           </div>
         </div>
 
-        {/* Process Progress Bar */}
         <div className="w-full bg-slate-800 rounded-full h-2 mb-4">
           <div
             className="bg-gradient-to-r from-purple-500 to-indigo-400 h-2 rounded-full transition-all duration-500"
@@ -303,7 +297,6 @@ export default function Retention30({ projectId }: Props) {
                   )}
                 </div>
 
-                {/* Notes Section */}
                 <div className="mt-3">
                   <textarea
                     value={item.notes || ''}
@@ -319,7 +312,6 @@ export default function Retention30({ projectId }: Props) {
         ))}
       </div>
 
-      {/* Success Message */}
       {state.completedCount === state.items.length && state.retentionRate >= 60 && (
         <div className="mt-6 p-4 rounded-lg bg-purple-950/30 border border-purple-500/30">
           <div className="flex items-center gap-2 text-purple-400 font-medium">
