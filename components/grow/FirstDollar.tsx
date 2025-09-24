@@ -28,12 +28,12 @@ const DEFAULT_CHECKLIST: ChecklistItem[] = [
   {
     id: 'add-capture-form',
     title: 'Add lead capture form',
-    detail: 'Name, email, company size, and use case fields with validation',
+    detail: 'Name, email, company size, and use case fields with validation'
   },
   {
     id: 'setup-analytics',
     title: 'Install analytics tracking',
-    detail: 'Google Analytics, conversion tracking, and user behavior monitoring',
+    detail: 'Google Analytics, conversion tracking, and user behavior monitoring'
   },
   {
     id: 'create-pricing',
@@ -44,32 +44,32 @@ const DEFAULT_CHECKLIST: ChecklistItem[] = [
   {
     id: 'setup-stripe',
     title: 'Set up Stripe payment processing',
-    detail: 'Test mode enabled, webhook configured, subscription products created',
+    detail: 'Test mode enabled, webhook configured, subscription products created'
   },
   {
     id: 'build-onboarding',
     title: 'Build user onboarding flow',
-    detail: '5-step guided setup that gets users to first value in < 5 minutes',
+    detail: '5-step guided setup that gets users to first value in < 5 minutes'
   },
   {
     id: 'launch-marketing',
     title: 'Launch initial marketing push',
-    detail: 'Product Hunt, Twitter, LinkedIn, relevant communities',
+    detail: 'Product Hunt, Twitter, LinkedIn, relevant communities'
   },
   {
     id: 'collect-feedback',
     title: 'Set up feedback collection',
-    detail: 'User interviews, surveys, and support channel for early users',
+    detail: 'User interviews, surveys, and support channel for early users'
   },
   {
     id: 'optimize-conversion',
     title: 'Optimize conversion funnel',
-    detail: 'A/B test landing page, pricing, and onboarding flow',
+    detail: 'A/B test landing page, pricing, and onboarding flow'
   },
   {
     id: 'first-sale',
     title: 'Complete first paid conversion',
-    detail: 'Document the entire customer journey and success metrics',
+    detail: 'Document the entire customer journey and success metrics'
   }
 ]
 
@@ -86,7 +86,6 @@ export default function FirstDollar({ projectId }: Props) {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Load saved state from localStorage
   useEffect(() => {
     const saved = localStorage.getItem(`firstDollar-${projectId}`)
     if (saved) {
@@ -99,7 +98,6 @@ export default function FirstDollar({ projectId }: Props) {
     }
   }, [projectId])
 
-  // Save state to localStorage
   const saveState = (newState: FirstDollarState) => {
     setState(newState)
     localStorage.setItem(`firstDollar-${projectId}`, JSON.stringify(newState))
@@ -127,7 +125,6 @@ export default function FirstDollar({ projectId }: Props) {
 
     saveState(newState)
 
-    // Post evidence to the Evidence Ledger
     const completedItem = updatedItems.find(item => item.id === itemId)
     if (completedItem?.done) {
       await postEvidence(completedItem)
@@ -194,7 +191,6 @@ export default function FirstDollar({ projectId }: Props) {
           Systematic path to your first paid customer. Each step builds toward revenue.
         </p>
 
-        {/* Progress Bar */}
         <div className="w-full bg-slate-800 rounded-full h-2 mb-4">
           <div
             className="bg-gradient-to-r from-green-500 to-emerald-400 h-2 rounded-full transition-all duration-500"
@@ -261,7 +257,6 @@ export default function FirstDollar({ projectId }: Props) {
                   )}
                 </div>
 
-                {/* Notes Section */}
                 <div className="mt-3">
                   <textarea
                     value={item.notes || ''}
@@ -277,7 +272,6 @@ export default function FirstDollar({ projectId }: Props) {
         ))}
       </div>
 
-      {/* Success Message */}
       {state.completedCount === state.items.length && (
         <div className="mt-6 p-4 rounded-lg bg-green-950/30 border border-green-500/30">
           <div className="flex items-center gap-2 text-green-400 font-medium">
