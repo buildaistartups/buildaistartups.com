@@ -27,10 +27,10 @@ export default function Hero() {
               <div className="inline-flex relative before:absolute before:inset-0 before:bg-purple-500 before:blur-md">
                 <a
                   className="btn-sm py-0.5 text-slate-300 hover:text-white transition duration-150 ease-in-out group [background:linear-gradient(var(--color-purple-500),var(--color-purple-500))_padding-box,linear-gradient(var(--color-purple-500),var(--color-purple-200)_75%,transparent_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/50 before:rounded-full before:pointer-events-none shadow-sm"
-                  href="/resources/changelog"
+                  href="/start"
                 >
                   <span className="relative inline-flex items-center">
-                    Build AI Startups is in public beta{' '}
+                    Zero to Hero in record time{' '}
                     <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                       -&gt;
                     </span>
@@ -44,7 +44,7 @@ export default function Hero() {
               className="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4"
               data-aos="fade-down"
             >
-              Startups that build themselves
+              From zero to first users, first dollars, and funding readiness—measured.
             </h1>
 
             {/* Subtext */}
@@ -53,9 +53,7 @@ export default function Hero() {
               data-aos="fade-down"
               data-aos-delay="200"
             >
-              Give Build AI Startups a one-sentence brief. It researches the niche, drafts the
-              spec, scaffolds the repo, ships the UI and docs, wires billing/analytics, deploys,
-              and keeps improving from real usage.
+              Beginner? We'll guide you step-by-step. Pro? Generate a repo with tests, docs, and deploy in minutes. You can switch paths anytime.
             </p>
             <p className="text-sm font-medium text-violet-300/95 mb-4">
               Own your stack — GitHub, Vercel, Stripe.
@@ -70,9 +68,9 @@ export default function Hero() {
               <div>
                 <a
                   className="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white w-full transition duration-150 ease-in-out group cta-primary"
-                  href="/generate"
+                  href="/start"
                 >
-                  Generate Startup{' '}
+                  Start from zero{' '}
                   <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
                     -&gt;
                   </span>
@@ -81,7 +79,7 @@ export default function Hero() {
               <div>
                 <a
                   className="btn text-slate-200 hover:text-white bg-slate-900/25 hover:bg-slate-900/30 w-full transition duration-150 ease-in-out"
-                  href="/resources/docs"
+                  href="/product/builder"
                 >
                   <svg
                     className="shrink-0 fill-slate-300 mr-3"
@@ -91,7 +89,7 @@ export default function Hero() {
                   >
                     <path d="m1.999 0 1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 0l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM11.999 10l1 2-1 2 2-1 2 1-1-2 1-2-2 1zM6.292 7.586l2.646-2.647L11.06 7.06 8.413 9.707zM0 13.878l5.586-5.586 2.122 2.121L2.12 16z" />
                   </svg>
-                  <span>Read the docs</span>
+                  <span>Open Builder</span>
                 </a>
               </div>
             </div>
