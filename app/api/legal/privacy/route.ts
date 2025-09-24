@@ -164,20 +164,20 @@ ${bassData.thirdParties.map(tp => `- ${tp}`).join('\n')}` : 'We do not share per
 ## 4. Compliance
 
 ### GDPR Compliance
-${bassData.gdprCompliant ? '✅ **Compliant** - We meet all GDPR requirements including:
+${bassData.gdprCompliant ? `✅ **Compliant** - We meet all GDPR requirements including:
 - Right to access
 - Right to rectification
 - Right to erasure
 - Right to data portability
 - Right to object
-- Rights related to automated decision-making' : '⚠️ **In Progress** - We are working towards full GDPR compliance.'}
+- Rights related to automated decision-making` : '⚠️ **In Progress** - We are working towards full GDPR compliance.'}
 
 ### CCPA Compliance
-${bassData.ccpaCompliant ? '✅ **Compliant** - We meet all CCPA requirements including:
+${bassData.ccpaCompliant ? `✅ **Compliant** - We meet all CCPA requirements including:
 - Right to know
 - Right to delete
 - Right to opt-out
-- Right to non-discrimination' : '⚠️ **In Progress** - We are working towards full CCPA compliance.'}
+- Right to non-discrimination` : '⚠️ **In Progress** - We are working towards full CCPA compliance.'}
 
 ## 5. Data Security
 
