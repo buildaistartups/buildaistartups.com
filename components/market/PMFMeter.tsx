@@ -1,5 +1,3 @@
-// components/market/PMFMeter.tsx
-
 'use client'
 
 import { useEffect, useState } from 'react'
@@ -72,8 +70,7 @@ export default function PMFMeter({ projectId }: { projectId: string }) {
       })
 
       if (response.ok) {
-        const result = await response.json()
-        await fetchPMFData() // Refresh data
+        await fetchPMFData()
         setForm({ disappointment: '', primaryBenefit: '', improvement: '' })
         setShowSurvey(false)
       } else {
@@ -126,7 +123,6 @@ export default function PMFMeter({ projectId }: { projectId: string }) {
         </button>
       </div>
 
-      {/* PMF Score Display */}
       <div className="mb-6">
         <div className="flex items-end gap-2 mb-2">
           <span className={`text-3xl font-bold ${getScoreColor(data.pmfScore)}`}>
@@ -137,7 +133,6 @@ export default function PMFMeter({ projectId }: { projectId: string }) {
           </span>
         </div>
         
-        {/* Progress bar */}
         <div className="w-full bg-slate-800 rounded-full h-2 mb-3">
           <div 
             className={`h-2 rounded-full transition-all duration-500 ${getScoreBackground(data.pmfScore)}`}
@@ -145,7 +140,6 @@ export default function PMFMeter({ projectId }: { projectId: string }) {
           />
         </div>
 
-        {/* Interpretation */}
         <div className="text-sm text-slate-300">
           {data.pmfScore === null ? (
             'No responses yet'
@@ -159,7 +153,6 @@ export default function PMFMeter({ projectId }: { projectId: string }) {
         </div>
       </div>
 
-      {/* Breakdown */}
       {data.breakdown && (
         <div className="grid grid-cols-3 gap-2 text-xs mb-6">
           <div className="text-center p-2 bg-red-500/20 rounded">
@@ -177,7 +170,6 @@ export default function PMFMeter({ projectId }: { projectId: string }) {
         </div>
       )}
 
-      {/* Survey Form */}
       {showSurvey && (
         <div className="border-t border-white/10 pt-4 space-y-4">
           <div>
@@ -186,7 +178,7 @@ export default function PMFMeter({ projectId }: { projectId: string }) {
             </label>
             <select
               value={form.disappointment}
-              onChange={(e) => setForm({ ...form, disappointment: e.target.value as any })}
+              onChange={(e) => setForm({ ...form, disappointment: e.target.value as 'very-disappointed' | 'somewhat-disappointed' | 'not-disappointed' | '' })}
               className="w-full bg-slate-800 border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-violet-500"
             >
               <option value="">Select...</option>
