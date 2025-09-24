@@ -67,7 +67,7 @@ export default async function GrowProjectPage({ params, searchParams }: Props) {
           <ProductScoreCard projectId={params.id} />
         </div>
 
-        {/* Navigation Tabs */}
+        {/* Navigation Tabs - CORRECTED SECTION */}
         <div className="mb-8">
           <nav className="flex space-x-1 rounded-lg bg-slate-900/50 p-1">
             {[
