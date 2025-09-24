@@ -209,7 +209,7 @@ export default function CompetitorTiles({ projectId }: CompetitorTilesProps) {
             />
             <select
               value={newCompetitor.category}
-              onChange={(e) => setNewCompetitor({ ...newCompetitor, category: e.target.value as any })}
+              onChange={(e) => setNewCompetitor({ ...newCompetitor, category: e.target.value as 'direct' | 'indirect' | 'substitute' })}
               className="bg-slate-800 border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-violet-500"
             >
               <option value="direct">Direct Competitor</option>
@@ -218,7 +218,7 @@ export default function CompetitorTiles({ projectId }: CompetitorTilesProps) {
             </select>
             <select
               value={newCompetitor.threat}
-              onChange={(e) => setNewCompetitor({ ...newCompetitor, threat: e.target.value as any })}
+              onChange={(e) => setNewCompetitor({ ...newCompetitor, threat: e.target.value as 'high' | 'medium' | 'low' })}
               className="bg-slate-800 border border-white/10 rounded px-3 py-2 text-sm text-white focus:outline-none focus:border-violet-500"
             >
               <option value="low">Low Threat</option>
