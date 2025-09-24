@@ -2,7 +2,7 @@
 
 import { NextRequest, NextResponse } from 'next/server'
 import { ICPProfile } from '@/types/market'
-import { ICPStore } from '@/lib/stores/marketStore'
+import { ICPStore } from '@/lib/dataStores'
 
 function ok(data: unknown, status = 200) {
   return NextResponse.json(data, { 
