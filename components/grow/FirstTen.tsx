@@ -23,52 +23,52 @@ const DEFAULT_CHECKLIST: ChecklistItem[] = [
   {
     id: 'user-research',
     title: 'Complete user interviews with first 3 customers',
-    detail: 'Document pain points, use cases, and feature requests',
+    detail: 'Document pain points, use cases, and feature requests'
   },
   {
     id: 'referral-system',
     title: 'Build referral/sharing system',
-    detail: 'Easy way for users to invite colleagues or share with network',
+    detail: 'Easy way for users to invite colleagues or share with network'
   },
   {
     id: 'onboarding-optimize',
     title: 'Optimize onboarding based on user feedback',
-    detail: 'Reduce time-to-value, eliminate confusion points',
+    detail: 'Reduce time-to-value, eliminate confusion points'
   },
   {
     id: 'content-marketing',
     title: 'Start content marketing engine',
-    detail: 'Blog posts, case studies, tutorials that drive organic traffic',
+    detail: 'Blog posts, case studies, tutorials that drive organic traffic'
   },
   {
     id: 'community-engagement',
     title: 'Engage in relevant communities',
-    detail: 'Reddit, Discord, Slack groups where your users hang out',
+    detail: 'Reddit, Discord, Slack groups where your users hang out'
   },
   {
     id: 'email-nurture',
     title: 'Set up automated email nurture sequence',
-    detail: '5-email series for trial users to convert to paid',
+    detail: '5-email series for trial users to convert to paid'
   },
   {
     id: 'social-proof',
     title: 'Add social proof elements',
-    detail: 'User count, testimonials, logos, reviews on key pages',
+    detail: 'User count, testimonials, logos, reviews on key pages'
   },
   {
     id: 'analytics-dashboard',
     title: 'Build user analytics dashboard',
-    detail: 'Track activation, engagement, and churn metrics',
+    detail: 'Track activation, engagement, and churn metrics'
   },
   {
     id: 'feature-requests',
     title: 'Implement top 2 feature requests',
-    detail: 'Based on user feedback, build what they actually want',
+    detail: 'Based on user feedback, build what they actually want'
   },
   {
     id: 'retention-campaign',
     title: 'Launch user retention campaign',
-    detail: 'Email series, in-app messaging, and success check-ins',
+    detail: 'Email series, in-app messaging, and success check-ins'
   }
 ]
 
@@ -86,7 +86,6 @@ export default function FirstTen({ projectId }: Props) {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Load saved state from localStorage
   useEffect(() => {
     const saved = localStorage.getItem(`firstTen-${projectId}`)
     if (saved) {
@@ -99,7 +98,6 @@ export default function FirstTen({ projectId }: Props) {
     }
   }, [projectId])
 
-  // Save state to localStorage
   const saveState = (newState: FirstTenState) => {
     setState(newState)
     localStorage.setItem(`firstTen-${projectId}`, JSON.stringify(newState))
@@ -128,7 +126,6 @@ export default function FirstTen({ projectId }: Props) {
 
     saveState(newState)
 
-    // Post evidence to the Evidence Ledger
     const completedItem = updatedItems.find(item => item.id === itemId)
     if (completedItem?.done) {
       await postEvidence(completedItem)
@@ -206,7 +203,6 @@ export default function FirstTen({ projectId }: Props) {
           Scale from 1 to 10 paying users through systematic growth tactics.
         </p>
 
-        {/* User Count Tracker */}
         <div className="mb-4">
           <div className="flex items-center justify-between mb-2">
             <label className="text-sm text-slate-300">Current Users</label>
@@ -230,7 +226,6 @@ export default function FirstTen({ projectId }: Props) {
           </div>
         </div>
 
-        {/* Process Progress Bar */}
         <div className="w-full bg-slate-800 rounded-full h-2 mb-4">
           <div
             className="bg-gradient-to-r from-violet-500 to-purple-400 h-2 rounded-full transition-all duration-500"
@@ -297,7 +292,6 @@ export default function FirstTen({ projectId }: Props) {
                   )}
                 </div>
 
-                {/* Notes Section */}
                 <div className="mt-3">
                   <textarea
                     value={item.notes || ''}
@@ -313,7 +307,6 @@ export default function FirstTen({ projectId }: Props) {
         ))}
       </div>
 
-      {/* Success Message */}
       {state.completedCount === state.items.length && state.currentUsers >= 10 && (
         <div className="mt-6 p-4 rounded-lg bg-blue-950/30 border border-blue-500/30">
           <div className="flex items-center gap-2 text-blue-400 font-medium">
