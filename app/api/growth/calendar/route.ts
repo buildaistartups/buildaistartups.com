@@ -10,18 +10,20 @@ interface CalendarRequest {
   projectId?: string
 }
 
+interface CalendarTask {
+  id: string
+  type: 'content' | 'outreach' | 'optimization' | 'analysis'
+  title: string
+  description: string
+  channel: Channel
+  effort: 'low' | 'medium' | 'high'
+  expected: string
+}
+
 interface CalendarDay {
   day: number
   date: string
-  tasks: Array<{
-    id: string
-    type: 'content' | 'outreach' | 'optimization' | 'analysis'
-    title: string
-    description: string
-    channel: Channel
-    effort: 'low' | 'medium' | 'high'
-    expected: string
-  }>
+  tasks: CalendarTask[]
 }
 
 // Content templates by vertical and channel
@@ -138,7 +140,7 @@ function generateCalendar(channels: Channel[], vertical: Vertical): CalendarDay[
     const date = new Date(today)
     date.setDate(today.getDate() + day - 1)
     
-    const tasks = []
+    const tasks: CalendarTask[] = []
     
     // Generate tasks based on day and channels
     channels.forEach((channel, channelIndex) => {
@@ -148,11 +150,11 @@ function generateCalendar(channels: Channel[], vertical: Vertical): CalendarDay[
       if (day % 7 === 1) { // Mondays - Planning
         tasks.push({
           id: `${day}-${channel}-plan`,
-          type: 'optimization' as const,
+          type: 'optimization',
           title: `Plan ${channel} content for the week`,
           description: `Review performance and plan content strategy for ${channel}`,
           channel,
-          effort: 'medium' as const,
+          effort: 'medium',
           expected: 'Content calendar updated'
         })
       }
@@ -161,11 +163,11 @@ function generateCalendar(channels: Channel[], vertical: Vertical): CalendarDay[
         const taskIndex = Math.floor((day - 1) / 3) % channelTasks.length
         tasks.push({
           id: `${day}-${channel}-content`,
-          type: 'content' as const,
+          type: 'content',
           title: channelTasks[taskIndex],
           description: `Create and publish content for ${channel} channel`,
           channel,
-          effort: 'high' as const,
+          effort: 'high',
           expected: 'Content published'
         })
       }
@@ -173,11 +175,11 @@ function generateCalendar(channels: Channel[], vertical: Vertical): CalendarDay[
       if (day % 5 === 0) { // Every 5 days - Outreach
         tasks.push({
           id: `${day}-${channel}-outreach`,
-          type: 'outreach' as const,
+          type: 'outreach',
           title: `${channel} outreach and engagement`,
           description: `Connect with prospects and engage with community on ${channel}`,
           channel,
-          effort: 'medium' as const,
+          effort: 'medium',
           expected: '5+ meaningful connections'
         })
       }
@@ -185,11 +187,11 @@ function generateCalendar(channels: Channel[], vertical: Vertical): CalendarDay[
       if (day % 7 === 0) { // Sundays - Analysis
         tasks.push({
           id: `${day}-${channel}-analysis`,
-          type: 'analysis' as const,
+          type: 'analysis',
           title: `Analyze ${channel} performance`,
           description: `Review metrics and optimize strategy for ${channel}`,
           channel,
-          effort: 'low' as const,
+          effort: 'low',
           expected: 'Weekly report completed'
         })
       }
@@ -267,7 +269,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url)
-  const vertical = searchParams.get('vertical') as Vertical || 'saas'
+  const vertical = (searchParams.get('vertical') as Vertical) || 'saas'
   const channelsParam = searchParams.get('channels') || 'seo,social'
   const channels = channelsParam.split(',') as Channel[]
   
