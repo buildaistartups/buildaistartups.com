@@ -32,14 +32,14 @@ export default function HeroLight() {
             {/* Eyebrow / badge */}
             <div className="mb-6" data-aos="fade-down">
               <div className="inline-flex relative before:absolute before:inset-0 before:bg-purple-500 before:blur-md">
-                
+                <a
                   className="btn-sm py-0.5 text-slate-700 hover:text-slate-900 transition duration-150 ease-in-out group [background:linear-gradient(var(--color-purple-500),var(--color-purple-500))_padding-box,linear-gradient(var(--color-purple-500),var(--color-purple-200)_75%,transparent_100%)_border-box] relative before:absolute before:inset-0 before:bg-white/50 before:rounded-full before:pointer-events-none shadow-sm"
                   href="/start"
                 >
                   <span className="relative inline-flex items-center">
                     Zero to Hero in record time{' '}
                     <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                      -&gt;
+                      →
                     </span>
                   </span>
                 </a>
@@ -73,18 +73,18 @@ export default function HeroLight() {
               data-aos-delay="400"
             >
               <div>
-                
+                <a
                   className="btn text-white bg-gradient-to-r from-purple-600 via-purple-500 to-purple-600 hover:from-purple-700 hover:via-purple-600 hover:to-purple-700 w-full transition duration-150 ease-in-out group cta-primary"
                   href="/start"
                 >
                   Start from zero{' '}
                   <span className="tracking-normal text-purple-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                    -&gt;
+                    →
                   </span>
                 </a>
               </div>
               <div>
-                
+                <a
                   className="btn text-slate-700 hover:text-slate-900 bg-white hover:bg-slate-50 border border-slate-300 w-full transition duration-150 ease-in-out"
                   href="/product/builder"
                 >
