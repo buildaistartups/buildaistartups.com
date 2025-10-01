@@ -1,0 +1,130 @@
+// components/home/Hero.tsx
+'use client'
+
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Particles from '@/components/particles'
+
+const audiences = [
+  {
+    title: 'For Startups',
+    headline: 'Build, Scale, and Profit from AI. Complete Toolkit Included.',
+    subheadline: 'Everything you need to launch and grow your AI business in one platform',
+    cta1: { text: 'Start Building', href: '/generate' },
+    cta2: { text: 'Access Startup Tools', href: '/solutions/indie-makers' }
+  },
+  {
+    title: 'For Enterprises',
+    headline: 'Launch Your Innovation Lab. White-Label Everything.',
+    subheadline: 'Transform your organization into an AI powerhouse with enterprise-grade tools',
+    cta1: { text: 'Deploy Enterprise Lab', href: '/solutions/enterprises' },
+    cta2: { text: 'See Enterprise Features', href: '/product/api' }
+  },
+  {
+    title: 'For Accelerators',
+    headline: 'Run World-Class Programs. Ship Real Products.',
+    subheadline: 'Complete cohort management system that gets startups to revenue faster',
+    cta1: { text: 'Manage Your Cohort', href: '/solutions/accelerators' },
+    cta2: { text: 'Demo Day Tools', href: '/product/ecosystem' }
+  },
+  {
+    title: 'For Product Managers',
+    headline: 'Enterprise Workflows. Zero Dependencies.',
+    subheadline: 'Integrate AI capabilities directly into your existing enterprise stack',
+    cta1: { text: 'See Enterprise Integrations', href: '/solutions/product-teams' },
+    cta2: { text: 'Book PM Demo', href: '/contact?type=demo' }
+  }
+]
+
+export default function Hero() {
+  const [currentAudience, setCurrentAudience] = useState(0)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentAudience((prev) => (prev + 1) % audiences.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const current = audiences[currentAudience]
+
+  return (
+    <section className="relative">
+      <Particles className="absolute inset-0 -z-10" />
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <div className="pt-32 pb-16 md:pt-52 md:pb-32">
+          {/* Rotating audience indicator */}
+          <div className="text-center mb-8">
+            <div className="inline-flex gap-2">
+              {audiences.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentAudience(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentAudience 
+                      ? 'w-8 bg-purple-500' 
+                      : 'bg-slate-600 hover:bg-slate-500'
+                  }`}
+                />
+              ))}
+            </div>
+            <div className="mt-4 text-sm font-medium text-purple-400">
+              {current.title}
+            </div>
+          </div>
+
+          {/* Main content */}
+          <div className="text-center">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
+              {current.headline}
+            </h1>
+            <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+              {current.subheadline}
+            </p>
+            
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href={current.cta1.href}
+                className="btn bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700"
+              >
+                {current.cta1.text}
+              </Link>
+              <Link
+                href={current.cta2.href}
+                className="btn bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+              >
+                {current.cta2.text}
+              </Link>
+            </div>
+          </div>
+
+          {/* Live ecosystem intelligence */}
+          <div className="mt-16 grid md:grid-cols-4 gap-6 text-center">
+            <div className="bg-slate-800/50 rounded-lg p-4">
+              <div className="text-2xl mb-1">🤖</div>
+              <div className="text-xl font-bold text-purple-400">423</div>
+              <div className="text-sm text-slate-400">Perfect Partnerships</div>
+            </div>
+            <div className="bg-slate-800/50 rounded-lg p-4">
+              <div className="text-2xl mb-1">📊</div>
+              <div className="text-xl font-bold text-green-400">89%</div>
+              <div className="text-sm text-slate-400">Reach Revenue</div>
+            </div>
+            <div className="bg-slate-800/50 rounded-lg p-4">
+              <div className="text-2xl mb-1">🏢</div>
+              <div className="text-xl font-bold text-blue-400">47</div>
+              <div className="text-sm text-slate-400">White-Label Labs</div>
+            </div>
+            <div className="bg-slate-800/50 rounded-lg p-4">
+              <div className="text-2xl mb-1">🎓</div>
+              <div className="text-xl font-bold text-yellow-400">2,847</div>
+              <div className="text-sm text-slate-400">Certifications Earned</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
