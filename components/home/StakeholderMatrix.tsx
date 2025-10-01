@@ -2,9 +2,23 @@
 'use client'
 
 import Link from 'next/link'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, Sparkles } from 'lucide-react'
 
 const stakeholders = [
+  {
+    title: 'STARTUPS',
+    badge: '🚀 Core',
+    highlight: true, // This is the primary audience
+    features: [
+      'Zero to MVP in 48 hours',
+      'AI-powered idea validation',
+      'Instant repo with CI/CD',
+      'Built-in payments & auth',
+      'Auto-scaling infrastructure',
+      'Customer acquisition tools'
+    ],
+    cta: { text: 'Start Building Now', href: '/generate' }
+  },
   {
     title: 'ENTERPRISES',
     badge: 'New!',
@@ -64,18 +78,6 @@ const stakeholders = [
       'Portfolio Showcase'
     ],
     cta: { text: 'Start Learning Path', href: '/solutions/universities' }
-  },
-  {
-    title: 'EXISTING STARTUPS',
-    badge: 'Enhanced!',
-    features: [
-      'Legacy System Integration',
-      'API Migration Tools',
-      'Gradual AI Adoption Path',
-      'Team Training Modules',
-      'Growth Acceleration Suite'
-    ],
-    cta: { text: 'Integrate Your Stack', href: '/solutions/startups' }
   }
 ]
 
@@ -90,21 +92,31 @@ export default function StakeholderMatrix() {
               Every Role. Every Tool. Every Gap Filled.
             </h2>
             <p className="text-lg text-slate-400">
-              Interactive Grid - Shows ALL Capabilities
+              Complete ecosystem where startups thrive and everyone wins
             </p>
           </div>
 
-          {/* Stakeholder grid */}
+          {/* Stakeholder grid - Startups featured prominently */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {stakeholders.map((stakeholder) => (
               <div
                 key={stakeholder.title}
-                className="bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-slate-700 hover:border-purple-500/50 transition-all"
+                className={`${
+                  stakeholder.highlight 
+                    ? 'bg-gradient-to-br from-purple-900/30 to-blue-900/30 border-purple-500' 
+                    : 'bg-slate-800/50 border-slate-700'
+                } backdrop-blur rounded-xl p-6 border hover:border-purple-500/50 transition-all ${
+                  stakeholder.highlight ? 'ring-2 ring-purple-500/20' : ''
+                }`}
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold text-slate-200">{stakeholder.title}</h3>
                   {stakeholder.badge && (
-                    <span className="text-xs px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full">
+                    <span className={`text-xs px-2 py-1 ${
+                      stakeholder.highlight 
+                        ? 'bg-purple-500/30 text-purple-300' 
+                        : 'bg-purple-500/20 text-purple-400'
+                    } rounded-full`}>
                       {stakeholder.badge}
                     </span>
                   )}
@@ -113,7 +125,11 @@ export default function StakeholderMatrix() {
                 <ul className="space-y-2 mb-6">
                   {stakeholder.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
-                      <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                      {stakeholder.highlight ? (
+                        <Sparkles className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      ) : (
+                        <CheckCircle className="w-4 h-4 text-green-400 mt-0.5 flex-shrink-0" />
+                      )}
                       <span className="text-sm text-slate-300">{feature}</span>
                     </li>
                   ))}
@@ -121,7 +137,11 @@ export default function StakeholderMatrix() {
                 
                 <Link
                   href={stakeholder.cta.href}
-                  className="block text-center py-2 px-4 bg-purple-500/20 text-purple-400 rounded-lg hover:bg-purple-500/30 transition-colors"
+                  className={`block text-center py-2 px-4 rounded-lg transition-colors ${
+                    stakeholder.highlight
+                      ? 'bg-purple-500 text-white hover:bg-purple-600'
+                      : 'bg-purple-500/20 text-purple-400 hover:bg-purple-500/30'
+                  }`}
                 >
                   {stakeholder.cta.text}
                 </Link>
