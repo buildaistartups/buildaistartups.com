@@ -56,6 +56,9 @@ importers:
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
+      lucide:
+        specifier: ^0.544.0
+        version: 0.544.0
       lucide-react:
         specifier: ^0.263.1
         version: 0.263.1(react@19.0.0)
@@ -2301,6 +2304,9 @@ packages:
     resolution: {integrity: sha512-keqxAx97PlaEN89PXZ6ki1N8nRjGWtDa4021GFYLNj0RgruM5odbpl8GHTExj0hhPq3sF6Up0gnxt6TSHu+ovw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
+
+  lucide@0.544.0:
+    resolution: {integrity: sha512-U5ORwr5z9Sx7bNTDFaW55RbjVdQEnAcT3vws9uz3vRT1G4XXJUDAhRZdxhFoIyHEvjmTkzzlEhjSLYM5n4mb5w==}
 
   magic-string@0.30.19:
     resolution: {integrity: sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==}
@@ -5505,6 +5511,8 @@ snapshots:
   lucide-react@0.263.1(react@19.0.0):
     dependencies:
       react: 19.0.0
+
+  lucide@0.544.0: {}
 
   magic-string@0.30.19:
     dependencies:
