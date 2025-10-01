@@ -1,6 +1,7 @@
 // components/home/EnterpriseInnovation.tsx
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { Building, Shield, Users, TrendingUp, Zap, Settings } from 'lucide-react'
 
