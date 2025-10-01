@@ -2,6 +2,7 @@
 'use client'
 
 import { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Lightbulb, Code, Rocket, TrendingUp, DollarSign } from 'lucide-react'
 
