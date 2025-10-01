@@ -9,26 +9,25 @@ export default function AuthLogo() {
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  useEffect(() => setMounted(true), [])
 
+  // While theme is unknown on first render, preserve layout to avoid shift
   if (!mounted) {
-    return <div style={{ width: 120, height: 60 }} />
+    return (
+      <span className="inline-block w-[120px] h-[60px]" aria-hidden="true" />
+    )
   }
 
   const logoSrc =
-    resolvedTheme === 'dark'
-      ? '/images/logo-dark.svg'
-      : '/images/logo-light.svg'
+    resolvedTheme === 'light' ? '/images/logo-light.svg' : '/images/logo-dark.svg'
 
   return (
-    <Link href="/" aria-label="BuildAIStartups" className="inline-flex items-center">
+    <Link href="/" aria-label="Build AI Startups" className="inline-flex items-center" prefetch={false}>
       <Image
         src={logoSrc}
         width={120}
         height={60}
-        alt="BuildAIStartups Logo"
+        alt="Build AI Startups logo"
         priority
       />
     </Link>

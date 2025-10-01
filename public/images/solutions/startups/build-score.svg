@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+
+  <defs>
+    <linearGradient id="gradPB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6C4CF4"/>
+      <stop offset="100%" stop-color="#12A1FF"/>
+    </linearGradient>
+    <linearGradient id="gradBlue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12A1FF"/>
+      <stop offset="100%" stop-color="#6C4CF4"/>
+    </linearGradient>
+    <filter id="shadowSoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.15"/>
+    </filter>
+    <style>
+      .title { font: 700 28px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0E2A47; }
+      .subtitle { font: 600 16px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #4B5563; }
+      .label { font: 600 14px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0E2A47; }
+      .small { font: 12px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #4B5563; }
+      .big { font: 800 56px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0E2A47; }
+      .chip { font: 600 12px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: white; }
+      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; fill: #4B5563; }
+    </style>
+  </defs>
+<text class="title" x="40" y="50">Build Score Dashboard</text>
+<text class="subtitle" x="40" y="76">Weighted metrics combine into an overall score · 2025-09-16</text>
+<circle cx="280" cy="320" r="128.0" stroke="#E5E7EB" stroke-width="24" fill="none" opacity="0.6"/>
+<path d="M 280.0000 192.0000 A 128.0000 128.0000 0 1 1 171.9260 251.4142" stroke="url(#gradPB)" stroke-width="24" fill="none" stroke-linecap="round" filter="url(#shadowSoft)"/>
+<line x1="186.15" y1="251.82" x2="166.74" y2="237.71" stroke="#6C4CF4" stroke-width="3"/>
+<text class="big" x="280" y="330" text-anchor="middle">84</text>
+<text class="subtitle" x="280" y="368" text-anchor="middle">Overall Build Score</text>
+<text class="label" x="520" y="160">Code Quality <tspan class="small">(25%)</tspan></text>
+<text class="label" x="1140" y="160" text-anchor="end">92%</text>
+<rect x="520" y="170" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
+<rect x="520" y="170" width="570.4" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
+<line x1="1047.0" y1="164" x2="1047.0" y2="192" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
+<text class="small" x="1053.0" y="204">Threshold 85%</text>
+<text class="label" x="520" y="244">Security <tspan class="small">(25%)</tspan></text>
+<text class="label" x="1140" y="244" text-anchor="end">78%</text>
+<rect x="520" y="254" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
+<rect x="520" y="254" width="483.6" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
+<line x1="1047.0" y1="248" x2="1047.0" y2="276" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
+<text class="small" x="1053.0" y="288">Threshold 85%</text>
+<text class="label" x="520" y="328">Performance <tspan class="small">(25%)</tspan></text>
+<text class="label" x="1140" y="328" text-anchor="end">86%</text>
+<rect x="520" y="338" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
+<rect x="520" y="338" width="533.2" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
+<line x1="1047.0" y1="332" x2="1047.0" y2="360" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
+<text class="small" x="1053.0" y="372">Threshold 85%</text>
+<text class="label" x="520" y="412">Documentation <tspan class="small">(25%)</tspan></text>
+<text class="label" x="1140" y="412" text-anchor="end">80%</text>
+<rect x="520" y="422" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
+<rect x="520" y="422" width="496.0" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
+<line x1="1047.0" y1="416" x2="1047.0" y2="444" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
+<text class="small" x="1053.0" y="456">Threshold 85%</text>
+<rect x="520" y="114" width="200" height="28" rx="14" ry="14" fill="url(#gradPB)"/>
+<text class="chip" x="534" y="133">Weights: 25% each</text>
+<circle cx="742" cy="128" r="6" fill="#6C4CF4"/>
+<text class="small" x="754" y="132">Threshold</text>
+<polygon points="300,580.0 330.0,610 300,640.0 270.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="0.5"/>
+<polygon points="300,550.0 360.0,610 300,670.0 240.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="0.5"/>
+<polygon points="300,520.0 390.0,610 300,700.0 210.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="0.5"/>
+<polygon points="300,490.0 420.0,610 300,730.0 180.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="1.0"/>
+<line x1="300" y1="610" x2="300" y2="490" stroke="#E5E7EB" stroke-width="1"/>
+<line x1="300" y1="610" x2="420" y2="610" stroke="#E5E7EB" stroke-width="1"/>
+<line x1="300" y1="610" x2="300" y2="730" stroke="#E5E7EB" stroke-width="1"/>
+<line x1="300" y1="610" x2="180" y2="610" stroke="#E5E7EB" stroke-width="1"/>
+<polygon points="300.00,499.60 393.60,610.00 300.00,713.20 204.00,610.00" fill="url(#gradBlue)" opacity="0.25" stroke="url(#gradPB)" stroke-width="2"/>
+<text class="label" x="300" y="474" text-anchor="middle">Code Quality <tspan class="small">92%</tspan></text>
+<text class="label" x="430" y="614" text-anchor="start">Security <tspan class="small">78%</tspan></text>
+<text class="label" x="300" y="750" text-anchor="middle">Performance <tspan class="small">86%</tspan></text>
+<text class="label" x="170" y="614" text-anchor="end">Documentation <tspan class="small">80%</tspan></text>
+<text class="small" x="300" y="772" text-anchor="middle">Radar profile across weighted axes</text>
+<text class="mono" x="40" y="760">Transparent background · Purple/Blue palette · Progress indicators + threshold lines</text>
+</svg>

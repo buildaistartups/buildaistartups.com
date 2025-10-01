@@ -1,0 +1,357 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" style="background: none" role="img">
+  <defs>
+    <style><![CDATA[
+      @font-face { font-family: ui-sans-serif; }
+      .title { font: 600 26px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 400 14px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #334155; }
+      .axis { stroke: rgba(148, 163, 184, 0.55); stroke-width: 1; fill: none; }
+      .grid { stroke: rgba(148, 163, 184, 0.25); stroke-width: 1; fill: none; }
+      .label { font: 500 12px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0f172a; }
+      .small { font: 400 11px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #475569; }
+      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+      .chip { font: 600 11px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0f172a; }
+    ]]></style>
+  </defs>
+  <g transform="translate(28,28)">
+    <text class="title" style="font-size:30px">Standardized Startup Metrics Dashboard</text>
+    <text class="subtitle" y="26">Vector SVG • Transparent background • Purple/Blue palette • Investment analytics</text>
+  </g>
+  <g transform="translate(28,86)">
+      <rect x="0" y="0" width="980" height="280" rx="16" ry="16" fill="none" stroke="rgba(99,102,241,0.45)" stroke-width="1.25"/>
+      <text x="20" y="28" class="title">Revenue Trend (Index, 12 months)</text>
+      <text x="20" y="47" class="subtitle">Indexed to 100 at month 0; trend lines by startup</text>
+<rect x="48" y="146" width="940" height="180" class="axis"/>
+<line x1="48" y1="146.0" x2="988" y2="146.0" class="grid"/>
+<line x1="48" y1="236.0" x2="988" y2="236.0" class="grid"/>
+<line x1="48" y1="326.0" x2="988" y2="326.0" class="grid"/>
+<line x1="48.0" y1="146" x2="48.0" y2="326" class="grid"/>
+<line x1="236.0" y1="146" x2="236.0" y2="326" class="grid"/>
+<line x1="424.0" y1="146" x2="424.0" y2="326" class="grid"/>
+<line x1="612.0" y1="146" x2="612.0" y2="326" class="grid"/>
+<line x1="800.0" y1="146" x2="800.0" y2="326" class="grid"/>
+<line x1="988.0" y1="146" x2="988.0" y2="326" class="grid"/>
+<text x="48.0" y="344" text-anchor="middle" class="small">Jan</text>
+<text x="236.0" y="344" text-anchor="middle" class="small">Mar</text>
+<text x="424.0" y="344" text-anchor="middle" class="small">May</text>
+<text x="612.0" y="344" text-anchor="middle" class="small">Jul</text>
+<text x="800.0" y="344" text-anchor="middle" class="small">Sep</text>
+<text x="988.0" y="344" text-anchor="middle" class="small">Nov</text>
+<text x="40" y="150.0" text-anchor="end" class="small">90</text>
+<text x="40" y="240.0" text-anchor="end" class="small">178</text>
+<text x="40" y="330.0" text-anchor="end" class="small">266</text>
+<path d="M 48.00,315.77 L 133.45,310.66 L 218.91,305.55 L 304.36,297.36 L 389.82,290.20 L 475.27,283.05 L 560.73,274.86 L 646.18,266.68 L 731.64,259.52 L 817.09,252.36 L 902.55,244.18 L 988.00,233.95" fill="none" stroke="#8B5CF6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 48.00,315.77 L 133.45,312.70 L 218.91,308.61 L 304.36,303.50 L 389.82,297.36 L 475.27,292.25 L 560.73,286.11 L 646.18,281.00 L 731.64,275.89 L 817.09,269.75 L 902.55,264.64 L 988.00,258.50" fill="none" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 48.00,315.77 L 133.45,307.59 L 218.91,299.41 L 304.36,289.18 L 389.82,276.91 L 475.27,264.64 L 560.73,249.30 L 646.18,231.91 L 731.64,213.50 L 817.09,193.05 L 902.55,170.55 L 988.00,146.00" fill="none" stroke="#6E56CF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(858,106)">
+<rect x="0" y="-10" width="16" height="3" rx="2" fill="#8B5CF6"/>
+<text x="22" y="0" class="small">Orion</text>
+<rect x="0" y="8" width="16" height="3" rx="2" fill="#38BDF8"/>
+<text x="22" y="18" class="small">Nimbus</text>
+<rect x="0" y="26" width="16" height="3" rx="2" fill="#6E56CF"/>
+<text x="22" y="36" class="small">Quanta</text>
+</g>  </g>
+  <g transform="translate(28,390)">
+      <rect x="0" y="0" width="980" height="260" rx="16" ry="16" fill="none" stroke="rgba(99,102,241,0.45)" stroke-width="1.25"/>
+      <text x="20" y="28" class="title">Retention Curve (Cohort, Monthly)</text>
+      <text x="20" y="47" class="subtitle">Normalized to 100 at month 0</text>
+<rect x="48" y="450" width="940" height="160" class="axis"/>
+<line x1="48" y1="450.0" x2="988" y2="450.0" class="grid"/>
+<line x1="48" y1="490.0" x2="988" y2="490.0" class="grid"/>
+<line x1="48" y1="530.0" x2="988" y2="530.0" class="grid"/>
+<line x1="48" y1="570.0" x2="988" y2="570.0" class="grid"/>
+<line x1="48" y1="610.0" x2="988" y2="610.0" class="grid"/>
+<line x1="48.0" y1="450" x2="48.0" y2="610" class="grid"/>
+<line x1="204.66666666666666" y1="450" x2="204.66666666666666" y2="610" class="grid"/>
+<line x1="361.3333333333333" y1="450" x2="361.3333333333333" y2="610" class="grid"/>
+<line x1="518.0" y1="450" x2="518.0" y2="610" class="grid"/>
+<line x1="674.6666666666666" y1="450" x2="674.6666666666666" y2="610" class="grid"/>
+<line x1="831.3333333333334" y1="450" x2="831.3333333333334" y2="610" class="grid"/>
+<line x1="988.0" y1="450" x2="988.0" y2="610" class="grid"/>
+<text x="48.0" y="628" text-anchor="middle" class="small">0</text>
+<text x="204.66666666666666" y="628" text-anchor="middle" class="small">1</text>
+<text x="361.3333333333333" y="628" text-anchor="middle" class="small">2</text>
+<text x="518.0" y="628" text-anchor="middle" class="small">3</text>
+<text x="674.6666666666666" y="628" text-anchor="middle" class="small">4</text>
+<text x="831.3333333333334" y="628" text-anchor="middle" class="small">5</text>
+<text x="988.0" y="628" text-anchor="middle" class="small">6</text>
+<text x="40" y="454.0" text-anchor="end" class="small">0%</text>
+<text x="40" y="494.0" text-anchor="end" class="small">25%</text>
+<text x="40" y="534.0" text-anchor="end" class="small">50%</text>
+<text x="40" y="574.0" text-anchor="end" class="small">75%</text>
+<text x="40" y="614.0" text-anchor="end" class="small">100%</text>
+<path d="M 48.00,450.00 L 204.67,522.00 L 361.33,538.00 L 518.00,547.60 L 674.67,555.60 L 831.33,560.40 L 988.00,565.20" fill="none" stroke="#8B5CF6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 48.00,450.00 L 204.67,530.00 L 361.33,546.00 L 518.00,557.20 L 674.67,563.60 L 831.33,566.80 L 988.00,570.00" fill="none" stroke="#38BDF8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 48.00,450.00 L 204.67,514.00 L 361.33,530.00 L 518.00,538.00 L 674.67,544.40 L 831.33,549.20 L 988.00,554.00" fill="none" stroke="#6E56CF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(858,410)">
+<rect x="0" y="-10" width="16" height="3" rx="2" fill="#8B5CF6"/>
+<text x="22" y="0" class="small">Orion</text>
+<rect x="0" y="8" width="16" height="3" rx="2" fill="#38BDF8"/>
+<text x="22" y="18" class="small">Nimbus</text>
+<rect x="0" y="26" width="16" height="3" rx="2" fill="#6E56CF"/>
+<text x="22" y="36" class="small">Quanta</text>
+</g>  </g>
+  <g transform="translate(28,680)">
+      <rect x="0" y="0" width="760" height="280" rx="16" ry="16" fill="none" stroke="rgba(99,102,241,0.45)" stroke-width="1.25"/>
+      <text x="20" y="28" class="title">Activation Funnel (Normalized)</text>
+      <text x="20" y="47" class="subtitle">100 = Top of funnel</text>
+<line x1="48" y1="740.0" x2="768" y2="740.0" class="grid"/>
+<line x1="48" y1="782.5" x2="768" y2="782.5" class="grid"/>
+<line x1="48" y1="825.0" x2="768" y2="825.0" class="grid"/>
+<line x1="48" y1="867.5" x2="768" y2="867.5" class="grid"/>
+<line x1="48" y1="910.0" x2="768" y2="910.0" class="grid"/>
+<rect x="48" y="740" width="720" height="170" class="axis"/>
+<text x="129.00" y="928" text-anchor="middle" class="small">Visits</text>
+<rect x="48.00" y="740.00" width="47.33" height="170.00" fill="#8B5CF6" rx="5"/>
+<text x="71.67" y="734.00" text-anchor="middle" class="small">100</text>
+<rect x="105.33" y="740.00" width="47.33" height="170.00" fill="#38BDF8" rx="5"/>
+<text x="129.00" y="734.00" text-anchor="middle" class="small">100</text>
+<rect x="162.67" y="740.00" width="47.33" height="170.00" fill="#6E56CF" rx="5"/>
+<text x="186.33" y="734.00" text-anchor="middle" class="small">100</text>
+<text x="315.00" y="928" text-anchor="middle" class="small">Signups</text>
+<rect x="234.00" y="838.60" width="47.33" height="71.40" fill="#8B5CF6" rx="5"/>
+<text x="257.67" y="832.60" text-anchor="middle" class="small">42</text>
+<rect x="291.33" y="845.40" width="47.33" height="64.60" fill="#38BDF8" rx="5"/>
+<text x="315.00" y="839.40" text-anchor="middle" class="small">38</text>
+<rect x="348.67" y="816.50" width="47.33" height="93.50" fill="#6E56CF" rx="5"/>
+<text x="372.33" y="810.50" text-anchor="middle" class="small">55</text>
+<text x="501.00" y="928" text-anchor="middle" class="small">Onboarded</text>
+<rect x="420.00" y="850.50" width="47.33" height="59.50" fill="#8B5CF6" rx="5"/>
+<text x="443.67" y="844.50" text-anchor="middle" class="small">35</text>
+<rect x="477.33" y="857.30" width="47.33" height="52.70" fill="#38BDF8" rx="5"/>
+<text x="501.00" y="851.30" text-anchor="middle" class="small">31</text>
+<rect x="534.67" y="835.20" width="47.33" height="74.80" fill="#6E56CF" rx="5"/>
+<text x="558.33" y="829.20" text-anchor="middle" class="small">44</text>
+<text x="687.00" y="928" text-anchor="middle" class="small">Activated</text>
+<rect x="606.00" y="862.40" width="47.33" height="47.60" fill="#8B5CF6" rx="5"/>
+<text x="629.67" y="856.40" text-anchor="middle" class="small">28</text>
+<rect x="663.33" y="869.20" width="47.33" height="40.80" fill="#38BDF8" rx="5"/>
+<text x="687.00" y="863.20" text-anchor="middle" class="small">24</text>
+<rect x="720.67" y="848.80" width="47.33" height="61.20" fill="#6E56CF" rx="5"/>
+<text x="744.33" y="842.80" text-anchor="middle" class="small">36</text>
+<text x="40" y="744.0" text-anchor="end" class="small">100</text>
+<text x="40" y="786.5" text-anchor="end" class="small">75</text>
+<text x="40" y="829.0" text-anchor="end" class="small">50</text>
+<text x="40" y="871.5" text-anchor="end" class="small">25</text>
+<text x="40" y="914.0" text-anchor="end" class="small">0</text><g transform="translate(638,700)">
+<rect x="0" y="-10" width="16" height="3" rx="2" fill="#8B5CF6"/>
+<text x="22" y="0" class="small">Orion</text>
+<rect x="0" y="8" width="16" height="3" rx="2" fill="#38BDF8"/>
+<text x="22" y="18" class="small">Nimbus</text>
+<rect x="0" y="26" width="16" height="3" rx="2" fill="#6E56CF"/>
+<text x="22" y="36" class="small">Quanta</text>
+</g>  </g>
+  <g transform="translate(820,680)">
+      <rect x="0" y="0" width="760" height="280" rx="16" ry="16" fill="none" stroke="rgba(99,102,241,0.45)" stroke-width="1.25"/>
+      <text x="20" y="28" class="title">Usage Funnel (Normalized)</text>
+      <text x="20" y="47" class="subtitle">100 = MAU</text>
+<line x1="840" y1="740.0" x2="1560" y2="740.0" class="grid"/>
+<line x1="840" y1="782.5" x2="1560" y2="782.5" class="grid"/>
+<line x1="840" y1="825.0" x2="1560" y2="825.0" class="grid"/>
+<line x1="840" y1="867.5" x2="1560" y2="867.5" class="grid"/>
+<line x1="840" y1="910.0" x2="1560" y2="910.0" class="grid"/>
+<rect x="840" y="740" width="720" height="170" class="axis"/>
+<text x="921.00" y="928" text-anchor="middle" class="small">MAU</text>
+<rect x="840.00" y="740.00" width="47.33" height="170.00" fill="#8B5CF6" rx="5"/>
+<text x="863.67" y="734.00" text-anchor="middle" class="small">100</text>
+<rect x="897.33" y="740.00" width="47.33" height="170.00" fill="#38BDF8" rx="5"/>
+<text x="921.00" y="734.00" text-anchor="middle" class="small">100</text>
+<rect x="954.67" y="740.00" width="47.33" height="170.00" fill="#6E56CF" rx="5"/>
+<text x="978.33" y="734.00" text-anchor="middle" class="small">100</text>
+<text x="1107.00" y="928" text-anchor="middle" class="small">WAU</text>
+<rect x="1026.00" y="794.40" width="47.33" height="115.60" fill="#8B5CF6" rx="5"/>
+<text x="1049.67" y="788.40" text-anchor="middle" class="small">68</text>
+<rect x="1083.33" y="808.00" width="47.33" height="102.00" fill="#38BDF8" rx="5"/>
+<text x="1107.00" y="802.00" text-anchor="middle" class="small">60</text>
+<rect x="1140.67" y="787.60" width="47.33" height="122.40" fill="#6E56CF" rx="5"/>
+<text x="1164.33" y="781.60" text-anchor="middle" class="small">72</text>
+<text x="1293.00" y="928" text-anchor="middle" class="small">DAU</text>
+<rect x="1212.00" y="842.00" width="47.33" height="68.00" fill="#8B5CF6" rx="5"/>
+<text x="1235.67" y="836.00" text-anchor="middle" class="small">40</text>
+<rect x="1269.33" y="845.40" width="47.33" height="64.60" fill="#38BDF8" rx="5"/>
+<text x="1293.00" y="839.40" text-anchor="middle" class="small">38</text>
+<rect x="1326.67" y="828.40" width="47.33" height="81.60" fill="#6E56CF" rx="5"/>
+<text x="1350.33" y="822.40" text-anchor="middle" class="small">48</text>
+<text x="1479.00" y="928" text-anchor="middle" class="small">Power</text>
+<rect x="1398.00" y="879.40" width="47.33" height="30.60" fill="#8B5CF6" rx="5"/>
+<text x="1421.67" y="873.40" text-anchor="middle" class="small">18</text>
+<rect x="1455.33" y="886.20" width="47.33" height="23.80" fill="#38BDF8" rx="5"/>
+<text x="1479.00" y="880.20" text-anchor="middle" class="small">14</text>
+<rect x="1512.67" y="872.60" width="47.33" height="37.40" fill="#6E56CF" rx="5"/>
+<text x="1536.33" y="866.60" text-anchor="middle" class="small">22</text>
+<text x="832" y="744.0" text-anchor="end" class="small">100</text>
+<text x="832" y="786.5" text-anchor="end" class="small">75</text>
+<text x="832" y="829.0" text-anchor="end" class="small">50</text>
+<text x="832" y="871.5" text-anchor="end" class="small">25</text>
+<text x="832" y="914.0" text-anchor="end" class="small">0</text><g transform="translate(1430,700)">
+<rect x="0" y="-10" width="16" height="3" rx="2" fill="#8B5CF6"/>
+<text x="22" y="0" class="small">Orion</text>
+<rect x="0" y="8" width="16" height="3" rx="2" fill="#38BDF8"/>
+<text x="22" y="18" class="small">Nimbus</text>
+<rect x="0" y="26" width="16" height="3" rx="2" fill="#6E56CF"/>
+<text x="22" y="36" class="small">Quanta</text>
+</g>  </g>
+  <g transform="translate(1040,86)">
+      <rect x="0" y="0" width="532" height="280" rx="16" ry="16" fill="none" stroke="rgba(99,102,241,0.45)" stroke-width="1.25"/>
+      <text x="20" y="28" class="title">Standardized KPI Indicators (0–100)</text>
+      <text x="20" y="47" class="subtitle">Min–max scaled across startups; values show raw KPI + standardized bar</text>
+<text x="1060" y="130" class="label" fill="#8B5CF6">Orion</text>
+    <g>
+      <rect x="1060" y="138" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="158" class="chip">Activation Rate</text>
+      <text x="1190" y="158" class="mono" fill="#8B5CF6">28%</text>
+      
+        <rect x="1210" y="144" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="144" width="86.7" height="6" rx="3" fill="#8B5CF6"/>
+        <text x="1478" y="149" class="small">33</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="178" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="198" class="chip">D30 Retention</text>
+      <text x="1190" y="198" class="mono" fill="#8B5CF6">55%</text>
+      
+        <rect x="1210" y="184" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="184" width="130.0" height="6" rx="3" fill="#8B5CF6"/>
+        <text x="1478" y="189" class="small">50</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="218" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="238" class="chip">Revenue Growth (12m)</text>
+      <text x="1190" y="238" class="mono" fill="#8B5CF6">80%</text>
+      
+        <rect x="1210" y="224" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="224" width="56.7" height="6" rx="3" fill="#8B5CF6"/>
+        <text x="1478" y="229" class="small">22</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="258" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="278" class="chip">WAU/MAU</text>
+      <text x="1190" y="278" class="mono" fill="#8B5CF6">68%</text>
+      
+        <rect x="1210" y="264" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="264" width="173.3" height="6" rx="3" fill="#8B5CF6"/>
+        <text x="1478" y="269" class="small">67</text>
+        
+    </g>
+    <text x="1060" y="298" class="label" fill="#38BDF8">Nimbus</text>
+    <g>
+      <rect x="1060" y="306" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="326" class="chip">Activation Rate</text>
+      <text x="1190" y="326" class="mono" fill="#38BDF8">24%</text>
+      
+        <rect x="1210" y="312" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="312" width="0.0" height="6" rx="3" fill="#38BDF8"/>
+        <text x="1478" y="317" class="small">0</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="346" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="366" class="chip">D30 Retention</text>
+      <text x="1190" y="366" class="mono" fill="#38BDF8">50%</text>
+      
+        <rect x="1210" y="352" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="352" width="0.0" height="6" rx="3" fill="#38BDF8"/>
+        <text x="1478" y="357" class="small">0</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="386" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="406" class="chip">Revenue Growth (12m)</text>
+      <text x="1190" y="406" class="mono" fill="#38BDF8">56%</text>
+      
+        <rect x="1210" y="392" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="392" width="0.0" height="6" rx="3" fill="#38BDF8"/>
+        <text x="1478" y="397" class="small">0</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="426" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="446" class="chip">WAU/MAU</text>
+      <text x="1190" y="446" class="mono" fill="#38BDF8">60%</text>
+      
+        <rect x="1210" y="432" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="432" width="0.0" height="6" rx="3" fill="#38BDF8"/>
+        <text x="1478" y="437" class="small">0</text>
+        
+    </g>
+    <text x="1060" y="466" class="label" fill="#6E56CF">Quanta</text>
+    <g>
+      <rect x="1060" y="474" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="494" class="chip">Activation Rate</text>
+      <text x="1190" y="494" class="mono" fill="#6E56CF">36%</text>
+      
+        <rect x="1210" y="480" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="480" width="260.0" height="6" rx="3" fill="#6E56CF"/>
+        <text x="1478" y="485" class="small">100</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="514" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="534" class="chip">D30 Retention</text>
+      <text x="1190" y="534" class="mono" fill="#6E56CF">60%</text>
+      
+        <rect x="1210" y="520" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="520" width="260.0" height="6" rx="3" fill="#6E56CF"/>
+        <text x="1478" y="525" class="small">100</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="554" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="574" class="chip">Revenue Growth (12m)</text>
+      <text x="1190" y="574" class="mono" fill="#6E56CF">166%</text>
+      
+        <rect x="1210" y="560" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="560" width="260.0" height="6" rx="3" fill="#6E56CF"/>
+        <text x="1478" y="565" class="small">100</text>
+        
+    </g>
+    
+    <g>
+      <rect x="1060" y="594" rx="10" ry="10" width="420" height="36" fill="none" stroke="rgba(99,102,241,0.5)"/>
+      <text x="1076" y="614" class="chip">WAU/MAU</text>
+      <text x="1190" y="614" class="mono" fill="#6E56CF">72%</text>
+      
+        <rect x="1210" y="600" width="260" height="6" rx="3" fill="rgba(15,23,42,0.08)"/>
+        <rect x="1210" y="600" width="260.0" height="6" rx="3" fill="#6E56CF"/>
+        <text x="1478" y="605" class="small">100</text>
+        
+    </g>
+      </g>
+  <g transform="translate(1040,390)">
+      <rect x="0" y="0" width="532" height="240" rx="16" ry="16" fill="none" stroke="rgba(99,102,241,0.45)" stroke-width="1.25"/>
+      <text x="20" y="28" class="title">KPI Comparison Table</text>
+      <text x="20" y="47" class="subtitle">Raw metrics (not standardized)</text>
+<rect x="1054" y="448" width="504" height="172" fill="none" stroke="rgba(99,102,241,0.45)" rx="12"/>
+<rect x="1054" y="448" width="504" height="36" fill="rgba(15,23,42,0.03)"/>
+<text x="1068" y="472" class="label">Metric</text>
+<text x="1194.0" y="472" class="label" text-anchor="middle">Orion</text>
+<text x="1308.6666666666667" y="472" class="label" text-anchor="middle">Nimbus</text>
+<text x="1423.3333333333333" y="472" class="label" text-anchor="middle">Quanta</text>
+<line x1="1054" y1="484" x2="1558" y2="484" class="grid"/>
+<text x="1068" y="506" class="small">Activation Rate</text>
+<text x="1194.0" y="506" class="mono" text-anchor="middle" fill="#8B5CF6">28%</text>
+<text x="1308.6666666666667" y="506" class="mono" text-anchor="middle" fill="#38BDF8">24%</text>
+<text x="1423.3333333333333" y="506" class="mono" text-anchor="middle" fill="#6E56CF">36%</text>
+<line x1="1054" y1="518" x2="1558" y2="518" class="grid"/>
+<text x="1068" y="540" class="small">D30 Retention</text>
+<text x="1194.0" y="540" class="mono" text-anchor="middle" fill="#8B5CF6">55%</text>
+<text x="1308.6666666666667" y="540" class="mono" text-anchor="middle" fill="#38BDF8">50%</text>
+<text x="1423.3333333333333" y="540" class="mono" text-anchor="middle" fill="#6E56CF">60%</text>
+<line x1="1054" y1="552" x2="1558" y2="552" class="grid"/>
+<text x="1068" y="574" class="small">Revenue Growth (12m)</text>
+<text x="1194.0" y="574" class="mono" text-anchor="middle" fill="#8B5CF6">80%</text>
+<text x="1308.6666666666667" y="574" class="mono" text-anchor="middle" fill="#38BDF8">56%</text>
+<text x="1423.3333333333333" y="574" class="mono" text-anchor="middle" fill="#6E56CF">166%</text>
+<line x1="1054" y1="586" x2="1558" y2="586" class="grid"/>
+<text x="1068" y="608" class="small">WAU/MAU</text>
+<text x="1194.0" y="608" class="mono" text-anchor="middle" fill="#8B5CF6">68%</text>
+<text x="1308.6666666666667" y="608" class="mono" text-anchor="middle" fill="#38BDF8">60%</text>
+<text x="1423.3333333333333" y="608" class="mono" text-anchor="middle" fill="#6E56CF">72%</text>  </g>
+  <g transform="translate(1240,980)">
+      <text class="small">Normalized (0–100). Generated 2025-09-16.</text>
+    </g>
+</svg>

@@ -1,0 +1,371 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+  <defs>
+    <linearGradient id="gradStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6D28D9"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="gradFill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6D28D9" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.10"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="18" markerHeight="18" refX="10" refY="5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="url(#gradStroke)" />
+    </marker>
+    <style>
+      .title { font: 700 30px 'Inter', 'Helvetica Neue', Arial, sans-serif; fill: #0F172A; }
+      .subtitle { font: 500 16px 'Inter', 'Helvetica Neue', Arial, sans-serif; fill: #64748B; }
+      .label { font: 600 16px 'Inter', 'Helvetica Neue', Arial, sans-serif; fill: #0F172A; }
+      .small { font: 500 14px 'Inter', 'Helvetica Neue', Arial, sans-serif; fill: #0F172A; }
+      .tiny { font: 500 12px 'Inter', 'Helvetica Neue', Arial, sans-serif; fill: #64748B; }
+      .pill { fill: white; stroke: url(#gradStroke); stroke-width: 2; }
+      .dash { stroke-dasharray: 6 6; }
+    </style>
+  </defs>
+  
+  <!-- Header -->
+  <g transform="translate(80, 60)">
+    <text class="title">Cohort Workflow: 6-Step Academic & Product Flow</text>
+    <text class="subtitle" y="34">Purple &amp; blue, mentor checkpoints, deliverables, milestones &amp; assessment points</text>
+  </g>
+
+      <path d="M 320.0 320 C 340.0 230, 340.0 230, 360.0 320" fill="none" stroke="url(#gradStroke)" stroke-width="6" marker-end="url(#arrow)" />
+    
+      <path d="M 600.0 320 C 620.0 410, 620.0 410, 640.0 320" fill="none" stroke="url(#gradStroke)" stroke-width="6" marker-end="url(#arrow)" />
+    
+      <path d="M 880.0 320 C 900.0 230, 900.0 230, 920.0 320" fill="none" stroke="url(#gradStroke)" stroke-width="6" marker-end="url(#arrow)" />
+    
+      <path d="M 1160.0 320 C 1180.0 410, 1180.0 410, 1200.0 320" fill="none" stroke="url(#gradStroke)" stroke-width="6" marker-end="url(#arrow)" />
+    
+      <path d="M 1440.0 320 C 1460.0 230, 1460.0 230, 1480.0 320" fill="none" stroke="url(#gradStroke)" stroke-width="6" marker-end="url(#arrow)" />
+    
+    <g>
+      <rect x="80.0" y="255.0" rx="18" ry="18" width="240" height="130"
+            fill="url(#gradFill)" stroke="url(#gradStroke)" stroke-width="3"/>
+      <text x="200.0" y="293.0" text-anchor="middle" class="label" style="font-weight:700">Intake</text>
+    
+      <path d="M141.0,191.0 h118 a16,16 0 0 1 16,16 v0 a16,16 0 0 1 -16,16 h-118 a16,16 0 0 1 -16,-16 v0 a16,16 0 0 1 16,-16 z"
+            class="pill" fill-opacity="0.9"/>
+      <g transform="translate(135.0, 198.0)">
+        
+    <polygon points="0,4 11.200000000000001,-3.0 22.400000000000002,4 11.200000000000001,11.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="16.8" y1="4" x2="21.28" y2="16.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="21.28" cy="16.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+      </g>
+      <text x="161.0" y="212.0" class="small">Mentor Checkpoint</text>
+      <line x1="200.0" y1="223.0" x2="200.0" y2="255.0" stroke="#6D28D9" stroke-width="2" class="dash"/>
+    
+      <g transform="translate(80.0, 411.0)">
+        
+    <path d="M6 0 h 11.2 l 5.6 5.6 v 14.4 h -16 z
+             M17.2 0 v 5.6 h 5.6" fill="none" stroke="#2563EB" stroke-width="2" />
+    <line x1="8.4" y1="5.6" x2="14.8" y2="5.6" stroke="#2563EB" stroke-width="2"/>
+    <line x1="8.4" y1="8.8" x2="15.6" y2="8.8" stroke="#2563EB" stroke-width="2"/>
+    
+        <text x="30" y="14" class="small" style="font-weight:600">Deliverables</text>
+        <text x="30" y="34" class="tiny">• Application</text>
+        <text x="30" y="52" class="tiny">• Goals dossier</text>
+      </g>
+    
+      <g transform="translate(80.0, 481.0)">
+        
+    <polygon points="6,0 17.200000000000003,-7.0 28.400000000000002,0 17.200000000000003,7.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="22.8" y1="0" x2="27.28" y2="12.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="27.28" cy="12.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Milestone</text>
+        <text x="36" y="34" class="tiny">• Baseline assessment</text>
+      </g>
+    
+      <g transform="translate(80.0, 537.0)">
+        
+    <circle cx="15.6" cy="9.6" r="9.6" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <path d="M 11.6 9.6 l 2.4 2.4 l 4.48 -4.48"
+          fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Assessment</text>
+        <text x="36" y="34" class="tiny">• Readiness rubric</text>
+      </g>
+    </g>
+    <g>
+      <rect x="360.0" y="255.0" rx="18" ry="18" width="240" height="130"
+            fill="url(#gradFill)" stroke="url(#gradStroke)" stroke-width="3"/>
+      <text x="480.0" y="293.0" text-anchor="middle" class="label" style="font-weight:700">Spec Studio</text>
+    
+      <path d="M421.0,191.0 h118 a16,16 0 0 1 16,16 v0 a16,16 0 0 1 -16,16 h-118 a16,16 0 0 1 -16,-16 v0 a16,16 0 0 1 16,-16 z"
+            class="pill" fill-opacity="0.9"/>
+      <g transform="translate(415.0, 198.0)">
+        
+    <polygon points="0,4 11.200000000000001,-3.0 22.400000000000002,4 11.200000000000001,11.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="16.8" y1="4" x2="21.28" y2="16.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="21.28" cy="16.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+      </g>
+      <text x="441.0" y="212.0" class="small">Mentor Checkpoint</text>
+      <line x1="480.0" y1="223.0" x2="480.0" y2="255.0" stroke="#6D28D9" stroke-width="2" class="dash"/>
+    
+      <g transform="translate(360.0, 411.0)">
+        
+    <path d="M6 0 h 11.2 l 5.6 5.6 v 14.4 h -16 z
+             M17.2 0 v 5.6 h 5.6" fill="none" stroke="#2563EB" stroke-width="2" />
+    <line x1="8.4" y1="5.6" x2="14.8" y2="5.6" stroke="#2563EB" stroke-width="2"/>
+    <line x1="8.4" y1="8.8" x2="15.6" y2="8.8" stroke="#2563EB" stroke-width="2"/>
+    
+        <text x="30" y="14" class="small" style="font-weight:600">Deliverables</text>
+        <text x="30" y="34" class="tiny">• Problem statement</text>
+        <text x="30" y="52" class="tiny">• Success metrics</text>
+      </g>
+    
+      <g transform="translate(360.0, 481.0)">
+        
+    <polygon points="6,0 17.200000000000003,-7.0 28.400000000000002,0 17.200000000000003,7.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="22.8" y1="0" x2="27.28" y2="12.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="27.28" cy="12.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Milestone</text>
+        <text x="36" y="34" class="tiny">• Design review 1</text>
+      </g>
+    
+      <g transform="translate(360.0, 537.0)">
+        
+    <circle cx="15.6" cy="9.6" r="9.6" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <path d="M 11.6 9.6 l 2.4 2.4 l 4.48 -4.48"
+          fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Assessment</text>
+        <text x="36" y="34" class="tiny">• Feasibility score</text>
+      </g>
+    </g>
+    <g>
+      <rect x="640.0" y="255.0" rx="18" ry="18" width="240" height="130"
+            fill="url(#gradFill)" stroke="url(#gradStroke)" stroke-width="3"/>
+      <text x="760.0" y="293.0" text-anchor="middle" class="label" style="font-weight:700">Repo Forge</text>
+    
+      <path d="M701.0,191.0 h118 a16,16 0 0 1 16,16 v0 a16,16 0 0 1 -16,16 h-118 a16,16 0 0 1 -16,-16 v0 a16,16 0 0 1 16,-16 z"
+            class="pill" fill-opacity="0.9"/>
+      <g transform="translate(695.0, 198.0)">
+        
+    <polygon points="0,4 11.200000000000001,-3.0 22.400000000000002,4 11.200000000000001,11.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="16.8" y1="4" x2="21.28" y2="16.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="21.28" cy="16.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+      </g>
+      <text x="721.0" y="212.0" class="small">Mentor Checkpoint</text>
+      <line x1="760.0" y1="223.0" x2="760.0" y2="255.0" stroke="#6D28D9" stroke-width="2" class="dash"/>
+    
+      <g transform="translate(640.0, 411.0)">
+        
+    <path d="M6 0 h 11.2 l 5.6 5.6 v 14.4 h -16 z
+             M17.2 0 v 5.6 h 5.6" fill="none" stroke="#2563EB" stroke-width="2" />
+    <line x1="8.4" y1="5.6" x2="14.8" y2="5.6" stroke="#2563EB" stroke-width="2"/>
+    <line x1="8.4" y1="8.8" x2="15.6" y2="8.8" stroke="#2563EB" stroke-width="2"/>
+    
+        <text x="30" y="14" class="small" style="font-weight:600">Deliverables</text>
+        <text x="30" y="34" class="tiny">• Initialized repo</text>
+        <text x="30" y="52" class="tiny">• CI/CD scaffold</text>
+      </g>
+    
+      <g transform="translate(640.0, 481.0)">
+        
+    <polygon points="6,0 17.200000000000003,-7.0 28.400000000000002,0 17.200000000000003,7.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="22.8" y1="0" x2="27.28" y2="12.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="27.28" cy="12.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Milestone</text>
+        <text x="36" y="34" class="tiny">• Code audit</text>
+      </g>
+    
+      <g transform="translate(640.0, 537.0)">
+        
+    <circle cx="15.6" cy="9.6" r="9.6" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <path d="M 11.6 9.6 l 2.4 2.4 l 4.48 -4.48"
+          fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Assessment</text>
+        <text x="36" y="34" class="tiny">• Security check</text>
+      </g>
+    </g>
+    <g>
+      <rect x="920.0" y="255.0" rx="18" ry="18" width="240" height="130"
+            fill="url(#gradFill)" stroke="url(#gradStroke)" stroke-width="3"/>
+      <text x="1040.0" y="293.0" text-anchor="middle" class="label" style="font-weight:700">UI & Copy</text>
+    
+      <path d="M981.0,191.0 h118 a16,16 0 0 1 16,16 v0 a16,16 0 0 1 -16,16 h-118 a16,16 0 0 1 -16,-16 v0 a16,16 0 0 1 16,-16 z"
+            class="pill" fill-opacity="0.9"/>
+      <g transform="translate(975.0, 198.0)">
+        
+    <polygon points="0,4 11.200000000000001,-3.0 22.400000000000002,4 11.200000000000001,11.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="16.8" y1="4" x2="21.28" y2="16.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="21.28" cy="16.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+      </g>
+      <text x="1001.0" y="212.0" class="small">Mentor Checkpoint</text>
+      <line x1="1040.0" y1="223.0" x2="1040.0" y2="255.0" stroke="#6D28D9" stroke-width="2" class="dash"/>
+    
+      <g transform="translate(920.0, 411.0)">
+        
+    <path d="M6 0 h 11.2 l 5.6 5.6 v 14.4 h -16 z
+             M17.2 0 v 5.6 h 5.6" fill="none" stroke="#2563EB" stroke-width="2" />
+    <line x1="8.4" y1="5.6" x2="14.8" y2="5.6" stroke="#2563EB" stroke-width="2"/>
+    <line x1="8.4" y1="8.8" x2="15.6" y2="8.8" stroke="#2563EB" stroke-width="2"/>
+    
+        <text x="30" y="14" class="small" style="font-weight:600">Deliverables</text>
+        <text x="30" y="34" class="tiny">• Wireframes</text>
+        <text x="30" y="52" class="tiny">• UX copy deck</text>
+      </g>
+    
+      <g transform="translate(920.0, 481.0)">
+        
+    <polygon points="6,0 17.200000000000003,-7.0 28.400000000000002,0 17.200000000000003,7.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="22.8" y1="0" x2="27.28" y2="12.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="27.28" cy="12.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Milestone</text>
+        <text x="36" y="34" class="tiny">• Usability test</text>
+      </g>
+    
+      <g transform="translate(920.0, 537.0)">
+        
+    <circle cx="15.6" cy="9.6" r="9.6" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <path d="M 11.6 9.6 l 2.4 2.4 l 4.48 -4.48"
+          fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Assessment</text>
+        <text x="36" y="34" class="tiny">• Accessibility check</text>
+      </g>
+    </g>
+    <g>
+      <rect x="1200.0" y="255.0" rx="18" ry="18" width="240" height="130"
+            fill="url(#gradFill)" stroke="url(#gradStroke)" stroke-width="3"/>
+      <text x="1320.0" y="293.0" text-anchor="middle" class="label" style="font-weight:700">Ship & Learn</text>
+    
+      <path d="M1261.0,191.0 h118 a16,16 0 0 1 16,16 v0 a16,16 0 0 1 -16,16 h-118 a16,16 0 0 1 -16,-16 v0 a16,16 0 0 1 16,-16 z"
+            class="pill" fill-opacity="0.9"/>
+      <g transform="translate(1255.0, 198.0)">
+        
+    <polygon points="0,4 11.200000000000001,-3.0 22.400000000000002,4 11.200000000000001,11.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="16.8" y1="4" x2="21.28" y2="16.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="21.28" cy="16.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+      </g>
+      <text x="1281.0" y="212.0" class="small">Mentor Checkpoint</text>
+      <line x1="1320.0" y1="223.0" x2="1320.0" y2="255.0" stroke="#6D28D9" stroke-width="2" class="dash"/>
+    
+      <g transform="translate(1200.0, 411.0)">
+        
+    <path d="M6 0 h 11.2 l 5.6 5.6 v 14.4 h -16 z
+             M17.2 0 v 5.6 h 5.6" fill="none" stroke="#2563EB" stroke-width="2" />
+    <line x1="8.4" y1="5.6" x2="14.8" y2="5.6" stroke="#2563EB" stroke-width="2"/>
+    <line x1="8.4" y1="8.8" x2="15.6" y2="8.8" stroke="#2563EB" stroke-width="2"/>
+    
+        <text x="30" y="14" class="small" style="font-weight:600">Deliverables</text>
+        <text x="30" y="34" class="tiny">• v1 release</text>
+        <text x="30" y="52" class="tiny">• Analytics instrumentation</text>
+      </g>
+    
+      <g transform="translate(1200.0, 481.0)">
+        
+    <polygon points="6,0 17.200000000000003,-7.0 28.400000000000002,0 17.200000000000003,7.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="22.8" y1="0" x2="27.28" y2="12.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="27.28" cy="12.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Milestone</text>
+        <text x="36" y="34" class="tiny">• Post-release review</text>
+      </g>
+    
+      <g transform="translate(1200.0, 537.0)">
+        
+    <circle cx="15.6" cy="9.6" r="9.6" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <path d="M 11.6 9.6 l 2.4 2.4 l 4.48 -4.48"
+          fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Assessment</text>
+        <text x="36" y="34" class="tiny">• Learning report</text>
+      </g>
+    </g>
+    <g>
+      <rect x="1480.0" y="255.0" rx="18" ry="18" width="240" height="130"
+            fill="url(#gradFill)" stroke="url(#gradStroke)" stroke-width="3"/>
+      <text x="1600.0" y="293.0" text-anchor="middle" class="label" style="font-weight:700">Demo Day</text>
+    
+      <path d="M1541.0,191.0 h118 a16,16 0 0 1 16,16 v0 a16,16 0 0 1 -16,16 h-118 a16,16 0 0 1 -16,-16 v0 a16,16 0 0 1 16,-16 z"
+            class="pill" fill-opacity="0.9"/>
+      <g transform="translate(1535.0, 198.0)">
+        
+    <polygon points="0,4 11.200000000000001,-3.0 22.400000000000002,4 11.200000000000001,11.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="16.8" y1="4" x2="21.28" y2="16.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="21.28" cy="16.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+      </g>
+      <text x="1561.0" y="212.0" class="small">Mentor Checkpoint</text>
+      <line x1="1600.0" y1="223.0" x2="1600.0" y2="255.0" stroke="#6D28D9" stroke-width="2" class="dash"/>
+    
+      <g transform="translate(1480.0, 411.0)">
+        
+    <path d="M6 0 h 11.2 l 5.6 5.6 v 14.4 h -16 z
+             M17.2 0 v 5.6 h 5.6" fill="none" stroke="#2563EB" stroke-width="2" />
+    <line x1="8.4" y1="5.6" x2="14.8" y2="5.6" stroke="#2563EB" stroke-width="2"/>
+    <line x1="8.4" y1="8.8" x2="15.6" y2="8.8" stroke="#2563EB" stroke-width="2"/>
+    
+        <text x="30" y="14" class="small" style="font-weight:600">Deliverables</text>
+        <text x="30" y="34" class="tiny">• Live demo</text>
+        <text x="30" y="52" class="tiny">• Slide deck</text>
+      </g>
+    
+      <g transform="translate(1480.0, 481.0)">
+        
+    <polygon points="6,0 17.200000000000003,-7.0 28.400000000000002,0 17.200000000000003,7.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="22.8" y1="0" x2="27.28" y2="12.6" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="27.28" cy="12.6" r="1.4000000000000001" fill="#6D28D9"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Milestone</text>
+        <text x="36" y="34" class="tiny">• Panel Q&A</text>
+      </g>
+    
+      <g transform="translate(1480.0, 537.0)">
+        
+    <circle cx="15.6" cy="9.6" r="9.6" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <path d="M 11.6 9.6 l 2.4 2.4 l 4.48 -4.48"
+          fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+        <text x="36" y="14" class="small" style="font-weight:600">Assessment</text>
+        <text x="36" y="34" class="tiny">• Final rubric score</text>
+      </g>
+    </g>
+  <g transform="translate(1360, 66)">
+    <text class="label" style="font-weight:700">Legend</text>
+    <g transform="translate(0, 18)">
+      <rect x="0" y="6" width="20" height="12" fill="url(#gradFill)" stroke="url(#gradStroke)" stroke-width="2" rx="3" ry="3"/>
+      <text x="28" y="16" class="tiny">Stage node</text>
+    </g>
+    <g transform="translate(0, 42)">
+      <line x1="0" y1="10" x2="22" y2="10" stroke="url(#gradStroke)" stroke-width="6" marker-end="url(#arrow)"/>
+      <text x="28" y="14" class="tiny">Team progression</text>
+    </g>
+    <g transform="translate(0, 66)">
+      
+    <polygon points="0,2 9.600000000000001,-4.0 19.200000000000003,2 9.600000000000001,8.0" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <line x1="14.400000000000002" y1="2" x2="18.240000000000002" y2="12.8" stroke="#6D28D9" stroke-width="2"/>
+    <circle cx="18.240000000000002" cy="12.8" r="1.2000000000000002" fill="#6D28D9"/>
+    
+      <text x="28" y="16" class="tiny">Mentor checkpoint</text>
+    </g>
+    <g transform="translate(0, 92)">
+      
+    <path d="M2 2 h 9.799999999999999 l 4.8999999999999995 4.8999999999999995 v 12.6 h -14 z
+             M11.799999999999999 2 v 4.8999999999999995 h 4.8999999999999995" fill="none" stroke="#2563EB" stroke-width="2" />
+    <line x1="4.1" y1="6.8999999999999995" x2="9.700000000000001" y2="6.8999999999999995" stroke="#2563EB" stroke-width="2"/>
+    <line x1="4.1" y1="9.700000000000001" x2="10.4" y2="9.700000000000001" stroke="#2563EB" stroke-width="2"/>
+    
+      <text x="28" y="16" class="tiny">Deliverables</text>
+    </g>
+    <g transform="translate(0, 118)">
+      
+    <circle cx="10.4" cy="10.4" r="8.4" fill="none" stroke="#6D28D9" stroke-width="2"/>
+    <path d="M 6.8999999999999995 10.4 l 2.1 2.1 l 3.9200000000000004 -3.9200000000000004"
+          fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+      <text x="28" y="16" class="tiny">Assessment point</text>
+    </g>
+  </g>
+</svg>

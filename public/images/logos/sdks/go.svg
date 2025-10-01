@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <title>Minimalist Go/Golang Logo</title>
+  <desc>Monochrome, vector, transparent background. Uses currentColor for easy recoloring.</desc>
+  <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+    <g stroke-width="40">
+      <path d="M 393.888,140.298 A 180.000,180.000 0 1 1 194.436,86.855" />
+      <path d="M 296,256 L 360,256" />
+      <path d="M 366.000,256.000 A 110.000,110.000 0 1 1 366.000,255.981" />
+    </g>
+  </g>
+</svg>

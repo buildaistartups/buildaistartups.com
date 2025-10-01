@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2000" height="1100" viewBox="0 0 2000 1100">
+
+  <defs>
+    <linearGradient id="gradBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#1D4ED8" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="gradPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6C5CE7" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#4C3FC7" stop-opacity="1"/>
+    </linearGradient>
+    <filter id="softshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+    <marker id="arrowBlue" markerWidth="14" markerHeight="14" refX="11" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="url(#gradBlue)"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="14" markerHeight="14" refX="11" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="url(#gradPurple)"/>
+    </marker>
+  </defs>
+
+<text x="1000.0" y="90" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="48" fill="#0F172A" opacity="0.92">Approval Workflow</text>
+<rect x="120" y="180" rx="22" ry="22" width="360" height="320" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3" filter="url(#softshadow)"/>
+<text x="300.0" y="234" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="34" fill="#0F172A">Spec Review</text>
+<path d="M390.00,210.00 L394.70,219.53 L405.22,221.06 L397.61,228.47 L399.40,238.94 L390.00,234.00 L380.60,238.94 L382.39,228.47 L374.78,221.06 L385.30,219.53 Z" fill="#3B82F6" opacity="0.95"/>
+<path d="M149.0,295.0 H212.96 L231.0,313.04 V405.0 H149.0 Z" fill="#3B82F6" opacity="0.10" stroke="#3B82F6" stroke-width="2"/>
+<path d="M175.24,355.5 L186.72,369.8 L204.76,336.8" fill="none" stroke="#3B82F6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M400,295.0 L443.0,328.0 Q400,366.5 400,410.5 Q400,366.5 357.0,328.0 Z" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+<rect x="382" y="346" width="36" height="34" rx="8" fill="#6C5CE7" opacity="0.6"/>
+<path d="M390,346 V328 A10,10 0 0 1 410,328 V346" fill="none" stroke="#4C3FC7" stroke-width="5"/>
+<circle cx="400" cy="362" r="4" fill="#FFFFFF"/>
+<rect x="398.5" y="362" width="3" height="10" rx="1.5" fill="#FFFFFF"/>
+<circle cx="240" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="240" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">PM</text>
+<circle cx="262" cy="440" r="26" fill="#6C5CE7" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="262" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">UX</text>
+<circle cx="284" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="284" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">ENG</text>
+<rect x="160" y="438" rx="16" ry="16" width="120" height="36" fill="#3B82F6" opacity="0.15" stroke="#3B82F6" stroke-width="2"/>
+<text x="220" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#1D4ED8">Approve</text>
+<rect x="320" y="438" rx="16" ry="16" width="120" height="36" fill="#6C5CE7" opacity="0.12" stroke="#6C5CE7" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="380" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Reject</text>
+
+<rect x="560" y="180" rx="22" ry="22" width="360" height="320" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3" filter="url(#softshadow)"/>
+<text x="740.0" y="234" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="34" fill="#0F172A">Code Review</text>
+<path d="M830.00,210.00 L834.70,219.53 L845.22,221.06 L837.61,228.47 L839.40,238.94 L830.00,234.00 L820.60,238.94 L822.39,228.47 L814.78,221.06 L825.30,219.53 Z" fill="#3B82F6" opacity="0.95"/>
+<path d="M589.0,295.0 H652.96 L671.0,313.04 V405.0 H589.0 Z" fill="#3B82F6" opacity="0.10" stroke="#3B82F6" stroke-width="2"/>
+<path d="M615.24,355.5 L626.72,369.8 L644.76,336.8" fill="none" stroke="#3B82F6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M840,295.0 L883.0,328.0 Q840,366.5 840,410.5 Q840,366.5 797.0,328.0 Z" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+<rect x="822" y="346" width="36" height="34" rx="8" fill="#6C5CE7" opacity="0.6"/>
+<path d="M830,346 V328 A10,10 0 0 1 850,328 V346" fill="none" stroke="#4C3FC7" stroke-width="5"/>
+<circle cx="840" cy="362" r="4" fill="#FFFFFF"/>
+<rect x="838.5" y="362" width="3" height="10" rx="1.5" fill="#FFFFFF"/>
+<circle cx="680" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="680" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">ENG</text>
+<circle cx="702" cy="440" r="26" fill="#6C5CE7" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="702" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">LE</text>
+<circle cx="724" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="724" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">QA</text>
+<rect x="600" y="438" rx="16" ry="16" width="120" height="36" fill="#3B82F6" opacity="0.15" stroke="#3B82F6" stroke-width="2"/>
+<text x="660" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#1D4ED8">Approve</text>
+<rect x="760" y="438" rx="16" ry="16" width="120" height="36" fill="#6C5CE7" opacity="0.12" stroke="#6C5CE7" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="820" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Reject</text>
+
+<rect x="1000" y="180" rx="22" ry="22" width="360" height="320" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3" filter="url(#softshadow)"/>
+<text x="1180.0" y="234" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="34" fill="#0F172A">Pricing Review</text>
+<path d="M1270.00,210.00 L1274.70,219.53 L1285.22,221.06 L1277.61,228.47 L1279.40,238.94 L1270.00,234.00 L1260.60,238.94 L1262.39,228.47 L1254.78,221.06 L1265.30,219.53 Z" fill="#3B82F6" opacity="0.95"/>
+<path d="M1029.0,295.0 H1092.96 L1111.0,313.04 V405.0 H1029.0 Z" fill="#3B82F6" opacity="0.10" stroke="#3B82F6" stroke-width="2"/>
+<path d="M1055.24,355.5 L1066.72,369.8 L1084.76,336.8" fill="none" stroke="#3B82F6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1280,295.0 L1323.0,328.0 Q1280,366.5 1280,410.5 Q1280,366.5 1237.0,328.0 Z" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+<rect x="1262" y="346" width="36" height="34" rx="8" fill="#6C5CE7" opacity="0.6"/>
+<path d="M1270,346 V328 A10,10 0 0 1 1290,328 V346" fill="none" stroke="#4C3FC7" stroke-width="5"/>
+<circle cx="1280" cy="362" r="4" fill="#FFFFFF"/>
+<rect x="1278.5" y="362" width="3" height="10" rx="1.5" fill="#FFFFFF"/>
+<circle cx="1120" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="1120" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">FIN</text>
+<circle cx="1142" cy="440" r="26" fill="#6C5CE7" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="1142" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">SA</text>
+<circle cx="1164" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="1164" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">PM</text>
+<rect x="1040" y="438" rx="16" ry="16" width="120" height="36" fill="#3B82F6" opacity="0.15" stroke="#3B82F6" stroke-width="2"/>
+<text x="1100" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#1D4ED8">Approve</text>
+<rect x="1200" y="438" rx="16" ry="16" width="120" height="36" fill="#6C5CE7" opacity="0.12" stroke="#6C5CE7" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="1260" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Reject</text>
+
+<rect x="1440" y="180" rx="22" ry="22" width="360" height="320" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3" filter="url(#softshadow)"/>
+<text x="1620.0" y="234" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="800" font-size="34" fill="#0F172A">Deploy Review</text>
+<path d="M1710.00,210.00 L1714.70,219.53 L1725.22,221.06 L1717.61,228.47 L1719.40,238.94 L1710.00,234.00 L1700.60,238.94 L1702.39,228.47 L1694.78,221.06 L1705.30,219.53 Z" fill="#3B82F6" opacity="0.95"/>
+<path d="M1469.0,295.0 H1532.96 L1551.0,313.04 V405.0 H1469.0 Z" fill="#3B82F6" opacity="0.10" stroke="#3B82F6" stroke-width="2"/>
+<path d="M1495.24,355.5 L1506.72,369.8 L1524.76,336.8" fill="none" stroke="#3B82F6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1720,295.0 L1763.0,328.0 Q1720,366.5 1720,410.5 Q1720,366.5 1677.0,328.0 Z" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+<rect x="1702" y="346" width="36" height="34" rx="8" fill="#6C5CE7" opacity="0.6"/>
+<path d="M1710,346 V328 A10,10 0 0 1 1730,328 V346" fill="none" stroke="#4C3FC7" stroke-width="5"/>
+<circle cx="1720" cy="362" r="4" fill="#FFFFFF"/>
+<rect x="1718.5" y="362" width="3" height="10" rx="1.5" fill="#FFFFFF"/>
+<circle cx="1560" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="1560" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">OPS</text>
+<circle cx="1582" cy="440" r="26" fill="#6C5CE7" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="1582" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">SEC</text>
+<circle cx="1604" cy="440" r="26" fill="#3B82F6" opacity="0.9" stroke="#FFFFFF" stroke-width="3" filter="url(#shadow)"/>
+<text x="1604" y="448" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">DEV</text>
+<rect x="1480" y="438" rx="16" ry="16" width="120" height="36" fill="#3B82F6" opacity="0.15" stroke="#3B82F6" stroke-width="2"/>
+<text x="1540" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#1D4ED8">Approve</text>
+<rect x="1640" y="438" rx="16" ry="16" width="120" height="36" fill="#6C5CE7" opacity="0.12" stroke="#6C5CE7" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="1700" y="462" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Reject</text>
+
+<path d="M490,330.0 C590,330.0 450,330.0 550,330.0" stroke="url(#gradBlue)" stroke-width="8" fill="none" marker-end="url(#arrowBlue)"/>
+
+<text x="520.0" y="314.0" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#1D4ED8" opacity="0.9">Approved</text>
+
+<path d="M930,330.0 C1030,330.0 890,330.0 990,330.0" stroke="url(#gradBlue)" stroke-width="8" fill="none" marker-end="url(#arrowBlue)"/>
+
+<text x="960.0" y="314.0" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#1D4ED8" opacity="0.9">Approved</text>
+
+<path d="M1370,330.0 C1470,330.0 1330,330.0 1430,330.0" stroke="url(#gradBlue)" stroke-width="8" fill="none" marker-end="url(#arrowBlue)"/>
+
+<text x="1400.0" y="314.0" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#1D4ED8" opacity="0.9">Approved</text>
+
+<path d="M300.0,508 L300.0,580" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none"/>
+
+<rect x="195.0" y="580" rx="22" ry="22" width="210" height="44" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+
+<text x="300.0" y="609" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Fix &amp; Resubmit</text>
+
+<path d="M300.0,624 C220.0,680 140,420.0 140,220" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none" marker-end="url(#arrowPurple)"/>
+
+<text x="148" y="210" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="16" fill="#4C3FC7" opacity="0.9">Rejected</text>
+
+<path d="M740.0,508 L740.0,580" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none"/>
+
+<rect x="635.0" y="580" rx="22" ry="22" width="210" height="44" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+
+<text x="740.0" y="609" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Fix &amp; Resubmit</text>
+
+<path d="M740.0,624 C660.0,680 580,420.0 580,220" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none" marker-end="url(#arrowPurple)"/>
+
+<text x="588" y="210" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="16" fill="#4C3FC7" opacity="0.9">Rejected</text>
+
+<path d="M1180.0,508 L1180.0,580" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none"/>
+
+<rect x="1075.0" y="580" rx="22" ry="22" width="210" height="44" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+
+<text x="1180.0" y="609" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Fix &amp; Resubmit</text>
+
+<path d="M1180.0,624 C1100.0,680 1020,420.0 1020,220" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none" marker-end="url(#arrowPurple)"/>
+
+<text x="1028" y="210" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="16" fill="#4C3FC7" opacity="0.9">Rejected</text>
+
+<path d="M1620.0,508 L1620.0,580" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none"/>
+
+<rect x="1515.0" y="580" rx="22" ry="22" width="210" height="44" fill="#6C5CE7" opacity="0.10" stroke="#6C5CE7" stroke-width="2"/>
+
+<text x="1620.0" y="609" text-anchor="middle" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="18" fill="#4C3FC7">Fix &amp; Resubmit</text>
+
+<path d="M1620.0,624 C1540.0,680 1460,420.0 1460,220" stroke="url(#gradPurple)" stroke-width="6" stroke-dasharray="12 10" fill="none" marker-end="url(#arrowPurple)"/>
+
+<text x="1468" y="210" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="16" fill="#4C3FC7" opacity="0.9">Rejected</text>
+
+<g transform="translate(1580,140)">
+<rect x="0" y="0" rx="14" ry="14" width="360" height="64" fill="#3B82F6" opacity="0.12" stroke="#3B82F6" stroke-width="2"/>
+
+<text x="24" y="40" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="700" font-size="22" fill="#1D4ED8">Governance: Audit Trail • Policies • Access</text>
+
+</g>
+<g transform="translate(100,960)">
+<line x1="0" y1="0" x2="80" y2="0" stroke="url(#gradBlue)" stroke-width="8" marker-end="url(#arrowBlue)"/>
+
+<text x="96" y="6" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="20" fill="#0F172A">Approval Path</text>
+
+<line x1="0" y1="38" x2="80" y2="38" stroke="url(#gradPurple)" stroke-width="8" stroke-dasharray="12 10" marker-end="url(#arrowPurple)"/>
+
+<text x="96" y="44" font-family="Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-weight="600" font-size="20" fill="#0F172A">Rejection / Rework Path</text>
+
+</g>
+</svg>
