@@ -1,43 +1,37 @@
 // app/(default)/page.tsx
 export const metadata = {
-  title: 'Home - Build AI Startups',
-  description: 'Page description',
+  title: 'Build AI Startups - The Complete AI Business Ecosystem',
+  description: 'Where Every Stakeholder Wins. Build, Scale, and Profit from AI with our complete toolkit.',
 }
 
-import ThemeAwareHero from '@/components/ThemeAwareHero'
-import JourneySection from '@/components/journey-section'
-import Clients from '@/components/clients'
-import ThemeAwareFeatures from '@/components/ThemeAwareFeatures'
-import Features02 from '@/components/features-02'
-import Features03 from '@/components/features-03'
-import ThemeAwareTestimonials from '@/components/ThemeAwareTestimonials'
-import ThemeAwareFeatures04 from '@/components/ThemeAwareFeatures04'
-import ThemeAwarePricing from '@/components/ThemeAwarePricing'
-import Testimonials from '@/components/testimonials'
-import ThemeAwareCTA from '@/components/ThemeAwareCTA'
-
-// NEW
-import PerfectForStripe from '@/components/utils/perfect-for-stripe'
+import Hero from '@/components/home/Hero'
+import StakeholderMatrix from '@/components/home/StakeholderMatrix'
+import AIMatchmaking from '@/components/home/AIMatchmaking'
+import EnterpriseInnovation from '@/components/home/EnterpriseInnovation'
+import AcceleratorCommand from '@/components/home/AcceleratorCommand'
+import MentorshipNetwork from '@/components/home/MentorshipNetwork'
+import StudentAcademy from '@/components/home/StudentAcademy'
+import LegacyIntegration from '@/components/home/LegacyIntegration'
+import InvestorPortfolio from '@/components/home/InvestorPortfolio'
+import EcosystemMap from '@/components/home/EcosystemMap'
+import PricingSection from '@/components/home/PricingSection'
+import ClosingPromise from '@/components/home/ClosingPromise'
 
 export default function Home() {
   return (
     <>
-      <ThemeAwareHero />
-      <JourneySection />
-      <Clients />
-      <ThemeAwareFeatures />
-      <Features02 />
-      <Features03 />
-
-      {/* Vertical teaser stripe */}
-      <PerfectForStripe />
-
-      <ThemeAwareTestimonials />
-      <ThemeAwareFeatures04 />
-      <ThemeAwarePricing />
-
-      <Testimonials />
-      <ThemeAwareCTA />
+      <Hero />
+      <StakeholderMatrix />
+      <AIMatchmaking />
+      <EnterpriseInnovation />
+      <AcceleratorCommand />
+      <MentorshipNetwork />
+      <StudentAcademy />
+      <LegacyIntegration />
+      <InvestorPortfolio />
+      <EcosystemMap />
+      <PricingSection />
+      <ClosingPromise />
     </>
   )
 }
