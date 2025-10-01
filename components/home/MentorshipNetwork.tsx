@@ -1,8 +1,9 @@
 // components/home/MentorshipNetwork.tsx
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
-import { Users, Briefcase, Code, TrendingUp, DollarSign } from 'lucide-react'
+import { Users, Briefcase, Code, TrendingUp, DollarSign, CheckCircle } from 'lucide-react'
 
 const mentorCategories = [
   { icon: <Briefcase />, title: 'Serial Entrepreneurs', count: 847, color: 'purple' },
