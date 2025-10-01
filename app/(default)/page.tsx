@@ -5,6 +5,7 @@ export const metadata = {
 }
 
 import Hero from '@/components/home/Hero'
+import StartupJourney from '@/components/home/StartupJourney' // NEW!
 import StakeholderMatrix from '@/components/home/StakeholderMatrix'
 import AIMatchmaking from '@/components/home/AIMatchmaking'
 import EnterpriseInnovation from '@/components/home/EnterpriseInnovation'
@@ -21,6 +22,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <StartupJourney /> {/* Startups get their dedicated journey section! */}
       <StakeholderMatrix />
       <AIMatchmaking />
       <EnterpriseInnovation />
