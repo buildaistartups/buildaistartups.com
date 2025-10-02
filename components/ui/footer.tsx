@@ -42,7 +42,7 @@ export default function Footer() {
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/investors">Investors</Link></li>
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/accelerators">Accelerators</Link></li>
             </ul>
-            
+
             {/* Use cases (verticals) */}
             <h6 className="text-xs text-slate-400 font-medium mt-5 mb-2 tracking-wider">USE CASES</h6>
             <ul className="text-sm space-y-2">
@@ -63,14 +63,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* 5th block - Company (WITHOUT Diversity, Careers, Financial) */}
+          {/* 5th block - Project */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
             <h6 className="text-sm text-slate-50 font-medium mb-2">Project</h6>
             <ul className="text-sm space-y-2">
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/about">About</Link></li>
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/contact">Contact</Link></li>
             </ul>
-            
+
             <h6 className="text-sm text-slate-50 font-medium mt-6 mb-2">Legal</h6>
             <ul className="text-sm space-y-2">
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/terms">Terms</Link></li>
@@ -79,24 +79,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-
-        {/* Bottom social links */}
-        <div className="md:flex md:items-center md:justify-between py-6 md:py-8 border-t border-slate-800">
-          <div className="text-sm text-slate-500">
-            Building the future of AI startups
-          </div>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link href="https://github.com/buildaistartups" className="text-slate-400 hover:text-slate-200">
-              GitHub
-            </Link>
-            <Link href="https://twitter.com/buildaistartups" className="text-slate-400 hover:text-slate-200">
-              X/Twitter
-            </Link>
-            <Link href="https://linkedin.com/company/buildaistartups" className="text-slate-400 hover:text-slate-200">
-              LinkedIn
-            </Link>
-          </div>
-        </div>
+        {/* Bottom strip removed as requested */}
       </div>
     </footer>
   )
