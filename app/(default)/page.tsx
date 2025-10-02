@@ -23,7 +23,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustedBy /> {/* ACTION 16 - Scrolling logos after Hero */}
       <FeatureHighlight /> {/* ACTION 17 - Feature section with animation */}
       <StartupJourney />
       <StakeholderMatrix />
