@@ -1,6 +1,7 @@
 // components/home/EcosystemMap.tsx
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 
 export default function EcosystemMap() {
@@ -8,14 +9,12 @@ export default function EcosystemMap() {
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Section header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
               Every Connection Creates Value for Everyone
             </h2>
           </div>
 
-          {/* Interactive Network Visual */}
           <div className="relative h-[500px] bg-slate-900/50 rounded-xl border border-slate-700 overflow-hidden mb-12">
             <svg className="absolute inset-0 w-full h-full">
               <defs>
@@ -25,7 +24,6 @@ export default function EcosystemMap() {
                 </linearGradient>
               </defs>
               
-              {/* Connection lines */}
               <line x1="50%" y1="20%" x2="20%" y2="40%" stroke="url(#grad1)" strokeWidth="2" />
               <line x1="50%" y1="20%" x2="80%" y2="40%" stroke="url(#grad1)" strokeWidth="2" />
               <line x1="20%" y1="40%" x2="20%" y2="70%" stroke="url(#grad1)" strokeWidth="2" />
@@ -34,7 +32,6 @@ export default function EcosystemMap() {
               <line x1="80%" y1="70%" x2="50%" y2="80%" stroke="url(#grad1)" strokeWidth="2" />
             </svg>
 
-            {/* Node labels */}
             <div className="absolute top-[15%] left-1/2 -translate-x-1/2 bg-purple-500/20 rounded-lg px-4 py-2 border border-purple-500/50">
               <span className="text-purple-400 font-semibold">🏗️ BUILDERS</span>
             </div>
@@ -54,29 +51,18 @@ export default function EcosystemMap() {
               <span className="text-cyan-400 font-semibold">ENTERPRISES</span>
             </div>
 
-            {/* Center ecosystem label */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="text-2xl font-bold text-slate-200">🏛️ ECOSYSTEM</div>
             </div>
           </div>
 
-          {/* Network Intelligence Stats */}
-          <div className="grid md:grid-cols-5 gap-4 mb-12">
-            {[
-              { label: 'Active Partnerships', value: '423', color: 'purple' },
-              { label: 'Mentor Sessions/Week', value: '847', color: 'green' },
-              { label: 'Cohort Success Rate', value: '94%', color: 'blue' },
-              { label: 'Enterprise Labs Active', value: '47', color: 'yellow' },
-              { label: 'Certified Students', value: '2,847', color: 'red' }
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className={`text-2xl font-bold text-${stat.color}-400`}>{stat.value}</div>
-                <div className="text-sm text-slate-400">{stat.label}</div>
-              </div>
-            ))}
+          <div className="text-center mb-12">
+            <h3 className="text-xl font-semibold text-slate-200 mb-4">Network Intelligence</h3>
+            <p className="text-slate-400">
+              Our AI-powered ecosystem connects all stakeholders to create maximum value
+            </p>
           </div>
 
-          {/* CTAs */}
           <div className="flex gap-4 justify-center">
             <Link
               href="/ecosystem"
