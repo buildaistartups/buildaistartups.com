@@ -1,6 +1,7 @@
 // components/home/LegacyIntegration.tsx
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { ArrowRight, Zap } from 'lucide-react'
 
@@ -21,17 +22,12 @@ export default function LegacyIntegration() {
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Section header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-purple-400 mb-4">
-              <span className="text-sm font-medium">NEW SECTION</span>
-            </div>
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
               Your Old Stack + Our AI = Immediate Value
             </h2>
           </div>
 
-          {/* Integration Flow */}
           <div className="bg-slate-900/50 rounded-xl border border-slate-700 p-8 mb-12">
             <h3 className="text-lg font-semibold text-slate-200 mb-6">Integration Flowchart</h3>
             <div className="space-y-4">
@@ -52,7 +48,6 @@ export default function LegacyIntegration() {
             </div>
           </div>
 
-          {/* One-Click Integrations */}
           <div className="mb-12">
             <h3 className="text-lg font-semibold text-slate-200 mb-6 text-center">One-Click Integrations</h3>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -67,7 +62,6 @@ export default function LegacyIntegration() {
             </div>
           </div>
 
-          {/* CTAs */}
           <div className="flex gap-4 justify-center">
             <Link
               href="/integrations"
