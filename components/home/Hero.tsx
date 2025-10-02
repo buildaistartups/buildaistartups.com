@@ -4,7 +4,6 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Particles from '@/components/particles'
-import Illustration from '@/components/illustration'
 
 const audiences = [
   {
@@ -74,33 +73,66 @@ export default function Hero() {
             
             {/* CTAs with original button styling */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={current.cta1.href} className="btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out">
+              <Link 
+                href={current.cta1.href} 
+                className="btn text-slate-900 bg-gradient-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group"
+              >
                 {current.cta1.text}
+                <span className="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                  -&gt;
+                </span>
               </Link>
-              <Link href={current.cta2.href} className="btn text-slate-200 hover:text-white bg-slate-900 bg-opacity-25 hover:bg-opacity-30 border border-slate-700 transition duration-150 ease-in-out">
+              <Link 
+                href={current.cta2.href} 
+                className="btn text-slate-200 hover:text-white bg-slate-900 bg-opacity-25 hover:bg-opacity-30 border border-slate-700 transition duration-150 ease-in-out"
+              >
                 {current.cta2.text}
               </Link>
             </div>
           </div>
 
-          {/* Remove fake statistics - Action 2 */}
-          {/* Instead, add value props without numbers */}
-          <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">🚀</div>
-              <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-              <div className="text-xs text-slate-400">From idea to live product</div>
+          {/* Remove fake statistics - Action 2 - Replace with value props */}
+          <div className="mt-16 grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+              <div className="relative bg-slate-900/50 backdrop-blur rounded-lg p-6 border border-slate-800">
+                <div className="text-3xl mb-3">🚀</div>
+                <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+                <div className="text-xs text-slate-400 mt-1">From idea to live product faster than ever</div>
+              </div>
             </div>
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">🤝</div>
-              <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
-              <div className="text-xs text-slate-400">Everything you need to succeed</div>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+              <div className="relative bg-slate-900/50 backdrop-blur rounded-lg p-6 border border-slate-800">
+                <div className="text-3xl mb-3">🤝</div>
+                <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+                <div className="text-xs text-slate-400 mt-1">Everything you need in one platform</div>
+              </div>
             </div>
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">💡</div>
-              <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
-              <div className="text-xs text-slate-400">Smart tools at every step</div>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+              <div className="relative bg-slate-900/50 backdrop-blur rounded-lg p-6 border border-slate-800">
+                <div className="text-3xl mb-3">💡</div>
+                <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+                <div className="text-xs text-slate-400 mt-1">Smart automation at every step</div>
+              </div>
             </div>
+          </div>
+
+          {/* Audience switcher dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {audiences.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentAudience(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === currentAudience 
+                    ? 'w-8 bg-gradient-to-r from-purple-500 to-purple-600' 
+                    : 'bg-slate-600 hover:bg-slate-500'
+                }`}
+                aria-label={`Switch to ${audiences[index].title}`}
+              />
+            ))}
           </div>
         </div>
       </div>
