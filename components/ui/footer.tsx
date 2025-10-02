@@ -41,7 +41,13 @@ export default function Footer() {
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/product-teams">Product Teams</Link></li>
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/investors">Investors</Link></li>
               <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/accelerators">Accelerators</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/support-copilot">Support Copilot</Link></li>
+            </ul>
+            
+            {/* Use cases (verticals) */}
+            <h6 className="text-xs text-slate-400 font-medium mt-5 mb-2 tracking-wider">USE CASES</h6>
+            <ul className="text-sm space-y-2">
+              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/vertical/ai-leadgen">Lead Gen Pipeline</Link></li>
+              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/vertical/ai-support">Support Copilot</Link></li>
             </ul>
           </div>
 
