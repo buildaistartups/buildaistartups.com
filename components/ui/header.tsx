@@ -180,33 +180,18 @@ export default function Header() {
                 </Link>
               </li>
 
-              {/* Company */}
-              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
-                <button
-                  type="button"
-                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
-                  aria-haspopup="menu"
-                  aria-expanded={openDropdown === 'company'}
-                  aria-controls="menu-company"
-                  data-dropdown="company"
-                  onKeyDown={onMenuKeyDown}
-                  onMouseEnter={() => setOpenDropdown('company')}
-                  onClick={() => toggleDropdown('company')}
-                >
-                  Company
-                  <svg className="ml-1 h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
-                  </svg>
-                </button>
-                <div
-                  id="menu-company"
-                  role="menu"
-                  className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'company' ? 'visible opacity-100' : 'invisible opacity-0'}`}
-                  onMouseEnter={() => setOpenDropdown('company')}
-                >
-                  <MenuItem href="/about" title="About" desc="Mission & principles" onClose={closeDropdown} />
-                  <MenuItem href="/contact" title="Contact" desc="Say hello" onClose={closeDropdown} />
-                </div>
+              {/* About */}
+              <li className="mx-2 lg:mx-3">
+                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/about" onMouseEnter={closeDropdown}>
+                  About
+                </Link>
+              </li>
+
+              {/* Contact */}
+              <li className="mx-2 lg:mx-3">
+                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/contact" onMouseEnter={closeDropdown}>
+                  Contact
+                </Link>
               </li>
             </ul>
           </nav>
