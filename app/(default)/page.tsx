@@ -5,7 +5,6 @@ export const metadata = {
 }
 
 import Hero from '@/components/home/Hero'
-import TrustedBy from '@/components/home/TrustedBy' // ACTION 16 - Scrolling logos
 import FeatureHighlight from '@/components/home/FeatureHighlight' // ACTION 17 - Feature with animation
 import StartupJourney from '@/components/home/StartupJourney'
 import StakeholderMatrix from '@/components/home/StakeholderMatrix'
