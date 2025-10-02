@@ -5,7 +5,9 @@ export const metadata = {
 }
 
 import Hero from '@/components/home/Hero'
-import StartupJourney from '@/components/home/StartupJourney' // NEW!
+import TrustedBy from '@/components/home/TrustedBy' // ACTION 16 - Scrolling logos
+import FeatureHighlight from '@/components/home/FeatureHighlight' // ACTION 17 - Feature with animation
+import StartupJourney from '@/components/home/StartupJourney'
 import StakeholderMatrix from '@/components/home/StakeholderMatrix'
 import AIMatchmaking from '@/components/home/AIMatchmaking'
 import EnterpriseInnovation from '@/components/home/EnterpriseInnovation'
@@ -22,7 +24,9 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <StartupJourney /> {/* Startups get their dedicated journey section! */}
+      <TrustedBy /> {/* ACTION 16 - Scrolling logos after Hero */}
+      <FeatureHighlight /> {/* ACTION 17 - Feature section with animation */}
+      <StartupJourney />
       <StakeholderMatrix />
       <AIMatchmaking />
       <EnterpriseInnovation />
