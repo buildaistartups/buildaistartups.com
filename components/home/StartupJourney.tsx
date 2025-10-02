@@ -2,45 +2,44 @@
 'use client'
 
 import { useState } from 'react'
-import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, Lightbulb, Code, Rocket, TrendingUp, DollarSign } from 'lucide-react'
+import { ArrowRight, Lightbulb, Code, Rocket, TrendingUp, Target } from 'lucide-react'
 
 const journeySteps = [
   {
     icon: <Lightbulb />,
-    title: 'Idea',
-    time: 'Minute 0',
-    description: 'Describe your vision in plain English',
-    details: 'AI validates market fit, competition, and viability instantly'
+    title: 'Validate',
+    time: 'Step 1',
+    description: 'Test your idea with AI validation',
+    details: 'Market analysis, competitor research, and viability scoring'
   },
   {
     icon: <Code />,
     title: 'Build',
-    time: 'Hour 2',
-    description: 'Get production-ready code automatically',
-    details: 'Complete Next.js app with payments, auth, and analytics'
+    time: 'Step 2',
+    description: 'Generate production-ready code',
+    details: 'Complete application with payments, auth, and analytics'
   },
   {
     icon: <Rocket />,
     title: 'Launch',
-    time: 'Day 1',
-    description: 'Deploy to production with one click',
+    time: 'Step 3',
+    description: 'Deploy to production instantly',
     details: 'Live on your domain with SSL, CDN, and monitoring'
   },
   {
     icon: <TrendingUp />,
     title: 'Grow',
-    time: 'Week 2',
-    description: 'First customers start arriving',
-    details: 'AI-powered marketing and customer acquisition tools'
+    time: 'Step 4',
+    description: 'Scale with built-in growth tools',
+    details: 'Marketing automation and customer acquisition features'
   },
   {
-    icon: <DollarSign />,
-    title: 'Revenue',
-    time: 'Month 1',
-    description: 'Start generating real revenue',
-    details: 'Built-in billing, subscriptions, and revenue analytics'
+    icon: <Target />,
+    title: 'Succeed',
+    time: 'Step 5',
+    description: 'Build sustainable business',
+    details: 'Analytics, optimization, and scaling infrastructure'
   }
 ]
 
@@ -58,10 +57,10 @@ export default function StartupJourney() {
               <span className="text-sm font-medium">THE STARTUP JOURNEY</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
-              From Idea to Revenue in 30 Days
+              Your Path from Idea to Success
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Watch how startups go from zero to revenue faster than ever before possible
+              Follow our proven framework to build and launch your AI startup
             </p>
           </div>
 
@@ -113,11 +112,6 @@ export default function StartupJourney() {
                       {step.description}
                     </p>
                   </div>
-
-                  {/* Connector Arrow (mobile) */}
-                  {index < journeySteps.length - 1 && (
-                    <ArrowRight className="w-6 h-6 text-slate-600 mx-auto mt-4 md:hidden" />
-                  )}
                 </div>
               ))}
             </div>
@@ -132,7 +126,7 @@ export default function StartupJourney() {
                 </div>
                 <div className="flex-1">
                   <h4 className="text-lg font-semibold text-slate-200 mb-2">
-                    {journeySteps[activeStep].title} - {journeySteps[activeStep].time}
+                    {journeySteps[activeStep].title}: {journeySteps[activeStep].description}
                   </h4>
                   <p className="text-slate-300">
                     {journeySteps[activeStep].details}
@@ -142,32 +136,14 @@ export default function StartupJourney() {
                   href="/generate"
                   className="btn bg-purple-500 text-white hover:bg-purple-600 whitespace-nowrap"
                 >
-                  Start Your Journey
+                  Start Building
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </div>
             </div>
           </div>
 
-          {/* Success Metrics */}
-          <div className="mt-12 grid md:grid-cols-4 gap-6 text-center">
-            <div>
-              <div className="text-3xl font-bold text-purple-400">48hr</div>
-              <div className="text-sm text-slate-400">Average time to MVP</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-green-400">87%</div>
-              <div className="text-sm text-slate-400">Reach first customer</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-400">$2.4K</div>
-              <div className="text-sm text-slate-400">Avg first month revenue</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-yellow-400">12x</div>
-              <div className="text-sm text-slate-400">Faster than traditional</div>
-            </div>
-          </div>
+          {/* Remove fake metrics - Action 4 */}
         </div>
       </div>
     </section>
