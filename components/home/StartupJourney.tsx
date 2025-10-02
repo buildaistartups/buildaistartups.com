@@ -1,7 +1,7 @@
 // components/home/StartupJourney.tsx
 'use client'
 
-import React, { useState } from 'react' // ADD React import here!
+import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Lightbulb, Code, Rocket, TrendingUp, Target } from 'lucide-react'
 
@@ -143,7 +143,7 @@ export default function StartupJourney() {
             </div>
           </div>
 
-          {/* Remove fake metrics - per Action 4 */}
+          {/* Remove fake metrics - Action 4 */}
         </div>
       </div>
     </section>
