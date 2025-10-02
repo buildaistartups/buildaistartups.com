@@ -99,30 +99,6 @@ export default function Hero() {
               </Link>
             </div>
           </div>
-
-          {/* Live ecosystem intelligence */}
-          <div className="mt-16 grid md:grid-cols-4 gap-6 text-center">
-            <div className="bg-slate-800/50 rounded-lg p-4">
-              <div className="text-2xl mb-1">🤖</div>
-              <div className="text-xl font-bold text-purple-400">423</div>
-              <div className="text-sm text-slate-400">Perfect Partnerships</div>
-            </div>
-            <div className="bg-slate-800/50 rounded-lg p-4">
-              <div className="text-2xl mb-1">📊</div>
-              <div className="text-xl font-bold text-green-400">89%</div>
-              <div className="text-sm text-slate-400">Reach Revenue</div>
-            </div>
-            <div className="bg-slate-800/50 rounded-lg p-4">
-              <div className="text-2xl mb-1">🏢</div>
-              <div className="text-xl font-bold text-blue-400">47</div>
-              <div className="text-sm text-slate-400">White-Label Labs</div>
-            </div>
-            <div className="bg-slate-800/50 rounded-lg p-4">
-              <div className="text-2xl mb-1">🎓</div>
-              <div className="text-xl font-bold text-yellow-400">2,847</div>
-              <div className="text-sm text-slate-400">Certifications Earned</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
