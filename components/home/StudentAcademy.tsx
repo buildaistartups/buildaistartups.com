@@ -1,13 +1,14 @@
 // components/home/StudentAcademy.tsx
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { GraduationCap, Award, Briefcase, DollarSign, ChevronRight } from 'lucide-react'
 
 const certificationPath = [
   { level: 'Foundation', skills: 'HTML/JS', icon: '📜' },
   { level: 'Builder', skills: 'First Product', icon: '📜' },
-  { level: 'Advanced', skills: 'Scale to 10K', icon: '📜' },
+  { level: 'Advanced', skills: 'Scale to Users', icon: '📜' },
   { level: 'Master', skills: 'Exit Ready', icon: '📜' }
 ]
 
@@ -20,17 +21,15 @@ export default function StudentAcademy() {
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="py-12 md:py-20">
-          {/* Section header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 text-purple-400 mb-4">
-              <span className="text-sm font-medium">NEW SECTION</span>
+              <span className="text-sm font-medium">STUDENT ACADEMY</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
               Learn, Build, Earn, Get Certified
             </h2>
           </div>
 
-          {/* Certification Path */}
           <div className="mb-12">
             <div className="flex items-center justify-between max-w-3xl mx-auto">
               {certificationPath.map((cert, index) => (
@@ -48,7 +47,6 @@ export default function StudentAcademy() {
             </div>
           </div>
 
-          {/* University Partnerships */}
           <div className="bg-slate-800/50 rounded-xl p-6 mb-12">
             <h3 className="text-lg font-semibold text-slate-200 mb-4">University Partnerships</h3>
             <div className="flex flex-wrap gap-4 justify-center">
@@ -60,7 +58,6 @@ export default function StudentAcademy() {
             </div>
           </div>
 
-          {/* Certification Benefits */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-slate-200">Certification Benefits</h3>
@@ -78,20 +75,18 @@ export default function StudentAcademy() {
               ))}
             </div>
 
-            {/* Success Stats */}
             <div className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-xl p-6">
               <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">2,847</div>
-                <div className="text-slate-300 mb-4">Students Hired After Certification</div>
+                <div className="text-lg font-semibold text-purple-400 mb-2">Join the Academy</div>
+                <p className="text-slate-300 mb-4">Start your journey to becoming an AI startup founder</p>
                 <div className="border-t border-slate-700 pt-4">
-                  <div className="text-sm text-slate-400">Average Starting Salary</div>
-                  <div className="text-3xl font-bold text-green-400">$147K</div>
+                  <div className="text-sm text-slate-400">Career-changing opportunity</div>
+                  <div className="text-2xl font-bold text-green-400">Start Free</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* CTAs */}
           <div className="flex gap-4 justify-center">
             <Link
               href="/certification"
