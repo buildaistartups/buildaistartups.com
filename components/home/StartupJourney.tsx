@@ -1,7 +1,7 @@
 // components/home/StartupJourney.tsx
 'use client'
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Lightbulb, Code, Rocket, TrendingUp, Target } from 'lucide-react'
 
