@@ -15,37 +15,38 @@ export default function ClosingPromise() {
             </h2>
           </div>
 
-          {/* 12-month vision */}
+          {/* Vision without fake numbers */}
           <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 rounded-2xl p-8 md:p-12 backdrop-blur">
-            <h3 className="text-2xl font-semibold text-slate-200 mb-8 text-center">In 12 Months:</h3>
+            <h3 className="text-2xl font-semibold text-slate-200 mb-8 text-center">
+              Join the AI Revolution
+            </h3>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-12">
+            {/* Replace numbers with value propositions */}
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">10,000</div>
-                <div className="text-sm text-slate-400">AI businesses will launch here</div>
+                <div className="text-4xl mb-4">🚀</div>
+                <h4 className="text-xl font-bold text-purple-400 mb-2">Launch Fast</h4>
+                <p className="text-sm text-slate-400">Go from idea to live product faster than ever before possible</p>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">1,000</div>
-                <div className="text-sm text-slate-400">will reach $1M ARR</div>
+                <div className="text-4xl mb-4">📈</div>
+                <h4 className="text-xl font-bold text-green-400 mb-2">Scale Smart</h4>
+                <p className="text-sm text-slate-400">Built-in tools to grow from zero to revenue efficiently</p>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-blue-400 mb-2">100</div>
-                <div className="text-sm text-slate-400">will be acquired</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-yellow-400 mb-2">10</div>
-                <div className="text-sm text-slate-400">will become unicorns</div>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-red-400 mb-2">1</div>
-                <div className="text-sm text-slate-400">will change the world</div>
+                <div className="text-4xl mb-4">🌍</div>
+                <h4 className="text-xl font-bold text-blue-400 mb-2">Impact Global</h4>
+                <p className="text-sm text-slate-400">Join a community building the future of AI</p>
               </div>
             </div>
 
-            {/* Final question */}
-            <div className="text-center">
-              <p className="text-2xl md:text-3xl font-semibold text-slate-200 mb-8">
-                Will one be yours?
+            {/* The question */}
+            <div className="text-center mb-8">
+              <p className="text-2xl md:text-3xl font-semibold text-slate-200">
+                Will you be part of the future?
+              </p>
+              <p className="text-lg text-slate-400 mt-2">
+                The tools are ready. The ecosystem is waiting. Your idea deserves to exist.
               </p>
             </div>
 
@@ -64,12 +65,19 @@ export default function ClosingPromise() {
                 Find Your Role
               </Link>
               <Link
-                href="/revolution"
+                href="/ecosystem"
                 className="btn text-lg px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600"
               >
                 Join the Revolution
               </Link>
             </div>
+          </div>
+
+          {/* Alternative closing without numbers */}
+          <div className="mt-12 text-center">
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              BuildAIStartups is where ambitious founders, innovative enterprises, and forward-thinking investors come together to build the future. Be among the first to shape this revolution.
+            </p>
           </div>
         </div>
       </div>
