@@ -87,10 +87,10 @@ export default function Header() {
                   className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'product' ? 'visible opacity-100' : 'invisible opacity-0'}`}
                   onMouseEnter={() => setOpenDropdown('product')}
                 >
-                  <MenuItem href="/product/builder" title="Builder" desc="From brief to repo in minutes" onClose={closeDropdown} />
-                  <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Startups that help each other grow" onClose={closeDropdown} />
-                  <MenuItem href="/product/marketplace" title="Marketplace" desc="Launch, list, license, exit" onClose={closeDropdown} />
-                  <MenuItem href="/product/api" title="API" desc="Programmatic access to the engine" onClose={closeDropdown} />
+                  <MenuItem href="/product/builder" title="Builder" desc="From brief to repo on demand" onClose={closeDropdown} />
+                  <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Network effects" onClose={closeDropdown} />
+                  <MenuItem href="/product/marketplace" title="Marketplace" desc="Buy & sell startups" onClose={closeDropdown} />
+                  <MenuItem href="/product/api" title="API" desc="Developer tools" onClose={closeDropdown} />
                 </div>
               </li>
 
@@ -122,17 +122,17 @@ export default function Header() {
                     <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
                       <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY ROLE</div>
                       <ul className="space-y-3">
-                        <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" onClose={closeDropdown} />
-                        <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" onClose={closeDropdown} />
-                        <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" onClose={closeDropdown} />
-                        <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Autonomous incubator" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/indie" title="Indie Makers" desc="Solo founders" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/startups" title="Product Teams" desc="Enterprise teams" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/investors" title="Investors" desc="Portfolio tools" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Cohort management" onClose={closeDropdown} />
                       </ul>
                     </div>
                     <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
                       <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY USE CASE</div>
                       <ul className="space-y-3">
-                        <MenuItem href="/vertical/ai-leadgen" title="Lead Gen Pipeline" desc="Capture → qualify → CRM → drip → pay" onClose={closeDropdown} />
-                        <MenuItem href="/vertical/ai-support" title="Support Copilot" desc="Deflect tickets, summarize, escalate safely" onClose={closeDropdown} />
+                        <MenuItem href="/vertical/ai-leadgen" title="Lead Gen Pipeline" desc="AI sales" onClose={closeDropdown} />
+                        <MenuItem href="/vertical/ai-support" title="Support Copilot" desc="AI support" onClose={closeDropdown} />
                       </ul>
                       <div className="text-[11px] text-slate-500 mt-4">Examples, not limits.</div>
                     </div>
@@ -164,12 +164,12 @@ export default function Header() {
                   className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'resources' ? 'visible opacity-100' : 'invisible opacity-0'}`}
                   onMouseEnter={() => setOpenDropdown('resources')}
                 >
-                  <MenuItem href="/resources/docs" title="Docs" desc="Build faster with Build AI Startups" onClose={closeDropdown} />
-                  <MenuItem href="/resources/templates" title="Templates" desc="Jump-start with starters" onClose={closeDropdown} />
-                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's now, next, later" onClose={closeDropdown} />
-                  <MenuItem href="/resources/blog" title="Blog" desc="Build-in-public & playbooks" onClose={closeDropdown} />
-                  <MenuItem href="/resources/changelog" title="Changelog" desc="Ship notes & releases" onClose={closeDropdown} />
-                  <MenuItem href="/resources/press" title="Press Kit" desc="Logos, shots, bio" onClose={closeDropdown} />
+                  <MenuItem href="/resources/docs" title="Docs" desc="Documentation" onClose={closeDropdown} />
+                  <MenuItem href="/resources/templates" title="Templates" desc="Starter kits" onClose={closeDropdown} />
+                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's next" onClose={closeDropdown} />
+                  <MenuItem href="/resources/blog" title="Blog" desc="Updates & guides" onClose={closeDropdown} />
+                  <MenuItem href="/resources/changelog" title="Changelog" desc="Release notes" onClose={closeDropdown} />
+                  <MenuItem href="/resources/press" title="Press Kit" desc="Media resources" onClose={closeDropdown} />
                 </div>
               </li>
 
