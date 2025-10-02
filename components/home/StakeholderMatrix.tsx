@@ -8,7 +8,7 @@ const stakeholders = [
   {
     title: 'STARTUPS',
     badge: '🚀 Core',
-    highlight: true, // This is the primary audience
+    highlight: true,
     features: [
       'Zero to MVP in 48 hours',
       'AI-powered idea validation',
@@ -86,7 +86,6 @@ export default function StakeholderMatrix() {
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Section header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
               Every Role. Every Tool. Every Gap Filled.
@@ -96,7 +95,6 @@ export default function StakeholderMatrix() {
             </p>
           </div>
 
-          {/* Stakeholder grid - Startups featured prominently */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {stakeholders.map((stakeholder) => (
               <div
@@ -107,7 +105,7 @@ export default function StakeholderMatrix() {
                     : 'bg-slate-800/50 border-slate-700'
                 } backdrop-blur rounded-xl p-6 border hover:border-purple-500/50 transition-all ${
                   stakeholder.highlight ? 'ring-2 ring-purple-500/20' : ''
-                }`}
+                } flex flex-col h-full`}
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold text-slate-200">{stakeholder.title}</h3>
@@ -122,7 +120,7 @@ export default function StakeholderMatrix() {
                   )}
                 </div>
                 
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2 mb-6 flex-grow">
                   {stakeholder.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-2">
                       {stakeholder.highlight ? (
@@ -135,16 +133,18 @@ export default function StakeholderMatrix() {
                   ))}
                 </ul>
                 
-                <Link
-                  href={stakeholder.cta.href}
-                  className={`block text-center py-2 px-4 rounded-lg transition-colors ${
-                    stakeholder.highlight
-                      ? 'bg-purple-500 text-white hover:bg-purple-600'
-                      : 'bg-purple-500/20 text-purple-400 hover:bg-purple-500/30'
-                  }`}
-                >
-                  {stakeholder.cta.text}
-                </Link>
+                <div className="mt-auto">
+                  <Link
+                    href={stakeholder.cta.href}
+                    className={`block text-center py-2 px-4 rounded-lg transition-colors ${
+                      stakeholder.highlight
+                        ? 'bg-purple-500 text-white hover:bg-purple-600'
+                        : 'bg-purple-500/20 text-purple-400 hover:bg-purple-500/30'
+                    }`}
+                  >
+                    {stakeholder.cta.text}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
