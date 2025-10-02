@@ -99,6 +99,25 @@ export default function Hero() {
               </Link>
             </div>
           </div>
+
+          {/* Instead, add value props without numbers */}
+          <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">🚀</div>
+              <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+              <div className="text-xs text-slate-400">From idea to live product</div>
+            </div>
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">🤝</div>
+              <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+              <div className="text-xs text-slate-400">Everything you need to succeed</div>
+            </div>
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">💡</div>
+              <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+              <div className="text-xs text-slate-400">Smart tools at every step</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
