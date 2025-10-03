@@ -87,8 +87,7 @@ export default function AIMatchmaking() {
               ))}
             </div>
 
-            {/* UPDATED: added `spotlight-card` to enable the hover light */}
-            <div className="spotlight-card relative h-[400px] bg-slate-900/50 rounded-xl border border-slate-700 overflow-hidden">
+            <div className="relative h-[400px] bg-slate-900/50 rounded-xl border border-slate-700 overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center p-8">
                   <div className="text-6xl mb-4">🤖</div>
