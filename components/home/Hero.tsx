@@ -6,6 +6,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Particles from '@/components/particles'
 import Glow from '@/public/images/glow-bottom.svg'
+import SpotlightGroup from '@/components/ui/SpotlightGroup'
+import SpotlightCard from '@/components/ui/SpotlightCard'
 
 const audiences = [
   {
@@ -81,6 +83,7 @@ export default function Hero() {
                 <button
                   key={index}
                   onClick={() => setCurrentAudience(index)}
+                  aria-label={`Show content for ${audiences[index].title}`}
                   className={`w-2 h-2 rounded-full transition-all ${
                     index === currentAudience
                       ? 'w-8 bg-purple-500'
@@ -120,24 +123,28 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Value props */}
-          <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">🚀</div>
-              <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-              <div className="text-xs text-slate-400">From idea to live product</div>
+          {/* Value props with EXACT Stellar-style spotlight */}
+          <SpotlightGroup>
+            <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
+              <SpotlightCard>
+                <div className="text-2xl mb-2">🚀</div>
+                <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+                <div className="text-xs text-slate-400">From idea to live product</div>
+              </SpotlightCard>
+
+              <SpotlightCard>
+                <div className="text-2xl mb-2">🤝</div>
+                <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+                <div className="text-xs text-slate-400">Everything you need to succeed</div>
+              </SpotlightCard>
+
+              <SpotlightCard>
+                <div className="text-2xl mb-2">💡</div>
+                <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+                <div className="text-xs text-slate-400">Smart tools at every step</div>
+              </SpotlightCard>
             </div>
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">🤝</div>
-              <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
-              <div className="text-xs text-slate-400">Everything you need to succeed</div>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">💡</div>
-              <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
-              <div className="text-xs text-slate-400">Smart tools at every step</div>
-            </div>
-          </div>
+          </SpotlightGroup>
         </div>
       </div>
     </section>
