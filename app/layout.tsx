@@ -76,7 +76,7 @@ export default function RootLayout({
       >
         <ThemeWrapper>
           {/* Drive the spotlight effect for ALL cards across the app */}
-          <SpotlightGroup itemSelector=".spotlight-card">
+          <SpotlightGroup itemSelector=".spotlight-card, [data-spotlight]">
             <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
               {children}
             </div>
