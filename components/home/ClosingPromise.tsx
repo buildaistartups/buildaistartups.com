@@ -1,11 +1,13 @@
 // components/home/ClosingPromise.tsx
 import Link from 'next/link'
+import Image from 'next/image'
+import Glow from '@/public/images/glow-bottom.svg'
 
 export default function ClosingPromise() {
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
-      
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="py-20 md:py-32">
           {/* Main promise */}
@@ -15,28 +17,48 @@ export default function ClosingPromise() {
             </h2>
           </div>
 
-          {/* Vision without fake numbers */}
-          <div className="bg-gradient-to-br from-purple-900/30 to-blue-900/30 rounded-2xl p-8 md:p-12 backdrop-blur">
+          {/* Glow panel (Option A) */}
+          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-gradient-to-br from-purple-900/30 to-blue-900/30 p-8 md:p-12 backdrop-blur">
+            {/* purple glow background image */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute left-1/2 -translate-x-1/2 -top-[20%]">
+                <Image
+                  src={Glow}
+                  alt=""
+                  priority
+                  width={1600}
+                  height={700}
+                  className="max-w-none opacity-90"
+                />
+              </div>
+            </div>
+
             <h3 className="text-2xl font-semibold text-slate-200 mb-8 text-center">
               Join the AI Revolution
             </h3>
-            
+
             {/* Replace numbers with value propositions */}
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="text-center">
                 <div className="text-4xl mb-4">🚀</div>
                 <h4 className="text-xl font-bold text-purple-400 mb-2">Launch Fast</h4>
-                <p className="text-sm text-slate-400">Go from idea to live product faster than ever before possible</p>
+                <p className="text-sm text-slate-400">
+                  Go from idea to live product faster than ever before possible
+                </p>
               </div>
               <div className="text-center">
                 <div className="text-4xl mb-4">📈</div>
                 <h4 className="text-xl font-bold text-green-400 mb-2">Scale Smart</h4>
-                <p className="text-sm text-slate-400">Built-in tools to grow from zero to revenue efficiently</p>
+                <p className="text-sm text-slate-400">
+                  Built-in tools to grow from zero to revenue efficiently
+                </p>
               </div>
               <div className="text-center">
                 <div className="text-4xl mb-4">🌍</div>
                 <h4 className="text-xl font-bold text-blue-400 mb-2">Impact Global</h4>
-                <p className="text-sm text-slate-400">Join a community building the future of AI</p>
+                <p className="text-sm text-slate-400">
+                  Join a community building the future of AI
+                </p>
               </div>
             </div>
 
