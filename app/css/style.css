@@ -243,7 +243,9 @@
 
 /* === Strictly clipped Stellar-style spotlight (no bleed outside card) === */
 @layer components {
-  .spotlight-card {
+  /* Support both .spotlight-card and [data-spotlight] so either pattern works */
+  .spotlight-card,
+  [data-spotlight] {
     position: relative;
     overflow: hidden;           /* hard-clip at card edges */
     isolation: isolate;         /* prevent blending outside */
@@ -252,7 +254,8 @@
   }
 
   /* Gray light layer — full-card cover with a radial spot */
-  .spotlight-card::before {
+  .spotlight-card::before,
+  [data-spotlight]::before {
     content: "";
     position: absolute;
     inset: 0;                   /* cover entire card */
@@ -268,7 +271,8 @@
   }
 
   /* Purple light layer */
-  .spotlight-card::after {
+  .spotlight-card::after,
+  [data-spotlight]::after {
     content: "";
     position: absolute;
     inset: 0;                   /* cover entire card */
@@ -285,5 +289,9 @@
 
   /* Show lights only while hovered */
   .spotlight-card:hover::before,
-  .spotlight-card:hover::after { opacity: 1; }
+  .spotlight-card:hover::after,
+  [data-spotlight]:hover::before,
+  [data-spotlight]:hover::after {
+    opacity: 1;
+  }
 }
