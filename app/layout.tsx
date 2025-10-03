@@ -3,6 +3,7 @@ import './css/style.css'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import ThemeWrapper from './ThemeWrapper'
+import SpotlightGroup from '@/components/ui/SpotlightGroup'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -74,9 +75,12 @@ export default function RootLayout({
         className={`${inter.variable} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}
       >
         <ThemeWrapper>
-          <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-            {children}
-          </div>
+          {/* Drive the spotlight effect for ALL cards across the app */}
+          <SpotlightGroup itemSelector=".spotlight-card">
+            <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
+              {children}
+            </div>
+          </SpotlightGroup>
         </ThemeWrapper>
       </body>
     </html>
