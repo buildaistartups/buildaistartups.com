@@ -1,3 +1,4 @@
+// components/ui/card.tsx
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
@@ -8,6 +9,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
+      // Make all cards participate in the spotlight effect
       "spotlight-card rounded-lg border bg-card text-card-foreground shadow-sm",
       className
     )}
