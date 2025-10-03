@@ -3,7 +3,9 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Particles from '@/components/particles'
+import Glow from '@/public/images/glow-bottom.svg'
 
 const audiences = [
   {
@@ -38,7 +40,7 @@ const audiences = [
 
 export default function Hero() {
   const [currentAudience, setCurrentAudience] = useState(0)
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentAudience((prev) => (prev + 1) % audiences.length)
@@ -50,8 +52,26 @@ export default function Hero() {
 
   return (
     <section className="relative">
+      {/* Stars layer */}
       <Particles className="absolute inset-0 -z-10" />
-      
+
+      {/* Purple glow background from the old hero */}
+      <div
+        className="absolute inset-0 -z-10 pointer-events-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
+          <Image
+            src={Glow}
+            className="max-w-none"
+            width={2146}
+            height={780}
+            priority
+            alt=""
+          />
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="pt-32 pb-16 md:pt-52 md:pb-32">
           {/* Rotating audience indicator */}
@@ -62,8 +82,8 @@ export default function Hero() {
                   key={index}
                   onClick={() => setCurrentAudience(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentAudience 
-                      ? 'w-8 bg-purple-500' 
+                    index === currentAudience
+                      ? 'w-8 bg-purple-500'
                       : 'bg-slate-600 hover:bg-slate-500'
                   }`}
                 />
@@ -82,7 +102,7 @@ export default function Hero() {
             <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
               {current.subheadline}
             </p>
-            
+
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -100,7 +120,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Instead, add value props without numbers */}
+          {/* Value props */}
           <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
             <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
               <div className="text-2xl mb-2">🚀</div>
