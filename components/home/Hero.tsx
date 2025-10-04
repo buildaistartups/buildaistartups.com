@@ -1,101 +1,136 @@
-// components/home/AcceleratorCommand.tsx
+// components/home/Hero.tsx
 'use client'
 
-import React from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { CheckCircle, XCircle, Users, Rocket } from 'lucide-react'
+import Image from 'next/image'
+import Particles from '@/components/particles'
+import Glow from '@/public/images/glow-bottom.svg' // same glow asset used elsewhere
 
-export default function AcceleratorCommand() {
+const audiences = [
+  {
+    title: 'For Startups',
+    headline: 'Build, Scale, and Profit from AI. Complete Toolkit Included.',
+    subheadline: 'Everything you need to launch and grow your AI business in one platform',
+    cta1: { text: 'Start Building', href: '/generate' },
+    cta2: { text: 'Access Startup Tools', href: '/solutions/indie-makers' }
+  },
+  {
+    title: 'For Enterprises',
+    headline: 'Launch Your Innovation Lab. White-Label Everything.',
+    subheadline: 'Transform your organization into an AI powerhouse with enterprise-grade tools',
+    cta1: { text: 'Deploy Enterprise Lab', href: '/solutions/enterprises' },
+    cta2: { text: 'See Enterprise Features', href: '/product/api' }
+  },
+  {
+    title: 'For Accelerators',
+    headline: 'Run World-Class Programs. Ship Real Products.',
+    subheadline: 'Complete cohort management system that gets startups to revenue faster',
+    cta1: { text: 'Manage Your Cohort', href: '/solutions/accelerators' },
+    cta2: { text: 'Demo Day Tools', href: '/product/ecosystem' }
+  },
+  {
+    title: 'For Product Managers',
+    headline: 'Enterprise Workflows. Zero Dependencies.',
+    subheadline: 'Integrate AI capabilities directly into your existing enterprise stack',
+    cta1: { text: 'See Enterprise Integrations', href: '/solutions/product-teams' },
+    cta2: { text: 'Book PM Demo', href: '/contact?type=demo' }
+  }
+]
+
+export default function Hero() {
+  const [currentAudience, setCurrentAudience] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrentAudience((p) => (p + 1) % audiences.length)
+    }, 5000)
+    return () => clearInterval(id)
+  }, [])
+
+  const current = audiences[currentAudience]
+
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-transparent" />
-      
+    <section className="relative">
+      {/* star field */}
+      <Particles className="absolute inset-0 -z-20" />
+
+      {/* purple aurora glow behind hero */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 -translate-x-1/2 -top-[28%]">
+          <Image
+            src={Glow}
+            alt=""
+            width={1800}
+            height={760}
+            className="max-w-none opacity-70"
+            priority
+          />
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-        <div className="py-12 md:py-20">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-purple-400 mb-4">
-              <span className="text-sm font-medium">ACCELERATOR TOOLS</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
-              Run Programs That Ship Products, Not Just Pitch Decks
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-red-900/20 rounded-xl border border-red-500/30 p-6">
-              <h3 className="text-lg font-semibold text-red-400 mb-4">Traditional Accelerator</h3>
-              <ul className="space-y-3">
-                {[
-                  'Lengthy programs',
-                  'Manual processes',
-                  'Tracking spreadsheets',
-                  'Generic mentorship',
-                  'Variable outcomes'
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <XCircle className="w-5 h-5 text-red-400 flex-shrink-0" />
-                    <span className="text-slate-300">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-green-900/20 rounded-xl border border-green-500/30 p-6">
-              <h3 className="text-lg font-semibold text-green-400 mb-4">BuildAIStartups Accelerator</h3>
-              <ul className="space-y-3">
-                {[
-                  'Rapid deployment',
-                  'Automated workflows',
-                  'Real-time dashboards',
-                  'AI-matched mentors',
-                  'Consistent results'
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                    <span className="text-slate-300">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <div className="bg-slate-800/50 rounded-xl p-8">
-            <h3 className="text-xl font-semibold text-slate-200 mb-6">Your Accelerator Tools</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { title: 'Cohort Batch Manager', desc: 'Manage multiple startups efficiently' },
-                { title: 'Mentor Assignment AI', desc: 'Perfect expertise matching' },
-                { title: 'Demo Day Builder', desc: 'Streamline pitch preparation' },
-                { title: 'Program Analytics', desc: 'Track success metrics' },
-                { title: 'Graduation Gateway', desc: 'Automated milestone tracking' },
-                { title: 'Investor Network', desc: 'Connect with VCs' }
-              ].map((tool) => (
-                <div key={tool.title} className="flex items-start gap-3">
-                  <div className="p-2 bg-purple-500/20 rounded-lg mt-1">
-                    <Rocket className="w-4 h-4 text-purple-400" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-slate-200">{tool.title}</div>
-                    <div className="text-sm text-slate-400">{tool.desc}</div>
-                  </div>
-                </div>
+        <div className="pt-32 pb-16 md:pt-52 md:pb-32">
+          {/* Rotating audience indicator */}
+          <div className="text-center mb-8">
+            <div className="inline-flex gap-2">
+              {audiences.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentAudience(i)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    i === currentAudience ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
+                  }`}
+                />
               ))}
             </div>
+            <div className="mt-4 text-sm font-medium text-purple-400">{current.title}</div>
           </div>
 
-          <div className="flex gap-4 justify-center mt-8">
-            <Link
-              href="/accelerator"
-              className="btn bg-purple-500 text-white hover:bg-purple-600"
-            >
-              Launch Your Program
-            </Link>
-            <Link
-              href="/demo"
-              className="btn bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
-            >
-              See Demo
-            </Link>
+          {/* Main content */}
+          <div className="text-center">
+            {/* smaller headline as requested */}
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
+              {current.headline}
+            </h1>
+            <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
+              {current.subheadline}
+            </p>
+
+            {/* compact Stellar-style CTAs */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link
+                href={current.cta1.href}
+                className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
+              >
+                {current.cta1.text}
+              </Link>
+              <Link
+                href={current.cta2.href}
+                className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500/30"
+              >
+                {current.cta2.text}
+              </Link>
+            </div>
+          </div>
+
+          {/* Value props (unchanged) */}
+          <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">🚀</div>
+              <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+              <div className="text-xs text-slate-400">From idea to live product</div>
+            </div>
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">🤝</div>
+              <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+              <div className="text-xs text-slate-400">Everything you need to succeed</div>
+            </div>
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">💡</div>
+              <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+              <div className="text-xs text-slate-400">Smart tools at every step</div>
+            </div>
           </div>
         </div>
       </div>
