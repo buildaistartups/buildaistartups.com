@@ -104,11 +104,11 @@ export default function Hero() {
                 <h1
                   className="
                     font-bold tracking-tight
-                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller variant */
-                    leading-tight md:leading-[1.06]               /* ~50% tighter than 1.12 */
+                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller */
+                    leading-tight md:leading-[1.06]               /* tighter interline */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
-                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* tiny bottom pad per line */
+                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* protect descenders */
                   "
                 >
                   <span className="hidden md:block">
@@ -118,23 +118,23 @@ export default function Hero() {
                   <span className="md:hidden">{a.headline}</span>
                 </h1>
 
-                {/* Subtitle — move up total 2pt more (≈5.33px) */}
+                {/* Subtitle — up by 2pt */}
                 <p className="mt-4 -translate-y-[5.33px] text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
                   {a.subheadline}
                 </p>
               </div>
 
-              {/* CTAs — move up total 2pt more (≈5.33px) */}
+              {/* CTAs — Stellar template size (h-9 px-4 text-sm), up by 2pt */}
               <div className="mt-8 -translate-y-[5.33px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   href={a.cta1.href}
-                  className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
+                  className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
                 >
                   {a.cta1.text}
                 </Link>
                 <Link
                   href={a.cta2.href}
-                  className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500/30"
+                  className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500/30"
                 >
                   {a.cta2.text}
                 </Link>
