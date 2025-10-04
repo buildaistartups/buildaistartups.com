@@ -10,7 +10,7 @@ import Illustration from '@/public/images/glow-bottom.svg'
 type Audience = {
   title: string
   headline: string                 // mobile (natural wrap)
-  linesMd: [string, string]        // exact two lines for md+ (forced breaks)
+  linesMd: [string, string]        // exact two lines for md+ (force breaks)
   subheadline: string
   cta1: { text: string; href: string }
   cta2: { text: string; href: string }
@@ -104,14 +104,13 @@ export default function Hero() {
                 <h1
                   className="
                     font-bold tracking-tight
-                    text-4xl md:text-[54px] lg:text-[58px]      /* 1pt smaller than before */
-                    leading-tight md:leading-[1.12]              /* loosened to protect descenders */
+                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller (≈0.67px) */
+                    leading-tight md:leading-[1.12]               /* protect descenders */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
                     md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* tiny bottom pad per line */
                   "
                 >
-                  {/* md+: exact two lines with fixed breaks; mobile: natural wrap */}
                   <span className="hidden md:block">
                     <span className="block whitespace-nowrap">{a.linesMd[0]}</span>
                     <span className="block whitespace-nowrap">{a.linesMd[1]}</span>
@@ -124,8 +123,8 @@ export default function Hero() {
                 </p>
               </div>
 
-              {/* CTAs — fixed distance from subtitle */}
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              {/* CTAs — move up ~1pt (≈1.33px) */}
+              <div className="mt-8 -translate-y-[1.33px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   href={a.cta1.href}
                   className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
