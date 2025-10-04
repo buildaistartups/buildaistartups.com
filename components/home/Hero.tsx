@@ -3,11 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Particles from '@/components/particles'
-import Glow from '@/public/images/glow-bottom.svg'
-import SpotlightGroup from '@/components/ui/SpotlightGroup'
-import SpotlightCard from '@/components/ui/SpotlightCard'
 
 const audiences = [
   {
@@ -42,7 +38,7 @@ const audiences = [
 
 export default function Hero() {
   const [currentAudience, setCurrentAudience] = useState(0)
-
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentAudience((prev) => (prev + 1) % audiences.length)
@@ -54,26 +50,8 @@ export default function Hero() {
 
   return (
     <section className="relative">
-      {/* Stars layer */}
       <Particles className="absolute inset-0 -z-10" />
-
-      {/* Purple glow background from the old hero */}
-      <div
-        className="absolute inset-0 -z-10 pointer-events-none overflow-hidden"
-        aria-hidden="true"
-      >
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
-          <Image
-            src={Glow}
-            className="max-w-none"
-            width={2146}
-            height={780}
-            priority
-            alt=""
-          />
-        </div>
-      </div>
-
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="pt-32 pb-16 md:pt-52 md:pb-32">
           {/* Rotating audience indicator */}
@@ -83,10 +61,9 @@ export default function Hero() {
                 <button
                   key={index}
                   onClick={() => setCurrentAudience(index)}
-                  aria-label={`Show content for ${audiences[index].title}`}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentAudience
-                      ? 'w-8 bg-purple-500'
+                    index === currentAudience 
+                      ? 'w-8 bg-purple-500' 
                       : 'bg-slate-600 hover:bg-slate-500'
                   }`}
                 />
@@ -99,52 +76,63 @@ export default function Hero() {
 
           {/* Main content */}
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
+            {/* ↓ Smaller headline */}
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
               {current.headline}
             </h1>
             <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
               {current.subheadline}
             </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            {/* CTAs — small, Stellar-like */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href={current.cta1.href}
-                className="btn bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700"
+                className="
+                  inline-flex items-center justify-center
+                  h-9 md:h-10 px-4 md:px-5
+                  rounded-full text-sm md:text-[15px] font-medium
+                  bg-gradient-to-r from-purple-500 to-purple-600 text-white
+                  hover:from-purple-600 hover:to-purple-700
+                  focus:outline-none focus:ring-2 focus:ring-purple-500/40
+                "
               >
                 {current.cta1.text}
               </Link>
               <Link
                 href={current.cta2.href}
-                className="btn bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+                className="
+                  inline-flex items-center justify-center
+                  h-9 md:h-10 px-4 md:px-5
+                  rounded-full text-sm md:text-[15px] font-medium
+                  bg-slate-800 text-slate-200 border border-slate-700
+                  hover:bg-slate-700
+                  focus:outline-none focus:ring-2 focus:ring-slate-500/30
+                "
               >
                 {current.cta2.text}
               </Link>
             </div>
           </div>
 
-          {/* Value props with EXACT Stellar-style spotlight */}
-          <SpotlightGroup>
-            <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
-              <SpotlightCard>
-                <div className="text-2xl mb-2">🚀</div>
-                <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-                <div className="text-xs text-slate-400">From idea to live product</div>
-              </SpotlightCard>
-
-              <SpotlightCard>
-                <div className="text-2xl mb-2">🤝</div>
-                <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
-                <div className="text-xs text-slate-400">Everything you need to succeed</div>
-              </SpotlightCard>
-
-              <SpotlightCard>
-                <div className="text-2xl mb-2">💡</div>
-                <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
-                <div className="text-xs text-slate-400">Smart tools at every step</div>
-              </SpotlightCard>
+          {/* Value props */}
+          <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">🚀</div>
+              <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+              <div className="text-xs text-slate-400">From idea to live product</div>
             </div>
-          </SpotlightGroup>
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">🤝</div>
+              <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+              <div className="text-xs text-slate-400">Everything you need to succeed</div>
+            </div>
+            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
+              <div className="text-2xl mb-2">💡</div>
+              <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+              <div className="text-xs text-slate-400">Smart tools at every step</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
