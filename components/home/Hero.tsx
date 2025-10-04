@@ -80,7 +80,7 @@ export default function Hero() {
         {/* Nudge the whole hero up ~2pt (≈2.67px) to match ORIGINAL alignment */}
         <div className="-translate-y-[2.67px] md:-translate-y-[2.67px] lg:-translate-y-[2.67px]">
           <div className="pt-32 pb-16 md:pt-52 md:pb-32">
-            {/* Dots + label (carousel controls) — move down 0.5pt to tighten gap to H1 */}
+            {/* Dots + label (carousel controls) — moved down 0.5pt to tighten gap to H1 */}
             <div className="text-center mb-8 translate-y-[0.67px]">
               <div className="inline-flex gap-2">
                 {audiences.map((_, idx) => (
@@ -104,8 +104,8 @@ export default function Hero() {
                 <h1
                   className="
                     font-bold tracking-tight
-                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller */
-                    leading-tight md:leading-[1.12]               /* protect descenders */
+                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller variant */
+                    leading-tight md:leading-[1.06]               /* ~50% tighter than 1.12 */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
                     md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* tiny bottom pad per line */
@@ -118,14 +118,14 @@ export default function Hero() {
                   <span className="md:hidden">{a.headline}</span>
                 </h1>
 
-                {/* Subtitle — move up 2pt */}
-                <p className="mt-4 -translate-y-[2.67px] text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+                {/* Subtitle — move up total 2pt more (≈5.33px) */}
+                <p className="mt-4 -translate-y-[5.33px] text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
                   {a.subheadline}
                 </p>
               </div>
 
-              {/* CTAs — move up 2pt */}
-              <div className="mt-8 -translate-y-[2.67px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              {/* CTAs — move up total 2pt more (≈5.33px) */}
+              <div className="mt-8 -translate-y-[5.33px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   href={a.cta1.href}
                   className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
@@ -159,24 +159,4 @@ export default function Hero() {
                 >
                   {/* hover glow */}
                   <div
-                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    aria-hidden="true"
-                  >
-                    <div className="absolute -inset-12 blur-2xl bg-[radial-gradient(120%_120%_at_50%_0%,rgba(168,85,247,0.35),transparent_60%)]" />
-                    <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500/10 via-fuchsia-500/10 to-purple-500/10" />
-                  </div>
-
-                  <div className="relative">
-                    <div className="text-2xl mb-2">{item.emoji}</div>
-                    <div className="text-sm font-semibold text-slate-200">{item.title}</div>
-                    <div className="text-xs text-slate-400">{item.text}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:op
