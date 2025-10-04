@@ -80,8 +80,8 @@ export default function Hero() {
         {/* Nudge the whole hero up ~2pt (≈2.67px) to match ORIGINAL alignment */}
         <div className="-translate-y-[2.67px] md:-translate-y-[2.67px] lg:-translate-y-[2.67px]">
           <div className="pt-32 pb-16 md:pt-52 md:pb-32">
-            {/* Dots + label */}
-            <div className="text-center mb-8">
+            {/* Dots + label (carousel controls) — move down 0.5pt to tighten gap to H1 */}
+            <div className="text-center mb-8 translate-y-[0.67px]">
               <div className="inline-flex gap-2">
                 {audiences.map((_, idx) => (
                   <button
@@ -104,7 +104,7 @@ export default function Hero() {
                 <h1
                   className="
                     font-bold tracking-tight
-                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller (≈0.67px) */
+                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller */
                     leading-tight md:leading-[1.12]               /* protect descenders */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
@@ -118,13 +118,14 @@ export default function Hero() {
                   <span className="md:hidden">{a.headline}</span>
                 </h1>
 
-                <p className="mt-4 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+                {/* Subtitle — move up 2pt */}
+                <p className="mt-4 -translate-y-[2.67px] text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
                   {a.subheadline}
                 </p>
               </div>
 
-              {/* CTAs — move up ~1pt (≈1.33px) */}
-              <div className="mt-8 -translate-y-[1.33px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              {/* CTAs — move up 2pt */}
+              <div className="mt-8 -translate-y-[2.67px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   href={a.cta1.href}
                   className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
