@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Particles from '@/components/particles'
+import Glow from '@/public/images/glow-bottom.svg'
 
 const audiences = [
   {
