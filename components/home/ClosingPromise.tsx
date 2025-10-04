@@ -78,14 +78,15 @@ export default function ClosingPromise() {
               </p>
             </div>
 
-            {/* CTAs — SAME SIZE AS HERO (compact pills) */}
+            {/* CTAs — match height to middle; trim width on 1st & 3rd so all feel similar */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              {/* Primary — a touch narrower padding */}
               <Link
                 href="/generate"
                 className="
                   inline-flex items-center justify-center
-                  h-9 md:h-10 px-4 md:px-5
-                  rounded-full text-sm md:text-[15px] font-medium
+                  h-9 md:h-10 px-3.5 md:px-4
+                  rounded-full text-sm md:text-[15px] font-medium leading-none whitespace-nowrap
                   bg-gradient-to-r from-purple-500 to-purple-600 text-white
                   hover:from-purple-600 hover:to-purple-700
                   focus:outline-none focus:ring-2 focus:ring-purple-500/40
@@ -93,12 +94,14 @@ export default function ClosingPromise() {
               >
                 Start Your Journey
               </Link>
+
+              {/* Secondary — reference size */}
               <Link
                 href="/find-role"
                 className="
                   inline-flex items-center justify-center
                   h-9 md:h-10 px-4 md:px-5
-                  rounded-full text-sm md:text-[15px] font-medium
+                  rounded-full text-sm md:text-[15px] font-medium leading-none whitespace-nowrap
                   bg-slate-800 text-slate-200 border border-slate-700
                   hover:bg-slate-700
                   focus:outline-none focus:ring-2 focus:ring-slate-500/30
@@ -106,12 +109,14 @@ export default function ClosingPromise() {
               >
                 Find Your Role
               </Link>
+
+              {/* Accent — same trim as primary */}
               <Link
                 href="/ecosystem"
                 className="
                   inline-flex items-center justify-center
-                  h-9 md:h-10 px-4 md:px-5
-                  rounded-full text-sm md:text-[15px] font-medium
+                  h-9 md:h-10 px-3.5 md:px-4
+                  rounded-full text-sm md:text-[15px] font-medium leading-none whitespace-nowrap
                   bg-gradient-to-r from-blue-500 to-cyan-500 text-white
                   hover:from-blue-600 hover:to-cyan-600
                   focus:outline-none focus:ring-2 focus:ring-blue-500/30
