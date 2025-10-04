@@ -1,7 +1,7 @@
 // components/home/ClosingPromise.tsx
 import Link from 'next/link'
 import Image from 'next/image'
-import Glow from '@/public/images/glow-bottom.svg'
+import Glow from '@/public/images/glow-top.svg'
 
 export default function ClosingPromise() {
   return (
