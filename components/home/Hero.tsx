@@ -105,7 +105,7 @@ export default function Hero() {
                   className="
                     font-bold tracking-tight
                     text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller */
-                    leading-tight md:leading-[1.06]               /* tighter interline */
+                    leading-tight md:leading-[1.06]               /* tighter interline; descender-safe */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
                     md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* protect descenders */
@@ -124,7 +124,7 @@ export default function Hero() {
                 </p>
               </div>
 
-              {/* CTAs — Stellar template size (h-9 px-4 text-sm), up by 2pt */}
+              {/* CTAs — Stellar size (h-9 px-4 text-sm), up by 2pt */}
               <div className="mt-8 -translate-y-[5.33px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Link
                   href={a.cta1.href}
@@ -141,8 +141,8 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — with hover lighting */}
-            <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
+            {/* Value props — with hover lighting; move the 3 boxes up 0.5pt */}
+            <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
               {[
                 { emoji: '🚀', title: 'Rapid Launch', text: 'From idea to live product' },
                 { emoji: '🤝', title: 'Complete Ecosystem', text: 'Everything you need to succeed' },
@@ -174,6 +174,7 @@ export default function Hero() {
                 </div>
               ))}
             </div>
+            {/* /Value props */}
           </div>
         </div>
       </div>
