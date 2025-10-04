@@ -141,83 +141,84 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — spotlight lighting; 0.5pt up; OPAQUE purple gradient and no hover movement */}
+            {/* Value props — spotlight lighting; 0.5pt up; OPAQUE #7B47BB; no hover movement */}
             <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
-              {/* Card 1 — rose-tinted, opaque purple gradient */}
+              {/* Card 1 */}
               <div
                 className="
-                  spotlight-card relative overflow-hidden
+                  relative overflow-hidden
                   rounded-2xl border border-slate-700/60
                   p-4 md:p-6
-                  bg-[linear-gradient(135deg,#2d1b59,#7c3aed,#2a1854)]
+                  bg-[#7B47BB]                      /* solid requested color */
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]
                   transition-colors duration-300
-                  hover:border-purple-400/40 hover:bg-[linear-gradient(135deg,#2d1b59,#8b5cf6,#2a1854)]
+                  hover:border-purple-300/50
                   transform-none hover:transform-none
                 "
               >
+                {/* soft lighting tint */}
                 <div
                   className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10
-                             bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]
+                             bg-[radial-gradient(closest-side,rgba(244,114,182,0.14),transparent_60%)]
                              blur-2xl"
                   aria-hidden="true"
                 />
                 <div className="relative">
                   <div className="text-2xl mb-2">🚀</div>
-                  <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-                  <div className="text-xs text-slate-300/90">From idea to live product</div>
+                  <div className="text-sm font-semibold text-slate-100">Rapid Launch</div>
+                  <div className="text-xs text-slate-50/80">From idea to live product</div>
                 </div>
               </div>
 
-              {/* Card 2 — indigo-tinted, opaque purple gradient */}
+              {/* Card 2 */}
               <div
                 className="
-                  spotlight-card relative overflow-hidden
+                  relative overflow-hidden
                   rounded-2xl border border-slate-700/60
                   p-4 md:p-6
-                  bg-[linear-gradient(135deg,#2d1b59,#7c3aed,#2a1854)]
+                  bg-[#7B47BB]
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]
                   transition-colors duration-300
-                  hover:border-purple-400/40 hover:bg-[linear-gradient(135deg,#2d1b59,#8b5cf6,#2a1854)]
+                  hover:border-purple-300/50
                   transform-none hover:transform-none
                 "
               >
                 <div
                   className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
-                             bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]
+                             bg-[radial-gradient(closest-side,rgba(99,102,241,0.16),transparent_60%)]
                              blur-2xl"
                   aria-hidden="true"
                 />
                 <div className="relative">
                   <div className="text-2xl mb-2">🤝</div>
-                  <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
-                  <div className="text-xs text-slate-300/90">Everything you need to succeed</div>
+                  <div className="text-sm font-semibold text-slate-100">Complete Ecosystem</div>
+                  <div className="text-xs text-slate-50/80">Everything you need to succeed</div>
                 </div>
               </div>
 
-              {/* Card 3 — teal-tinted, opaque purple gradient */}
+              {/* Card 3 */}
               <div
                 className="
-                  spotlight-card relative overflow-hidden
+                  relative overflow-hidden
                   rounded-2xl border border-slate-700/60
                   p-4 md:p-6
-                  bg-[linear-gradient(135deg,#2d1b59,#7c3aed,#2a1854)]
+                  bg-[#7B47BB]
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]
                   transition-colors duration-300
-                  hover:border-purple-400/40 hover:bg-[linear-gradient(135deg,#2d1b59,#8b5cf6,#2a1854)]
+                  hover:border-purple-300/50
                   transform-none hover:transform-none
                 "
               >
                 <div
                   className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-72 -z-10
-                             bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]
+                             bg-[radial-gradient(closest-side,rgba(20,184,166,0.16),transparent_60%)]
                              blur-2xl"
                   aria-hidden="true"
                 />
                 <div className="relative">
                   <div className="text-2xl mb-2">💡</div>
-                  <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
-                  <div className="text-xs text-slate-300/90">Smart tools at every step</div>
+                  <div className="text-sm font-semibold text-slate-100">AI-Powered</div>
+                  <div className="text-xs text-slate-50/80">Smart tools at every step</div>
                 </div>
               </div>
             </div>
