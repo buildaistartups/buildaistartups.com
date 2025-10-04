@@ -1,7 +1,7 @@
 // components/home/Hero.tsx
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Particles from '@/components/particles'
@@ -39,76 +39,19 @@ const audiences = [
 ]
 
 export default function Hero() {
-  const [currentAudience, setCurrentAudience] = useState(0)
-
-  // Measure tallest title+subtitle and lock height so nothing shifts
-  const textBlockRef = useRef<HTMLDivElement | null>(null)
-  const [textBlockHeight, setTextBlockHeight] = useState<number | null>(null)
+  const [current, setCurrent] = useState(0)
 
   useEffect(() => {
-    const measure = () => {
-      const container = textBlockRef.current
-      if (!container) return
-      const w = container.clientWidth || 900
-
-      const root = document.createElement('div')
-      root.style.position = 'absolute'
-      root.style.left = '-99999px'
-      root.style.top = '0'
-      root.style.width = `${w}px`
-      root.style.pointerEvents = 'none'
-      root.style.visibility = 'hidden'
-      document.body.appendChild(root)
-
-      audiences.forEach(a => {
-        const wrap = document.createElement('div')
-        const h1 = document.createElement('h1')
-        h1.className =
-          'text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent tracking-tight'
-        h1.textContent = a.headline
-
-        const p = document.createElement('p')
-        p.className = 'text-lg text-slate-400 max-w-2xl mx-auto'
-        p.textContent = a.subheadline
-
-        wrap.appendChild(h1)
-        wrap.appendChild(p)
-        root.appendChild(wrap)
-      })
-
-      const max = Array.from(root.children).reduce((acc, el) => {
-        const h = (el as HTMLElement).getBoundingClientRect().height
-        return Math.max(acc, h)
-      }, 0)
-
-      document.body.removeChild(root)
-      setTextBlockHeight(Math.ceil(max))
-    }
-
-    measure()
-    const ro = new ResizeObserver(measure)
-    if (textBlockRef.current) ro.observe(textBlockRef.current)
-    window.addEventListener('resize', measure)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener('resize', measure)
-    }
-  }, [])
-
-  useEffect(() => {
-    const id = setInterval(() => setCurrentAudience(p => (p + 1) % audiences.length), 5000)
+    const id = setInterval(() => setCurrent(p => (p + 1) % audiences.length), 5000)
     return () => clearInterval(id)
   }, [])
 
-  const current = audiences[currentAudience]
+  const a = audiences[current]
 
   return (
     <section className="relative">
-      {/* Bottom glow illustration (background) */}
-      <div
-        className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
-        aria-hidden="true"
-      >
+      {/* Bottom glow illustration */}
+      <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0">
           <Image src={Illustration} className="max-w-none" width={2146} height={744} priority alt="" />
         </div>
@@ -125,51 +68,54 @@ export default function Hero() {
               {audiences.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setCurrentAudience(i)}
+                  onClick={() => setCurrent(i)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    i === currentAudience ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
+                    i === current ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
                   }`}
                   aria-label={`Show: ${audiences[i].title}`}
                 />
               ))}
             </div>
-            <div className="mt-4 text-sm font-medium text-purple-400">{current.title}</div>
+            <div className="mt-4 text-sm font-medium text-purple-400">{a.title}</div>
           </div>
 
           {/* Main content */}
           <div className="text-center">
-            {/* Stable-height block for headline + subheadline */}
-            <div
-              ref={textBlockRef}
-              style={{ height: textBlockHeight ?? undefined }}
-              className={`${textBlockHeight ? '' : 'min-h-[200px] md:min-h-[240px] lg:min-h-[260px]'} flex flex-col items-center justify-start gap-4`}
-            >
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent tracking-tight">
-                {current.headline}
+            {/* Force consistent 2-line headline + fixed spacing (like before) */}
+            <div className="flex flex-col items-center justify-start gap-6
+                            min-h-[260px] md:min-h-[300px] lg:min-h-[320px]">
+              <h1
+                className="
+                  mx-auto max-w-[22ch] md:max-w-[20ch] lg:max-w-[20ch]
+                  text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]
+                  bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
+                "
+              >
+                {a.headline}
               </h1>
-              <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                {current.subheadline}
+              <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+                {a.subheadline}
               </p>
             </div>
 
             {/* CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
-                href={current.cta1.href}
+                href={a.cta1.href}
                 className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
               >
-                {current.cta1.text}
+                {a.cta1.text}
               </Link>
               <Link
-                href={current.cta2.href}
+                href={a.cta2.href}
                 className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500/30"
               >
-                {current.cta2.text}
+                {a.cta2.text}
               </Link>
             </div>
           </div>
 
-          {/* Value props — restored hover lighting */}
+          {/* Value props — with hover lighting */}
           <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
             {[
               { emoji: '🚀', title: 'Rapid Launch', text: 'From idea to live product' },
@@ -182,26 +128,18 @@ export default function Hero() {
                   group relative overflow-hidden
                   rounded-2xl border border-slate-700/50
                   bg-slate-800/30 backdrop-blur p-4
-                  transition-transform
-                  hover:-translate-y-0.5
+                  transition-transform hover:-translate-y-0.5
                 "
               >
-                {/* hover glow layer */}
+                {/* hover glow */}
                 <div
-                  className="
-                    pointer-events-none absolute inset-0 opacity-0
-                    transition-opacity duration-500
-                    group-hover:opacity-100
-                  "
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   aria-hidden="true"
                 >
-                  {/* soft radial bloom from top-center */}
                   <div className="absolute -inset-12 blur-2xl bg-[radial-gradient(120%_120%_at_50%_0%,rgba(168,85,247,0.35),transparent_60%)]" />
-                  {/* gentle horizontal gradient for depth */}
                   <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500/10 via-fuchsia-500/10 to-purple-500/10" />
                 </div>
 
-                {/* content stays above the glow */}
                 <div className="relative">
                   <div className="text-2xl mb-2">{item.emoji}</div>
                   <div className="text-sm font-semibold text-slate-200">{item.title}</div>
