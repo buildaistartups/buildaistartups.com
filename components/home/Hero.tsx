@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Particles from '@/components/particles'
-import Glow from '@/public/images/glow-bottom.svg' // purple aurora asset
+import Glow from '@/public/images/glow-bottom.svg'
 
 const audiences = [
   {
@@ -52,25 +52,17 @@ export default function Hero() {
 
   return (
     <section className="relative">
-      {/* stars */}
+      {/* star field */}
       <Particles className="absolute inset-0 -z-30" />
 
-      {/* purple aurora background (image + gradient fallback) */}
+      {/* purple aurora glow (image ONLY; no extra gradients to avoid harsh edges) */}
       <div className="pointer-events-none absolute inset-0 -z-20">
-        {/* gradient fallback so it still looks good even if the image can't load */}
-        <div className="absolute left-1/2 -translate-x-1/2 -top-[26%] h-[600px] w-[1600px]
-                        bg-[radial-gradient(closest-side,rgba(168,85,247,0.35),transparent_65%)]
-                        blur-3xl" />
-        <div className="absolute inset-x-0 bottom-[-18%] h-[380px]
-                        bg-[radial-gradient(closest-side,rgba(147,51,234,0.25),transparent_70%)]
-                        blur-3xl" />
-        {/* SVG glow (sits on top of fallback) */}
-        <div className="absolute left-1/2 -translate-x-1/2 -top-[28%]">
+        <div className="absolute left-1/2 -translate-x-1/2 -top-[26%]">
           <Image
             src={Glow}
             alt=""
-            width={2000}
-            height={820}
+            width={1900}
+            height={780}
             priority
             className="max-w-none opacity-80"
           />
@@ -92,12 +84,14 @@ export default function Hero() {
                 />
               ))}
             </div>
-            <div className="mt-4 text-sm font-medium text-purple-400">{current.title}</div>
+            <div className="mt-4 text-sm font-medium text-purple-400">
+              {current.title}
+            </div>
           </div>
 
           {/* Main content */}
           <div className="text-center">
-            {/* smaller headline (as requested) */}
+            {/* smaller headline */}
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
               {current.headline}
             </h1>
@@ -105,7 +99,7 @@ export default function Hero() {
               {current.subheadline}
             </p>
 
-            {/* compact Stellar-style CTAs */}
+            {/* compact CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href={current.cta1.href}
