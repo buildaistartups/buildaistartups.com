@@ -77,7 +77,7 @@ export default function Hero() {
       <Particles className="absolute inset-0 -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-        {/* ↑ nudge the whole hero content by ~2pt (≈2.67px) */}
+        {/* Nudge the whole hero up ~2pt (≈2.67px) */}
         <div className="-translate-y-[2.67px] md:-translate-y-[2.67px] lg:-translate-y-[2.67px]">
           <div className="pt-32 pb-16 md:pt-52 md:pb-32">
             {/* Dots + label */}
@@ -104,7 +104,7 @@ export default function Hero() {
                 <h1
                   className="
                     font-bold tracking-tight leading-[1.08]
-                    text-4xl md:text-[55px] lg:text-[59px]
+                    text-4xl md:text-[54px] lg:text-[58px]  /* ↓ 1pt on md & lg */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                   "
                 >
