@@ -41,7 +41,7 @@ const audiences = [
 export default function Hero() {
   const [currentAudience, setCurrentAudience] = useState(0)
 
-  // --- Keep a stable height for the title + subtitle block across slides ---
+  // Measure tallest title+subtitle and lock height so nothing shifts
   const textBlockRef = useRef<HTMLDivElement | null>(null)
   const [textBlockHeight, setTextBlockHeight] = useState<number | null>(null)
 
@@ -49,9 +49,8 @@ export default function Hero() {
     const measure = () => {
       const container = textBlockRef.current
       if (!container) return
-
-      // Create an offscreen measuring root with the same width as the live block
       const w = container.clientWidth || 900
+
       const root = document.createElement('div')
       root.style.position = 'absolute'
       root.style.left = '-99999px'
@@ -61,11 +60,8 @@ export default function Hero() {
       root.style.visibility = 'hidden'
       document.body.appendChild(root)
 
-      // Build a measuring node per audience with the exact same classes
       audiences.forEach(a => {
         const wrap = document.createElement('div')
-        wrap.style.marginBottom = '0' // no gaps between samples
-
         const h1 = document.createElement('h1')
         h1.className =
           'text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent tracking-tight'
@@ -89,7 +85,6 @@ export default function Hero() {
       setTextBlockHeight(Math.ceil(max))
     }
 
-    // Initial + on resize
     measure()
     const ro = new ResizeObserver(measure)
     if (textBlockRef.current) ro.observe(textBlockRef.current)
@@ -100,12 +95,8 @@ export default function Hero() {
     }
   }, [])
 
-  // Rotate slides
   useEffect(() => {
-    const id = setInterval(
-      () => setCurrentAudience(p => (p + 1) % audiences.length),
-      5000
-    )
+    const id = setInterval(() => setCurrentAudience(p => (p + 1) % audiences.length), 5000)
     return () => clearInterval(id)
   }, [])
 
@@ -113,29 +104,22 @@ export default function Hero() {
 
   return (
     <section className="relative">
-      {/* Glow illustration behind everything */}
+      {/* Bottom glow illustration (background) */}
       <div
         className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
         aria-hidden="true"
       >
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0">
-          <Image
-            src={Illustration}
-            className="max-w-none"
-            width={2146}
-            height={744}
-            priority
-            alt=""
-          />
+          <Image src={Illustration} className="max-w-none" width={2146} height={744} priority alt="" />
         </div>
       </div>
 
-      {/* Particles above glow */}
+      {/* Particles */}
       <Particles className="absolute inset-0 -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="pt-32 pb-16 md:pt-52 md:pb-32">
-          {/* Carousel dots + label */}
+          {/* Dots + label */}
           <div className="text-center mb-8">
             <div className="inline-flex gap-2">
               {audiences.map((_, i) => (
@@ -149,23 +133,16 @@ export default function Hero() {
                 />
               ))}
             </div>
-            <div className="mt-4 text-sm font-medium text-purple-400">
-              {current.title}
-            </div>
+            <div className="mt-4 text-sm font-medium text-purple-400">{current.title}</div>
           </div>
 
           {/* Main content */}
           <div className="text-center">
-            {/* Stable-height text block (prevents vertical jump) */}
+            {/* Stable-height block for headline + subheadline */}
             <div
               ref={textBlockRef}
-              style={{
-                height: textBlockHeight ?? undefined,             // lock when measured
-              }}
-              className={`
-                ${textBlockHeight ? '' : 'min-h-[200px] md:min-h-[240px] lg:min-h-[260px]'}
-                flex flex-col items-center justify-start gap-4
-              `}
+              style={{ height: textBlockHeight ?? undefined }}
+              className={`${textBlockHeight ? '' : 'min-h-[200px] md:min-h-[240px] lg:min-h-[260px]'} flex flex-col items-center justify-start gap-4`}
             >
               <h1 className="text-4xl md:text-5xl font-bold leading-tight bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent tracking-tight">
                 {current.headline}
@@ -175,7 +152,7 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* CTAs (fixed distance from text block) */}
+            {/* CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href={current.cta1.href}
@@ -192,12 +169,49 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Value props (stay locked in place) */}
+          {/* Value props — restored hover lighting */}
           <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">🚀</div>
-              <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-              <div className="text-xs text-slate-400">From idea to live product</div>
-            </div>
-            <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
-              <div className="text-2xl mb-2">🤝</div>
+            {[
+              { emoji: '🚀', title: 'Rapid Launch', text: 'From idea to live product' },
+              { emoji: '🤝', title: 'Complete Ecosystem', text: 'Everything you need to succeed' },
+              { emoji: '💡', title: 'AI-Powered', text: 'Smart tools at every step' },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="
+                  group relative overflow-hidden
+                  rounded-2xl border border-slate-700/50
+                  bg-slate-800/30 backdrop-blur p-4
+                  transition-transform
+                  hover:-translate-y-0.5
+                "
+              >
+                {/* hover glow layer */}
+                <div
+                  className="
+                    pointer-events-none absolute inset-0 opacity-0
+                    transition-opacity duration-500
+                    group-hover:opacity-100
+                  "
+                  aria-hidden="true"
+                >
+                  {/* soft radial bloom from top-center */}
+                  <div className="absolute -inset-12 blur-2xl bg-[radial-gradient(120%_120%_at_50%_0%,rgba(168,85,247,0.35),transparent_60%)]" />
+                  {/* gentle horizontal gradient for depth */}
+                  <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500/10 via-fuchsia-500/10 to-purple-500/10" />
+                </div>
+
+                {/* content stays above the glow */}
+                <div className="relative">
+                  <div className="text-2xl mb-2">{item.emoji}</div>
+                  <div className="text-sm font-semibold text-slate-200">{item.title}</div>
+                  <div className="text-xs text-slate-400">{item.text}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
