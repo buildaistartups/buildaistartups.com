@@ -1,28 +1,28 @@
-// app/(default)/solutions/indie/page.tsx
+// app/(default)/solutions/indie-makers/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/og/solutions-indie.png' // Updated to use your new OG image
+const ogImage = '/og/solutions-indie-makers.png' // Updated to match new folder name
 
 export const metadata: Metadata = {
-  title: 'Indie Makers — Ship a real product this weekend | Build AI Starups',
+  title: 'Indie Makers — Ship a real product this weekend | Build AI Startups',
   description:
-    'Build AI Starups for Indie Makers: go from intent to live micro-SaaS in a weekend. Spec, repo, UI, docs, pricing, deploy — you own the code and revenue.',
-  alternates: { canonical: `${siteUrl}/solutions/indie` },
+    'Build AI Startups for Indie Makers: go from intent to live micro-SaaS in a weekend. Spec, repo, UI, docs, pricing, deploy — you own the code and revenue.',
+  alternates: { canonical: `${siteUrl}/solutions/indie-makers` },
   openGraph: {
     type: 'website',
-    url: `${siteUrl}/solutions/indie`,
-    title: 'Indie Makers — Ship a real product this weekend | Build AI Starups',
+    url: `${siteUrl}/solutions/indie-makers`,
+    title: 'Indie Makers — Ship a real product this weekend | Build AI Startups',
     description:
       'From one-sentence brief to live micro-SaaS. Solo-friendly, no lock-in, growth packs included.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Starups — Indie Makers' }],
-    siteName: 'Build AI Starups',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Indie Makers' }],
+    siteName: 'Build AI Startups',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Indie Makers — Ship a real product this weekend | Build AI Starups',
+    title: 'Indie Makers — Ship a real product this weekend | Build AI Startups',
     description:
       'Spec → repo → UI → docs → pricing → deploy. Solo-friendly, no lock-in. Ship this weekend.',
     images: [ogImage],
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Build AI Starups',
+  name: 'Build AI Startups',
   url: siteUrl,
   logo: `${siteUrl}/brand/logo-light.svg`,
   sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
@@ -45,7 +45,7 @@ const breadcrumbJsonLd = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
     { '@type': 'ListItem', position: 2, name: 'Solutions', item: `${siteUrl}/` },
-    { '@type': 'ListItem', position: 3, name: 'Indie Makers', item: `${siteUrl}/solutions/indie` },
+    { '@type': 'ListItem', position: 3, name: 'Indie Makers', item: `${siteUrl}/solutions/indie-makers` },
   ],
 }
 
@@ -54,7 +54,7 @@ const howToJsonLd = {
   '@type': 'HowTo',
   name: 'Weekend to Launch (Indie Maker plan)',
   description:
-    'A 2-day plan to ship a real micro-SaaS using Build AI Starups: intent to deploy with growth basics wired.',
+    'A 2-day plan to ship a real micro-SaaS using Build AI Startups: intent to deploy with growth basics wired.',
   totalTime: 'P2D',
   estimatedCost: {
     '@type': 'MonetaryAmount',
@@ -169,7 +169,7 @@ export default function IndieMakersPage() {
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
                 <img 
-                  src="/images/solutions/indie/hero.svg" 
+                  src="/images/solutions/indie-makers/hero.svg" 
                   alt="Indie maker weekend build journey from idea to live product" 
                   className="h-full w-full object-contain"
                   loading="eager"
@@ -182,7 +182,7 @@ export default function IndieMakersPage() {
 
         {/* Why Indie Makers love this */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Why Indie Makers love Build AI Starups</h2>
+          <h2 className="text-2xl font-semibold">Why Indie Makers love Build AI Startups</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { t: 'Solo-friendly', d: 'Everything from spec to deploy handled. You focus on the problem & users.' },
@@ -207,7 +207,7 @@ export default function IndieMakersPage() {
           <div className="flex justify-center mb-8">
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
               <img 
-                src="/images/solutions/indie/solo-workflow.svg" 
+                src="/images/solutions/indie-makers/solo-workflow.svg" 
                 alt="Solo developer workflow showing independence and efficiency" 
                 className="h-48 w-auto mx-auto"
                 loading="lazy"
@@ -221,7 +221,7 @@ export default function IndieMakersPage() {
           <h2 className="text-2xl font-semibold">How it works</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {[
-              { t: 'Set intent', d: 'Describe your niche and constraints. Or let Build AI Starups scout trends.' },
+              { t: 'Set intent', d: 'Describe your niche and constraints. Or let Build AI Startups scout trends.' },
               { t: 'Pick a starter kit', d: 'Choose SaaS, API, or Content kit. Swap anytime.' },
               { t: 'Autobuild', d: 'Spec → repo → UI → docs → pricing → landing.' },
               { t: 'Go live', d: 'Preview, domain, analytics. Flip to production when ready.' },
@@ -253,7 +253,7 @@ export default function IndieMakersPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/indie/build-speed.svg" 
+                src="/images/solutions/indie-makers/build-speed.svg" 
                 alt="Weekend to launch speed indicator" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -287,7 +287,7 @@ export default function IndieMakersPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/indie/starter-kits.svg" 
+                src="/images/solutions/indie-makers/starter-kits.svg" 
                 alt="Starter kits overview showing SaaS, API, and Content options" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -301,7 +301,7 @@ export default function IndieMakersPage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/indie/no-lockin.svg" 
+                src="/images/solutions/indie-makers/no-lockin.svg" 
                 alt="No lock-in diagram showing ownership of all accounts and services" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -332,7 +332,7 @@ export default function IndieMakersPage() {
           <div className="flex justify-center mb-8">
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/indie/production-ready.svg" 
+                src="/images/solutions/indie-makers/production-ready.svg" 
                 alt="Production-ready features checklist" 
                 className="h-32 w-auto mx-auto"
                 loading="lazy"
@@ -362,7 +362,7 @@ export default function IndieMakersPage() {
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/indie/weekend-timeline.svg" 
+                src="/images/solutions/indie-makers/weekend-timeline.svg" 
                 alt="Weekend launch timeline from Friday to Sunday" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -395,7 +395,7 @@ export default function IndieMakersPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/indie/growth-pack.svg" 
+                src="/images/solutions/indie-makers/growth-pack.svg" 
                 alt="Growth basics pack with SEO, email, and social tools" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -416,7 +416,7 @@ export default function IndieMakersPage() {
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
                 <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-4">
                   <img 
-                    src="/images/solutions/indie/example-projects.svg" 
+                    src="/images/solutions/indie-makers/example-projects.svg" 
                     alt={`${p.name} indie project example`} 
                     className="max-h-full max-w-full h-auto w-auto object-contain opacity-80"
                     loading="lazy"
@@ -442,7 +442,7 @@ export default function IndieMakersPage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/indie/success-story.svg" 
+                src="/images/solutions/indie-makers/success-story.svg" 
                 alt="Weekend indie maker success story from idea to users" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -468,7 +468,7 @@ export default function IndieMakersPage() {
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
             <div className="flex items-center gap-3 mb-4">
               <img 
-                src="/images/solutions/indie/pricing-tiers.svg" 
+                src="/images/solutions/indie-makers/pricing-tiers.svg" 
                 alt="Indie-friendly pricing tiers" 
                 className="h-8 w-auto"
                 loading="lazy"
