@@ -9,34 +9,38 @@ export default function ClosingPromise() {
       {/* page background tint */}
       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
 
+      {/* Heading kept inside the standard container */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-        <div className="py-20 md:py-32">
-          {/* Main promise */}
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-6 md:mb-8 max-w-4xl mx-auto">
+        <div className="py-16 md:py-24">
+          <div className="text-center mb-8 md:mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent max-w-4xl mx-auto">
               This Isn't Just a Platform. It's the Future of How AI Businesses Get Built.
             </h2>
           </div>
+        </div>
+      </div>
 
-          {/* Panel with resized hero-style glow */}
-          <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] p-8 md:p-12">
-            {/* Glow layers (behind content) */}
-            <div className="pointer-events-none absolute inset-0 -z-10">
-              {/* top-centered soft glow, like hero */}
-              <div className="absolute left-1/2 -translate-x-1/2 -top-[28%]">
-                <Image
-                  src={Glow}
-                  alt=""
-                  width={1400}
-                  height={600}
-                  className="max-w-none opacity-70"
-                  priority={false}
-                />
-              </div>
-              {/* subtle bottom fade so CTAs sit on a darker base */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-900/40" />
+      {/* === FULL-WIDTH PANEL (like the hero) ================================= */}
+      {/* Break out of the container to span the viewport */}
+      <div className="relative w-screen left-1/2 -ml-[50vw]">
+        <div className="relative overflow-hidden rounded-none md:rounded-2xl border-y md:border border-slate-800 bg-slate-900/40">
+          {/* Glow behind content */}
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            {/* top-centered glow; scales for large screens */}
+            <div className="absolute left-1/2 -translate-x-1/2 -top-[26%]">
+              <Image
+                src={Glow}
+                alt=""
+                priority={false}
+                width={1800}     /* wider so it covers full panel */
+                height={760}
+                className="max-w-none opacity-70"
+              />
             </div>
+          </div>
 
+          {/* Panel content is still constrained to your site width */}
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 md:py-14">
             <h3 className="text-xl md:text-2xl font-semibold text-slate-200 mb-8 text-center">
               Join the AI Revolution
             </h3>
@@ -76,36 +80,39 @@ export default function ClosingPromise() {
               </p>
             </div>
 
-            {/* CTAs (reduced to original size) */}
+            {/* CTAs — smaller, Stellar-like pills */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href="/generate"
-                className="btn rounded-full text-sm md:text-base px-6 md:px-7 py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700"
+                className="btn rounded-full text-sm md:text-[15px] px-5 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700"
               >
                 Start Your Journey
               </Link>
               <Link
                 href="/find-role"
-                className="btn rounded-full text-sm md:text-base px-6 md:px-7 py-2.5 bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+                className="btn rounded-full text-sm md:text-[15px] px-5 md:px-6 py-2 md:py-2.5 bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
               >
                 Find Your Role
               </Link>
               <Link
                 href="/ecosystem"
-                className="btn rounded-full text-sm md:text-base px-6 md:px-7 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600"
+                className="btn rounded-full text-sm md:text-[15px] px-5 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600"
               >
                 Join the Revolution
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+      {/* ===================================================================== */}
 
-          {/* Closing note */}
-          <div className="mt-10 md:mt-12 text-center">
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              BuildAIStartups is where ambitious founders, innovative enterprises, and forward-thinking
-              investors come together to build the future. Be among the first to shape this revolution.
-            </p>
-          </div>
+      {/* Closing note — back in the standard container */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="pt-8 md:pt-10 pb-16 md:pb-24 text-center">
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            BuildAIStartups is where ambitious founders, innovative enterprises, and forward-thinking
+            investors come together to build the future. Be among the first to shape this revolution.
+          </p>
         </div>
       </div>
     </section>
