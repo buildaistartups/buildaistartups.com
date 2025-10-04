@@ -159,4 +159,24 @@ export default function Hero() {
                 >
                   {/* hover glow */}
                   <div
-                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:op
+                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    aria-hidden="true"
+                  >
+                    <div className="absolute -inset-12 blur-2xl bg-[radial-gradient(120%_120%_at_50%_0%,rgba(168,85,247,0.35),transparent_60%)]" />
+                    <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500/10 via-fuchsia-500/10 to-purple-500/10" />
+                  </div>
+
+                  <div className="relative">
+                    <div className="text-2xl mb-2">{item.emoji}</div>
+                    <div className="text-sm font-semibold text-slate-200">{item.title}</div>
+                    <div className="text-xs text-slate-400">{item.text}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
