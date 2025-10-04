@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Particles from '@/components/particles'
 import Illustration from '@/public/images/glow-bottom.svg'
 
@@ -51,6 +52,24 @@ export default function Hero() {
 
   return (
     <section className="relative">
+      {/* Glow illustration layer (behind particles & content) */}
+      <div
+        className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="absolute left-1/2 -translate-x-1/2 bottom-0">
+          <Image
+            src={Illustration}
+            className="max-w-none"
+            width={2146}
+            height={744}
+            priority
+            alt=""
+          />
+        </div>
+      </div>
+
+      {/* Particles on top of the glow */}
       <Particles className="absolute inset-0 -z-10" />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
