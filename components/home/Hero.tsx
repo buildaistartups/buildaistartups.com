@@ -3,9 +3,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import Particles from '@/components/particles'
-import Glow from '@/public/images/glow-bottom.svg' // same glow asset used elsewhere
 
 const audiences = [
   {
@@ -40,81 +38,84 @@ const audiences = [
 
 export default function Hero() {
   const [currentAudience, setCurrentAudience] = useState(0)
-
+  
   useEffect(() => {
-    const id = setInterval(() => {
-      setCurrentAudience((p) => (p + 1) % audiences.length)
+    const interval = setInterval(() => {
+      setCurrentAudience((prev) => (prev + 1) % audiences.length)
     }, 5000)
-    return () => clearInterval(id)
+    return () => clearInterval(interval)
   }, [])
 
   const current = audiences[currentAudience]
 
   return (
     <section className="relative">
-      {/* star field */}
-      <Particles className="absolute inset-0 -z-20" />
-
-      {/* purple aurora glow behind hero */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-1/2 -translate-x-1/2 -top-[28%]">
-          <Image
-            src={Glow}
-            alt=""
-            width={1800}
-            height={760}
-            className="max-w-none opacity-70"
-            priority
-          />
-        </div>
-      </div>
-
+      <Particles className="absolute inset-0 -z-10" />
+      
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="pt-32 pb-16 md:pt-52 md:pb-32">
           {/* Rotating audience indicator */}
           <div className="text-center mb-8">
             <div className="inline-flex gap-2">
-              {audiences.map((_, i) => (
+              {audiences.map((_, index) => (
                 <button
-                  key={i}
-                  onClick={() => setCurrentAudience(i)}
+                  key={index}
+                  onClick={() => setCurrentAudience(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    i === currentAudience ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
+                    index === currentAudience 
+                      ? 'w-8 bg-purple-500' 
+                      : 'bg-slate-600 hover:bg-slate-500'
                   }`}
                 />
               ))}
             </div>
-            <div className="mt-4 text-sm font-medium text-purple-400">{current.title}</div>
+            <div className="mt-4 text-sm font-medium text-purple-400">
+              {current.title}
+            </div>
           </div>
 
           {/* Main content */}
           <div className="text-center">
-            {/* smaller headline as requested */}
+            {/* ↓ Smaller headline */}
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
               {current.headline}
             </h1>
             <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
               {current.subheadline}
             </p>
-
-            {/* compact Stellar-style CTAs */}
+            
+            {/* CTAs — small, Stellar-like */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href={current.cta1.href}
-                className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
+                className="
+                  inline-flex items-center justify-center
+                  h-9 md:h-10 px-4 md:px-5
+                  rounded-full text-sm md:text-[15px] font-medium
+                  bg-gradient-to-r from-purple-500 to-purple-600 text-white
+                  hover:from-purple-600 hover:to-purple-700
+                  focus:outline-none focus:ring-2 focus:ring-purple-500/40
+                "
               >
                 {current.cta1.text}
               </Link>
               <Link
                 href={current.cta2.href}
-                className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500/30"
+                className="
+                  inline-flex items-center justify-center
+                  h-9 md:h-10 px-4 md:px-5
+                  rounded-full text-sm md:text-[15px] font-medium
+                  bg-slate-800 text-slate-200 border border-slate-700
+                  hover:bg-slate-700
+                  focus:outline-none focus:ring-2 focus:ring-slate-500/30
+                "
               >
                 {current.cta2.text}
               </Link>
             </div>
           </div>
 
-          {/* Value props (unchanged) */}
+          {/* Value props */}
           <div className="mt-16 grid md:grid-cols-3 gap-6 text-center">
             <div className="bg-slate-800/30 backdrop-blur rounded-lg p-4 border border-slate-700/50">
               <div className="text-2xl mb-2">🚀</div>
