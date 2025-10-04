@@ -77,8 +77,8 @@ export default function Hero() {
       <Particles className="absolute inset-0 -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-        {/* Tiny vertical nudge to align with ORIGINAL mock (≈1pt) */}
-        <div className="-translate-y-[1.33px] md:-translate-y-[1.33px] lg:-translate-y-[1.33px]">
+        {/* ↑ nudge the whole hero content by ~2pt (≈2.67px) */}
+        <div className="-translate-y-[2.67px] md:-translate-y-[2.67px] lg:-translate-y-[2.67px]">
           <div className="pt-32 pb-16 md:pt-52 md:pb-32">
             {/* Dots + label */}
             <div className="text-center mb-8">
@@ -99,16 +99,15 @@ export default function Hero() {
 
             {/* Main content */}
             <div className="text-center">
-              {/* Title + subtitle (no min-height → no phantom gap) */}
+              {/* Title + subtitle (two fixed lines on md+, natural on mobile) */}
               <div className="flex flex-col items-center">
                 <h1
                   className="
                     font-bold tracking-tight leading-[1.08]
-                    text-4xl md:text-[55px] lg:text-[59px]   /* tuned size so lines fit */
+                    text-4xl md:text-[55px] lg:text-[59px]
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                   "
                 >
-                  {/* md+: exact two lines with fixed breaks; mobile: natural wrap */}
                   <span className="hidden md:block">
                     <span className="block whitespace-nowrap">{a.linesMd[0]}</span>
                     <span className="block whitespace-nowrap">{a.linesMd[1]}</span>
