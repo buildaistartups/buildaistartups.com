@@ -141,38 +141,76 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — with hover lighting; move the 3 boxes up 0.5pt */}
+            {/* Value props — match AcceleratorCommand spotlight-card lighting; keep 0.5pt up */}
             <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
-              {[
-                { emoji: '🚀', title: 'Rapid Launch', text: 'From idea to live product' },
-                { emoji: '🤝', title: 'Complete Ecosystem', text: 'Everything you need to succeed' },
-                { emoji: '💡', title: 'AI-Powered', text: 'Smart tools at every step' },
-              ].map((item) => (
+              {/* Card 1 — rose tint (like left card in AcceleratorCommand) */}
+              <div
+                className="
+                  spotlight-card relative overflow-hidden
+                  rounded-2xl border border-slate-800
+                  bg-slate-900/40 p-4 md:p-6
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  transition-colors hover:border-purple-500/30 hover:bg-slate-900/50
+                "
+              >
                 <div
-                  key={item.title}
-                  className="
-                    group relative overflow-hidden
-                    rounded-2xl border border-slate-700/50
-                    bg-slate-800/30 backdrop-blur p-4
-                    transition-transform hover:-translate-y-0.5
-                  "
-                >
-                  {/* hover glow */}
-                  <div
-                    className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    aria-hidden="true"
-                  >
-                    <div className="absolute -inset-12 blur-2xl bg-[radial-gradient(120%_120%_at_50%_0%,rgba(168,85,247,0.35),transparent_60%)]" />
-                    <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500/10 via-fuchsia-500/10 to-purple-500/10" />
-                  </div>
-
-                  <div className="relative">
-                    <div className="text-2xl mb-2">{item.emoji}</div>
-                    <div className="text-sm font-semibold text-slate-200">{item.title}</div>
-                    <div className="text-xs text-slate-400">{item.text}</div>
-                  </div>
+                  className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10
+                             bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]
+                             blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative">
+                  <div className="text-2xl mb-2">🚀</div>
+                  <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+                  <div className="text-xs text-slate-400">From idea to live product</div>
                 </div>
-              ))}
+              </div>
+
+              {/* Card 2 — indigo tint (like right card in AcceleratorCommand) */}
+              <div
+                className="
+                  spotlight-card relative overflow-hidden
+                  rounded-2xl border border-slate-800
+                  bg-slate-900/40 p-4 md:p-6
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  transition-colors hover:border-purple-500/30 hover:bg-slate-900/50
+                "
+              >
+                <div
+                  className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
+                             bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]
+                             blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative">
+                  <div className="text-2xl mb-2">🤝</div>
+                  <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+                  <div className="text-xs text-slate-400">Everything you need to succeed</div>
+                </div>
+              </div>
+
+              {/* Card 3 — teal tint (extra variant to match the style) */}
+              <div
+                className="
+                  spotlight-card relative overflow-hidden
+                  rounded-2xl border border-slate-800
+                  bg-slate-900/40 p-4 md:p-6
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  transition-colors hover:border-purple-500/30 hover:bg-slate-900/50
+                "
+              >
+                <div
+                  className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-72 -z-10
+                             bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]
+                             blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative">
+                  <div className="text-2xl mb-2">💡</div>
+                  <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+                  <div className="text-xs text-slate-400">Smart tools at every step</div>
+                </div>
+              </div>
             </div>
             {/* /Value props */}
           </div>
