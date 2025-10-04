@@ -21,18 +21,16 @@ export default function ClosingPromise() {
       </div>
 
       {/* === FULL-WIDTH PANEL (like the hero) ================================= */}
-      {/* Break out of the container to span the viewport */}
       <div className="relative w-screen left-1/2 -ml-[50vw]">
         <div className="relative overflow-hidden rounded-none md:rounded-2xl border-y md:border border-slate-800 bg-slate-900/40">
           {/* Glow behind content */}
           <div className="pointer-events-none absolute inset-0 -z-10">
-            {/* top-centered glow; scales for large screens */}
             <div className="absolute left-1/2 -translate-x-1/2 -top-[26%]">
               <Image
                 src={Glow}
                 alt=""
                 priority={false}
-                width={1800}     /* wider so it covers full panel */
+                width={1800}
                 height={760}
                 className="max-w-none opacity-70"
               />
@@ -80,23 +78,44 @@ export default function ClosingPromise() {
               </p>
             </div>
 
-            {/* CTAs — smaller, Stellar-like pills */}
+            {/* CTAs — SAME SIZE AS HERO (compact pills) */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href="/generate"
-                className="btn rounded-full text-sm md:text-[15px] px-5 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700"
+                className="
+                  inline-flex items-center justify-center
+                  h-9 md:h-10 px-4 md:px-5
+                  rounded-full text-sm md:text-[15px] font-medium
+                  bg-gradient-to-r from-purple-500 to-purple-600 text-white
+                  hover:from-purple-600 hover:to-purple-700
+                  focus:outline-none focus:ring-2 focus:ring-purple-500/40
+                "
               >
                 Start Your Journey
               </Link>
               <Link
                 href="/find-role"
-                className="btn rounded-full text-sm md:text-[15px] px-5 md:px-6 py-2 md:py-2.5 bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700"
+                className="
+                  inline-flex items-center justify-center
+                  h-9 md:h-10 px-4 md:px-5
+                  rounded-full text-sm md:text-[15px] font-medium
+                  bg-slate-800 text-slate-200 border border-slate-700
+                  hover:bg-slate-700
+                  focus:outline-none focus:ring-2 focus:ring-slate-500/30
+                "
               >
                 Find Your Role
               </Link>
               <Link
                 href="/ecosystem"
-                className="btn rounded-full text-sm md:text-[15px] px-5 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600"
+                className="
+                  inline-flex items-center justify-center
+                  h-9 md:h-10 px-4 md:px-5
+                  rounded-full text-sm md:text-[15px] font-medium
+                  bg-gradient-to-r from-blue-500 to-cyan-500 text-white
+                  hover:from-blue-600 hover:to-cyan-600
+                  focus:outline-none focus:ring-2 focus:ring-blue-500/30
+                "
               >
                 Join the Revolution
               </Link>
