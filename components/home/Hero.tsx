@@ -141,7 +141,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — spotlight-card lighting; keep 0.5pt up; NO movement on hover */}
+            {/* Value props — spotlight-card lighting; keep 0.5pt up; NO hover effects */}
             <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
               {/* Card 1 — rose tint */}
               <div
@@ -150,9 +150,6 @@ export default function Hero() {
                   rounded-2xl border border-slate-800
                   bg-slate-900/40 p-4 md:p-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                  transition-colors duration-300
-                  hover:border-purple-500/30 hover:bg-slate-900/50
-                  transform-none hover:transform-none      /* prevent lift */
                 "
               >
                 <div
@@ -175,9 +172,6 @@ export default function Hero() {
                   rounded-2xl border border-slate-800
                   bg-slate-900/40 p-4 md:p-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                  transition-colors duration-300
-                  hover:border-purple-500/30 hover:bg-slate-900/50
-                  transform-none hover:transform-none
                 "
               >
                 <div
@@ -200,9 +194,6 @@ export default function Hero() {
                   rounded-2xl border border-slate-800
                   bg-slate-900/40 p-4 md:p-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                  transition-colors duration-300
-                  hover:border-purple-500/30 hover:bg-slate-900/50
-                  transform-none hover:transform-none
                 "
               >
                 <div
