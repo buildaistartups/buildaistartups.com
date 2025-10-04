@@ -1,7 +1,7 @@
 // components/home/Hero.tsx
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Particles from '@/components/particles'
@@ -9,8 +9,8 @@ import Illustration from '@/public/images/glow-bottom.svg'
 
 type Audience = {
   title: string
-  headline: string               // full text for mobile
-  linesMd: [string, string]      // exact two lines for md+ (desktop/tablet)
+  headline: string                 // mobile (natural wrap)
+  linesMd: [string, string]        // exact two lines for md+ (force breaks)
   subheadline: string
   cta1: { text: string; href: string }
   cta2: { text: string; href: string }
@@ -53,81 +53,17 @@ const audiences: Audience[] = [
 
 export default function Hero() {
   const [i, setI] = useState(0)
-  const textBlockRef = useRef<HTMLDivElement | null>(null)
-  const [lockedHeight, setLockedHeight] = useState<number | null>(null)
 
-  // Slide rotation
   useEffect(() => {
     const id = setInterval(() => setI(p => (p + 1) % audiences.length), 5000)
     return () => clearInterval(id)
-  }, [])
-
-  // Measure the tallest "headline (2 lines) + subtitle" block at current width and lock height
-  useEffect(() => {
-    const measure = () => {
-      const anchor = textBlockRef.current
-      if (!anchor) return
-
-      const w = anchor.clientWidth || 1000
-      const root = document.createElement('div')
-      root.style.position = 'absolute'
-      root.style.left = '-99999px'
-      root.style.top = '0'
-      root.style.width = `${w}px`
-      root.style.visibility = 'hidden'
-      root.style.pointerEvents = 'none'
-      document.body.appendChild(root)
-
-      let maxH = 0
-      for (const a of audiences) {
-        const wrap = document.createElement('div')
-        wrap.style.width = '100%'
-
-        // Reproduce md+ desktop headline: two fixed lines
-        const h1 = document.createElement('div')
-        h1.className = 'font-bold tracking-tight leading-[1.08] text-4xl md:text-6xl bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent'
-        const l1 = document.createElement('div')
-        l1.className = 'hidden md:block whitespace-nowrap'
-        l1.textContent = a.linesMd[0]
-        const l2 = document.createElement('div')
-        l2.className = 'hidden md:block whitespace-nowrap'
-        l2.textContent = a.linesMd[1]
-        const mobile = document.createElement('div')
-        mobile.className = 'md:hidden'
-        mobile.textContent = a.headline
-        h1.appendChild(l1); h1.appendChild(l2); h1.appendChild(mobile)
-
-        const p = document.createElement('p')
-        p.className = 'text-lg md:text-xl text-slate-400 max-w-3xl mx-auto'
-        p.textContent = a.subheadline
-
-        wrap.appendChild(h1)
-        wrap.appendChild(p)
-        root.appendChild(wrap)
-
-        const h = wrap.getBoundingClientRect().height
-        maxH = Math.max(maxH, h)
-        root.removeChild(wrap)
-      }
-      document.body.removeChild(root)
-      setLockedHeight(Math.ceil(maxH))
-    }
-
-    measure()
-    const ro = new ResizeObserver(measure)
-    if (textBlockRef.current) ro.observe(textBlockRef.current)
-    window.addEventListener('resize', measure)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener('resize', measure)
-    }
   }, [])
 
   const a = audiences[i]
 
   return (
     <section className="relative">
-      {/* Bottom glow */}
+      {/* Bottom glow background */}
       <div
         className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
         aria-hidden="true"
@@ -137,7 +73,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Particles above glow */}
+      {/* Particles */}
       <Particles className="absolute inset-0 -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
@@ -161,29 +97,30 @@ export default function Hero() {
 
           {/* Main content */}
           <div className="text-center">
-            {/* Tight, locked-height text block so CTA distance is consistent and small */}
-            <div
-              ref={textBlockRef}
-              style={{ height: lockedHeight ?? undefined }}
-              className={`${lockedHeight ? '' : 'min-h-[220px] md:min-h-[260px]'} flex flex-col items-center gap-4`}
-            >
-              <h1 className="font-bold tracking-tight leading-[1.08] text-4xl md:text-6xl bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent">
-                {/* Desktop/tablet: exact 2 lines, fits like your “nice” screenshot */}
+            {/* Title + subtitle (no min-height → no phantom gap) */}
+            <div className="flex flex-col items-center">
+              <h1
+                className="
+                  font-bold tracking-tight leading-[1.08]
+                  text-4xl md:text-[55px] lg:text-[59px]   /* ↓ 1pt on md & lg */
+                  bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
+                "
+              >
+                {/* md+: exact two lines with fixed breaks; mobile: natural wrap */}
                 <span className="hidden md:block">
                   <span className="block whitespace-nowrap">{a.linesMd[0]}</span>
                   <span className="block whitespace-nowrap">{a.linesMd[1]}</span>
                 </span>
-                {/* Mobile: natural wrap */}
                 <span className="md:hidden">{a.headline}</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
+              <p className="mt-4 text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
                 {a.subheadline}
               </p>
             </div>
 
-            {/* CTAs — tighter offset like the nice example */}
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            {/* CTAs — fixed distance from subtitle */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link
                 href={a.cta1.href}
                 className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5 rounded-full text-sm md:text-[15px] font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
@@ -208,10 +145,18 @@ export default function Hero() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="group relative overflow-hidden rounded-2xl border border-slate-700/50 bg-slate-800/30 backdrop-blur p-4 transition-transform hover:-translate-y-0.5"
+                className="
+                  group relative overflow-hidden
+                  rounded-2xl border border-slate-700/50
+                  bg-slate-800/30 backdrop-blur p-4
+                  transition-transform hover:-translate-y-0.5
+                "
               >
                 {/* hover glow */}
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" aria-hidden="true">
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  aria-hidden="true"
+                >
                   <div className="absolute -inset-12 blur-2xl bg-[radial-gradient(120%_120%_at_50%_0%,rgba(168,85,247,0.35),transparent_60%)]" />
                   <div className="absolute inset-0 blur-xl bg-gradient-to-r from-purple-500/10 via-fuchsia-500/10 to-purple-500/10" />
                 </div>
