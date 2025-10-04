@@ -99,15 +99,16 @@ export default function Hero() {
 
             {/* Main content */}
             <div className="text-center">
+              {/* Title + subtitle (two fixed lines on md+, natural on mobile) */}
               <div className="flex flex-col items-center">
                 <h1
                   className="
                     font-bold tracking-tight
                     text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller */
-                    leading-tight md:leading-[1.06]
+                    leading-tight md:leading-[1.06]               /* tighter interline; descender-safe */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
-                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]
+                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* protect descenders */
                   "
                 >
                   <span className="hidden md:block">
@@ -140,18 +141,18 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — spotlight-card lighting; 0.5pt up; OPAQUE (no transparency) and no hover movement */}
+            {/* Value props — spotlight lighting; 0.5pt up; OPAQUE purple gradient and no hover movement */}
             <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
-              {/* Card 1 — rose-tinted, opaque */}
+              {/* Card 1 — rose-tinted, opaque purple gradient */}
               <div
                 className="
                   spotlight-card relative overflow-hidden
-                  rounded-2xl border border-slate-800
-                  bg-gradient-to-br from-slate-900 to-slate-800  /* opaque background */
+                  rounded-2xl border border-slate-700/60
                   p-4 md:p-6
-                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  bg-[linear-gradient(135deg,#2d1b59,#7c3aed,#2a1854)]
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]
                   transition-colors duration-300
-                  hover:border-purple-500/30 hover:bg-slate-900
+                  hover:border-purple-400/40 hover:bg-[linear-gradient(135deg,#2d1b59,#8b5cf6,#2a1854)]
                   transform-none hover:transform-none
                 "
               >
@@ -164,20 +165,20 @@ export default function Hero() {
                 <div className="relative">
                   <div className="text-2xl mb-2">🚀</div>
                   <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-                  <div className="text-xs text-slate-400">From idea to live product</div>
+                  <div className="text-xs text-slate-300/90">From idea to live product</div>
                 </div>
               </div>
 
-              {/* Card 2 — indigo-tinted, opaque */}
+              {/* Card 2 — indigo-tinted, opaque purple gradient */}
               <div
                 className="
                   spotlight-card relative overflow-hidden
-                  rounded-2xl border border-slate-800
-                  bg-gradient-to-br from-slate-900 to-slate-800
+                  rounded-2xl border border-slate-700/60
                   p-4 md:p-6
-                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  bg-[linear-gradient(135deg,#2d1b59,#7c3aed,#2a1854)]
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]
                   transition-colors duration-300
-                  hover:border-purple-500/30 hover:bg-slate-900
+                  hover:border-purple-400/40 hover:bg-[linear-gradient(135deg,#2d1b59,#8b5cf6,#2a1854)]
                   transform-none hover:transform-none
                 "
               >
@@ -190,20 +191,20 @@ export default function Hero() {
                 <div className="relative">
                   <div className="text-2xl mb-2">🤝</div>
                   <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
-                  <div className="text-xs text-slate-400">Everything you need to succeed</div>
+                  <div className="text-xs text-slate-300/90">Everything you need to succeed</div>
                 </div>
               </div>
 
-              {/* Card 3 — teal-tinted, opaque */}
+              {/* Card 3 — teal-tinted, opaque purple gradient */}
               <div
                 className="
                   spotlight-card relative overflow-hidden
-                  rounded-2xl border border-slate-800
-                  bg-gradient-to-br from-slate-900 to-slate-800
+                  rounded-2xl border border-slate-700/60
                   p-4 md:p-6
-                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  bg-[linear-gradient(135deg,#2d1b59,#7c3aed,#2a1854)]
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]
                   transition-colors duration-300
-                  hover:border-purple-500/30 hover:bg-slate-900
+                  hover:border-purple-400/40 hover:bg-[linear-gradient(135deg,#2d1b59,#8b5cf6,#2a1854)]
                   transform-none hover:transform-none
                 "
               >
@@ -216,7 +217,7 @@ export default function Hero() {
                 <div className="relative">
                   <div className="text-2xl mb-2">💡</div>
                   <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
-                  <div className="text-xs text-slate-400">Smart tools at every step</div>
+                  <div className="text-xs text-slate-300/90">Smart tools at every step</div>
                 </div>
               </div>
             </div>
