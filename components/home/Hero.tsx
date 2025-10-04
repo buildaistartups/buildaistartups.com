@@ -1,7 +1,7 @@
 // components/home/Hero.tsx
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Particles from '@/components/particles'
@@ -39,19 +39,132 @@ const audiences = [
 ]
 
 export default function Hero() {
-  const [current, setCurrent] = useState(0)
+  const [idx, setIdx] = useState(0)
+  const textBlockRef = useRef<HTMLDivElement | null>(null)
 
+  // Calculated layout
+  const [headlineWidth, setHeadlineWidth] = useState<number | null>(null)
+  const [textBlockHeight, setTextBlockHeight] = useState<number | null>(null)
+
+  // Rotate slides
   useEffect(() => {
-    const id = setInterval(() => setCurrent(p => (p + 1) % audiences.length), 5000)
+    const id = setInterval(() => setIdx(p => (p + 1) % audiences.length), 5000)
     return () => clearInterval(id)
   }, [])
 
-  const a = audiences[current]
+  // Measure: find a width that keeps ALL headlines in <= 2 lines, then lock the text block height
+  useEffect(() => {
+    const measure = () => {
+      const anchor = textBlockRef.current
+      if (!anchor) return
+
+      // Offscreen root
+      const root = document.createElement('div')
+      root.style.position = 'absolute'
+      root.style.left = '-99999px'
+      root.style.top = '0'
+      root.style.width = '1600px'
+      root.style.pointerEvents = 'none'
+      root.style.visibility = 'hidden'
+      document.body.appendChild(root)
+
+      // Helper to build an H1 with same typographic classes
+      const buildH1 = (text: string) => {
+        const h1 = document.createElement('h1')
+        h1.textContent = text
+        h1.className =
+          'text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] ' +
+          'bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent ' +
+          'text-balance' // nice breaks
+        // Make sure layout applies
+        h1.style.display = 'block'
+        h1.style.whiteSpace = 'normal'
+        return h1
+      }
+
+      // Create one element to read line-height for desktop style
+      const probe = buildH1(audiences[0].headline)
+      root.appendChild(probe)
+      const lh = parseFloat(getComputedStyle(probe).lineHeight || '0') || 72
+
+      // Binary search the minimal width that yields <= 2 lines for one headline
+      const widthForTwoLines = (text: string) => {
+        const h1 = buildH1(text)
+        root.appendChild(h1)
+
+        let lo = 420 // lower bound (narrow)
+        let hi = 1400 // upper bound (wide)
+        while (lo < hi) {
+          const mid = Math.floor((lo + hi) / 2)
+          h1.style.width = `${mid}px`
+          const lines = Math.round(h1.getBoundingClientRect().height / lh)
+          if (lines <= 2) hi = mid
+          else lo = mid + 1
+        }
+
+        root.removeChild(h1)
+        return hi // minimal width that is NOT 3+ lines
+      }
+
+      // Compute width that works for ALL headlines (<= 2 lines)
+      let targetWidth = 0
+      for (const a of audiences) {
+        targetWidth = Math.max(targetWidth, widthForTwoLines(a.headline))
+      }
+
+      // Now compute tallest text block (headline + subheadline) at that width
+      const blocksHeight = () => {
+        let maxH = 0
+        for (const a of audiences) {
+          const wrap = document.createElement('div')
+          wrap.style.width = `${Math.ceil(targetWidth)}px`
+          wrap.style.display = 'block'
+
+          const h1 = buildH1(a.headline)
+          h1.style.width = '100%'
+
+          const p = document.createElement('p')
+          p.textContent = a.subheadline
+          p.className = 'text-lg md:text-xl text-slate-400 max-w-3xl mx-auto'
+          p.style.display = 'block'
+          p.style.width = '100%'
+
+          wrap.appendChild(h1)
+          wrap.appendChild(p)
+          root.appendChild(wrap)
+
+          const h = wrap.getBoundingClientRect().height
+          maxH = Math.max(maxH, h)
+          root.removeChild(wrap)
+        }
+        return Math.ceil(maxH)
+      }
+
+      setHeadlineWidth(Math.ceil(targetWidth))
+      setTextBlockHeight(blocksHeight())
+
+      document.body.removeChild(root)
+    }
+
+    measure()
+    const ro = new ResizeObserver(measure)
+    if (textBlockRef.current) ro.observe(textBlockRef.current)
+    window.addEventListener('resize', measure)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', measure)
+    }
+  }, [])
+
+  const a = audiences[idx]
 
   return (
     <section className="relative">
       {/* Bottom glow illustration */}
-      <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
+      <div
+        className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
+        aria-hidden="true"
+      >
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0">
           <Image src={Illustration} className="max-w-none" width={2146} height={744} priority alt="" />
         </div>
@@ -62,15 +175,16 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="pt-32 pb-16 md:pt-52 md:pb-32">
+
           {/* Dots + label */}
           <div className="text-center mb-8">
             <div className="inline-flex gap-2">
               {audiences.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setCurrent(i)}
+                  onClick={() => setIdx(i)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    i === current ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
+                    i === idx ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
                   }`}
                   aria-label={`Show: ${audiences[i].title}`}
                 />
@@ -81,18 +195,26 @@ export default function Hero() {
 
           {/* Main content */}
           <div className="text-center">
-            {/* Force consistent 2-line headline + fixed spacing (like before) */}
-            <div className="flex flex-col items-center justify-start gap-6
-                            min-h-[260px] md:min-h-[300px] lg:min-h-[320px]">
+            {/* Fixed-width, fixed-height text block (2-line headline) */}
+            <div
+              ref={textBlockRef}
+              style={{
+                height: textBlockHeight ?? undefined,
+              }}
+              className={`${textBlockHeight ? '' : 'min-h-[260px] md:min-h-[300px] lg:min-h-[320px]'} flex flex-col items-center justify-start gap-6`}
+            >
               <h1
+                style={headlineWidth ? { maxWidth: headlineWidth } : undefined}
                 className="
-                  mx-auto max-w-[22ch] md:max-w-[20ch] lg:max-w-[20ch]
+                  mx-auto
                   text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]
                   bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
+                  text-balance
                 "
               >
                 {a.headline}
               </h1>
+
               <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
                 {a.subheadline}
               </p>
