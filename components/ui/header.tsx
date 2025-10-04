@@ -122,7 +122,7 @@ export default function Header() {
                     <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
                       <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY ROLE</div>
                       <ul className="space-y-3">
-                        <MenuItem href="/solutions/indie" title="Indie Makers" desc="Solo founders" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/indie-makers" title="Indie Makers" desc="Solo founders" onClose={closeDropdown} />
                         <MenuItem href="/solutions/startups" title="Product Teams" desc="Enterprise teams" onClose={closeDropdown} />
                         <MenuItem href="/solutions/investors" title="Investors" desc="Portfolio tools" onClose={closeDropdown} />
                         <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Cohort management" onClose={closeDropdown} />
