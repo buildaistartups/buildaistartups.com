@@ -10,7 +10,7 @@ import Illustration from '@/public/images/glow-bottom.svg'
 type Audience = {
   title: string
   headline: string                 // mobile (natural wrap)
-  linesMd: [string, string]        // exact two lines for md+ (force breaks)
+  linesMd: [string, string]        // exact two lines for md+ (forced breaks)
   subheadline: string
   cta1: { text: string; href: string }
   cta2: { text: string; href: string }
@@ -77,7 +77,7 @@ export default function Hero() {
       <Particles className="absolute inset-0 -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
-        {/* Nudge the whole hero up ~2pt (≈2.67px) */}
+        {/* Nudge the whole hero up ~2pt (≈2.67px) to match ORIGINAL alignment */}
         <div className="-translate-y-[2.67px] md:-translate-y-[2.67px] lg:-translate-y-[2.67px]">
           <div className="pt-32 pb-16 md:pt-52 md:pb-32">
             {/* Dots + label */}
@@ -103,11 +103,15 @@ export default function Hero() {
               <div className="flex flex-col items-center">
                 <h1
                   className="
-                    font-bold tracking-tight leading-[1.08]
-                    text-4xl md:text-[54px] lg:text-[58px]  /* ↓ 1pt on md & lg */
+                    font-bold tracking-tight
+                    text-4xl md:text-[54px] lg:text-[58px]      /* 1pt smaller than before */
+                    leading-tight md:leading-[1.12]              /* loosened to protect descenders */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
+                    overflow-visible
+                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* tiny bottom pad per line */
                   "
                 >
+                  {/* md+: exact two lines with fixed breaks; mobile: natural wrap */}
                   <span className="hidden md:block">
                     <span className="block whitespace-nowrap">{a.linesMd[0]}</span>
                     <span className="block whitespace-nowrap">{a.linesMd[1]}</span>
