@@ -1,16 +1,26 @@
 // components/home/Hero.tsx
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Particles from '@/components/particles'
 import Illustration from '@/public/images/glow-bottom.svg'
 
-const audiences = [
+type Audience = {
+  title: string
+  headline: string                 // full text (used on mobile)
+  linesMd: [string, string]        // exact two lines for md+ (desktop/tablet)
+  subheadline: string
+  cta1: { text: string; href: string }
+  cta2: { text: string; href: string }
+}
+
+const audiences: Audience[] = [
   {
     title: 'For Startups',
     headline: 'Build, Scale, and Profit from AI. Complete Toolkit Included.',
+    linesMd: ['Build, Scale, and Profit from AI. Complete', 'Toolkit Included.'],
     subheadline: 'Everything you need to launch and grow your AI business in one platform',
     cta1: { text: 'Start Building', href: '/generate' },
     cta2: { text: 'Access Startup Tools', href: '/solutions/indie-makers' }
@@ -18,6 +28,7 @@ const audiences = [
   {
     title: 'For Enterprises',
     headline: 'Launch Your Innovation Lab. White-Label Everything.',
+    linesMd: ['Launch Your Innovation Lab. White-Label', 'Everything.'],
     subheadline: 'Transform your organization into an AI powerhouse with enterprise-grade tools',
     cta1: { text: 'Deploy Enterprise Lab', href: '/solutions/enterprises' },
     cta2: { text: 'See Enterprise Features', href: '/product/api' }
@@ -25,6 +36,7 @@ const audiences = [
   {
     title: 'For Accelerators',
     headline: 'Run World-Class Programs. Ship Real Products.',
+    linesMd: ['Run World-Class Programs. Ship Real', 'Products.'],
     subheadline: 'Complete cohort management system that gets startups to revenue faster',
     cta1: { text: 'Manage Your Cohort', href: '/solutions/accelerators' },
     cta2: { text: 'Demo Day Tools', href: '/product/ecosystem' }
@@ -32,135 +44,26 @@ const audiences = [
   {
     title: 'For Product Managers',
     headline: 'Enterprise Workflows. Zero Dependencies.',
+    linesMd: ['Enterprise Workflows. Zero', 'Dependencies.'],
     subheadline: 'Integrate AI capabilities directly into your existing enterprise stack',
     cta1: { text: 'See Enterprise Integrations', href: '/solutions/product-teams' },
     cta2: { text: 'Book PM Demo', href: '/contact?type=demo' }
-  },
+  }
 ]
 
 export default function Hero() {
-  const [idx, setIdx] = useState(0)
-  const textBlockRef = useRef<HTMLDivElement | null>(null)
+  const [i, setI] = useState(0)
 
-  // Calculated layout
-  const [headlineWidth, setHeadlineWidth] = useState<number | null>(null)
-  const [textBlockHeight, setTextBlockHeight] = useState<number | null>(null)
-
-  // Rotate slides
   useEffect(() => {
-    const id = setInterval(() => setIdx(p => (p + 1) % audiences.length), 5000)
+    const id = setInterval(() => setI((p) => (p + 1) % audiences.length), 5000)
     return () => clearInterval(id)
   }, [])
 
-  // Measure: find a width that keeps ALL headlines in <= 2 lines, then lock the text block height
-  useEffect(() => {
-    const measure = () => {
-      const anchor = textBlockRef.current
-      if (!anchor) return
-
-      // Offscreen root
-      const root = document.createElement('div')
-      root.style.position = 'absolute'
-      root.style.left = '-99999px'
-      root.style.top = '0'
-      root.style.width = '1600px'
-      root.style.pointerEvents = 'none'
-      root.style.visibility = 'hidden'
-      document.body.appendChild(root)
-
-      // Helper to build an H1 with same typographic classes
-      const buildH1 = (text: string) => {
-        const h1 = document.createElement('h1')
-        h1.textContent = text
-        h1.className =
-          'text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] ' +
-          'bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent ' +
-          'text-balance' // nice breaks
-        // Make sure layout applies
-        h1.style.display = 'block'
-        h1.style.whiteSpace = 'normal'
-        return h1
-      }
-
-      // Create one element to read line-height for desktop style
-      const probe = buildH1(audiences[0].headline)
-      root.appendChild(probe)
-      const lh = parseFloat(getComputedStyle(probe).lineHeight || '0') || 72
-
-      // Binary search the minimal width that yields <= 2 lines for one headline
-      const widthForTwoLines = (text: string) => {
-        const h1 = buildH1(text)
-        root.appendChild(h1)
-
-        let lo = 420 // lower bound (narrow)
-        let hi = 1400 // upper bound (wide)
-        while (lo < hi) {
-          const mid = Math.floor((lo + hi) / 2)
-          h1.style.width = `${mid}px`
-          const lines = Math.round(h1.getBoundingClientRect().height / lh)
-          if (lines <= 2) hi = mid
-          else lo = mid + 1
-        }
-
-        root.removeChild(h1)
-        return hi // minimal width that is NOT 3+ lines
-      }
-
-      // Compute width that works for ALL headlines (<= 2 lines)
-      let targetWidth = 0
-      for (const a of audiences) {
-        targetWidth = Math.max(targetWidth, widthForTwoLines(a.headline))
-      }
-
-      // Now compute tallest text block (headline + subheadline) at that width
-      const blocksHeight = () => {
-        let maxH = 0
-        for (const a of audiences) {
-          const wrap = document.createElement('div')
-          wrap.style.width = `${Math.ceil(targetWidth)}px`
-          wrap.style.display = 'block'
-
-          const h1 = buildH1(a.headline)
-          h1.style.width = '100%'
-
-          const p = document.createElement('p')
-          p.textContent = a.subheadline
-          p.className = 'text-lg md:text-xl text-slate-400 max-w-3xl mx-auto'
-          p.style.display = 'block'
-          p.style.width = '100%'
-
-          wrap.appendChild(h1)
-          wrap.appendChild(p)
-          root.appendChild(wrap)
-
-          const h = wrap.getBoundingClientRect().height
-          maxH = Math.max(maxH, h)
-          root.removeChild(wrap)
-        }
-        return Math.ceil(maxH)
-      }
-
-      setHeadlineWidth(Math.ceil(targetWidth))
-      setTextBlockHeight(blocksHeight())
-
-      document.body.removeChild(root)
-    }
-
-    measure()
-    const ro = new ResizeObserver(measure)
-    if (textBlockRef.current) ro.observe(textBlockRef.current)
-    window.addEventListener('resize', measure)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener('resize', measure)
-    }
-  }, [])
-
-  const a = audiences[idx]
+  const a = audiences[i]
 
   return (
     <section className="relative">
-      {/* Bottom glow illustration */}
+      {/* Bottom glow */}
       <div
         className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
         aria-hidden="true"
@@ -170,23 +73,22 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Particles */}
+      {/* Particles above glow */}
       <Particles className="absolute inset-0 -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="pt-32 pb-16 md:pt-52 md:pb-32">
-
           {/* Dots + label */}
           <div className="text-center mb-8">
             <div className="inline-flex gap-2">
-              {audiences.map((_, i) => (
+              {audiences.map((_, idx) => (
                 <button
-                  key={i}
-                  onClick={() => setIdx(i)}
+                  key={idx}
+                  onClick={() => setI(idx)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    i === idx ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
+                    idx === i ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
                   }`}
-                  aria-label={`Show: ${audiences[i].title}`}
+                  aria-label={`Show: ${audiences[idx].title}`}
                 />
               ))}
             </div>
@@ -195,24 +97,22 @@ export default function Hero() {
 
           {/* Main content */}
           <div className="text-center">
-            {/* Fixed-width, fixed-height text block (2-line headline) */}
-            <div
-              ref={textBlockRef}
-              style={{
-                height: textBlockHeight ?? undefined,
-              }}
-              className={`${textBlockHeight ? '' : 'min-h-[260px] md:min-h-[300px] lg:min-h-[320px]'} flex flex-col items-center justify-start gap-6`}
-            >
+            {/* Fixed spacing block so CTAs/cards never shift */}
+            <div className="flex flex-col items-center justify-start gap-6 min-h-[260px] md:min-h-[300px]">
               <h1
-                style={headlineWidth ? { maxWidth: headlineWidth } : undefined}
                 className="
-                  mx-auto
-                  text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]
+                  font-bold tracking-tight leading-[1.08]
+                  text-4xl md:text-6xl              /* a bit smaller on desktop */
                   bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
-                  text-balance
                 "
               >
-                {a.headline}
+                {/* Desktop/tablet: exact 2 lines, no wrap within each line */}
+                <span className="hidden md:block">
+                  <span className="block whitespace-nowrap">{a.linesMd[0]}</span>
+                  <span className="block whitespace-nowrap">{a.linesMd[1]}</span>
+                </span>
+                {/* Mobile: let it wrap naturally */}
+                <span className="md:hidden">{a.headline}</span>
               </h1>
 
               <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
