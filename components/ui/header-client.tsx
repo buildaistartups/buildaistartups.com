@@ -66,7 +66,7 @@ export default function HeaderClient({ signedIn }: { signedIn: boolean }) {
                     <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
                       <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY ROLE</div>
                       <ul className="space-y-3">
-                        <MenuItem href="/solutions/indie" title="Indie Makers" desc="Weekend-to-launch kits" />
+                        <MenuItem href="/solutions/indie-makers" title="Indie Makers" desc="Weekend-to-launch kits" />
                         <MenuItem href="/solutions/startups" title="Product Teams" desc="Validate ideas in parallel" />
                         <MenuItem href="/solutions/investors" title="Investors" desc="Continuous deal flow" />
                         <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Autonomous incubator" />
