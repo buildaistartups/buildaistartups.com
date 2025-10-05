@@ -20,12 +20,15 @@ export default function FeatureHighlight() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left content */}
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              <div className="inline-flex font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200 pb-3">
+              {/* Title styled to match StartupJourney */}
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
                 The autonomy-first builder
-              </div>
+              </h2>
+
               <h2 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
                 Build faster than ever before
               </h2>
+
               <p className="text-lg text-slate-400 mb-6">
                 Our AI-powered platform handles the complexity so you can focus on your vision. From idea validation to production deployment, we automate the entire journey.
               </p>
