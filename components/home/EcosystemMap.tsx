@@ -15,7 +15,20 @@ export default function EcosystemMap() {
             </h2>
           </div>
 
-          <div className="relative h-[500px] bg-slate-900/50 rounded-xl border border-slate-700 overflow-hidden mb-12">
+          <div className="spotlight-card relative h-[500px] bg-slate-900/25 rounded-xl border border-slate-800 overflow-hidden mb-12 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <div
+              className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 h-64 w-96 -z-10
+                         bg-[radial-gradient(closest-side,rgba(168,85,247,0.12),transparent_60%)]
+                         blur-2xl"
+              aria-hidden="true"
+            />
+            <div
+              className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2 h-64 w-96 -z-10
+                         bg-[radial-gradient(closest-side,rgba(59,130,246,0.12),transparent_60%)]
+                         blur-2xl"
+              aria-hidden="true"
+            />
+            
             <svg className="absolute inset-0 w-full h-full">
               <defs>
                 <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
