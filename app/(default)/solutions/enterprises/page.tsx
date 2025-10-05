@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
+import Image from 'next/image'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const ogImage = '/og/product-ecosystem.svg' // safe existing OG
@@ -87,9 +88,17 @@ export default function Page() {
       <Script id="faq-jsonld" type="application/ld+json">{JSON.stringify(faqJsonLd)}</Script>
 
       <main className="relative">
+        {/* Decorative backdrop */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute left-[20%] top-[-15%] h-[40rem] w-[60rem] rounded-full blur-3xl"
+               style={{background: 'radial-gradient(50% 50% at 50% 50%, rgba(79,70,229,0.25) 0%, rgba(0,0,0,0) 70%)'}}/>
+          <div className="absolute right-[-10%] bottom-[-20%] h-[35rem] w-[55rem] rounded-full blur-3xl"
+               style={{background: 'radial-gradient(50% 50% at 50% 50%, rgba(16,185,129,0.15) 0%, rgba(0,0,0,0) 70%)'}}/>
+        </div>
+
         {/* HERO */}
         <section className="relative overflow-hidden border-b border-white/5">
-          <div className="mx-auto max-w-6xl px-6 py-16 text-center">
+          <div className="mx-auto max-w-6xl px-6 pt-12 pb-6 text-center">
             <div className="mx-auto max-w-4xl">
               <h1 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
                 Enterprise innovation that actually ships
@@ -107,6 +116,20 @@ export default function Page() {
                 </Link>
               </div>
               <div className="mt-4 text-xs text-slate-400">White‑label • You own the repos • Works in your cloud</div>
+            </div>
+          </div>
+
+          {/* Hero Illustration */}
+          <div className="mx-auto max-w-6xl px-6 pb-12">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-4 ring-1 ring-white/5">
+              <Image
+                src="/images/product/builder/hero.svg"
+                alt="Enterprise venture lab — white‑label builder overview"
+                width={1360}
+                height={768}
+                priority
+                className="w-full h-auto rounded-xl"
+              />
             </div>
           </div>
         </section>
@@ -128,26 +151,37 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Governance & architecture */}
+        {/* Governance & architecture with visual */}
         <section className="mx-auto max-w-6xl px-6 py-12">
-          <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
-              <div className="text-lg font-medium">Governance by default</div>
-              <ul className="mt-2 list-disc pl-5 text-sm text-slate-300 space-y-1">
-                <li>SSO (SAML/OIDC), RBAC, and scoped environments</li>
-                <li>Audit trails, code owners, approval workflows</li>
-                <li>Feature flags, dark launches, rollout policies</li>
-                <li>Policy packs for logging, PII handling, and secrets</li>
-              </ul>
+          <div className="grid gap-6 md:grid-cols-2 items-start">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-4 ring-1 ring-white/5 order-2 md:order-1">
+              <Image
+                src="/images/product/builder/shell-preview.svg"
+                alt="Governance and architecture — shell preview with flags, roles and telemetry"
+                width={1200}
+                height={720}
+                className="w-full h-auto rounded-xl"
+              />
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
-              <div className="text-lg font-medium">Architecture options</div>
-              <ul className="mt-2 list-disc pl-5 text-sm text-slate-300 space-y-1">
-                <li>Run in your cloud (Vercel/Netlify + Render/Railway + Supabase)</li>
-                <li>Private template catalog and internal component library</li>
-                <li>Sovereign/regulated paths with partner‑operated controls</li>
-                <li>Optional air‑gapped builds via offline runners</li>
-              </ul>
+            <div className="order-1 md:order-2">
+              <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
+                <div className="text-lg font-medium">Governance by default</div>
+                <ul className="mt-2 list-disc pl-5 text-sm text-slate-300 space-y-1">
+                  <li>SSO (SAML/OIDC), RBAC, and scoped environments</li>
+                  <li>Audit trails, code owners, approval workflows</li>
+                  <li>Feature flags, dark launches, rollout policies</li>
+                  <li>Policy packs for logging, PII handling, and secrets</li>
+                </ul>
+              </div>
+              <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/40 p-6">
+                <div className="text-lg font-medium">Architecture options</div>
+                <ul className="mt-2 list-disc pl-5 text-sm text-slate-300 space-y-1">
+                  <li>Run in your cloud (Vercel/Netlify + Render/Railway + Supabase)</li>
+                  <li>Private template catalog and internal component library</li>
+                  <li>Sovereign/regulated paths with partner‑operated controls</li>
+                  <li>Optional air‑gapped builds via offline runners</li>
+                </ul>
+              </div>
             </div>
           </div>
         </section>
