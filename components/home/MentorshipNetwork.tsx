@@ -7,7 +7,7 @@ import { Users, Briefcase, Code, TrendingUp, DollarSign, CheckCircle } from 'luc
 
 type Tint = 'purple' | 'green' | 'blue' | 'yellow'
 
-const mentorCategories: { icon: JSX.Element; title: string; color: Tint }[] = [
+const mentorCategories: { icon: React.ReactElement; title: string; color: Tint }[] = [
   { icon: <Briefcase />, title: 'Serial Entrepreneurs', color: 'purple' },
   { icon: <TrendingUp />, title: 'Growth Experts', color: 'green' },
   { icon: <Code />, title: 'Technical CTOs', color: 'blue' },
