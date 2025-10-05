@@ -5,12 +5,22 @@ import React from 'react'
 import Link from 'next/link'
 import { Users, Briefcase, Code, TrendingUp, DollarSign, CheckCircle } from 'lucide-react'
 
-const mentorCategories = [
+type Tint = 'purple' | 'green' | 'blue' | 'yellow'
+
+const mentorCategories: { icon: JSX.Element; title: string; color: Tint }[] = [
   { icon: <Briefcase />, title: 'Serial Entrepreneurs', color: 'purple' },
   { icon: <TrendingUp />, title: 'Growth Experts', color: 'green' },
   { icon: <Code />, title: 'Technical CTOs', color: 'blue' },
-  { icon: <DollarSign />, title: 'Fundraising Veterans', color: 'yellow' }
+  { icon: <DollarSign />, title: 'Fundraising Veterans', color: 'yellow' },
 ]
+
+// tint → glow position/color (lighting only)
+const glowClassByTint: Record<Tint, string> = {
+  purple: '-top-10 -left-10 bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]',
+  green: '-bottom-12 -right-10 bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]',
+  blue: '-top-10 -right-10 bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]',
+  yellow: '-bottom-12 -left-10 bg-[radial-gradient(closest-side,rgba(245,158,11,0.12),transparent_60%)]',
+}
 
 export default function MentorshipNetwork() {
   return (
@@ -31,9 +41,18 @@ export default function MentorshipNetwork() {
             <p className="text-lg text-slate-400">Connect with experienced founders and industry experts</p>
           </div>
 
+          {/* Cards — same visuals, lighting added */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             {mentorCategories.map((category) => (
-              <div key={category.title} className="bg-slate-800/50 rounded-xl p-6 text-center">
+              <div
+                key={category.title}
+                className="relative overflow-hidden bg-slate-800/50 rounded-xl p-6 text-center"
+              >
+                {/* lighting glow (no hover, no layout change) */}
+                <div
+                  className={`pointer-events-none absolute h-56 w-72 -z-10 blur-2xl ${glowClassByTint[category.color]}`}
+                  aria-hidden="true"
+                />
                 <div className="inline-flex p-3 bg-purple-500/20 rounded-lg mb-4">
                   {React.cloneElement(category.icon, { className: 'w-8 h-8 text-purple-400' })}
                 </div>
@@ -50,7 +69,7 @@ export default function MentorshipNetwork() {
                 'Stage Compatibility',
                 'Skill Gaps Analysis',
                 'Timezone Optimization',
-                'Communication Style'
+                'Communication Style',
               ].map((criteria) => (
                 <div key={criteria} className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-green-400" />
@@ -61,10 +80,7 @@ export default function MentorshipNetwork() {
           </div>
 
           <div className="flex gap-4 justify-center mt-8">
-            <Link
-              href="/get-matched"
-              className="btn bg-purple-500 text-white hover:bg-purple-600"
-            >
+            <Link href="/get-matched" className="btn bg-purple-500 text-white hover:bg-purple-600">
               Get Matched
             </Link>
             <Link
