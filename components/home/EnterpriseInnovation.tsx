@@ -36,52 +36,68 @@ export default function EnterpriseInnovation() {
               ))}
             </div>
 
-            <div className="bg-slate-900/50 rounded-xl border border-slate-700 p-6">
-              <div className="text-sm text-purple-400 mb-4">What You'll Get</div>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Shield className="w-5 h-5 text-purple-400 mt-0.5" />
-                  <div>
-                    <div className="text-slate-200 font-medium">Complete White-Label Solution</div>
-                    <div className="text-sm text-slate-400">Your brand, your domain, your rules</div>
+            <div className="spotlight-card relative overflow-hidden bg-slate-900/25 rounded-xl border border-slate-800 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div
+                className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
+                           bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]
+                           blur-2xl"
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <div className="text-sm text-purple-400 mb-4">What You'll Get</div>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 text-purple-400 mt-0.5" />
+                    <div>
+                      <div className="text-slate-200 font-medium">Complete White-Label Solution</div>
+                      <div className="text-sm text-slate-400">Your brand, your domain, your rules</div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Building className="w-5 h-5 text-green-400 mt-0.5" />
-                  <div>
-                    <div className="text-slate-200 font-medium">Innovation Lab Dashboard</div>
-                    <div className="text-sm text-slate-400">Track and manage all ventures</div>
+                  <div className="flex items-start gap-3">
+                    <Building className="w-5 h-5 text-green-400 mt-0.5" />
+                    <div>
+                      <div className="text-slate-200 font-medium">Innovation Lab Dashboard</div>
+                      <div className="text-sm text-slate-400">Track and manage all ventures</div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <TrendingUp className="w-5 h-5 text-blue-400 mt-0.5" />
-                  <div>
-                    <div className="text-slate-200 font-medium">Revenue Generation</div>
-                    <div className="text-sm text-slate-400">Build new income streams</div>
+                  <div className="flex items-start gap-3">
+                    <TrendingUp className="w-5 h-5 text-blue-400 mt-0.5" />
+                    <div>
+                      <div className="text-slate-200 font-medium">Revenue Generation</div>
+                      <div className="text-sm text-slate-400">Build new income streams</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-slate-800/30 rounded-xl p-8">
-            <h3 className="text-xl font-semibold text-slate-200 mb-6">Enterprise Features</h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                { icon: <Shield />, text: 'Complete White-Label Platform' },
-                { icon: <Settings />, text: 'Custom Compliance Framework' },
-                { icon: <Users />, text: 'Enterprise SSO + RBAC' },
-                { icon: <TrendingUp />, text: 'Department Budget Controls' },
-                { icon: <Zap />, text: 'Legacy System Connectors' },
-                { icon: <Building />, text: 'Innovation KPI Dashboard' }
-              ].map((feature, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="p-2 bg-purple-500/20 rounded-lg">
-                    {React.cloneElement(feature.icon, { className: 'w-5 h-5 text-purple-400' })}
+          <div className="spotlight-card relative overflow-hidden bg-slate-900/25 rounded-xl p-8 border border-slate-800 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <div
+              className="pointer-events-none absolute -bottom-12 -right-10 h-64 w-80 -z-10
+                         bg-[radial-gradient(closest-side,rgba(168,85,247,0.12),transparent_60%)]
+                         blur-2xl"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <h3 className="text-xl font-semibold text-slate-200 mb-6">Enterprise Features</h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  { icon: <Shield />, text: 'Complete White-Label Platform' },
+                  { icon: <Settings />, text: 'Custom Compliance Framework' },
+                  { icon: <Users />, text: 'Enterprise SSO + RBAC' },
+                  { icon: <TrendingUp />, text: 'Department Budget Controls' },
+                  { icon: <Zap />, text: 'Legacy System Connectors' },
+                  { icon: <Building />, text: 'Innovation KPI Dashboard' }
+                ].map((feature, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="p-2 bg-purple-500/20 rounded-lg">
+                      {React.cloneElement(feature.icon, { className: 'w-5 h-5 text-purple-400' })}
+                    </div>
+                    <span className="text-slate-300">{feature.text}</span>
                   </div>
-                  <span className="text-slate-300">{feature.text}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
