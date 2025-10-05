@@ -49,7 +49,8 @@ export default function StartupJourney() {
   return (
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20">
+        {/* ↓ reduced only TOP padding; kept bottom the same */}
+        <div className="pt-8 md:pt-12 pb-12 md:pb-20">
           {/* Section header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 text-purple-400 mb-4">
@@ -84,13 +85,14 @@ export default function StartupJourney() {
                   onMouseEnter={() => setActiveStep(index)}
                 >
                   {/* Icon */}
-                  <div className={`
-                    w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center transition-all
-                    ${activeStep === index 
-                      ? 'bg-gradient-to-br from-purple-500 to-blue-500 scale-110' 
-                      : 'bg-slate-800 border-2 border-slate-700'
-                    }
-                  `}>
+                  <div
+                    className={`
+                      w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center transition-all
+                      ${activeStep === index 
+                        ? 'bg-gradient-to-br from-purple-500 to-blue-500 scale-110' 
+                        : 'bg-slate-800 border-2 border-slate-700'}
+                    `}
+                  >
                     {React.cloneElement(step.icon, { 
                       className: `w-10 h-10 ${activeStep === index ? 'text-white' : 'text-slate-400'}` 
                     })}
@@ -98,19 +100,21 @@ export default function StartupJourney() {
 
                   {/* Content */}
                   <div className="text-center">
-                    <div className={`text-xs font-medium mb-1 ${
-                      activeStep === index ? 'text-purple-400' : 'text-slate-500'
-                    }`}>
+                    <div
+                      className={`text-xs font-medium mb-1 ${
+                        activeStep === index ? 'text-purple-400' : 'text-slate-500'
+                      }`}
+                    >
                       {step.time}
                     </div>
-                    <h3 className={`font-semibold mb-2 ${
-                      activeStep === index ? 'text-slate-200' : 'text-slate-400'
-                    }`}>
+                    <h3
+                      className={`font-semibold mb-2 ${
+                        activeStep === index ? 'text-slate-200' : 'text-slate-400'
+                      }`}
+                    >
                       {step.title}
                     </h3>
-                    <p className="text-sm text-slate-500">
-                      {step.description}
-                    </p>
+                    <p className="text-sm text-slate-500">{step.description}</p>
                   </div>
                 </div>
               ))}
@@ -128,9 +132,7 @@ export default function StartupJourney() {
                   <h4 className="text-lg font-semibold text-slate-200 mb-2">
                     {journeySteps[activeStep].title}: {journeySteps[activeStep].description}
                   </h4>
-                  <p className="text-slate-300">
-                    {journeySteps[activeStep].details}
-                  </p>
+                  <p className="text-slate-300">{journeySteps[activeStep].details}</p>
                 </div>
                 <Link
                   href="/generate"
