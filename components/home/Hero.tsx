@@ -141,14 +141,14 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — spotlight-card lighting; keep 0.5pt up; NO hover effects */}
+            {/* Value props — spotlight-card lighting; keep 0.5pt up; NO hover effects; 3pt shorter */}
             <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
               {/* Card 1 — rose tint */}
               <div
                 className="
                   spotlight-card relative overflow-hidden
                   rounded-2xl border border-slate-800
-                  bg-slate-900/40 p-4 md:p-6
+                  bg-slate-900/40 p-4 md:pb-3 md:px-6 md:pt-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
                 "
               >
@@ -170,7 +170,7 @@ export default function Hero() {
                 className="
                   spotlight-card relative overflow-hidden
                   rounded-2xl border border-slate-800
-                  bg-slate-900/40 p-4 md:p-6
+                  bg-slate-900/40 p-4 md:pb-3 md:px-6 md:pt-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
                 "
               >
@@ -192,7 +192,7 @@ export default function Hero() {
                 className="
                   spotlight-card relative overflow-hidden
                   rounded-2xl border border-slate-800
-                  bg-slate-900/40 p-4 md:p-6
+                  bg-slate-900/40 p-4 md:pb-3 md:px-6 md:pt-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
                 "
               >
