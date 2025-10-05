@@ -15,7 +15,8 @@ export default function FeatureHighlight() {
   return (
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-12 md:py-20">
+        {/* ↓ was: py-12 md:py-20 — keep the same top padding, reduce bottom padding */}
+        <div className="pt-12 md:pt-20 pb-8 md:pb-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left content */}
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
