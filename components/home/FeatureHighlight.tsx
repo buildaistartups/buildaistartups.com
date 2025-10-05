@@ -15,8 +15,8 @@ export default function FeatureHighlight() {
   return (
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Keep tighter spacing; restore small bottom padding */}
-        <div className="pt-12 md:pt-20 pb-4 md:pb-6">
+        {/* Slightly increased bottom padding */}
+        <div className="pt-12 md:pt-20 pb-5 md:pb-7">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left content */}
             <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
@@ -53,8 +53,8 @@ export default function FeatureHighlight() {
             
             {/* AI Orb Visual */}
             <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              {/* Keep top padding, re-add a small bottom padding */}
-              <div className="relative pt-16 md:pt-20 pb-4 md:pb-6 -mt-10 md:-mt-12">
+              {/* Keep top padding, slightly more bottom padding */}
+              <div className="relative pt-16 md:pt-20 pb-5 md:pb-7 -mt-10 md:-mt-12">
                 {/* Particles behind the orb for subtle depth */}
                 <Particles className="absolute inset-0 -z-10" quantity={8} staticity={30} />
 
