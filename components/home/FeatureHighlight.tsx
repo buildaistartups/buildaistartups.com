@@ -18,16 +18,20 @@ export default function FeatureHighlight() {
         {/* Slightly increased bottom padding */}
         <div className="pt-12 md:pt-20 pb-5 md:pb-7">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left content */}
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
-              {/* Title styled to match StartupJourney */}
-              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
+            {/* Left content – ensure it's above the orb layers */}
+            <div
+              className={`relative z-10 transition-all duration-1000 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+            >
+              {/* Title styled like StartupJourney and forced above any overlap */}
+              <h2 className="relative z-10 text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
                 The autonomy-first builder
               </h2>
 
-              <h2 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
+              <h3 className="h2 bg-clip-text text-transparent bg-gradient-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">
                 Build faster than ever before
-              </h2>
+              </h3>
 
               <p className="text-lg text-slate-400 mb-6">
                 Our AI-powered platform handles the complexity so you can focus on your vision. From idea validation to production deployment, we automate the entire journey.
@@ -58,9 +62,8 @@ export default function FeatureHighlight() {
             <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
               {/* Keep top padding, slightly more bottom padding */}
               <div className="relative pt-16 md:pt-20 pb-5 md:pb-7 -mt-10 md:-mt-12">
-                {/* Particles behind the orb for subtle depth */}
+                {/* Particles behind the orb for subtle depth (z-index below) */}
                 <Particles className="absolute inset-0 -z-10" quantity={8} staticity={30} />
-
                 {/* AI Orb Component */}
                 <AIOrb />
               </div>
