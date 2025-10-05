@@ -10,25 +10,29 @@ const liveMatches = [
     type: 'Investors → Startups',
     icon: <Briefcase className="w-5 h-5" />,
     description: 'Find startups that match your investment thesis',
-    action: 'Connect Now'
+    action: 'Connect Now',
+    glowColor: 'rgba(244,114,182,0.12)' // rose
   },
   {
     type: 'Mentors → Founders',
     icon: <Users className="w-5 h-5" />,
     description: 'Get matched with experienced mentors in your field',
-    action: 'Schedule Call'
+    action: 'Schedule Call',
+    glowColor: 'rgba(99,102,241,0.12)' // indigo
   },
   {
     type: 'Enterprises → Builders',
     icon: <Building className="w-5 h-5" />,
     description: 'Connect with builders for your innovation needs',
-    action: 'View Matches'
+    action: 'View Matches',
+    glowColor: 'rgba(20,184,166,0.12)' // teal
   },
   {
     type: 'Accelerator Cohorts',
     icon: <Lightbulb className="w-5 h-5" />,
     description: 'Find compatible startups for your program',
-    action: 'Review Batch'
+    action: 'Review Batch',
+    glowColor: 'rgba(234,179,8,0.12)' // yellow
   }
 ]
 
@@ -59,37 +63,52 @@ export default function AIMatchmaking() {
                 <div
                   key={index}
                   onClick={() => setSelectedMatch(index)}
-                  className={`p-4 rounded-lg border cursor-pointer transition-all ${
+                  className={`spotlight-card relative overflow-hidden p-4 rounded-lg border cursor-pointer transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] ${
                     selectedMatch === index 
                       ? 'bg-purple-500/20 border-purple-500' 
-                      : 'bg-slate-800/50 border-slate-700 hover:border-purple-500/50'
+                      : 'bg-slate-900/25 border-slate-800 hover:border-purple-500/50'
                   }`}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex items-start gap-3">
-                      <div className="p-2 bg-purple-500/20 rounded-lg">
-                        {match.icon}
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-slate-200 mb-1">{match.type}</h4>
-                        <p className="text-sm text-slate-400">{match.description}</p>
+                  <div
+                    className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10 blur-2xl"
+                    style={{
+                      background: `radial-gradient(closest-side, ${match.glowColor}, transparent 60%)`
+                    }}
+                    aria-hidden="true"
+                  />
+                  <div className="relative">
+                    <div className="flex items-start justify-between">
+                      <div className="flex items-start gap-3">
+                        <div className="p-2 bg-purple-500/20 rounded-lg">
+                          {match.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-slate-200 mb-1">{match.type}</h4>
+                          <p className="text-sm text-slate-400">{match.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-end mt-3">
-                    <button className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
-                      {match.action}
-                      <ArrowRight className="w-3 h-3" />
-                    </button>
+                    
+                    <div className="flex items-center justify-end mt-3">
+                      <button className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1">
+                        {match.action}
+                        <ArrowRight className="w-3 h-3" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="relative h-[400px] bg-slate-900/50 rounded-xl border border-slate-700 overflow-hidden">
+            <div className="spotlight-card relative h-[400px] bg-slate-900/25 rounded-xl border border-slate-800 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div
+                className="pointer-events-none absolute -top-10 -right-10 h-64 w-80 -z-10
+                           bg-[radial-gradient(closest-side,rgba(168,85,247,0.12),transparent_60%)]
+                           blur-2xl"
+                aria-hidden="true"
+              />
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
+                <div className="text-center p-8 relative">
                   <div className="text-6xl mb-4">🤖</div>
                   <h3 className="text-xl font-semibold text-slate-200 mb-2">
                     Intelligent Matching
