@@ -14,7 +14,7 @@ const mentorCategories: { icon: JSX.Element; title: string; color: Tint }[] = [
   { icon: <DollarSign />, title: 'Fundraising Veterans', color: 'yellow' },
 ]
 
-// tint → glow position/color (lighting only)
+// lighting (glow) positions/colors per card tint
 const glowClassByTint: Record<Tint, string> = {
   purple: '-top-10 -left-10 bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]',
   green: '-bottom-12 -right-10 bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]',
@@ -41,14 +41,14 @@ export default function MentorshipNetwork() {
             <p className="text-lg text-slate-400">Connect with experienced founders and industry experts</p>
           </div>
 
-          {/* Cards — same visuals, lighting added */}
+          {/* Cards — original visuals kept; lighting glow added */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
             {mentorCategories.map((category) => (
               <div
                 key={category.title}
                 className="relative overflow-hidden bg-slate-800/50 rounded-xl p-6 text-center"
               >
-                {/* lighting glow (no hover, no layout change) */}
+                {/* lighting effect */}
                 <div
                   className={`pointer-events-none absolute h-56 w-72 -z-10 blur-2xl ${glowClassByTint[category.color]}`}
                   aria-hidden="true"
@@ -80,7 +80,10 @@ export default function MentorshipNetwork() {
           </div>
 
           <div className="flex gap-4 justify-center mt-8">
-            <Link href="/get-matched" className="btn bg-purple-500 text-white hover:bg-purple-600">
+            <Link
+              href="/get-matched"
+              className="btn bg-purple-500 text-white hover:bg-purple-600"
+            >
               Get Matched
             </Link>
             <Link
