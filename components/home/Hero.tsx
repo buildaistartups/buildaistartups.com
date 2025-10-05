@@ -141,14 +141,14 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — with gradient purple backgrounds matching your image */}
+            {/* Value props — spotlight-card lighting; keep 0.5pt up; NO hover effects; 3pt shorter */}
             <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
-              {/* Card 1 — Darker purple gradient (like left box in image) */}
+              {/* Card 1 — rose tint */}
               <div
                 className="
                   spotlight-card relative overflow-hidden
                   rounded-2xl border border-slate-800
-                  bg-gradient-to-br from-[#4C1D95] to-[#312E81] p-4 md:pb-3 md:px-6 md:pt-6
+                  bg-slate-900/40 p-4 md:pb-3 md:px-6 md:pt-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
                 "
               >
@@ -165,12 +165,12 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Card 2 — Medium purple gradient (like middle box in image) */}
+              {/* Card 2 — indigo tint */}
               <div
                 className="
                   spotlight-card relative overflow-hidden
                   rounded-2xl border border-slate-800
-                  bg-gradient-to-br from-[#7C3AED] to-[#5B21B6] p-4 md:pb-3 md:px-6 md:pt-6
+                  bg-slate-900/40 p-4 md:pb-3 md:px-6 md:pt-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
                 "
               >
@@ -187,12 +187,12 @@ export default function Hero() {
                 </div>
               </div>
 
-              {/* Card 3 — Lighter purple gradient (like right box in image) */}
+              {/* Card 3 — teal tint */}
               <div
                 className="
                   spotlight-card relative overflow-hidden
                   rounded-2xl border border-slate-800
-                  bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED] p-4 md:pb-3 md:px-6 md:pt-6
+                  bg-slate-900/40 p-4 md:pb-3 md:px-6 md:pt-6
                   shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
                 "
               >
