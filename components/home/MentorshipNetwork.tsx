@@ -5,22 +5,12 @@ import React from 'react'
 import Link from 'next/link'
 import { Users, Briefcase, Code, TrendingUp, DollarSign, CheckCircle } from 'lucide-react'
 
-type Tint = 'purple' | 'green' | 'blue' | 'yellow'
-
-const mentorCategories: { icon: React.ReactElement; title: string; color: Tint }[] = [
+const mentorCategories = [
   { icon: <Briefcase />, title: 'Serial Entrepreneurs', color: 'purple' },
   { icon: <TrendingUp />, title: 'Growth Experts', color: 'green' },
   { icon: <Code />, title: 'Technical CTOs', color: 'blue' },
-  { icon: <DollarSign />, title: 'Fundraising Veterans', color: 'yellow' },
+  { icon: <DollarSign />, title: 'Fundraising Veterans', color: 'yellow' }
 ]
-
-// lighting (glow) positions/colors per card tint
-const glowClassByTint: Record<Tint, string> = {
-  purple: '-top-10 -left-10 bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]',
-  green: '-bottom-12 -right-10 bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]',
-  blue: '-top-10 -right-10 bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]',
-  yellow: '-bottom-12 -left-10 bg-[radial-gradient(closest-side,rgba(245,158,11,0.12),transparent_60%)]',
-}
 
 export default function MentorshipNetwork() {
   return (
@@ -41,41 +31,96 @@ export default function MentorshipNetwork() {
             <p className="text-lg text-slate-400">Connect with experienced founders and industry experts</p>
           </div>
 
-          {/* Cards — original visuals kept; lighting glow added */}
           <div className="grid md:grid-cols-4 gap-6 mb-12">
-            {mentorCategories.map((category) => (
+            {/* Card 1 — purple tint */}
+            <div className="spotlight-card relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/25 p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
               <div
-                key={category.title}
-                className="relative overflow-hidden bg-slate-800/50 rounded-xl p-6 text-center"
-              >
-                {/* lighting effect */}
-                <div
-                  className={`pointer-events-none absolute h-56 w-72 -z-10 blur-2xl ${glowClassByTint[category.color]}`}
-                  aria-hidden="true"
-                />
+                className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10
+                           bg-[radial-gradient(closest-side,rgba(168,85,247,0.12),transparent_60%)]
+                           blur-2xl"
+                aria-hidden="true"
+              />
+              <div className="relative">
                 <div className="inline-flex p-3 bg-purple-500/20 rounded-lg mb-4">
-                  {React.cloneElement(category.icon, { className: 'w-8 h-8 text-purple-400' })}
+                  <Briefcase className="w-8 h-8 text-purple-400" />
                 </div>
-                <div className="text-sm text-slate-200">{category.title}</div>
+                <div className="text-sm text-slate-200">Serial Entrepreneurs</div>
               </div>
-            ))}
+            </div>
+
+            {/* Card 2 — green tint */}
+            <div className="spotlight-card relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/25 p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div
+                className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
+                           bg-[radial-gradient(closest-side,rgba(34,197,94,0.12),transparent_60%)]
+                           blur-2xl"
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <div className="inline-flex p-3 bg-purple-500/20 rounded-lg mb-4">
+                  <TrendingUp className="w-8 h-8 text-purple-400" />
+                </div>
+                <div className="text-sm text-slate-200">Growth Experts</div>
+              </div>
+            </div>
+
+            {/* Card 3 — blue tint */}
+            <div className="spotlight-card relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/25 p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div
+                className="pointer-events-none absolute -bottom-12 -left-10 h-56 w-72 -z-10
+                           bg-[radial-gradient(closest-side,rgba(59,130,246,0.12),transparent_60%)]
+                           blur-2xl"
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <div className="inline-flex p-3 bg-purple-500/20 rounded-lg mb-4">
+                  <Code className="w-8 h-8 text-purple-400" />
+                </div>
+                <div className="text-sm text-slate-200">Technical CTOs</div>
+              </div>
+            </div>
+
+            {/* Card 4 — yellow tint */}
+            <div className="spotlight-card relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/25 p-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+              <div
+                className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-72 -z-10
+                           bg-[radial-gradient(closest-side,rgba(234,179,8,0.12),transparent_60%)]
+                           blur-2xl"
+                aria-hidden="true"
+              />
+              <div className="relative">
+                <div className="inline-flex p-3 bg-purple-500/20 rounded-lg mb-4">
+                  <DollarSign className="w-8 h-8 text-purple-400" />
+                </div>
+                <div className="text-sm text-slate-200">Fundraising Veterans</div>
+              </div>
+            </div>
           </div>
 
-          <div className="bg-slate-900/50 rounded-xl border border-slate-700 p-8">
-            <h3 className="text-xl font-semibold text-slate-200 mb-6">AI Matching Criteria</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {[
-                'Industry Alignment',
-                'Stage Compatibility',
-                'Skill Gaps Analysis',
-                'Timezone Optimization',
-                'Communication Style',
-              ].map((criteria) => (
-                <div key={criteria} className="flex items-center gap-2">
-                  <CheckCircle className="w-4 h-4 text-green-400" />
-                  <span className="text-sm text-slate-300">{criteria}</span>
-                </div>
-              ))}
+          {/* AI Matching Criteria card with spotlight effect */}
+          <div className="spotlight-card relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/25 p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+            <div
+              className="pointer-events-none absolute -top-10 -right-10 h-64 w-80 -z-10
+                         bg-[radial-gradient(closest-side,rgba(139,92,246,0.12),transparent_60%)]
+                         blur-2xl"
+              aria-hidden="true"
+            />
+            <div className="relative">
+              <h3 className="text-xl font-semibold text-slate-200 mb-6">AI Matching Criteria</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+                {[
+                  'Industry Alignment',
+                  'Stage Compatibility',
+                  'Skill Gaps Analysis',
+                  'Timezone Optimization',
+                  'Communication Style'
+                ].map((criteria) => (
+                  <div key={criteria} className="flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                    <span className="text-sm text-slate-300">{criteria}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
