@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
+import Image from 'next/image'
 
 const siteUrl = 'https://www.buildaistartups.com'
 const ogImage = '/og/product-builder.svg' // safe existing OG
@@ -101,9 +102,15 @@ export default function Page() {
       </Script>
 
       <main className="relative">
+        {/* Decorative backdrop */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute left-1/2 top-[-10%] h-[40rem] w-[60rem] -translate-x-1/2 rounded-full blur-3xl"
+               style={{background: 'radial-gradient(50% 50% at 50% 50%, rgba(124,58,237,0.25) 0%, rgba(0,0,0,0) 70%)'}}/>
+        </div>
+
         {/* HERO */}
         <section className="relative overflow-hidden border-b border-white/5">
-          <div className="mx-auto max-w-6xl px-6 py-16 text-center">
+          <div className="mx-auto max-w-6xl px-6 pt-12 pb-6 text-center">
             <div className="mx-auto max-w-3xl">
               <h1 className="text-3xl md:text-5xl font-semibold leading-tight tracking-tight">
                 Startups: ship faster, learn faster, grow faster
@@ -121,6 +128,20 @@ export default function Page() {
                 </Link>
               </div>
               <div className="mt-4 text-xs text-slate-400">No lock‑in • You own the repo • Bring your cloud</div>
+            </div>
+          </div>
+
+          {/* Hero Illustration */}
+          <div className="mx-auto max-w-6xl px-6 pb-12">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-4 ring-1 ring-white/5">
+              <Image
+                src="/images/product/builder/hero.svg"
+                alt="Build AI Startups — Builder generating a repo from a brief"
+                width={1360}
+                height={768}
+                priority
+                className="w-full h-auto rounded-xl"
+              />
             </div>
           </div>
         </section>
@@ -163,19 +184,16 @@ export default function Page() {
           </div>
         </section>
 
-        {/* GTM Flywheel */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold">Go‑to‑market flywheel</h2>
-            <p className="mt-2 text-slate-300">Content → Community → Conversions → Champion stories → Partnerships → back to Content</p>
-          </div>
-          <div className="grid gap-4 md:grid-cols-5">
-            {['Content','Community','Conversions','Champion stories','Partnerships'].map((t,i)=> (
-              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4 text-center">
-                <div className="text-sm font-medium">{t}</div>
-                <p className="mt-1 text-xs text-slate-400">90‑day measurable loops</p>
-              </div>
-            ))}
+        {/* Screenshot / preview */}
+        <section className="mx-auto max-w-6xl px-6 py-4">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/40 p-4 ring-1 ring-white/5">
+            <Image
+              src="/images/product/builder/shell-preview.svg"
+              alt="Starter app shell preview with telemetry, flags, and CI"
+              width={1360}
+              height={768}
+              className="w-full h-auto rounded-xl"
+            />
           </div>
         </section>
 
