@@ -15,11 +15,15 @@ export default function FeatureHighlight() {
   return (
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* ↓ was: py-12 md:py-20 — keep the same top padding, reduce bottom padding */}
-        <div className="pt-12 md:pt-20 pb-8 md:pb-12">
+        {/* Was: py-12 md:py-20  → keep top the same, reduce bottom further */}
+        <div className="pt-12 md:pt-20 pb-0 md:pb-2">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left content */}
-            <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+            <div
+              className={`transition-all duration-1000 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              }`}
+            >
               <div className="inline-flex font-medium bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200 pb-3">
                 The autonomy-first builder
               </div>
@@ -27,7 +31,8 @@ export default function FeatureHighlight() {
                 Build faster than ever before
               </h2>
               <p className="text-lg text-slate-400 mb-6">
-                Our AI-powered platform handles the complexity so you can focus on your vision. From idea validation to production deployment, we automate the entire journey.
+                Our AI-powered platform handles the complexity so you can focus on your vision. From idea validation to
+                production deployment, we automate the entire journey.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
@@ -50,13 +55,17 @@ export default function FeatureHighlight() {
                 </li>
               </ul>
             </div>
-            
+
             {/* AI Orb Visual */}
-            <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-              <div className="relative py-24 -mt-12">
+            <div
+              className={`transition-all duration-1000 delay-300 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+              }`}
+            >
+              {/* Was: py-24 -mt-12 → big bottom gap. Make it top-only and remove bottom padding. */}
+              <div className="relative pt-16 md:pt-20 pb-0 -mt-10 md:-mt-12">
                 {/* Particles behind the orb for subtle depth */}
                 <Particles className="absolute inset-0 -z-10" quantity={8} staticity={30} />
-
                 {/* AI Orb Component */}
                 <AIOrb />
               </div>
