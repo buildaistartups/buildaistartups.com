@@ -4,6 +4,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Users, Briefcase, Lightbulb, Building } from 'lucide-react'
+import AIMatchmakingVisual from '@/components/AIMatchmakingVisual'
 
 const liveMatches = [
   {
@@ -109,7 +110,10 @@ export default function AIMatchmaking() {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center p-8 relative">
-                  <div className="text-6xl mb-4">🤖</div>
+                  {/* REPLACED 🤖 with animation */}
+                  <div className="mb-4">
+                    <AIMatchmakingVisual />
+                  </div>
                   <h3 className="text-xl font-semibold text-slate-200 mb-2">
                     Intelligent Matching
                   </h3>
