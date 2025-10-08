@@ -1,7 +1,6 @@
 // app/(default)/product/builder/research-spec/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import AnimatedSvgOnScroll from '@/components/animated-svg-on-scroll'
 
 const BRAND = 'Build AI Starups'
 const SITE = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
@@ -36,19 +35,17 @@ export default function ResearchSpec() {
   return (
     <main className="bg-slate-950 text-slate-200 min-h-screen">
       <section className="relative mx-auto max-w-4xl px-4 sm:px-6 py-20">
-        {/* Visual Header - ANIMATED ON SCROLL */}
-        <AnimatedSvgOnScroll threshold={0.2}>
-          <div className="mb-12 flex justify-center">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8 backdrop-blur">
-              <img 
-                src="/images/product/builder/flow-research-spec.svg" 
-                alt="Research and specification workflow" 
-                className="h-40 w-auto mx-auto"
-                loading="eager"
-              />
-            </div>
+        {/* Visual Header */}
+        <div className="mb-12 flex justify-center">
+          <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8 backdrop-blur">
+            <img 
+              src="/images/product/builder/flow-research-spec.svg" 
+              alt="Research and specification workflow" 
+              className="h-40 w-auto mx-auto"
+              loading="eager"
+            />
           </div>
-        </AnimatedSvgOnScroll>
+        </div>
 
         <header className="mb-12 text-center">
           <div className="inline-flex font-medium pb-2 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-purple-200">
