@@ -17,8 +17,10 @@
     </radialGradient>
   </defs>
 
-  <!-- LEFT SECTION: Code & Folder Structure -->
-  <g transform="translate(120, 300)">
+  <!-- LEFT SECTION: Code & Folder Structure - FADE IN -->
+  <g transform="translate(120, 300)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="0s" dur="0.5s" fill="freeze"/>
+    
     <!-- Code brackets icon -->
     <g transform="translate(0, -180)">
       <text x="0" y="0" font-family="monospace" font-size="80" font-weight="bold" fill="#3b82f6">{</text>
@@ -77,16 +79,22 @@
     </g>
   </g>
 
-  <!-- Arrow from code to gear -->
-  <path d="M 420 300 L 490 300" fill="none" stroke="#3b82f6" stroke-width="6"/>
-  <polygon points="490,292 510,300 490,308" fill="#3b82f6"/>
+  <!-- Arrow from code to gear - DRAW ONCE -->
+  <path d="M 420 300 L 490 300" fill="none" stroke="#3b82f6" stroke-width="6" stroke-dasharray="80" stroke-dashoffset="80">
+    <animate attributeName="stroke-dashoffset" from="80" to="0" begin="0.4s" dur="0.5s" fill="freeze"/>
+  </path>
+  <polygon points="490,292 510,300 490,308" fill="#3b82f6" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="0.8s" dur="0.2s" fill="freeze"/>
+  </polygon>
 
-  <!-- CENTER: Large Gear with Logos -->
-  <g transform="translate(600, 300)">
+  <!-- CENTER: Large Gear with Logos - FADE IN & ROTATE ONCE -->
+  <g transform="translate(600, 300)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="0.3s" dur="0.5s" fill="freeze"/>
+    
     <!-- Glow -->
     <circle cx="0" cy="0" r="140" fill="url(#gearGlow)"/>
     
-    <!-- Outer gear teeth -->
+    <!-- Outer gear teeth - ROTATE ONCE (90 degrees) -->
     <g>
       <rect x="-15" y="-120" width="30" height="25" rx="4" fill="#3b82f6"/>
       <rect x="-120" y="-15" width="25" height="30" rx="4" fill="#3b82f6"/>
@@ -96,7 +104,7 @@
       <rect x="58" y="-88" width="30" height="25" rx="4" fill="#8b5cf6" transform="rotate(-45 73 -73)"/>
       <rect x="-88" y="63" width="30" height="25" rx="4" fill="#8b5cf6" transform="rotate(-45 -73 75)"/>
       <rect x="58" y="63" width="30" height="25" rx="4" fill="#8b5cf6" transform="rotate(45 73 75)"/>
-      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="12s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="90 0 0" begin="0.5s" dur="1s" fill="freeze"/>
     </g>
     
     <!-- Main gear circle -->
@@ -146,35 +154,40 @@
     <line x1="140" y1="15" x2="90" y2="10" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
   </g>
 
-  <!-- Arrow from gear to UI -->
-  <path d="M 730 300 L 800 300" fill="none" stroke="#3b82f6" stroke-width="6"/>
-  <polygon points="800,292 820,300 800,308" fill="#3b82f6"/>
+  <!-- Arrow from gear to UI - DRAW ONCE -->
+  <path d="M 730 300 L 800 300" fill="none" stroke="#3b82f6" stroke-width="6" stroke-dasharray="80" stroke-dashoffset="80">
+    <animate attributeName="stroke-dashoffset" from="80" to="0" begin="1s" dur="0.5s" fill="freeze"/>
+  </path>
+  <polygon points="800,292 820,300 800,308" fill="#3b82f6" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="1.4s" dur="0.2s" fill="freeze"/>
+  </polygon>
 
-  <!-- RIGHT: Layered UI Components -->
+  <!-- RIGHT: Layered UI Components - FADE IN WITH STAGGER -->
   <g transform="translate(950, 300)">
     <!-- Back layer -->
-    <g transform="translate(-35, -50)" opacity="0.4">
+    <g transform="translate(-35, -50)" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.4" begin="1.2s" dur="0.4s" fill="freeze"/>
       <rect x="0" y="0" width="200" height="160" rx="15" fill="#3b82f6" opacity="0.1" stroke="#3b82f6" stroke-width="5"/>
       <rect x="0" y="0" width="200" height="35" rx="15" fill="#3b82f6" opacity="0.2"/>
       <rect x="20" y="55" width="160" height="20" rx="5" fill="#3b82f6" opacity="0.3"/>
       <rect x="20" y="85" width="120" height="20" rx="5" fill="#3b82f6" opacity="0.3"/>
       <rect x="20" y="115" width="140" height="20" rx="5" fill="#3b82f6" opacity="0.3"/>
-      <animate attributeName="transform" values="translate(-35, -50);translate(-35, -55);translate(-35, -50)" dur="3s" repeatCount="indefinite"/>
     </g>
     
     <!-- Middle layer -->
-    <g transform="translate(-20, -25)" opacity="0.6">
+    <g transform="translate(-20, -25)" opacity="0">
+      <animate attributeName="opacity" from="0" to="0.6" begin="1.4s" dur="0.4s" fill="freeze"/>
       <rect x="0" y="0" width="210" height="170" rx="15" fill="#8b5cf6" opacity="0.08" stroke="#8b5cf6" stroke-width="5"/>
       <rect x="0" y="0" width="210" height="38" rx="15" fill="#8b5cf6" opacity="0.15"/>
       <text x="25" y="25" font-family="monospace" font-size="15" fill="#8b5cf6">&lt;Header&gt;</text>
       <rect x="20" y="58" width="170" height="22" rx="5" fill="#8b5cf6" opacity="0.35"/>
       <rect x="20" y="90" width="130" height="22" rx="5" fill="#8b5cf6" opacity="0.35"/>
       <rect x="20" y="122" width="150" height="22" rx="5" fill="#8b5cf6" opacity="0.35"/>
-      <animate attributeName="transform" values="translate(-20, -25);translate(-20, -30);translate(-20, -25)" dur="3.5s" repeatCount="indefinite"/>
     </g>
     
     <!-- Front layer -->
-    <g>
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="1.6s" dur="0.4s" fill="freeze"/>
       <rect x="0" y="0" width="220" height="180" rx="15" fill="#3b82f6" opacity="0.05" stroke="#3b82f6" stroke-width="6"/>
       <rect x="0" y="0" width="220" height="42" rx="15" fill="#3b82f6" opacity="0.2"/>
       <text x="25" y="28" font-family="monospace" font-size="16" font-weight="600" fill="#3b82f6">&lt;Header&gt;</text>
@@ -187,12 +200,13 @@
       
       <rect x="20" y="134" width="160" height="25" rx="6" fill="#3b82f6" opacity="0.4"/>
       <text x="30" y="152" font-family="monospace" font-size="13" fill="#3b82f6">&lt;Button&gt;</text>
-      
-      <animate attributeName="transform" values="translate(0, 0);translate(0, -5);translate(0, 0)" dur="4s" repeatCount="indefinite"/>
     </g>
   </g>
   
-  <!-- Bottom arrow pointing to stacked screens -->
-  <path d="M 1060 480 L 1060 510" fill="none" stroke="#3b82f6" stroke-width="5"/>
-  <polygon points="1052,510 1060,525 1068,510" fill="#3b82f6"/>
+  <!-- Bottom arrow pointing to stacked screens - FADE IN -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="1.8s" dur="0.3s" fill="freeze"/>
+    <path d="M 1060 480 L 1060 510" fill="none" stroke="#3b82f6" stroke-width="5"/>
+    <polygon points="1052,510 1060,525 1068,510" fill="#3b82f6"/>
+  </g>
 </svg>
