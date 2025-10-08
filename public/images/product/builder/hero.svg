@@ -6,19 +6,20 @@
       <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="purpleBlueVertical" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <radialGradient id="coreGlow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </radialGradient>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.3" />
-    </linearGradient>
-
     <!-- Glow filter -->
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -26,168 +27,211 @@
     </filter>
   </defs>
 
-  <!-- AI Brain/Chip (Left Side) -->
-  <g transform="translate(150, 300)">
-    <!-- Outer chip shape -->
-    <rect x="-90" y="-90" width="180" height="180" rx="15" fill="none" stroke="url(#purpleBlue)" stroke-width="5"/>
-    
-    <!-- Chip connectors -->
-    <line x1="-90" y1="-50" x2="-120" y2="-50" stroke="url(#purpleBlue)" stroke-width="4"/>
-    <line x1="-90" y1="0" x2="-120" y2="0" stroke="url(#purpleBlue)" stroke-width="4"/>
-    <line x1="-90" y1="50" x2="-120" y2="50" stroke="url(#purpleBlue)" stroke-width="4"/>
-    <line x1="90" y1="-50" x2="120" y2="-50" stroke="url(#purpleBlue)" stroke-width="4"/>
-    <line x1="90" y1="0" x2="120" y2="0" stroke="url(#purpleBlue)" stroke-width="4"/>
-    <line x1="90" y1="50" x2="120" y2="50" stroke="url(#purpleBlue)" stroke-width="4"/>
-    
-    <!-- Brain neural pattern inside -->
-    <circle cx="-35" cy="-35" r="18" fill="#8b5cf6" opacity="0.6"/>
-    <circle cx="35" cy="-35" r="18" fill="#8b5cf6" opacity="0.6"/>
-    <circle cx="-35" cy="35" r="18" fill="#3b82f6" opacity="0.6"/>
-    <circle cx="35" cy="35" r="18" fill="#3b82f6" opacity="0.6"/>
-    <circle cx="0" cy="0" r="15" fill="url(#purpleBlue)" opacity="0.8"/>
-    
-    <!-- Connections -->
-    <line x1="-35" y1="-35" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.5"/>
-    <line x1="35" y1="-35" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.5"/>
-    <line x1="-35" y1="35" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.5"/>
-    <line x1="35" y1="35" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.5"/>
-    
-    <!-- Circuit pattern around chip -->
-    <path d="M -110 -110 L -140 -110 L -140 -80" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
-    <path d="M 110 -110 L 140 -110 L 140 -80" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.4"/>
-    <circle cx="-140" cy="-80" r="4" fill="#8b5cf6" opacity="0.4"/>
-    <circle cx="140" cy="-80" r="4" fill="#3b82f6" opacity="0.4"/>
-  </g>
+  <!-- Background glow from center -->
+  <circle cx="600" cy="300" r="250" fill="url(#coreGlow)" opacity="0.3"/>
 
-  <!-- Flowing Lines -->
-  <path d="M 275 300 Q 370 300 450 270" fill="none" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.7" filter="url(#glow)"/>
-  <path d="M 275 300 Q 370 300 450 300" fill="none" stroke="url(#purpleBlue)" stroke-width="5" opacity="0.9"/>
-  <path d="M 275 300 Q 370 300 450 330" fill="none" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.7" filter="url(#glow)"/>
+  <!-- Input Data Sources (Left & Bottom) -->
   
-  <!-- Particles along flow -->
-  <circle cx="320" cy="300" r="4" fill="#8b5cf6" opacity="0.8">
-    <animate attributeName="cx" values="320;450" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="290" cy="280" r="3" fill="#3b82f6" opacity="0.6">
-    <animate attributeName="cx" values="290;430" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Code Blocks (Center) -->
-  <g transform="translate(520, 180)">
-    <!-- Code block 1 -->
-    <rect x="0" y="0" width="200" height="140" rx="12" fill="none" stroke="url(#purpleBlue)" stroke-width="3"/>
-    <rect x="8" y="8" width="184" height="28" rx="6" fill="#8b5cf6" opacity="0.2"/>
-    <line x1="15" y1="55" x2="110" y2="55" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
-    <line x1="15" y1="75" x2="155" y2="75" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
-    <line x1="15" y1="95" x2="130" y2="95" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
-    <line x1="15" y1="115" x2="85" y2="115" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
-    
-    <!-- Brackets -->
-    <text x="20" y="68" font-family="monospace" font-size="28" fill="url(#purpleBlue)" opacity="0.7">{</text>
-    <text x="170" y="110" font-family="monospace" font-size="28" fill="url(#purpleBlue)" opacity="0.7">}</text>
+  <!-- Database icon (bottom-left) -->
+  <g transform="translate(150, 480)">
+    <ellipse cx="0" cy="-15" rx="40" ry="15" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+    <path d="M -40 -15 L -40 15 Q -40 30 0 30 Q 40 30 40 15 L 40 -15" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+    <ellipse cx="0" cy="15" rx="40" ry="15" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+    <ellipse cx="0" cy="0" rx="40" ry="15" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  </g>
+  
+  <!-- Document icon (left-center) -->
+  <g transform="translate(100, 300)">
+    <path d="M 0 -30 L 25 -30 L 35 -20 L 35 30 L 0 30 Z" fill="none" stroke="#3b82f6" stroke-width="3"/>
+    <path d="M 25 -30 L 25 -20 L 35 -20" fill="none" stroke="#3b82f6" stroke-width="3"/>
+    <line x1="8" y1="-10" x2="27" y2="-10" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+    <line x1="8" y1="0" x2="27" y2="0" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+    <line x1="8" y1="10" x2="27" y2="10" stroke="#3b82f6" stroke-width="2" opacity="0.5"/>
+  </g>
+  
+  <!-- API icon (bottom-center) -->
+  <g transform="translate(400, 520)">
+    <rect x="-30" y="-20" width="60" height="40" rx="8" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+    <text x="0" y="8" text-anchor="middle" font-family="monospace" font-size="18" font-weight="bold" fill="url(#purpleBlue)">API</text>
   </g>
 
+  <!-- Flow lines from inputs to center -->
+  <path d="M 190 465 Q 350 400 520 340" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 135 290 Q 300 290 480 300" fill="none" stroke="url(#blueGradient)" stroke-width="3" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 430 505 Q 500 430 540 360" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="2.8s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Data particles flowing in -->
+  <circle cx="250" cy="430" r="4" fill="#8b5cf6">
+    <animateMotion path="M 0 0 Q 180 -80 330 -90" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="180" cy="290" r="4" fill="#3b82f6">
+    <animateMotion path="M 0 0 Q 150 0 350 10" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Central AI Core -->
+  <g transform="translate(600, 300)">
+    <!-- Outer rings -->
+    <circle cx="0" cy="0" r="100" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.3"/>
+    <circle cx="0" cy="0" r="80" fill="none" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.5">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="20s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="0" cy="0" r="60" fill="none" stroke="url(#blueGradient)" stroke-width="2" opacity="0.5">
+      <animateTransform attributeName="transform" type="rotate" from="360 0 0" to="0 0 0" dur="15s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Core brain/processor -->
+    <circle cx="0" cy="0" r="45" fill="url(#purpleBlue)" opacity="0.3"/>
+    
+    <!-- Neural nodes -->
+    <circle cx="-25" cy="-25" r="8" fill="#8b5cf6" filter="url(#glow)"/>
+    <circle cx="25" cy="-25" r="8" fill="#3b82f6" filter="url(#glow)"/>
+    <circle cx="-25" cy="25" r="8" fill="#3b82f6" filter="url(#glow)"/>
+    <circle cx="25" cy="25" r="8" fill="#8b5cf6" filter="url(#glow)"/>
+    <circle cx="0" cy="-30" r="6" fill="#8b5cf6" filter="url(#glow)"/>
+    <circle cx="30" cy="0" r="6" fill="#3b82f6" filter="url(#glow)"/>
+    <circle cx="0" cy="30" r="6" fill="#8b5cf6" filter="url(#glow)"/>
+    <circle cx="-30" cy="0" r="6" fill="#3b82f6" filter="url(#glow)"/>
+    <circle cx="0" cy="0" r="10" fill="url(#purpleBlue)" filter="url(#glow)"/>
+    
+    <!-- Neural connections -->
+    <line x1="-25" y1="-25" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    <line x1="25" y1="-25" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    <line x1="-25" y1="25" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    <line x1="25" y1="25" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    <line x1="0" y1="-30" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    <line x1="30" y1="0" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    <line x1="0" y1="30" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    <line x1="-30" y1="0" x2="0" y2="0" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.6"/>
+    
+    <!-- Orbiting particles -->
+    <circle cx="80" cy="0" r="5" fill="#8b5cf6" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="-80" cy="0" r="5" fill="#3b82f6" opacity="0.8">
+      <animateTransform attributeName="transform" type="rotate" from="180 0 0" to="540 0 0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Output connections (Right & Top) -->
+  
+  <!-- Code output (top-right) -->
+  <g transform="translate(950, 120)">
+    <rect x="0" y="0" width="180" height="120" rx="12" fill="none" stroke="url(#purpleBlue)" stroke-width="3"/>
+    <rect x="5" y="5" width="170" height="25" rx="6" fill="#8b5cf6" opacity="0.2"/>
+    <line x1="15" y1="50" x2="110" y2="50" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
+    <line x1="15" y1="68" x2="145" y2="68" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
+    <line x1="15" y1="86" x2="120" y2="86" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+    <line x1="15" y1="104" x2="75" y2="104" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+    <text x="20" y="62" font-family="monospace" font-size="22" fill="url(#purpleBlue)" opacity="0.7">{</text>
+    <text x="155" y="97" font-family="monospace" font-size="22" fill="url(#purpleBlue)" opacity="0.7">}</text>
+  </g>
+  
+  <!-- Dashboard output (right-center) -->
+  <g transform="translate(980, 300)">
+    <rect x="0" y="0" width="160" height="120" rx="10" fill="none" stroke="url(#blueGradient)" stroke-width="3"/>
+    <rect x="0" y="0" width="160" height="25" rx="10" fill="url(#coreGlow)" opacity="0.3"/>
+    <circle cx="12" cy="12" r="4" fill="#3b82f6"/>
+    <circle cx="24" cy="12" r="4" fill="#8b5cf6"/>
+    <circle cx="36" cy="12" r="4" fill="#3b82f6"/>
+    
+    <!-- Chart bars -->
+    <rect x="15" y="40" width="20" height="40" rx="3" fill="#8b5cf6" opacity="0.5"/>
+    <rect x="40" y="50" width="20" height="30" rx="3" fill="#3b82f6" opacity="0.5"/>
+    <rect x="65" y="35" width="20" height="45" rx="3" fill="#8b5cf6" opacity="0.5"/>
+    <rect x="90" y="45" width="20" height="35" rx="3" fill="#3b82f6" opacity="0.5"/>
+    <rect x="115" y="38" width="20" height="42" rx="3" fill="#8b5cf6" opacity="0.5"/>
+    
+    <!-- Graph line -->
+    <path d="M 15 95 L 40 90 L 65 100 L 90 85 L 115 95 L 140 88" fill="none" stroke="url(#purpleBlue)" stroke-width="2"/>
+  </g>
+  
+  <!-- Mobile app output (top-right-far) -->
+  <g transform="translate(1020, 480)">
+    <rect x="0" y="0" width="130" height="90" rx="12" fill="none" stroke="url(#purpleBlue)" stroke-width="3"/>
+    <rect x="5" y="5" width="120" height="18" rx="4" fill="url(#purpleBlue)" opacity="0.2"/>
+    <rect x="15" y="32" width="100" height="12" rx="2" fill="#8b5cf6" opacity="0.4"/>
+    <rect x="15" y="50" width="80" height="12" rx="2" fill="#3b82f6" opacity="0.4"/>
+    <rect x="15" y="68" width="60" height="12" rx="2" fill="#8b5cf6" opacity="0.4"/>
+  </g>
+
+  <!-- Flow lines from center to outputs -->
+  <path d="M 680 250 Q 800 200 950 150" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 700 300 Q 800 300 980 300" fill="none" stroke="url(#blueGradient)" stroke-width="3" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="2.7s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 670 360 Q 800 420 1020 500" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.6">
+    <animate attributeName="stroke-dasharray" values="0,1000;1000,0" dur="3.2s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Particles flowing out -->
+  <circle cx="720" cy="270" r="4" fill="#8b5cf6">
+    <animateMotion path="M 0 0 Q 120 -70 230 -120" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="720" cy="300" r="4" fill="#3b82f6">
+    <animateMotion path="M 0 0 Q 140 0 280 0" dur="2.7s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Additional decorative elements throughout -->
+  
+  <!-- Top left corner -->
+  <g opacity="0.4">
+    <circle cx="80" cy="80" r="6" fill="#8b5cf6">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="180" cy="50" r="4" fill="#3b82f6">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Bottom right corner -->
+  <g opacity="0.4">
+    <circle cx="850" cy="550" r="5" fill="#3b82f6">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="750" cy="520" r="6" fill="#8b5cf6">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Circuit patterns scattered -->
+  <g opacity="0.2">
+    <path d="M 300 100 L 350 100 L 350 130" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+    <circle cx="350" cy="130" r="3" fill="#8b5cf6"/>
+    <path d="M 200 500 L 250 500 L 250 470" stroke="#3b82f6" stroke-width="2" fill="none"/>
+    <circle cx="250" cy="470" r="3" fill="#3b82f6"/>
+    <path d="M 900 550 L 950 550 L 950 520" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+    <circle cx="950" cy="520" r="3" fill="#8b5cf6"/>
+    <path d="M 850 80 L 900 80 L 900 110" stroke="#3b82f6" stroke-width="2" fill="none"/>
+    <circle cx="900" cy="110" r="3" fill="#3b82f6"/>
+  </g>
+  
   <!-- Floating code snippets -->
+  <g opacity="0.3">
+    <text x="250" y="200" font-family="monospace" font-size="14" fill="#8b5cf6">async</text>
+    <text x="780" y="520" font-family="monospace" font-size="14" fill="#3b82f6">await</text>
+    <text x="150" y="420" font-family="monospace" font-size="14" fill="#8b5cf6">const</text>
+    <text x="880" y="250" font-family="monospace" font-size="14" fill="#3b82f6">return</text>
+  </g>
+  
+  <!-- Network nodes scattered -->
   <g opacity="0.5">
-    <text x="480" y="140" font-family="monospace" font-size="16" fill="#8b5cf6">const ai =</text>
-    <text x="680" y="390" font-family="monospace" font-size="16" fill="#3b82f6">function()</text>
-    <text x="460" y="420" font-family="monospace" font-size="16" fill="#8b5cf6">=></text>
+    <circle cx="320" cy="180" r="3" fill="#8b5cf6"/>
+    <circle cx="420" cy="140" r="3" fill="#3b82f6"/>
+    <circle cx="280" cy="420" r="3" fill="#8b5cf6"/>
+    <circle cx="820" cy="420" r="3" fill="#3b82f6"/>
+    <circle cx="760" cy="180" r="3" fill="#8b5cf6"/>
+    <line x1="320" y1="180" x2="420" y2="140" stroke="url(#purpleBlue)" stroke-width="1" opacity="0.3"/>
   </g>
-
-  <!-- Transform lines to UI -->
-  <path d="M 720 250 Q 780 250 830 270" fill="none" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.7"/>
-  <path d="M 720 250 Q 780 250 830 310" fill="none" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.7"/>
-
-  <!-- UI Components (Right Center) -->
-  <g transform="translate(850, 200)">
-    <!-- Window frame 1 -->
-    <rect x="0" y="0" width="170" height="130" rx="8" fill="none" stroke="url(#purpleBlue)" stroke-width="3"/>
-    <rect x="0" y="0" width="170" height="26" rx="8" fill="url(#glowGradient)"/>
-    <circle cx="14" cy="13" r="4" fill="#8b5cf6"/>
-    <circle cx="28" cy="13" r="4" fill="#3b82f6"/>
-    <circle cx="42" cy="13" r="4" fill="#8b5cf6"/>
-    
-    <!-- UI elements inside -->
-    <rect x="15" y="42" width="140" height="18" rx="3" fill="#8b5cf6" opacity="0.3"/>
-    <rect x="15" y="70" width="110" height="18" rx="3" fill="#3b82f6" opacity="0.3"/>
-    <rect x="15" y="98" width="85" height="18" rx="3" fill="url(#purpleBlue)" opacity="0.4"/>
-  </g>
-
-  <g transform="translate(850, 360)">
-    <!-- Window frame 2 -->
-    <rect x="0" y="0" width="140" height="100" rx="8" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.7"/>
-    <rect x="0" y="0" width="140" height="22" rx="8" fill="url(#glowGradient)" opacity="0.5"/>
-    
-    <!-- Grid pattern inside -->
-    <rect x="15" y="35" width="30" height="30" rx="3" fill="#8b5cf6" opacity="0.3"/>
-    <rect x="52" y="35" width="30" height="30" rx="3" fill="#3b82f6" opacity="0.3"/>
-    <rect x="89" y="35" width="30" height="30" rx="3" fill="#8b5cf6" opacity="0.3"/>
-  </g>
-
-  <!-- Lines to rocket -->
-  <path d="M 1020 290 Q 1070 290 1100 250" fill="none" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.8" filter="url(#glow)"/>
-
-  <!-- Rocket Launch (Right Side) -->
-  <g transform="translate(1080, 180)">
-    <!-- Rocket body -->
-    <path d="M 50 120 L 50 50 Q 50 10 65 10 L 65 10 Q 80 10 80 50 L 80 120" fill="url(#purpleBlueVertical)" stroke="none"/>
-    
-    <!-- Rocket nose cone -->
-    <path d="M 50 50 L 65 10 L 80 50 Z" fill="#8b5cf6"/>
-    
-    <!-- Window -->
-    <circle cx="65" cy="65" r="12" fill="#3b82f6" opacity="0.6"/>
-    <circle cx="65" cy="65" r="8" fill="#8b5cf6" opacity="0.8"/>
-    
-    <!-- Fins -->
-    <path d="M 50 120 L 35 150 L 50 140 Z" fill="url(#purpleBlue)" opacity="0.8"/>
-    <path d="M 80 120 L 95 150 L 80 140 Z" fill="url(#purpleBlue)" opacity="0.8"/>
-    
-    <!-- Exhaust flames -->
-    <ellipse cx="65" cy="140" rx="18" ry="12" fill="#8b5cf6" opacity="0.6">
-      <animate attributeName="ry" values="12;18;12" dur="0.5s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="65" cy="148" rx="12" ry="18" fill="#3b82f6" opacity="0.5">
-      <animate attributeName="ry" values="18;26;18" dur="0.6s" repeatCount="indefinite"/>
-    </ellipse>
-    
-    <!-- Stars around rocket -->
-    <path d="M 10 40 L 13 47 L 20 47 L 15 52 L 18 59 L 10 54 L 2 59 L 5 52 L 0 47 L 7 47 Z" fill="#8b5cf6" opacity="0.7"/>
-    <path d="M 115 70 L 118 77 L 125 77 L 120 82 L 123 89 L 115 84 L 107 89 L 110 82 L 105 77 L 112 77 Z" fill="#3b82f6" opacity="0.7"/>
-    <circle cx="25" cy="100" r="3" fill="#8b5cf6" opacity="0.5"/>
-    <circle cx="108" cy="30" r="3" fill="#3b82f6" opacity="0.5"/>
-    <circle cx="15" cy="130" r="2" fill="#8b5cf6" opacity="0.4"/>
-    <circle cx="115" cy="110" r="2" fill="#3b82f6" opacity="0.4"/>
-    
-    <!-- Upward motion trail -->
-    <line x1="65" y1="150" x2="65" y2="175" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.3" stroke-dasharray="6,6">
-      <animate attributeName="y2" values="175;200" dur="1s" repeatCount="indefinite"/>
-    </line>
-  </g>
-
-  <!-- Circuit patterns background -->
-  <g opacity="0.15">
-    <path d="M 250 80 L 320 80 L 320 110 L 350 110" stroke="#8b5cf6" stroke-width="2" fill="none"/>
-    <circle cx="350" cy="110" r="3" fill="#8b5cf6"/>
-    <path d="M 700 480 L 780 480 L 780 520" stroke="#3b82f6" stroke-width="2" fill="none"/>
-    <circle cx="780" cy="520" r="3" fill="#3b82f6"/>
-    <path d="M 400 540 L 480 540 L 480 510 L 520 510" stroke="#8b5cf6" stroke-width="2" fill="none"/>
-    <circle cx="520" cy="510" r="3" fill="#8b5cf6"/>
-    <path d="M 120 150 L 180 150 L 180 120" stroke="#3b82f6" stroke-width="2" fill="none"/>
-    <circle cx="180" cy="120" r="3" fill="#3b82f6"/>
-  </g>
-
-  <!-- Additional floating elements -->
-  <circle cx="380" cy="120" r="6" fill="#8b5cf6" opacity="0.4">
-    <animate attributeName="cy" values="120;105;120" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="780" cy="160" r="5" fill="#3b82f6" opacity="0.4">
-    <animate attributeName="cy" values="160;145;160" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="1000" cy="460" r="6" fill="#8b5cf6" opacity="0.4">
-    <animate attributeName="cy" values="460;475;460" dur="3.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="300" cy="480" r="5" fill="#3b82f6" opacity="0.4">
-    <animate attributeName="cy" values="480;495;480" dur="3s" repeatCount="indefinite"/>
-  </circle>
 </svg>
