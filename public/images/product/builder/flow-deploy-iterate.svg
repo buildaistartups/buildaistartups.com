@@ -17,13 +17,17 @@
     </radialGradient>
   </defs>
 
-  <!-- CENTER: Circular flow indicator -->
-  <circle cx="400" cy="400" r="280" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.15" stroke-dasharray="15,15">
-    <animateTransform attributeName="transform" type="rotate" from="0 400 400" to="360 400 400" dur="20s" repeatCount="indefinite"/>
+  <!-- CENTER: Circular flow indicator - FADE IN -->
+  <circle cx="400" cy="400" r="280" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0" stroke-dasharray="15,15">
+    <animate attributeName="opacity" from="0" to="0.15" begin="0s" dur="0.5s" fill="freeze"/>
   </circle>
 
-  <!-- TOP: Rocket Launch (Deploy) -->
-  <g transform="translate(400, 150)">
+  <!-- TOP: Rocket Launch (Deploy) - SCALE IN -->
+  <g transform="translate(400, 150)" opacity="0">
+    <animateTransform attributeName="transform" type="translate" from="400,150" to="400,150" begin="0.2s" dur="0.01s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="scale" additive="sum" from="0.7" to="1" begin="0.2s" dur="0.6s" fill="freeze"/>
+    <animate attributeName="opacity" from="0" to="1" begin="0.2s" dur="0.6s" fill="freeze"/>
+    
     <!-- Glow effect -->
     <ellipse cx="0" cy="0" rx="100" ry="110" fill="url(#rocketGlow)"/>
     
@@ -44,17 +48,12 @@
       <path d="M 0 -18 L 15 12 L -15 12 Z" fill="#3b82f6" opacity="0.7"/>
     </g>
     
-    <!-- Exhaust flames (animated) -->
-    <g>
-      <ellipse cx="0" cy="60" rx="32" ry="20" fill="#8b5cf6" opacity="0.6">
-        <animate attributeName="ry" values="20;28;20" dur="0.5s" repeatCount="indefinite"/>
-      </ellipse>
-      <ellipse cx="0" cy="72" rx="24" ry="28" fill="#3b82f6" opacity="0.5">
-        <animate attributeName="ry" values="28;38;28" dur="0.6s" repeatCount="indefinite"/>
-      </ellipse>
-      <ellipse cx="0" cy="88" rx="18" ry="24" fill="#8b5cf6" opacity="0.4">
-        <animate attributeName="ry" values="24;34;24" dur="0.7s" repeatCount="indefinite"/>
-      </ellipse>
+    <!-- Exhaust flames (fade in once) -->
+    <g opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="0.5s" dur="0.4s" fill="freeze"/>
+      <ellipse cx="0" cy="60" rx="32" ry="20" fill="#8b5cf6" opacity="0.6"/>
+      <ellipse cx="0" cy="72" rx="24" ry="28" fill="#3b82f6" opacity="0.5"/>
+      <ellipse cx="0" cy="88" rx="18" ry="24" fill="#8b5cf6" opacity="0.4"/>
     </g>
     
     <!-- Stars around rocket -->
@@ -65,18 +64,20 @@
     <text x="0" y="135" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">Deploy</text>
   </g>
 
-  <!-- Curved Arrow: Deploy to Monitor -->
+  <!-- Curved Arrow: Deploy to Monitor - DRAW ONCE -->
   <g>
-    <path d="M 480 220 Q 580 300 560 420" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round"/>
-    <polygon points="565,420 560,440 550,420" fill="url(#purpleBlue)"/>
-    <circle cx="540" cy="320" r="7" fill="#3b82f6" opacity="0.8">
-      <animateMotion path="M 0 0 Q 60 80 40 200" dur="2.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.8;0" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
+    <path d="M 480 220 Q 580 300 560 420" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round" stroke-dasharray="250" stroke-dashoffset="250">
+      <animate attributeName="stroke-dashoffset" from="250" to="0" begin="0.7s" dur="0.6s" fill="freeze"/>
+    </path>
+    <polygon points="565,420 560,440 550,420" fill="url(#purpleBlue)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="1.2s" dur="0.2s" fill="freeze"/>
+    </polygon>
   </g>
 
-  <!-- RIGHT: Analytics Chart (Monitor) -->
-  <g transform="translate(570, 520)">
+  <!-- RIGHT: Analytics Chart (Monitor) - FADE IN -->
+  <g transform="translate(570, 520)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="0.9s" dur="0.5s" fill="freeze"/>
+    
     <!-- Chart container -->
     <rect x="-110" y="-100" width="220" height="200" rx="14" fill="url(#blueGradient)" opacity="0.05" stroke="url(#purpleBlue)" stroke-width="6"/>
     
@@ -111,9 +112,7 @@
     <circle cx="-16" cy="25" r="6" fill="#8b5cf6"/>
     <circle cx="16" cy="-5" r="6" fill="#3b82f6"/>
     <circle cx="48" cy="-25" r="6" fill="#8b5cf6"/>
-    <circle cx="75" cy="-45" r="6" fill="#3b82f6">
-      <animate attributeName="r" values="6;9;6" dur="1.5s" repeatCount="indefinite"/>
-    </circle>
+    <circle cx="75" cy="-45" r="6" fill="#3b82f6"/>
     
     <!-- Upward arrow -->
     <g transform="translate(95, -65)">
@@ -130,18 +129,20 @@
     <text x="0" y="130" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">Monitor</text>
   </g>
 
-  <!-- Curved Arrow: Monitor to Iterate -->
+  <!-- Curved Arrow: Monitor to Iterate - DRAW ONCE -->
   <g>
-    <path d="M 460 540 Q 320 600 240 520" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round"/>
-    <polygon points="235,510 230,520 240,525" fill="url(#purpleBlue)"/>
-    <circle cx="340" cy="570" r="7" fill="#8b5cf6" opacity="0.8">
-      <animateMotion path="M 0 0 Q -80 60 -140 20" dur="2.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.8;0" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
+    <path d="M 460 540 Q 320 600 240 520" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round" stroke-dasharray="280" stroke-dashoffset="280">
+      <animate attributeName="stroke-dashoffset" from="280" to="0" begin="1.3s" dur="0.6s" fill="freeze"/>
+    </path>
+    <polygon points="235,510 230,520 240,525" fill="url(#purpleBlue)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="1.8s" dur="0.2s" fill="freeze"/>
+    </polygon>
   </g>
 
-  <!-- LEFT: Circular Iteration Arrow (Iterate) -->
-  <g transform="translate(230, 520)">
+  <!-- LEFT: Circular Iteration Arrow (Iterate) - FADE IN -->
+  <g transform="translate(230, 520)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" begin="1.5s" dur="0.5s" fill="freeze"/>
+    
     <!-- Large circular arrow -->
     <path d="M 0 -85 A 85 85 0 1 1 -1 -85" 
           fill="none" stroke="url(#purpleBlue)" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
@@ -149,9 +150,9 @@
     <!-- Arrow head -->
     <polygon points="10,-85 0,-97 -10,-85" fill="url(#purpleBlue)" transform="rotate(90 0 -85)"/>
     
-    <!-- Inner rotating circle -->
+    <!-- Inner rotating circle (slight rotation once) -->
     <circle cx="0" cy="0" r="60" fill="none" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.3" stroke-dasharray="10,10">
-      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="45 0 0" begin="1.7s" dur="0.5s" fill="freeze"/>
     </circle>
     
     <!-- Center cycle symbol -->
@@ -163,34 +164,38 @@
       <polygon points="15,-10 20,-15 25,-8" fill="#8b5cf6"/>
     </g>
     
-    <!-- Orbiting particles -->
+    <!-- Orbiting particles (slight rotation once) -->
     <circle cx="0" cy="-85" r="6" fill="#8b5cf6" opacity="0.7">
-      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="60 0 0" begin="1.7s" dur="0.6s" fill="freeze"/>
     </circle>
     <circle cx="85" cy="0" r="6" fill="#3b82f6" opacity="0.7">
-      <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="4s" repeatCount="indefinite"/>
+      <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="150 0 0" begin="1.7s" dur="0.6s" fill="freeze"/>
     </circle>
     
     <!-- Label -->
     <text x="0" y="130" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6">Iterate</text>
   </g>
 
-  <!-- Curved Arrow: Iterate back to Deploy -->
+  <!-- Curved Arrow: Iterate back to Deploy - DRAW ONCE -->
   <g>
-    <path d="M 280 420 Q 280 300 350 220" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round"/>
-    <polygon points="345,215 350,205 358,215" fill="url(#purpleBlue)"/>
-    <circle cx="280" cy="320" r="7" fill="#3b82f6" opacity="0.8">
-      <animateMotion path="M 0 0 Q 0 -80 70 -140" dur="2.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.8;0" dur="2.5s" repeatCount="indefinite"/>
-    </circle>
+    <path d="M 280 420 Q 280 300 350 220" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round" stroke-dasharray="240" stroke-dashoffset="240">
+      <animate attributeName="stroke-dashoffset" from="240" to="0" begin="1.9s" dur="0.5s" fill="freeze"/>
+    </path>
+    <polygon points="345,215 350,205 358,215" fill="url(#purpleBlue)" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" begin="2.3s" dur="0.2s" fill="freeze"/>
+    </polygon>
   </g>
 
-  <!-- Central cycle text -->
-  <text x="400" y="410" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="url(#purpleBlue)" opacity="0.6">Continuous</text>
-  <text x="400" y="435" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="url(#purpleBlue)" opacity="0.6">Deployment</text>
+  <!-- Central cycle text - FADE IN -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="0.6" begin="0.5s" dur="0.5s" fill="freeze"/>
+    <text x="400" y="410" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="url(#purpleBlue)">Continuous</text>
+    <text x="400" y="435" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="url(#purpleBlue)">Deployment</text>
+  </g>
 
-  <!-- Pipeline stages (top) -->
-  <g transform="translate(400, 50)" opacity="0.5">
+  <!-- Pipeline stages (top) - FADE IN -->
+  <g transform="translate(400, 50)" opacity="0">
+    <animate attributeName="opacity" from="0" to="0.5" begin="0.3s" dur="0.4s" fill="freeze"/>
     <circle cx="-80" cy="0" r="8" fill="#8b5cf6"/>
     <line x1="-72" y1="0" x2="-48" y2="0" stroke="url(#purpleBlue)" stroke-width="3"/>
     <circle cx="-40" cy="0" r="8" fill="#3b82f6"/>
@@ -202,14 +207,16 @@
     <circle cx="80" cy="0" r="8" fill="#8b5cf6"/>
   </g>
 
-  <!-- Vercel triangles -->
-  <g opacity="0.4">
+  <!-- Vercel triangles - FADE IN -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="0.4" begin="1.2s" dur="0.4s" fill="freeze"/>
     <path d="M 150 300 L 165 330 L 135 330 Z" fill="#3b82f6"/>
     <path d="M 650 300 L 665 330 L 635 330 Z" fill="#8b5cf6"/>
   </g>
 
-  <!-- Floating metrics -->
-  <g opacity="0.3">
+  <!-- Floating metrics - FADE IN -->
+  <g opacity="0">
+    <animate attributeName="opacity" from="0" to="0.3" begin="1.5s" dur="0.4s" fill="freeze"/>
     <text x="120" y="200" font-family="monospace" font-size="14" fill="#8b5cf6">99.9%</text>
     <text x="680" y="200" font-family="monospace" font-size="14" fill="#3b82f6">2.3s</text>
     <text x="380" y="720" font-family="monospace" font-size="14" fill="#8b5cf6">↑ 25%</text>
