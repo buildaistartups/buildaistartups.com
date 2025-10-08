@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react'
 
 interface AnimatedSvgOnScrollProps {
   children: React.ReactNode
-  threshold?: number // 0-1, how much of element must be visible (default 0.3 = 30%)
-  triggerOnce?: boolean // true = animate once, false = animate every time it enters viewport
+  threshold?: number
+  triggerOnce?: boolean
   className?: string
 }
 
@@ -15,23 +15,40 @@ export default function AnimatedSvgOnScroll({
   triggerOnce = true,
   className = '',
 }: AnimatedSvgOnScrollProps) {
-  const [isVisible, setIsVisible] = useState(false)
   const [hasAnimated, setHasAnimated] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Element entered viewport
-        if (entry.isIntersecting) {
-          setIsVisible(true)
+        if (entry.isIntersecting && !hasAnimated) {
+          // Element is now visible - trigger all SVG animations
+          const container = ref.current
+          if (container) {
+            // Find all <animate>, <animateTransform>, <animateMotion> elements
+            const animations = container.querySelectorAll('animate, animateTransform, animateMotion')
+            
+            // Restart each animation
+            animations.forEach((anim) => {
+              const animElement = anim as SVGAnimationElement
+              try {
+                // Stop any existing animation
+                animElement.endElement()
+                // Start the animation fresh
+                animElement.beginElement()
+              } catch (e) {
+                // Some animations might not support endElement, that's okay
+                try {
+                  animElement.beginElement()
+                } catch (err) {
+                  console.warn('Could not start animation:', err)
+                }
+              }
+            })
+          }
+
           if (triggerOnce) {
             setHasAnimated(true)
-          }
-        } else {
-          // Element left viewport
-          if (!triggerOnce && !hasAnimated) {
-            setIsVisible(false)
           }
         }
       },
@@ -53,18 +70,8 @@ export default function AnimatedSvgOnScroll({
   }, [threshold, triggerOnce, hasAnimated])
 
   return (
-    <div
-      ref={ref}
-      className={className}
-      data-animated={isVisible ? 'true' : 'false'}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-        transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
-      }}
-    >
-      {/* Key prop forces remount when isVisible changes, restarting SVG animations */}
-      {isVisible ? <div key="visible">{children}</div> : <div key="hidden">{children}</div>}
+    <div ref={ref} className={className}>
+      {children}
     </div>
   )
 }
