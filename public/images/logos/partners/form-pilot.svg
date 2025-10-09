@@ -7,8 +7,8 @@
     
     <style>
       @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(1.05); opacity: 0.9; }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
       }
       
       @keyframes slide-right {
@@ -16,39 +16,31 @@
         50% { transform: translateX(8px); }
       }
       
-      @keyframes glow {
-        0%, 100% { filter: drop-shadow(0 0 4px rgba(139, 92, 246, 0.4)); }
-        50% { filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.8)); }
-      }
-      
-      @keyframes fade-bars {
-        0% { opacity: 0.6; transform: translateX(-5px); }
-        50% { opacity: 1; transform: translateX(0); }
-        100% { opacity: 0.6; transform: translateX(-5px); }
+      @keyframes fade-in {
+        0% { opacity: 0.5; }
+        50% { opacity: 1; }
+        100% { opacity: 0.5; }
       }
       
       .f-letter {
-        animation: pulse 2.5s ease-in-out infinite, glow 3s ease-in-out infinite;
-        transform-origin: center;
+        animation: pulse 2.5s ease-in-out infinite;
       }
       
       .arrow {
-        animation: slide-right 2s ease-in-out infinite, glow 3s ease-in-out infinite;
-        transform-origin: center;
+        animation: slide-right 2s ease-in-out infinite;
       }
       
       .bar1 {
-        animation: fade-bars 2s ease-in-out infinite;
-        animation-delay: 0s;
+        animation: fade-in 2s ease-in-out infinite;
       }
       
       .bar2 {
-        animation: fade-bars 2s ease-in-out infinite;
+        animation: fade-in 2s ease-in-out infinite;
         animation-delay: 0.3s;
       }
       
       .bar3 {
-        animation: fade-bars 2s ease-in-out infinite;
+        animation: fade-in 2s ease-in-out infinite;
         animation-delay: 0.6s;
       }
       
@@ -59,20 +51,16 @@
     </style>
   </defs>
   
-  <!-- Super Simple Logo: Letter F with arrow -->
   <g transform="translate(200, 120)">
-    <!-- Clean F shape made from rectangles -->
     <g class="f-letter">
       <rect x="-40" y="-60" width="12" height="120" rx="3" fill="url(#purpleBlue)" class="bar1"/>
       <rect x="-40" y="-60" width="60" height="12" rx="3" fill="url(#purpleBlue)" class="bar2"/>
       <rect x="-40" y="-10" width="50" height="12" rx="3" fill="url(#purpleBlue)" class="bar3"/>
     </g>
     
-    <!-- Simple forward arrow -->
     <polygon points="30,-20 60,0 30,20" fill="url(#purpleBlue)" class="arrow"/>
   </g>
   
-  <!-- Text -->
   <text x="200" y="260" font-size="36" fill="url(#purpleBlue)" text-anchor="middle" font-weight="700">FormPilot</text>
-  <text x="200" y="285" font-size="14" fill="#6b7280" text-anchor="middle" font-weight="600">Forms & Automation</text>
+  <text x="200" y="285" font-size="14" fill="#6b7280" text-anchor="middle" font-weight="600">Forms &amp; Automation</text>
 </svg>
