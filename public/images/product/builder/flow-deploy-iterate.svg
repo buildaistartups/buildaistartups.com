@@ -1,191 +1,217 @@
-<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" class="svg-play-once">
-  
-  <style>
-    .svg-play-once {
-      animation: fadeIn 0.6s ease-in;
-    }
-    
-    .svg-play-once * {
-      animation-play-state: paused;
-    }
-    
-    .svg-play-once.is-visible * {
-      animation-play-state: running;
-    }
-    
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
-
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
   <defs>
+    <!-- Gradients -->
     <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
     </linearGradient>
     
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <radialGradient id="rocketGlow" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
   </defs>
 
-  <!-- Stage 1: Deploy (Left) -->
-  <g id="stage1" transform="translate(100, 250)">
-    <circle cx="50" cy="50" r="60" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.3"/>
-    <circle cx="50" cy="50" r="45" fill="url(#purpleBlue)" opacity="0.2">
-      <animate attributeName="r" values="45;50;45" dur="2s" repeatCount="1"/>
-    </circle>
+  <!-- CENTER: Circular flow indicator -->
+  <circle cx="400" cy="400" r="280" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.15" stroke-dasharray="15,15">
+    <animateTransform attributeName="transform" type="rotate" from="0 400 400" to="360 400 400" dur="20s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- TOP: Rocket Launch (Deploy) -->
+  <g transform="translate(400, 150)">
+    <!-- Glow effect -->
+    <ellipse cx="0" cy="0" rx="100" ry="110" fill="url(#rocketGlow)"/>
     
-    <!-- Rocket icon -->
-    <path d="M 50 30 L 45 50 L 50 45 L 55 50 Z" fill="none" stroke="#8b5cf6" stroke-width="2"/>
-    <circle cx="50" cy="35" r="3" fill="#8b5cf6"/>
-    <path d="M 45 50 L 43 58" stroke="#3b82f6" stroke-width="2"/>
-    <path d="M 55 50 L 57 58" stroke="#3b82f6" stroke-width="2"/>
+    <!-- Rocket body -->
+    <path d="M -35 45 L -35 -15 Q -35 -85 0 -110 Q 35 -85 35 -15 L 35 45 Z" 
+          fill="url(#blueGradient)" opacity="0.15" stroke="#3b82f6" stroke-width="7"/>
     
-    <!-- Launch particles -->
-    <g opacity="0.6">
-      <circle cx="50" cy="60" r="2" fill="#8b5cf6">
-        <animate attributeName="cy" values="60;70;80" dur="1s" repeatCount="1"/>
-        <animate attributeName="opacity" values="1;0" dur="1s" repeatCount="1"/>
-      </circle>
-      <circle cx="48" cy="62" r="2" fill="#3b82f6">
-        <animate attributeName="cy" values="62;72;82" dur="1.2s" repeatCount="1" begin="0.2s"/>
-        <animate attributeName="opacity" values="1;0" dur="1.2s" repeatCount="1" begin="0.2s"/>
-      </circle>
-      <circle cx="52" cy="62" r="2" fill="#8b5cf6">
-        <animate attributeName="cy" values="62;72;82" dur="1.1s" repeatCount="1" begin="0.1s"/>
-        <animate attributeName="opacity" values="1;0" dur="1.1s" repeatCount="1" begin="0.1s"/>
-      </circle>
+    <!-- Rocket window -->
+    <circle cx="0" cy="-35" r="20" fill="#3b82f6" opacity="0.3" stroke="#3b82f6" stroke-width="5"/>
+    <circle cx="0" cy="-35" r="12" fill="#8b5cf6" opacity="0.5"/>
+    
+    <!-- Rocket fins -->
+    <path d="M -35 25 L -65 60 L -35 50 Z" fill="#8b5cf6" opacity="0.6" stroke="#8b5cf6" stroke-width="5"/>
+    <path d="M 35 25 L 65 60 L 35 50 Z" fill="#8b5cf6" opacity="0.6" stroke="#8b5cf6" stroke-width="5"/>
+    
+    <!-- Vercel triangle on rocket -->
+    <g transform="translate(0, -5)">
+      <path d="M 0 -18 L 15 12 L -15 12 Z" fill="#3b82f6" opacity="0.7"/>
     </g>
     
-    <!-- Orbit ring -->
-    <circle cx="50" cy="50" r="38" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="5 5">
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        from="0 50 50"
-        to="360 50 50"
-        dur="6s"
-        repeatCount="1"/>
+    <!-- Exhaust flames (animated) -->
+    <g>
+      <ellipse cx="0" cy="60" rx="32" ry="20" fill="#8b5cf6" opacity="0.6">
+        <animate attributeName="ry" values="20;28;20" dur="0.5s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="0" cy="72" rx="24" ry="28" fill="#3b82f6" opacity="0.5">
+        <animate attributeName="ry" values="28;38;28" dur="0.6s" repeatCount="indefinite"/>
+      </ellipse>
+      <ellipse cx="0" cy="88" rx="18" ry="24" fill="#8b5cf6" opacity="0.4">
+        <animate attributeName="ry" values="24;34;24" dur="0.7s" repeatCount="indefinite"/>
+      </ellipse>
+    </g>
+    
+    <!-- Stars around rocket -->
+    <path d="M -80 -40 L -78 -35 L -73 -35 L -77 -32 L -75 -27 L -80 -30 L -85 -27 L -83 -32 L -87 -35 L -82 -35 Z" fill="#8b5cf6" opacity="0.6"/>
+    <path d="M 80 -70 L 82 -65 L 87 -65 L 83 -62 L 85 -57 L 80 -60 L 75 -57 L 77 -62 L 73 -65 L 78 -65 Z" fill="#3b82f6" opacity="0.6"/>
+    
+    <!-- Label -->
+    <text x="0" y="135" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">Deploy</text>
+  </g>
+
+  <!-- Curved Arrow: Deploy to Monitor -->
+  <g>
+    <path d="M 480 220 Q 580 300 560 420" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="565,420 560,440 550,420" fill="url(#purpleBlue)"/>
+    <circle cx="540" cy="320" r="7" fill="#3b82f6" opacity="0.8">
+      <animateMotion path="M 0 0 Q 60 80 40 200" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.8;0" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- RIGHT: Analytics Chart (Monitor) -->
+  <g transform="translate(570, 520)">
+    <!-- Chart container -->
+    <rect x="-110" y="-100" width="220" height="200" rx="14" fill="url(#blueGradient)" opacity="0.05" stroke="url(#purpleBlue)" stroke-width="6"/>
+    
+    <!-- Chart header -->
+    <rect x="-110" y="-100" width="220" height="38" rx="14" fill="url(#purpleBlue)" opacity="0.15"/>
+    <circle cx="-85" cy="-80" r="6" fill="#8b5cf6"/>
+    <circle cx="-68" cy="-80" r="6" fill="#3b82f6"/>
+    <text x="-40" y="-73" font-family="sans-serif" font-size="16" font-weight="600" fill="#3b82f6">Analytics</text>
+    
+    <!-- Grid lines -->
+    <line x1="-90" y1="-35" x2="90" y2="-35" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+    <line x1="-90" y1="5" x2="90" y2="5" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+    <line x1="-90" y1="45" x2="90" y2="45" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+    <line x1="-90" y1="85" x2="90" y2="85" stroke="#8b5cf6" stroke-width="1" opacity="0.2"/>
+    
+    <!-- Bar chart -->
+    <g opacity="0.6">
+      <rect x="-80" y="45" width="20" height="40" rx="4" fill="#8b5cf6"/>
+      <rect x="-48" y="25" width="20" height="60" rx="4" fill="#3b82f6"/>
+      <rect x="-16" y="5" width="20" height="80" rx="4" fill="#8b5cf6"/>
+      <rect x="16" y="-25" width="20" height="110" rx="4" fill="#3b82f6"/>
+      <rect x="48" y="-45" width="20" height="130" rx="4" fill="#8b5cf6"/>
+    </g>
+    
+    <!-- Upward trend line -->
+    <path d="M -80 65 L -48 45 L -16 25 L 16 -5 L 48 -25 L 75 -45" 
+          fill="none" stroke="url(#purpleBlue)" stroke-width="5" stroke-linecap="round"/>
+    
+    <!-- Data points -->
+    <circle cx="-80" cy="65" r="6" fill="#8b5cf6"/>
+    <circle cx="-48" cy="45" r="6" fill="#3b82f6"/>
+    <circle cx="-16" cy="25" r="6" fill="#8b5cf6"/>
+    <circle cx="16" cy="-5" r="6" fill="#3b82f6"/>
+    <circle cx="48" cy="-25" r="6" fill="#8b5cf6"/>
+    <circle cx="75" cy="-45" r="6" fill="#3b82f6">
+      <animate attributeName="r" values="6;9;6" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Upward arrow -->
+    <g transform="translate(95, -65)">
+      <line x1="0" y1="22" x2="0" y2="-12" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round"/>
+      <polygon points="0,-12 -7,0 7,0" fill="#8b5cf6"/>
+    </g>
+    
+    <!-- Percentage -->
+    <g transform="translate(0, -120)">
+      <text x="25" y="0" text-anchor="middle" font-family="sans-serif" font-size="24" font-weight="bold" fill="#8b5cf6">+47%</text>
+    </g>
+    
+    <!-- Label -->
+    <text x="0" y="130" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">Monitor</text>
+  </g>
+
+  <!-- Curved Arrow: Monitor to Iterate -->
+  <g>
+    <path d="M 460 540 Q 320 600 240 520" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="235,510 230,520 240,525" fill="url(#purpleBlue)"/>
+    <circle cx="340" cy="570" r="7" fill="#8b5cf6" opacity="0.8">
+      <animateMotion path="M 0 0 Q -80 60 -140 20" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.8;0" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- LEFT: Circular Iteration Arrow (Iterate) -->
+  <g transform="translate(230, 520)">
+    <!-- Large circular arrow -->
+    <path d="M 0 -85 A 85 85 0 1 1 -1 -85" 
+          fill="none" stroke="url(#purpleBlue)" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+    
+    <!-- Arrow head -->
+    <polygon points="10,-85 0,-97 -10,-85" fill="url(#purpleBlue)" transform="rotate(90 0 -85)"/>
+    
+    <!-- Inner rotating circle -->
+    <circle cx="0" cy="0" r="60" fill="none" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.3" stroke-dasharray="10,10">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Center cycle symbol -->
+    <g>
+      <path d="M -18 -10 A 18 18 0 1 1 -18 10" fill="none" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
+      <polygon points="-15,10 -20,15 -25,8" fill="#3b82f6"/>
+      
+      <path d="M 18 10 A 18 18 0 1 1 18 -10" fill="none" stroke="#8b5cf6" stroke-width="5" stroke-linecap="round"/>
+      <polygon points="15,-10 20,-15 25,-8" fill="#8b5cf6"/>
+    </g>
+    
+    <!-- Orbiting particles -->
+    <circle cx="0" cy="-85" r="6" fill="#8b5cf6" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="85" cy="0" r="6" fill="#3b82f6" opacity="0.7">
+      <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="4s" repeatCount="indefinite"/>
     </circle>
     
     <!-- Label -->
-    <text x="50" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Deploy</text>
-    <text x="50" y="150" font-family="Arial, sans-serif" font-size="14" fill="#8b5cf6" text-anchor="middle" opacity="0.7">Ship to production</text>
+    <text x="0" y="130" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6">Iterate</text>
   </g>
 
-  <!-- Arrow 1 -->
-  <g id="arrow1">
-    <path d="M 220 300 L 380 300" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.6" stroke-dasharray="10 5">
-      <animate attributeName="stroke-dashoffset" from="0" to="100" dur="2s" repeatCount="1"/>
-    </path>
-    <polygon points="380,300 370,295 370,305" fill="#3b82f6"/>
-    
-    <circle r="6" fill="#8b5cf6" filter="url(#glow)">
-      <animateMotion dur="2s" repeatCount="1" path="M 220 300 L 380 300"/>
+  <!-- Curved Arrow: Iterate back to Deploy -->
+  <g>
+    <path d="M 280 420 Q 280 300 350 220" fill="none" stroke="url(#purpleBlue)" stroke-width="6" stroke-linecap="round"/>
+    <polygon points="345,215 350,205 358,215" fill="url(#purpleBlue)"/>
+    <circle cx="280" cy="320" r="7" fill="#3b82f6" opacity="0.8">
+      <animateMotion path="M 0 0 Q 0 -80 70 -140" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.8;0" dur="2.5s" repeatCount="indefinite"/>
     </circle>
   </g>
 
-  <!-- Stage 2: Monitor (Center) -->
-  <g id="stage2" transform="translate(500, 250)">
-    <circle cx="50" cy="50" r="60" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.3"/>
-    <circle cx="50" cy="50" r="45" fill="url(#blueGradient)" opacity="0.2">
-      <animate attributeName="r" values="45;50;45" dur="2.2s" repeatCount="1"/>
-    </circle>
-    
-    <!-- Monitor/chart icon -->
-    <rect x="32" y="38" width="36" height="24" rx="2" fill="none" stroke="#3b82f6" stroke-width="2"/>
-    
-    <!-- Chart bars -->
-    <rect x="38" y="52" width="4" height="6" fill="#3b82f6" opacity="0.6">
-      <animate attributeName="height" values="6;10;6" dur="2s" repeatCount="1"/>
-    </rect>
-    <rect x="45" y="48" width="4" height="10" fill="#8b5cf6" opacity="0.6">
-      <animate attributeName="height" values="10;14;10" dur="2.2s" repeatCount="1"/>
-    </rect>
-    <rect x="52" y="50" width="4" height="8" fill="#3b82f6" opacity="0.6">
-      <animate attributeName="height" values="8;12;8" dur="2.4s" repeatCount="1"/>
-    </rect>
-    <rect x="59" y="46" width="4" height="12" fill="#8b5cf6" opacity="0.6">
-      <animate attributeName="height" values="12;16;12" dur="2.6s" repeatCount="1"/>
-    </rect>
-    
-    <!-- Pulse effect -->
-    <circle cx="50" cy="50" r="30" fill="none" stroke="#3b82f6" stroke-width="1" opacity="0.3">
-      <animate attributeName="r" values="30;35;30" dur="2s" repeatCount="1"/>
-      <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="1"/>
-    </circle>
-    
-    <!-- Label -->
-    <text x="50" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3b82f6" text-anchor="middle">Monitor</text>
-    <text x="50" y="150" font-family="Arial, sans-serif" font-size="14" fill="#3b82f6" text-anchor="middle" opacity="0.7">Track performance</text>
+  <!-- Central cycle text -->
+  <text x="400" y="410" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="url(#purpleBlue)" opacity="0.6">Continuous</text>
+  <text x="400" y="435" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="600" fill="url(#purpleBlue)" opacity="0.6">Deployment</text>
+
+  <!-- Pipeline stages (top) -->
+  <g transform="translate(400, 50)" opacity="0.5">
+    <circle cx="-80" cy="0" r="8" fill="#8b5cf6"/>
+    <line x1="-72" y1="0" x2="-48" y2="0" stroke="url(#purpleBlue)" stroke-width="3"/>
+    <circle cx="-40" cy="0" r="8" fill="#3b82f6"/>
+    <line x1="-32" y1="0" x2="-8" y2="0" stroke="url(#purpleBlue)" stroke-width="3"/>
+    <circle cx="0" cy="0" r="8" fill="#8b5cf6"/>
+    <line x1="8" y1="0" x2="32" y2="0" stroke="url(#purpleBlue)" stroke-width="3"/>
+    <circle cx="40" cy="0" r="8" fill="#3b82f6"/>
+    <line x1="48" y1="0" x2="72" y2="0" stroke="url(#purpleBlue)" stroke-width="3"/>
+    <circle cx="80" cy="0" r="8" fill="#8b5cf6"/>
   </g>
 
-  <!-- Arrow 2 -->
-  <g id="arrow2">
-    <path d="M 620 300 L 780 300" stroke="url(#blueGradient)" stroke-width="3" opacity="0.6" stroke-dasharray="10 5">
-      <animate attributeName="stroke-dashoffset" from="0" to="100" dur="2s" repeatCount="1" begin="0.5s"/>
-    </path>
-    <polygon points="780,300 770,295 770,305" fill="#8b5cf6"/>
-    
-    <circle r="6" fill="#3b82f6" filter="url(#glow)">
-      <animateMotion dur="2s" repeatCount="1" begin="0.5s" path="M 620 300 L 780 300"/>
-    </circle>
+  <!-- Vercel triangles -->
+  <g opacity="0.4">
+    <path d="M 150 300 L 165 330 L 135 330 Z" fill="#3b82f6"/>
+    <path d="M 650 300 L 665 330 L 635 330 Z" fill="#8b5cf6"/>
   </g>
 
-  <!-- Stage 3: Iterate (Right) -->
-  <g id="stage3" transform="translate(900, 250)">
-    <circle cx="50" cy="50" r="60" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.3"/>
-    <circle cx="50" cy="50" r="45" fill="url(#purpleBlue)" opacity="0.2">
-      <animate attributeName="r" values="45;50;45" dur="2.5s" repeatCount="1"/>
-    </circle>
-    
-    <!-- Circular arrow icon (iterate) -->
-    <path d="M 65 50 A 15 15 0 1 0 50 35" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
-    <polygon points="50,35 48,30 54,33" fill="#8b5cf6"/>
-    
-    <path d="M 35 50 A 15 15 0 1 0 50 65" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round"/>
-    <polygon points="50,65 52,70 46,67" fill="#3b82f6"/>
-    
-    <!-- Rotating ring -->
-    <circle cx="50" cy="50" r="35" fill="none" stroke="#8b5cf6" stroke-width="1" opacity="0.3" stroke-dasharray="10 5">
-      <animateTransform
-        attributeName="transform"
-        type="rotate"
-        from="0 50 50"
-        to="360 50 50"
-        dur="4s"
-        repeatCount="1"/>
-    </circle>
-    
-    <!-- Label -->
-    <text x="50" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6" text-anchor="middle">Iterate</text>
-    <text x="50" y="150" font-family="Arial, sans-serif" font-size="14" fill="#8b5cf6" text-anchor="middle" opacity="0.7">Continuous improvement</text>
-  </g>
-
-  <!-- Feedback loop arrow (from Iterate back to beginning) -->
-  <g id="feedbackLoop" opacity="0.4">
-    <path d="M 900 400 Q 600 480 300 400" fill="none" stroke="url(#purpleBlue)" stroke-width="2" stroke-dasharray="5 5">
-      <animate attributeName="stroke-dashoffset" from="0" to="100" dur="3s" repeatCount="1" begin="2s"/>
-    </path>
-    <polygon points="300,400 305,395 305,405" fill="#8b5cf6"/>
-  </g>
-
-  <!-- Background decorative elements -->
-  <g opacity="0.1">
-    <circle cx="50" cy="50" r="3" fill="#8b5cf6"/>
-    <circle cx="1150" cy="550" r="3" fill="#3b82f6"/>
-    <circle cx="600" cy="100" r="2" fill="#8b5cf6"/>
-    <circle cx="600" cy="500" r="2" fill="#3b82f6"/>
+  <!-- Floating metrics -->
+  <g opacity="0.3">
+    <text x="120" y="200" font-family="monospace" font-size="14" fill="#8b5cf6">99.9%</text>
+    <text x="680" y="200" font-family="monospace" font-size="14" fill="#3b82f6">2.3s</text>
+    <text x="380" y="720" font-family="monospace" font-size="14" fill="#8b5cf6">↑ 25%</text>
   </g>
 </svg>
