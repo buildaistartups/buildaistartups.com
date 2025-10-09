@@ -1,4 +1,4 @@
-I have a web page. remember this. app/(default)/product/builder/page.tsx . // app/(default)/product/builder/page.tsx
+// app/(default)/product/builder/page.tsx
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { verticals } from '@/lib/verticals'
