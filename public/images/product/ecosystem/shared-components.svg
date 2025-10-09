@@ -1,6 +1,5 @@
 <svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Gradients -->
     <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
@@ -26,7 +25,6 @@
       <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
     </radialGradient>
     
-    <!-- Filters -->
     <filter id="glow">
       <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
@@ -49,52 +47,65 @@
     
     <style>
       @keyframes pulse {
-        0%, 100% { opacity: 0.8; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.03); }
-      }
-      
-      @keyframes glow-pulse {
-        0%, 100% { filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4)); }
-        50% { filter: drop-shadow(0 0 16px rgba(139, 92, 246, 0.8)); }
+        0%, 100% { transform: scale(1); opacity: 0.9; }
+        50% { transform: scale(1.08); opacity: 1; }
       }
       
       @keyframes slideIn {
-        from { transform: translateY(20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
+        0% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
       }
       
       @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+        0% { opacity: 0; transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
       }
       
       @keyframes dash {
-        to { stroke-dashoffset: -20; }
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -40; }
       }
       
       @keyframes float {
         0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-6px); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      @keyframes glow {
+        0%, 100% { filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); }
+        50% { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 1)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.8)); }
+      }
+      
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
       
       .component-block {
-        animation: pulse 3s ease-in-out infinite, slideIn 0.8s ease-out forwards;
+        animation: pulse 2s ease-in-out infinite, glow 3s ease-in-out infinite;
+        transform-origin: center;
       }
       
       .app-interface {
-        animation: glow-pulse 2.5s ease-in-out infinite, fadeIn 1s ease-out forwards;
+        animation: pulse 3s ease-in-out infinite, glow 4s ease-in-out infinite;
+        transform-origin: center;
       }
       
       .connection-line {
         stroke: url(#purpleBlue);
-        stroke-width: 2;
-        stroke-dasharray: 6, 6;
-        opacity: 0.5;
-        animation: dash 15s linear infinite;
+        stroke-width: 3;
+        stroke-dasharray: 10, 10;
+        opacity: 0.6;
+        animation: dash 8s linear infinite;
       }
       
       .icon {
-        animation: float 3s ease-in-out infinite;
+        animation: float 2.5s ease-in-out infinite;
+      }
+      
+      .glow-circle {
+        animation: pulse 4s ease-in-out infinite, rotate 20s linear infinite;
+        transform-origin: center;
       }
       
       text {
@@ -104,171 +115,98 @@
     </style>
   </defs>
   
-  <!-- Title -->
   <text x="600" y="40" font-size="28" font-weight="800" fill="url(#purpleBlue)" text-anchor="middle">Shared Component Architecture</text>
   
-  <!-- Central Shared Components Zone -->
-  <g transform="translate(600, 350)">
-    <!-- Background glow -->
-    <circle cx="0" cy="0" r="200" fill="url(#glowEffect)" opacity="0.6"/>
+  <circle cx="600" cy="350" r="200" fill="url(#glowEffect)" opacity="0.6" class="glow-circle"/>
+  
+  <rect x="480" y="170" width="240" height="35" rx="17.5" fill="url(#lightPurple)" stroke="url(#purpleBlue)" stroke-width="2"/>
+  <text x="600" y="193" font-size="18" fill="url(#purpleBlue)" text-anchor="middle">Shared Components</text>
+  
+  <g class="component-block" style="animation-delay: 0s">
+    <rect x="510" y="270" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
+    <rect x="515" y="275" width="170" height="80" rx="10" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
     
-    <!-- Central label -->
-    <rect x="-120" y="-180" width="240" height="35" rx="17.5" fill="url(#lightPurple)" stroke="url(#purpleBlue)" stroke-width="2"/>
-    <text x="0" y="-157" font-size="18" fill="url(#purpleBlue)" text-anchor="middle">Shared Components</text>
-    
-    <!-- Component 1: Authentication -->
-    <g class="component-block" style="animation-delay: 0s">
-      <rect x="-90" y="-80" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
-      <rect x="-85" y="-75" width="170" height="80" rx="10" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
-      
-      <!-- Auth icon (lock) -->
-      <g class="icon" style="animation-delay: 0s">
-        <rect x="-15" y="-45" width="30" height="25" rx="3" fill="white" opacity="0.9"/>
-        <path d="M -8 -45 L -8 -55 Q -8 -62 0 -62 Q 8 -62 8 -55 L 8 -45" fill="none" stroke="white" stroke-width="3" opacity="0.9"/>
-      </g>
-      
-      <text x="0" y="0" font-size="18" fill="white" text-anchor="middle">Authentication</text>
+    <g class="icon" style="animation-delay: 0s">
+      <rect x="585" y="305" width="30" height="25" rx="3" fill="white" opacity="0.9"/>
+      <path d="M 592 305 L 592 295 Q 592 288 600 288 Q 608 288 608 295 L 608 305" fill="none" stroke="white" stroke-width="3" opacity="0.9"/>
     </g>
     
-    <!-- Component 2: Billing -->
-    <g class="component-block" style="animation-delay: 0.3s">
-      <rect x="-90" y="20" width="180" height="90" rx="12" fill="url(#vibrantBlue)" filter="url(#shadow)"/>
-      <rect x="-85" y="25" width="170" height="80" rx="10" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
-      
-      <!-- Billing icon (credit card) -->
-      <g class="icon" style="animation-delay: 0.3s">
-        <rect x="-18" y="42" width="36" height="24" rx="3" fill="white" opacity="0.9"/>
-        <line x1="-18" y1="50" x2="18" y2="50" stroke="#3b82f6" stroke-width="2"/>
-        <line x1="-14" y1="58" x2="-6" y2="58" stroke="#3b82f6" stroke-width="2"/>
-      </g>
-      
-      <text x="0" y="100" font-size="18" fill="white" text-anchor="middle">Billing</text>
+    <text x="600" y="350" font-size="18" fill="white" text-anchor="middle">Authentication</text>
+  </g>
+  
+  <g class="component-block" style="animation-delay: 0.5s">
+    <rect x="510" y="370" width="180" height="90" rx="12" fill="url(#vibrantBlue)" filter="url(#shadow)"/>
+    <rect x="515" y="375" width="170" height="80" rx="10" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+    
+    <g class="icon" style="animation-delay: 0.5s">
+      <rect x="582" y="392" width="36" height="24" rx="3" fill="white" opacity="0.9"/>
+      <line x1="582" y1="400" x2="618" y2="400" stroke="#3b82f6" stroke-width="2"/>
+      <line x1="586" y1="408" x2="594" y2="408" stroke="#3b82f6" stroke-width="2"/>
     </g>
+    
+    <text x="600" y="450" font-size="18" fill="white" text-anchor="middle">Billing</text>
   </g>
   
-  <!-- Additional Shared Component (Analytics) -->
-  <g transform="translate(600, 550)">
-    <g class="component-block" style="animation-delay: 0.6s">
-      <rect x="-90" y="-45" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
-      <rect x="-85" y="-40" width="170" height="80" rx="10" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
-      
-      <!-- Analytics icon (chart) -->
-      <g class="icon" style="animation-delay: 0.6s">
-        <rect x="-15" y="-5" width="8" height="20" rx="2" fill="white" opacity="0.9"/>
-        <rect x="-3" y="-15" width="8" height="30" rx="2" fill="white" opacity="0.9"/>
-        <rect x="9" y="-10" width="8" height="25" rx="2" fill="white" opacity="0.9"/>
-      </g>
-      
-      <text x="0" y="35" font-size="18" fill="white" text-anchor="middle">Analytics</text>
+  <g class="component-block" style="animation-delay: 1s">
+    <rect x="510" y="505" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
+    <rect x="515" y="510" width="170" height="80" rx="10" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+    
+    <g class="icon" style="animation-delay: 1s">
+      <rect x="585" y="545" width="8" height="20" rx="2" fill="white" opacity="0.9"/>
+      <rect x="597" y="535" width="8" height="30" rx="2" fill="white" opacity="0.9"/>
+      <rect x="609" y="540" width="8" height="25" rx="2" fill="white" opacity="0.9"/>
     </g>
+    
+    <text x="600" y="585" font-size="18" fill="white" text-anchor="middle">Analytics</text>
   </g>
   
-  <!-- App Interface 1: E-commerce App (Top Left) -->
-  <g transform="translate(150, 150)">
-    <g class="app-interface" style="animation-delay: 1s">
-      <rect x="0" y="0" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
-      
-      <!-- App header -->
-      <rect x="10" y="10" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
-      <text x="100" y="32" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="700">E-commerce</text>
-      
-      <!-- App icon -->
-      <circle cx="100" cy="85" r="25" fill="url(#vibrantPurple)" opacity="0.2"/>
-      <text x="100" y="95" font-size="28" text-anchor="middle">🛒</text>
-      
-      <!-- App details -->
-      <text x="100" y="130" font-size="12" fill="#6b7280" text-anchor="middle">Shopping Platform</text>
-    </g>
+  <g class="app-interface" style="animation-delay: 0.2s">
+    <rect x="150" y="150" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="160" y="160" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
+    <text x="250" y="182" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="700">E-commerce</text>
+    <circle cx="250" cy="235" r="25" fill="url(#vibrantPurple)" opacity="0.2"/>
+    <text x="250" y="245" font-size="28" text-anchor="middle">🛒</text>
+    <text x="250" y="280" font-size="12" fill="#6b7280" text-anchor="middle">Shopping Platform</text>
   </g>
   
-  <!-- App Interface 2: SaaS Dashboard (Top Right) -->
-  <g transform="translate(850, 150)">
-    <g class="app-interface" style="animation-delay: 1.2s">
-      <rect x="0" y="0" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
-      
-      <!-- App header -->
-      <rect x="10" y="10" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
-      <text x="100" y="32" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="700">SaaS Dashboard</text>
-      
-      <!-- App icon -->
-      <circle cx="100" cy="85" r="25" fill="url(#vibrantBlue)" opacity="0.2"/>
-      <text x="100" y="95" font-size="28" text-anchor="middle">📊</text>
-      
-      <!-- App details -->
-      <text x="100" y="130" font-size="12" fill="#6b7280" text-anchor="middle">Business Analytics</text>
-    </g>
+  <g class="app-interface" style="animation-delay: 0.4s">
+    <rect x="850" y="150" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="860" y="160" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
+    <text x="950" y="182" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="700">SaaS Dashboard</text>
+    <circle cx="950" cy="235" r="25" fill="url(#vibrantBlue)" opacity="0.2"/>
+    <text x="950" y="245" font-size="28" text-anchor="middle">📊</text>
+    <text x="950" y="280" font-size="12" fill="#6b7280" text-anchor="middle">Business Analytics</text>
   </g>
   
-  <!-- App Interface 3: Mobile App (Bottom Left) -->
-  <g transform="translate(150, 450)">
-    <g class="app-interface" style="animation-delay: 1.4s">
-      <rect x="0" y="0" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
-      
-      <!-- App header -->
-      <rect x="10" y="10" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
-      <text x="100" y="32" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="700">Mobile App</text>
-      
-      <!-- App icon -->
-      <circle cx="100" cy="85" r="25" fill="url(#vibrantPurple)" opacity="0.2"/>
-      <text x="100" y="95" font-size="28" text-anchor="middle">📱</text>
-      
-      <!-- App details -->
-      <text x="100" y="130" font-size="12" fill="#6b7280" text-anchor="middle">iOS & Android</text>
-    </g>
+  <g class="app-interface" style="animation-delay: 0.6s">
+    <rect x="150" y="450" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="160" y="460" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
+    <text x="250" y="482" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="700">Mobile App</text>
+    <circle cx="250" cy="535" r="25" fill="url(#vibrantPurple)" opacity="0.2"/>
+    <text x="250" y="545" font-size="28" text-anchor="middle">📱</text>
+    <text x="250" y="580" font-size="12" fill="#6b7280" text-anchor="middle">iOS &amp; Android</text>
   </g>
   
-  <!-- App Interface 4: Content Platform (Bottom Right) -->
-  <g transform="translate(850, 450)">
-    <g class="app-interface" style="animation-delay: 1.6s">
-      <rect x="0" y="0" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
-      
-      <!-- App header -->
-      <rect x="10" y="10" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
-      <text x="100" y="32" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="700">Content Platform</text>
-      
-      <!-- App icon -->
-      <circle cx="100" cy="85" r="25" fill="url(#vibrantBlue)" opacity="0.2"/>
-      <text x="100" y="95" font-size="28" text-anchor="middle">📝</text>
-      
-      <!-- App details -->
-      <text x="100" y="130" font-size="12" fill="#6b7280" text-anchor="middle">Publishing System</text>
-    </g>
+  <g class="app-interface" style="animation-delay: 0.8s">
+    <rect x="850" y="450" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="860" y="460" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
+    <text x="950" y="482" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="700">Content Platform</text>
+    <circle cx="950" cy="535" r="25" fill="url(#vibrantBlue)" opacity="0.2"/>
+    <text x="950" y="545" font-size="28" text-anchor="middle">📝</text>
+    <text x="950" y="580" font-size="12" fill="#6b7280" text-anchor="middle">Publishing System</text>
   </g>
   
-  <!-- Connection Lines -->
-  <!-- From E-commerce to Auth -->
-  <line class="connection-line" x1="350" y1="200" x2="510" y2="280" style="animation-delay: 2s"/>
+  <line class="connection-line" x1="350" y1="200" x2="510" y2="280" style="animation-delay: 0s"/>
+  <line class="connection-line" x1="340" y1="230" x2="510" y2="360" style="animation-delay: 0.3s"/>
+  <line class="connection-line" x1="850" y1="210" x2="690" y2="280" style="animation-delay: 0.6s"/>
+  <line class="connection-line" x1="860" y1="250" x2="690" y2="490" style="animation-delay: 0.9s"/>
+  <line class="connection-line" x1="350" y1="500" x2="510" y2="420" style="animation-delay: 1.2s"/>
+  <line class="connection-line" x1="350" y1="530" x2="510" y2="450" style="animation-delay: 1.5s"/>
+  <line class="connection-line" x1="340" y1="560" x2="510" y2="540" style="animation-delay: 1.8s"/>
+  <line class="connection-line" x1="850" y1="490" x2="690" y2="400" style="animation-delay: 2.1s"/>
+  <line class="connection-line" x1="850" y1="520" x2="690" y2="430" style="animation-delay: 2.4s"/>
+  <line class="connection-line" x1="860" y1="560" x2="690" y2="540" style="animation-delay: 2.7s"/>
   
-  <!-- From E-commerce to Billing -->
-  <line class="connection-line" x1="340" y1="230" x2="510" y2="360" style="animation-delay: 2.2s"/>
-  
-  <!-- From SaaS to Auth -->
-  <line class="connection-line" x1="850" y1="210" x2="690" y2="280" style="animation-delay: 2.4s"/>
-  
-  <!-- From SaaS to Analytics -->
-  <line class="connection-line" x1="860" y1="250" x2="690" y2="490" style="animation-delay: 2.6s"/>
-  
-  <!-- From Mobile to Auth -->
-  <line class="connection-line" x1="350" y1="500" x2="510" y2="420" style="animation-delay: 2.8s"/>
-  
-  <!-- From Mobile to Billing -->
-  <line class="connection-line" x1="350" y1="530" x2="510" y2="450" style="animation-delay: 3s"/>
-  
-  <!-- From Mobile to Analytics -->
-  <line class="connection-line" x1="340" y1="560" x2="510" y2="540" style="animation-delay: 3.2s"/>
-  
-  <!-- From Content to Auth -->
-  <line class="connection-line" x1="850" y1="490" x2="690" y2="400" style="animation-delay: 3.4s"/>
-  
-  <!-- From Content to Billing -->
-  <line class="connection-line" x1="850" y1="520" x2="690" y2="430" style="animation-delay: 3.6s"/>
-  
-  <!-- From Content to Analytics -->
-  <line class="connection-line" x1="860" y1="560" x2="690" y2="540" style="animation-delay: 3.8s"/>
-  
-  <!-- Benefits labels -->
-  <g transform="translate(600, 670)">
-    <rect x="-250" y="-20" width="500" height="40" rx="20" fill="url(#purpleBlue)" opacity="0.15" stroke="url(#purpleBlue)" stroke-width="2"/>
-    <text x="0" y="5" font-size="18" fill="url(#purpleBlue)" text-anchor="middle" font-weight="700">Reusable • Maintainable • Scalable • Consistent</text>
-  </g>
+  <rect x="350" y="650" width="500" height="40" rx="20" fill="url(#purpleBlue)" opacity="0.15" stroke="url(#purpleBlue)" stroke-width="2"/>
+  <text x="600" y="675" font-size="18" fill="url(#purpleBlue)" text-anchor="middle" font-weight="700">Reusable • Maintainable • Scalable • Consistent</text>
 </svg>
