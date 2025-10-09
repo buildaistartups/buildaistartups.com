@@ -1,286 +1,284 @@
-<svg width="1200" height="700" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-        <linearGradient id="purpleBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-        </linearGradient>
-        
-        <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
-        </linearGradient>
-        
-        <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
-        </linearGradient>
-        
-        <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-        </filter>
-        
-        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-            <polygon points="0 0, 10 3, 0 6" fill="#8b5cf6" opacity="0.6">
-                <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
-            </polygon>
-        </marker>
-    </defs>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient Definitions -->
+    <linearGradient id="purpleBlueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
     
-    <style>
-        .connection-line {
-            stroke-width: 2;
-            stroke: url(#purpleBlueGradient);
-            fill: none;
-            opacity: 0.4;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            animation: drawLine 3s ease-out forwards;
-        }
-        
-        @keyframes drawLine {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
-        
-        .connection-line-animated {
-            stroke-dasharray: 10 5;
-            animation: flowData 2s linear infinite, drawLine 3s ease-out forwards;
-        }
-        
-        @keyframes flowData {
-            to {
-                stroke-dashoffset: -30;
-            }
-        }
-        
-        .node-circle {
-            animation: nodeAppear 1s ease-out forwards, nodePulse 3s ease-in-out infinite;
-            transform-origin: center;
-            filter: url(#glow);
-        }
-        
-        @keyframes nodeAppear {
-            from {
-                opacity: 0;
-                transform: scale(0);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes nodePulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-        
-        .node-icon {
-            animation: iconRotate 20s linear infinite;
-            transform-origin: center;
-        }
-        
-        @keyframes iconRotate {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        
-        .metric {
-            animation: floatMetric 3s ease-in-out infinite;
-            opacity: 0;
-            animation-fill-mode: forwards;
-        }
-        
-        @keyframes floatMetric {
-            0%, 100% {
-                transform: translateY(0);
-                opacity: 0.8;
-            }
-            50% {
-                transform: translateY(-10px);
-                opacity: 1;
-            }
-        }
-        
-        .metric-value {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: bold;
-            fill: #60a5fa;
-        }
-        
-        .metric-label {
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            fill: #a78bfa;
-        }
-    </style>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
     
-    <rect width="1200" height="700" fill="transparent"/>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+    </linearGradient>
     
-    <!-- Connection Lines -->
-    <path id="path1-2" class="connection-line connection-line-animated" d="M 200,150 Q 350,100 500,150" marker-end="url(#arrowhead)"/>
-    <path id="path1-3" class="connection-line" d="M 200,150 Q 250,250 300,350" marker-end="url(#arrowhead)"/>
-    <path id="path2-4" class="connection-line connection-line-animated" d="M 500,150 Q 650,200 800,250" marker-end="url(#arrowhead)"/>
-    <path id="path2-5" class="connection-line" d="M 500,150 Q 550,300 600,450" marker-end="url(#arrowhead)"/>
-    <path id="path3-5" class="connection-line connection-line-animated" d="M 300,350 Q 450,400 600,450" marker-end="url(#arrowhead)"/>
-    <path id="path3-6" class="connection-line" d="M 300,350 Q 350,500 400,550" marker-end="url(#arrowhead)"/>
-    <path id="path4-7" class="connection-line connection-line-animated" d="M 800,250 Q 900,300 1000,350" marker-end="url(#arrowhead)"/>
-    <path id="path5-7" class="connection-line" d="M 600,450 Q 800,400 1000,350" marker-end="url(#arrowhead)"/>
-    <path id="path6-8" class="connection-line connection-line-animated" d="M 400,550 Q 550,550 700,550" marker-end="url(#arrowhead)"/>
-    <path id="path7-8" class="connection-line" d="M 1000,350 Q 950,450 700,550" marker-end="url(#arrowhead)"/>
+    <!-- Glow Filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
     
-    <!-- Data Particles -->
-    <circle r="4" fill="#60a5fa" filter="url(#glow)">
-        <animateMotion dur="4s" repeatCount="indefinite">
-            <mpath href="#path1-2"/>
-        </animateMotion>
-        <animate attributeName="opacity" values="0;1;1;0" dur="4s" repeatCount="indefinite"/>
+    <!-- Arrow Marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8b5cf6" opacity="0.6" />
+    </marker>
+    
+    <!-- Pulse Animation -->
+    <radialGradient id="pulseGradient">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background Subtle Grid (Optional) -->
+  <rect width="1200" height="800" fill="transparent"/>
+  
+  <!-- Connection Lines with Animation -->
+  <!-- Node 1 to Node 2 -->
+  <path d="M 250 200 Q 350 250 450 200" stroke="url(#purpleBlueGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 1 to Node 3 -->
+  <path d="M 280 230 Q 350 350 400 450" stroke="url(#purpleBlueGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 2 to Node 4 -->
+  <path d="M 480 220 Q 600 300 700 250" stroke="url(#blueGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.8s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 2 to Node 5 -->
+  <path d="M 450 230 Q 500 400 600 500" stroke="url(#purpleGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.2s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 3 to Node 5 -->
+  <path d="M 430 480 Q 500 490 570 500" stroke="url(#blueGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 4 to Node 6 -->
+  <path d="M 730 270 Q 800 350 850 450" stroke="url(#purpleBlueGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.8s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 5 to Node 6 -->
+  <path d="M 630 510 Q 750 500 820 480" stroke="url(#purpleGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.9s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 5 to Node 7 -->
+  <path d="M 600 530 Q 600 600 600 650" stroke="url(#blueGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.3s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 6 to Node 8 -->
+  <path d="M 880 480 Q 950 550 950 620" stroke="url(#purpleBlueGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.7s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Node 7 to Node 8 -->
+  <path d="M 630 670 Q 800 660 920 650" stroke="url(#purpleGradient)" stroke-width="2" fill="none" opacity="0.4" marker-end="url(#arrowhead)">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3.6s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Additional Cross Connections -->
+  <path d="M 270 220 Q 500 100 720 240" stroke="url(#purpleBlueGradient)" stroke-width="1.5" fill="none" opacity="0.3" stroke-dasharray="5,5" marker-end="url(#arrowhead)">
+    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M 420 460 Q 650 350 860 460" stroke="url(#blueGradient)" stroke-width="1.5" fill="none" opacity="0.3" stroke-dasharray="5,5" marker-end="url(#arrowhead)">
+    <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Floating Growth Metrics -->
+  <!-- Metric 1 -->
+  <g opacity="0.9">
+    <rect x="330" y="220" width="80" height="30" rx="15" fill="url(#purpleGradient)" opacity="0.2"/>
+    <text x="370" y="240" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" font-weight="bold">+45%</text>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Metric 2 -->
+  <g opacity="0.9">
+    <rect x="540" y="340" width="90" height="30" rx="15" fill="url(#blueGradient)" opacity="0.2"/>
+    <text x="585" y="360" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold">2.3K users</text>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Metric 3 -->
+  <g opacity="0.9">
+    <rect x="320" y="430" width="70" height="30" rx="15" fill="url(#purpleGradient)" opacity="0.2"/>
+    <text x="355" y="450" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" font-weight="bold">+32%</text>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.2s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Metric 4 -->
+  <g opacity="0.9">
+    <rect x="750" y="350" width="80" height="30" rx="15" fill="url(#blueGradient)" opacity="0.2"/>
+    <text x="790" y="370" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" text-anchor="middle" font-weight="bold">$125K</text>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Metric 5 -->
+  <g opacity="0.9">
+    <rect x="680" y="580" width="75" height="30" rx="15" fill="url(#purpleBlueGradient)" opacity="0.2"/>
+    <text x="717" y="600" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle" font-weight="bold">+58%</text>
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.3s" repeatCount="indefinite"/>
+  </g>
+  
+  <!-- Node 1: E-commerce App -->
+  <g id="node1">
+    <circle cx="250" cy="200" r="50" fill="url(#purpleGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="50;55;50" dur="4s" repeatCount="indefinite"/>
     </circle>
-    
-    <circle r="4" fill="#8b5cf6" filter="url(#glow)">
-        <animateMotion dur="5s" repeatCount="indefinite">
-            <mpath href="#path2-4"/>
-        </animateMotion>
-        <animate attributeName="opacity" values="0;1;1;0" dur="5s" repeatCount="indefinite"/>
+    <circle cx="250" cy="200" r="40" fill="url(#purpleGradient)" stroke="#8b5cf6" stroke-width="3"/>
+    <!-- Shopping Cart Icon -->
+    <path d="M 235 190 L 240 190 L 243 205 L 257 205 L 260 195 L 245 195 L 242 185 L 265 185 L 262 200 L 245 200" 
+          stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="246" cy="210" r="2" fill="white"/>
+    <circle cx="255" cy="210" r="2" fill="white"/>
+    <text x="250" y="230" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle" font-weight="bold">E-Shop</text>
+  </g>
+  
+  <!-- Node 2: Social Media App -->
+  <g id="node2">
+    <circle cx="450" cy="200" r="50" fill="url(#blueGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="50;55;50" dur="3.5s" repeatCount="indefinite"/>
     </circle>
-    
-    <circle r="4" fill="#60a5fa" filter="url(#glow)">
-        <animateMotion dur="4.5s" repeatCount="indefinite">
-            <mpath href="#path3-5"/>
-        </animateMotion>
-        <animate attributeName="opacity" values="0;1;1;0" dur="4.5s" repeatCount="indefinite"/>
+    <circle cx="450" cy="200" r="40" fill="url(#blueGradient)" stroke="#3b82f6" stroke-width="3"/>
+    <!-- Share Icon -->
+    <circle cx="440" cy="195" r="4" fill="white"/>
+    <circle cx="460" cy="195" r="4" fill="white"/>
+    <circle cx="450" cy="210" r="4" fill="white"/>
+    <line x1="443" y1="197" x2="453" y2="207" stroke="white" stroke-width="2"/>
+    <line x1="457" y1="197" x2="453" y2="207" stroke="white" stroke-width="2"/>
+    <text x="450" y="230" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold">Social</text>
+  </g>
+  
+  <!-- Node 3: Finance App -->
+  <g id="node3">
+    <circle cx="400" cy="480" r="50" fill="url(#purpleBlueGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="50;55;50" dur="4.2s" repeatCount="indefinite"/>
     </circle>
-    
-    <!-- Node 1: E-commerce -->
-    <g transform="translate(200, 150)">
-        <circle class="node-circle" r="50" fill="url(#purpleGradient)" stroke="#8b5cf6" stroke-width="3"/>
-        <g class="node-icon">
-            <path d="M -15,-10 L -10,-10 L -5,5 L 10,5 M -5,5 L 0,15 M 5,5 L 10,15" stroke="white" stroke-width="2" fill="none"/>
-            <circle cx="2" cy="18" r="2" fill="white"/>
-            <circle cx="10" cy="18" r="2" fill="white"/>
-        </g>
-    </g>
-    
-    <!-- Node 2: SaaS -->
-    <g transform="translate(500, 150)">
-        <circle class="node-circle" r="50" fill="url(#blueGradient)" stroke="#3b82f6" stroke-width="3"/>
-        <g class="node-icon">
-            <path d="M -15,5 Q -15,-5 -5,-5 Q 0,-10 5,-5 Q 15,-5 15,5 Q 15,10 5,10 L -10,10 Q -15,10 -15,5" fill="white"/>
-        </g>
-    </g>
-    
-    <!-- Node 3: FinTech -->
-    <g transform="translate(300, 350)">
-        <circle class="node-circle" r="50" fill="url(#purpleBlueGradient)" stroke="#8b5cf6" stroke-width="3"/>
-        <g class="node-icon">
-            <text x="0" y="10" font-size="40" fill="white" text-anchor="middle" font-weight="bold">$</text>
-        </g>
-    </g>
-    
-    <!-- Node 4: Social Media -->
-    <g transform="translate(800, 250)">
-        <circle class="node-circle" r="50" fill="url(#purpleGradient)" stroke="#8b5cf6" stroke-width="3"/>
-        <g class="node-icon">
-            <circle cx="-10" cy="-10" r="5" fill="white"/>
-            <circle cx="10" cy="-10" r="5" fill="white"/>
-            <circle cx="0" cy="10" r="5" fill="white"/>
-            <line x1="-10" y1="-10" x2="10" y2="-10" stroke="white" stroke-width="2"/>
-            <line x1="-10" y1="-10" x2="0" y2="10" stroke="white" stroke-width="2"/>
-            <line x1="10" y1="-10" x2="0" y2="10" stroke="white" stroke-width="2"/>
-        </g>
-    </g>
-    
-    <!-- Node 5: EdTech -->
-    <g transform="translate(600, 450)">
-        <circle class="node-circle" r="50" fill="url(#blueGradient)" stroke="#3b82f6" stroke-width="3"/>
-        <g class="node-icon">
-            <rect x="-12" y="-15" width="24" height="30" fill="none" stroke="white" stroke-width="2" rx="2"/>
-            <line x1="-12" y1="-5" x2="12" y2="-5" stroke="white" stroke-width="2"/>
-            <line x1="-12" y1="5" x2="12" y2="5" stroke="white" stroke-width="2"/>
-        </g>
-    </g>
-    
-    <!-- Node 6: HealthTech -->
-    <g transform="translate(400, 550)">
-        <circle class="node-circle" r="50" fill="url(#purpleBlueGradient)" stroke="#8b5cf6" stroke-width="3"/>
-        <g class="node-icon">
-            <rect x="-5" y="-15" width="10" height="30" fill="white"/>
-            <rect x="-15" y="-5" width="30" height="10" fill="white"/>
-        </g>
-    </g>
-    
-    <!-- Node 7: AI/ML -->
-    <g transform="translate(1000, 350)">
-        <circle class="node-circle" r="50" fill="url(#purpleGradient)" stroke="#8b5cf6" stroke-width="3"/>
-        <g class="node-icon">
-            <circle cx="0" cy="0" r="15" fill="none" stroke="white" stroke-width="2"/>
-            <circle cx="-5" cy="-3" r="2" fill="white"/>
-            <circle cx="5" cy="-3" r="2" fill="white"/>
-            <circle cx="0" cy="5" r="2" fill="white"/>
-            <line x1="-5" y1="-3" x2="0" y2="5" stroke="white" stroke-width="1.5"/>
-            <line x1="5" y1="-3" x2="0" y2="5" stroke="white" stroke-width="1.5"/>
-        </g>
-    </g>
-    
-    <!-- Node 8: Gaming -->
-    <g transform="translate(700, 550)">
-        <circle class="node-circle" r="50" fill="url(#blueGradient)" stroke="#3b82f6" stroke-width="3"/>
-        <g class="node-icon">
-            <rect x="-15" y="-8" width="30" height="16" rx="8" fill="none" stroke="white" stroke-width="2"/>
-            <circle cx="-8" cy="0" r="3" fill="white"/>
-            <circle cx="8" cy="-3" r="2" fill="white"/>
-            <circle cx="8" cy="3" r="2" fill="white"/>
-        </g>
-    </g>
-    
-    <!-- Growth Metrics -->
-    <g class="metric" transform="translate(350, 120)" style="animation-delay: 0.5s">
-        <rect x="-35" y="-15" width="70" height="30" rx="5" fill="#1e293b" opacity="0.9"/>
-        <text class="metric-value" x="0" y="0" text-anchor="middle">+47%</text>
-        <text class="metric-label" x="0" y="12" text-anchor="middle">Growth</text>
-    </g>
-    
-    <g class="metric" transform="translate(650, 200)" style="animation-delay: 1s">
-        <rect x="-35" y="-15" width="70" height="30" rx="5" fill="#1e293b" opacity="0.9"/>
-        <text class="metric-value" x="0" y="0" text-anchor="middle">2.3M</text>
-        <text class="metric-label" x="0" y="12" text-anchor="middle">Users</text>
-    </g>
-    
-    <g class="metric" transform="translate(450, 400)" style="animation-delay: 1.5s">
-        <rect x="-35" y="-15" width="70" height="30" rx="5" fill="#1e293b" opacity="0.9"/>
-        <text class="metric-value" x="0" y="0" text-anchor="middle">$5.2M</text>
-        <text class="metric-label" x="0" y="12" text-anchor="middle">Revenue</text>
-    </g>
-    
-    <g class="metric" transform="translate(850, 300)" style="animation-delay: 2s">
-        <rect x="-35" y="-15" width="70" height="30" rx="5" fill="#1e293b" opacity="0.9"/>
-        <text class="metric-value" x="0" y="0" text-anchor="middle">+89%</text>
-        <text class="metric-label" x="0" y="12" text-anchor="middle">Engagement</text>
-    </g>
-    
-    <g class="metric" transform="translate(550, 500)" style="animation-delay: 2.5s">
-        <rect x="-35" y="-15" width="70" height="30" rx="5" fill="#1e293b" opacity="0.9"/>
-        <text class="metric-value" x="0" y="0" text-anchor="middle">1.8M</text>
-        <text class="metric-label" x="0" y="12" text-anchor="middle">Active</text>
-    </g>
-    
-    <g class="metric" transform="translate(850, 450)" style="animation-delay: 3s">
-        <rect x="-35" y="-15" width="70" height="30" rx="5" fill="#1e293b" opacity="0.9"/>
-        <text class="metric-value" x="0" y="0" text-anchor="middle">+125%</text>
-        <text class="metric-label" x="0" y="12" text-anchor="middle">ROI</text>
-    </g>
+    <circle cx="400" cy="480" r="40" fill="url(#purpleBlueGradient)" stroke="#8b5cf6" stroke-width="3"/>
+    <!-- Dollar Sign -->
+    <text x="400" y="492" font-family="Arial, sans-serif" font-size="32" fill="white" text-anchor="middle" font-weight="bold">$</text>
+    <text x="400" y="510" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Finance</text>
+  </g>
+  
+  <!-- Node 4: Analytics App -->
+  <g id="node4">
+    <circle cx="720" cy="250" r="50" fill="url(#purpleGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="50;55;50" dur="3.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="250" r="40" fill="url(#purpleGradient)" stroke="#8b5cf6" stroke-width="3"/>
+    <!-- Chart Icon -->
+    <path d="M 705 260 L 705 245 L 710 250 L 715 240 L 720 245 L 725 235 L 730 240 L 735 235" 
+          stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="702" y1="262" x2="738" y2="262" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <text x="720" y="280" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Analytics</text>
+  </g>
+  
+  <!-- Node 5: Health App -->
+  <g id="node5">
+    <circle cx="600" cy="500" r="55" fill="url(#blueGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="55;60;55" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="500" r="45" fill="url(#blueGradient)" stroke="#3b82f6" stroke-width="3"/>
+    <!-- Heart Icon -->
+    <path d="M 600 508 L 590 495 Q 585 488 590 483 Q 595 478 600 483 Q 605 478 610 483 Q 615 488 610 495 Z" 
+          fill="white" stroke="white" stroke-width="1"/>
+    <text x="600" y="533" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold">Health</text>
+  </g>
+  
+  <!-- Node 6: Education App -->
+  <g id="node6">
+    <circle cx="860" cy="470" r="50" fill="url(#purpleBlueGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="50;55;50" dur="3.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="860" cy="470" r="40" fill="url(#purpleBlueGradient)" stroke="#8b5cf6" stroke-width="3"/>
+    <!-- Book Icon -->
+    <rect x="845" y="460" width="30" height="20" rx="2" fill="none" stroke="white" stroke-width="2"/>
+    <line x1="860" y1="460" x2="860" y2="480" stroke="white" stroke-width="2"/>
+    <text x="860" y="500" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Education</text>
+  </g>
+  
+  <!-- Node 7: Gaming App -->
+  <g id="node7">
+    <circle cx="600" cy="680" r="50" fill="url(#purpleGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="50;55;50" dur="4.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="600" cy="680" r="40" fill="url(#purpleGradient)" stroke="#8b5cf6" stroke-width="3"/>
+    <!-- Game Controller Icon -->
+    <rect x="585" y="672" width="30" height="16" rx="8" fill="none" stroke="white" stroke-width="2"/>
+    <circle cx="592" cy="678" r="2.5" fill="white"/>
+    <circle cx="608" cy="678" r="2.5" fill="white"/>
+    <text x="600" y="710" font-family="Arial, sans-serif" font-size="11" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Gaming</text>
+  </g>
+  
+  <!-- Node 8: Travel App -->
+  <g id="node8">
+    <circle cx="950" cy="650" r="50" fill="url(#blueGradient)" opacity="0.2" filter="url(#glow)">
+      <animate attributeName="r" values="50;55;50" dur="3.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="950" cy="650" r="40" fill="url(#blueGradient)" stroke="#3b82f6" stroke-width="3"/>
+    <!-- Airplane Icon -->
+    <path d="M 935 650 L 950 643 L 965 650 M 950 643 L 950 657 M 943 654 L 957 654" 
+          stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="950" y="680" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6" text-anchor="middle" font-weight="bold">Travel</text>
+  </g>
+  
+  <!-- Animated Data Particles -->
+  <circle cx="350" cy="230" r="3" fill="#8b5cf6">
+    <animateMotion path="M 0 0 Q 100 50 200 0" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="280" cy="230" r="3" fill="#3b82f6">
+    <animateMotion path="M 0 0 Q 75 125 120 220" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="480" cy="220" r="3" fill="#8b5cf6">
+    <animateMotion path="M 0 0 Q 120 80 220 30" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="730" cy="270" r="3" fill="#3b82f6">
+    <animateMotion path="M 0 0 Q 65 90 130 180" dur="5.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="5.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="630" cy="510" r="3" fill="#8b5cf6">
+    <animateMotion path="M 0 0 Q 110 -5 220 -30" dur="4.2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;1;0" dur="4.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Central Hub Indicator (Optional) -->
+  <g opacity="0.3">
+    <circle cx="600" cy="400" r="180" fill="none" stroke="url(#purpleBlueGradient)" stroke-width="1" stroke-dasharray="10,5">
+      <animate attributeName="r" values="180;190;180" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.4;0.2" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Title/Label -->
+  <text x="600" y="60" font-family="Arial, sans-serif" font-size="28" fill="url(#purpleBlueGradient)" text-anchor="middle" font-weight="bold" opacity="0.8">
+    Startup Ecosystem Network
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="3s" repeatCount="indefinite"/>
+  </text>
+  
+  <text x="600" y="85" font-family="Arial, sans-serif" font-size="14" fill="#8b5cf6" text-anchor="middle" opacity="0.7">
+    Cross-Promotion & Growth Dynamics
+  </text>
 </svg>
