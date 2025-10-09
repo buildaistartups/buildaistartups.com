@@ -32,14 +32,6 @@
       </feMerge>
     </filter>
     
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
     <style>
       @keyframes float {
         0%, 100% { transform: translateY(0); }
@@ -47,8 +39,8 @@
       }
       
       @keyframes pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.85; transform: scale(1.05); }
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
       }
       
       @keyframes slideIn {
@@ -56,19 +48,9 @@
         to { opacity: 1; transform: translateX(0); }
       }
       
-      @keyframes glow-pulse {
-        0%, 100% { filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.4)); }
-        50% { filter: drop-shadow(0 0 16px rgba(139, 92, 246, 0.8)); }
-      }
-      
       @keyframes bounce {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-6px); }
-      }
-      
-      @keyframes shimmer {
-        0% { opacity: 0.5; transform: translateX(-100%); }
-        100% { opacity: 1; transform: translateX(100%); }
       }
       
       .card-main {
@@ -84,11 +66,7 @@
       }
       
       .button {
-        animation: pulse 3s ease-in-out infinite, glow-pulse 3s ease-in-out infinite;
-      }
-      
-      .screenshot {
-        animation: glow-pulse 4s ease-in-out infinite;
+        animation: pulse 3s ease-in-out infinite;
       }
       
       .icon {
@@ -102,118 +80,82 @@
     </style>
   </defs>
   
-  <!-- Main Card -->
   <g class="card-main">
     <rect x="50" y="50" width="700" height="800" rx="20" fill="white" stroke="#e5e7eb" stroke-width="3" filter="url(#shadow)"/>
     
-    <!-- Featured Badge (Top Right) -->
-    <rect x="620" y="70" width="100" height="32" rx="16" fill="url(#vibrantPurple)" class="badge" filter="url(#glow)"/>
+    <rect x="620" y="70" width="100" height="32" rx="16" fill="url(#vibrantPurple)" class="badge"/>
     <text x="670" y="91" font-size="13" fill="white" text-anchor="middle" font-weight="700">FEATURED</text>
     
-    <!-- Screenshot/Thumbnail -->
-    <g class="screenshot">
-      <rect x="80" y="80" width="640" height="300" rx="12" fill="url(#purpleBlue)" opacity="0.1" stroke="url(#purpleBlue)" stroke-width="3"/>
-      
-      <!-- Mock app interface -->
-      <rect x="100" y="100" width="600" height="40" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
-      <circle cx="120" cy="120" r="8" fill="white" opacity="0.6"/>
-      <circle cx="145" cy="120" r="8" fill="white" opacity="0.6"/>
-      <circle cx="170" cy="120" r="8" fill="white" opacity="0.6"/>
-      
-      <!-- Charts/Analytics visualization -->
-      <rect x="120" y="180" width="160" height="140" rx="8" fill="white" opacity="0.9" stroke="#e5e7eb" stroke-width="2"/>
-      <rect x="140" y="270" width="20" height="30" rx="3" fill="url(#vibrantPurple)"/>
-      <rect x="170" y="250" width="20" height="50" rx="3" fill="url(#vibrantBlue)"/>
-      <rect x="200" y="230" width="20" height="70" rx="3" fill="url(#vibrantPurple)"/>
-      <rect x="230" y="210" width="20" height="90" rx="3" fill="url(#vibrantBlue)"/>
-      
-      <!-- Stats cards -->
-      <rect x="320" y="180" width="160" height="60" rx="8" fill="white" opacity="0.9" stroke="#e5e7eb" stroke-width="2"/>
-      <text x="340" y="205" font-size="12" fill="#6b7280">Active Users</text>
-      <text x="340" y="228" font-size="20" fill="url(#purpleBlue)" font-weight="700">12,458</text>
-      
-      <rect x="320" y="260" width="160" height="60" rx="8" fill="white" opacity="0.9" stroke="#e5e7eb" stroke-width="2"/>
-      <text x="340" y="285" font-size="12" fill="#6b7280">Revenue</text>
-      <text x="340" y="308" font-size="20" fill="url(#purpleBlue)" font-weight="700">$8.4K</text>
-      
-      <!-- Play icon overlay -->
-      <circle cx="400" cy="230" r="35" fill="white" opacity="0.95" class="icon" style="animation-delay: 0.5s"/>
-      <polygon points="390,215 390,245 420,230" fill="url(#purpleBlue)"/>
-    </g>
+    <rect x="80" y="80" width="640" height="300" rx="12" fill="url(#purpleBlue)" opacity="0.1" stroke="url(#purpleBlue)" stroke-width="3"/>
     
-    <!-- Product Name -->
+    <rect x="100" y="100" width="600" height="40" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
+    <circle cx="120" cy="120" r="8" fill="white" opacity="0.6"/>
+    <circle cx="145" cy="120" r="8" fill="white" opacity="0.6"/>
+    <circle cx="170" cy="120" r="8" fill="white" opacity="0.6"/>
+    
+    <rect x="120" y="180" width="160" height="140" rx="8" fill="white" opacity="0.9" stroke="#e5e7eb" stroke-width="2"/>
+    <rect x="140" y="270" width="20" height="30" rx="3" fill="url(#vibrantPurple)"/>
+    <rect x="170" y="250" width="20" height="50" rx="3" fill="url(#vibrantBlue)"/>
+    <rect x="200" y="230" width="20" height="70" rx="3" fill="url(#vibrantPurple)"/>
+    <rect x="230" y="210" width="20" height="90" rx="3" fill="url(#vibrantBlue)"/>
+    
+    <rect x="320" y="180" width="160" height="60" rx="8" fill="white" opacity="0.9" stroke="#e5e7eb" stroke-width="2"/>
+    <text x="340" y="205" font-size="12" fill="#6b7280">Active Users</text>
+    <text x="340" y="228" font-size="20" fill="url(#purpleBlue)" font-weight="700">12,458</text>
+    
+    <rect x="320" y="260" width="160" height="60" rx="8" fill="white" opacity="0.9" stroke="#e5e7eb" stroke-width="2"/>
+    <text x="340" y="285" font-size="12" fill="#6b7280">Revenue</text>
+    <text x="340" y="308" font-size="20" fill="url(#purpleBlue)" font-weight="700">$8.4K</text>
+    
+    <circle cx="400" cy="230" r="35" fill="white" opacity="0.95" class="icon"/>
+    <polygon points="390,215 390,245 420,230" fill="url(#purpleBlue)"/>
+    
     <text x="80" y="425" font-size="32" fill="#1f2937" font-weight="800">Analytics Dashboard Pro</text>
     
-    <!-- Build Score Badge -->
-    <g transform="translate(80, 445)">
-      <rect x="0" y="0" width="140" height="45" rx="10" fill="url(#vibrantBlue)" opacity="0.15" stroke="url(#vibrantBlue)" stroke-width="2.5" class="badge"/>
-      <text x="15" y="20" font-size="13" fill="#3b82f6" font-weight="700">Build Score</text>
-      <text x="15" y="38" font-size="22" fill="#3b82f6" font-weight="800">87</text>
-      <text x="55" y="38" font-size="14" fill="#3b82f6" font-weight="600">/100</text>
-    </g>
+    <rect x="80" y="445" width="140" height="45" rx="10" fill="url(#vibrantBlue)" opacity="0.15" stroke="url(#vibrantBlue)" stroke-width="2.5" class="badge"/>
+    <text x="95" y="465" font-size="13" fill="#3b82f6" font-weight="700">Build Score</text>
+    <text x="95" y="483" font-size="22" fill="#3b82f6" font-weight="800">87</text>
+    <text x="135" y="483" font-size="14" fill="#3b82f6" font-weight="600">/100</text>
     
-    <!-- Transfer Ready Indicator -->
-    <g transform="translate(240, 445)">
-      <rect x="0" y="0" width="140" height="45" rx="10" fill="url(#greenGradient)" opacity="0.15" stroke="url(#greenGradient)" stroke-width="2.5" class="badge" style="animation-delay: 0.3s"/>
-      <circle cx="18" cy="23" r="12" fill="url(#greenGradient)"/>
-      <path d="M 13 23 L 16 26 L 23 19" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="38" y="20" font-size="13" fill="#10b981" font-weight="700">Ready</text>
-      <text x="38" y="38" font-size="18" fill="#10b981" font-weight="800">6/6</text>
-    </g>
+    <rect x="240" y="445" width="140" height="45" rx="10" fill="url(#greenGradient)" opacity="0.15" stroke="url(#greenGradient)" stroke-width="2.5" class="badge"/>
+    <circle cx="258" cy="468" r="12" fill="url(#greenGradient)"/>
+    <path d="M 253 468 L 256 471 L 263 464" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="278" y="465" font-size="13" fill="#10b981" font-weight="700">Ready</text>
+    <text x="278" y="483" font-size="18" fill="#10b981" font-weight="800">6/6</text>
     
-    <!-- Category Tags -->
-    <g transform="translate(80, 515)">
-      <rect x="0" y="0" width="100" height="32" rx="16" fill="url(#vibrantPurple)" opacity="0.15" stroke="url(#vibrantPurple)" stroke-width="2" class="tag" style="animation-delay: 0s"/>
-      <text x="50" y="21" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="700">Analytics</text>
-    </g>
+    <rect x="80" y="515" width="100" height="32" rx="16" fill="url(#vibrantPurple)" opacity="0.15" stroke="url(#vibrantPurple)" stroke-width="2" class="tag"/>
+    <text x="130" y="536" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="700">Analytics</text>
     
-    <g transform="translate(195, 515)">
-      <rect x="0" y="0" width="80" height="32" rx="16" fill="url(#vibrantBlue)" opacity="0.15" stroke="url(#vibrantBlue)" stroke-width="2" class="tag" style="animation-delay: 0.1s"/>
-      <text x="40" y="21" font-size="13" fill="#3b82f6" text-anchor="middle" font-weight="700">SaaS</text>
-    </g>
+    <rect x="195" y="515" width="80" height="32" rx="16" fill="url(#vibrantBlue)" opacity="0.15" stroke="url(#vibrantBlue)" stroke-width="2" class="tag"/>
+    <text x="235" y="536" font-size="13" fill="#3b82f6" text-anchor="middle" font-weight="700">SaaS</text>
     
-    <g transform="translate(290, 515)">
-      <rect x="0" y="0" width="110" height="32" rx="16" fill="url(#vibrantPurple)" opacity="0.15" stroke="url(#vibrantPurple)" stroke-width="2" class="tag" style="animation-delay: 0.2s"/>
-      <text x="55" y="21" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="700">Dashboard</text>
-    </g>
+    <rect x="290" y="515" width="110" height="32" rx="16" fill="url(#vibrantPurple)" opacity="0.15" stroke="url(#vibrantPurple)" stroke-width="2" class="tag"/>
+    <text x="345" y="536" font-size="13" fill="#8b5cf6" text-anchor="middle" font-weight="700">Dashboard</text>
     
-    <!-- Description -->
     <text x="80" y="585" font-size="16" fill="#4b5563" font-weight="600">Complete analytics solution for SaaS products.</text>
     <text x="80" y="610" font-size="16" fill="#4b5563" font-weight="600">Real-time metrics, custom dashboards, and automated</text>
     <text x="80" y="635" font-size="16" fill="#4b5563" font-weight="600">reporting. Includes full source code and documentation.</text>
     
-    <!-- Key Features -->
     <text x="80" y="675" font-size="14" fill="#6b7280" font-weight="700">✓ Real-time Analytics Dashboard</text>
     <text x="80" y="700" font-size="14" fill="#6b7280" font-weight="700">✓ Custom Report Builder</text>
     <text x="80" y="725" font-size="14" fill="#6b7280" font-weight="700">✓ API Integration Ready</text>
     
     <text x="380" y="675" font-size="14" fill="#6b7280" font-weight="700">✓ Full Source Code Included</text>
-    <text x="380" y="700" font-size="14" fill="#6b7280" font-weight="700">✓ Documentation & Support</text>
+    <text x="380" y="700" font-size="14" fill="#6b7280" font-weight="700">✓ Documentation &amp; Support</text>
     <text x="380" y="725" font-size="14" fill="#6b7280" font-weight="700">✓ 30-Day Money Back</text>
     
-    <!-- Pricing Section -->
     <rect x="80" y="755" width="640" height="70" rx="12" fill="url(#purpleBlue)" opacity="0.05"/>
     
-    <g transform="translate(100, 770)">
-      <text x="0" y="20" font-size="14" fill="#6b7280" font-weight="600">One-time Purchase</text>
-      <text x="0" y="48" font-size="38" fill="url(#purpleBlue)" font-weight="800">$12,500</text>
-      <text x="180" y="48" font-size="16" fill="#9ca3af" font-weight="600">+ $299/mo maintenance</text>
-    </g>
+    <text x="100" y="785" font-size="14" fill="#6b7280" font-weight="600">One-time Purchase</text>
+    <text x="100" y="813" font-size="38" fill="url(#purpleBlue)" font-weight="800">$12,500</text>
+    <text x="280" y="813" font-size="16" fill="#9ca3af" font-weight="600">+ $299/mo maintenance</text>
     
-    <!-- Action Buttons -->
-    <g transform="translate(450, 770)">
-      <rect x="0" y="0" width="140" height="50" rx="25" fill="url(#purpleBlue)" class="button" filter="url(#glow)"/>
-      <text x="70" y="32" font-size="16" fill="white" text-anchor="middle" font-weight="700">Live Demo</text>
-    </g>
+    <rect x="450" y="770" width="140" height="50" rx="25" fill="url(#purpleBlue)" class="button"/>
+    <text x="520" y="802" font-size="16" fill="white" text-anchor="middle" font-weight="700">Live Demo</text>
     
-    <g transform="translate(605, 770)">
-      <rect x="0" y="0" width="110" height="50" rx="25" fill="white" stroke="url(#purpleBlue)" stroke-width="2.5" class="button" style="animation-delay: 0.5s"/>
-      <text x="55" y="32" font-size="14" fill="url(#purpleBlue)" text-anchor="middle" font-weight="700">Due Diligence</text>
-    </g>
+    <rect x="605" y="770" width="110" height="50" rx="25" fill="white" stroke="url(#purpleBlue)" stroke-width="2.5" class="button"/>
+    <text x="660" y="802" font-size="14" fill="url(#purpleBlue)" text-anchor="middle" font-weight="700">Due Diligence</text>
   </g>
   
-  <!-- Additional Info (Bottom) -->
-  <g transform="translate(80, 870)">
-    <text x="0" y="0" font-size="12" fill="#9ca3af">🔒 Secure Transfer Process • ⚡ Transfer within 48hrs • 📞 Support Included</text>
-  </g>
+  <text x="80" y="870" font-size="12" fill="#9ca3af">🔒 Secure Transfer Process • ⚡ Transfer within 48hrs • 📞 Support Included</text>
 </svg>
