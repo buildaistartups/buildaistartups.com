@@ -1,247 +1,292 @@
-<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Gradients -->
     <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
-    </linearGradient>
+    <radialGradient id="nodeGradient1">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </radialGradient>
     
+    <radialGradient id="nodeGradient2">
+      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </radialGradient>
+    
+    <radialGradient id="glowEffect">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="url(#purpleBlue)" opacity="0.8" />
+    </marker>
+    
+    <!-- Glow filter -->
     <filter id="glow">
-      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
     
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
-      <polygon points="0 0, 12 4, 0 8" fill="#8b5cf6" opacity="0.7" />
-    </marker>
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.08); }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-15px); }
+      }
+      
+      @keyframes dash {
+        to { stroke-dashoffset: -30; }
+      }
+      
+      @keyframes fadeInOut {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 1; }
+      }
+      
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes scaleUp {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+      }
+      
+      @keyframes glow-pulse {
+        0%, 100% { filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.6)) drop-shadow(0 0 20px rgba(59, 130, 246, 0.4)); }
+        50% { filter: drop-shadow(0 0 25px rgba(139, 92, 246, 1)) drop-shadow(0 0 40px rgba(59, 130, 246, 0.8)); }
+      }
+      
+      @keyframes slideIn {
+        from { transform: translateX(-20px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      
+      .connection-line {
+        stroke: url(#purpleBlue);
+        stroke-width: 3;
+        fill: none;
+        opacity: 0.5;
+        stroke-dasharray: 8, 8;
+        animation: dash 30s linear infinite;
+      }
+      
+      .node {
+        filter: url(#strongGlow);
+        animation: pulse 3s ease-in-out infinite;
+      }
+      
+      .metric {
+        animation: float 3.5s ease-in-out infinite, slideIn 1s ease-out forwards;
+      }
+      
+      .icon {
+        animation: fadeInOut 5s ease-in-out infinite;
+      }
+      
+      .growth-indicator {
+        animation: float 3s ease-in-out infinite, scaleUp 2s ease-in-out infinite;
+      }
+      
+      .glow-ring {
+        animation: glow-pulse 2.5s ease-in-out infinite;
+      }
+      
+      text {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-weight: 600;
+      }
+    </style>
   </defs>
   
-  <!-- Connection Lines -->
-  <line x1="200" y1="300" x2="450" y2="300" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3s" repeatCount="indefinite"/>
-  </line>
+  <!-- Background glow circles -->
+  <circle cx="200" cy="150" r="120" fill="url(#glowEffect)" opacity="0.6" class="node" style="animation-delay: 0s"/>
+  <circle cx="600" cy="250" r="150" fill="url(#glowEffect)" opacity="0.6" class="node" style="animation-delay: 1s"/>
+  <circle cx="1000" cy="150" r="120" fill="url(#glowEffect)" opacity="0.6" class="node" style="animation-delay: 2s"/>
   
-  <line x1="240" y1="340" x2="420" y2="580" stroke="url(#purple)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.5s" repeatCount="indefinite"/>
-  </line>
+  <!-- Connection lines with arrows -->
+  <path class="connection-line" d="M 200 150 Q 350 100 500 150" marker-end="url(#arrowhead)" style="animation-delay: 0s"/>
+  <path class="connection-line" d="M 500 150 Q 600 130 700 150" marker-end="url(#arrowhead)" style="animation-delay: 0.5s"/>
+  <path class="connection-line" d="M 700 150 Q 850 120 1000 150" marker-end="url(#arrowhead)" style="animation-delay: 1s"/>
+  <path class="connection-line" d="M 1000 150 Q 1050 250 1000 350" marker-end="url(#arrowhead)" style="animation-delay: 1.5s"/>
+  <path class="connection-line" d="M 1000 350 Q 850 400 700 350" marker-end="url(#arrowhead)" style="animation-delay: 2s"/>
+  <path class="connection-line" d="M 700 350 Q 600 370 500 350" marker-end="url(#arrowhead)" style="animation-delay: 2.5s"/>
+  <path class="connection-line" d="M 500 350 Q 350 380 200 350" marker-end="url(#arrowhead)" style="animation-delay: 3s"/>
+  <path class="connection-line" d="M 200 350 Q 150 250 200 150" marker-end="url(#arrowhead)" style="animation-delay: 3.5s"/>
+  <path class="connection-line" d="M 500 150 Q 500 230 500 350" marker-end="url(#arrowhead)" style="animation-delay: 4s"/>
+  <path class="connection-line" d="M 200 150 Q 350 250 500 350" marker-end="url(#arrowhead)" style="animation-delay: 4.5s"/>
+  <path class="connection-line" d="M 700 150 Q 850 250 1000 350" marker-end="url(#arrowhead)" style="animation-delay: 5s"/>
+  <path class="connection-line" d="M 200 350 Q 450 300 700 350" marker-end="url(#arrowhead)" style="animation-delay: 5.5s"/>
   
-  <line x1="500" y1="330" x2="750" y2="300" stroke="url(#blue)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.8s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="480" y1="340" x2="650" y2="550" stroke="url(#purple)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.2s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="520" y1="610" x2="650" y2="580" stroke="url(#blue)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.5s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="800" y1="330" x2="950" y2="550" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.8s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="730" y1="600" x2="920" y2="580" stroke="url(#purple)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.9s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="1000" y1="330" x2="1200" y2="300" stroke="url(#blue)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.3s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="1020" y1="600" x2="1220" y2="580" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.7s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="1250" y1="330" x2="1400" y2="550" stroke="url(#purple)" stroke-width="4" opacity="0.5" marker-end="url(#arrow)">
-    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="3.6s" repeatCount="indefinite"/>
-  </line>
-  
-  <!-- Cross connections -->
-  <line x1="230" y1="320" x2="770" y2="290" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.35" stroke-dasharray="8,8" marker-end="url(#arrow)">
-    <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="500" y1="600" x2="970" y2="570" stroke="url(#blue)" stroke-width="3" opacity="0.35" stroke-dasharray="8,8" marker-end="url(#arrow)">
-    <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite"/>
-  </line>
-  
-  <line x1="450" y1="320" x2="1230" y2="290" stroke="url(#purple)" stroke-width="3" opacity="0.35" stroke-dasharray="8,8" marker-end="url(#arrow)">
-    <animate attributeName="stroke-dashoffset" from="0" to="16" dur="1s" repeatCount="indefinite"/>
-  </line>
-  
-  <!-- Growth Metrics - Larger and Bolder -->
-  <g>
-    <rect x="300" y="280" width="110" height="45" rx="22" fill="#8b5cf6" opacity="0.25"/>
-    <text x="355" y="310" font-family="Arial, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle" font-weight="bold">+45%</text>
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  <!-- Node 1: E-commerce -->
+  <g class="node" style="animation-delay: 0s">
+    <circle cx="200" cy="150" r="55" fill="url(#nodeGradient1)" opacity="0.95"/>
+    <circle cx="200" cy="150" r="45" fill="none" stroke="#a78bfa" stroke-width="3" opacity="0.6" class="glow-ring"/>
+    <!-- Shopping cart icon -->
+    <path class="icon" d="M 180 135 L 220 135 L 216 165 L 184 165 Z M 188 170 A 4 4 0 1 0 188 178 A 4 4 0 1 0 188 170 M 212 170 A 4 4 0 1 0 212 178 A 4 4 0 1 0 212 170" 
+          fill="white" stroke="white" stroke-width="3" style="animation-delay: 0s"/>
   </g>
   
-  <g>
-    <rect x="550" y="420" width="130" height="45" rx="22" fill="#3b82f6" opacity="0.25"/>
-    <text x="615" y="450" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" text-anchor="middle" font-weight="bold">2.3K users</text>
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
-  </g>
-  
-  <g>
-    <rect x="340" y="540" width="100" height="45" rx="22" fill="#8b5cf6" opacity="0.25"/>
-    <text x="390" y="570" font-family="Arial, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle" font-weight="bold">+32%</text>
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.2s" repeatCount="indefinite"/>
-  </g>
-  
-  <g>
-    <rect x="850" y="420" width="110" height="45" rx="22" fill="#3b82f6" opacity="0.25"/>
-    <text x="905" y="450" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" text-anchor="middle" font-weight="bold">$125K</text>
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.8s" repeatCount="indefinite"/>
-  </g>
-  
-  <g>
-    <rect x="800" y="640" width="100" height="45" rx="22" fill="#8b5cf6" opacity="0.25"/>
-    <text x="850" y="670" font-family="Arial, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle" font-weight="bold">+58%</text>
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.3s" repeatCount="indefinite"/>
-  </g>
-  
-  <g>
-    <rect x="1100" y="420" width="120" height="45" rx="22" fill="#3b82f6" opacity="0.25"/>
-    <text x="1160" y="450" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" text-anchor="middle" font-weight="bold">1.8M views</text>
-    <animate attributeName="opacity" values="0.6;1;0.6" dur="2.6s" repeatCount="indefinite"/>
-  </g>
-  
-  <!-- Node 1: E-commerce - Larger -->
-  <g>
-    <circle cx="200" cy="300" r="70" fill="url(#purple)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="70;78;70" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="200" cy="300" r="60" fill="url(#purple)" stroke="#8b5cf6" stroke-width="5"/>
-    <path d="M 178 285 L 185 285 L 189 305 L 211 305 L 215 290 L 195 290 L 191 275 L 222 275 L 218 295 L 195 295" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <circle cx="197" cy="315" r="3" fill="white"/>
-    <circle cx="209" cy="315" r="3" fill="white"/>
-    <text x="200" y="385" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="bold">E-Shop</text>
-  </g>
-  
-  <!-- Node 2: Social -->
-  <g>
-    <circle cx="475" cy="300" r="70" fill="url(#blue)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="70;78;70" dur="3.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="475" cy="300" r="60" fill="url(#blue)" stroke="#3b82f6" stroke-width="5"/>
-    <circle cx="460" cy="293" r="6" fill="white"/>
-    <circle cx="490" cy="293" r="6" fill="white"/>
-    <circle cx="475" cy="315" r="6" fill="white"/>
-    <line x1="465" y1="296" x2="479" y2="310" stroke="white" stroke-width="3.5"/>
-    <line x1="485" y1="296" x2="479" y2="310" stroke="white" stroke-width="3.5"/>
-    <text x="475" y="385" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="bold">Social</text>
+  <!-- Node 2: Social Media -->
+  <g class="node" style="animation-delay: 0.5s">
+    <circle cx="500" cy="150" r="60" fill="url(#nodeGradient2)" opacity="0.95"/>
+    <circle cx="500" cy="150" r="50" fill="none" stroke="#60a5fa" stroke-width="3" opacity="0.6" class="glow-ring" style="animation-delay: 0.5s"/>
+    <!-- Share icon -->
+    <circle class="icon" cx="480" cy="142" r="7" fill="white" style="animation-delay: 0.5s"/>
+    <circle class="icon" cx="520" cy="142" r="7" fill="white" style="animation-delay: 0.5s"/>
+    <circle class="icon" cx="500" cy="168" r="7" fill="white" style="animation-delay: 0.5s"/>
+    <line class="icon" x1="480" y1="142" x2="500" y2="168" stroke="white" stroke-width="4" style="animation-delay: 0.5s"/>
+    <line class="icon" x1="520" y1="142" x2="500" y2="168" stroke="white" stroke-width="4" style="animation-delay: 0.5s"/>
   </g>
   
   <!-- Node 3: Finance -->
-  <g>
-    <circle cx="470" cy="600" r="70" fill="url(#purpleBlue)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="70;78;70" dur="4.2s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="470" cy="600" r="60" fill="url(#purpleBlue)" stroke="#8b5cf6" stroke-width="5"/>
-    <text x="470" y="620" font-family="Arial, sans-serif" font-size="48" fill="white" text-anchor="middle" font-weight="bold">$</text>
-    <text x="470" y="685" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Finance</text>
+  <g class="node" style="animation-delay: 1s">
+    <circle cx="700" cy="150" r="57" fill="url(#nodeGradient1)" opacity="0.95"/>
+    <circle cx="700" cy="150" r="47" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.6" class="glow-ring" style="animation-delay: 1s"/>
+    <!-- Dollar sign -->
+    <text class="icon" x="700" y="170" font-size="55" fill="white" text-anchor="middle" style="animation-delay: 1s">$</text>
   </g>
   
-  <!-- Node 4: Analytics -->
-  <g>
-    <circle cx="800" cy="300" r="70" fill="url(#purple)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="70;78;70" dur="3.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="800" cy="300" r="60" fill="url(#purple)" stroke="#8b5cf6" stroke-width="5"/>
-    <path d="M 775 318 L 775 295 L 783 303 L 791 288 L 799 298 L 807 283 L 815 293 L 823 283" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <line x1="770" y1="323" x2="828" y2="323" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
-    <text x="800" y="385" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Analytics</text>
+  <!-- Node 4: Health & Fitness -->
+  <g class="node" style="animation-delay: 1.5s">
+    <circle cx="1000" cy="150" r="55" fill="url(#nodeGradient2)" opacity="0.95"/>
+    <circle cx="1000" cy="150" r="45" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.6" class="glow-ring" style="animation-delay: 1.5s"/>
+    <!-- Heart icon -->
+    <path class="icon" d="M 1000 168 L 983 143 Q 975 134 983 126 Q 992 118 1000 126 Q 1008 118 1017 126 Q 1025 134 1017 143 Z" 
+          fill="white" style="animation-delay: 1.5s"/>
   </g>
   
-  <!-- Node 5: Health -->
-  <g>
-    <circle cx="700" cy="600" r="75" fill="url(#blue)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="75;83;75" dur="4.5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="700" cy="600" r="65" fill="url(#blue)" stroke="#3b82f6" stroke-width="5"/>
-    <path d="M 700 612 L 685 592 Q 678 583 685 576 Q 692 569 700 576 Q 708 569 715 576 Q 722 583 715 592 Z" fill="white"/>
-    <text x="700" y="690" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="bold">Health</text>
+  <!-- Node 5: Education -->
+  <g class="node" style="animation-delay: 2s">
+    <circle cx="700" cy="350" r="58" fill="url(#nodeGradient1)" opacity="0.95"/>
+    <circle cx="700" cy="350" r="48" fill="none" stroke="#a78bfa" stroke-width="3" opacity="0.6" class="glow-ring" style="animation-delay: 2s"/>
+    <!-- Book icon -->
+    <rect class="icon" x="678" y="332" width="44" height="36" fill="none" stroke="white" stroke-width="4" style="animation-delay: 2s"/>
+    <line class="icon" x1="700" y1="332" x2="700" y2="368" stroke="white" stroke-width="4" style="animation-delay: 2s"/>
   </g>
   
-  <!-- Node 6: Education -->
-  <g>
-    <circle cx="980" cy="600" r="70" fill="url(#purpleBlue)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="70;78;70" dur="3.3s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="980" cy="600" r="60" fill="url(#purpleBlue)" stroke="#8b5cf6" stroke-width="5"/>
-    <rect x="958" y="587" width="44" height="28" rx="3" fill="none" stroke="white" stroke-width="3.5"/>
-    <line x1="980" y1="587" x2="980" y2="615" stroke="white" stroke-width="3.5"/>
-    <text x="980" y="685" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Education</text>
+  <!-- Node 6: Entertainment -->
+  <g class="node" style="animation-delay: 2.5s">
+    <circle cx="500" cy="350" r="56" fill="url(#nodeGradient2)" opacity="0.95"/>
+    <circle cx="500" cy="350" r="46" fill="none" stroke="#60a5fa" stroke-width="3" opacity="0.6" class="glow-ring" style="animation-delay: 2.5s"/>
+    <!-- Play icon -->
+    <polygon class="icon" points="485,332 485,368 525,350" fill="white" style="animation-delay: 2.5s"/>
   </g>
   
-  <!-- Node 7: Gaming -->
-  <g>
-    <circle cx="1250" cy="300" r="70" fill="url(#purple)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="70;78;70" dur="4.8s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1250" cy="300" r="60" fill="url(#purple)" stroke="#8b5cf6" stroke-width="5"/>
-    <rect x="1228" y="289" width="44" height="24" rx="12" fill="none" stroke="white" stroke-width="3.5"/>
-    <circle cx="1238" cy="298" r="4" fill="white"/>
-    <circle cx="1262" cy="298" r="4" fill="white"/>
-    <text x="1250" y="385" font-family="Arial, sans-serif" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="bold">Gaming</text>
+  <!-- Node 7: Travel -->
+  <g class="node" style="animation-delay: 3s">
+    <circle cx="1000" cy="350" r="55" fill="url(#nodeGradient2)" opacity="0.95"/>
+    <circle cx="1000" cy="350" r="45" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.6" class="glow-ring" style="animation-delay: 3s"/>
+    <!-- Location pin -->
+    <path class="icon" d="M 1000 330 Q 983 330 983 348 Q 983 358 1000 378 Q 1017 358 1017 348 Q 1017 330 1000 330 Z M 1000 342 A 6 6 0 1 0 1000 354 A 6 6 0 1 0 1000 342" 
+          fill="white" style="animation-delay: 3s"/>
   </g>
   
-  <!-- Node 8: Travel -->
-  <g>
-    <circle cx="1270" cy="600" r="70" fill="url(#blue)" opacity="0.2" filter="url(#glow)">
-      <animate attributeName="r" values="70;78;70" dur="3.6s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="1270" cy="600" r="60" fill="url(#blue)" stroke="#3b82f6" stroke-width="5"/>
-    <path d="M 1248 600 L 1270 590 L 1292 600 M 1270 590 L 1270 610 M 1260 605 L 1280 605" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-    <text x="1270" y="685" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="bold">Travel</text>
+  <!-- Node 8: Analytics Hub (Central) -->
+  <g class="node" style="animation-delay: 3.5s">
+    <circle cx="200" cy="350" r="54" fill="url(#purpleBlue)" opacity="0.95"/>
+    <circle cx="200" cy="350" r="44" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.6" class="glow-ring" style="animation-delay: 3.5s"/>
+    <!-- Chart icon -->
+    <line class="icon" x1="180" y1="370" x2="180" y2="340" stroke="white" stroke-width="4" style="animation-delay: 3.5s"/>
+    <line class="icon" x1="200" y1="370" x2="200" y2="330" stroke="white" stroke-width="4" style="animation-delay: 3.5s"/>
+    <line class="icon" x1="220" y1="370" x2="220" y2="350" stroke="white" stroke-width="4" style="animation-delay: 3.5s"/>
   </g>
   
-  <!-- Animated Particles - Larger -->
-  <circle cx="0" cy="0" r="5" fill="#8b5cf6">
-    <animateMotion path="M 200 300 L 475 300" dur="4s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Growth Metrics -->
+  <g class="metric" style="animation-delay: 0s">
+    <rect x="320" y="90" width="110" height="42" rx="21" fill="#8b5cf6" opacity="0.95" filter="url(#glow)"/>
+    <text x="375" y="118" font-size="22" fill="white" text-anchor="middle" font-weight="700">+45%</text>
+  </g>
   
-  <circle cx="0" cy="0" r="5" fill="#3b82f6">
-    <animateMotion path="M 475 300 L 800 300" dur="5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;0" dur="5s" repeatCount="indefinite"/>
-  </circle>
+  <g class="metric" style="animation-delay: 0.5s">
+    <rect x="580" y="70" width="100" height="42" rx="21" fill="#3b82f6" opacity="0.95" filter="url(#glow)"/>
+    <text x="630" y="98" font-size="22" fill="white" text-anchor="middle" font-weight="700">2.3M</text>
+  </g>
   
-  <circle cx="0" cy="0" r="5" fill="#8b5cf6">
-    <animateMotion path="M 700 600 L 980 600" dur="4.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;0" dur="4.5s" repeatCount="indefinite"/>
-  </circle>
+  <g class="metric" style="animation-delay: 1s">
+    <rect x="810" y="90" width="115" height="42" rx="21" fill="#8b5cf6" opacity="0.95" filter="url(#glow)"/>
+    <text x="867" y="118" font-size="22" fill="white" text-anchor="middle" font-weight="700">+128%</text>
+  </g>
   
-  <circle cx="0" cy="0" r="5" fill="#3b82f6">
-    <animateMotion path="M 800 300 L 1250 300" dur="5.5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;0" dur="5.5s" repeatCount="indefinite"/>
-  </circle>
+  <g class="metric" style="animation-delay: 1.5s">
+    <rect x="1030" y="230" width="100" height="42" rx="21" fill="#3b82f6" opacity="0.95" filter="url(#glow)"/>
+    <text x="1080" y="258" font-size="22" fill="white" text-anchor="middle" font-weight="700">890K</text>
+  </g>
   
-  <circle cx="0" cy="0" r="5" fill="#8b5cf6">
-    <animateMotion path="M 980 600 L 1270 600" dur="4.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0;1;0" dur="4.8s" repeatCount="indefinite"/>
-  </circle>
+  <g class="metric" style="animation-delay: 2s">
+    <rect x="780" y="385" width="100" height="42" rx="21" fill="#8b5cf6" opacity="0.95" filter="url(#glow)"/>
+    <text x="830" y="413" font-size="22" fill="white" text-anchor="middle" font-weight="700">1.8M</text>
+  </g>
   
-  <!-- Title - Larger and Bolder -->
-  <text x="800" y="100" font-family="Arial, sans-serif" font-size="42" fill="#8b5cf6" text-anchor="middle" font-weight="bold">
-    Startup Ecosystem Network
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
-  </text>
+  <g class="metric" style="animation-delay: 2.5s">
+    <rect x="380" y="385" width="100" height="42" rx="21" fill="#3b82f6" opacity="0.95" filter="url(#glow)"/>
+    <text x="430" y="413" font-size="22" fill="white" text-anchor="middle" font-weight="700">543K</text>
+  </g>
   
-  <text x="800" y="140" font-family="Arial, sans-serif" font-size="20" fill="#3b82f6" text-anchor="middle" font-weight="600" opacity="0.8">
-    Cross-Promotion &amp; Growth Dynamics
-  </text>
+  <g class="metric" style="animation-delay: 3s">
+    <rect x="80" y="230" width="105" height="42" rx="21" fill="#8b5cf6" opacity="0.95" filter="url(#glow)"/>
+    <text x="132" y="258" font-size="22" fill="white" text-anchor="middle" font-weight="700">+67%</text>
+  </g>
+  
+  <!-- Growth indicators (upward arrows) -->
+  <g class="growth-indicator" style="animation-delay: 0.3s">
+    <path d="M 440 108 L 440 80 M 430 90 L 440 80 L 450 90" 
+          stroke="#8b5cf6" stroke-width="5" fill="none" opacity="0.9" filter="url(#glow)"/>
+  </g>
+  
+  <g class="growth-indicator" style="animation-delay: 0.8s">
+    <path d="M 690 88 L 690 60 M 680 70 L 690 60 L 700 70" 
+          stroke="#3b82f6" stroke-width="5" fill="none" opacity="0.9" filter="url(#glow)"/>
+  </g>
+  
+  <g class="growth-indicator" style="animation-delay: 1.3s">
+    <path d="M 940 108 L 940 80 M 930 90 L 940 80 L 950 90" 
+          stroke="#8b5cf6" stroke-width="5" fill="none" opacity="0.9" filter="url(#glow)"/>
+  </g>
+  
+  <g class="growth-indicator" style="animation-delay: 1.8s">
+    <path d="M 1100 248 L 1100 220 M 1090 230 L 1100 220 L 1110 230" 
+          stroke="#3b82f6" stroke-width="5" fill="none" opacity="0.9" filter="url(#glow)"/>
+  </g>
+  
+  <g class="growth-indicator" style="animation-delay: 2.3s">
+    <path d="M 865 403 L 865 375 M 855 385 L 865 375 L 875 385" 
+          stroke="#8b5cf6" stroke-width="5" fill="none" opacity="0.9" filter="url(#glow)"/>
+  </g>
+  
+  <g class="growth-indicator" style="animation-delay: 2.8s">
+    <path d="M 495 403 L 495 375 M 485 385 L 495 375 L 505 385" 
+          stroke="#3b82f6" stroke-width="5" fill="none" opacity="0.9" filter="url(#glow)"/>
+  </g>
+  
+  <g class="growth-indicator" style="animation-delay: 3.3s">
+    <path d="M 155 248 L 155 220 M 145 230 L 155 220 L 165 230" 
+          stroke="#8b5cf6" stroke-width="5" fill="none" opacity="0.9" filter="url(#glow)"/>
+  </g>
 </svg>
