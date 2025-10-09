@@ -1,30 +1,32 @@
-<svg width="1400" height="1400" viewBox="0 0 1400 1400" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Gradients -->
     <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="vibrantPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="vibrantBlue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
-    </linearGradient>
+    <radialGradient id="glowEffect">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
     
-    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c4b5fd;stop-opacity:1" />
-    </linearGradient>
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="14" markerHeight="14" refX="12" refY="5" orient="auto">
+      <polygon points="0 0, 14 5, 0 10" fill="url(#purpleBlue)" opacity="0.9" />
+    </marker>
     
-    <linearGradient id="lightBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
-    </linearGradient>
-    
+    <!-- Filters -->
     <filter id="glow">
       <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
       <feMerge>
@@ -33,288 +35,178 @@
       </feMerge>
     </filter>
     
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.3"/>
+    <filter id="strongGlow">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
     
-    <marker id="arrowPurple" markerWidth="16" markerHeight="16" refX="14" refY="6" orient="auto">
-      <polygon points="0 0, 16 6, 0 12" fill="#8b5cf6" opacity="0.9" />
-    </marker>
-    
-    <marker id="arrowBlue" markerWidth="16" markerHeight="16" refX="14" refY="6" orient="auto">
-      <polygon points="0 0, 16 6, 0 12" fill="#3b82f6" opacity="0.9" />
-    </marker>
+    <style>
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+      
+      @keyframes dash {
+        to { stroke-dashoffset: -40; }
+      }
+      
+      @keyframes fadeInOut {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+      }
+      
+      @keyframes scaleUp {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      
+      @keyframes glow-pulse {
+        0%, 100% { filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.6)) drop-shadow(0 0 25px rgba(59, 130, 246, 0.4)); }
+        50% { filter: drop-shadow(0 0 30px rgba(139, 92, 246, 1)) drop-shadow(0 0 45px rgba(59, 130, 246, 0.8)); }
+      }
+      
+      @keyframes slideIn {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+      
+      .segment {
+        animation: pulse 3s ease-in-out infinite, slideIn 1s ease-out forwards;
+      }
+      
+      .arrow-path {
+        stroke: url(#purpleBlue);
+        stroke-width: 4;
+        fill: none;
+        stroke-dasharray: 10, 10;
+        animation: dash 20s linear infinite;
+      }
+      
+      .icon {
+        animation: fadeInOut 4s ease-in-out infinite;
+      }
+      
+      .center-circle {
+        animation: rotate 30s linear infinite, glow-pulse 3s ease-in-out infinite;
+      }
+      
+      .label-text {
+        animation: scaleUp 3s ease-in-out infinite;
+      }
+      
+      text {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-weight: 700;
+      }
+    </style>
   </defs>
   
-  <!-- Center Circle Background -->
-  <circle cx="700" cy="700" r="520" fill="none" stroke="url(#purpleBlue)" stroke-width="2" opacity="0.2">
-    <animate attributeName="r" values="520;530;520" dur="4s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Background glow -->
+  <circle cx="400" cy="400" r="280" fill="url(#glowEffect)" opacity="0.4" class="segment" style="animation-delay: 0s"/>
   
-  <circle cx="700" cy="700" r="480" fill="none" stroke="url(#purpleBlue)" stroke-width="1" opacity="0.15">
-    <animate attributeName="r" values="480;490;480" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- Rotating Background Rings -->
-  <circle cx="700" cy="700" r="450" fill="none" stroke="url(#purple)" stroke-width="1" opacity="0.1" stroke-dasharray="20,20">
-    <animateTransform attributeName="transform" type="rotate" from="0 700 700" to="360 700 700" dur="60s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- Segment 1: More Apps (Top) -->
-  <g>
-    <path d="M 700 150 A 550 550 0 0 1 1050 300" fill="none" stroke="url(#purple)" stroke-width="80" opacity="0.3" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3s" repeatCount="indefinite"/>
-    </path>
-    
-    <!-- Icon: Apps Grid -->
-    <g transform="translate(850, 180)">
-      <rect x="0" y="0" width="25" height="25" rx="5" fill="white" opacity="0.9"/>
-      <rect x="30" y="0" width="25" height="25" rx="5" fill="white" opacity="0.9"/>
-      <rect x="0" y="30" width="25" height="25" rx="5" fill="white" opacity="0.9"/>
-      <rect x="30" y="30" width="25" height="25" rx="5" fill="white" opacity="0.9"/>
-      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
-    </g>
-    
-    <!-- Label -->
-    <text x="900" y="260" font-family="Arial, sans-serif" font-size="32" fill="#8b5cf6" text-anchor="middle" font-weight="bold">
-      More Apps
-    </text>
-    <text x="900" y="290" font-family="Arial, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle" opacity="0.8">
-      Expand Portfolio
-    </text>
+  <!-- Center circle with rotation animation -->
+  <g class="center-circle">
+    <circle cx="400" cy="400" r="100" fill="url(#purpleBlue)" opacity="0.15" filter="url(#glow)"/>
+    <circle cx="400" cy="400" r="80" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.6"/>
+    <text x="400" y="395" font-size="20" fill="url(#purpleBlue)" text-anchor="middle">Growth</text>
+    <text x="400" y="420" font-size="18" fill="url(#purpleBlue)" text-anchor="middle">Flywheel</text>
   </g>
   
-  <!-- Arrow 1: Apps to Surfaces -->
-  <g>
-    <path d="M 1080 320 A 400 400 0 0 1 1180 550" fill="none" stroke="url(#purpleBlue)" stroke-width="6" opacity="0.6" marker-end="url(#arrowPurple)">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.5s" repeatCount="indefinite"/>
-    </path>
+  <!-- Segment 1: More Apps (Top) -->
+  <g class="segment" style="animation-delay: 0s">
+    <circle cx="400" cy="120" r="70" fill="url(#vibrantPurple)" opacity="0.95" filter="url(#strongGlow)"/>
+    <circle cx="400" cy="120" r="60" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.7"/>
     
-    <!-- Flowing particles -->
-    <circle cx="0" cy="0" r="6" fill="#8b5cf6">
-      <animateMotion path="M 1080 320 A 400 400 0 0 1 1180 550" dur="3s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
-    </circle>
+    <!-- Apps icon (grid) -->
+    <rect class="icon" x="380" y="100" width="15" height="15" rx="3" fill="white" style="animation-delay: 0s"/>
+    <rect class="icon" x="405" y="100" width="15" height="15" rx="3" fill="white" style="animation-delay: 0.2s"/>
+    <rect class="icon" x="380" y="125" width="15" height="15" rx="3" fill="white" style="animation-delay: 0.4s"/>
+    <rect class="icon" x="405" y="125" width="15" height="15" rx="3" fill="white" style="animation-delay: 0.6s"/>
+    
+    <text x="400" y="175" font-size="20" fill="#8b5cf6" text-anchor="middle" class="label-text">More Apps</text>
   </g>
   
   <!-- Segment 2: More Surfaces (Right) -->
-  <g>
-    <path d="M 1050 300 A 550 550 0 0 1 1250 700" fill="none" stroke="url(#blue)" stroke-width="80" opacity="0.3" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.2s" repeatCount="indefinite"/>
-    </path>
+  <g class="segment" style="animation-delay: 0.4s">
+    <circle cx="610" cy="280" r="70" fill="url(#vibrantBlue)" opacity="0.95" filter="url(#strongGlow)"/>
+    <circle cx="610" cy="280" r="60" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.7"/>
     
-    <!-- Icon: Multiple Screens -->
-    <g transform="translate(1140, 460)">
-      <rect x="0" y="5" width="35" height="45" rx="4" fill="white" opacity="0.9" stroke="#3b82f6" stroke-width="2"/>
-      <rect x="15" y="0" width="35" height="45" rx="4" fill="white" opacity="0.95" stroke="#3b82f6" stroke-width="2"/>
-      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.2s" repeatCount="indefinite"/>
-    </g>
+    <!-- Screens icon (devices) -->
+    <rect class="icon" x="595" y="265" width="30" height="20" rx="2" fill="none" stroke="white" stroke-width="3" style="animation-delay: 0.4s"/>
+    <rect class="icon" x="605" y="288" width="15" height="22" rx="2" fill="none" stroke="white" stroke-width="2.5" style="animation-delay: 0.6s"/>
     
-    <!-- Label -->
-    <text x="1180" y="560" font-family="Arial, sans-serif" font-size="32" fill="#3b82f6" text-anchor="middle" font-weight="bold">
-      More Surfaces
-    </text>
-    <text x="1180" y="590" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" text-anchor="middle" opacity="0.8">
-      Wider Reach
-    </text>
-  </g>
-  
-  <!-- Arrow 2: Surfaces to Traffic -->
-  <g>
-    <path d="M 1230 730 A 400 400 0 0 1 1080 1000" fill="none" stroke="url(#blue)" stroke-width="6" opacity="0.6" marker-end="url(#arrowBlue)">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.7s" repeatCount="indefinite"/>
-    </path>
-    
-    <circle cx="0" cy="0" r="6" fill="#3b82f6">
-      <animateMotion path="M 1230 730 A 400 400 0 0 1 1080 1000" dur="3.2s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;0" dur="3.2s" repeatCount="indefinite"/>
-    </circle>
+    <text x="680" y="288" font-size="20" fill="#3b82f6" text-anchor="middle" class="label-text" style="animation-delay: 0.4s">More</text>
+    <text x="680" y="308" font-size="20" fill="#3b82f6" text-anchor="middle" class="label-text" style="animation-delay: 0.4s">Surfaces</text>
   </g>
   
   <!-- Segment 3: More Traffic (Bottom Right) -->
-  <g>
-    <path d="M 1250 700 A 550 550 0 0 1 850 1200" fill="none" stroke="url(#purpleBlue)" stroke-width="80" opacity="0.3" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.4s" repeatCount="indefinite"/>
-    </path>
+  <g class="segment" style="animation-delay: 0.8s">
+    <circle cx="550" cy="550" r="70" fill="url(#vibrantPurple)" opacity="0.95" filter="url(#strongGlow)"/>
+    <circle cx="550" cy="550" r="60" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.7"/>
     
-    <!-- Icon: Users/Traffic -->
-    <g transform="translate(1020, 950)">
-      <circle cx="15" cy="12" r="10" fill="white" opacity="0.9"/>
-      <path d="M 5 35 Q 15 25 25 35" fill="white" opacity="0.9" stroke="white" stroke-width="2"/>
-      <circle cx="40" cy="15" r="8" fill="white" opacity="0.8"/>
-      <path d="M 32 35 Q 40 28 48 35" fill="white" opacity="0.8" stroke="white" stroke-width="2"/>
-      <circle cx="0" cy="15" r="8" fill="white" opacity="0.8"/>
-      <path d="M -8 35 Q 0 28 8 35" fill="white" opacity="0.8" stroke="white" stroke-width="2"/>
-      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.4s" repeatCount="indefinite"/>
-    </g>
+    <!-- Users icon (people) -->
+    <circle class="icon" cx="540" cy="540" r="8" fill="white" style="animation-delay: 0.8s"/>
+    <path class="icon" d="M 540 548 Q 525 548 525 565 L 555 565 Q 555 548 540 548" fill="white" style="animation-delay: 1s"/>
+    <circle class="icon" cx="560" cy="543" r="6" fill="white" opacity="0.8" style="animation-delay: 1.2s"/>
+    <path class="icon" d="M 560 548 Q 548 548 548 562 L 572 562 Q 572 548 560 548" fill="white" opacity="0.8" style="animation-delay: 1.4s"/>
     
-    <!-- Label -->
-    <text x="1050" y="1080" font-family="Arial, sans-serif" font-size="32" fill="#8b5cf6" text-anchor="middle" font-weight="bold">
-      More Traffic
-    </text>
-    <text x="1050" y="1110" font-family="Arial, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle" opacity="0.8">
-      Higher Engagement
-    </text>
-  </g>
-  
-  <!-- Arrow 3: Traffic to Conversions -->
-  <g>
-    <path d="M 820 1180 A 400 400 0 0 1 520 1180" fill="none" stroke="url(#purple)" stroke-width="6" opacity="0.6" marker-end="url(#arrowPurple)">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.9s" repeatCount="indefinite"/>
-    </path>
-    
-    <circle cx="0" cy="0" r="6" fill="#8b5cf6">
-      <animateMotion path="M 820 1180 A 400 400 0 0 1 520 1180" dur="3.4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;0" dur="3.4s" repeatCount="indefinite"/>
-    </circle>
+    <text x="630" y="558" font-size="20" fill="#8b5cf6" text-anchor="middle" class="label-text" style="animation-delay: 0.8s">More Traffic</text>
   </g>
   
   <!-- Segment 4: More Conversions (Bottom Left) -->
-  <g>
-    <path d="M 850 1200 A 550 550 0 0 1 350 1100" fill="none" stroke="url(#lightBlue)" stroke-width="80" opacity="0.3" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.6s" repeatCount="indefinite"/>
-    </path>
+  <g class="segment" style="animation-delay: 1.2s">
+    <circle cx="250" cy="550" r="70" fill="url(#vibrantBlue)" opacity="0.95" filter="url(#strongGlow)"/>
+    <circle cx="250" cy="550" r="60" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.7"/>
     
-    <!-- Icon: Conversion Chart -->
-    <g transform="translate(540, 1080)">
-      <rect x="0" y="25" width="12" height="20" rx="2" fill="white" opacity="0.8"/>
-      <rect x="16" y="18" width="12" height="27" rx="2" fill="white" opacity="0.85"/>
-      <rect x="32" y="10" width="12" height="35" rx="2" fill="white" opacity="0.9"/>
-      <rect x="48" y="5" width="12" height="40" rx="2" fill="white" opacity="0.95"/>
-      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.6s" repeatCount="indefinite"/>
-    </g>
+    <!-- Chart icon (trending up) -->
+    <polyline class="icon" points="230,560 240,545 250,550 260,535 270,540" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" style="animation-delay: 1.2s"/>
+    <circle class="icon" cx="270" cy="540" r="3" fill="white" style="animation-delay: 1.4s"/>
     
-    <!-- Label -->
-    <text x="580" y="1180" font-family="Arial, sans-serif" font-size="32" fill="#3b82f6" text-anchor="middle" font-weight="bold">
-      More Conversions
-    </text>
-    <text x="580" y="1210" font-family="Arial, sans-serif" font-size="18" fill="#3b82f6" text-anchor="middle" opacity="0.8">
-      Better Results
-    </text>
-  </g>
-  
-  <!-- Arrow 4: Conversions to Growth -->
-  <g>
-    <path d="M 320 1080 A 400 400 0 0 1 220 850" fill="none" stroke="url(#blue)" stroke-width="6" opacity="0.6" marker-end="url(#arrowBlue)">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.1s" repeatCount="indefinite"/>
-    </path>
-    
-    <circle cx="0" cy="0" r="6" fill="#3b82f6">
-      <animateMotion path="M 320 1080 A 400 400 0 0 1 220 850" dur="3.6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;0" dur="3.6s" repeatCount="indefinite"/>
-    </circle>
+    <text x="170" y="558" font-size="20" fill="#3b82f6" text-anchor="middle" class="label-text" style="animation-delay: 1.2s">More</text>
+    <text x="170" y="578" font-size="20" fill="#3b82f6" text-anchor="middle" class="label-text" style="animation-delay: 1.2s">Conversions</text>
   </g>
   
   <!-- Segment 5: More Growth (Left) -->
-  <g>
-    <path d="M 350 1100 A 550 550 0 0 1 150 700" fill="none" stroke="url(#lightPurple)" stroke-width="80" opacity="0.3" filter="url(#glow)">
-      <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.8s" repeatCount="indefinite"/>
-    </path>
+  <g class="segment" style="animation-delay: 1.6s">
+    <circle cx="190" cy="280" r="70" fill="url(#vibrantPurple)" opacity="0.95" filter="url(#strongGlow)"/>
+    <circle cx="190" cy="280" r="60" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.7"/>
     
-    <!-- Icon: Growth Arrow -->
-    <g transform="translate(200, 860)">
-      <path d="M 5 40 L 5 15 L 30 15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-      <polygon points="30 5, 45 15, 30 25" fill="white" opacity="0.9"/>
-      <circle cx="10" cy="35" r="3" fill="white" opacity="0.8"/>
-      <circle cx="18" cy="28" r="3" fill="white" opacity="0.85"/>
-      <circle cx="26" cy="22" r="3" fill="white" opacity="0.9"/>
-      <animate attributeName="opacity" values="0.8;1;0.8" dur="2.8s" repeatCount="indefinite"/>
-    </g>
+    <!-- Growth icon (rocket/arrow up) -->
+    <path class="icon" d="M 190 255 L 190 285 M 180 265 L 190 255 L 200 265" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" style="animation-delay: 1.6s"/>
+    <path class="icon" d="M 185 275 L 180 285 L 185 283 M 195 275 L 200 285 L 195 283" fill="white" style="animation-delay: 1.8s"/>
     
-    <!-- Label -->
-    <text x="240" y="960" font-family="Arial, sans-serif" font-size="32" fill="#8b5cf6" text-anchor="middle" font-weight="bold">
-      More Growth
-    </text>
-    <text x="240" y="990" font-family="Arial, sans-serif" font-size="18" fill="#8b5cf6" text-anchor="middle" opacity="0.8">
-      Scale Up
-    </text>
+    <text x="120" y="288" font-size="20" fill="#8b5cf6" text-anchor="middle" class="label-text" style="animation-delay: 1.6s">More</text>
+    <text x="120" y="308" font-size="20" fill="#8b5cf6" text-anchor="middle" class="label-text" style="animation-delay: 1.6s">Growth</text>
   </g>
   
-  <!-- Arrow 5: Growth back to Apps -->
-  <g>
-    <path d="M 170 670 A 400 400 0 0 1 320 400" fill="none" stroke="url(#purple)" stroke-width="6" opacity="0.6" marker-end="url(#arrowPurple)">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="3.3s" repeatCount="indefinite"/>
-    </path>
-    
-    <circle cx="0" cy="0" r="6" fill="#8b5cf6">
-      <animateMotion path="M 170 670 A 400 400 0 0 1 320 400" dur="3.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;0" dur="3.8s" repeatCount="indefinite"/>
-    </circle>
-  </g>
+  <!-- Connecting arrows (clockwise flow) -->
+  <!-- Arrow 1: Apps to Surfaces -->
+  <path class="arrow-path" d="M 460 150 Q 520 200 570 250" marker-end="url(#arrowhead)" style="animation-delay: 0s"/>
   
-  <!-- Arrow 6: Apps completion (Top Left) -->
-  <g>
-    <path d="M 350 300 A 400 400 0 0 1 550 180" fill="none" stroke="url(#purpleBlue)" stroke-width="6" opacity="0.6" marker-end="url(#arrowBlue)">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2.3s" repeatCount="indefinite"/>
-    </path>
-    
-    <circle cx="0" cy="0" r="6" fill="#3b82f6">
-      <animateMotion path="M 350 300 A 400 400 0 0 1 550 180" dur="2.8s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite"/>
-    </circle>
-  </g>
+  <!-- Arrow 2: Surfaces to Traffic -->
+  <path class="arrow-path" d="M 600 350 Q 590 430 570 490" marker-end="url(#arrowhead)" style="animation-delay: 1s"/>
   
-  <!-- Center Hub -->
-  <g>
-    <circle cx="700" cy="700" r="180" fill="url(#purpleBlue)" opacity="0.15" filter="url(#glow)">
-      <animate attributeName="r" values="180;190;180" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="700" cy="700" r="160" fill="url(#purpleBlue)" opacity="0.2" stroke="url(#purpleBlue)" stroke-width="4">
-      <animate attributeName="opacity" values="0.2;0.35;0.2" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    
-    <!-- Center Icon: Circular Arrows -->
-    <g transform="translate(700, 700)">
-      <path d="M -60 0 A 60 60 0 1 1 -60 0.1" stroke="url(#purple)" stroke-width="8" fill="none" stroke-linecap="round" opacity="0.7">
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
-      </path>
-      <polygon points="60 -10, 80 0, 60 10" fill="#8b5cf6" opacity="0.8">
-        <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="8s" repeatCount="indefinite"/>
-      </polygon>
-    </g>
-    
-    <!-- Center Text -->
-    <text x="700" y="690" font-family="Arial, sans-serif" font-size="38" fill="#8b5cf6" text-anchor="middle" font-weight="bold">
-      Growth
-    </text>
-    <text x="700" y="725" font-family="Arial, sans-serif" font-size="42" fill="url(#purpleBlue)" text-anchor="middle" font-weight="bold">
-      Flywheel
-      <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
-    </text>
-  </g>
+  <!-- Arrow 3: Traffic to Conversions -->
+  <path class="arrow-path" d="M 480 560 Q 400 580 320 560" marker-end="url(#arrowhead)" style="animation-delay: 2s"/>
   
-  <!-- Title -->
-  <text x="700" y="80" font-family="Arial, sans-serif" font-size="48" fill="url(#purpleBlue)" text-anchor="middle" font-weight="bold">
-    Ecosystem Growth Loop
-    <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
-  </text>
+  <!-- Arrow 4: Conversions to Growth -->
+  <path class="arrow-path" d="M 230 480 Q 210 400 210 320" marker-end="url(#arrowhead)" style="animation-delay: 3s"/>
   
-  <!-- Subtitle -->
-  <text x="700" y="130" font-family="Arial, sans-serif" font-size="22" fill="#8b5cf6" text-anchor="middle" opacity="0.8">
-    Continuous Momentum &amp; Expansion
-  </text>
+  <!-- Arrow 5: Growth to Apps -->
+  <path class="arrow-path" d="M 230 210 Q 280 160 340 140" marker-end="url(#arrowhead)" style="animation-delay: 4s"/>
   
-  <!-- Outer Glow Ring -->
-  <circle cx="700" cy="700" r="600" fill="none" stroke="url(#purpleBlue)" stroke-width="3" opacity="0.1">
-    <animate attributeName="r" values="600;610;600" dur="5s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.1;0.2;0.1" dur="5s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- Decorative Dots around the circle -->
-  <circle cx="700" cy="100" r="8" fill="#8b5cf6" opacity="0.6">
-    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  
-  <circle cx="1300" cy="700" r="8" fill="#3b82f6" opacity="0.6">
-    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.3s" repeatCount="indefinite"/>
-  </circle>
-  
-  <circle cx="700" cy="1300" r="8" fill="#8b5cf6" opacity="0.6">
-    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.6s" repeatCount="indefinite"/>
-  </circle>
-  
-  <circle cx="100" cy="700" r="8" fill="#3b82f6" opacity="0.6">
-    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2.9s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Additional circular flow indicators -->
+  <circle cx="460" cy="150" r="8" fill="url(#purpleBlue)" opacity="0.7" class="segment" style="animation-delay: 0s"/>
+  <circle cx="600" cy="350" r="8" fill="url(#purpleBlue)" opacity="0.7" class="segment" style="animation-delay: 1s"/>
+  <circle cx="480" cy="560" r="8" fill="url(#purpleBlue)" opacity="0.7" class="segment" style="animation-delay: 2s"/>
+  <circle cx="230" cy="480" r="8" fill="url(#purpleBlue)" opacity="0.7" class="segment" style="animation-delay: 3s"/>
+  <circle cx="230" cy="210" r="8" fill="url(#purpleBlue)" opacity="0.7" class="segment" style="animation-delay: 4s"/>
 </svg>
