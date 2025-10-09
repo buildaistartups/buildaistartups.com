@@ -1,281 +1,404 @@
-<svg viewBox="0 0 1400 800" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <!-- Gradients -->
-    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="highlightGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+    <linearGradient id="vibrantPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="vibrantBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="vibrantGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="orangeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.25" />
+    </linearGradient>
+    
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="glowEffect">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Drop shadow for theme compatibility -->
+    <filter id="drop-shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <style>
+      @keyframes pulse {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+      }
+      
+      @keyframes highlight {
+        0%, 100% { opacity: 0.4; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.02); }
+      }
+      
+      @keyframes counter {
+        0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      
+      @keyframes slideUp {
+        0% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+      }
+      
+      @keyframes glow-pulse {
+        0%, 100% { filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6)) drop-shadow(0 0 15px rgba(59, 130, 246, 0.4)); }
+        50% { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 1)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.8)); }
+      }
+      
+      @keyframes border-glow {
+        0%, 100% { stroke-width: 3; stroke-opacity: 0.8; }
+        50% { stroke-width: 4; stroke-opacity: 1; }
+      }
+      
+      @keyframes scale-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+      }
+      
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(200%); }
+      }
+      
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+      
+      @keyframes colorShift {
+        0%, 100% { fill: #8b5cf6; }
+        33% { fill: #3b82f6; }
+        66% { fill: #10b981; }
+      }
+      
+      .highlight-box {
+        animation: highlight 2s ease-in-out infinite;
+      }
+      
+      .checkmark {
+        animation: pulse 2s ease-in-out infinite, scale-pulse 2s ease-in-out infinite;
+      }
+      
+      .counter-text {
+        animation: counter 0.8s ease-out forwards;
+      }
+      
+      .banner-slide {
+        animation: slideUp 1s ease-out forwards;
+      }
+      
+      .float-element {
+        animation: float 3s ease-in-out infinite;
+      }
+      
+      .glow-border {
+        animation: border-glow 2s ease-in-out infinite;
+      }
+      
+      .phone-frame {
+        animation: glow-pulse 3s ease-in-out infinite;
+      }
+      
+      .bounce-element {
+        animation: bounce 2s ease-in-out infinite;
+      }
+      
+      text {
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+    </style>
+  </defs>
+  
+  <!-- Title with gradient -->
+  <defs>
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#a855f7" />
+      <stop offset="50%" style="stop-color:#3b82f6" />
+      <stop offset="100%" style="stop-color:#10b981" />
     </linearGradient>
   </defs>
-
-  <!-- Header -->
-  <g transform="translate(700, 40)">
-    <text x="0" y="0" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="bold" fill="url(#purpleBlue)">Cross-Promotion Placements</text>
-    <text x="0" y="28" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#8b5cf6" opacity="0.7">Respectful, non-intrusive ad placement strategies</text>
-  </g>
-
-  <!-- MOCKUP 1: Mobile App - Footer Banner -->
-  <g transform="translate(120, 140)">
-    <!-- Mobile device frame -->
-    <rect x="0" y="0" width="280" height="520" rx="25" fill="#1a1a2e" stroke="#3b82f6" stroke-width="4"/>
-    <rect x="10" y="10" width="260" height="500" rx="20" fill="#0f0f1e"/>
+  <text x="600" y="35" font-size="24" font-weight="700" fill="url(#titleGradient)" text-anchor="middle" class="bounce-element">Cross-Promotion Placements</text>
+  
+  <!-- Mobile App Mock-up 1: Onboarding -->
+  <g transform="translate(80, 80)" class="phone-frame">
+    <!-- Glowing background circle -->
+    <circle cx="140" cy="260" r="180" fill="url(#glowEffect)" opacity="0.3" class="float-element"/>
+    
+    <!-- Phone frame with vibrant gradient -->
+    <rect x="0" y="0" width="280" height="520" rx="25" fill="url(#vibrantPurple)" stroke="#a855f7" stroke-width="3" opacity="0.95" filter="url(#drop-shadow)"/>
+    <rect x="10" y="10" width="260" height="500" rx="18" fill="#ffffff" stroke="#a855f7" stroke-width="2"/>
     
     <!-- Status bar -->
-    <rect x="20" y="20" width="240" height="20" fill="#1a1a2e"/>
-    <circle cx="235" cy="30" r="3" fill="#10b981"/>
-    <text x="30" y="35" font-family="sans-serif" font-size="11" fill="#ffffff">9:41</text>
+    <rect x="10" y="10" width="260" height="30" rx="18" fill="url(#vibrantPurple)" opacity="0.15"/>
+    <text x="30" y="30" font-size="11" font-weight="600" fill="#a855f7">9:41</text>
     
-    <!-- App header -->
-    <rect x="20" y="50" width="240" height="40" fill="#1a1a2e"/>
-    <text x="30" y="75" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff">My App</text>
+    <!-- Onboarding content -->
+    <text x="140" y="80" font-size="18" font-weight="700" fill="url(#vibrantPurple)" text-anchor="middle" class="bounce-element">Welcome!</text>
+    <rect x="50" y="100" width="180" height="8" rx="4" fill="url(#vibrantPurple)" opacity="0.3" class="float-element"/>
+    <rect x="50" y="115" width="140" height="8" rx="4" fill="url(#vibrantBlue)" opacity="0.3" class="float-element" style="animation-delay: 0.2s"/>
     
-    <!-- App content -->
-    <rect x="30" y="100" width="220" height="280" rx="8" fill="#1a1a2e" opacity="0.3"/>
-    <line x1="40" y1="115" x2="180" y2="115" stroke="#4a5568" stroke-width="3"/>
-    <line x1="40" y1="135" x2="160" y2="135" stroke="#4a5568" stroke-width="2"/>
-    <line x1="40" y1="155" x2="200" y2="155" stroke="#4a5568" stroke-width="2"/>
+    <!-- Main illustration placeholder -->
+    <circle cx="140" cy="200" r="60" fill="url(#vibrantPurple)" opacity="0.2" stroke="url(#purpleBlue)" stroke-width="3" class="checkmark"/>
+    <text x="140" y="210" font-size="32" class="bounce-element" style="animation-delay: 0.3s">🎨</text>
     
-    <rect x="40" y="180" width="60" height="60" rx="8" fill="#2d3748"/>
-    <rect x="110" y="180" width="60" height="60" rx="8" fill="#2d3748"/>
-    <rect x="180" y="180" width="60" height="60" rx="8" fill="#2d3748"/>
+    <rect x="40" y="280" width="200" height="8" rx="4" fill="url(#vibrantBlue)" opacity="0.3" class="float-element" style="animation-delay: 0.4s"/>
+    <rect x="60" y="295" width="160" height="8" rx="4" fill="url(#vibrantGreen)" opacity="0.3" class="float-element" style="animation-delay: 0.5s"/>
     
-    <!-- HIGHLIGHTED: Footer promotion banner -->
-    <rect x="20" y="400" width="240" height="70" rx="10" fill="url(#highlightGlow)" stroke="url(#purpleBlue)" stroke-width="3"/>
-    <rect x="25" y="405" width="230" height="60" rx="8" fill="#1a1a2e"/>
+    <!-- Highlighted Onboarding Banner -->
+    <rect class="highlight-box glow-border" x="30" y="330" width="220" height="80" rx="8" fill="url(#lightPurple)" stroke="url(#purpleBlue)" stroke-width="3"/>
+    <rect x="35" y="335" width="210" height="70" rx="6" fill="url(#vibrantPurple)" opacity="0.95" stroke="url(#purpleBlue)" stroke-width="2" filter="url(#drop-shadow)" class="banner-slide" style="animation-delay: 0.3s"/>
     
-    <!-- Promotion content -->
-    <circle cx="50" cy="435" r="15" fill="#8b5cf6" opacity="0.3"/>
-    <text x="75" y="430" font-family="sans-serif" font-size="12" font-weight="600" fill="#8b5cf6">Try Sister App</text>
-    <text x="75" y="445" font-family="sans-serif" font-size="10" fill="#8b5cf6" opacity="0.7">Boost your productivity</text>
+    <!-- Banner content -->
+    <g class="bounce-element" style="animation-delay: 0.5s">
+      <circle cx="60" cy="370" r="18" fill="url(#orangeGlow)"/>
+      <text x="60" y="375" font-size="16" fill="#ffffff" text-anchor="middle">🎯</text>
+    </g>
+    <rect x="85" y="355" width="145" height="6" rx="3" fill="#ffffff" opacity="0.9" class="float-element" style="animation-delay: 0.6s"/>
+    <rect x="85" y="368" width="110" height="6" rx="3" fill="#ffffff" opacity="0.7" class="float-element" style="animation-delay: 0.7s"/>
+    <rect x="85" y="381" width="90" height="5" rx="2.5" fill="#ffffff" opacity="0.5" class="float-element" style="animation-delay: 0.8s"/>
     
-    <!-- CTA button -->
-    <rect x="180" y="420" width="60" height="25" rx="12" fill="url(#purpleBlue)" opacity="0.8"/>
-    <text x="210" y="437" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#ffffff">Install</text>
-    
-    <!-- Close button -->
-    <circle cx="245" cy="410" r="8" fill="#4a5568"/>
-    <line x1="242" y1="407" x2="248" y2="413" stroke="#ffffff" stroke-width="2"/>
-    <line x1="248" y1="407" x2="242" y2="413" stroke="#ffffff" stroke-width="2"/>
-    
-    <!-- Bottom safe area -->
-    <rect x="20" y="480" width="240" height="20" fill="#0f0f1e"/>
+    <!-- Continue button -->
+    <rect x="40" y="440" width="200" height="40" rx="20" fill="url(#vibrantBlue)" class="bounce-element" style="animation-delay: 1s" filter="url(#glow)"/>
+    <text x="140" y="465" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">Continue</text>
     
     <!-- Label -->
-    <text x="140" y="555" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#3b82f6">Footer Banner</text>
-    
-    <!-- Annotation arrow -->
-    <path d="M 280 435 L 320 435" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="330" y="430" font-family="sans-serif" font-size="12" fill="#8b5cf6">Non-intrusive</text>
-    <text x="330" y="445" font-family="sans-serif" font-size="12" fill="#8b5cf6">placement</text>
+    <text x="140" y="540" font-size="12" font-weight="600" fill="url(#vibrantPurple)" text-anchor="middle" class="float-element">Onboarding Banner</text>
   </g>
   
-  <!-- Arrow marker -->
-  <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#8b5cf6"/>
-    </marker>
-  </defs>
-
-  <!-- MOCKUP 2: Desktop App - Sidebar -->
-  <g transform="translate(520, 140)">
-    <!-- Desktop window frame -->
-    <rect x="0" y="0" width="420" height="520" rx="12" fill="#1a1a2e" stroke="#8b5cf6" stroke-width="4"/>
+  <!-- Mobile App Mock-up 2: Footer -->
+  <g transform="translate(440, 80)" class="phone-frame" style="animation-delay: 0.5s">
+    <!-- Glowing background circle -->
+    <circle cx="140" cy="260" r="180" fill="url(#glowEffect)" opacity="0.3" class="float-element" style="animation-delay: 0.5s"/>
     
-    <!-- Title bar -->
-    <rect x="5" y="5" width="410" height="30" rx="8" fill="#0f0f1e"/>
-    <circle cx="20" cy="20" r="5" fill="#ef4444"/>
-    <circle cx="35" cy="20" r="5" fill="#f59e0b"/>
-    <circle cx="50" cy="20" r="5" fill="#10b981"/>
-    <text x="210" y="25" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ffffff">Dashboard App</text>
-    
-    <!-- Main content area -->
-    <rect x="10" y="40" width="400" height="470" rx="8" fill="#0f0f1e"/>
-    
-    <!-- Sidebar -->
-    <rect x="15" y="45" width="100" height="460" fill="#1a1a2e"/>
-    <rect x="20" y="55" width="90" height="35" rx="6" fill="#8b5cf6" opacity="0.2"/>
-    <text x="25" y="77" font-family="sans-serif" font-size="12" fill="#ffffff">Home</text>
-    
-    <rect x="20" y="100" width="90" height="35" rx="6" fill="#2d3748"/>
-    <text x="25" y="122" font-family="sans-serif" font-size="12" fill="#a0aec0">Projects</text>
-    
-    <rect x="20" y="145" width="90" height="35" rx="6" fill="#2d3748"/>
-    <text x="25" y="167" font-family="sans-serif" font-size="12" fill="#a0aec0">Team</text>
-    
-    <!-- HIGHLIGHTED: Sidebar promotion -->
-    <rect x="15" y="320" width="100" height="180" rx="8" fill="url(#highlightGlow)" stroke="url(#purpleBlue)" stroke-width="3"/>
-    <rect x="20" y="325" width="90" height="170" rx="6" fill="#1a1a2e"/>
-    
-    <!-- Promotion content -->
-    <rect x="30" y="335" width="70" height="50" rx="6" fill="#8b5cf6" opacity="0.2"/>
-    <circle cx="65" cy="360" r="12" fill="#8b5cf6"/>
-    <text x="65" y="366" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#ffffff">+</text>
-    
-    <text x="35" y="405" font-family="sans-serif" font-size="11" font-weight="600" fill="#8b5cf6">New App</text>
-    <text x="35" y="420" font-family="sans-serif" font-size="9" fill="#8b5cf6" opacity="0.7">Design tools</text>
-    <text x="35" y="433" font-family="sans-serif" font-size="9" fill="#8b5cf6" opacity="0.7">for teams</text>
-    
-    <rect x="30" y="445" width="70" height="25" rx="12" fill="url(#purpleBlue)" opacity="0.8"/>
-    <text x="65" y="461" text-anchor="middle" font-family="sans-serif" font-size="10" font-weight="600" fill="#ffffff">Try Now</text>
-    
-    <!-- Main content -->
-    <rect x="125" y="55" width="270" height="440" fill="#1a1a2e" opacity="0.3"/>
-    <line x1="135" y1="70" x2="270" y2="70" stroke="#4a5568" stroke-width="4"/>
-    <line x1="135" y1="95" x2="320" y2="95" stroke="#4a5568" stroke-width="2"/>
-    <line x1="135" y1="115" x2="300" y2="115" stroke="#4a5568" stroke-width="2"/>
-    
-    <rect x="135" y="140" width="250" height="80" rx="8" fill="#2d3748"/>
-    <rect x="135" y="230" width="250" height="80" rx="8" fill="#2d3748"/>
-    
-    <!-- Label -->
-    <text x="210" y="555" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#8b5cf6">Sidebar Widget</text>
-    
-    <!-- Annotation -->
-    <path d="M 115 410 L 80 410" stroke="#8b5cf6" stroke-width="2"/>
-    <text x="10" y="405" font-family="sans-serif" font-size="12" fill="#8b5cf6">Always</text>
-    <text x="10" y="420" font-family="sans-serif" font-size="12" fill="#8b5cf6">visible</text>
-  </g>
-
-  <!-- MOCKUP 3: Onboarding Modal -->
-  <g transform="translate(1000, 140)">
-    <!-- Mobile device frame -->
-    <rect x="0" y="0" width="280" height="520" rx="25" fill="#1a1a2e" stroke="#3b82f6" stroke-width="4"/>
-    <rect x="10" y="10" width="260" height="500" rx="20" fill="#0f0f1e"/>
+    <!-- Phone frame with vibrant blue gradient -->
+    <rect x="0" y="0" width="280" height="520" rx="25" fill="url(#vibrantBlue)" stroke="#3b82f6" stroke-width="3" opacity="0.95" filter="url(#drop-shadow)"/>
+    <rect x="10" y="10" width="260" height="500" rx="18" fill="#ffffff" stroke="#3b82f6" stroke-width="2"/>
     
     <!-- Status bar -->
-    <rect x="20" y="20" width="240" height="20" fill="#1a1a2e"/>
-    <circle cx="235" cy="30" r="3" fill="#10b981"/>
-    <text x="30" y="35" font-family="sans-serif" font-size="11" fill="#ffffff">9:41</text>
+    <rect x="10" y="10" width="260" height="30" rx="18" fill="url(#vibrantBlue)" opacity="0.15"/>
+    <text x="30" y="30" font-size="11" font-weight="600" fill="#3b82f6">9:41</text>
     
-    <!-- App content (dimmed) -->
-    <rect x="20" y="50" width="240" height="450" fill="#0f0f1e" opacity="0.3"/>
+    <!-- Header -->
+    <rect x="10" y="50" width="260" height="50" fill="url(#vibrantBlue)" opacity="0.1"/>
+    <text x="30" y="80" font-size="16" font-weight="700" fill="url(#vibrantBlue)" class="bounce-element" style="animation-delay: 0.7s">Dashboard</text>
     
-    <!-- HIGHLIGHTED: Onboarding modal -->
-    <rect x="30" y="120" width="220" height="340" rx="15" fill="url(#highlightGlow)" stroke="url(#purpleBlue)" stroke-width="3"/>
-    <rect x="35" y="125" width="210" height="330" rx="12" fill="#1a1a2e"/>
+    <!-- Content cards with colors -->
+    <rect x="25" y="110" width="230" height="70" rx="8" fill="url(#vibrantBlue)" opacity="0.1" stroke="#3b82f6" stroke-width="2" filter="url(#drop-shadow)" class="float-element" style="animation-delay: 0.8s"/>
+    <rect x="35" y="125" width="120" height="8" rx="4" fill="url(#vibrantBlue)" opacity="0.3"/>
+    <rect x="35" y="140" width="90" height="8" rx="4" fill="url(#vibrantBlue)" opacity="0.2"/>
     
-    <!-- Modal content -->
-    <text x="140" y="155" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Welcome!</text>
+    <rect x="25" y="195" width="230" height="70" rx="8" fill="url(#vibrantGreen)" opacity="0.1" stroke="#10b981" stroke-width="2" filter="url(#drop-shadow)" class="float-element" style="animation-delay: 1s"/>
+    <rect x="35" y="210" width="140" height="8" rx="4" fill="url(#vibrantGreen)" opacity="0.3"/>
+    <rect x="35" y="225" width="100" height="8" rx="4" fill="url(#vibrantGreen)" opacity="0.2"/>
     
-    <circle cx="140" cy="210" r="35" fill="#8b5cf6" opacity="0.2"/>
-    <text x="140" y="220" text-anchor="middle" font-family="sans-serif" font-size="32" fill="#8b5cf6">✨</text>
+    <rect x="25" y="280" width="230" height="70" rx="8" fill="url(#orangeGlow)" opacity="0.1" stroke="#f97316" stroke-width="2" filter="url(#drop-shadow)" class="float-element" style="animation-delay: 1.2s"/>
     
-    <text x="140" y="275" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#ffffff">Complete your setup</text>
-    <text x="140" y="295" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#a0aec0">3 quick steps</text>
+    <!-- Highlighted Footer Banner -->
+    <rect class="highlight-box glow-border" x="10" y="410" width="260" height="90" rx="18" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3"/>
+    <rect x="20" y="420" width="240" height="70" rx="10" fill="url(#vibrantBlue)" opacity="0.95" stroke="url(#vibrantBlue)" stroke-width="2" filter="url(#drop-shadow)" class="banner-slide" style="animation-delay: 0.8s"/>
     
-    <!-- Promotion section -->
-    <rect x="50" y="315" width="180" height="70" rx="8" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4,4"/>
-    <text x="140" y="337" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="600" fill="#8b5cf6">💡 Also try our other apps</text>
-    <text x="140" y="355" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#8b5cf6" opacity="0.7">Calendar | Notes | Tasks</text>
-    <rect x="70" y="363" width="140" height="18" rx="9" fill="url(#purpleBlue)" opacity="0.3"/>
-    <text x="140" y="376" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#8b5cf6">Learn more</text>
-    
-    <!-- Primary CTA -->
-    <rect x="50" y="405" width="180" height="35" rx="18" fill="url(#purpleBlue)"/>
-    <text x="140" y="428" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="600" fill="#ffffff">Get Started</text>
-    
-    <!-- Close button -->
-    <circle cx="235" cy="135" r="10" fill="#4a5568"/>
-    <line x1="231" y1="131" x2="239" y2="139" stroke="#ffffff" stroke-width="2"/>
-    <line x1="239" y1="131" x2="231" y2="139" stroke="#ffffff" stroke-width="2"/>
+    <!-- Footer banner content -->
+    <g class="bounce-element" style="animation-delay: 1s">
+      <circle cx="50" cy="455" r="20" fill="url(#vibrantGreen)"/>
+      <text x="50" y="462" font-size="18" fill="#ffffff" text-anchor="middle">💼</text>
+    </g>
+    <rect x="80" y="440" width="160" height="7" rx="3.5" fill="#ffffff" opacity="0.9" class="float-element" style="animation-delay: 1.1s"/>
+    <rect x="80" y="453" width="120" height="7" rx="3.5" fill="#ffffff" opacity="0.7" class="float-element" style="animation-delay: 1.2s"/>
+    <rect x="80" y="466" width="80" height="12" rx="6" fill="#ffffff" class="bounce-element" style="animation-delay: 1.3s"/>
+    <text x="120" y="475" font-size="9" font-weight="600" fill="#3b82f6" text-anchor="middle">Learn More</text>
     
     <!-- Label -->
-    <text x="140" y="555" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#3b82f6">Onboarding</text>
-    
-    <!-- Annotation -->
-    <text x="140" y="590" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#8b5cf6">First-time users</text>
+    <text x="140" y="540" font-size="12" font-weight="600" fill="url(#vibrantBlue)" text-anchor="middle" class="float-element" style="animation-delay: 1.5s">Footer Banner</text>
   </g>
-
-  <!-- Control Panel Section -->
-  <g transform="translate(100, 680)">
-    <text x="0" y="0" font-family="sans-serif" font-size="18" font-weight="bold" fill="url(#purpleBlue)">Control Panel</text>
+  
+  <!-- Desktop App Mock-up: Sidebar -->
+  <g transform="translate(800, 80)" class="phone-frame" style="animation-delay: 1s">
+    <!-- Glowing background -->
+    <ellipse cx="180" cy="260" rx="200" ry="180" fill="url(#glowEffect)" opacity="0.3" class="float-element" style="animation-delay: 1s"/>
     
-    <!-- Toggle switch -->
-    <g transform="translate(0, 20)">
-      <text x="0" y="15" font-family="sans-serif" font-size="13" fill="#8b5cf6">Enable Promotions</text>
-      <rect x="150" y="5" width="50" height="24" rx="12" fill="#3b82f6" opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
-      <circle cx="182" cy="17" r="10" fill="#3b82f6"/>
+    <!-- Desktop window with vibrant gradient -->
+    <rect x="0" y="0" width="360" height="520" rx="8" fill="url(#vibrantGreen)" stroke="#10b981" stroke-width="3" opacity="0.95" filter="url(#drop-shadow)"/>
+    
+    <!-- Title bar -->
+    <rect x="0" y="0" width="360" height="40" rx="8" fill="url(#vibrantGreen)" opacity="0.3"/>
+    <circle cx="18" cy="20" r="5" fill="#ef4444" class="bounce-element" style="animation-delay: 1.2s"/>
+    <circle cx="35" cy="20" r="5" fill="#f59e0b" class="bounce-element" style="animation-delay: 1.3s"/>
+    <circle cx="52" cy="20" r="5" fill="#10b981" class="bounce-element" style="animation-delay: 1.4s"/>
+    <text x="180" y="25" font-size="12" font-weight="600" fill="#10b981" text-anchor="middle">Application</text>
+    
+    <!-- Sidebar with gradient -->
+    <rect x="0" y="40" width="100" height="480" fill="url(#vibrantGreen)" opacity="0.1" stroke="#10b981" stroke-width="1"/>
+    
+    <!-- Sidebar menu items with colors -->
+    <rect x="10" y="60" width="80" height="30" rx="6" fill="url(#vibrantGreen)" opacity="0.3" class="float-element" style="animation-delay: 1.5s"/>
+    <rect x="20" y="73" width="50" height="4" rx="2" fill="#10b981"/>
+    
+    <rect x="10" y="100" width="80" height="30" rx="6" fill="#ffffff" class="float-element" style="animation-delay: 1.6s"/>
+    <rect x="20" y="113" width="45" height="4" rx="2" fill="url(#vibrantGreen)" opacity="0.4"/>
+    
+    <rect x="10" y="140" width="80" height="30" rx="6" fill="#ffffff" class="float-element" style="animation-delay: 1.7s"/>
+    <rect x="20" y="153" width="40" height="4" rx="2" fill="url(#vibrantGreen)" opacity="0.4"/>
+    
+    <!-- Highlighted Sidebar Banner -->
+    <rect class="highlight-box glow-border" x="8" y="400" width="84" height="105" rx="8" fill="url(#lightPurple)" stroke="url(#vibrantGreen)" stroke-width="3"/>
+    <rect x="12" y="408" width="76" height="90" rx="6" fill="url(#vibrantGreen)" opacity="0.95" stroke="url(#vibrantGreen)" stroke-width="2" filter="url(#drop-shadow)" class="banner-slide" style="animation-delay: 1.5s"/>
+    
+    <!-- Sidebar banner content -->
+    <g class="bounce-element" style="animation-delay: 1.7s">
+      <circle cx="50" cy="435" r="15" fill="url(#orangeGlow)"/>
+      <text x="50" y="441" font-size="14" fill="#ffffff" text-anchor="middle">📱</text>
+    </g>
+    <rect x="20" y="458" width="60" height="5" rx="2.5" fill="#ffffff" opacity="0.9" class="float-element" style="animation-delay: 1.8s"/>
+    <rect x="20" y="468" width="50" height="5" rx="2.5" fill="#ffffff" opacity="0.7" class="float-element" style="animation-delay: 1.9s"/>
+    <rect x="25" y="480" width="50" height="10" rx="5" fill="#ffffff" class="bounce-element" style="animation-delay: 2s"/>
+    <text x="50" y="488" font-size="8" font-weight="600" fill="#10b981" text-anchor="middle">Try Now</text>
+    
+    <!-- Main content area -->
+    <rect x="100" y="40" width="260" height="480" fill="#ffffff"/>
+    
+    <!-- Content header with color -->
+    <rect x="120" y="65" width="220" height="30" rx="6" fill="url(#vibrantGreen)" opacity="0.15" stroke="#10b981" stroke-width="2" filter="url(#drop-shadow)" class="float-element" style="animation-delay: 1.8s"/>
+    <rect x="135" y="76" width="100" height="8" rx="4" fill="url(#vibrantGreen)" opacity="0.4"/>
+    
+    <!-- Content cards with colors -->
+    <rect x="120" y="115" width="220" height="90" rx="8" fill="url(#vibrantBlue)" opacity="0.1" stroke="#3b82f6" stroke-width="2" filter="url(#drop-shadow)" class="float-element" style="animation-delay: 2s"/>
+    <rect x="135" y="135" width="140" height="8" rx="4" fill="url(#vibrantBlue)" opacity="0.4"/>
+    <rect x="135" y="150" width="100" height="6" rx="3" fill="url(#vibrantBlue)" opacity="0.3"/>
+    
+    <rect x="120" y="220" width="220" height="90" rx="8" fill="url(#vibrantPurple)" opacity="0.1" stroke="#a855f7" stroke-width="2" filter="url(#drop-shadow)" class="float-element" style="animation-delay: 2.2s"/>
+    <rect x="135" y="240" width="160" height="8" rx="4" fill="url(#vibrantPurple)" opacity="0.4"/>
+    <rect x="135" y="255" width="120" height="6" rx="3" fill="url(#vibrantPurple)" opacity="0.3"/>
+    
+    <!-- Label -->
+    <text x="180" y="545" font-size="12" font-weight="600" fill="url(#vibrantGreen)" text-anchor="middle" class="float-element" style="animation-delay: 2.4s">Sidebar Banner</text>
+  </g>
+  
+  <!-- Control Panel -->
+  <g transform="translate(80, 620)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="url(#vibrantPurple)" class="bounce-element">Placement Controls</text>
+    
+    <!-- Toggle Switch 1 -->
+    <g transform="translate(0, 20)" class="float-element" style="animation-delay: 0.2s">
+      <rect x="0" y="0" width="44" height="24" rx="12" fill="url(#vibrantPurple)" filter="url(#drop-shadow)" class="checkmark"/>
+      <circle cx="33" cy="12" r="9" fill="#ffffff" filter="url(#glow)" class="bounce-element"/>
+      <text x="55" y="16" font-size="11" fill="#a855f7" font-weight="600">Active</text>
     </g>
     
-    <!-- Impression counter -->
-    <g transform="translate(0, 60)">
-      <rect x="0" y="0" width="220" height="40" rx="8" fill="#1a1a2e" stroke="#8b5cf6" stroke-width="2"/>
-      <text x="15" y="25" font-family="sans-serif" font-size="13" fill="#8b5cf6">Impressions Today</text>
-      <text x="180" y="25" text-anchor="end" font-family="sans-serif" font-size="18" font-weight="bold" fill="#3b82f6">2,847</text>
+    <!-- Impression Counter -->
+    <g transform="translate(140, 20)" class="float-element" style="animation-delay: 0.4s">
+      <rect x="0" y="0" width="90" height="24" rx="6" fill="url(#vibrantPurple)" opacity="0.15" stroke="#a855f7" stroke-width="2" filter="url(#drop-shadow)"/>
+      <text class="counter-text" x="45" y="16" font-size="11" font-weight="600" fill="#a855f7" text-anchor="middle">12,458 views</text>
+    </g>
+    
+    <!-- Approval Checkmark -->
+    <g transform="translate(250, 20)" class="bounce-element" style="animation-delay: 0.6s">
+      <circle class="checkmark" cx="12" cy="12" r="12" fill="url(#vibrantGreen)" filter="url(#glow)"/>
+      <path d="M 7 12 L 10.5 15.5 L 17 9" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="32" y="16" font-size="11" fill="#10b981" font-weight="600">Approved</text>
     </g>
   </g>
-
-  <!-- Approval Controls -->
-  <g transform="translate(400, 680)">
-    <text x="0" y="0" font-family="sans-serif" font-size="18" font-weight="bold" fill="url(#purpleBlue)">Approval Status</text>
+  
+  <!-- Control Panel 2 -->
+  <g transform="translate(480, 620)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="url(#vibrantBlue)" class="bounce-element" style="animation-delay: 0.1s">Performance</text>
     
-    <!-- Checkmark items -->
-    <g transform="translate(0, 25)">
-      <circle cx="10" cy="10" r="10" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/>
-      <path d="M 6 10 L 9 13 L 15 7" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-      <text x="30" y="15" font-family="sans-serif" font-size="13" fill="#10b981">Banner approved</text>
+    <!-- Toggle Switch 2 -->
+    <g transform="translate(0, 20)" class="float-element" style="animation-delay: 0.3s">
+      <rect x="0" y="0" width="44" height="24" rx="12" fill="url(#vibrantBlue)" filter="url(#drop-shadow)" class="checkmark" style="animation-delay: 0.3s"/>
+      <circle cx="33" cy="12" r="9" fill="#ffffff" filter="url(#glow)" class="bounce-element" style="animation-delay: 0.5s"/>
+      <text x="55" y="16" font-size="11" fill="#3b82f6" font-weight="600">Enabled</text>
     </g>
     
-    <g transform="translate(0, 50)">
-      <circle cx="10" cy="10" r="10" fill="#10b981" opacity="0.2" stroke="#10b981" stroke-width="2"/>
-      <path d="M 6 10 L 9 13 L 15 7" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-      <text x="30" y="15" font-family="sans-serif" font-size="13" fill="#10b981">Placement verified</text>
+    <!-- CTR Counter -->
+    <g transform="translate(140, 20)" class="float-element" style="animation-delay: 0.5s">
+      <rect x="0" y="0" width="90" height="24" rx="6" fill="url(#vibrantBlue)" opacity="0.15" stroke="#3b82f6" stroke-width="2" filter="url(#drop-shadow)"/>
+      <text class="counter-text" x="45" y="16" font-size="11" font-weight="600" fill="#3b82f6" text-anchor="middle">3.2% CTR</text>
     </g>
     
-    <g transform="translate(0, 75)">
-      <circle cx="10" cy="10" r="10" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
-      <text x="10" y="15" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">!</text>
-      <text x="30" y="15" font-family="sans-serif" font-size="13" fill="#f59e0b">Pending review</text>
-    </g>
-  </g>
-
-  <!-- Settings -->
-  <g transform="translate(700, 680)">
-    <text x="0" y="0" font-family="sans-serif" font-size="18" font-weight="bold" fill="url(#purpleBlue)">Frequency Settings</text>
-    
-    <!-- Slider representation -->
-    <g transform="translate(0, 25)">
-      <text x="0" y="15" font-family="sans-serif" font-size="13" fill="#8b5cf6">Show every</text>
-      <rect x="80" y="5" width="150" height="6" rx="3" fill="#2d3748"/>
-      <rect x="80" y="5" width="90" height="6" rx="3" fill="url(#purpleBlue)"/>
-      <circle cx="170" cy="8" r="8" fill="#3b82f6" stroke="#ffffff" stroke-width="2"/>
-      <text x="240" y="15" font-family="sans-serif" font-size="13" font-weight="600" fill="#3b82f6">5 sessions</text>
-    </g>
-    
-    <!-- Duration -->
-    <g transform="translate(0, 55)">
-      <text x="0" y="15" font-family="sans-serif" font-size="13" fill="#8b5cf6">Display time</text>
-      <rect x="100" y="2" width="80" height="28" rx="6" fill="#1a1a2e" stroke="#8b5cf6" stroke-width="2"/>
-      <text x="140" y="21" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="600" fill="#8b5cf6">5 sec</text>
+    <!-- Status Checkmark -->
+    <g transform="translate(250, 20)" class="bounce-element" style="animation-delay: 0.7s">
+      <circle class="checkmark" cx="12" cy="12" r="12" fill="url(#vibrantPurple)" filter="url(#glow)" style="animation-delay: 0.8s"/>
+      <path d="M 7 12 L 10.5 15.5 L 17 9" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="32" y="16" font-size="11" fill="#a855f7" font-weight="600">Live</text>
     </g>
   </g>
-
-  <!-- Performance Stats -->
-  <g transform="translate(1050, 680)">
-    <text x="0" y="0" font-family="sans-serif" font-size="18" font-weight="bold" fill="url(#purpleBlue)">Performance</text>
+  
+  <!-- Control Panel 3 -->
+  <g transform="translate(800, 620)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="url(#orangeGlow)" class="bounce-element" style="animation-delay: 0.2s">Settings</text>
     
-    <!-- CTR -->
-    <g transform="translate(0, 25)">
-      <text x="0" y="15" font-family="sans-serif" font-size="12" fill="#8b5cf6">Click-through Rate</text>
-      <text x="140" y="15" font-family="sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">3.2%</text>
-      <text x="185" y="15" font-family="sans-serif" font-size="11" fill="#10b981">↑ 0.8%</text>
+    <!-- Toggle Switch 3 -->
+    <g transform="translate(0, 20)" class="float-element" style="animation-delay: 0.4s">
+      <rect x="0" y="0" width="44" height="24" rx="12" fill="#94a3b8" filter="url(#drop-shadow)"/>
+      <circle cx="11" cy="12" r="9" fill="#ffffff"/>
+      <text x="55" y="16" font-size="11" fill="#64748b" font-weight="600">Paused</text>
     </g>
     
-    <!-- Conversions -->
-    <g transform="translate(0, 50)">
-      <text x="0" y="15" font-family="sans-serif" font-size="12" fill="#8b5cf6">Conversions</text>
-      <text x="140" y="15" font-family="sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">91</text>
-      <text x="170" y="15" font-family="sans-serif" font-size="11" fill="#10b981">↑ 12</text>
+    <!-- Budget Counter -->
+    <g transform="translate(140, 20)" class="float-element" style="animation-delay: 0.6s">
+      <rect x="0" y="0" width="90" height="24" rx="6" fill="url(#orangeGlow)" opacity="0.15" stroke="#f97316" stroke-width="2" filter="url(#drop-shadow)"/>
+      <text class="counter-text" x="45" y="16" font-size="11" font-weight="600" fill="#f97316" text-anchor="middle">$245 spent</text>
     </g>
     
-    <!-- Revenue -->
-    <g transform="translate(0, 75)">
-      <text x="0" y="15" font-family="sans-serif" font-size="12" fill="#8b5cf6">Revenue Share</text>
-      <text x="140" y="15" font-family="sans-serif" font-size="16" font-weight="bold" fill="#8b5cf6">$247</text>
+    <!-- Review Badge -->
+    <g transform="translate(250, 20)" class="bounce-element" style="animation-delay: 0.8s">
+      <circle cx="12" cy="12" r="12" fill="url(#orangeGlow)" stroke="#f59e0b" stroke-width="2" class="checkmark" style="animation-delay: 1s"/>
+      <text x="12" y="17" font-size="14" fill="#ffffff" text-anchor="middle">⏳</text>
+      <text x="32" y="16" font-size="11" fill="#f97316" font-weight="600">Pending</text>
     </g>
   </g>
 </svg>
