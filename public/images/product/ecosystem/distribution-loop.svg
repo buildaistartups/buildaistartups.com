@@ -116,9 +116,9 @@
     <!-- More Traffic - moved down -->
     <text x="400" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#60a5fa" text-anchor="middle">More Traffic</text>
     
-    <!-- More Conversions - moved up more and closer -->
-    <text x="100" y="330" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a78bfa" text-anchor="end">More</text>
-    <text x="100" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a78bfa" text-anchor="end">Conversions</text>
+    <!-- More Conversions - darker color for visibility -->
+    <text x="120" y="330" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8b5cf6" text-anchor="end">More</text>
+    <text x="120" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8b5cf6" text-anchor="end">Conversions</text>
     
     <!-- More Growth - moved up and left -->
     <text x="120" y="165" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="middle">More</text>
