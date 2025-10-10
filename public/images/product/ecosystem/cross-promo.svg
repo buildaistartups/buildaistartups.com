@@ -42,65 +42,51 @@
       <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
     </linearGradient>
-    
-    <filter id="cardGlow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <style>
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      
-      @keyframes subtleGlow {
-        0%, 100% { opacity: 0.15; }
-        50% { opacity: 0.25; }
-      }
-      
-      @keyframes gentlePulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.8; }
-      }
-      
-      @keyframes cardBreath {
-        0%, 100% { filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.15)); }
-        50% { filter: drop-shadow(0 6px 20px rgba(139, 92, 246, 0.25)); }
-      }
-      
-      @keyframes softGlow {
-        0%, 100% { opacity: 0.95; }
-        50% { opacity: 1; }
-      }
-      
-      /* One-time fade-in animations */
-      .phone-frame { animation: fadeInUp 0.8s ease-out, cardBreath 4s ease-in-out infinite; }
-      .desktop-frame { animation: fadeInUp 0.8s ease-out 0.2s backwards, cardBreath 4s ease-in-out 0.5s infinite; }
-      .onboarding-frame { animation: fadeInUp 0.8s ease-out 0.4s backwards, cardBreath 4s ease-in-out 1s infinite; }
-      
-      /* Subtle continuous animations - only on key elements */
-      .highlight-area { animation: subtleGlow 4s ease-in-out infinite; }
-      .status-indicator { animation: gentlePulse 3s ease-in-out infinite; }
-      .main-title { animation: softGlow 5s ease-in-out infinite; }
-    </style>
   </defs>
   
+  <style>
+    @keyframes glow {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.4; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes borderGlow {
+      0%, 100% { stroke-width: 2px; }
+      50% { stroke-width: 4px; }
+    }
+    
+    .glow-box {
+      animation: glow 2s ease-in-out infinite;
+    }
+    
+    .pulse-dot {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    
+    .border-pulse {
+      animation: borderGlow 2s ease-in-out infinite;
+    }
+  </style>
+  
   <!-- Title -->
-  <text x="600" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="url(#titleGrad)" text-anchor="middle" class="main-title">Cross-Promotion Placement Strategy</text>
+  <text x="600" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="url(#titleGrad)" text-anchor="middle">
+    Cross-Promotion Placement Strategy
+  </text>
   
   <!-- Mobile App Mock-up (Left) -->
-  <g transform="translate(80, 80)" class="phone-frame">
+  <g transform="translate(80, 80)">
     <!-- Phone Frame -->
     <rect x="0" y="0" width="280" height="520" rx="30" fill="#FEFEFE" stroke="#D1D5DB" stroke-width="2" filter="url(#shadow)"/>
     <rect x="10" y="40" width="260" height="470" rx="15" fill="white"/>
     
     <!-- Status Bar -->
     <rect x="10" y="40" width="260" height="30" rx="15" fill="#F8FAFC"/>
-    <circle cx="30" cy="55" r="3" fill="#10B981" class="status-indicator"/>
+    <circle cx="30" cy="55" r="3" fill="#10B981" class="pulse-dot"/>
     <rect x="215" y="50" width="35" height="10" rx="3" fill="url(#greenGrad)"/>
     
     <!-- App Header -->
@@ -125,8 +111,8 @@
     <rect x="80" y="312" width="130" height="6" rx="3" fill="#E2E8F0"/>
     
     <!-- Footer Banner (Highlighted) -->
-    <rect x="15" y="430" width="250" height="70" rx="10" fill="url(#purpleGrad)" opacity="0.15" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="5,5" class="highlight-area"/>
-    <rect x="20" y="438" width="240" height="54" rx="8" fill="white" stroke="#8B5CF6" stroke-width="2"/>
+    <rect x="15" y="430" width="250" height="70" rx="10" fill="url(#purpleGrad)" opacity="0.2" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="5,5" class="glow-box"/>
+    <rect x="20" y="438" width="240" height="54" rx="8" fill="white" stroke="#8B5CF6" stroke-width="2" class="border-pulse"/>
     <circle cx="50" cy="465" r="15" fill="url(#purpleGrad)"/>
     <text x="52" y="470" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">🎯</text>
     <text x="75" y="462" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#4C1D95">Partner App</text>
@@ -156,20 +142,20 @@
   </g>
   
   <!-- Desktop App Mock-up (Center) -->
-  <g transform="translate(420, 80)" class="desktop-frame">
+  <g transform="translate(420, 80)">
     <!-- Desktop Frame -->
     <rect x="0" y="0" width="360" height="520" rx="8" fill="#FEFEFE" stroke="#D1D5DB" stroke-width="2" filter="url(#shadow)"/>
     <rect x="10" y="35" width="340" height="475" rx="4" fill="white"/>
     
     <!-- Browser Bar -->
     <rect x="10" y="35" width="340" height="30" rx="4" fill="#F8FAFC"/>
-    <circle cx="25" cy="50" r="4" fill="#EF4444" class="status-indicator"/>
-    <circle cx="38" cy="50" r="4" fill="#F59E0B" class="status-indicator"/>
-    <circle cx="51" cy="50" r="4" fill="#10B981" class="status-indicator"/>
+    <circle cx="25" cy="50" r="4" fill="#EF4444" class="pulse-dot"/>
+    <circle cx="38" cy="50" r="4" fill="#F59E0B" class="pulse-dot"/>
+    <circle cx="51" cy="50" r="4" fill="#10B981" class="pulse-dot"/>
     <rect x="70" y="45" width="200" height="10" rx="5" fill="#E5E7EB"/>
     
     <!-- Sidebar (Highlighted) -->
-    <rect x="10" y="70" width="90" height="440" fill="url(#blueGrad)" opacity="0.15" stroke="#3B82F6" stroke-width="3" stroke-dasharray="5,5" class="highlight-area"/>
+    <rect x="10" y="70" width="90" height="440" fill="url(#blueGrad)" opacity="0.2" stroke="#3B82F6" stroke-width="3" stroke-dasharray="5,5" class="glow-box"/>
     <rect x="15" y="75" width="80" height="430" rx="6" fill="#F8FAFC"/>
     
     <rect x="20" y="85" width="70" height="35" rx="6" fill="url(#blueGrad)" opacity="0.2"/>
@@ -182,7 +168,7 @@
     <text x="55" y="195" font-family="Arial, sans-serif" font-size="10" fill="#6B7280" text-anchor="middle">⚙️ Settings</text>
     
     <!-- Promo in Sidebar -->
-    <rect x="18" y="370" width="74" height="125" rx="8" fill="white" stroke="#3B82F6" stroke-width="2"/>
+    <rect x="18" y="370" width="74" height="125" rx="8" fill="white" stroke="#3B82F6" stroke-width="2" class="border-pulse"/>
     <rect x="23" y="380" width="64" height="50" rx="6" fill="url(#blueGrad)" opacity="0.1"/>
     <circle cx="55" cy="400" r="20" fill="url(#blueGrad)"/>
     <text x="55" y="407" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">⭐</text>
@@ -240,7 +226,7 @@
   </g>
   
   <!-- Onboarding Screen (Right) -->
-  <g transform="translate(840, 80)" class="onboarding-frame">
+  <g transform="translate(840, 80)">
     <!-- Phone Frame -->
     <rect x="0" y="0" width="280" height="520" rx="30" fill="#FEFEFE" stroke="#D1D5DB" stroke-width="2" filter="url(#shadow)"/>
     <rect x="10" y="40" width="260" height="470" rx="15" fill="white"/>
@@ -249,7 +235,7 @@
     <rect x="10" y="40" width="260" height="30" rx="15" fill="#F8FAFC"/>
     
     <!-- Onboarding Content (Highlighted) -->
-    <rect x="15" y="85" width="250" height="410" rx="10" fill="url(#purpleGrad)" opacity="0.15" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="5,5" class="highlight-area"/>
+    <rect x="15" y="85" width="250" height="410" rx="10" fill="url(#purpleGrad)" opacity="0.2" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="5,5" class="glow-box"/>
     
     <circle cx="140" cy="160" r="40" fill="url(#purpleGrad)" opacity="0.2"/>
     <text x="140" y="170" font-family="Arial, sans-serif" font-size="32" text-anchor="middle">👋</text>
@@ -258,7 +244,7 @@
     <text x="140" y="255" font-family="Arial, sans-serif" font-size="12" fill="#6B7280" text-anchor="middle">Discover our partner apps</text>
     
     <!-- Partner Card 1 -->
-    <rect x="30" y="280" width="220" height="60" rx="10" fill="white" stroke="#8B5CF6" stroke-width="2"/>
+    <rect x="30" y="280" width="220" height="60" rx="10" fill="white" stroke="#8B5CF6" stroke-width="2" class="border-pulse"/>
     <rect x="35" y="285" width="210" height="50" rx="8" fill="url(#purpleGrad)" opacity="0.05"/>
     <circle cx="60" cy="310" r="18" fill="url(#purpleGrad)"/>
     <text x="60" y="316" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">📊</text>
@@ -268,7 +254,7 @@
     <text x="217.5" y="313" font-family="Arial, sans-serif" font-size="8" font-weight="600" fill="white" text-anchor="middle">Try</text>
     
     <!-- Partner Card 2 -->
-    <rect x="30" y="355" width="220" height="60" rx="10" fill="white" stroke="#3B82F6" stroke-width="2"/>
+    <rect x="30" y="355" width="220" height="60" rx="10" fill="white" stroke="#3B82F6" stroke-width="2" class="border-pulse"/>
     <rect x="35" y="360" width="210" height="50" rx="8" fill="url(#blueGrad)" opacity="0.05"/>
     <circle cx="60" cy="385" r="18" fill="url(#blueGrad)"/>
     <text x="60" y="391" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">☁️</text>
