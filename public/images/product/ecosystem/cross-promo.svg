@@ -22,10 +22,10 @@
     
     <!-- Soft shadow for depth -->
     <filter id="softShadow">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
       <feOffset dx="0" dy="2" result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.2"/>
+        <feFuncA type="linear" slope="0.15"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
@@ -69,10 +69,9 @@
         100% { opacity: 1; }
       }
       
-      @keyframes counter {
-        0% { opacity: 0.6; }
-        50% { opacity: 1; transform: scale(1.05); }
-        100% { opacity: 0.6; }
+      @keyframes shimmer {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
       }
       
       @keyframes checkmark {
@@ -105,12 +104,21 @@
         50% { transform: translateY(-3px); }
       }
       
+      @keyframes gradientShift {
+        0%, 100% { 
+          background: linear-gradient(90deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+        }
+        50% { 
+          background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.1) 100%);
+        }
+      }
+      
       .pulse-bg { animation: pulse 3s ease-in-out infinite; }
       .glow-purple { animation: glow 2s ease-in-out infinite; }
       .glow-blue { animation: glowBlue 2s ease-in-out infinite 0.5s; }
       .slide-up { animation: slideUp 0.8s ease-out forwards; }
       .fade-in { animation: fadeIn 1s ease-in forwards; }
-      .counter-animate { animation: counter 2s ease-in-out infinite; }
+      .shimmer { animation: shimmer 3s ease-in-out infinite; }
       .checkmark-draw { 
         stroke-dasharray: 20; 
         animation: checkmark 1s ease-out forwards;
@@ -134,25 +142,22 @@
   
   <!-- Mobile App Mockup 1 - Onboarding Placement -->
   <g id="mobileApp1" class="slide-up" style="animation-delay: 0.2s">
-    <!-- Phone outer shadow -->
-    <rect x="50" y="80" width="280" height="560" rx="25" fill="#1F2937" opacity="0.1" transform="translate(0, 4)"/>
-    
-    <!-- Phone frame -->
-    <rect x="50" y="80" width="280" height="560" rx="25" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+    <!-- Phone frame with subtle border -->
+    <rect x="50" y="80" width="280" height="560" rx="25" fill="#F8FAFC" stroke="#CBD5E0" stroke-width="1" filter="url(#softShadow)"/>
     <rect x="65" y="95" width="250" height="530" rx="15" fill="#FFFFFF"/>
     
     <!-- Status bar -->
     <rect x="65" y="95" width="250" height="25" rx="15" fill="#F7FAFC"/>
     <circle cx="285" cy="107" r="3" fill="#10B981" class="dot-pulse"/>
-    <rect x="255" y="104" width="22" height="7" rx="2" fill="#4A5568"/>
+    <rect x="255" y="104" width="22" height="7" rx="2" fill="#94A3B8"/>
     <path d="M 280 104 L 283 104 L 283 111 L 280 111 Z" fill="#10B981"/>
     
     <!-- App header -->
     <text x="190" y="155" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A202C" text-anchor="middle">Welcome!</text>
     
     <!-- Onboarding content -->
-    <circle cx="190" cy="230" r="45" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="3"/>
-    <circle cx="190" cy="230" r="35" fill="transparent" stroke="#8B5CF6" stroke-width="2" opacity="0.3"/>
+    <circle cx="190" cy="230" r="45" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="2"/>
+    <circle cx="190" cy="230" r="35" fill="transparent" stroke="#8B5CF6" stroke-width="1" opacity="0.3"/>
     <path d="M 190 210 L 190 250 M 170 230 L 210 230" stroke="#8B5CF6" stroke-width="3" stroke-linecap="round"/>
     
     <text x="190" y="300" font-family="Arial, sans-serif" font-size="15" fill="#2D3748" text-anchor="middle" font-weight="600">Get Started with</text>
@@ -164,25 +169,25 @@
     <circle cx="210" cy="350" r="4" fill="#CBD5E0"/>
     
     <!-- Onboarding Promo Banner - HIGHLIGHTED -->
-    <rect x="75" y="380" width="230" height="85" rx="12" fill="url(#purpleGrad)" class="pulse-bg" stroke="#8B5CF6" stroke-width="2.5" stroke-dasharray="6,4"/>
-    <rect x="80" y="385" width="220" height="75" rx="10" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2" class="glow-purple" filter="url(#softShadow)"/>
+    <rect x="75" y="380" width="230" height="85" rx="12" fill="url(#purpleGrad)" class="pulse-bg" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="6,4"/>
+    <rect x="80" y="385" width="220" height="75" rx="10" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1" class="glow-purple" filter="url(#softShadow)"/>
     
     <!-- Promo content -->
     <rect x="90" y="395" width="45" height="45" rx="8" fill="#EDE9FE"/>
     <text x="112.5" y="423" font-family="Arial, sans-serif" font-size="22" fill="#8B5CF6" text-anchor="middle">📱</text>
     
     <text x="145" y="405" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A202C">Try Our New App</text>
-    <text x="145" y="422" font-family="Arial, sans-serif" font-size="10" fill="#4A5568">Boost productivity 2x</text>
+    <text x="145" y="422" font-family="Arial, sans-serif" font-size="10" fill="#64748B">Boost productivity 2x</text>
     <rect x="145" y="430" width="55" height="20" rx="5" fill="#8B5CF6">
       <animate attributeName="opacity" values="1;0.85;1" dur="2s" repeatCount="indefinite"/>
     </rect>
     <text x="172.5" y="444" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" text-anchor="middle" font-weight="600">Learn More</text>
     
     <!-- Close button -->
-    <circle cx="285" cy="400" r="10" fill="#F7FAFC" stroke="#CBD5E0" stroke-width="1.5">
+    <circle cx="285" cy="400" r="10" fill="#F1F5F9" stroke="#CBD5E0" stroke-width="1">
       <animate attributeName="r" values="10;11;10" dur="3s" repeatCount="indefinite"/>
     </circle>
-    <path d="M 281 396 L 289 404 M 289 396 L 281 404" stroke="#718096" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 281 396 L 289 404 M 289 396 L 281 404" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
     
     <!-- Continue button -->
     <rect x="85" y="490" width="210" height="48" rx="12" fill="url(#blueGrad)" filter="url(#softShadow)">
@@ -197,11 +202,8 @@
   
   <!-- Desktop App Mockup - Sidebar Placement -->
   <g id="desktopApp" class="slide-up" style="animation-delay: 0.4s">
-    <!-- Window shadow -->
-    <rect x="380" y="80" width="450" height="400" rx="10" fill="#1F2937" opacity="0.1" transform="translate(0, 4)"/>
-    
-    <!-- Window frame -->
-    <rect x="380" y="80" width="450" height="400" rx="10" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+    <!-- Window frame with subtle border -->
+    <rect x="380" y="80" width="450" height="400" rx="10" fill="#F8FAFC" stroke="#CBD5E0" stroke-width="1" filter="url(#softShadow)"/>
     
     <!-- Title bar -->
     <rect x="380" y="80" width="450" height="38" rx="10" fill="#E2E8F0"/>
@@ -209,7 +211,7 @@
     <circle cx="398" cy="98" r="6" fill="#EF4444"/>
     <circle cx="415" cy="98" r="6" fill="#F59E0B"/>
     <circle cx="432" cy="98" r="6" fill="#10B981"/>
-    <text x="605" y="104" font-family="Arial, sans-serif" font-size="13" fill="#2D3748" text-anchor="middle" font-weight="600">Dashboard - Analytics Pro</text>
+    <text x="605" y="104" font-family="Arial, sans-serif" font-size="13" fill="#475569" text-anchor="middle" font-weight="600">Dashboard - Analytics Pro</text>
     
     <!-- Main content area -->
     <rect x="390" y="128" width="430" height="342" rx="5" fill="#FFFFFF"/>
@@ -225,17 +227,17 @@
     <rect x="398" y="185" width="79" height="32" rx="6" fill="transparent">
       <animate attributeName="fill" values="transparent;#EDF2F7;transparent" dur="6s" repeatCount="indefinite" begin="2s"/>
     </rect>
-    <text x="437.5" y="206" font-family="Arial, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle" font-weight="500">Analytics</text>
+    <text x="437.5" y="206" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle" font-weight="500">Analytics</text>
     
     <rect x="398" y="225" width="79" height="32" rx="6" fill="transparent"/>
-    <text x="437.5" y="246" font-family="Arial, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle" font-weight="500">Reports</text>
+    <text x="437.5" y="246" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle" font-weight="500">Reports</text>
     
     <rect x="398" y="265" width="79" height="32" rx="6" fill="transparent"/>
-    <text x="437.5" y="286" font-family="Arial, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle" font-weight="500">Settings</text>
+    <text x="437.5" y="286" font-family="Arial, sans-serif" font-size="12" fill="#64748B" text-anchor="middle" font-weight="500">Settings</text>
     
     <!-- Sidebar Promo Banner - HIGHLIGHTED -->
-    <rect x="393" y="390" width="87" height="70" rx="10" fill="url(#blueGrad)" class="pulse-bg" style="animation-delay: 1s" stroke="#3B82F6" stroke-width="2.5" stroke-dasharray="6,4"/>
-    <rect x="398" y="395" width="77" height="60" rx="8" fill="#FFFFFF" stroke="#3B82F6" stroke-width="2" class="glow-blue" filter="url(#softShadow)"/>
+    <rect x="393" y="390" width="87" height="70" rx="10" fill="url(#blueGrad)" class="pulse-bg" style="animation-delay: 1s" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4"/>
+    <rect x="398" y="395" width="77" height="60" rx="8" fill="#FFFFFF" stroke="#60A5FA" stroke-width="1" class="glow-blue" filter="url(#softShadow)"/>
     
     <rect x="405" y="400" width="63" height="16" rx="4" fill="#3B82F6"/>
     <text x="436.5" y="410" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="0.5">NEW FEATURE</text>
@@ -250,27 +252,23 @@
     <text x="510" y="160" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A202C">Dashboard Overview</text>
     
     <!-- Stats cards -->
-    <rect x="505" y="180" width="145" height="75" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1.5" filter="url(#softShadow)"/>
+    <rect x="505" y="180" width="145" height="75" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)"/>
     <rect x="510" y="185" width="25" height="25" rx="5" fill="#DBEAFE"/>
     <text x="522.5" y="203" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">👥</text>
-    <text x="545" y="200" font-family="Arial, sans-serif" font-size="11" fill="#4A5568" font-weight="600">Total Users</text>
-    <text x="510" y="235" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1A202C">12,543
-      <animate attributeName="opacity" values="1;0.7;1" dur="3s" repeatCount="indefinite"/>
-    </text>
+    <text x="545" y="200" font-family="Arial, sans-serif" font-size="11" fill="#64748B" font-weight="600">Total Users</text>
+    <text x="510" y="235" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1A202C" class="shimmer">12,543</text>
     <text x="510" y="248" font-family="Arial, sans-serif" font-size="10" fill="#10B981" font-weight="600">↑ 12.5%</text>
     
-    <rect x="665" y="180" width="145" height="75" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1.5" filter="url(#softShadow)"/>
+    <rect x="665" y="180" width="145" height="75" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)"/>
     <rect x="670" y="185" width="25" height="25" rx="5" fill="#D1FAE5"/>
     <text x="682.5" y="203" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">💰</text>
-    <text x="705" y="200" font-family="Arial, sans-serif" font-size="11" fill="#4A5568" font-weight="600">Revenue</text>
-    <text x="670" y="235" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1A202C">$45.2K
-      <animate attributeName="opacity" values="1;0.7;1" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-    </text>
+    <text x="705" y="200" font-family="Arial, sans-serif" font-size="11" fill="#64748B" font-weight="600">Revenue</text>
+    <text x="670" y="235" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1A202C" class="shimmer" style="animation-delay: 0.5s">$45.2K</text>
     <text x="670" y="248" font-family="Arial, sans-serif" font-size="10" fill="#10B981" font-weight="600">↑ 8.3%</text>
     
     <!-- Chart placeholder -->
-    <rect x="505" y="270" width="305" height="130" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1.5" filter="url(#softShadow)"/>
-    <text x="510" y="290" font-family="Arial, sans-serif" font-size="13" fill="#2D3748" font-weight="600">Performance Metrics</text>
+    <rect x="505" y="270" width="305" height="130" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)"/>
+    <text x="510" y="290" font-family="Arial, sans-serif" font-size="13" fill="#475569" font-weight="600">Performance Metrics</text>
     
     <!-- Chart grid -->
     <line x1="520" y1="310" x2="790" y2="310" stroke="#E2E8F0" stroke-width="1"/>
@@ -306,69 +304,66 @@
   
   <!-- Mobile App Mockup 2 - Footer Placement -->
   <g id="mobileApp2" class="slide-up" style="animation-delay: 0.6s">
-    <!-- Phone shadow -->
-    <rect x="880" y="80" width="280" height="560" rx="25" fill="#1F2937" opacity="0.1" transform="translate(0, 4)"/>
-    
-    <!-- Phone frame -->
-    <rect x="880" y="80" width="280" height="560" rx="25" fill="#2D3748" stroke="#4A5568" stroke-width="2"/>
+    <!-- Phone frame with subtle border -->
+    <rect x="880" y="80" width="280" height="560" rx="25" fill="#F8FAFC" stroke="#CBD5E0" stroke-width="1" filter="url(#softShadow)"/>
     <rect x="895" y="95" width="250" height="530" rx="15" fill="#FFFFFF"/>
     
     <!-- Status bar -->
     <rect x="895" y="95" width="250" height="25" rx="15" fill="#F7FAFC"/>
     <circle cx="1115" cy="107" r="3" fill="#10B981" class="dot-pulse" style="animation-delay: 0.6s"/>
-    <rect x="1085" y="104" width="22" height="7" rx="2" fill="#4A5568"/>
+    <rect x="1085" y="104" width="22" height="7" rx="2" fill="#94A3B8"/>
     <path d="M 1110 104 L 1113 104 L 1113 111 L 1110 111 Z" fill="#10B981"/>
     
     <!-- App header -->
     <rect x="895" y="130" width="250" height="55" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
     <text x="1020" y="163" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1A202C" text-anchor="middle">My Feed</text>
-    <circle cx="920" cy="157" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="2"/>
+    <circle cx="920" cy="157" r="18" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1.5"/>
     <text x="920" y="164" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">👤</text>
-    <circle cx="1110" cy="157" r="18" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="1110" cy="157" r="18" fill="#F1F5F9" stroke="#CBD5E0" stroke-width="1"/>
     <text x="1110" y="164" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">🔔</text>
     
     <!-- Content cards -->
-    <rect x="905" y="200" width="230" height="85" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1.5" filter="url(#softShadow)">
+    <rect x="905" y="200" width="230" height="85" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)">
       <animate attributeName="y" values="200;198;200" dur="4s" repeatCount="indefinite"/>
     </rect>
-    <circle cx="930" cy="225" r="18" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="2"/>
+    <circle cx="930" cy="225" r="18" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="1.5"/>
     <text x="930" y="232" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">👨</text>
     <text x="960" y="218" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A202C">John Doe</text>
-    <text x="960" y="235" font-family="Arial, sans-serif" font-size="10" fill="#4A5568">Just shared a new post about...</text>
-    <text x="960" y="250" font-family="Arial, sans-serif" font-size="9" fill="#718096">2 hours ago</text>
+    <text x="960" y="235" font-family="Arial, sans-serif" font-size="10" fill="#64748B">Just shared a new post about...</text>
+    <text x="960" y="250" font-family="Arial, sans-serif" font-size="9" fill="#94A3B8">2 hours ago</text>
     <rect x="960" y="257" width="40" height="18" rx="4" fill="#EDE9FE"/>
     <text x="980" y="269" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle" font-weight="600">Design</text>
     
-    <rect x="905" y="295" width="230" height="85" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1.5" filter="url(#softShadow)">
+    <rect x="905" y="295" width="230" height="85" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)">
       <animate attributeName="y" values="295;293;295" dur="4s" repeatCount="indefinite" begin="0.5s"/>
     </rect>
-    <circle cx="930" cy="320" r="18" fill="#FED7AA" stroke="#F59E0B" stroke-width="2"/>
+    <circle cx="930" cy="320" r="18" fill="#FED7AA" stroke="#F59E0B" stroke-width="1.5"/>
     <text x="930" y="327" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">👩</text>
     <text x="960" y="313" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A202C">Jane Smith</text>
-    <text x="960" y="330" font-family="Arial, sans-serif" font-size="10" fill="#4A5568">Check out this amazing project...</text>
-    <text x="960" y="345" font-family="Arial, sans-serif" font-size="9" fill="#718096">5 hours ago</text>
+    <text x="960" y="330" font-family="Arial, sans-serif" font-size="10" fill="#64748B">Check out this amazing project...</text>
+    <text x="960" y="345" font-family="Arial, sans-serif" font-size="9" fill="#94A3B8">5 hours ago</text>
     <rect x="960" y="352" width="35" height="18" rx="4" fill="#FEF3C7"/>
     <text x="977.5" y="364" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" text-anchor="middle" font-weight="600">Tech</text>
     
-    <rect x="905" y="390" width="230" height="85" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1.5" filter="url(#softShadow)">
+    <rect x="905" y="390" width="230" height="85" rx="10" fill="#F7FAFC" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)">
       <animate attributeName="y" values="390;388;390" dur="4s" repeatCount="indefinite" begin="1s"/>
     </rect>
-    <circle cx="930" cy="415" r="18" fill="#BFDBFE" stroke="#3B82F6" stroke-width="2"/>
+    <circle cx="930" cy="415" r="18" fill="#BFDBFE" stroke="#3B82F6" stroke-width="1.5"/>
     <text x="930" y="422" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">🎨</text>
     <text x="960" y="408" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A202C">Creative Team</text>
-    <text x="960" y="425" font-family="Arial, sans-serif" font-size="10" fill="#4A5568">New design system released...</text>
-    <text x="960" y="440" font-family="Arial, sans-serif" font-size="9" fill="#718096">1 day ago</text>
+    <text x="960" y="425" font-family="Arial, sans-serif" font-size="10" fill="#64748B">New design system released...</text>
+    <text x="960" y="440" font-family="Arial, sans-serif" font-size="9" fill="#94A3B8">1 day ago</text>
     
     <!-- Footer Promo Banner - HIGHLIGHTED -->
-    <rect x="900" y="495" width="240" height="75" rx="12" fill="url(#purpleGrad)" class="pulse-bg" style="animation-delay: 1.5s" stroke="#8B5CF6" stroke-width="2.5" stroke-dasharray="6,4"/>
-    <rect x="905" y="500" width="230" height="65" rx="10" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2" class="glow-purple" style="animation-delay: 1s" filter="url(#softShadow)"/>
+    <rect x="900" y="495" width="240" height="75" rx="12" fill="url(#purpleGrad)" class="pulse-bg" style="animation-delay: 1.5s" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="6,4"/>
+    <rect x="905" y="500" width="230" height="65" rx="10" fill="#FFFFFF" stroke="#A78BFA" stroke-width="1" class="glow-purple" style="animation-delay: 1s" filter="url(#softShadow)"/>
     
     <!-- Promo content -->
     <rect x="915" y="508" width="52" height="52" rx="10" fill="#EDE9FE"/>
     <text x="941" y="540" font-family="Arial, sans-serif" font-size="26" text-anchor="middle">🎯</text>
     
     <text x="977" y="518" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A202C">Discover Premium</text>
-    <text x="977" y="534" font-family="Arial, sans-serif" font-size="10" fill="#4A5568">Unlock exclusive features</text>
+    <text x="977" y="534" font-family="Arial, sans-serif" font-size="10" fill="#64748B">Unlock exclusive features</text>
     <rect x="977" y="542" width="65" height="22" rx="6" fill="#8B5CF6">
       <animate attributeName="opacity" values="1;0.85;1" dur="2s" repeatCount="indefinite" begin="1s"/>
     </rect>
@@ -391,13 +386,13 @@
   
   <!-- Control Panel -->
   <g id="controlPanel" class="slide-up" style="animation-delay: 0.8s">
-    <rect x="50" y="670" width="780" height="115" rx="12" fill="#FFFFFF" stroke="#CBD5E0" stroke-width="2" filter="url(#softShadow)"/>
+    <rect x="50" y="670" width="780" height="115" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)"/>
     
     <text x="70" y="698" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1A202C">Promotion Controls</text>
     <line x1="70" y1="705" x2="200" y2="705" stroke="url(#titleGrad)" stroke-width="2" stroke-linecap="round"/>
     
     <!-- Toggle Switch 1 -->
-    <text x="70" y="730" font-family="Arial, sans-serif" font-size="12" fill="#2D3748" font-weight="600">Enable Cross-Promotion</text>
+    <text x="70" y="730" font-family="Arial, sans-serif" font-size="12" fill="#475569" font-weight="600">Enable Cross-Promotion</text>
     <rect x="70" y="740" width="50" height="26" rx="13" fill="#10B981" filter="url(#softShadow)"/>
     <circle cx="107" cy="753" r="10" fill="#FFFFFF" class="toggle-animate">
       <animate attributeName="fill" values="#FFFFFF;#F0FFF4;#FFFFFF" dur="3s" repeatCount="indefinite"/>
@@ -405,7 +400,7 @@
     <text x="130" y="757" font-family="Arial, sans-serif" font-size="11" fill="#10B981" font-weight="bold">ACTIVE</text>
     
     <!-- Toggle Switch 2 -->
-    <text x="270" y="730" font-family="Arial, sans-serif" font-size="12" fill="#2D3748" font-weight="600">Respect User Preferences</text>
+    <text x="270" y="730" font-family="Arial, sans-serif" font-size="12" fill="#475569" font-weight="600">Respect User Preferences</text>
     <rect x="270" y="740" width="50" height="26" rx="13" fill="#10B981" filter="url(#softShadow)"/>
     <circle cx="307" cy="753" r="10" fill="#FFFFFF" class="toggle-animate" style="animation-delay: 1s">
       <animate attributeName="fill" values="#FFFFFF;#F0FFF4;#FFFFFF" dur="3s" repeatCount="indefinite" begin="1s"/>
@@ -413,24 +408,24 @@
     <text x="330" y="757" font-family="Arial, sans-serif" font-size="11" fill="#10B981" font-weight="bold">ACTIVE</text>
     
     <!-- Impression Counter -->
-    <rect x="480" y="710" width="150" height="60" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2" filter="url(#softShadow)"/>
+    <rect x="480" y="710" width="150" height="60" rx="10" fill="#EFF6FF" stroke="#93C5FD" stroke-width="1" filter="url(#softShadow)"/>
     <circle cx="500" cy="730" r="12" fill="#3B82F6"/>
     <text x="500" y="735" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">👁</text>
-    <text x="520" y="728" font-family="Arial, sans-serif" font-size="11" fill="#2D3748" font-weight="600">Impressions</text>
+    <text x="520" y="728" font-family="Arial, sans-serif" font-size="11" fill="#475569" font-weight="600">Impressions</text>
     <text x="520" y="742" font-family="Arial, sans-serif" font-size="10" fill="#64748B">Today</text>
-    <text x="555" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#3B82F6" text-anchor="middle" class="counter-animate">8,432</text>
+    <text x="555" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#3B82F6" text-anchor="middle" class="shimmer">8,432</text>
     
     <!-- Click Rate -->
-    <rect x="650" y="710" width="130" height="60" rx="10" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2" filter="url(#softShadow)"/>
+    <rect x="650" y="710" width="130" height="60" rx="10" fill="#F5F3FF" stroke="#C4B5FD" stroke-width="1" filter="url(#softShadow)"/>
     <circle cx="670" cy="730" r="12" fill="#8B5CF6"/>
     <text x="670" y="735" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">📊</text>
-    <text x="690" y="728" font-family="Arial, sans-serif" font-size="11" fill="#2D3748" font-weight="600">Click Rate</text>
+    <text x="690" y="728" font-family="Arial, sans-serif" font-size="11" fill="#475569" font-weight="600">Click Rate</text>
     <text x="690" y="742" font-family="Arial, sans-serif" font-size="10" fill="#64748B">CTR</text>
-    <text x="715" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#8B5CF6" text-anchor="middle" class="counter-animate" style="animation-delay: 0.5s">3.2%</text>
+    <text x="715" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#8B5CF6" text-anchor="middle" class="shimmer" style="animation-delay: 0.5s">3.2%</text>
     
     <!-- Approval Status -->
-    <rect x="800" y="710" width="120" height="60" rx="10" fill="#F0FDF4" stroke="#10B981" stroke-width="2" filter="url(#softShadow)"/>
-    <text x="860" y="728" font-family="Arial, sans-serif" font-size="11" fill="#2D3748" text-anchor="middle" font-weight="600">Campaign</text>
+    <rect x="800" y="710" width="120" height="60" rx="10" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1" filter="url(#softShadow)"/>
+    <text x="860" y="728" font-family="Arial, sans-serif" font-size="11" fill="#475569" text-anchor="middle" font-weight="600">Campaign</text>
     <text x="860" y="742" font-family="Arial, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Status</text>
     <circle cx="845" cy="757" r="11" fill="#10B981">
       <animate attributeName="r" values="11;12;11" dur="2s" repeatCount="indefinite"/>
@@ -441,19 +436,19 @@
   
   <!-- Legend -->
   <g id="legend" class="slide-up" style="animation-delay: 1s">
-    <rect x="880" y="670" width="280" height="115" rx="12" fill="#FFFFFF" stroke="#CBD5E0" stroke-width="2" filter="url(#softShadow)"/>
+    <rect x="880" y="670" width="280" height="115" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#softShadow)"/>
     
     <text x="900" y="698" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1A202C">Best Practices</text>
     <line x1="900" y1="705" x2="1010" y2="705" stroke="url(#titleGrad)" stroke-width="2" stroke-linecap="round"/>
     
     <circle cx="908" cy="725" r="5" fill="#8B5CF6" class="dot-pulse" style="animation-delay: 1.2s"/>
-    <text x="925" y="730" font-family="Arial, sans-serif" font-size="11" fill="#2D3748" font-weight="500">Non-intrusive placement</text>
+    <text x="925" y="730" font-family="Arial, sans-serif" font-size="11" fill="#475569" font-weight="500">Non-intrusive placement</text>
     
     <circle cx="908" cy="748" r="5" fill="#3B82F6" class="dot-pulse" style="animation-delay: 1.4s"/>
-    <text x="925" y="753" font-family="Arial, sans-serif" font-size="11" fill="#2D3748" font-weight="500">Contextually relevant</text>
+    <text x="925" y="753" font-family="Arial, sans-serif" font-size="11" fill="#475569" font-weight="500">Contextually relevant</text>
     
     <circle cx="908" cy="771" r="5" fill="#10B981" class="dot-pulse" style="animation-delay: 1.6s"/>
-    <text x="925" y="776" font-family="Arial, sans-serif" font-size="11" fill="#2D3748" font-weight="500">Easy to dismiss</text>
+    <text x="925" y="776" font-family="Arial, sans-serif" font-size="11" fill="#475569" font-weight="500">Easy to dismiss</text>
     
     <rect x="1050" y="720" width="14" height="3" rx="1.5" fill="#CBD5E0"/>
     <rect x="1066" y="720" width="14" height="3" rx="1.5" fill="#CBD5E0"/>
