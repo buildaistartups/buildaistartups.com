@@ -1,236 +1,173 @@
-<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
     </linearGradient>
-    
-    <linearGradient id="vibrantPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="vibrantBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
-    </linearGradient>
-    
-    <radialGradient id="glowEffect">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.4" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
-    </radialGradient>
     
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
-    <filter id="strongGlow">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <style>
-      @keyframes pulse {
-        0%, 100% { opacity: 0.7; transform: scale(1); }
-        50% { opacity: 1; transform: scale(1.15); }
-      }
-      
-      @keyframes lineGrow {
-        0% { stroke-dashoffset: 100; opacity: 0; }
-        50% { stroke-dashoffset: 50; opacity: 0.3; }
-        100% { stroke-dashoffset: 0; opacity: 0.6; }
-      }
-      
-      @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.3); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      
-      @keyframes slideUp {
-        0% { transform: translateY(30px); opacity: 0; }
-        100% { transform: translateY(0); opacity: 1; }
-      }
-      
-      @keyframes glow-pulse {
-        0%, 100% { filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.4)); }
-        50% { filter: drop-shadow(0 0 25px rgba(139, 92, 246, 1)) drop-shadow(0 0 35px rgba(59, 130, 246, 0.8)); }
-      }
-      
-      @keyframes rotate-glow {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0) scale(1); }
-        50% { transform: translateY(-10px) scale(1.1); }
-      }
-      
-      @keyframes shimmer {
-        0% { opacity: 0.5; }
-        50% { opacity: 1; }
-        100% { opacity: 0.5; }
-      }
-      
-      .node {
-        animation: pulse 2s ease-in-out infinite, fadeIn 1s ease-out forwards, glow-pulse 3s ease-in-out infinite;
-      }
-      
-      .connection-line {
-        stroke: url(#purpleBlue);
-        stroke-width: 2.5;
-        opacity: 0.6;
-        stroke-dasharray: 100;
-        animation: lineGrow 2s ease-out forwards, shimmer 3s ease-in-out infinite;
-      }
-      
-      .metric {
-        animation: slideUp 1.2s ease-out forwards, bounce 2.5s ease-in-out infinite;
-      }
-      
-      .value-indicator {
-        animation: glow-pulse 2s ease-in-out infinite, fadeIn 1.2s ease-out forwards, pulse 2.5s ease-in-out infinite;
-      }
-      
-      .arrow {
-        animation: pulse 2s ease-in-out infinite, bounce 3s ease-in-out infinite;
-      }
-      
-      .glow-ring {
-        animation: rotate-glow 10s linear infinite, pulse 4s ease-in-out infinite;
-      }
-      
-      text {
-        font-family: system-ui, -apple-system, sans-serif;
-        font-weight: 700;
-      }
-    </style>
   </defs>
   
-  <text x="600" y="35" font-size="26" font-weight="800" fill="url(#purpleBlue)" text-anchor="middle">Network Effects: Exponential Value Growth</text>
-  
   <!-- Stage 1: 2 Nodes -->
-  <g transform="translate(150, 200)">
-    <circle cx="0" cy="0" r="100" fill="url(#glowEffect)" opacity="0.3"/>
+  <g id="stage1">
+    <text x="200" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#8B5CF6" text-anchor="middle">2 Nodes</text>
     
-    <line class="connection-line" x1="-40" y1="-20" x2="40" y2="20" style="animation-delay: 0.5s"/>
+    <!-- Connections -->
+    <line x1="150" y1="220" x2="250" y2="220" stroke="#3B82F6" stroke-width="2" opacity="0.6">
+      <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+    </line>
     
-    <circle class="node" cx="-40" cy="-20" r="22" fill="url(#vibrantPurple)" filter="url(#glow)" style="animation-delay: 0s"/>
-    <circle class="node" cx="40" cy="20" r="22" fill="url(#vibrantBlue)" filter="url(#glow)" style="animation-delay: 0.2s"/>
+    <!-- Nodes -->
+    <circle cx="150" cy="220" r="20" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="220" r="20" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="20;22;20" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </circle>
     
-    <text x="0" y="80" font-size="22" font-weight="800" fill="#8b5cf6" text-anchor="middle" class="metric">2 Nodes</text>
-    <text x="0" y="105" font-size="16" fill="#6b7280" text-anchor="middle" class="metric" style="animation-delay: 0.3s">1 Connection</text>
-    
-    <g class="value-indicator" style="animation-delay: 0.8s">
-      <rect x="-50" y="130" width="100" height="38" rx="19" fill="url(#vibrantPurple)" opacity="0.9" filter="url(#glow)"/>
-      <text x="0" y="154" font-size="18" fill="white" text-anchor="middle" font-weight="800">Value: 1x</text>
-    </g>
-    
-    <text x="0" y="200" font-size="14" fill="#9ca3af" text-anchor="middle">n(n-1)/2 = 1</text>
-  </g>
-  
-  <!-- Arrow 1 -->
-  <g class="arrow" transform="translate(280, 280)">
-    <path d="M 0 0 L 60 0" stroke="url(#purpleBlue)" stroke-width="4" fill="none" opacity="0.7"/>
-    <path d="M 60 0 L 50 -8 L 50 8 Z" fill="url(#purpleBlue)" opacity="0.7"/>
+    <!-- Metrics -->
+    <text x="200" y="300" font-family="monospace" font-size="16" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 1</text>
+    <text x="200" y="330" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">Value: 1×</text>
+    <text x="200" y="360" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">n(n-1)/2 = 1</text>
   </g>
   
   <!-- Stage 2: 4 Nodes -->
-  <g transform="translate(480, 200)">
-    <circle cx="0" cy="0" r="130" fill="url(#glowEffect)" opacity="0.4"/>
+  <g id="stage2">
+    <text x="600" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#8B5CF6" text-anchor="middle">4 Nodes</text>
     
-    <line class="connection-line" x1="-50" y1="-50" x2="50" y2="-50" style="animation-delay: 0.6s"/>
-    <line class="connection-line" x1="-50" y1="-50" x2="-50" y2="50" style="animation-delay: 0.7s"/>
-    <line class="connection-line" x1="-50" y1="-50" x2="50" y2="50" style="animation-delay: 0.8s"/>
-    <line class="connection-line" x1="50" y1="-50" x2="-50" y2="50" style="animation-delay: 0.9s"/>
-    <line class="connection-line" x1="50" y1="-50" x2="50" y2="50" style="animation-delay: 1s"/>
-    <line class="connection-line" x1="-50" y1="50" x2="50" y2="50" style="animation-delay: 1.1s"/>
+    <!-- Connections (6 total) -->
+    <line x1="550" y1="170" x2="650" y2="170" stroke="#3B82F6" stroke-width="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" begin="0s" repeatCount="indefinite"/>
+    </line>
+    <line x1="550" y1="170" x2="550" y2="270" stroke="#3B82F6" stroke-width="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="550" y1="170" x2="650" y2="270" stroke="#3B82F6" stroke-width="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" begin="1s" repeatCount="indefinite"/>
+    </line>
+    <line x1="650" y1="170" x2="650" y2="270" stroke="#3B82F6" stroke-width="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+    </line>
+    <line x1="650" y1="170" x2="550" y2="270" stroke="#3B82F6" stroke-width="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" begin="2s" repeatCount="indefinite"/>
+    </line>
+    <line x1="550" y1="270" x2="650" y2="270" stroke="#3B82F6" stroke-width="2" opacity="0.5">
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" begin="2.5s" repeatCount="indefinite"/>
+    </line>
     
-    <circle class="node" cx="-50" cy="-50" r="24" fill="url(#vibrantPurple)" filter="url(#glow)" style="animation-delay: 0.3s"/>
-    <circle class="node" cx="50" cy="-50" r="24" fill="url(#vibrantBlue)" filter="url(#glow)" style="animation-delay: 0.4s"/>
-    <circle class="node" cx="-50" cy="50" r="24" fill="url(#vibrantBlue)" filter="url(#glow)" style="animation-delay: 0.5s"/>
-    <circle class="node" cx="50" cy="50" r="24" fill="url(#vibrantPurple)" filter="url(#glow)" style="animation-delay: 0.6s"/>
+    <!-- Nodes -->
+    <circle cx="550" cy="170" r="20" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="20;22;20" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="650" cy="170" r="20" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="20;22;20" dur="2s" begin="0.3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="550" cy="270" r="20" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="20;22;20" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="650" cy="270" r="20" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="20;22;20" dur="2s" begin="0.9s" repeatCount="indefinite"/>
+    </circle>
     
-    <text x="0" y="100" font-size="22" font-weight="800" fill="#3b82f6" text-anchor="middle" class="metric" style="animation-delay: 0.5s">4 Nodes</text>
-    <text x="0" y="125" font-size="16" fill="#6b7280" text-anchor="middle" class="metric" style="animation-delay: 0.7s">6 Connections</text>
-    
-    <g class="value-indicator" style="animation-delay: 1.2s">
-      <rect x="-50" y="150" width="100" height="38" rx="19" fill="url(#vibrantBlue)" opacity="0.9" filter="url(#glow)"/>
-      <text x="0" y="174" font-size="18" fill="white" text-anchor="middle" font-weight="800">Value: 6x</text>
-    </g>
-    
-    <text x="0" y="220" font-size="14" fill="#9ca3af" text-anchor="middle">n(n-1)/2 = 6</text>
-  </g>
-  
-  <!-- Arrow 2 -->
-  <g class="arrow" transform="translate(630, 280)" style="animation-delay: 0.5s">
-    <path d="M 0 0 L 60 0" stroke="url(#purpleBlue)" stroke-width="4" fill="none" opacity="0.7"/>
-    <path d="M 60 0 L 50 -8 L 50 8 Z" fill="url(#purpleBlue)" opacity="0.7"/>
+    <!-- Metrics -->
+    <text x="600" y="320" font-family="monospace" font-size="16" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 6</text>
+    <text x="600" y="350" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">Value: 6×</text>
+    <text x="600" y="380" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">Growth: +500%</text>
   </g>
   
   <!-- Stage 3: 8 Nodes -->
-  <g transform="translate(880, 200)">
-    <circle cx="0" cy="0" r="160" fill="url(#glowEffect)" opacity="0.5"/>
+  <g id="stage3">
+    <text x="1000" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#8B5CF6" text-anchor="middle">8 Nodes</text>
     
-    <!-- Horizontal and vertical lines -->
-    <line class="connection-line" x1="-60" y1="-60" x2="60" y2="-60" style="animation-delay: 0.8s" opacity="0.4"/>
-    <line class="connection-line" x1="-60" y1="0" x2="60" y2="0" style="animation-delay: 0.85s" opacity="0.4"/>
-    <line class="connection-line" x1="-60" y1="60" x2="60" y2="60" style="animation-delay: 0.9s" opacity="0.4"/>
-    <line class="connection-line" x1="-60" y1="-60" x2="-60" y2="60" style="animation-delay: 0.95s" opacity="0.4"/>
-    <line class="connection-line" x1="0" y1="-60" x2="0" y2="60" style="animation-delay: 1s" opacity="0.4"/>
-    <line class="connection-line" x1="60" y1="-60" x2="60" y2="60" style="animation-delay: 1.05s" opacity="0.4"/>
-    
-    <!-- Diagonal connections -->
-    <line class="connection-line" x1="-60" y1="-60" x2="0" y2="0" style="animation-delay: 1.1s" opacity="0.3"/>
-    <line class="connection-line" x1="-60" y1="-60" x2="60" y2="60" style="animation-delay: 1.15s" opacity="0.3"/>
-    <line class="connection-line" x1="60" y1="-60" x2="-60" y2="60" style="animation-delay: 1.2s" opacity="0.3"/>
-    <line class="connection-line" x1="0" y1="-60" x2="60" y2="0" style="animation-delay: 1.25s" opacity="0.3"/>
-    <line class="connection-line" x1="-60" y1="0" x2="0" y2="60" style="animation-delay: 1.3s" opacity="0.3"/>
-    <line class="connection-line" x1="0" y1="0" x2="60" y2="60" style="animation-delay: 1.35s" opacity="0.3"/>
-    <line class="connection-line" x1="-60" y1="0" x2="60" y2="60" style="animation-delay: 1.4s" opacity="0.3"/>
-    <line class="connection-line" x1="0" y1="-60" x2="60" y2="60" style="animation-delay: 1.45s" opacity="0.3"/>
-    <line class="connection-line" x1="-60" y1="-60" x2="60" y2="0" style="animation-delay: 1.5s" opacity="0.3"/>
-    
-    <circle class="node" cx="-60" cy="-60" r="26" fill="url(#vibrantPurple)" filter="url(#strongGlow)" style="animation-delay: 0.6s"/>
-    <circle class="node" cx="0" cy="-60" r="26" fill="url(#vibrantBlue)" filter="url(#strongGlow)" style="animation-delay: 0.65s"/>
-    <circle class="node" cx="60" cy="-60" r="26" fill="url(#vibrantPurple)" filter="url(#strongGlow)" style="animation-delay: 0.7s"/>
-    <circle class="node" cx="-60" cy="0" r="26" fill="url(#vibrantBlue)" filter="url(#strongGlow)" style="animation-delay: 0.75s"/>
-    <circle class="node" cx="0" cy="0" r="26" fill="url(#vibrantPurple)" filter="url(#strongGlow)" style="animation-delay: 0.8s"/>
-    <circle class="node" cx="60" cy="0" r="26" fill="url(#vibrantBlue)" filter="url(#strongGlow)" style="animation-delay: 0.85s"/>
-    <circle class="node" cx="-60" cy="60" r="26" fill="url(#vibrantPurple)" filter="url(#strongGlow)" style="animation-delay: 0.9s"/>
-    <circle class="node" cx="60" cy="60" r="26" fill="url(#vibrantBlue)" filter="url(#strongGlow)" style="animation-delay: 0.95s"/>
-    
-    <text x="0" y="110" font-size="22" font-weight="800" fill="#8b5cf6" text-anchor="middle" class="metric" style="animation-delay: 1s">8 Nodes</text>
-    <text x="0" y="135" font-size="16" fill="#6b7280" text-anchor="middle" class="metric" style="animation-delay: 1.2s">28 Connections</text>
-    
-    <g class="value-indicator" style="animation-delay: 2s">
-      <rect x="-55" y="160" width="110" height="38" rx="19" fill="url(#vibrantPurple)" opacity="0.9" filter="url(#strongGlow)"/>
-      <text x="0" y="184" font-size="18" fill="white" text-anchor="middle" font-weight="800">Value: 28x</text>
+    <!-- Calculate positions for 8 nodes in a circle -->
+    <!-- Connections (28 total) - drawing all would be too dense, so showing representative ones -->
+    <g opacity="0.4">
+      <line x1="1000" y1="120" x2="1071" y2="155" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1000" y1="120" x2="1071" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1000" y1="120" x2="1000" y2="280" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1000" y1="120" x2="929" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1000" y1="120" x2="929" y2="155" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1071" y1="155" x2="1100" y2="200" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1071" y1="155" x2="1071" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1071" y1="155" x2="1000" y2="280" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1100" y1="200" x2="1071" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1100" y1="200" x2="1000" y2="280" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1071" y1="245" x2="1000" y2="280" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="929" y1="155" x2="900" y2="200" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="929" y1="155" x2="1071" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="900" y1="200" x2="929" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="900" y1="200" x2="1000" y2="280" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="929" y1="245" x2="1000" y2="280" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1071" y1="155" x2="929" y2="155" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1100" y1="200" x2="900" y2="200" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1071" y1="245" x2="929" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1000" y1="120" x2="1100" y2="200" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1000" y1="120" x2="900" y2="200" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="929" y1="155" x2="1071" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1071" y1="155" x2="929" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="900" y1="200" x2="1071" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1100" y1="200" x2="929" y2="245" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="929" y1="155" x2="1000" y2="280" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="1100" y1="200" x2="929" y2="155" stroke="#3B82F6" stroke-width="1.5"/>
+      <line x1="900" y1="200" x2="1071" y2="155" stroke="#3B82F6" stroke-width="1.5"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
     </g>
     
-    <text x="0" y="230" font-size="14" fill="#9ca3af" text-anchor="middle">n(n-1)/2 = 28</text>
+    <!-- Nodes in circular arrangement -->
+    <circle cx="1000" cy="120" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1071" cy="155" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" begin="0.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1100" cy="200" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1071" cy="245" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1000" cy="280" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="929" cy="245" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="900" cy="200" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="929" cy="155" r="18" fill="url(#nodeGradient)" filter="url(#glow)">
+      <animate attributeName="r" values="18;20;18" dur="2s" begin="1.4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Metrics -->
+    <text x="1000" y="330" font-family="monospace" font-size="16" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 28</text>
+    <text x="1000" y="360" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">Value: 28×</text>
+    <text x="1000" y="390" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">Growth: +2700%</text>
   </g>
   
-  <!-- Growth Formula -->
-  <g transform="translate(600, 480)">
-    <rect x="-200" y="0" width="400" height="80" rx="15" fill="url(#purpleBlue)" opacity="0.15" stroke="url(#purpleBlue)" stroke-width="2"/>
-    <text x="0" y="30" font-size="18" fill="#8b5cf6" text-anchor="middle" font-weight="700">Metcalfe's Law: Network Value Formula</text>
-    <text x="0" y="58" font-size="22" fill="url(#purpleBlue)" text-anchor="middle" font-weight="800">Value = n × (n - 1) / 2</text>
+  <!-- Growth Arrows -->
+  <g opacity="0.7">
+    <path d="M 280 220 L 520 220" stroke="#8B5CF6" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+    <path d="M 680 220 L 870 220" stroke="#8B5CF6" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
   </g>
   
-  <!-- Growth indicators -->
-  <g transform="translate(100, 450)">
-    <text x="0" y="0" font-size="15" fill="#6b7280" font-weight="700">📈 Doubling nodes = 6x value increase</text>
-  </g>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8B5CF6" />
+    </marker>
+  </defs>
   
-  <g transform="translate(100, 475)">
-    <text x="0" y="0" font-size="15" fill="#6b7280" font-weight="700">⚡ Exponential growth, not linear</text>
-  </g>
+  <!-- Title -->
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" fill="#8B5CF6" text-anchor="middle" font-weight="bold">
+    Network Effects: Exponential Value Growth
+  </text>
+  <text x="600" y="485" font-family="monospace" font-size="12" fill="#666" text-anchor="middle">
+    Metcalfe's Law: Network Value ∝ n²
+  </text>
 </svg>
