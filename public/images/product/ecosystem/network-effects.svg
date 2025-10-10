@@ -16,7 +16,7 @@
   
   <!-- Stage 1: 2 Nodes -->
   <g id="stage1">
-    <text x="200" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#8B5CF6" text-anchor="middle">2 Nodes</text>
+    <text x="200" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#8B5CF6" text-anchor="middle">2 Nodes</text>
     
     <!-- Connections -->
     <line x1="150" y1="220" x2="250" y2="220" stroke="#3B82F6" stroke-width="2" opacity="0.6">
@@ -32,14 +32,14 @@
     </circle>
     
     <!-- Metrics -->
-    <text x="200" y="300" font-family="monospace" font-size="16" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 1</text>
-    <text x="200" y="330" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">Value: 1×</text>
-    <text x="200" y="360" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">n(n-1)/2 = 1</text>
+    <text x="200" y="300" font-family="monospace" font-size="22" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 1</text>
+    <text x="200" y="330" font-family="monospace" font-size="18" fill="#3B82F6" text-anchor="middle">Value: 1×</text>
+    <text x="200" y="360" font-family="Arial, sans-serif" font-size="16" fill="#666" text-anchor="middle">n(n-1)/2 = 1</text>
   </g>
   
   <!-- Stage 2: 4 Nodes -->
   <g id="stage2">
-    <text x="600" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#8B5CF6" text-anchor="middle">4 Nodes</text>
+    <text x="600" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#8B5CF6" text-anchor="middle">4 Nodes</text>
     
     <!-- Connections (6 total) -->
     <line x1="550" y1="170" x2="650" y2="170" stroke="#3B82F6" stroke-width="2" opacity="0.5">
@@ -76,14 +76,14 @@
     </circle>
     
     <!-- Metrics -->
-    <text x="600" y="320" font-family="monospace" font-size="16" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 6</text>
-    <text x="600" y="350" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">Value: 6×</text>
-    <text x="600" y="380" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">Growth: +500%</text>
+    <text x="600" y="320" font-family="monospace" font-size="22" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 6</text>
+    <text x="600" y="350" font-family="monospace" font-size="18" fill="#3B82F6" text-anchor="middle">Value: 6×</text>
+    <text x="600" y="380" font-family="Arial, sans-serif" font-size="16" fill="#666" text-anchor="middle">Growth: +500%</text>
   </g>
   
   <!-- Stage 3: 8 Nodes -->
   <g id="stage3">
-    <text x="1000" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#8B5CF6" text-anchor="middle">8 Nodes</text>
+    <text x="1000" y="50" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#8B5CF6" text-anchor="middle">8 Nodes</text>
     
     <!-- Calculate positions for 8 nodes in a circle -->
     <!-- Connections (28 total) - drawing all would be too dense, so showing representative ones -->
@@ -146,9 +146,9 @@
     </circle>
     
     <!-- Metrics -->
-    <text x="1000" y="330" font-family="monospace" font-size="16" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 28</text>
-    <text x="1000" y="360" font-family="monospace" font-size="14" fill="#3B82F6" text-anchor="middle">Value: 28×</text>
-    <text x="1000" y="390" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">Growth: +2700%</text>
+    <text x="1000" y="330" font-family="monospace" font-size="22" fill="#8B5CF6" text-anchor="middle" font-weight="bold">Connections: 28</text>
+    <text x="1000" y="360" font-family="monospace" font-size="18" fill="#3B82F6" text-anchor="middle">Value: 28×</text>
+    <text x="1000" y="390" font-family="Arial, sans-serif" font-size="16" fill="#666" text-anchor="middle">Growth: +2700%</text>
   </g>
   
   <!-- Growth Arrows -->
@@ -164,10 +164,10 @@
   </defs>
   
   <!-- Title -->
-  <text x="600" y="460" font-family="Arial, sans-serif" font-size="18" fill="#8B5CF6" text-anchor="middle" font-weight="bold">
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="26" fill="#8B5CF6" text-anchor="middle" font-weight="bold">
     Network Effects: Exponential Value Growth
   </text>
-  <text x="600" y="485" font-family="monospace" font-size="12" fill="#666" text-anchor="middle">
+  <text x="600" y="485" font-family="monospace" font-size="16" fill="#666" text-anchor="middle">
     Metcalfe's Law: Network Value ∝ n²
   </text>
 </svg>
