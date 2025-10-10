@@ -141,54 +141,54 @@
   <!-- MRR Metric -->
   <g class="metric" id="metric1">
     <rect x="660" y="240" width="140" height="45" rx="22" fill="white" opacity="0.95"/>
-    <text x="730" y="268" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="middle">+187% MRR</text>
+    <text x="730" y="270" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#7c3aed" text-anchor="middle">+187% MRR</text>
   </g>
   
   <!-- DAU Metric -->
   <g class="metric" id="metric2">
-    <rect x="160" y="280" width="120" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="220" y="306" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#8b5cf6" text-anchor="middle">DAU 142%</text>
+    <rect x="160" y="280" width="120" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="220" y="308" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#8b5cf6" text-anchor="middle">DAU 142%</text>
   </g>
   
   <!-- Retention Metric -->
   <g class="metric" id="metric3">
-    <rect x="850" y="280" width="130" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="915" y="306" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#3b82f6" text-anchor="middle">Ret. 94%</text>
+    <rect x="850" y="280" width="130" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="915" y="308" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#3b82f6" text-anchor="middle">Ret. 94%</text>
   </g>
   
-  <!-- Conversion Rate -->
+  <!-- Conversion Rate - MOVED HIGHER -->
   <g class="metric" id="metric4">
-    <rect x="1020" y="360" width="110" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="1075" y="386" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#6366f1" text-anchor="middle">CVR↑8%</text>
+    <rect x="1020" y="320" width="110" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="1075" y="348" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#6366f1" text-anchor="middle">CVR↑8%</text>
   </g>
   
   <!-- NPS Score -->
   <g class="metric" id="metric5">
-    <rect x="175" y="580" width="100" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="225" y="606" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#8b5cf6" text-anchor="middle">NPS 71</text>
+    <rect x="175" y="580" width="100" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="225" y="608" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#8b5cf6" text-anchor="middle">NPS 71</text>
   </g>
   
-  <!-- ARPU Metric -->
+  <!-- ARPU Metric - MOVED HIGHER -->
   <g class="metric" id="metric6">
-    <rect x="1025" y="620" width="110" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="1080" y="646" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#3b82f6" text-anchor="middle">ARPU+15</text>
+    <rect x="1025" y="580" width="110" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="1080" y="608" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#3b82f6" text-anchor="middle">ARPU+15</text>
   </g>
   
   <!-- Churn Rate -->
   <g class="metric" id="metric7">
-    <rect x="420" y="630" width="90" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="465" y="656" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#7c3aed" text-anchor="middle">CR 3%</text>
+    <rect x="420" y="630" width="90" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="465" y="658" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#7c3aed" text-anchor="middle">CR 3%</text>
   </g>
   
-  <!-- Growth Rate -->
+  <!-- Growth Rate - MOVED HIGHER -->
   <g class="metric" id="metric8">
-    <rect x="270" y="360" width="110" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="325" y="386" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#8b5cf6" text-anchor="middle">GR↑23%</text>
+    <rect x="270" y="320" width="110" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="325" y="348" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#8b5cf6" text-anchor="middle">GR↑23%</text>
   </g>
   
   <!-- Engagement -->
   <g class="metric" id="metric9">
-    <rect x="820" y="580" width="130" height="40" rx="20" fill="white" opacity="0.95"/>
-    <text x="885" y="606" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#6366f1" text-anchor="middle">Eng. 156%</text>
+    <rect x="820" y="580" width="130" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="885" y="608" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#6366f1" text-anchor="middle">Eng. 156%</text>
   </g>
 </svg>
