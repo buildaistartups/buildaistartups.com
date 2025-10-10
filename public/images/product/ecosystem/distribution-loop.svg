@@ -69,50 +69,30 @@
   <g id="segment1">
     <path class="segment-animate" d="M 400 130 A 270 270 0 0 1 590 210" fill="none" stroke="url(#purpleGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 0s;"/>
     <circle cx="400" cy="130" r="55" fill="url(#purpleGrad)" opacity="0.95"/>
-    <!-- Apps icon -->
-    <rect x="385" y="115" width="12" height="12" rx="2" fill="white"/>
-    <rect x="403" y="115" width="12" height="12" rx="2" fill="white"/>
-    <rect x="385" y="133" width="12" height="12" rx="2" fill="white"/>
-    <rect x="403" y="133" width="12" height="12" rx="2" fill="white"/>
   </g>
   
   <!-- Segment 2: More Surfaces (Right-Top) -->
   <g id="segment2">
     <path class="segment-animate" d="M 590 210 A 270 270 0 0 1 590 590" fill="none" stroke="url(#blueGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 0.8s;"/>
     <circle cx="670" cy="400" r="55" fill="url(#blueGrad)" opacity="0.95"/>
-    <!-- Screen icon -->
-    <rect x="650" y="385" width="40" height="30" rx="3" fill="none" stroke="white" stroke-width="3"/>
-    <rect x="667" y="417" width="6" height="5" fill="white"/>
   </g>
   
   <!-- Segment 3: More Traffic (Bottom-Right) -->
   <g id="segment3">
     <path class="segment-animate" d="M 590 590 A 270 270 0 0 1 210 590" fill="none" stroke="url(#lightBlueGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 1.6s;"/>
     <circle cx="400" cy="670" r="55" fill="url(#lightBlueGrad)" opacity="0.95"/>
-    <!-- Users icon -->
-    <circle cx="390" cy="660" r="8" fill="white"/>
-    <path d="M 375 680 Q 390 670 405 680" fill="white"/>
-    <circle cx="410" cy="660" r="8" fill="white"/>
-    <path d="M 395 680 Q 410 670 425 680" fill="white"/>
   </g>
   
   <!-- Segment 4: More Conversions (Bottom-Left) -->
   <g id="segment4">
     <path class="segment-animate" d="M 210 590 A 270 270 0 0 1 210 210" fill="none" stroke="url(#lightPurpleGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 2.4s;"/>
     <circle cx="130" cy="400" r="55" fill="url(#lightPurpleGrad)" opacity="0.95"/>
-    <!-- Chart icon -->
-    <rect x="115" y="395" width="6" height="15" fill="white" rx="1"/>
-    <rect x="127" y="385" width="6" height="25" fill="white" rx="1"/>
-    <rect x="139" y="390" width="6" height="20" fill="white" rx="1"/>
   </g>
   
   <!-- Segment 5: More Growth (Left-Top) -->
   <g id="segment5">
     <path class="segment-animate" d="M 210 210 A 270 270 0 0 1 400 130" fill="none" stroke="url(#violetGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 3.2s;"/>
     <circle cx="210" cy="210" r="55" fill="url(#violetGrad)" opacity="0.95"/>
-    <!-- Growth arrow icon -->
-    <path d="M 190 225 L 210 195 L 230 215" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="210" y1="195" x2="210" y2="225" stroke="white" stroke-width="4" stroke-linecap="round"/>
   </g>
   
   <!-- Flowing arrows between segments -->
@@ -150,4 +130,32 @@
   <circle cx="400" cy="400" r="85" fill="url(#blueGrad)" opacity="0.1"/>
   <text x="400" y="395" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#6366f1" text-anchor="middle">Growth</text>
   <text x="400" y="420" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#6366f1" text-anchor="middle">Flywheel</text>
+  
+  <!-- Icons drawn LAST - FRONT OF EVERYTHING - BIGGER -->
+  <g id="icons-front">
+    <!-- Apps icon - bigger -->
+    <rect x="378" y="108" width="18" height="18" rx="3" fill="white" opacity="1"/>
+    <rect x="404" y="108" width="18" height="18" rx="3" fill="white" opacity="1"/>
+    <rect x="378" y="134" width="18" height="18" rx="3" fill="white" opacity="1"/>
+    <rect x="404" y="134" width="18" height="18" rx="3" fill="white" opacity="1"/>
+    
+    <!-- Screen icon - bigger -->
+    <rect x="643" y="378" width="54" height="44" rx="4" fill="none" stroke="white" stroke-width="4" opacity="1"/>
+    <rect x="665" y="424" width="10" height="8" fill="white" opacity="1"/>
+    
+    <!-- Users icon - bigger -->
+    <circle cx="385" cy="655" r="11" fill="white" opacity="1"/>
+    <path d="M 367 681 Q 385 668 403 681" fill="white" opacity="1"/>
+    <circle cx="415" cy="655" r="11" fill="white" opacity="1"/>
+    <path d="M 397 681 Q 415 668 433 681" fill="white" opacity="1"/>
+    
+    <!-- Chart icon - bigger -->
+    <rect x="112" y="392" width="9" height="22" fill="white" rx="2" opacity="1"/>
+    <rect x="127" y="378" width="9" height="36" fill="white" rx="2" opacity="1"/>
+    <rect x="142" y="385" width="9" height="29" fill="white" rx="2" opacity="1"/>
+    
+    <!-- Growth arrow icon - bigger -->
+    <path d="M 185 230 L 210 190 L 235 220" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
+    <line x1="210" y1="190" x2="210" y2="230" stroke="white" stroke-width="5" stroke-linecap="round" opacity="1"/>
+  </g>
 </svg>
