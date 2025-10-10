@@ -1,220 +1,171 @@
 <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-  <!-- Define gradients and filters -->
   <defs>
-    <!-- Purple gradient -->
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0.3" />
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0.25" />
     </linearGradient>
     
-    <!-- Blue gradient -->
-    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:0.3" />
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:0.25" />
     </linearGradient>
-    
-    <!-- Subtle shadow -->
-    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="0" dy="2" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.15"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
   
-  <!-- Title -->
-  <text x="600" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#64748B" text-anchor="middle">Cross-Promotion Placement Strategy</text>
+  <rect width="1200" height="800" fill="none"/>
   
-  <!-- Mobile App Mockup (Left) -->
+  <text x="600" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#64748B" text-anchor="middle">Cross-Promotion Placement Strategy</text>
+  
   <g transform="translate(80, 80)">
-    <!-- Phone frame -->
-    <rect x="0" y="0" width="280" height="560" rx="24" fill="none" stroke="#94A3B8" stroke-width="2" filter="url(#softShadow)"/>
-    <rect x="8" y="8" width="264" height="544" rx="18" fill="#F8FAFC" opacity="0.5"/>
+    <rect x="0" y="0" width="280" height="560" rx="24" fill="none" stroke="#94A3B8" stroke-width="2"/>
+    <rect x="8" y="8" width="264" height="544" rx="18" fill="#F8FAFC" opacity="0.4"/>
     
-    <!-- Status bar -->
-    <rect x="20" y="20" width="240" height="20" rx="4" fill="#CBD5E1" opacity="0.3"/>
+    <rect x="20" y="20" width="240" height="20" rx="4" fill="#CBD5E1" opacity="0.25"/>
     <circle cx="35" cy="30" r="3" fill="#64748B"/>
     <circle cx="45" cy="30" r="3" fill="#64748B"/>
     <rect x="220" y="26" width="30" height="8" rx="2" fill="#64748B"/>
     
-    <!-- App header -->
-    <rect x="20" y="55" width="240" height="50" rx="8" fill="#E2E8F0" opacity="0.4"/>
-    <circle cx="40" cy="80" r="12" fill="#8B5CF6" opacity="0.3"/>
-    <rect x="60" y="72" width="100" height="8" rx="4" fill="#94A3B8" opacity="0.4"/>
-    <rect x="60" y="86" width="60" height="6" rx="3" fill="#94A3B8" opacity="0.3"/>
+    <rect x="20" y="55" width="240" height="50" rx="8" fill="#E2E8F0" opacity="0.35"/>
+    <circle cx="40" cy="80" r="12" fill="#8B5CF6" opacity="0.25"/>
+    <rect x="60" y="72" width="100" height="8" rx="4" fill="#94A3B8" opacity="0.35"/>
+    <rect x="60" y="86" width="60" height="6" rx="3" fill="#94A3B8" opacity="0.25"/>
     
-    <!-- Content area -->
-    <rect x="20" y="120" width="240" height="280" rx="8" fill="#F1F5F9" opacity="0.3"/>
+    <rect x="20" y="120" width="240" height="280" rx="8" fill="#F1F5F9" opacity="0.25"/>
     
-    <!-- Content items -->
-    <rect x="30" y="135" width="220" height="60" rx="6" fill="#E2E8F0" opacity="0.4"/>
-    <rect x="30" y="205" width="220" height="60" rx="6" fill="#E2E8F0" opacity="0.4"/>
-    <rect x="30" y="275" width="220" height="60" rx="6" fill="#E2E8F0" opacity="0.4"/>
+    <rect x="30" y="135" width="220" height="60" rx="6" fill="#E2E8F0" opacity="0.35"/>
+    <rect x="30" y="205" width="220" height="60" rx="6" fill="#E2E8F0" opacity="0.35"/>
+    <rect x="30" y="275" width="220" height="60" rx="6" fill="#E2E8F0" opacity="0.35"/>
     
-    <!-- Footer Promotion Zone (Highlighted) -->
-    <rect x="20" y="415" width="240" height="120" rx="8" fill="url(#purpleGradient)" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,4"/>
-    <text x="140" y="435" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">FOOTER PLACEMENT</text>
+    <rect x="20" y="415" width="240" height="120" rx="8" fill="url(#purpleGrad)" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="140" y="435" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">FOOTER PLACEMENT</text>
     
-    <!-- Promo banner mockup -->
-    <rect x="30" y="445" width="220" height="75" rx="6" fill="#FFFFFF" opacity="0.9" stroke="#8B5CF6" stroke-width="1.5"/>
+    <rect x="30" y="445" width="220" height="75" rx="6" fill="#FFFFFF" opacity="0.85" stroke="#8B5CF6" stroke-width="1.5"/>
     <circle cx="50" cy="482" r="18" fill="#8B5CF6" opacity="0.2"/>
-    <rect x="75" y="465" width="100" height="8" rx="4" fill="#8B5CF6" opacity="0.6"/>
-    <rect x="75" y="478" width="140" height="6" rx="3" fill="#94A3B8" opacity="0.4"/>
-    <rect x="75" y="488" width="100" height="6" rx="3" fill="#94A3B8" opacity="0.3"/>
-    <rect x="185" y="470" width="55" height="24" rx="4" fill="#8B5CF6" opacity="0.8"/>
-    <text x="212" y="486" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#FFFFFF" text-anchor="middle">Try Now</text>
+    <rect x="75" y="465" width="100" height="8" rx="4" fill="#8B5CF6" opacity="0.55"/>
+    <rect x="75" y="478" width="140" height="6" rx="3" fill="#94A3B8" opacity="0.35"/>
+    <rect x="75" y="488" width="100" height="6" rx="3" fill="#94A3B8" opacity="0.25"/>
+    <rect x="185" y="470" width="55" height="24" rx="4" fill="#8B5CF6" opacity="0.75"/>
+    <text x="212" y="486" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#FFFFFF" text-anchor="middle">Try Now</text>
     
-    <!-- Label -->
-    <text x="140" y="575" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="middle">Mobile App</text>
+    <text x="140" y="575" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="middle">Mobile App</text>
   </g>
   
-  <!-- Desktop App Mockup (Center) -->
   <g transform="translate(420, 80)">
-    <!-- Window frame -->
-    <rect x="0" y="0" width="360" height="560" rx="8" fill="none" stroke="#94A3B8" stroke-width="2" filter="url(#softShadow)"/>
-    <rect x="4" y="4" width="352" height="552" rx="6" fill="#F8FAFC" opacity="0.5"/>
+    <rect x="0" y="0" width="360" height="560" rx="8" fill="none" stroke="#94A3B8" stroke-width="2"/>
+    <rect x="4" y="4" width="352" height="552" rx="6" fill="#F8FAFC" opacity="0.4"/>
     
-    <!-- Title bar -->
-    <rect x="12" y="12" width="336" height="30" rx="4" fill="#E2E8F0" opacity="0.4"/>
-    <circle cx="24" cy="27" r="5" fill="#EF4444" opacity="0.4"/>
-    <circle cx="38" cy="27" r="5" fill="#F59E0B" opacity="0.4"/>
-    <circle cx="52" cy="27" r="5" fill="#10B981" opacity="0.4"/>
-    <rect x="140" y="22" width="100" height="10" rx="5" fill="#94A3B8" opacity="0.3"/>
+    <rect x="12" y="12" width="336" height="30" rx="4" fill="#E2E8F0" opacity="0.35"/>
+    <circle cx="24" cy="27" r="5" fill="#EF4444" opacity="0.35"/>
+    <circle cx="38" cy="27" r="5" fill="#F59E0B" opacity="0.35"/>
+    <circle cx="52" cy="27" r="5" fill="#10B981" opacity="0.35"/>
+    <rect x="140" y="22" width="100" height="10" rx="5" fill="#94A3B8" opacity="0.25"/>
     
-    <!-- Sidebar (Highlighted) -->
-    <rect x="12" y="50" width="80" height="494" rx="6" fill="url(#blueGradient)" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4,4"/>
-    <text x="52" y="70" font-family="Arial, sans-serif" font-size="8" font-weight="600" fill="#3B82F6" text-anchor="middle">SIDEBAR</text>
+    <rect x="12" y="50" width="80" height="494" rx="6" fill="url(#blueGrad)" stroke="#3B82F6" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="52" y="70" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#3B82F6" text-anchor="middle">SIDEBAR</text>
     
-    <!-- Sidebar items -->
-    <rect x="20" y="85" width="64" height="28" rx="4" fill="#E2E8F0" opacity="0.5"/>
-    <rect x="20" y="120" width="64" height="28" rx="4" fill="#E2E8F0" opacity="0.5"/>
-    <rect x="20" y="155" width="64" height="28" rx="4" fill="#E2E8F0" opacity="0.5"/>
+    <rect x="20" y="85" width="64" height="28" rx="4" fill="#E2E8F0" opacity="0.45"/>
+    <rect x="20" y="120" width="64" height="28" rx="4" fill="#E2E8F0" opacity="0.45"/>
+    <rect x="20" y="155" width="64" height="28" rx="4" fill="#E2E8F0" opacity="0.45"/>
     
-    <!-- Sidebar promotion -->
-    <rect x="20" y="200" width="64" height="90" rx="6" fill="#FFFFFF" opacity="0.9" stroke="#3B82F6" stroke-width="1.5"/>
+    <rect x="20" y="200" width="64" height="90" rx="6" fill="#FFFFFF" opacity="0.85" stroke="#3B82F6" stroke-width="1.5"/>
     <rect x="26" y="210" width="52" height="32" rx="4" fill="#3B82F6" opacity="0.2"/>
-    <rect x="28" y="248" width="48" height="6" rx="3" fill="#3B82F6" opacity="0.6"/>
-    <rect x="28" y="258" width="36" height="5" rx="2" fill="#94A3B8" opacity="0.4"/>
-    <rect x="28" y="270" width="48" height="14" rx="3" fill="#3B82F6" opacity="0.8"/>
+    <rect x="28" y="248" width="48" height="6" rx="3" fill="#3B82F6" opacity="0.55"/>
+    <rect x="28" y="258" width="36" height="5" rx="2" fill="#94A3B8" opacity="0.35"/>
+    <rect x="28" y="270" width="48" height="14" rx="3" fill="#3B82F6" opacity="0.75"/>
     
-    <!-- Main content area -->
-    <rect x="100" y="50" width="248" height="494" rx="6" fill="#F1F5F9" opacity="0.3"/>
+    <rect x="100" y="50" width="248" height="494" rx="6" fill="#F1F5F9" opacity="0.25"/>
     
-    <!-- Content header -->
-    <rect x="110" y="65" width="228" height="40" rx="6" fill="#E2E8F0" opacity="0.4"/>
-    <rect x="120" y="75" width="120" height="10" rx="5" fill="#94A3B8" opacity="0.5"/>
-    <rect x="120" y="90" width="80" height="8" rx="4" fill="#94A3B8" opacity="0.3"/>
+    <rect x="110" y="65" width="228" height="40" rx="6" fill="#E2E8F0" opacity="0.35"/>
+    <rect x="120" y="75" width="120" height="10" rx="5" fill="#94A3B8" opacity="0.45"/>
+    <rect x="120" y="90" width="80" height="8" rx="4" fill="#94A3B8" opacity="0.25"/>
     
-    <!-- Content cards -->
-    <rect x="110" y="120" width="228" height="100" rx="6" fill="#FFFFFF" opacity="0.6"/>
-    <rect x="110" y="235" width="228" height="100" rx="6" fill="#FFFFFF" opacity="0.6"/>
-    <rect x="110" y="350" width="228" height="100" rx="6" fill="#FFFFFF" opacity="0.6"/>
+    <rect x="110" y="120" width="228" height="100" rx="6" fill="#FFFFFF" opacity="0.55"/>
+    <rect x="110" y="235" width="228" height="100" rx="6" fill="#FFFFFF" opacity="0.55"/>
+    <rect x="110" y="350" width="228" height="100" rx="6" fill="#FFFFFF" opacity="0.55"/>
     
-    <!-- Label -->
-    <text x="200" y="575" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="middle">Desktop App</text>
+    <text x="200" y="575" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="middle">Desktop App</text>
   </g>
   
-  <!-- Mobile Onboarding Mockup (Right) -->
   <g transform="translate(840, 80)">
-    <!-- Phone frame -->
-    <rect x="0" y="0" width="280" height="560" rx="24" fill="none" stroke="#94A3B8" stroke-width="2" filter="url(#softShadow)"/>
-    <rect x="8" y="8" width="264" height="544" rx="18" fill="#F8FAFC" opacity="0.5"/>
+    <rect x="0" y="0" width="280" height="560" rx="24" fill="none" stroke="#94A3B8" stroke-width="2"/>
+    <rect x="8" y="8" width="264" height="544" rx="18" fill="#F8FAFC" opacity="0.4"/>
     
-    <!-- Onboarding content -->
-    <circle cx="140" cy="150" r="60" fill="#6366F1" opacity="0.2"/>
-    <circle cx="140" cy="150" r="40" fill="#6366F1" opacity="0.3"/>
+    <circle cx="140" cy="150" r="60" fill="#6366F1" opacity="0.15"/>
+    <circle cx="140" cy="150" r="40" fill="#6366F1" opacity="0.25"/>
     
-    <rect x="50" y="240" width="180" height="12" rx="6" fill="#94A3B8" opacity="0.5"/>
-    <rect x="70" y="260" width="140" height="8" rx="4" fill="#94A3B8" opacity="0.3"/>
-    <rect x="60" y="275" width="160" height="8" rx="4" fill="#94A3B8" opacity="0.3"/>
+    <rect x="50" y="240" width="180" height="12" rx="6" fill="#94A3B8" opacity="0.45"/>
+    <rect x="70" y="260" width="140" height="8" rx="4" fill="#94A3B8" opacity="0.25"/>
+    <rect x="60" y="275" width="160" height="8" rx="4" fill="#94A3B8" opacity="0.25"/>
     
-    <!-- Onboarding Promotion Zone (Highlighted) -->
-    <rect x="30" y="310" width="220" height="140" rx="8" fill="url(#purpleGradient)" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,4"/>
-    <text x="140" y="330" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">ONBOARDING PLACEMENT</text>
+    <rect x="30" y="310" width="220" height="140" rx="8" fill="url(#purpleGrad)" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,4"/>
+    <text x="140" y="330" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">ONBOARDING PLACEMENT</text>
     
-    <!-- Cross-promo card -->
-    <rect x="40" y="340" width="200" height="100" rx="8" fill="#FFFFFF" opacity="0.95" stroke="#8B5CF6" stroke-width="1.5"/>
-    <circle cx="70" cy="375" r="20" fill="#6366F1" opacity="0.3"/>
-    <rect x="100" y="360" width="120" height="10" rx="5" fill="#8B5CF6" opacity="0.7"/>
-    <rect x="100" y="375" width="90" height="7" rx="3" fill="#94A3B8" opacity="0.4"/>
-    <rect x="100" y="387" width="110" height="7" rx="3" fill="#94A3B8" opacity="0.3"/>
-    <rect x="50" y="410" width="180" height="20" rx="6" fill="#8B5CF6" opacity="0.9"/>
-    <text x="140" y="424" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" text-anchor="middle">Get Started</text>
+    <rect x="40" y="340" width="200" height="100" rx="8" fill="#FFFFFF" opacity="0.9" stroke="#8B5CF6" stroke-width="1.5"/>
+    <circle cx="70" cy="375" r="20" fill="#6366F1" opacity="0.25"/>
+    <rect x="100" y="360" width="120" height="10" rx="5" fill="#8B5CF6" opacity="0.65"/>
+    <rect x="100" y="375" width="90" height="7" rx="3" fill="#94A3B8" opacity="0.35"/>
+    <rect x="100" y="387" width="110" height="7" rx="3" fill="#94A3B8" opacity="0.25"/>
+    <rect x="50" y="410" width="180" height="20" rx="6" fill="#8B5CF6" opacity="0.85"/>
+    <text x="140" y="424" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#FFFFFF" text-anchor="middle">Get Started</text>
     
-    <!-- Progress dots -->
-    <circle cx="120" cy="480" r="4" fill="#94A3B8" opacity="0.3"/>
-    <circle cx="140" cy="480" r="4" fill="#8B5CF6" opacity="0.8"/>
-    <circle cx="160" cy="480" r="4" fill="#94A3B8" opacity="0.3"/>
+    <circle cx="120" cy="480" r="4" fill="#94A3B8" opacity="0.25"/>
+    <circle cx="140" cy="480" r="4" fill="#8B5CF6" opacity="0.75"/>
+    <circle cx="160" cy="480" r="4" fill="#94A3B8" opacity="0.25"/>
     
-    <!-- Continue button -->
-    <rect x="40" y="510" width="200" height="32" rx="16" fill="#E2E8F0" opacity="0.5"/>
+    <rect x="40" y="510" width="200" height="32" rx="16" fill="#E2E8F0" opacity="0.45"/>
     
-    <!-- Label -->
-    <text x="140" y="575" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="middle">Onboarding Flow</text>
+    <text x="140" y="575" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="middle">Onboarding Flow</text>
   </g>
   
-  <!-- Control Panel -->
   <g transform="translate(80, 680)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#64748B">Promotion Controls</text>
+    <text x="0" y="0" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#64748B">Promotion Controls</text>
     
-    <!-- Toggle Switch 1 -->
     <g transform="translate(0, 20)">
-      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.5" stroke="#CBD5E1" stroke-width="1"/>
-      <text x="12" y="23" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Footer Banners</text>
-      <rect x="155" y="10" width="36" height="16" rx="8" fill="#8B5CF6" opacity="0.8"/>
+      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.45" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="12" y="23" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Footer Banners</text>
+      <rect x="155" y="10" width="36" height="16" rx="8" fill="#8B5CF6" opacity="0.75"/>
       <circle cx="179" cy="18" r="6" fill="#FFFFFF"/>
-      <text x="200" y="23" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" font-weight="600">ON</text>
+      <text x="200" y="23" font-family="system-ui, sans-serif" font-size="9" fill="#8B5CF6" font-weight="600">ON</text>
     </g>
     
-    <!-- Toggle Switch 2 -->
     <g transform="translate(220, 20)">
-      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.5" stroke="#CBD5E1" stroke-width="1"/>
-      <text x="12" y="23" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Sidebar Promos</text>
-      <rect x="155" y="10" width="36" height="16" rx="8" fill="#3B82F6" opacity="0.8"/>
+      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.45" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="12" y="23" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Sidebar Promos</text>
+      <rect x="155" y="10" width="36" height="16" rx="8" fill="#3B82F6" opacity="0.75"/>
       <circle cx="179" cy="18" r="6" fill="#FFFFFF"/>
-      <text x="200" y="23" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" font-weight="600">ON</text>
+      <text x="200" y="23" font-family="system-ui, sans-serif" font-size="9" fill="#3B82F6" font-weight="600">ON</text>
     </g>
     
-    <!-- Impression Counter -->
     <g transform="translate(440, 20)">
-      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.5" stroke="#CBD5E1" stroke-width="1"/>
-      <text x="12" y="23" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Impressions</text>
+      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.45" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="12" y="23" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Impressions</text>
       <rect x="120" y="8" width="70" height="20" rx="4" fill="#6366F1" opacity="0.2"/>
-      <text x="155" y="23" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#6366F1" text-anchor="middle">24.5K</text>
+      <text x="155" y="23" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#6366F1" text-anchor="middle">24.5K</text>
     </g>
     
-    <!-- Approval Status -->
     <g transform="translate(660, 20)">
-      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.5" stroke="#CBD5E1" stroke-width="1"/>
-      <text x="12" y="23" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Status</text>
+      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.45" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="12" y="23" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Status</text>
       <circle cx="165" cy="18" r="10" fill="#10B981" opacity="0.2" stroke="#10B981" stroke-width="1.5"/>
       <path d="M 161 18 L 164 21 L 169 15" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <text x="182" y="23" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="600">APPROVED</text>
+      <text x="182" y="23" font-family="system-ui, sans-serif" font-size="9" fill="#10B981" font-weight="600">APPROVED</text>
     </g>
     
-    <!-- CTR Metric -->
     <g transform="translate(880, 20)">
-      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.5" stroke="#CBD5E1" stroke-width="1"/>
-      <text x="12" y="23" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Click Rate</text>
+      <rect x="0" y="0" width="200" height="36" rx="6" fill="#F1F5F9" opacity="0.45" stroke="#CBD5E1" stroke-width="1"/>
+      <text x="12" y="23" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Click Rate</text>
       <rect x="120" y="8" width="70" height="20" rx="4" fill="#8B5CF6" opacity="0.2"/>
-      <text x="155" y="23" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#8B5CF6" text-anchor="middle">3.2%</text>
+      <text x="155" y="23" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#8B5CF6" text-anchor="middle">3.2%</text>
     </g>
   </g>
   
-  <!-- Legend -->
   <g transform="translate(80, 750)">
-    <rect x="0" y="0" width="16" height="16" rx="3" fill="url(#purpleGradient)" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="2,2"/>
-    <text x="22" y="12" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Footer & Onboarding Zones</text>
+    <rect x="0" y="0" width="16" height="16" rx="3" fill="url(#purpleGrad)" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="22" y="12" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Footer & Onboarding Zones</text>
     
-    <rect x="220" y="0" width="16" height="16" rx="3" fill="url(#blueGradient)" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,2"/>
-    <text x="242" y="12" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Sidebar Placement</text>
+    <rect x="220" y="0" width="16" height="16" rx="3" fill="url(#blueGrad)" stroke="#3B82F6" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="242" y="12" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Sidebar Placement</text>
     
-    <circle cx="428" cy="8" r="6" fill="#10B981" opacity="0.3"/>
-    <text x="440" y="12" font-family="Arial, sans-serif" font-size="11" fill="#64748B">Active & Approved</text>
+    <circle cx="428" cy="8" r="6" fill="#10B981" opacity="0.25"/>
+    <text x="440" y="12" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">Active & Approved</text>
   </g>
 </svg>
