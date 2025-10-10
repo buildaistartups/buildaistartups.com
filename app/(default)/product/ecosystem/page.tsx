@@ -169,11 +169,11 @@ export default function EcosystemPage() {
               <p className="mt-3 text-sm text-slate-400">Opt-in · Capped · Transparent analytics</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50">
                 <img 
                   src="/images/product/ecosystem/hero.svg" 
                   alt="Ecosystem network graph showing interconnected startups with cross-promotion flows" 
-                  className="h-full w-full object-contain"
+                  className="h-full w-full object-cover"
                   loading="eager"
                 />
               </div>
@@ -227,7 +227,7 @@ export default function EcosystemPage() {
             <p className="mt-2 text-slate-300">Each new app amplifies the entire network</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 overflow-hidden">
               <img 
                 src="/images/product/ecosystem/distribution-loop.svg" 
                 alt="Ecosystem growth flywheel showing compound network effects" 
@@ -253,7 +253,7 @@ export default function EcosystemPage() {
                 <li><strong>Placement quality:</strong> Small, contextual, and dismissible.</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 overflow-hidden">
               <img 
                 src="/images/product/ecosystem/cross-promo.svg" 
                 alt="Cross-promotion placement controls and app interface mockups" 
@@ -267,7 +267,7 @@ export default function EcosystemPage() {
         {/* Network Effects Visualization */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 overflow-hidden">
               <img 
                 src="/images/product/ecosystem/network-effects.svg" 
                 alt="Network effects growth visualization showing exponential connections" 
@@ -300,7 +300,7 @@ export default function EcosystemPage() {
           </div>
           
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 overflow-hidden">
               <img 
                 src="/images/product/ecosystem/shared-components.svg" 
                 alt="Shared component architecture showing modular building blocks" 
@@ -341,7 +341,7 @@ export default function EcosystemPage() {
                 <li>Fraud detection & anomaly alerts</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 overflow-hidden">
               <img 
                 src="/images/product/ecosystem/attribution-flow.svg" 
                 alt="Referral attribution flow showing user journey and rewards" 
@@ -402,32 +402,36 @@ export default function EcosystemPage() {
                 logo: '/images/logos/partners/inbox-iq.svg'
               },
             ].map((p, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-8">
+              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 overflow-hidden">
+                {/* Image fills entire card width - NO padding */}
+                <div className="aspect-video w-full bg-slate-900/50">
                   <img 
                     src={p.logo} 
-                    alt={`${p.name} logo`} 
-                    className="h-16 w-auto opacity-80"
+                    alt={`${p.name} analytics dashboard preview`} 
+                    className="w-full h-full object-cover"
                     loading="lazy"
                   />
                 </div>
-                <div className="mt-3 text-base font-medium">{p.name}</div>
-                <p className="text-sm text-slate-400">{p.vp}</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-3 flex items-center gap-2">
-                  <Link href="#" className="text-sm text-sky-300 hover:underline">
-                    Live demo
-                  </Link>
-                  <span className="text-slate-600">•</span>
-                  <Link href="#" className="text-sm text-sky-300 hover:underline">
-                    View repo
-                  </Link>
+                {/* Text content with padding */}
+                <div className="p-4">
+                  <div className="text-base font-medium">{p.name}</div>
+                  <p className="text-sm text-slate-400">{p.vp}</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-3 flex items-center gap-2">
+                    <Link href="#" className="text-sm text-sky-300 hover:underline">
+                      Live demo
+                    </Link>
+                    <span className="text-slate-600">•</span>
+                    <Link href="#" className="text-sm text-sky-300 hover:underline">
+                      View repo
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
