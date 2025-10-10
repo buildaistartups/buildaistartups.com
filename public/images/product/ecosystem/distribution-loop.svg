@@ -1,169 +1,140 @@
-import React from 'react';
-import { Grid3x3, Monitor, Users, TrendingUp, Zap } from 'lucide-react';
-
-const FlywheelDiagram = () => {
-  const segments = [
-    { 
-      id: 1, 
-      title: 'More Apps', 
-      icon: Grid3x3, 
-      angle: -90,
-      gradient: 'from-purple-500 to-blue-500'
-    },
-    { 
-      id: 2, 
-      title: 'More Surfaces', 
-      icon: Monitor, 
-      angle: -18,
-      gradient: 'from-blue-500 to-indigo-500'
-    },
-    { 
-      id: 3, 
-      title: 'More Traffic', 
-      icon: Users, 
-      angle: 54,
-      gradient: 'from-indigo-500 to-purple-500'
-    },
-    { 
-      id: 4, 
-      title: 'More Conversions', 
-      icon: TrendingUp, 
-      angle: 126,
-      gradient: 'from-purple-500 to-violet-500'
-    },
-    { 
-      id: 5, 
-      title: 'More Growth', 
-      icon: Zap, 
-      angle: 198,
-      gradient: 'from-violet-500 to-purple-500'
-    }
-  ];
-
-  const getPosition = (angle, radius) => {
-    const rad = (angle * Math.PI) / 180;
-    return {
-      x: Math.cos(rad) * radius,
-      y: Math.sin(rad) * radius
-    };
-  };
-
-  return (
-    <div className="w-full h-screen flex items-center justify-center bg-transparent p-8">
-      <div className="relative w-full max-w-3xl aspect-square">
-        {/* Center circle with pulse animation */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 opacity-20 animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 opacity-30" />
-        
-        {/* Circular path visualization */}
-        <svg className="absolute inset-0 w-full h-full" style={{ transform: 'rotate(-90deg)' }}>
-          <defs>
-            <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.3" />
-              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#a855f7" stopOpacity="0.3" />
-            </linearGradient>
-          </defs>
-          <circle
-            cx="50%"
-            cy="50%"
-            r="35%"
-            fill="none"
-            stroke="url(#circleGradient)"
-            strokeWidth="2"
-            strokeDasharray="5,5"
-            className="animate-spin"
-            style={{ animationDuration: '20s' }}
-          />
-        </svg>
-
-        {/* Segments */}
-        {segments.map((segment, index) => {
-          const pos = getPosition(segment.angle, 35); // 35% radius
-          const nextSegment = segments[(index + 1) % segments.length];
-          const nextPos = getPosition(nextSegment.angle, 35);
-          
-          return (
-            <React.Fragment key={segment.id}>
-              {/* Arrow between segments */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                <defs>
-                  <marker
-                    id={`arrowhead-${segment.id}`}
-                    markerWidth="10"
-                    markerHeight="10"
-                    refX="9"
-                    refY="3"
-                    orient="auto"
-                  >
-                    <polygon
-                      points="0 0, 10 3, 0 6"
-                      fill="#8b5cf6"
-                      className="animate-pulse"
-                    />
-                  </marker>
-                  <linearGradient id={`arrowGradient-${segment.id}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#a855f7" />
-                    <stop offset="100%" stopColor="#3b82f6" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d={`M ${50 + pos.x}% ${50 + pos.y}% Q ${50 + (pos.x + nextPos.x) / 2}% ${50 + (pos.y + nextPos.y) / 2}% ${50 + nextPos.x}% ${50 + nextPos.y}%`}
-                  fill="none"
-                  stroke={`url(#arrowGradient-${segment.id})`}
-                  strokeWidth="3"
-                  markerEnd={`url(#arrowhead-${segment.id})`}
-                  opacity="0.6"
-                />
-              </svg>
-
-              {/* Segment card */}
-              <div
-                className="absolute transition-all duration-300 hover:scale-110 hover:z-10 group"
-                style={{
-                  left: `${50 + pos.x}%`,
-                  top: `${50 + pos.y}%`,
-                  transform: 'translate(-50%, -50%)',
-                  animation: `float ${3 + index * 0.5}s ease-in-out infinite`
-                }}
-              >
-                <div className={`relative bg-gradient-to-br ${segment.gradient} p-6 rounded-2xl shadow-2xl min-w-[140px] transition-all duration-300 group-hover:shadow-purple-500/50`}>
-                  <div className="flex flex-col items-center gap-3">
-                    <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
-                      <segment.icon className="w-8 h-8 text-white" strokeWidth={2} />
-                    </div>
-                    <h3 className="text-white font-bold text-center text-sm leading-tight">
-                      {segment.title}
-                    </h3>
-                  </div>
-                  
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-              </div>
-            </React.Fragment>
-          );
-        })}
-
-        {/* Center label */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center z-20">
-          <div className="bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-purple-300/30">
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600 font-bold text-lg">
-              Growth Loop
-            </p>
-          </div>
-        </div>
-
-        {/* Floating animation keyframes */}
-        <style>{`
-          @keyframes float {
-            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
-          }
-        `}</style>
-      </div>
-    </div>
-  );
-};
-
-export default FlywheelDiagram;
+<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+    </linearGradient>
+    
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
+      <polygon points="0 0, 12 6, 0 12" fill="#8b5cf6">
+        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+      </polygon>
+    </marker>
+    
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <circle cx="400" cy="400" r="80" fill="url(#grad1)" opacity="0.2"/>
+  <circle cx="400" cy="400" r="65" fill="url(#grad1)" opacity="0.3">
+    <animate attributeName="r" values="65;70;65" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="400" cy="400" r="220" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="8,8" opacity="0.4" marker-end="url(#arrowhead)"/>
+  
+  <g>
+    <rect x="330" y="140" width="140" height="100" rx="16" fill="url(#grad1)" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="335" y="145" width="130" height="90" rx="12" fill="white" opacity="0.1">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
+      <rect x="377" y="162" width="12" height="12" rx="2" fill="white"/>
+      <rect x="393" y="162" width="12" height="12" rx="2" fill="white"/>
+      <rect x="409" y="162" width="12" height="12" rx="2" fill="white"/>
+      <rect x="377" y="178" width="12" height="12" rx="2" fill="white"/>
+      <rect x="393" y="178" width="12" height="12" rx="2" fill="white"/>
+      <rect x="409" y="178" width="12" height="12" rx="2" fill="white"/>
+      <rect x="377" y="194" width="12" height="12" rx="2" fill="white"/>
+      <rect x="393" y="194" width="12" height="12" rx="2" fill="white"/>
+      <rect x="409" y="194" width="12" height="12" rx="2" fill="white"/>
+      <text x="400" y="228" text-anchor="middle" fill="white" font-size="16" font-weight="bold">More Apps</text>
+    </g>
+  </g>
+  
+  <g>
+    <rect x="520" y="260" width="140" height="100" rx="16" fill="url(#grad2)" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="525" y="265" width="130" height="90" rx="12" fill="white" opacity="0.1">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
+      <rect x="567" y="282" width="46" height="32" rx="3" fill="none" stroke="white" stroke-width="2.5"/>
+      <rect x="583" y="318" width="14" height="6" rx="1" fill="white"/>
+      <line x1="575" y1="324" x2="605" y2="324" stroke="white" stroke-width="2"/>
+      <text x="590" y="348" text-anchor="middle" fill="white" font-size="15" font-weight="bold">More</text>
+      <text x="590" y="364" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Surfaces</text>
+    </g>
+  </g>
+  
+  <g>
+    <rect x="520" y="460" width="140" height="100" rx="16" fill="url(#grad3)" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="525" y="465" width="130" height="90" rx="12" fill="white" opacity="0.1">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
+      <circle cx="580" cy="492" r="10" fill="white"/>
+      <path d="M 565 512 Q 580 502 595 512" fill="white"/>
+      <circle cx="600" cy="492" r="10" fill="white"/>
+      <path d="M 585 512 Q 600 502 615 512" fill="white"/>
+      <text x="590" y="538" text-anchor="middle" fill="white" font-size="15" font-weight="bold">More</text>
+      <text x="590" y="554" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Traffic</text>
+    </g>
+  </g>
+  
+  <g>
+    <rect x="140" y="460" width="140" height="100" rx="16" fill="url(#grad4)" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="145" y="465" width="130" height="90" rx="12" fill="white" opacity="0.1">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
+      <polyline points="180,510 190,500 200,505 210,490 220,495 230,485" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="230" cy="485" r="3" fill="white"/>
+      <text x="210" y="533" text-anchor="middle" fill="white" font-size="14" font-weight="bold">More</text>
+      <text x="210" y="550" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Conversions</text>
+    </g>
+  </g>
+  
+  <g>
+    <rect x="140" y="260" width="140" height="100" rx="16" fill="url(#grad5)" filter="url(#shadow)">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="145" y="265" width="130" height="90" rx="12" fill="white" opacity="0.1">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="2s" repeatCount="indefinite"/>
+    </rect>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="2s" repeatCount="indefinite"/>
+      <path d="M 220 282 L 205 302 L 215 302 L 200 322 L 218 302 L 208 302 Z" fill="white"/>
+      <text x="210" y="348" text-anchor="middle" fill="white" font-size="15" font-weight="bold">More</text>
+      <text x="210" y="364" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Growth</text>
+    </g>
+  </g>
+  
+  <rect x="330" y="385" width="140" height="30" rx="15" fill="white" opacity="0.15"/>
+  <text x="400" y="405" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="bold">Growth Loop</text>
+</svg>
