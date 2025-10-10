@@ -51,37 +51,12 @@
         100% { stroke-dashoffset: -40; }
       }
       
-      @keyframes glow {
-        0%, 100% { filter: drop-shadow(0 0 5px rgba(139, 92, 246, 0.5)); }
-        50% { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 1)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.8)); }
-      }
-      
-      @keyframes rotate {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-      
-      .component-block {
-        animation: glow 3s ease-in-out infinite;
-        transform-origin: center;
-      }
-      
-      .app-interface {
-        animation: glow 4s ease-in-out infinite;
-        transform-origin: center;
-      }
-      
       .connection-line {
         stroke: url(#purpleBlue);
         stroke-width: 3;
         stroke-dasharray: 10, 10;
         opacity: 0.6;
         animation: dash 8s linear infinite;
-      }
-      
-      .glow-circle {
-        animation: rotate 20s linear infinite;
-        transform-origin: center;
       }
       
       text {
@@ -93,12 +68,12 @@
   
   <text x="600" y="40" font-size="28" font-weight="800" fill="url(#purpleBlue)" text-anchor="middle">Shared Component Architecture</text>
   
-  <circle cx="600" cy="350" r="200" fill="url(#glowEffect)" opacity="0.6" class="glow-circle"/>
+  <circle cx="600" cy="350" r="200" fill="url(#glowEffect)" opacity="0.6"/>
   
   <rect x="480" y="170" width="240" height="35" rx="17.5" fill="url(#lightPurple)" stroke="url(#purpleBlue)" stroke-width="2"/>
   <text x="600" y="193" font-size="18" fill="url(#purpleBlue)" text-anchor="middle">Shared Components</text>
   
-  <g class="component-block" style="animation-delay: 0s">
+  <g class="component-block">
     <rect x="510" y="270" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
     <rect x="515" y="275" width="170" height="80" rx="10" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
     
@@ -110,7 +85,7 @@
     <text x="600" y="350" font-size="18" fill="white" text-anchor="middle">Authentication</text>
   </g>
   
-  <g class="component-block" style="animation-delay: 0.5s">
+  <g class="component-block">
     <rect x="510" y="370" width="180" height="90" rx="12" fill="url(#vibrantBlue)" filter="url(#shadow)"/>
     <rect x="515" y="375" width="170" height="80" rx="10" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
     
@@ -123,7 +98,7 @@
     <text x="600" y="450" font-size="18" fill="white" text-anchor="middle">Billing</text>
   </g>
   
-  <g class="component-block" style="animation-delay: 1s">
+  <g class="component-block">
     <rect x="510" y="505" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
     <rect x="515" y="510" width="170" height="80" rx="10" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
     
@@ -136,7 +111,7 @@
     <text x="600" y="585" font-size="18" fill="white" text-anchor="middle">Analytics</text>
   </g>
   
-  <g class="app-interface" style="animation-delay: 0.2s">
+  <g class="app-interface">
     <rect x="150" y="150" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
     <rect x="160" y="160" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
     <text x="250" y="182" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="700">E-commerce</text>
@@ -145,7 +120,7 @@
     <text x="250" y="280" font-size="12" fill="#6b7280" text-anchor="middle">Shopping Platform</text>
   </g>
   
-  <g class="app-interface" style="animation-delay: 0.4s">
+  <g class="app-interface">
     <rect x="850" y="150" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
     <rect x="860" y="160" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
     <text x="950" y="182" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="700">SaaS Dashboard</text>
@@ -154,7 +129,7 @@
     <text x="950" y="280" font-size="12" fill="#6b7280" text-anchor="middle">Business Analytics</text>
   </g>
   
-  <g class="app-interface" style="animation-delay: 0.6s">
+  <g class="app-interface">
     <rect x="150" y="450" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
     <rect x="160" y="460" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
     <text x="250" y="482" font-size="16" fill="#8b5cf6" text-anchor="middle" font-weight="700">Mobile App</text>
@@ -163,7 +138,7 @@
     <text x="250" y="580" font-size="12" fill="#6b7280" text-anchor="middle">iOS &amp; Android</text>
   </g>
   
-  <g class="app-interface" style="animation-delay: 0.8s">
+  <g class="app-interface">
     <rect x="850" y="450" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
     <rect x="860" y="460" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
     <text x="950" y="482" font-size="16" fill="#3b82f6" text-anchor="middle" font-weight="700">Content Platform</text>
@@ -172,16 +147,16 @@
     <text x="950" y="580" font-size="12" fill="#6b7280" text-anchor="middle">Publishing System</text>
   </g>
   
-  <line class="connection-line" x1="350" y1="200" x2="510" y2="280" style="animation-delay: 0s"/>
-  <line class="connection-line" x1="340" y1="230" x2="510" y2="360" style="animation-delay: 0.3s"/>
-  <line class="connection-line" x1="850" y1="210" x2="690" y2="280" style="animation-delay: 0.6s"/>
-  <line class="connection-line" x1="860" y1="250" x2="690" y2="490" style="animation-delay: 0.9s"/>
-  <line class="connection-line" x1="350" y1="500" x2="510" y2="420" style="animation-delay: 1.2s"/>
-  <line class="connection-line" x1="350" y1="530" x2="510" y2="450" style="animation-delay: 1.5s"/>
-  <line class="connection-line" x1="340" y1="560" x2="510" y2="540" style="animation-delay: 1.8s"/>
-  <line class="connection-line" x1="850" y1="490" x2="690" y2="400" style="animation-delay: 2.1s"/>
-  <line class="connection-line" x1="850" y1="520" x2="690" y2="430" style="animation-delay: 2.4s"/>
-  <line class="connection-line" x1="860" y1="560" x2="690" y2="540" style="animation-delay: 2.7s"/>
+  <line class="connection-line" x1="350" y1="200" x2="510" y2="280"/>
+  <line class="connection-line" x1="340" y1="230" x2="510" y2="360"/>
+  <line class="connection-line" x1="850" y1="210" x2="690" y2="280"/>
+  <line class="connection-line" x1="860" y1="250" x2="690" y2="490"/>
+  <line class="connection-line" x1="350" y1="500" x2="510" y2="420"/>
+  <line class="connection-line" x1="350" y1="530" x2="510" y2="450"/>
+  <line class="connection-line" x1="340" y1="560" x2="510" y2="540"/>
+  <line class="connection-line" x1="850" y1="490" x2="690" y2="400"/>
+  <line class="connection-line" x1="850" y1="520" x2="690" y2="430"/>
+  <line class="connection-line" x1="860" y1="560" x2="690" y2="540"/>
   
   <rect x="350" y="650" width="500" height="40" rx="20" fill="url(#purpleBlue)" opacity="0.15" stroke="url(#purpleBlue)" stroke-width="2"/>
   <text x="600" y="675" font-size="18" fill="url(#purpleBlue)" text-anchor="middle" font-weight="700">Reusable • Maintainable • Scalable • Consistent</text>
