@@ -109,16 +109,16 @@
     <!-- More Apps - moved up -->
     <text x="400" y="55" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8b5cf6" text-anchor="middle">More Apps</text>
     
-    <!-- More Surfaces - moved up more -->
-    <text x="720" y="370" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" text-anchor="start">More</text>
-    <text x="720" y="395" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" text-anchor="start">Surfaces</text>
+    <!-- More Surfaces - moved up more and closer -->
+    <text x="700" y="330" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" text-anchor="start">More</text>
+    <text x="700" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" text-anchor="start">Surfaces</text>
     
     <!-- More Traffic - moved down -->
     <text x="400" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#60a5fa" text-anchor="middle">More Traffic</text>
     
-    <!-- More Conversions - moved up more -->
-    <text x="80" y="370" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a78bfa" text-anchor="end">More</text>
-    <text x="80" y="395" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a78bfa" text-anchor="end">Conversions</text>
+    <!-- More Conversions - moved up more and closer -->
+    <text x="100" y="330" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a78bfa" text-anchor="end">More</text>
+    <text x="100" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#a78bfa" text-anchor="end">Conversions</text>
     
     <!-- More Growth - moved up and left -->
     <text x="120" y="165" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="middle">More</text>
