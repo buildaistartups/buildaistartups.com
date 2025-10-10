@@ -1,140 +1,121 @@
-<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
+    <!-- Animations -->
+    <style>
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.9; }
+        50% { opacity: 1; }
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -1000; }
+      }
+      .flywheel-rotate {
+        animation: rotate 20s linear infinite;
+        transform-origin: 300px 300px;
+      }
+      .pulse {
+        animation: pulse 2s ease-in-out infinite;
+      }
+      .arrow-flow {
+        stroke-dasharray: 20 10;
+        animation: dash 20s linear infinite;
+      }
+    </style>
+    
+    <!-- Gradients -->
     <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
     </linearGradient>
     
-    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto">
-      <polygon points="0 0, 12 6, 0 12" fill="#8b5cf6">
-        <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
-      </polygon>
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8B5CF6" />
     </marker>
-    
-    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
-      <feOffset dx="0" dy="4" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
   
-  <circle cx="400" cy="400" r="80" fill="url(#grad1)" opacity="0.2"/>
-  <circle cx="400" cy="400" r="65" fill="url(#grad1)" opacity="0.3">
-    <animate attributeName="r" values="65;70;65" dur="3s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Center circle -->
+  <circle cx="300" cy="300" r="80" fill="none" stroke="url(#grad1)" stroke-width="2" opacity="0.3"/>
   
-  <circle cx="400" cy="400" r="220" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-dasharray="8,8" opacity="0.4" marker-end="url(#arrowhead)"/>
-  
-  <g>
-    <rect x="330" y="140" width="140" height="100" rx="16" fill="url(#grad1)" filter="url(#shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="335" y="145" width="130" height="90" rx="12" fill="white" opacity="0.1">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
-    </rect>
-    <g>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
-      <rect x="377" y="162" width="12" height="12" rx="2" fill="white"/>
-      <rect x="393" y="162" width="12" height="12" rx="2" fill="white"/>
-      <rect x="409" y="162" width="12" height="12" rx="2" fill="white"/>
-      <rect x="377" y="178" width="12" height="12" rx="2" fill="white"/>
-      <rect x="393" y="178" width="12" height="12" rx="2" fill="white"/>
-      <rect x="409" y="178" width="12" height="12" rx="2" fill="white"/>
-      <rect x="377" y="194" width="12" height="12" rx="2" fill="white"/>
-      <rect x="393" y="194" width="12" height="12" rx="2" fill="white"/>
-      <rect x="409" y="194" width="12" height="12" rx="2" fill="white"/>
-      <text x="400" y="228" text-anchor="middle" fill="white" font-size="16" font-weight="bold">More Apps</text>
-    </g>
+  <!-- Circular arrows connecting segments -->
+  <g class="flywheel-rotate">
+    <path d="M 300 140 A 160 160 0 0 1 441 223" fill="none" stroke="url(#grad1)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 449 237 A 160 160 0 0 1 449 363" fill="none" stroke="url(#grad2)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 441 377 A 160 160 0 0 1 300 460" fill="none" stroke="url(#grad3)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 286 460 A 160 160 0 0 1 151 363" fill="none" stroke="url(#grad4)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 151 237 A 160 160 0 0 1 286 140" fill="none" stroke="url(#grad5)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
   </g>
   
-  <g>
-    <rect x="520" y="260" width="140" height="100" rx="16" fill="url(#grad2)" filter="url(#shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="525" y="265" width="130" height="90" rx="12" fill="white" opacity="0.1">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
-    </rect>
-    <g>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="0.5s" repeatCount="indefinite"/>
-      <rect x="567" y="282" width="46" height="32" rx="3" fill="none" stroke="white" stroke-width="2.5"/>
-      <rect x="583" y="318" width="14" height="6" rx="1" fill="white"/>
-      <line x1="575" y1="324" x2="605" y2="324" stroke="white" stroke-width="2"/>
-      <text x="590" y="348" text-anchor="middle" fill="white" font-size="15" font-weight="bold">More</text>
-      <text x="590" y="364" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Surfaces</text>
-    </g>
+  <!-- Segment 1: More Apps (Top) -->
+  <g transform="translate(300, 100)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad1)" class="pulse"/>
+    <!-- App icon -->
+    <rect x="-15" y="-15" width="12" height="12" rx="2" fill="white"/>
+    <rect x="3" y="-15" width="12" height="12" rx="2" fill="white"/>
+    <rect x="-15" y="3" width="12" height="12" rx="2" fill="white"/>
+    <rect x="3" y="3" width="12" height="12" rx="2" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#3B82F6" font-size="16" font-weight="600">More Apps</text>
   </g>
   
-  <g>
-    <rect x="520" y="460" width="140" height="100" rx="16" fill="url(#grad3)" filter="url(#shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="525" y="465" width="130" height="90" rx="12" fill="white" opacity="0.1">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
-    </rect>
-    <g>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1s" repeatCount="indefinite"/>
-      <circle cx="580" cy="492" r="10" fill="white"/>
-      <path d="M 565 512 Q 580 502 595 512" fill="white"/>
-      <circle cx="600" cy="492" r="10" fill="white"/>
-      <path d="M 585 512 Q 600 502 615 512" fill="white"/>
-      <text x="590" y="538" text-anchor="middle" fill="white" font-size="15" font-weight="bold">More</text>
-      <text x="590" y="554" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Traffic</text>
-    </g>
+  <!-- Segment 2: More Surfaces (Right-Top) -->
+  <g transform="translate(460, 220)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad2)" class="pulse"/>
+    <!-- Screens icon -->
+    <rect x="-18" y="-12" width="20" height="15" rx="2" fill="none" stroke="white" stroke-width="2"/>
+    <rect x="-3" y="-8" width="16" height="12" rx="1.5" fill="none" stroke="white" stroke-width="2"/>
+    <rect x="8" y="-5" width="10" height="8" rx="1" fill="none" stroke="white" stroke-width="1.5"/>
+    <text x="0" y="65" text-anchor="middle" fill="#3B82F6" font-size="16" font-weight="600">More Surfaces</text>
   </g>
   
-  <g>
-    <rect x="140" y="460" width="140" height="100" rx="16" fill="url(#grad4)" filter="url(#shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="145" y="465" width="130" height="90" rx="12" fill="white" opacity="0.1">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-    </rect>
-    <g>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="1.5s" repeatCount="indefinite"/>
-      <polyline points="180,510 190,500 200,505 210,490 220,495 230,485" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="230" cy="485" r="3" fill="white"/>
-      <text x="210" y="533" text-anchor="middle" fill="white" font-size="14" font-weight="bold">More</text>
-      <text x="210" y="550" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Conversions</text>
-    </g>
+  <!-- Segment 3: More Traffic (Right-Bottom) -->
+  <g transform="translate(460, 380)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad3)" class="pulse"/>
+    <!-- Users/Traffic icon -->
+    <circle cx="-8" cy="-5" r="6" fill="white"/>
+    <path d="M -18 10 Q -8 2 2 10" fill="white"/>
+    <circle cx="8" cy="-5" r="6" fill="white"/>
+    <path d="M -2 10 Q 8 2 18 10" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#3B82F6" font-size="16" font-weight="600">More Traffic</text>
   </g>
   
-  <g>
-    <rect x="140" y="260" width="140" height="100" rx="16" fill="url(#grad5)" filter="url(#shadow)">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="2s" repeatCount="indefinite"/>
-    </rect>
-    <rect x="145" y="265" width="130" height="90" rx="12" fill="white" opacity="0.1">
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="2s" repeatCount="indefinite"/>
-    </rect>
-    <g>
-      <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" begin="2s" repeatCount="indefinite"/>
-      <path d="M 220 282 L 205 302 L 215 302 L 200 322 L 218 302 L 208 302 Z" fill="white"/>
-      <text x="210" y="348" text-anchor="middle" fill="white" font-size="15" font-weight="bold">More</text>
-      <text x="210" y="364" text-anchor="middle" fill="white" font-size="15" font-weight="bold">Growth</text>
-    </g>
+  <!-- Segment 4: More Conversions (Bottom) -->
+  <g transform="translate(300, 500)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad4)" class="pulse"/>
+    <!-- Chart/Conversion icon -->
+    <path d="M -15 10 L -15 -10 L -8 -5 L -1 -15 L 6 0 L 15 -8 L 15 10 Z" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#3B82F6" font-size="16" font-weight="600">More Conversions</text>
   </g>
   
-  <rect x="330" y="385" width="140" height="30" rx="15" fill="white" opacity="0.15"/>
-  <text x="400" y="405" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="bold">Growth Loop</text>
+  <!-- Segment 5: More Growth (Left) -->
+  <g transform="translate(140, 300)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad5)" opacity="0.9"/>
+    <!-- Growth/Arrow Up icon -->
+    <path d="M 0 -15 L 10 -5 L 5 -5 L 5 15 L -5 15 L -5 -5 L -10 -5 Z" fill="white"/>
+    <circle cx="0" cy="-15" r="3" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#1F2937" font-size="16" font-weight="600">More Growth</text>
+  </g>
+  
+  <!-- Center text -->
+  <text x="300" y="295" text-anchor="middle" fill="#6366F1" font-size="18" font-weight="700">Growth</text>
+  <text x="300" y="315" text-anchor="middle" fill="#8B5CF6" font-size="16" font-weight="600">Flywheel</text>
 </svg>
