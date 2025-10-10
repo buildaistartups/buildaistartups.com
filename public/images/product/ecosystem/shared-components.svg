@@ -46,29 +46,9 @@
     </filter>
     
     <style>
-      @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 0.9; }
-        50% { transform: scale(1.08); opacity: 1; }
-      }
-      
-      @keyframes slideIn {
-        0% { transform: translateY(30px); opacity: 0; }
-        100% { transform: translateY(0); opacity: 1; }
-      }
-      
-      @keyframes fadeIn {
-        0% { opacity: 0; transform: scale(0.9); }
-        100% { opacity: 1; transform: scale(1); }
-      }
-      
       @keyframes dash {
         0% { stroke-dashoffset: 0; }
         100% { stroke-dashoffset: -40; }
-      }
-      
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
       }
       
       @keyframes glow {
@@ -82,12 +62,12 @@
       }
       
       .component-block {
-        animation: pulse 2s ease-in-out infinite, glow 3s ease-in-out infinite;
+        animation: glow 3s ease-in-out infinite;
         transform-origin: center;
       }
       
       .app-interface {
-        animation: pulse 3s ease-in-out infinite, glow 4s ease-in-out infinite;
+        animation: glow 4s ease-in-out infinite;
         transform-origin: center;
       }
       
@@ -99,12 +79,8 @@
         animation: dash 8s linear infinite;
       }
       
-      .icon {
-        animation: float 2.5s ease-in-out infinite;
-      }
-      
       .glow-circle {
-        animation: pulse 4s ease-in-out infinite, rotate 20s linear infinite;
+        animation: rotate 20s linear infinite;
         transform-origin: center;
       }
       
@@ -126,7 +102,7 @@
     <rect x="510" y="270" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
     <rect x="515" y="275" width="170" height="80" rx="10" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
     
-    <g class="icon" style="animation-delay: 0s">
+    <g class="icon">
       <rect x="585" y="305" width="30" height="25" rx="3" fill="white" opacity="0.9"/>
       <path d="M 592 305 L 592 295 Q 592 288 600 288 Q 608 288 608 295 L 608 305" fill="none" stroke="white" stroke-width="3" opacity="0.9"/>
     </g>
@@ -138,7 +114,7 @@
     <rect x="510" y="370" width="180" height="90" rx="12" fill="url(#vibrantBlue)" filter="url(#shadow)"/>
     <rect x="515" y="375" width="170" height="80" rx="10" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
     
-    <g class="icon" style="animation-delay: 0.5s">
+    <g class="icon">
       <rect x="582" y="392" width="36" height="24" rx="3" fill="white" opacity="0.9"/>
       <line x1="582" y1="400" x2="618" y2="400" stroke="#3b82f6" stroke-width="2"/>
       <line x1="586" y1="408" x2="594" y2="408" stroke="#3b82f6" stroke-width="2"/>
@@ -151,7 +127,7 @@
     <rect x="510" y="505" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
     <rect x="515" y="510" width="170" height="80" rx="10" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
     
-    <g class="icon" style="animation-delay: 1s">
+    <g class="icon">
       <rect x="585" y="545" width="8" height="20" rx="2" fill="white" opacity="0.9"/>
       <rect x="597" y="535" width="8" height="30" rx="2" fill="white" opacity="0.9"/>
       <rect x="609" y="540" width="8" height="25" rx="2" fill="white" opacity="0.9"/>
