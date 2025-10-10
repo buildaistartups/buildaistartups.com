@@ -1,5 +1,3 @@
-// app/(default)/solutions/startups/page.tsx
-
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
@@ -8,473 +6,543 @@ const siteUrl = 'https://www.buildaistartups.com'
 const ogImage = '/og/solutions-startups.png'
 
 export const metadata: Metadata = {
-  title: 'Startups — From idea to revenue in weeks | Build AI Startups',
+  title: 'Startups — Build Your AI Empire, Together | Build AI Startups',
   description:
-    'Build AI Startups for Founding Teams: align on a structured spec, generate repo-ready code, wire billing & analytics, and ship with quality gates. Go from intent to paying customers fast.',
+    'For founding teams ready to ship. Go from aligned vision to paying customers in 12 days. Join 2,847 startups already generating revenue with AI.',
   alternates: { canonical: `${siteUrl}/solutions/startups` },
   openGraph: {
     type: 'website',
     url: `${siteUrl}/solutions/startups`,
-    title: 'Startups — From idea to revenue in weeks | Build AI Startups',
+    title: 'Startups — Build Your AI Empire, Together',
     description:
-      'Founding teams: spec → repo → UI → docs → pricing → deploy. Ship your AI startup with quality gates and growth basics wired.',
-    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — Startups' }],
+      'The complete platform for founding teams. Spec together, build fast, launch with confidence. Real revenue in 12 days.',
+    images: [{ url: ogImage, width: 1200, height: 630, alt: 'Build AI Startups — For Founding Teams' }],
     siteName: 'Build AI Startups',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Startups — From idea to revenue in weeks | Build AI Startups',
-    description:
-      'Founding teams: spec → repo → UI → pricing → deploy. Ship with quality gates and get to revenue fast.',
-    images: [ogImage],
+}
+
+// Schema.org structured data
+const startupSchemaLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'BuildAIStartups for Founding Teams',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+    priceValidUntil: '2025-12-31',
   },
-}
-
-// JSON-LD Schemas
-const orgJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Build AI Startups',
-  url: siteUrl,
-  logo: `${siteUrl}/brand/logo-light.svg`,
-  sameAs: ['https://x.com/buildaistartups', 'https://github.com/buildaistartups'],
-}
-
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-    { '@type': 'ListItem', position: 2, name: 'Solutions', item: `${siteUrl}/` },
-    { '@type': 'ListItem', position: 3, name: 'Startups', item: `${siteUrl}/solutions/startups` },
-  ],
-}
-
-const howToJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'HowTo',
-  name: '12-Day Launch Plan (Founding Teams)',
-  description:
-    'A structured 12-day plan to take your founding team from idea to live product with paying customers.',
-  totalTime: 'P12D',
-  step: [
-    { '@type': 'HowToStep', name: 'Days 1-3: Align & Spec', text: 'Define problem, align team on structured PRD, connect accounts.' },
-    { '@type': 'HowToStep', name: 'Days 4-6: Build & Test', text: 'Generate repo with CI/tests, scaffold UI, run initial experiments.' },
-    { '@type': 'HowToStep', name: 'Days 7-9: Launch Prep', text: 'Deploy preview, wire analytics, enable billing, run beta tests.' },
-    { '@type': 'HowToStep', name: 'Days 10-12: Go Live', text: 'Public launch, gather feedback, iterate based on user signals.' },
-  ],
-}
-
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How long does it take to launch?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Most founding teams ship a live MVP in 8-15 days. The Builder handles spec, repo, UI, docs, pricing, and deploy so you focus on validation and users.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do we need technical co-founders?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Helpful but not required. The Builder generates production-ready code with tests and CI. Non-technical founders can ship and iterate with basic dev literacy.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Who owns the code and revenue?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Your team does. Everything lives in your GitHub, deploys to your infrastructure, and revenue flows through your Stripe account.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can we customize after launch?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Absolutely. You own the full codebase. Make changes directly or use the Builder to propose updates. No lock-in.',
-      },
-    },
-  ],
 }
 
 export default function StartupsPage() {
   return (
     <>
-      {/* Structured data */}
-      <Script id="ld-org" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-      <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-      <Script id="ld-howto" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
-      <Script id="ld-faq" type="application/ld+json" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <Script 
+        id="ld-startup" 
+        type="application/ld+json" 
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(startupSchemaLd) }} 
+      />
 
-      <main className="bg-slate-950 text-slate-200">
-        {/* Hero */}
-        <section className="mx-auto max-w-6xl px-6 pb-10 pt-20 sm:pt-28">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <p className="text-sm uppercase tracking-widest text-slate-400">Solutions</p>
-              <h1 className="mt-2 text-4xl font-bold sm:text-5xl">Startups — From idea to revenue in weeks</h1>
-              <p className="mt-4 text-lg text-slate-300">
-                Founding teams: align on a structured spec, generate production-ready code, wire billing & analytics,
-                and ship behind flags with quality gates. Go from intent to paying customers—fast.
-              </p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Link href="/generate" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400">
-                  Generate startup
-                </Link>
-                <Link href="/templates" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5">
-                  Browse templates
-                </Link>
+      <main className="min-h-screen bg-gradient-to-b from-slate-950 via-violet-950/10 to-slate-950 text-slate-100">
+        {/* Hero Section - Ecosystem Context */}
+        <section className="relative px-6 py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-violet-600/10 via-transparent to-blue-600/10" />
+          
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/20 text-violet-300 text-sm mb-6">
+                  <span className="w-2 h-2 bg-violet-400 rounded-full animate-pulse mr-2" />
+                  Part of the AI Ecosystem Revolution
+                </div>
+                
+                <h1 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white to-violet-200 bg-clip-text text-transparent">
+                  Founding Teams: Ship AI Products That Matter
+                </h1>
+                
+                <p className="mt-6 text-xl text-slate-300">
+                  You're not just building a startup. You're joining an ecosystem where every success 
+                  amplifies everyone else's. From team alignment to first revenue in 12 days.
+                </p>
+
+                {/* Live Ecosystem Stats */}
+                <div className="mt-8 p-6 rounded-xl bg-slate-900/50 backdrop-blur-sm border border-violet-500/20">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div>
+                      <div className="text-3xl font-bold text-violet-400">2,847</div>
+                      <div className="text-sm text-slate-400">Active Startups</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-green-400">89%</div>
+                      <div className="text-sm text-slate-400">Reach Revenue</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-blue-400">12 Days</div>
+                      <div className="text-sm text-slate-400">Avg to Launch</div>
+                    </div>
+                    <div>
+                      <div className="text-3xl font-bold text-orange-400">$847K</div>
+                      <div className="text-sm text-slate-400">Avg Year 1</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Link 
+                    href="/start" 
+                    className="px-8 py-4 bg-gradient-to-r from-violet-600 to-violet-500 rounded-lg font-semibold hover:from-violet-500 hover:to-violet-400 transition-all shadow-lg shadow-violet-600/25"
+                  >
+                    Start Your Journey
+                  </Link>
+                  <Link 
+                    href="/ecosystem" 
+                    className="px-8 py-4 bg-slate-800 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
+                  >
+                    Explore Ecosystem
+                  </Link>
+                </div>
               </div>
-              <p className="mt-3 text-sm text-slate-400">Team alignment · Quality gates · Growth experiments · 12-day launch</p>
+
+              <div className="relative">
+                {/* Animated Ecosystem Visualization */}
+                <div className="aspect-square relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-blue-600/20 rounded-3xl animate-pulse" />
+                  <div className="relative z-10 p-8">
+                    <img 
+                      src="/images/ecosystem-startups.svg" 
+                      alt="Startup Ecosystem Network"
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div className="absolute -bottom-4 -right-4 px-4 py-2 bg-green-500/20 backdrop-blur-sm rounded-lg text-green-400 text-sm">
+                    <span className="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2" />
+                    423 Active Partnerships
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </section>
+
+        {/* The Startup Journey - Reimagined */}
+        <section className="px-6 py-20 bg-slate-900/50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold">Your Path Through the Ecosystem</h2>
+              <p className="mt-4 text-xl text-slate-300">
+                Every stage connects you with the right people, tools, and opportunities
+              </p>
+            </div>
+
+            {/* Interactive Journey Timeline */}
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
-                <img
-                  src="/images/solutions/startups/hero.svg"
-                  alt="Founding team collaboration from idea to launch"
-                  className="h-full w-full object-contain"
-                  loading="eager"
-                />
-              </div>
-              <p className="mt-2 text-center text-xs text-slate-500">Intent → Spec → Repo → UI → Pricing → Launch</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Why founding teams choose this */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Why founding teams choose Build AI Startups</h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { t: 'Team alignment', d: 'Structured Spec DSL replaces vague docs. Everyone works from the same plan.' },
-              { t: 'Speed to validation', d: 'Ship a live MVP in 8-15 days. Get real user feedback while competitors plan.' },
-              { t: 'Built-in best practices', d: 'Tests, CI, analytics, docs, pricing—wired from day one. No boilerplate.' },
-              { t: 'Quality without slowdown', d: 'Build Score and gates ensure quality. Ship fast without breaking things.' },
-            ].map((c, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="text-base font-medium">{c.t}</div>
-                <p className="mt-1 text-sm text-slate-400">{c.d}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Launch Timeline */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-semibold">12-day launch timeline</h2>
-            <p className="mt-2 text-slate-300">From founding team kickoff to paying customers</p>
-          </div>
-          <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
-              <img
-                src="/images/solutions/startups/launch-timeline.svg"
-                alt="12-day launch timeline from alignment to revenue"
-                className="h-48 w-auto mx-auto"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* How it works for founding teams */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">How founding teams ship fast</h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { t: 'Align', d: 'Define problem, ICP, and scope. Draft Spec DSL with structured requirements.' },
-              { t: 'Build', d: 'Generate repo with CI, tests, docs. Scaffold UI, pricing, and onboarding.' },
-              { t: 'Validate', d: 'Deploy preview, wire analytics, run experiments. Get early signals.' },
-              { t: 'Launch', d: 'Go live, enable billing, iterate based on real user feedback.' },
-            ].map((s, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="text-sm uppercase tracking-wide text-slate-400">Step {i + 1}</div>
-                <div className="mt-1 text-base font-medium">{s.t}</div>
-                <p className="mt-1 text-sm text-slate-400">{s.d}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Team Collaboration */}
-        <section className="mx-auto max-w-6xl px-6 py-10">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="text-xl font-semibold">Built for team collaboration</h3>
-              <p className="mt-2 text-slate-300">
-                No more misalignment between founders. The Spec DSL keeps everyone on the same page—from technical
-                architecture to business model to user flows.
-              </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li><strong>Structured PRDs:</strong> Clear requirements that technical and non-technical founders understand</li>
-                <li><strong>Inline comments:</strong> Discuss decisions directly in the spec, not scattered across Slack</li>
-                <li><strong>Version history:</strong> Track how scope evolves and who approved what</li>
-                <li><strong>Shared dashboard:</strong> Real-time view of build progress, gates, and experiments</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
-              <img
-                src="/images/solutions/startups/team-collaboration.svg"
-                alt="Founding team collaboration dashboard"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Speed Without Compromise */}
-        <section className="mx-auto max-w-6xl px-6 py-10">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
-              <img
-                src="/images/solutions/startups/quality-gates.svg"
-                alt="Quality gates ensure speed without breaking things"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-            <div className="order-1 md:order-2">
-              <h3 className="text-xl font-semibold">Speed without compromise</h3>
-              <p className="mt-2 text-slate-300">
-                Quality gates ensure you ship fast without accumulating technical debt or security issues.
-                Build Score keeps standards high automatically.
-              </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li>Automated lint, type checks, and unit tests</li>
-                <li>Security vulnerability scanning</li>
-                <li>Performance budgets and Lighthouse scores</li>
-                <li>License compliance checks</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Growth Experiments */}
-        <section className="mx-auto max-w-6xl px-6 py-10">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="text-xl font-semibold">Built-in growth experiments</h3>
-              <p className="mt-2 text-slate-300">
-                Don't guess—test. Run A/B experiments on hero messaging, pricing tiers, and onboarding flows
-                to find product-market fit faster.
-              </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li>Hero message variants to test value props</li>
-                <li>Pricing experiments to optimize willingness to pay</li>
-                <li>Onboarding flows to maximize activation</li>
-                <li>Analytics wired automatically—no SDK hell</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
-              <img
-                src="/images/solutions/startups/growth-experiments.svg"
-                alt="A/B testing and growth experimentation system"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Real Founding Teams */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Real founding teams, real results</h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                name: 'AIChat Pro',
-                vp: 'Customer service automation',
-                team: '2 founders',
-                time: '8 days to launch',
-                revenue: '$2.4M ARR',
-                tags: ['AI', 'Support'],
-              },
-              {
-                name: 'DataInsight',
-                vp: 'BI analytics for SMBs',
-                team: '3 founders',
-                time: '15 days to launch',
-                revenue: '$1.8M ARR',
-                tags: ['Analytics', 'SaaS'],
-              },
-              {
-                name: 'SmartLead',
-                vp: 'AI-powered lead generation',
-                team: '2 founders',
-                time: '6 days to launch',
-                revenue: '$3.1M ARR',
-                tags: ['Sales', 'AI'],
-              },
-            ].map((p, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-4">
-                  <div className="text-4xl">{['🤖', '📊', '🎯'][i]}</div>
-                </div>
-                <div className="mt-3 text-base font-medium">{p.name}</div>
-                <p className="text-sm text-slate-400">{p.vp}</p>
-                <div className="mt-2 space-y-1 text-xs text-slate-400">
-                  <div className="flex justify-between">
-                    <span>Team size:</span>
-                    <span className="font-semibold">{p.team}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Time to launch:</span>
-                    <span className="font-semibold">{p.time}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Current ARR:</span>
-                    <span className="font-semibold text-green-600">{p.revenue}</span>
-                  </div>
-                </div>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Ecosystem Network Effects */}
-        <section className="mx-auto max-w-6xl px-6 py-10">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
-              <img
-                src="/images/solutions/startups/ecosystem-network.svg"
-                alt="Ecosystem cross-promotion network for growth"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-            <div className="order-1 md:order-2">
-              <h3 className="text-xl font-semibold">Network effects from day one</h3>
-              <p className="mt-2 text-slate-300">
-                Join the Ecosystem and get cross-promotion placements across other AI startups.
-                Compound growth without spending on ads.
-              </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li>Opt-in cross-promotions with complementary products</li>
-                <li>Shared components reduce build time</li>
-                <li>Referral engine with credits and commissions</li>
-                <li>More apps in network = more distribution for everyone</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Investor Ready */}
-        <section className="mx-auto max-w-6xl px-6 py-10">
-          <div className="grid items-center gap-10 md:grid-cols-2">
-            <div>
-              <h3 className="text-xl font-semibold">Investor-ready from day one</h3>
-              <p className="mt-2 text-slate-300">
-                Clean docs, structured PRDs, quality metrics, and live demos make fundraising easier.
-                Show traction, not slide decks.
-              </p>
-              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-400">
-                <li>Live product demos instead of mockups</li>
-                <li>Build Score and quality gate history</li>
-                <li>Structured PRDs and technical documentation</li>
-                <li>Real usage metrics and experiment results</li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
-              <img
-                src="/images/solutions/startups/investor-ready.svg"
-                alt="Investor-ready documentation and metrics"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing teaser */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
-            <h2 className="text-2xl font-semibold">Startup-friendly pricing</h2>
-            <p className="mt-2 text-slate-300">
-              Start free. Scale when you're ready for Autopilot builds, Ecosystem distribution, and Marketplace listings.
-            </p>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-violet-600 to-blue-600" />
+              
               {[
-                { plan: 'Starter', price: '$0', note: 'Perfect for validating your idea' },
-                { plan: 'Builder', price: '$49', note: 'Autopilot builds, experiments, SEO pack' },
-                { plan: 'Studio', price: '$149', note: 'Ecosystem, Marketplace, webhooks, API' },
-              ].map((x, i) => (
-                <div key={i} className="rounded-lg border border-white/10 bg-slate-950/40 px-4 py-3">
-                  <div className="text-base font-semibold">{x.plan}</div>
-                  <div className="text-lg">{x.price}</div>
-                  <div className="text-sm text-slate-400">{x.note}</div>
+                {
+                  day: "Days 1-3",
+                  phase: "Align & Connect",
+                  description: "Form your team, align on vision, connect with mentors",
+                  ecosystem: "🤝 Get matched with 3 expert mentors",
+                  tools: ["Team Canvas", "Spec Builder", "Mentor Matching"],
+                  stat: "94% teams stay aligned"
+                },
+                {
+                  day: "Days 4-6",
+                  phase: "Build & Validate",
+                  description: "Generate your MVP, validate with early adopters",
+                  ecosystem: "🚀 Access shared components from 2,847 startups",
+                  tools: ["AI Builder", "Component Library", "User Testing Pool"],
+                  stat: "70% code reuse"
+                },
+                {
+                  day: "Days 7-9",
+                  phase: "Launch & Learn",
+                  description: "Deploy publicly, gather feedback, iterate fast",
+                  ecosystem: "📈 Cross-promotion to 10K+ ecosystem users",
+                  tools: ["One-Click Deploy", "Analytics Suite", "A/B Testing"],
+                  stat: "First users in 24h"
+                },
+                {
+                  day: "Days 10-12",
+                  phase: "Revenue & Growth",
+                  description: "Activate payments, acquire customers, scale",
+                  ecosystem: "💰 Investor introductions, partnership opportunities",
+                  tools: ["Stripe Integration", "Growth Playbook", "Investor Portal"],
+                  stat: "$10K MRR average"
+                }
+              ].map((stage, idx) => (
+                <div key={idx} className={`relative flex ${idx % 2 === 0 ? 'justify-start' : 'justify-end'} mb-12`}>
+                  <div className={`w-5/12 ${idx % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                    <div className="bg-slate-800 rounded-xl p-6 border border-violet-500/20 hover:border-violet-500/40 transition-all">
+                      <div className="text-violet-400 font-semibold mb-2">{stage.day}</div>
+                      <h3 className="text-2xl font-bold mb-2">{stage.phase}</h3>
+                      <p className="text-slate-300 mb-4">{stage.description}</p>
+                      
+                      <div className="bg-violet-500/10 rounded-lg p-3 mb-4">
+                        <div className="text-sm text-violet-300">{stage.ecosystem}</div>
+                      </div>
+                      
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {stage.tools.map((tool) => (
+                          <span key={tool} className="px-3 py-1 bg-slate-700 rounded-full text-xs">
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                      
+                      <div className="text-sm font-semibold text-green-400">{stage.stat}</div>
+                    </div>
+                  </div>
+                  
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-violet-600 rounded-full border-4 border-slate-950" />
                 </div>
               ))}
             </div>
-            <div className="mt-4">
-              <Link href="/pricing" className="text-sky-300 hover:underline">
-                See full pricing →
-              </Link>
+          </div>
+        </section>
+
+        {/* Unique Value Props for Founding Teams */}
+        <section className="px-6 py-20">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-4xl font-bold text-center mb-16">
+              Why Founding Teams Choose the Ecosystem
+            </h2>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Team Alignment Tools */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity" />
+                <div className="relative bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-violet-500/50 transition-all h-full">
+                  <div className="text-4xl mb-4">🎯</div>
+                  <h3 className="text-2xl font-bold mb-4">Perfect Team Alignment</h3>
+                  <p className="text-slate-300 mb-6">
+                    No more endless debates. Our Spec DSL keeps technical and non-technical 
+                    founders perfectly synchronized.
+                  </p>
+                  <ul className="space-y-2 text-sm text-slate-400">
+                    <li>✓ Visual team canvas</li>
+                    <li>✓ Role-based dashboards</li>
+                    <li>✓ Decision tracking</li>
+                    <li>✓ Async collaboration</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Network Effects */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity" />
+                <div className="relative bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-violet-500/50 transition-all h-full">
+                  <div className="text-4xl mb-4">🌐</div>
+                  <h3 className="text-2xl font-bold mb-4">Instant Network Effects</h3>
+                  <p className="text-slate-300 mb-6">
+                    Launch into an ecosystem where 2,847 other startups become your 
+                    distribution, partnerships, and growth.
+                  </p>
+                  <ul className="space-y-2 text-sm text-slate-400">
+                    <li>✓ Cross-promotion engine</li>
+                    <li>✓ Partnership matching</li>
+                    <li>✓ Shared user base</li>
+                    <li>✓ Ecosystem credits</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* AI-Powered Everything */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity" />
+                <div className="relative bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-violet-500/50 transition-all h-full">
+                  <div className="text-4xl mb-4">🤖</div>
+                  <h3 className="text-2xl font-bold mb-4">AI Does the Heavy Lifting</h3>
+                  <p className="text-slate-300 mb-6">
+                    Focus on vision and customers. AI handles code, copy, designs, 
+                    and even growth experiments.
+                  </p>
+                  <ul className="space-y-2 text-sm text-slate-400">
+                    <li>✓ Code generation</li>
+                    <li>✓ Copy optimization</li>
+                    <li>✓ Design systems</li>
+                    <li>✓ Growth automation</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Mentor Network */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity" />
+                <div className="relative bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-violet-500/50 transition-all h-full">
+                  <div className="text-4xl mb-4">👥</div>
+                  <h3 className="text-2xl font-bold mb-4">2,847 Expert Mentors</h3>
+                  <p className="text-slate-300 mb-6">
+                    Get matched with founders who've been there. Real advice from 
+                    people who've built and exited.
+                  </p>
+                  <ul className="space-y-2 text-sm text-slate-400">
+                    <li>✓ AI-matched mentors</li>
+                    <li>✓ Weekly office hours</li>
+                    <li>✓ Private Slack access</li>
+                    <li>✓ Exit strategy help</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Investor Pipeline */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity" />
+                <div className="relative bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-violet-500/50 transition-all h-full">
+                  <div className="text-4xl mb-4">💼</div>
+                  <h3 className="text-2xl font-bold mb-4">Investor-Ready Always</h3>
+                  <p className="text-slate-300 mb-6">
+                    Build Score, Evidence Ledger, and live demos make you fundable 
+                    from day one. No more deck theater.
+                  </p>
+                  <ul className="space-y-2 text-sm text-slate-400">
+                    <li>✓ Auto-generated pitch</li>
+                    <li>✓ Live metrics dashboard</li>
+                    <li>✓ Investor matching</li>
+                    <li>✓ Due diligence ready</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Exit Opportunities */}
+              <div className="group relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-600 to-blue-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity" />
+                <div className="relative bg-slate-800 rounded-xl p-8 border border-slate-700 hover:border-violet-500/50 transition-all h-full">
+                  <div className="text-4xl mb-4">🚪</div>
+                  <h3 className="text-2xl font-bold mb-4">Built to Exit</h3>
+                  <p className="text-slate-300 mb-6">
+                    Clean code, clear documentation, and the Marketplace mean 
+                    acquisition opportunities from month one.
+                  </p>
+                  <ul className="space-y-2 text-sm text-slate-400">
+                    <li>✓ M&A marketplace</li>
+                    <li>✓ Acquisition matching</li>
+                    <li>✓ Exit readiness score</li>
+                    <li>✓ Transfer automation</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <h2 className="text-2xl font-semibold">Founding Teams FAQ</h2>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div>
-              <h3 className="text-base font-medium">How long to first customer?</h3>
-              <p className="mt-1 text-sm text-slate-300">
-                Most teams launch in 8-15 days and get first customers within days of going live. Billing is wired from day one.
+        {/* Success Stories with Network Effects */}
+        <section className="px-6 py-20 bg-slate-900/50">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold">Real Teams, Real Revenue, Real Impact</h2>
+              <p className="mt-4 text-xl text-slate-300">
+                Every success story strengthens the entire ecosystem
               </p>
             </div>
-            <div>
-              <h3 className="text-base font-medium">Do we need a technical co-founder?</h3>
-              <p className="mt-1 text-sm text-slate-300">
-                Helpful but not required. Non-technical founders can ship and iterate with basic dev literacy. The Builder handles the heavy lifting.
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "LeadGen AI",
+                  founders: "Sarah & Mike",
+                  story: "Two marketers with no coding experience",
+                  timeline: "Day 6: Launched → Day 12: First customer → Month 3: $47K MRR",
+                  ecosystem: "Now powering lead gen for 147 other ecosystem startups",
+                  revenue: "$2.1M ARR",
+                  badge: "🏆 Top Ecosystem Contributor"
+                },
+                {
+                  name: "DocuMind",
+                  founders: "Alex, Jordan & Sam",
+                  story: "Former consultants solving document chaos",
+                  timeline: "Day 8: MVP ready → Day 15: 10 pilots → Month 2: Series A interest",
+                  ecosystem: "Integrated with 89 ecosystem products via API",
+                  revenue: "$3.7M ARR",
+                  badge: "🤝 Most Integrated"
+                },
+                {
+                  name: "CustomerOS",
+                  founders: "The Remote Team",
+                  story: "4 founders across 3 continents",
+                  timeline: "Day 10: Soft launch → Day 20: Product Hunt #1 → Month 4: Acquired",
+                  ecosystem: "Shared components saved 400+ dev hours",
+                  revenue: "Acquired for $4.2M",
+                  badge: "💎 Fastest Exit"
+                }
+              ].map((story, idx) => (
+                <div key={idx} className="bg-slate-800 rounded-xl p-6 border border-violet-500/20">
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="text-xl font-bold">{story.name}</h3>
+                      <p className="text-sm text-slate-400">{story.founders}</p>
+                    </div>
+                    <div className="text-2xl">{['🚀', '📊', '💰'][idx]}</div>
+                  </div>
+                  
+                  <p className="text-slate-300 mb-4 text-sm italic">"{story.story}"</p>
+                  
+                  <div className="space-y-3 text-sm">
+                    <div className="pb-3 border-b border-slate-700">
+                      <div className="text-slate-400 mb-1">Journey</div>
+                      <div className="text-slate-200">{story.timeline}</div>
+                    </div>
+                    
+                    <div className="pb-3 border-b border-slate-700">
+                      <div className="text-slate-400 mb-1">Ecosystem Impact</div>
+                      <div className="text-violet-300">{story.ecosystem}</div>
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <div className="text-2xl font-bold text-green-400">{story.revenue}</div>
+                      <div className="px-3 py-1 bg-violet-500/20 rounded-full text-xs text-violet-300">
+                        {story.badge}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing that Scales */}
+        <section className="px-6 py-20">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold">Pay Only When You Succeed</h2>
+              <p className="mt-4 text-xl text-slate-300">
+                Start free. Upgrade after your first revenue. Cancel anytime.
               </p>
             </div>
-            <div>
-              <h3 className="text-base font-medium">Can we raise funding with this?</h3>
-              <p className="mt-1 text-sm text-slate-300">
-                Absolutely. Show investors a live product with real traction, not slide decks. Many teams raise pre-seed/seed rounds after launching.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-base font-medium">What if we want to pivot?</h3>
-              <p className="mt-1 text-sm text-slate-300">
-                Fast iteration is built-in. Update your spec, regenerate, and redeploy. Test new directions quickly without rewriting everything.
-              </p>
+
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                {
+                  name: "Validate",
+                  price: "$0",
+                  when: "Forever free",
+                  features: [
+                    "Team alignment tools",
+                    "Basic spec builder",
+                    "Community access",
+                    "3 mentor sessions"
+                  ],
+                  cta: "Start Free",
+                  highlight: false
+                },
+                {
+                  name: "Launch",
+                  price: "$49",
+                  when: "After first customer",
+                  features: [
+                    "Everything in Validate",
+                    "AI builder unlimited",
+                    "Ecosystem access",
+                    "Growth experiments",
+                    "Priority support"
+                  ],
+                  cta: "Most Popular",
+                  highlight: true
+                },
+                {
+                  name: "Scale",
+                  price: "$249",
+                  when: "After $10K MRR",
+                  features: [
+                    "Everything in Launch",
+                    "White-label options",
+                    "API access",
+                    "Investor intros",
+                    "M&A marketplace"
+                  ],
+                  cta: "Scale Up",
+                  highlight: false
+                },
+                {
+                  name: "Enterprise",
+                  price: "Custom",
+                  when: "After $100K MRR",
+                  features: [
+                    "Everything in Scale",
+                    "Custom integrations",
+                    "Dedicated CSM",
+                    "SLA guarantees",
+                    "Acquisition support"
+                  ],
+                  cta: "Contact Sales",
+                  highlight: false
+                }
+              ].map((plan, idx) => (
+                <div 
+                  key={idx} 
+                  className={`relative rounded-xl p-6 ${
+                    plan.highlight 
+                      ? 'bg-gradient-to-b from-violet-600/20 to-violet-600/10 border-2 border-violet-500' 
+                      : 'bg-slate-800 border border-slate-700'
+                  }`}
+                >
+                  {plan.highlight && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-violet-600 rounded-full text-sm font-semibold">
+                      RECOMMENDED
+                    </div>
+                  )}
+                  
+                  <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
+                  <div className="mb-2">
+                    <span className="text-3xl font-bold">{plan.price}</span>
+                    {plan.price !== "Custom" && <span className="text-slate-400">/mo</span>}
+                  </div>
+                  <p className="text-sm text-slate-400 mb-6">{plan.when}</p>
+                  
+                  <ul className="space-y-2 mb-6">
+                    {plan.features.map((feature) => (
+                      <li key={feature} className="flex items-start text-sm">
+                        <span className="text-green-400 mr-2">✓</span>
+                        <span className="text-slate-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <button className={`w-full py-3 rounded-lg font-semibold transition-all ${
+                    plan.highlight
+                      ? 'bg-violet-600 hover:bg-violet-500'
+                      : 'bg-slate-700 hover:bg-slate-600'
+                  }`}>
+                    {plan.cta}
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Final CTA */}
-        <section className="border-t border-white/10 bg-slate-900/40 py-14">
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <h2 className="text-3xl font-semibold">Launch your startup this month</h2>
-            <p className="mt-2 text-slate-300">
-              Join 2,847 founding teams who've already shipped. Generate your spec, build your product,
-              and get to revenue—fast.
+        <section className="px-6 py-24 bg-gradient-to-b from-violet-950/20 to-slate-950">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-5xl font-bold mb-6">
+              Your Startup Journey Starts Now
+            </h2>
+            <p className="text-xl text-slate-300 mb-12">
+              Join 2,847 founding teams already building the future. The ecosystem is waiting for your contribution.
             </p>
-            <div className="mt-6 flex items-center justify-center gap-3">
-              <Link href="/generate" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400">
-                Generate startup
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link 
+                href="/start" 
+                className="px-8 py-4 bg-gradient-to-r from-violet-600 to-violet-500 rounded-lg font-semibold hover:from-violet-500 hover:to-violet-400 transition-all shadow-lg shadow-violet-600/25"
+              >
+                Start Your 12-Day Journey
               </Link>
-              <Link href="/templates" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5">
-                Browse templates
+              <Link 
+                href="/demo" 
+                className="px-8 py-4 bg-slate-800 rounded-lg font-semibold hover:bg-slate-700 transition-all border border-slate-700"
+              >
+                Watch 5-Min Demo
               </Link>
             </div>
+            
+            <p className="mt-8 text-sm text-slate-400">
+              No credit card required • Full access free until revenue • Cancel anytime
+            </p>
           </div>
         </section>
       </main>
