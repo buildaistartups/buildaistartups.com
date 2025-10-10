@@ -1,161 +1,110 @@
-<svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
-  <defs>
-    <!-- Gradients -->
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="lightPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="lightBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Arrow marker -->
-    <marker id="arrowMarker" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M 0 0 L 12 6 L 0 12 z" fill="#6366f1" opacity="0.8"/>
-    </marker>
-  </defs>
-  
-  <style>
-    @keyframes rotate {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { opacity: 0.8; }
-      50% { opacity: 1; }
-    }
-    
-    @keyframes segmentPulse {
-      0%, 100% { opacity: 0.9; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.02); }
-    }
-    
-    .rotating-ring { 
-      animation: rotate 30s linear infinite;
-      transform-origin: 400px 400px;
-    }
-    
-    .arrow-flow { animation: pulse 2s ease-in-out infinite; }
-    
-    .segment-animate {
-      animation: segmentPulse 4s ease-in-out infinite;
-      transform-origin: center;
-    }
-  </style>
-  
-  <!-- Outer decorative ring -->
-  <circle class="rotating-ring" cx="400" cy="400" r="320" fill="none" stroke="url(#purpleGrad)" stroke-width="3" opacity="0.4" stroke-dasharray="10 5"/>
-  
-  <!-- Main circular segments -->
-  <!-- Segment 1: More Apps (Top) -->
-  <g id="segment1">
-    <path class="segment-animate" d="M 400 130 A 270 270 0 0 1 590 210" fill="none" stroke="url(#purpleGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 0s;"/>
-    <circle cx="400" cy="130" r="55" fill="url(#purpleGrad)" opacity="0.95"/>
-  </g>
-  
-  <!-- Segment 2: More Surfaces (Right-Top) -->
-  <g id="segment2">
-    <path class="segment-animate" d="M 590 210 A 270 270 0 0 1 590 590" fill="none" stroke="url(#blueGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 0.8s;"/>
-    <circle cx="670" cy="400" r="55" fill="url(#blueGrad)" opacity="0.95"/>
-  </g>
-  
-  <!-- Segment 3: More Traffic (Bottom-Right) -->
-  <g id="segment3">
-    <path class="segment-animate" d="M 590 590 A 270 270 0 0 1 210 590" fill="none" stroke="url(#lightBlueGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 1.6s;"/>
-    <circle cx="400" cy="670" r="55" fill="url(#lightBlueGrad)" opacity="0.95"/>
-  </g>
-  
-  <!-- Segment 4: More Conversions (Bottom-Left) -->
-  <g id="segment4">
-    <path class="segment-animate" d="M 210 590 A 270 270 0 0 1 210 210" fill="none" stroke="url(#lightPurpleGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 2.4s;"/>
-    <circle cx="130" cy="400" r="55" fill="url(#lightPurpleGrad)" opacity="0.95"/>
-  </g>
-  
-  <!-- Segment 5: More Growth (Left-Top) -->
-  <g id="segment5">
-    <path class="segment-animate" d="M 210 210 A 270 270 0 0 1 400 130" fill="none" stroke="url(#violetGrad)" stroke-width="60" opacity="0.9" stroke-linecap="round" style="animation-delay: 3.2s;"/>
-    <circle cx="210" cy="210" r="55" fill="url(#violetGrad)" opacity="0.95"/>
-  </g>
-  
-  <!-- Flowing arrows between segments -->
-  <g class="arrow-flow">
-    <path d="M 480 160 Q 520 170 550 200" fill="none" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowMarker)" opacity="0.7"/>
-    <path d="M 640 320 Q 650 360 640 400" fill="none" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowMarker)" opacity="0.7"/>
-    <path d="M 550 600 Q 480 630 420 640" fill="none" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowMarker)" opacity="0.7"/>
-    <path d="M 320 640 Q 250 620 200 580" fill="none" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowMarker)" opacity="0.7"/>
-    <path d="M 160 320 Q 160 270 180 230" fill="none" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowMarker)" opacity="0.7"/>
-  </g>
-  
-  <!-- Labels - MOVED AWAY FROM CIRCLES -->
-  <g id="labels">
-    <!-- More Apps - moved up -->
-    <text x="400" y="55" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8b5cf6" text-anchor="middle">More Apps</text>
-    
-    <!-- More Surfaces - moved up more and closer -->
-    <text x="700" y="330" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" text-anchor="start">More</text>
-    <text x="700" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#3b82f6" text-anchor="start">Surfaces</text>
-    
-    <!-- More Traffic - moved down -->
-    <text x="400" y="760" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#60a5fa" text-anchor="middle">More Traffic</text>
-    
-    <!-- More Conversions - moved horizontally even closer -->
-    <text x="150" y="330" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8b5cf6" text-anchor="end">More</text>
-    <text x="150" y="355" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#8b5cf6" text-anchor="end">Conversions</text>
-    
-    <!-- More Growth - moved up and left -->
-    <text x="120" y="165" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="middle">More</text>
-    <text x="120" y="190" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#7c3aed" text-anchor="middle">Growth</text>
-  </g>
-  
-  <!-- Center circle with text -->
-  <circle cx="400" cy="400" r="100" fill="url(#purpleGrad)" opacity="0.15"/>
-  <circle cx="400" cy="400" r="85" fill="url(#blueGrad)" opacity="0.1"/>
-  <text x="400" y="395" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#6366f1" text-anchor="middle">Growth</text>
-  <text x="400" y="420" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#6366f1" text-anchor="middle">Flywheel</text>
-  
-  <!-- Icons drawn LAST - FRONT OF EVERYTHING - BIGGER -->
-  <g id="icons-front">
-    <!-- Apps icon - bigger -->
-    <rect x="378" y="108" width="18" height="18" rx="3" fill="white" opacity="1"/>
-    <rect x="404" y="108" width="18" height="18" rx="3" fill="white" opacity="1"/>
-    <rect x="378" y="134" width="18" height="18" rx="3" fill="white" opacity="1"/>
-    <rect x="404" y="134" width="18" height="18" rx="3" fill="white" opacity="1"/>
-    
-    <!-- Screen icon - bigger -->
-    <rect x="643" y="378" width="54" height="44" rx="4" fill="none" stroke="white" stroke-width="4" opacity="1"/>
-    <rect x="665" y="424" width="10" height="8" fill="white" opacity="1"/>
-    
-    <!-- Users icon - bigger -->
-    <circle cx="385" cy="655" r="11" fill="white" opacity="1"/>
-    <path d="M 367 681 Q 385 668 403 681" fill="white" opacity="1"/>
-    <circle cx="415" cy="655" r="11" fill="white" opacity="1"/>
-    <path d="M 397 681 Q 415 668 433 681" fill="white" opacity="1"/>
-    
-    <!-- Chart icon - bigger -->
-    <rect x="112" y="392" width="9" height="22" fill="white" rx="2" opacity="1"/>
-    <rect x="127" y="378" width="9" height="36" fill="white" rx="2" opacity="1"/>
-    <rect x="142" y="385" width="9" height="29" fill="white" rx="2" opacity="1"/>
-    
-    <!-- Growth arrow icon - bigger -->
-    <path d="M 185 230 L 210 190 L 235 220" fill="none" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="1"/>
-    <line x1="210" y1="190" x2="210" y2="230" stroke="white" stroke-width="5" stroke-linecap="round" opacity="1"/>
-  </g>
-</svg>
+import React from 'react';
+import { Smartphone, Monitor, Users, TrendingUp, Rocket } from 'lucide-react';
+
+export default function FlywheelDiagram() {
+  const segments = [
+    { label: 'More Apps', icon: Smartphone, color: 'from-purple-500 to-blue-500' },
+    { label: 'More Surfaces', icon: Monitor, color: 'from-blue-500 to-purple-500' },
+    { label: 'More Traffic', icon: Users, color: 'from-purple-500 to-blue-500' },
+    { label: 'More Conversions', icon: TrendingUp, color: 'from-blue-500 to-purple-500' },
+    { label: 'More Growth', icon: Rocket, color: 'from-purple-500 to-blue-500' }
+  ];
+
+  const angleStep = 360 / segments.length;
+
+  return (
+    <div className="flex items-center justify-center min-h-screen bg-transparent p-8">
+      <div className="relative w-full max-w-2xl aspect-square">
+        {/* Center circle */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center shadow-2xl animate-pulse">
+          <div className="text-white text-center font-bold text-sm">
+            Growth<br/>Loop
+          </div>
+        </div>
+
+        {/* Circular path for animation */}
+        <svg className="absolute inset-0 w-full h-full -rotate-90 animate-[spin_20s_linear_infinite]" style={{ opacity: 0.3 }}>
+          <circle
+            cx="50%"
+            cy="50%"
+            r="42%"
+            fill="none"
+            stroke="url(#gradient)"
+            strokeWidth="2"
+            strokeDasharray="8 8"
+          />
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#3b82f6" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        {/* Segments */}
+        {segments.map((segment, index) => {
+          const angle = angleStep * index - 90;
+          const radius = 42;
+          const x = 50 + radius * Math.cos((angle * Math.PI) / 180);
+          const y = 50 + radius * Math.sin((angle * Math.PI) / 180);
+          
+          const Icon = segment.icon;
+
+          return (
+            <div
+              key={index}
+              className="absolute transition-all duration-300 hover:scale-110"
+              style={{
+                left: `${x}%`,
+                top: `${y}%`,
+                transform: 'translate(-50%, -50%)',
+                animation: `float 3s ease-in-out ${index * 0.6}s infinite`
+              }}
+            >
+              {/* Segment card */}
+              <div className="relative group">
+                <div className={`w-28 h-28 rounded-2xl bg-gradient-to-br ${segment.color} shadow-lg flex flex-col items-center justify-center gap-2 p-4 border border-white/20 backdrop-blur-sm`}>
+                  <Icon className="w-8 h-8 text-white" strokeWidth={2.5} />
+                  <div className="text-white text-xs font-semibold text-center leading-tight">
+                    {segment.label}
+                  </div>
+                </div>
+
+                {/* Arrow to next segment */}
+                <div 
+                  className="absolute w-12 h-12 -right-8 top-1/2 -translate-y-1/2"
+                  style={{
+                    transform: `translate(0, -50%) rotate(${angleStep}deg)`,
+                    transformOrigin: 'left center'
+                  }}
+                >
+                  <svg width="48" height="48" viewBox="0 0 48 48" className="text-purple-500 opacity-70">
+                    <path
+                      d="M8 24 L32 24 M32 24 L26 18 M32 24 L26 30"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
+        <style jsx>{`
+          @keyframes float {
+            0%, 100% {
+              transform: translate(-50%, -50%) translateY(0px);
+            }
+            50% {
+              transform: translate(-50%, -50%) translateY(-8px);
+            }
+          }
+        `}</style>
+      </div>
+    </div>
+  );
+}
