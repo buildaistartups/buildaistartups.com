@@ -169,11 +169,11 @@ export default function EcosystemPage() {
               <p className="mt-3 text-sm text-slate-400">Opt-in · Capped · Transparent analytics</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-5">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
                 <img 
                   src="/images/product/ecosystem/hero.svg" 
                   alt="Ecosystem network graph showing interconnected startups with cross-promotion flows" 
-                  className="h-full w-full object-cover"
+                  className="max-h-full max-w-full object-contain"
                   loading="eager"
                 />
               </div>
@@ -227,11 +227,11 @@ export default function EcosystemPage() {
             <p className="mt-2 text-slate-300">Each new app amplifies the entire network</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 overflow-hidden p-5">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/ecosystem/distribution-loop.svg" 
                 alt="Ecosystem growth flywheel showing compound network effects" 
-                className="h-64 w-auto mx-auto"
+                className="h-64 w-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -253,11 +253,11 @@ export default function EcosystemPage() {
                 <li><strong>Placement quality:</strong> Small, contextual, and dismissible.</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 overflow-hidden p-5">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/ecosystem/cross-promo.svg" 
                 alt="Cross-promotion placement controls and app interface mockups" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -267,11 +267,11 @@ export default function EcosystemPage() {
         {/* Network Effects Visualization */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 overflow-hidden p-5">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/ecosystem/network-effects.svg" 
                 alt="Network effects growth visualization showing exponential connections" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -300,11 +300,11 @@ export default function EcosystemPage() {
           </div>
           
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 overflow-hidden p-5">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/ecosystem/shared-components.svg" 
                 alt="Shared component architecture showing modular building blocks" 
-                className="h-48 w-auto mx-auto"
+                className="h-48 w-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -341,11 +341,11 @@ export default function EcosystemPage() {
                 <li>Fraud detection & anomaly alerts</li>
               </ul>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 overflow-hidden p-5">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/ecosystem/attribution-flow.svg" 
                 alt="Referral attribution flow showing user journey and rewards" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -403,12 +403,12 @@ export default function EcosystemPage() {
               },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 overflow-hidden">
-                {/* Image with 20px padding on all sides */}
-                <div className="aspect-video w-full bg-slate-900/50 p-5">
+                {/* Image centered and fit inside card with 20px padding */}
+                <div className="aspect-video w-full bg-slate-900/50 p-5 flex items-center justify-center">
                   <img 
                     src={p.logo} 
                     alt={`${p.name} analytics dashboard preview`} 
-                    className="w-full h-full object-cover rounded-lg"
+                    className="max-h-full max-w-full object-contain"
                     loading="lazy"
                   />
                 </div>
