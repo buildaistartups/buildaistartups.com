@@ -1,262 +1,163 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background: transparent;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" width="1000" height="900">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333EA;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
     </linearGradient>
-    
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.9" />
-      <stop offset="50%" style="stop-color:#6366F1;stop-opacity:0.95" />
-      <stop offset="100%" style="stop-color:#4F46E5;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="vaultGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1E293B;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Glow effects -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
-  
-  <!-- Title -->
-  <text x="400" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1E293B" text-anchor="middle">
-    Secure Escrow Protection
-  </text>
   
   <!-- Buyer (Left Side) -->
   <g id="buyer">
-    <!-- Buyer Circle Background -->
-    <circle cx="120" cy="250" r="55" fill="url(#blueGrad)" opacity="0.1"/>
-    <circle cx="120" cy="250" r="50" fill="none" stroke="url(#blueGrad)" stroke-width="3"/>
-    
-    <!-- Buyer Icon -->
-    <circle cx="120" cy="235" r="15" fill="url(#blueGrad)"/>
-    <path d="M 120 252 Q 105 252 95 265 L 95 275 Q 95 278 98 278 L 142 278 Q 145 278 145 275 L 145 265 Q 135 252 120 252 Z" fill="url(#blueGrad)"/>
-    
-    <!-- Buyer Label -->
-    <text x="120" y="325" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#3B82F6" text-anchor="middle">BUYER</text>
-    
-    <!-- Buyer Features -->
-    <g transform="translate(120, 355)">
-      <circle cx="0" cy="0" r="3" fill="#3B82F6"/>
-      <text x="10" y="5" font-family="Arial, sans-serif" font-size="12" fill="#64748B">Initiates Payment</text>
-    </g>
-    <g transform="translate(120, 375)">
-      <circle cx="0" cy="0" r="3" fill="#3B82F6"/>
-      <text x="10" y="5" font-family="Arial, sans-serif" font-size="12" fill="#64748B">Protected Funds</text>
-    </g>
+    <!-- Head -->
+    <circle cx="200" cy="280" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+    <!-- Body -->
+    <path d="M200 315 Q180 315 170 340 L170 400 L230 400 L230 340 Q220 315 200 315 Z" 
+          fill="#8B5CF6" stroke="#6366F1" stroke-width="3"/>
+    <!-- Arm with phone -->
+    <rect x="230" y="340" width="40" height="8" rx="4" fill="#8B5CF6" stroke="#6366F1" stroke-width="2"/>
+    <rect x="265" y="330" width="25" height="40" rx="4" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+    <circle cx="277" cy="345" r="3" fill="#6366F1"/>
+    <!-- Label -->
+    <text x="200" y="440" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
+          fill="#6366F1" text-anchor="middle">Buyer</text>
   </g>
-  
+
   <!-- Seller (Right Side) -->
   <g id="seller">
-    <!-- Seller Circle Background -->
-    <circle cx="680" cy="250" r="55" fill="url(#purpleGrad)" opacity="0.1"/>
-    <circle cx="680" cy="250" r="50" fill="none" stroke="url(#purpleGrad)" stroke-width="3"/>
-    
-    <!-- Seller Icon -->
-    <circle cx="680" cy="235" r="15" fill="url(#purpleGrad)"/>
-    <path d="M 680 252 Q 665 252 655 265 L 655 275 Q 655 278 658 278 L 702 278 Q 705 278 705 275 L 705 265 Q 695 252 680 252 Z" fill="url(#purpleGrad)"/>
-    
-    <!-- Seller Label -->
-    <text x="680" y="325" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#8B5CF6" text-anchor="middle">SELLER</text>
-    
-    <!-- Seller Features -->
-    <g transform="translate(520, 355)">
-      <circle cx="0" cy="0" r="3" fill="#8B5CF6"/>
-      <text x="10" y="5" font-family="Arial, sans-serif" font-size="12" fill="#64748B">Delivers Product/Service</text>
-    </g>
-    <g transform="translate(520, 375)">
-      <circle cx="0" cy="0" r="3" fill="#8B5CF6"/>
-      <text x="10" y="5" font-family="Arial, sans-serif" font-size="12" fill="#64748B">Receives Payment</text>
-    </g>
+    <!-- Head -->
+    <circle cx="800" cy="280" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+    <!-- Hair -->
+    <path d="M770 265 Q770 245 785 240 Q800 235 815 240 Q830 245 830 265" 
+          fill="#8B5CF6" stroke="#6366F1" stroke-width="3"/>
+    <!-- Body -->
+    <path d="M800 315 Q780 315 770 340 L770 400 L830 400 L830 340 Q820 315 800 315 Z" 
+          fill="#8B5CF6" stroke="#6366F1" stroke-width="3"/>
+    <!-- Package -->
+    <rect x="730" y="360" width="45" height="45" rx="3" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+    <line x1="730" y1="375" x2="775" y2="375" stroke="#6366F1" stroke-width="2"/>
+    <line x1="752" y1="360" x2="752" y2="405" stroke="#6366F1" stroke-width="2"/>
+    <!-- Label -->
+    <text x="800" y="440" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
+          fill="#6366F1" text-anchor="middle">Seller</text>
   </g>
-  
-  <!-- Central Vault/Shield -->
-  <g id="vault">
-    <!-- Vault Base -->
-    <rect x="330" y="180" width="140" height="160" rx="10" fill="url(#vaultGrad)" stroke="#475569" stroke-width="2"/>
+
+  <!-- Central Shield -->
+  <g id="shield">
+    <!-- Shield outline -->
+    <path d="M500 150 L560 170 L560 280 Q560 330 500 360 Q440 330 440 280 L440 170 Z" 
+          fill="url(#shieldGradient)" stroke="#E0E7FF" stroke-width="6"/>
+    <path d="M500 150 L560 170 L560 280 Q560 330 500 360 Q440 330 440 280 L440 170 Z" 
+          fill="none" stroke="#6366F1" stroke-width="3"/>
     
-    <!-- Vault Door Accent -->
-    <rect x="340" y="190" width="120" height="140" rx="8" fill="#1E293B" stroke="#64748B" stroke-width="1"/>
-    
-    <!-- Shield Overlay -->
-    <path d="M 400 195 L 440 210 L 440 270 Q 440 290 420 305 Q 410 312 400 315 Q 390 312 380 305 Q 360 290 360 270 L 360 210 Z" 
-          fill="url(#shieldGrad)" filter="url(#softGlow)" opacity="0.95"/>
-    
-    <!-- Shield Border -->
-    <path d="M 400 195 L 440 210 L 440 270 Q 440 290 420 305 Q 410 312 400 315 Q 390 312 380 305 Q 360 290 360 270 L 360 210 Z" 
-          fill="none" stroke="#8B5CF6" stroke-width="2"/>
-    
-    <!-- Checkmark in Shield -->
-    <path d="M 385 255 L 395 265 L 415 240" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    
-    <!-- Lock Icon on Vault -->
-    <rect x="390" y="285" width="20" height="18" rx="2" fill="#64748B"/>
-    <path d="M 395 285 L 395 278 Q 395 273 400 273 Q 405 273 405 278 L 405 285" 
-          fill="none" stroke="#64748B" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="400" cy="294" r="2" fill="#1E293B"/>
-    
-    <!-- Security Indicators Around Vault -->
-    <circle cx="320" cy="200" r="4" fill="#10B981" filter="url(#glow)"/>
-    <circle cx="480" cy="200" r="4" fill="#10B981" filter="url(#glow)"/>
-    <circle cx="320" cy="320" r="4" fill="#10B981" filter="url(#glow)"/>
-    <circle cx="480" cy="320" r="4" fill="#10B981" filter="url(#glow)"/>
+    <!-- Lock on shield -->
+    <rect x="480" y="250" width="40" height="35" rx="4" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+    <path d="M485 250 L485 235 Q485 220 500 220 Q515 220 515 235 L515 250" 
+          fill="none" stroke="#6366F1" stroke-width="3"/>
+    <circle cx="500" cy="267" r="4" fill="#6366F1"/>
+    <line x1="500" y1="271" x2="500" y2="278" stroke="#6366F1" stroke-width="3"/>
   </g>
-  
-  <!-- Money Flow: Buyer to Vault -->
-  <g id="moneyFlowLeft">
-    <!-- Arrow Path -->
-    <defs>
-      <marker id="arrowBlue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#3B82F6" />
-      </marker>
-    </defs>
-    
-    <path d="M 175 250 Q 250 230 320 250" fill="none" stroke="#3B82F6" stroke-width="3" 
-          stroke-dasharray="8,4" marker-end="url(#arrowBlue)" opacity="0.8"/>
-    
-    <!-- Money Icons -->
-    <g transform="translate(200, 235)">
-      <circle cx="0" cy="0" r="12" fill="#3B82F6" opacity="0.2"/>
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3B82F6" text-anchor="middle">$</text>
-    </g>
-    <g transform="translate(260, 225)">
-      <circle cx="0" cy="0" r="12" fill="#3B82F6" opacity="0.2"/>
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3B82F6" text-anchor="middle">$</text>
-    </g>
-    
-    <!-- Protection Indicator -->
-    <g transform="translate(240, 210)">
-      <circle cx="0" cy="0" r="8" fill="#10B981" opacity="0.9"/>
-      <path d="M -3 0 L -1 3 L 4 -3" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-    </g>
+
+  <!-- Arrow from Buyer to Shield -->
+  <g id="arrow1">
+    <line x1="290" y1="370" x2="420" y2="300" stroke="#6366F1" stroke-width="4" stroke-dasharray="none"/>
+    <polygon points="420,300 405,295 410,308" fill="#6366F1"/>
   </g>
-  
-  <!-- Money Flow: Vault to Seller -->
-  <g id="moneyFlowRight">
-    <defs>
-      <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-        <path d="M0,0 L0,6 L9,3 z" fill="#8B5CF6" />
-      </marker>
-    </defs>
-    
-    <path d="M 480 250 Q 550 270 625 250" fill="none" stroke="#8B5CF6" stroke-width="3" 
-          stroke-dasharray="8,4" marker-end="url(#arrowPurple)" opacity="0.8"/>
-    
-    <!-- Money Icons -->
-    <g transform="translate(520, 260)">
-      <circle cx="0" cy="0" r="12" fill="#8B5CF6" opacity="0.2"/>
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B5CF6" text-anchor="middle">$</text>
-    </g>
-    <g transform="translate(580, 270)">
-      <circle cx="0" cy="0" r="12" fill="#8B5CF6" opacity="0.2"/>
-      <text x="0" y="5" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8B5CF6" text-anchor="middle">$</text>
-    </g>
-    
-    <!-- Protection Indicator -->
-    <g transform="translate(560, 285)">
-      <circle cx="0" cy="0" r="8" fill="#10B981" opacity="0.9"/>
-      <path d="M -3 0 L -1 3 L 4 -3" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-    </g>
+
+  <!-- Arrow from Shield to Seller -->
+  <g id="arrow2">
+    <line x1="580" y1="300" x2="710" y2="370" stroke="#6366F1" stroke-width="4"/>
+    <polygon points="710,370 695,365 700,378" fill="#6366F1"/>
   </g>
-  
-  <!-- Escrow Label -->
-  <g transform="translate(400, 355)">
-    <rect x="-50" y="-15" width="100" height="30" rx="15" fill="#8B5CF6" opacity="0.1" stroke="#8B5CF6" stroke-width="1.5"/>
-    <text x="0" y="5" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#6366F1" text-anchor="middle">ESCROW</text>
+
+  <!-- Top Security Icons -->
+  <!-- Checkmark Shield (top left) -->
+  <g id="checkShield">
+    <circle cx="280" cy="120" r="40" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+    <path d="M280 95 L295 100 L295 135 Q295 145 280 150 Q265 145 265 135 L265 100 Z" 
+          fill="#A78BFA" stroke="#6366F1" stroke-width="2"/>
+    <polyline points="272,120 278,126 290,112" fill="none" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
   </g>
-  
-  <!-- Security Features Box -->
-  <g id="securityFeatures">
-    <rect x="280" y="420" width="240" height="90" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="2"/>
-    
-    <text x="400" y="442" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Security Features</text>
-    
-    <!-- Feature 1 -->
-    <g transform="translate(295, 460)">
-      <circle cx="0" cy="0" r="6" fill="#10B981"/>
-      <path d="M -2 0 L -1 2 L 3 -2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-      <text x="15" y="4" font-family="Arial, sans-serif" font-size="11" fill="#475569">Encrypted Transactions</text>
-    </g>
-    
-    <!-- Feature 2 -->
-    <g transform="translate(295, 480)">
-      <circle cx="0" cy="0" r="6" fill="#10B981"/>
-      <path d="M -2 0 L -1 2 L 3 -2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-      <text x="15" y="4" font-family="Arial, sans-serif" font-size="11" fill="#475569">Dispute Protection</text>
-    </g>
-    
-    <!-- Feature 3 -->
-    <g transform="translate(295, 500)">
-      <circle cx="0" cy="0" r="6" fill="#10B981"/>
-      <path d="M -2 0 L -1 2 L 3 -2" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
-      <text x="15" y="4" font-family="Arial, sans-serif" font-size="11" fill="#475569">Verified Release</text>
-    </g>
+
+  <!-- Padlock (top right) -->
+  <g id="padlock">
+    <rect x="700" y="110" width="50" height="40" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+    <path d="M710 110 L710 90 Q710 70 725 70 Q740 70 740 90 L740 110" 
+          fill="none" stroke="#6366F1" stroke-width="3"/>
+    <circle cx="725" cy="130" r="5" fill="#6366F1"/>
   </g>
-  
+
+  <!-- Curved dashed line connecting top icons -->
+  <path d="M320 120 Q500 80 700 120" fill="none" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8"/>
+
   <!-- Stripe Connect Branding -->
-  <g id="stripeBranding" transform="translate(400, 560)">
-    <!-- Stripe Logo Background -->
-    <rect x="-80" y="-20" width="160" height="40" rx="20" fill="#635BFF" opacity="0.95"/>
-    
-    <!-- "Powered by" text -->
-    <text x="-35" y="-2" font-family="Arial, sans-serif" font-size="10" fill="#FFFFFF" opacity="0.8">Powered by</text>
-    
-    <!-- Stripe Text -->
-    <text x="-35" y="12" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" letter-spacing="0.5">Stripe</text>
-    
-    <!-- Connect Badge -->
-    <rect x="25" y="-2" width="50" height="16" rx="8" fill="#FFFFFF" opacity="0.2"/>
-    <text x="50" y="9" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#FFFFFF" text-anchor="middle">Connect</text>
+  <g id="stripeBranding">
+    <rect x="350" y="480" width="300" height="70" rx="10" fill="none" stroke="#6366F1" stroke-width="4"/>
+    <text x="500" y="530" font-family="Arial, sans-serif" font-size="36" font-weight="bold" 
+          fill="#6366F1" text-anchor="middle">stripe CONNECT</text>
+    <polygon points="500,555 490,565 510,565" fill="#6366F1"/>
   </g>
-  
-  <!-- Decorative Security Elements -->
-  <g id="decorativeElements" opacity="0.3">
-    <!-- Top left corner -->
-    <path d="M 50 80 L 50 100 M 50 80 L 70 80" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="55" cy="85" r="2" fill="#8B5CF6"/>
-    
-    <!-- Top right corner -->
-    <path d="M 750 80 L 750 100 M 750 80 L 730 80" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="745" cy="85" r="2" fill="#3B82F6"/>
-    
-    <!-- Bottom left corner -->
-    <path d="M 50 520 L 50 500 M 50 520 L 70 520" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="55" cy="515" r="2" fill="#3B82F6"/>
-    
-    <!-- Bottom right corner -->
-    <path d="M 750 520 L 750 500 M 750 520 L 730 520" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="745" cy="515" r="2" fill="#8B5CF6"/>
+
+  <!-- Bottom Security Features -->
+  <!-- Checkmark 1 -->
+  <circle cx="220" cy="650" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+  <polyline points="205,650 218,663 240,638" fill="none" stroke="#6366F1" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Checkmark 2 -->
+  <circle cx="680" cy="650" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+  <polyline points="665,650 678,663 700,638" fill="none" stroke="#6366F1" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Security Badge -->
+  <g id="badge">
+    <path d="M850 620 L885 630 L885 680 Q885 700 850 710 Q815 700 815 680 L815 630 Z" 
+          fill="#A78BFA" stroke="#6366F1" stroke-width="3"/>
+    <rect x="835" y="655" width="30" height="20" rx="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="2"/>
+    <line x1="840" y1="660" x2="860" y2="660" stroke="#6366F1" stroke-width="1"/>
+    <line x1="840" y1="665" x2="860" y2="665" stroke="#6366F1" stroke-width="1"/>
+    <line x1="840" y1="670" x2="860" y2="670" stroke="#6366F1" stroke-width="1"/>
   </g>
-  
-  <!-- Security Badge Top -->
-  <g transform="translate(400, 80)">
-    <circle cx="0" cy="0" r="20" fill="#10B981" opacity="0.1"/>
-    <circle cx="0" cy="0" r="15" fill="#10B981"/>
-    <path d="M 0 -8 L 6 -3 L 6 3 Q 6 6 3 8 Q 1.5 9 0 9.5 Q -1.5 9 -3 8 Q -6 6 -6 3 L -6 -3 Z" 
-          fill="#FFFFFF"/>
-    <path d="M -3 0 L -1 2 L 4 -3" fill="none" stroke="#10B981" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Dashed flow lines -->
+  <path d="M255 650 L400 600" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8" fill="none"/>
+  <path d="M600 600 L645 650" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8" fill="none"/>
+  <path d="M715 650 L780 650" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8" fill="none"/>
+
+  <!-- Security Labels -->
+  <!-- Escrow -->
+  <rect x="420" y="740" width="160" height="50" rx="8" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+  <text x="500" y="773" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
+        fill="#6366F1" text-anchor="middle">Escrow</text>
+
+  <!-- KYC -->
+  <rect x="600" y="740" width="120" height="50" rx="8" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+  <text x="660" y="773" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
+        fill="#6366F1" text-anchor="middle">KYC</text>
+
+  <!-- 3D Secure -->
+  <rect x="450" y="810" width="220" height="50" rx="8" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
+  <text x="560" y="843" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
+        fill="#6366F1" text-anchor="middle">3D Secure</text>
+
+  <!-- PCI with icons -->
+  <g id="pci">
+    <!-- Small lock -->
+    <rect x="190" y="770" width="25" height="20" rx="3" fill="#E0E7FF" stroke="#6366F1" stroke-width="2"/>
+    <path d="M195 770 L195 762 Q195 755 202 755 Q210 755 210 762 L210 770" 
+          fill="none" stroke="#6366F1" stroke-width="2"/>
+    
+    <!-- Fingerprint -->
+    <g transform="translate(280, 760)">
+      <ellipse cx="0" cy="0" rx="25" ry="30" fill="none" stroke="#6366F1" stroke-width="2"/>
+      <ellipse cx="0" cy="0" rx="18" ry="22" fill="none" stroke="#6366F1" stroke-width="2"/>
+      <ellipse cx="0" cy="0" rx="11" ry="14" fill="none" stroke="#6366F1" stroke-width="2"/>
+      <line x1="-5" y1="-15" x2="-5" y2="15" stroke="#6366F1" stroke-width="2"/>
+    </g>
+    
+    <!-- PCI Text -->
+    <text x="240" y="830" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
+          fill="#6366F1" text-anchor="middle">PCI</text>
   </g>
+
+  <!-- Connecting lines to labels -->
+  <path d="M400 750 Q410 720 450 600" stroke="#6366F1" stroke-width="2" stroke-dasharray="8,6" fill="none"/>
+  <path d="M600 750 Q590 680 550 600" stroke="#6366F1" stroke-width="2" stroke-dasharray="8,6" fill="none"/>
 </svg>
