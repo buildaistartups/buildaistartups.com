@@ -1,134 +1,166 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="380" viewBox="0 0 1400 380">
+<svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Purple → Blue gradient -->
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7C3AED" />
-      <stop offset="100%" stop-color="#0EA5E9" />
+    <!-- Gradient definitions -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <animate attributeName="x1" values="0%;100%;0%" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="y1" values="0%;100%;0%" dur="8s" repeatCount="indefinite"/>
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
     </linearGradient>
 
-    <!-- Subtle drop shadow for nodes -->
-    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.12"/>
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-
-    <!-- Arrowhead marker -->
-    <marker id="arrowHead" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto-start-reverse">
-      <path d="M0,0 L12,6 L0,12 z" fill="#7C3AED" />
-    </marker>
-
-    <!-- Common text style -->
-    <style><![CDATA[
-      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif; font-size: 18px; fill: #0F172A; letter-spacing: 0.2px; }
-      .sublabel { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif; font-size: 14px; fill: #334155; }
-      .badgeText { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif; font-size: 12px; fill: #0F172A; }
-      .iconStroke { stroke: #0F172A; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
-      .iconFill { fill: #0F172A; }
-    ]]></style>
   </defs>
 
-  <!-- Background: transparent (no rect) -->
+  <style>
+    .step-circle {
+      transition: all 0.3s ease;
+    }
+    .step-circle:hover {
+      transform: scale(1.1);
+    }
+    .arrow {
+      animation: slideArrow 2s ease-in-out infinite;
+    }
+    @keyframes slideArrow {
+      0%, 100% { opacity: 0.6; transform: translateX(0); }
+      50% { opacity: 1; transform: translateX(5px); }
+    }
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease-in forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .icon-path {
+      animation: drawPath 1.5s ease-in-out forwards;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+    }
+    @keyframes drawPath {
+      to { stroke-dashoffset: 0; }
+    }
+    .label {
+      fill: #3B82F6;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    .sublabel {
+      fill: #8B5CF6;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+    }
+  </style>
 
-  <!-- Horizontal connectors -->
-  <g stroke="#7C3AED" stroke-width="3.5" fill="none" marker-end="url(#arrowHead)">
-    <path d="M 180 140 L 300 140" />
-    <path d="M 460 140 L 580 140" />
-    <path d="M 740 140 L 860 140" />
-    <path d="M 1020 140 L 1140 140" />
-  </g>
-
-  <!-- Nodes -->
-  <!-- Positions for nodes: 120, 140 | 400, 140 | 680, 140 | 960, 140 | 1240, 140 -->
-  <!-- Node 1: Browse (grid icon) -->
-  <g transform="translate(120,140)">
-    <circle r="56" fill="url(#grad)" filter="url(#softShadow)"/>
+  <!-- Step 1: Browse -->
+  <g class="fade-in" style="animation-delay: 0s">
+    <circle cx="100" cy="80" r="45" fill="none" stroke="url(#purpleGrad)" stroke-width="3" class="step-circle pulse"/>
     <!-- Grid icon -->
-    <g transform="translate(-24,-24)">
-      <!-- 3x3 grid of squares -->
-      <rect x="0" y="0" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="18" y="0" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="36" y="0" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="0" y="18" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="18" y="18" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="36" y="18" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="0" y="36" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="18" y="36" width="14" height="14" rx="2" class="iconFill"/>
-      <rect x="36" y="36" width="14" height="14" rx="2" class="iconFill"/>
-    </g>
-    <text x="0" y="98" text-anchor="middle" class="label">Browse</text>
+    <rect x="80" y="60" width="16" height="16" fill="none" stroke="#8B5CF6" stroke-width="2.5" rx="2"/>
+    <rect x="104" y="60" width="16" height="16" fill="none" stroke="#8B5CF6" stroke-width="2.5" rx="2"/>
+    <rect x="80" y="84" width="16" height="16" fill="none" stroke="#8B5CF6" stroke-width="2.5" rx="2"/>
+    <rect x="104" y="84" width="16" height="16" fill="none" stroke="#8B5CF6" stroke-width="2.5" rx="2"/>
+    <text x="100" y="145" text-anchor="middle" class="label">Browse</text>
+    <text x="100" y="162" text-anchor="middle" class="sublabel">Marketplace</text>
   </g>
 
-  <!-- Node 2: View Details (magnifying glass) -->
-  <g transform="translate(400,140)">
-    <circle r="56" fill="url(#grad)" filter="url(#softShadow)"/>
-    <!-- Magnifying glass -->
-    <g>
-      <circle cx="-10" cy="-6" r="22" class="iconStroke"/>
-      <line x1="4" y1="8" x2="24" y2="28" class="iconStroke"/>
-    </g>
-    <text x="0" y="98" text-anchor="middle" class="label">View Details</text>
+  <!-- Arrow 1 -->
+  <g class="arrow fade-in" style="animation-delay: 0.2s">
+    <line x1="150" y1="80" x2="200" y2="80" stroke="#8B5CF6" stroke-width="2" opacity="0.6"/>
+    <polygon points="200,80 190,75 190,85" fill="#8B5CF6" opacity="0.6"/>
   </g>
 
-  <!-- Node 3: Purchase (credit card) -->
-  <g transform="translate(680,140)">
-    <circle r="56" fill="url(#grad)" filter="url(#softShadow)"/>
+  <!-- Step 2: View Details -->
+  <g class="fade-in" style="animation-delay: 0.4s">
+    <circle cx="250" cy="80" r="45" fill="none" stroke="url(#purpleGrad)" stroke-width="3" class="step-circle pulse" style="animation-delay: 0.5s"/>
+    <!-- Magnifying glass icon -->
+    <circle cx="243" cy="73" r="11" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
+    <line x1="251" y1="81" x2="260" y2="90" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="250" y="145" text-anchor="middle" class="label">View Details</text>
+    <text x="250" y="162" text-anchor="middle" class="sublabel">Product Info</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g class="arrow fade-in" style="animation-delay: 0.6s">
+    <line x1="300" y1="80" x2="350" y2="80" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+    <polygon points="350,80 340,75 340,85" fill="#3B82F6" opacity="0.6"/>
+  </g>
+
+  <!-- Step 3: Purchase -->
+  <g class="fade-in" style="animation-delay: 0.8s">
+    <circle cx="400" cy="80" r="45" fill="none" stroke="url(#blueGrad)" stroke-width="3" class="step-circle pulse" style="animation-delay: 1s"/>
     <!-- Credit card icon -->
-    <g>
-      <rect x="-28" y="-16" width="56" height="32" rx="6" class="iconStroke" />
-      <line x1="-28" y1="-4" x2="28" y2="-4" class="iconStroke" />
-      <rect x="-20" y="4" width="14" height="8" class="iconFill" />
-    </g>
-    <text x="0" y="98" text-anchor="middle" class="label">Purchase</text>
+    <rect x="380" y="68" width="40" height="26" rx="3" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
+    <line x1="380" y1="76" x2="420" y2="76" stroke="#3B82F6" stroke-width="2.5"/>
+    <line x1="384" y1="84" x2="400" y2="84" stroke="#3B82F6" stroke-width="2"/>
+    <text x="400" y="145" text-anchor="middle" class="label">Purchase</text>
+    <text x="400" y="162" text-anchor="middle" class="sublabel">Secure Payment</text>
+  </g>
 
-    <!-- Escrow Protection badge -->
-    <g transform="translate(0,130)">
-      <rect x="-92" y="-18" width="184" height="28" rx="14" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
-      <!-- Shield icon -->
-      <path d="M -68 -8 l 0 6 a 20 20 0 0 0 16 18 a 20 20 0 0 0 16 -18 l 0 -6 l -16 -6 z" fill="none" stroke="#0F172A" stroke-width="1.5" />
-      <text x="4" y="2" text-anchor="middle" class="badgeText">Escrow Protection</text>
+  <!-- Arrow 3 with Escrow label -->
+  <g class="arrow fade-in" style="animation-delay: 1s">
+    <line x1="450" y1="80" x2="500" y2="80" stroke="#3B82F6" stroke-width="2" opacity="0.6"/>
+    <polygon points="500,80 490,75 490,85" fill="#3B82F6" opacity="0.6"/>
+    <rect x="455" y="60" width="60" height="14" rx="7" fill="#8B5CF6" opacity="0.2"/>
+    <text x="485" y="69" text-anchor="middle" font-size="9" fill="#8B5CF6" font-weight="600">ESCROW</text>
+  </g>
+
+  <!-- Step 4: Transfer -->
+  <g class="fade-in" style="animation-delay: 1.2s">
+    <circle cx="550" cy="80" r="45" fill="none" stroke="url(#blueGrad)" stroke-width="3" class="step-circle pulse" style="animation-delay: 1.5s"/>
+    <!-- Handshake icon -->
+    <path d="M 530 73 L 537 66 L 544 73 M 556 87 L 563 80 L 570 87 M 544 73 L 556 87" 
+          fill="none" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="538" cy="68" r="3" fill="#8B5CF6"/>
+    <circle cx="562" cy="82" r="3" fill="#8B5CF6"/>
+    <text x="550" y="145" text-anchor="middle" class="label">Transfer</text>
+    <text x="550" y="162" text-anchor="middle" class="sublabel">Item Delivered</text>
+  </g>
+
+  <!-- Arrow 4 with Stripe Connect -->
+  <g class="arrow fade-in" style="animation-delay: 1.4s">
+    <line x1="600" y1="80" x2="650" y2="80" stroke="#8B5CF6" stroke-width="2" opacity="0.6"/>
+    <polygon points="650,80 640,75 640,85" fill="#8B5CF6" opacity="0.6"/>
+    <!-- Stripe logo reference -->
+    <g transform="translate(605, 58)">
+      <rect width="50" height="16" rx="3" fill="#635BFF" opacity="0.15"/>
+      <text x="25" y="11" text-anchor="middle" font-size="8" fill="#635BFF" font-weight="700">STRIPE</text>
     </g>
   </g>
 
-  <!-- Node 4: Transfer (handshake) -->
-  <g transform="translate(960,140)">
-    <circle r="56" fill="url(#grad)" filter="url(#softShadow)"/>
-    <!-- Minimal handshake icon -->
-    <g>
-      <!-- left arm -->
-      <path d="M -34 -4 l 22 -12 a 8 8 0 0 1 9 1 l 20 14" class="iconStroke"/>
-      <!-- right arm -->
-      <path d="M 34 -4 l -22 -12 a 8 8 0 0 0 -9 1 l -20 14" class="iconStroke"/>
-      <!-- joined hands -->
-      <path d="M -8 2 l 8 6 l 8 -6" class="iconStroke"/>
-      <path d="M -2 12 l 6 4 l 6 -4" class="iconStroke"/>
-    </g>
-    <text x="0" y="98" text-anchor="middle" class="label">Transfer</text>
-
-    <!-- Stripe Connect badge -->
-    <g transform="translate(0,130)">
-      <rect x="-86" y="-18" width="172" height="28" rx="14" fill="#F8FAFC" stroke="#93C5FD" stroke-width="1.5"/>
-      <!-- Stylized "S" icon -->
-      <rect x="-70" y="-10" width="16" height="16" rx="4" fill="#0EA5E9"/>
-      <path d="M -64 -6 c 4 0 4 -4 0 -4 c -4 0 -4 4 0 4 c 4 0 4 4 0 4 c -4 0 -4 -4 0 -4" fill="#FFFFFF"/>
-      <text x="8" y="2" text-anchor="middle" class="badgeText">Stripe Connect</text>
-    </g>
+  <!-- Step 5: Payout -->
+  <g class="fade-in" style="animation-delay: 1.6s">
+    <circle cx="700" cy="80" r="45" fill="none" stroke="url(#purpleGrad)" stroke-width="3" class="step-circle pulse" style="animation-delay: 2s"/>
+    <!-- Money icon -->
+    <circle cx="700" cy="80" r="16" fill="none" stroke="#8B5CF6" stroke-width="2.5"/>
+    <text x="700" y="87" text-anchor="middle" font-size="22" fill="#8B5CF6" font-weight="bold">$</text>
+    <text x="700" y="145" text-anchor="middle" class="label">Payout</text>
+    <text x="700" y="162" text-anchor="middle" class="sublabel">Seller Paid</text>
   </g>
 
-  <!-- Node 5: Payout (money) -->
-  <g transform="translate(1240,140)">
-    <circle r="56" fill="url(#grad)" filter="url(#softShadow)"/>
-    <!-- Money/banknote icon -->
-    <g>
-      <rect x="-28" y="-16" width="56" height="32" rx="6" class="iconStroke" />
-      <circle cx="0" cy="0" r="8" class="iconStroke" />
-      <line x1="-16" y1="-8" x2="-20" y2="-12" class="iconStroke"/>
-      <line x1="16" y1="8" x2="20" y2="12" class="iconStroke"/>
-    </g>
-    <text x="0" y="98" text-anchor="middle" class="label">Payout</text>
-  </g>
-
-  <!-- Top caption (optional, minimal) -->
-  <g>
-    <text x="700" y="36" text-anchor="middle" class="sublabel">End‑to‑end flow</text>
+  <!-- Bottom decorative element -->
+  <g class="fade-in" style="animation-delay: 2s">
+    <rect x="50" y="165" width="700" height="2" rx="1" fill="url(#purpleGrad)" opacity="0.2"/>
   </g>
 </svg>
