@@ -1,82 +1,264 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">Licensing Models Diagram</title>
-  <desc id="desc">A clean vector diagram showing Single Use, Multi Use, and OEM licensing models with icons and terms. Transparent background, purple and blue palette, geometric tier markers.</desc>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="720" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Licensing models: Single Use, Multi Use, OEM">
+  <!-- ================== THEME ================== -->
+  <style><![CDATA[
+    :root{
+      --indigo-900:#3C39AF; --indigo-800:#4D40CC; --indigo-700:#5B52E1; --indigo-600:#7B6AF6;
+      --violet-400:#8E7EF5; --violet-300:#C1B7FD; --violet-200:#EAE4FD;
+      --blue-600:#4F46E5;   --blue-500:#6366F1;   --blue-400:#818CF8;
+
+      --text-title:#3C39AF; --text-body:#4D40CC; --text-muted:#59628B;
+
+      --card-bg-a: rgba(255,255,255,0.92);
+      --card-bg-b: rgba(234,228,253,0.65);
+      --diag-line: rgba(77,64,204,0.10);
+      --sheen-a: rgba(255,255,255,0.55);
+      --sheen-b: rgba(255,255,255,0.00);
+      --card-stroke-outer:#E7E3FF;
+      --card-stroke-grad-a:#C1B7FD;
+      --card-stroke-grad-b:#7B6AF6;
+      --ring-a:#C1B7FD; --ring-b:#4D40CC;
+      --glow-a:rgba(125,102,255,0.22); --glow-b:rgba(79,70,229,0.18);
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --text-title:#EAE4FD; --text-body:#C1B7FD; --text-muted:#A5B4FC;
+        --card-bg-a: rgba(20,24,45,0.78);
+        --card-bg-b: rgba(60,57,175,0.35);
+        --diag-line: rgba(193,183,253,0.08);
+        --sheen-a: rgba(255,255,255,0.18);
+        --sheen-b: rgba(255,255,255,0.00);
+        --card-stroke-outer:#483FCE;
+        --card-stroke-grad-a:#8E7EF5; --card-stroke-grad-b:#4F46E5;
+        --ring-a:#8E7EF5; --ring-b:#4F46E5;
+        --glow-a:rgba(124,58,237,0.25); --glow-b:rgba(99,102,241,0.22);
+      }
+    }
+    svg[data-theme="dark"]{
+      --text-title:#EAE4FD; --text-body:#C1B7FD; --text-muted:#A5B4FC;
+      --card-bg-a: rgba(20,24,45,0.78);
+      --card-bg-b: rgba(60,57,175,0.35);
+      --diag-line: rgba(193,183,253,0.08);
+      --sheen-a: rgba(255,255,255,0.18);
+      --sheen-b: rgba(255,255,255,0.00);
+      --card-stroke-outer:#483FCE;
+      --card-stroke-grad-a:#8E7EF5; --card-stroke-grad-b:#4F46E5;
+      --ring-a:#8E7EF5; --ring-b:#4F46E5;
+      --glow-a:rgba(124,58,237,0.25); --glow-b:rgba(99,102,241,0.22);
+    }
+    svg[data-theme="light"]{
+      --text-title:#3C39AF; --text-body:#4D40CC; --text-muted:#59628B;
+      --card-bg-a: rgba(255,255,255,0.92);
+      --card-bg-b: rgba(234,228,253,0.65);
+      --diag-line: rgba(77,64,204,0.10);
+      --sheen-a: rgba(255,255,255,0.55);
+      --sheen-b: rgba(255,255,255,0.00);
+      --card-stroke-outer:#E7E3FF;
+      --card-stroke-grad-a:#C1B7FD; --card-stroke-grad-b:#7B6AF6;
+      --ring-a:#C1B7FD; --ring-b:#4D40CC;
+      --glow-a:rgba(125,102,255,0.22); --glow-b:rgba(79,70,229,0.18);
+    }
+
+    .title    { font: 800 36px/1.12 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); letter-spacing:.2px; }
+    .subtitle { font: 800 15px/1    ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--indigo-800); letter-spacing:.16em; text-transform:uppercase; }
+
+    .h6       { font: 900 24px/1.25 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
+    .body     { font: 700 16px/1.5  ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-body); }
+    .muted    { font: 700 16px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-muted); }
+    .chip     { font: 800 12px/1    ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
+
+    .ring     { fill:none; stroke:url(#ringGrad); stroke-width:3; }
+    .tick     { fill:none; stroke:var(--indigo-800); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
+    .bar      { rx:8; }
+  ]]></style>
+
+  <!-- ================== DEFS ================== -->
   <defs>
-    <linearGradient id="gradPurple" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#A78BFA" />
-      <stop offset="100%" stop-color="#6C5CE7" />
+    <filter id="shadow" x="-20%" y="-20%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="rgba(60,57,175,0.25)"/>
+    </filter>
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="1"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="arithmetic" k2="-1" k3="1" result="inner"/>
+      <feColorMatrix in="inner" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"/>
+      <feBlend in="SourceGraphic" in2="inner" mode="normal"/>
+    </filter>
+
+    <linearGradient id="cardFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="var(--card-bg-a)"/>
+      <stop offset="100%" stop-color="var(--card-bg-b)"/>
     </linearGradient>
-    <linearGradient id="gradBlue" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#93C5FD" />
-      <stop offset="100%" stop-color="#2D9CDB" />
+    <pattern id="diagLines" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <path d="M0 0 L0 8" stroke="var(--diag-line)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="sheenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"  stop-color="var(--sheen-a)"/>
+      <stop offset="60%" stop-color="var(--sheen-b)"/>
+      <stop offset="100%" stop-color="var(--sheen-b)"/>
     </linearGradient>
-    <linearGradient id="gradBlend" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6C5CE7" />
-      <stop offset="100%" stop-color="#2D9CDB" />
+    <linearGradient id="cardStrokeGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"  stop-color="var(--card-stroke-grad-a)"/>
+      <stop offset="100%" stop-color="var(--card-stroke-grad-b)"/>
     </linearGradient>
 
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.08"/>
-    </filter>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"  stop-color="var(--ring-a)"/>
+      <stop offset="100%" stop-color="var(--ring-b)"/>
+    </linearGradient>
+    <radialGradient id="haloA" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="var(--glow-a)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <radialGradient id="haloB" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="var(--glow-b)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+
+    <!-- Icons (48×48 logical box) -->
+    <g id="icon-doc">
+      <path d="M22 6H12a2 2 0 0 0-2 2v28a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V18L22 6z" fill="url(#barGrad1)"/>
+      <path d="M22 6v10a2 2 0 0 0 2 2h10" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+      <path d="M16 24h16M16 29h16M16 34h10" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="icon-stack">
+      <path d="M24 12 44 22 24 32 4 22 24 12z" fill="url(#barGrad2)"/>
+      <path d="M44 28 24 38 4 28" fill="none" stroke="#A5B4FC" stroke-width="2"/>
+      <path d="M44 34 24 44 4 34" fill="none" stroke="#A5B4FC" stroke-width="2"/>
+    </g>
+    <g id="icon-oem">
+      <circle cx="24" cy="24" r="16" fill="url(#barGrad3)"/>
+      <path d="M24 16v4M24 28v4M16 24h4M28 24h4M19 19l3 3M26 26l3 3M19 29l3-3M26 22l3-3" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+      <rect x="6" y="34" width="36" height="10" rx="2" fill="none" stroke="#8E7EF5" stroke-width="2"/>
+    </g>
+
+    <!-- Accent bars per card -->
+    <linearGradient id="barGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#8E7EF5"/>
+      <stop offset="100%" stop-color="#4D40CC"/>
+    </linearGradient>
+    <linearGradient id="barGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#C1B7FD"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+    <linearGradient id="barGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#7B6AF6"/>
+      <stop offset="100%" stop-color="#3C39AF"/>
+    </linearGradient>
+
+    <!-- Checkmark -->
+    <g id="icon-check"><path d="M3 9l4 4 9-9" class="tick"/></g>
   </defs>
-<text x="800.0" y="60" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#111827" text-anchor="middle" opacity="1.0" letter-spacing="0.5">Licensing Models</text><g><g filter="url(#softShadow)"><rect x="80.0" y="160.0" width="453.3333333333333" height="580" rx="24" ry="24" fill="white" fill-opacity="0.98" stroke="#E5E7EB" /></g><circle cx="306.66666666666663" cy="250.0" r="44" fill="url(#gradPurple)" /><rect x="473.33333333333326" y="192.0" width="10" height="22" rx="3" fill="#6C5CE7" /><rect x="489.33333333333326" y="192.0" width="10" height="22" rx="3" fill="none" stroke="#6C5CE7" stroke-width="1.5" /><rect x="505.33333333333326" y="192.0" width="10" height="22" rx="3" fill="none" stroke="#6C5CE7" stroke-width="1.5" /><text x="306.66666666666663" y="340.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#111827" text-anchor="middle" opacity="1.0" letter-spacing="0.3">Single Use</text><text x="306.66666666666663" y="370.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#6B7280" text-anchor="middle" opacity="1.0">1 seat • 1 project</text>
-      <g>
-        <circle cx="128.0" cy="414.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 123.0 414.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- ================== HEADER (moved down closer to cards) ================== -->
+  <g transform="translate(80,100)">
+    <text class="subtitle">Licensing Models</text>
+    <text class="title" y="48">Choose the right license for your use case</text>
+  </g>
+
+  <!-- ================== DECORATIVE HALOS ================== -->
+  <g opacity="0.9">
+    <ellipse cx="220" cy="300" rx="180" ry="110" fill="url(#haloA)"/>
+    <ellipse cx="580" cy="290" rx="200" ry="120" fill="url(#haloB)"/>
+    <ellipse cx="940" cy="300" rx="180" ry="110" fill="url(#haloA)"/>
+  </g>
+
+  <!-- ================== CARDS ================== -->
+  <g transform="translate(80,180)">
+    <!-- SINGLE USE -->
+    <g transform="translate(0,0)" filter="url(#shadow)">
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#cardFill)" filter="url(#innerShadow)"/>
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#sheenGrad)"/>
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#diagLines)" opacity="0.25"/>
+      <rect x="0.5" y="0.5" width="319" height="459" rx="21.5" fill="none" stroke="var(--card-stroke-outer)"/>
+      <rect x="1" y="1" width="318" height="458" rx="21" fill="none" stroke="url(#cardStrokeGrad)" opacity="0.9"/>
+
+      <rect x="0" y="0" width="320" height="10" class="bar" fill="url(#barGrad1)"/>
+
+      <circle cx="64" cy="78" r="36" class="ring"/>
+      <!-- Left card: icon perfectly centered horizontally -->
+      <use href="#icon-doc" transform="translate(64,78) translate(1,0) scale(1.40) translate(-24,-24)"/>
+
+      <text x="116" y="68" class="h6">Single Use</text>
+      <text x="116" y="100" class="muted">Best for one project</text>
+
+      <g transform="translate(22,138)">
+        <rect x="0" y="-16" rx="12" width="160" height="28" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
+        <text x="12" y="4" class="chip">1 product / project</text>
       </g>
-    <text x="146.0" y="420.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Non-transferable license</text>
-      <g>
-        <circle cx="128.0" cy="450.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 123.0 450.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <g transform="translate(26,182)">
+        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="8"  class="body">Scope: one product</text>
+        <use href="#icon-check" transform="translate(0,52)"/><text x="28" y="60" class="body">Seats: single team</text>
+        <use href="#icon-check" transform="translate(0,104)"/><text x="28" y="112" class="body">No redistribution</text>
+        <use href="#icon-check" transform="translate(0,156)"/><text x="28" y="164" class="body">Updates for 12 months</text>
+        <use href="#icon-check" transform="translate(0,208)"/><text x="28" y="216" class="body">Email support</text>
       </g>
-    <text x="146.0" y="456.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Commercial use allowed</text>
-      <g>
-        <circle cx="128.0" cy="486.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 123.0 486.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- MULTI USE -->
+    <g transform="translate(360,0)" filter="url(#shadow)">
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#cardFill)" filter="url(#innerShadow)"/>
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#sheenGrad)"/>
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#diagLines)" opacity="0.25"/>
+      <rect x="0.5" y="0.5" width="319" height="459" rx="21.5" fill="none" stroke="var(--card-stroke-outer)"/>
+      <rect x="1" y="1" width="318" height="458" rx="21" fill="none" stroke="url(#cardStrokeGrad)" opacity="0.9"/>
+
+      <rect x="0" y="0" width="320" height="10" class="bar" fill="url(#barGrad2)"/>
+
+      <circle cx="64" cy="78" r="36" class="ring"/>
+      <!-- Middle card: icon centered vertically in the ring -->
+      <use href="#icon-stack" transform="translate(64,78) translate(0,-2) scale(1.40) translate(-24,-24)"/>
+
+      <text x="116" y="68" class="h6">Multi Use</text>
+      <!-- Wrapped subtitle into two lines -->
+      <text class="muted">
+        <tspan x="116" y="100">Unlimited projects</tspan>
+        <tspan x="116" y="120">(one company)</tspan>
+      </text>
+
+      <g transform="translate(22,138)">
+        <rect x="0" y="-16" rx="12" width="232" height="28" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
+        <text x="12" y="4" class="chip">Unlimited projects, internal</text>
       </g>
-    <text x="146.0" y="492.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">No redistribution or resale</text>
-      <g>
-        <circle cx="128.0" cy="522.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 123.0 522.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <g transform="translate(26,182)">
+        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="8"  class="body">Scope: same legal entity</text>
+        <use href="#icon-check" transform="translate(0,52)"/><text x="28" y="60" class="body">Seats: multiple teams</text>
+        <use href="#icon-check" transform="translate(0,104)"/><text x="28" y="112" class="body">No redistribution</text>
+        <use href="#icon-check" transform="translate(0,156)"/><text x="28" y="164" class="body">Maintenance while active</text>
+        <use href="#icon-check" transform="translate(0,208)"/><text x="28" y="216" class="body">Priority email support</text>
       </g>
-    <text x="146.0" y="528.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">12 months of updates</text></g><g><g filter="url(#softShadow)"><rect x="573.3333333333333" y="160.0" width="453.3333333333333" height="580" rx="24" ry="24" fill="white" fill-opacity="0.98" stroke="#E5E7EB" /></g><circle cx="799.9999999999999" cy="250.0" r="44" fill="url(#gradBlue)" /><rect x="966.6666666666665" y="192.0" width="10" height="22" rx="3" fill="#2D9CDB" /><rect x="982.6666666666665" y="192.0" width="10" height="22" rx="3" fill="#2D9CDB" /><rect x="998.6666666666665" y="192.0" width="10" height="22" rx="3" fill="none" stroke="#2D9CDB" stroke-width="1.5" /><text x="799.9999999999999" y="340.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#111827" text-anchor="middle" opacity="1.0" letter-spacing="0.3">Multi Use</text><text x="799.9999999999999" y="370.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#6B7280" text-anchor="middle" opacity="1.0">Up to 10 seats</text>
-      <g>
-        <circle cx="621.3333333333333" cy="414.0" r="9" fill="none" stroke="#2D9CDB" stroke-width="2"/>
-        <path d="M 616.3333333333333 414.0 l 3 3 l 7 -8" fill="none" stroke="#2D9CDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- OEM -->
+    <g transform="translate(720,0)" filter="url(#shadow)">
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#cardFill)" filter="url(#innerShadow)"/>
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#sheenGrad)"/>
+      <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#diagLines)" opacity="0.25"/>
+      <rect x="0.5" y="0.5" width="319" height="459" rx="21.5" fill="none" stroke="var(--card-stroke-outer)"/>
+      <rect x="1" y="1" width="318" height="458" rx="21" fill="none" stroke="url(#cardStrokeGrad)" opacity="0.9"/>
+
+      <rect x="0" y="0" width="320" height="10" class="bar" fill="url(#barGrad3)"/>
+
+      <circle cx="64" cy="78" r="36" class="ring"/>
+      <use href="#icon-oem" transform="translate(64,78) scale(1.40) translate(-24,-24)"/>
+
+      <text x="116" y="68" class="h6">OEM</text>
+      <text x="116" y="100" class="muted">Embed and redistribute</text>
+
+      <g transform="translate(22,138)">
+        <rect x="0" y="-16" rx="12" width="212" height="28" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
+        <text x="12" y="4" class="chip">Commercial redistribution</text>
       </g>
-    <text x="639.3333333333333" y="420.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Unlimited projects within org</text>
-      <g>
-        <circle cx="621.3333333333333" cy="450.0" r="9" fill="none" stroke="#2D9CDB" stroke-width="2"/>
-        <path d="M 616.3333333333333 450.0 l 3 3 l 7 -8" fill="none" stroke="#2D9CDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <g transform="translate(26,182)">
+        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="8"  class="body">Resale/redistribution allowed</text>
+        <use href="#icon-check" transform="translate(0,52)"/><text x="28" y="60" class="body">Attribution required</text>
+        <use href="#icon-check" transform="translate(0,104)"/><text x="28" y="112" class="body">Binary/distributed form only</text>
+        <use href="#icon-check" transform="translate(0,156)"/><text x="28" y="164" class="body">SLA &amp; security review</text>
+        <use href="#icon-check" transform="translate(0,208)"/><text x="28" y="216" class="body">Partner success manager</text>
       </g>
-    <text x="639.3333333333333" y="456.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Team collaboration permitted</text>
-      <g>
-        <circle cx="621.3333333333333" cy="486.0" r="9" fill="none" stroke="#2D9CDB" stroke-width="2"/>
-        <path d="M 616.3333333333333 486.0 l 3 3 l 7 -8" fill="none" stroke="#2D9CDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    <text x="639.3333333333333" y="492.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Priority email support</text>
-      <g>
-        <circle cx="621.3333333333333" cy="522.0" r="9" fill="none" stroke="#2D9CDB" stroke-width="2"/>
-        <path d="M 616.3333333333333 522.0 l 3 3 l 7 -8" fill="none" stroke="#2D9CDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    <text x="639.3333333333333" y="528.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Version upgrades included</text></g><g><g filter="url(#softShadow)"><rect x="1066.6666666666665" y="160.0" width="453.3333333333333" height="580" rx="24" ry="24" fill="white" fill-opacity="0.98" stroke="#E5E7EB" /></g><circle cx="1293.3333333333333" cy="250.0" r="44" fill="url(#gradBlend)" /><rect x="1459.9999999999998" y="192.0" width="10" height="22" rx="3" fill="#2D9CDB" /><rect x="1475.9999999999998" y="192.0" width="10" height="22" rx="3" fill="#2D9CDB" /><rect x="1491.9999999999998" y="192.0" width="10" height="22" rx="3" fill="#2D9CDB" /><text x="1293.3333333333333" y="340.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#111827" text-anchor="middle" opacity="1.0" letter-spacing="0.3">OEM</text><text x="1293.3333333333333" y="370.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#6B7280" text-anchor="middle" opacity="1.0">Embed & redistribute</text>
-      <g>
-        <circle cx="1114.6666666666665" cy="414.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 1109.6666666666665 414.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    <text x="1132.6666666666665" y="420.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Distribution with your product</text>
-      <g>
-        <circle cx="1114.6666666666665" cy="450.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 1109.6666666666665 450.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    <text x="1132.6666666666665" y="456.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Unlimited end-users</text>
-      <g>
-        <circle cx="1114.6666666666665" cy="486.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 1109.6666666666665 486.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    <text x="1132.6666666666665" y="492.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Sublicensing rights available</text>
-      <g>
-        <circle cx="1114.6666666666665" cy="522.0" r="9" fill="none" stroke="#6C5CE7" stroke-width="2"/>
-        <path d="M 1109.6666666666665 522.0 l 3 3 l 7 -8" fill="none" stroke="#6C5CE7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    <text x="1132.6666666666665" y="528.0" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="500" fill="#111827" text-anchor="start" opacity="1.0">Dedicated support & SLAs</text></g><g><circle cx="306.66666666666663" cy="240.0" r="18" fill="none" stroke="#FFFFFF" stroke-width="3" /><path d="M 271.66666666666663 272.0 q 35 -24 70 0" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></g><g><circle cx="769.9999999999999" cy="240.0" r="14" fill="none" stroke="#FFFFFF" stroke-width="3" /><circle cx="799.9999999999999" cy="236.0" r="16" fill="none" stroke="#FFFFFF" stroke-width="3" /><circle cx="829.9999999999999" cy="240.0" r="14" fill="none" stroke="#FFFFFF" stroke-width="3" /><path d="M 739.9999999999999 274.0 q 60 -20 120 0" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/></g><g><circle cx="1293.3333333333333" cy="250.0" r="20" fill="none" stroke="#FFFFFF" stroke-width="3" /><circle cx="1293.3333333333333" cy="250.0" r="12" fill="none" stroke="#FFFFFF" stroke-width="2" /><rect x="1312.3333333333333" y="244.0" width="6" height="12" fill="#FFFFFF" transform="rotate(0.0,1315.3333333333333,250.0)" rx="1" /><rect x="1305.8896825194372" y="259.55634918610406" width="6" height="12" fill="#FFFFFF" transform="rotate(45.0,1308.8896825194372,265.55634918610406)" rx="1" /><rect x="1290.3333333333333" y="266.0" width="6" height="12" fill="#FFFFFF" transform="rotate(90.0,1293.3333333333333,272.0)" rx="1" /><rect x="1274.7769841472293" y="259.55634918610406" width="6" height="12" fill="#FFFFFF" transform="rotate(135.0,1277.7769841472293,265.55634918610406)" rx="1" /><rect x="1268.3333333333333" y="244.0" width="6" height="12" fill="#FFFFFF" transform="rotate(180.0,1271.3333333333333,250.0)" rx="1" /><rect x="1274.7769841472293" y="228.44365081389594" width="6" height="12" fill="#FFFFFF" transform="rotate(225.0,1277.7769841472293,234.44365081389594)" rx="1" /><rect x="1290.3333333333333" y="222.0" width="6" height="12" fill="#FFFFFF" transform="rotate(270.0,1293.3333333333333,228.0)" rx="1" /><rect x="1305.8896825194372" y="228.44365081389594" width="6" height="12" fill="#FFFFFF" transform="rotate(315.0,1308.8896825194372,234.44365081389594)" rx="1" /></g><rect x="246.66666666666663" y="392.0" width="120" height="3" rx="1.5" fill="#E5E7EB" /><rect x="739.9999999999999" y="392.0" width="120" height="3" rx="1.5" fill="#E5E7EB" /><rect x="1233.3333333333333" y="392.0" width="120" height="3" rx="1.5" fill="#E5E7EB" /><circle cx="90" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1510" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="102" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1498" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="114" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1486" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="126" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1474" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="138" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1462" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="150" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1450" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="162" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1438" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="174" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1426" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="186" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1414" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="198" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1402" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="210" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1390" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="222" cy="860.0" r="2.2" fill="#E5E7EB" /><circle cx="1378" cy="860.0" r="2.2" fill="#E5E7EB" /></svg>
+    </g>
+  </g>
+</svg>
