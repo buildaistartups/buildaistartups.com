@@ -342,12 +342,14 @@ export default function MarketplacePage() {
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/images/product/marketplace/badge-fee.svg" 
-                alt="Transparent fees badge" 
-                className="h-8 w-auto"
-                loading="lazy"
-              />
+              <div className="flex items-center justify-center">
+                <img 
+                  src="/images/product/marketplace/badge-fee.svg" 
+                  alt="Transparent fees badge" 
+                  className="h-8 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
               <h2 className="text-2xl font-semibold">Fees & payouts</h2>
             </div>
             <p className="mt-2 text-slate-300">
