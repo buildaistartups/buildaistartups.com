@@ -142,7 +142,7 @@ export default function ApiPage() {
               <p className="mt-3 text-sm text-slate-400">Versioned · Scoped · HMAC webhooks · Audit logs</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-5">
                 <img 
                   src="/images/product/api/hero.svg" 
                   alt="API connectivity with pipes, webhooks, and data flow visualization" 
@@ -242,7 +242,7 @@ export class BAS {
             <p className="mt-2 text-slate-300">Secure, signed events for real-time automation</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5">
               <img 
                 src="/images/product/api/webhook-sequence.svg" 
                 alt="Webhook sequence diagram showing API request to event trigger to handler response" 
@@ -264,7 +264,7 @@ export class BAS {
                 <li><strong>Audit logs</strong> for every API call (who, when, what).</li>
                 <li><strong>IP allowlists</strong> (optional) and secret redaction.</li>
               </ul>
-              <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/50 p-4">
+              <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/50 p-5">
                 <img 
                   src="/images/product/api/auth-scopes.svg" 
                   alt="API authentication scopes and permissions diagram" 
@@ -353,7 +353,7 @@ console.log(build.id)`}
                 <li>Built-in authentication testing</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5">
               <img 
                 src="/images/product/api/console-interface.svg" 
                 alt="API console interface with code editor and testing tools" 
@@ -374,7 +374,7 @@ console.log(build.id)`}
                 <li>Burst buckets for webhook receivers</li>
                 <li>Headers: <code>X-RateLimit-Limit</code>, <code>X-RateLimit-Remaining</code>, <code>X-RateLimit-Reset</code></li>
               </ul>
-              <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/50 p-4">
+              <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/50 p-5">
                 <img 
                   src="/images/product/api/rate-limiting.svg" 
                   alt="Rate limiting visualization with request buckets and throttling" 
@@ -395,7 +395,7 @@ console.log(build.id)`}
   }
 }`}
               </pre>
-              <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/50 p-4">
+              <div className="mt-4 rounded-xl border border-white/10 bg-slate-950/50 p-5">
                 <img 
                   src="/images/product/api/error-handling.svg" 
                   alt="Error handling flow with validation and retry logic" 
@@ -413,7 +413,7 @@ console.log(build.id)`}
         {/* Audit Logs */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5">
               <img 
                 src="/images/product/api/audit-logs.svg" 
                 alt="API audit logs with timestamps and security tracking" 
