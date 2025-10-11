@@ -1,113 +1,119 @@
-<svg viewBox="0 0 4800 900" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 300" style="background: transparent;">
   <defs>
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Gradient definitions -->
+    <linearGradient id="purpleBlue1" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    <linearGradient id="purpleBlue2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6366f1" />
+    </marker>
   </defs>
+  
+  <!-- Connecting Arrows -->
+  <line x1="130" y1="120" x2="210" y2="120" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="390" y1="120" x2="470" y2="120" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="650" y1="120" x2="730" y2="120" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="910" y1="120" x2="990" y2="120" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowhead)" />
+  <line x1="1170" y1="120" x2="1250" y2="120" stroke="#6366f1" stroke-width="3" marker-end="url(#arrowhead)" />
   
   <!-- Step 1: Browse -->
-  <g transform="translate(200, 250)">
-    <circle cx="200" cy="200" r="180" fill="url(#purpleGrad)" opacity="0.15"/>
-    <circle cx="200" cy="200" r="160" fill="none" stroke="url(#purpleGrad)" stroke-width="10"/>
-    <!-- Grid Icon -->
-    <rect x="140" y="140" width="40" height="40" fill="#7c3aed" rx="4"/>
-    <rect x="200" y="140" width="40" height="40" fill="#7c3aed" rx="4"/>
-    <rect x="140" y="200" width="40" height="40" fill="#7c3aed" rx="4"/>
-    <rect x="200" y="200" width="40" height="40" fill="#7c3aed" rx="4"/>
-    <text x="200" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="600" fill="#3b82f6">Browse</text>
-    <text x="200" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#60a5fa">Explore Items</text>
+  <g id="step1">
+    <!-- Circle background -->
+    <circle cx="70" cy="120" r="50" fill="url(#purpleBlue1)" opacity="0.15" />
+    <circle cx="70" cy="120" r="40" fill="none" stroke="url(#purpleBlue1)" stroke-width="3" />
+    
+    <!-- Grid icon -->
+    <rect x="50" y="100" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="66" y="100" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="82" y="100" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="50" y="116" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="66" y="116" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="82" y="116" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="50" y="132" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="66" y="132" width="12" height="12" fill="#7c3aed" rx="2" />
+    <rect x="82" y="132" width="12" height="12" fill="#7c3aed" rx="2" />
+    
+    <!-- Label -->
+    <text x="70" y="195" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#7c3aed" text-anchor="middle">Browse</text>
   </g>
-  
-  <!-- Arrow 1 -->
-  <path d="M 600 450 L 800 450" stroke="#7c3aed" stroke-width="8" fill="none" marker-end="url(#arrowhead1)"/>
-  <defs>
-    <marker id="arrowhead1" markerWidth="40" markerHeight="40" refX="32" refY="12" orient="auto">
-      <polygon points="0 0, 40 12, 0 24" fill="#7c3aed"/>
-    </marker>
-  </defs>
   
   <!-- Step 2: View Details -->
-  <g transform="translate(800, 250)">
-    <circle cx="200" cy="200" r="180" fill="url(#blueGrad)" opacity="0.15"/>
-    <circle cx="200" cy="200" r="160" fill="none" stroke="url(#blueGrad)" stroke-width="10"/>
-    <!-- Magnifying Glass Icon -->
-    <circle cx="184" cy="184" r="40" fill="none" stroke="#3b82f6" stroke-width="10"/>
-    <line x1="212" y1="212" x2="240" y2="240" stroke="#3b82f6" stroke-width="10" stroke-linecap="round"/>
-    <text x="200" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="600" fill="#3b82f6">View Details</text>
-    <text x="200" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#60a5fa">Check Info</text>
+  <g id="step2">
+    <!-- Circle background -->
+    <circle cx="330" cy="120" r="50" fill="url(#purpleBlue1)" opacity="0.15" />
+    <circle cx="330" cy="120" r="40" fill="none" stroke="url(#purpleBlue1)" stroke-width="3" />
+    
+    <!-- Magnifying glass icon -->
+    <circle cx="322" cy="112" r="14" fill="none" stroke="#8b5cf6" stroke-width="3" />
+    <line x1="332" y1="122" x2="344" y2="134" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" />
+    
+    <!-- Label -->
+    <text x="330" y="195" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8b5cf6" text-anchor="middle">View Details</text>
   </g>
-  
-  <!-- Arrow 2 -->
-  <path d="M 1200 450 L 1400 450" stroke="#3b82f6" stroke-width="8" fill="none" marker-end="url(#arrowhead2)"/>
-  <defs>
-    <marker id="arrowhead2" markerWidth="40" markerHeight="40" refX="32" refY="12" orient="auto">
-      <polygon points="0 0, 40 12, 0 24" fill="#3b82f6"/>
-    </marker>
-  </defs>
   
   <!-- Step 3: Purchase -->
-  <g transform="translate(1400, 250)">
-    <circle cx="200" cy="200" r="180" fill="url(#purpleGrad)" opacity="0.15"/>
-    <circle cx="200" cy="200" r="160" fill="none" stroke="url(#purpleGrad)" stroke-width="10"/>
-    <!-- Credit Card Icon -->
-    <rect x="144" y="172" width="112" height="72" rx="8" fill="none" stroke="#7c3aed" stroke-width="8"/>
-    <line x1="144" y1="196" x2="256" y2="196" stroke="#7c3aed" stroke-width="8"/>
-    <line x1="160" y1="220" x2="200" y2="220" stroke="#7c3aed" stroke-width="6"/>
-    <text x="200" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="600" fill="#3b82f6">Purchase</text>
-    <text x="200" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#60a5fa">Secure Payment</text>
-    <!-- Escrow Protection Badge -->
-    <g transform="translate(80, -60)">
-      <rect x="0" y="0" width="240" height="64" rx="32" fill="#10b981" opacity="0.9"/>
-      <text x="120" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="600" fill="white">ESCROW</text>
-    </g>
+  <g id="step3">
+    <!-- Circle background -->
+    <circle cx="590" cy="120" r="50" fill="url(#purpleBlue2)" opacity="0.15" />
+    <circle cx="590" cy="120" r="40" fill="none" stroke="url(#purpleBlue2)" stroke-width="3" />
+    
+    <!-- Credit card icon -->
+    <rect x="570" y="110" width="40" height="26" rx="3" fill="none" stroke="#6366f1" stroke-width="2.5" />
+    <line x1="570" y1="118" x2="610" y2="118" stroke="#6366f1" stroke-width="2.5" />
+    <line x1="575" y1="126" x2="590" y2="126" stroke="#6366f1" stroke-width="2" stroke-linecap="round" />
+    
+    <!-- Label -->
+    <text x="590" y="195" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#6366f1" text-anchor="middle">Purchase</text>
+    
+    <!-- Escrow Protection badge -->
+    <rect x="560" y="205" width="60" height="18" rx="9" fill="#10b981" opacity="0.2" />
+    <text x="590" y="217" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#059669" text-anchor="middle">🔒 Escrow</text>
   </g>
-  
-  <!-- Arrow 3 -->
-  <path d="M 1800 450 L 2000 450" stroke="#7c3aed" stroke-width="8" fill="none" marker-end="url(#arrowhead3)"/>
-  <defs>
-    <marker id="arrowhead3" markerWidth="40" markerHeight="40" refX="32" refY="12" orient="auto">
-      <polygon points="0 0, 40 12, 0 24" fill="#7c3aed"/>
-    </marker>
-  </defs>
   
   <!-- Step 4: Transfer -->
-  <g transform="translate(2000, 250)">
-    <circle cx="200" cy="200" r="180" fill="url(#blueGrad)" opacity="0.15"/>
-    <circle cx="200" cy="200" r="160" fill="none" stroke="url(#blueGrad)" stroke-width="10"/>
-    <!-- Handshake Icon -->
-    <path d="M 160 208 L 176 192 L 192 208 L 208 192 L 224 208 L 240 192" stroke="#3b82f6" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="152" y="208" width="24" height="32" fill="#3b82f6" rx="4"/>
-    <rect x="224" y="208" width="24" height="32" fill="#3b82f6" rx="4"/>
-    <text x="200" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="600" fill="#3b82f6">Transfer</text>
-    <text x="200" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#60a5fa">Asset Delivery</text>
+  <g id="step4">
+    <!-- Circle background -->
+    <circle cx="850" cy="120" r="50" fill="url(#purpleBlue2)" opacity="0.15" />
+    <circle cx="850" cy="120" r="40" fill="none" stroke="url(#purpleBlue2)" stroke-width="3" />
+    
+    <!-- Handshake icon (simplified) -->
+    <path d="M 835 115 L 845 105 L 850 110 L 860 100 L 865 105 L 855 115 L 850 120 L 845 115 Z" fill="#3b82f6" />
+    <rect x="832" y="115" width="8" height="15" fill="#3b82f6" rx="1" />
+    <rect x="860" y="115" width="8" height="15" fill="#3b82f6" rx="1" />
+    <ellipse cx="836" cy="130" rx="5" ry="3" fill="#3b82f6" />
+    <ellipse cx="864" cy="130" rx="5" ry="3" fill="#3b82f6" />
+    
+    <!-- Label -->
+    <text x="850" y="195" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6" text-anchor="middle">Transfer</text>
   </g>
-  
-  <!-- Arrow 4 -->
-  <path d="M 2400 450 L 2600 450" stroke="#3b82f6" stroke-width="8" fill="none" marker-end="url(#arrowhead4)"/>
-  <defs>
-    <marker id="arrowhead4" markerWidth="40" markerHeight="40" refX="32" refY="12" orient="auto">
-      <polygon points="0 0, 40 12, 0 24" fill="#3b82f6"/>
-    </marker>
-  </defs>
   
   <!-- Step 5: Payout -->
-  <g transform="translate(2600, 250)">
-    <circle cx="200" cy="200" r="180" fill="url(#purpleGrad)" opacity="0.15"/>
-    <circle cx="200" cy="200" r="160" fill="none" stroke="url(#purpleGrad)" stroke-width="10"/>
-    <!-- Money Icon -->
-    <circle cx="200" cy="200" r="48" fill="none" stroke="#7c3aed" stroke-width="10"/>
-    <text x="200" y="224" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#7c3aed">$</text>
-    <text x="200" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="600" fill="#3b82f6">Payout</text>
-    <text x="200" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#60a5fa">Funds Released</text>
-    <!-- Stripe Connect Logo -->
-    <g transform="translate(48, -60)">
-      <rect x="0" y="0" width="304" height="64" rx="32" fill="#635bff" opacity="0.95"/>
-      <text x="152" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="600" fill="white">stripe connect</text>
-    </g>
+  <g id="step5">
+    <!-- Circle background -->
+    <circle cx="1110" cy="120" r="50" fill="url(#purpleBlue2)" opacity="0.15" />
+    <circle cx="1110" cy="120" r="40" fill="none" stroke="url(#purpleBlue2)" stroke-width="3" />
+    
+    <!-- Money/Dollar icon -->
+    <text x="1110" y="135" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#2563eb" text-anchor="middle">$</text>
+    
+    <!-- Label -->
+    <text x="1110" y="195" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2563eb" text-anchor="middle">Payout</text>
+    
+    <!-- Stripe Connect logo/badge -->
+    <rect x="1070" y="205" width="80" height="18" rx="9" fill="#635bff" opacity="0.2" />
+    <text x="1110" y="217" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#635bff" text-anchor="middle">⚡ Stripe Connect</text>
   </g>
+  
+  <!-- Title -->
+  <text x="700" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4c1d95" text-anchor="middle">Transaction Flow</text>
+  
+  <!-- Subtitle/Description -->
+  <text x="700" y="270" font-family="Arial, sans-serif" font-size="12" fill="#6b7280" text-anchor="middle">Secure end-to-end transaction process with escrow protection and instant payouts</text>
 </svg>
