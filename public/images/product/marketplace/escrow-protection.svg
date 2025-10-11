@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Buyer–Seller secure payments with Stripe Connect (seller stripes darker)</title>
-  <desc id="desc">Palette: #4D40CC, #C1B7FD, #EAE4FD, #3C39AF, #8E7EF5, #7B6AF6, #FFFFFF. Locks darker; shackles darker; PCI fingerprint larger & darker; “stripe” lighter; seller shield cross stripes darker.</desc>
+  <desc id="desc">Palette: #4D40CC, #C1B7FD, #EAE4FD, #3C39AF, #8E7EF5, #7B6AF6, #FFFFFF. Locks darker; shackles darker; PCI fingerprint larger &amp; darker; “stripe” lighter; seller shield cross stripes darker.</desc>
 
   <!-- ========== DEFS ========== -->
   <defs>
