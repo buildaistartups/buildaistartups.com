@@ -1,129 +1,189 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="gradMain" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
+    <!-- Gradients -->
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="gradAlt" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#3b82f6"/>
-      <stop offset="100%" stop-color="#8b5cf6"/>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleBlueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
     </linearGradient>
 
-    <!-- Arrowheads -->
-    <marker id="arrowHead" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6"/>
-    </marker>
-    <marker id="arrowHeadPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8b5cf6"/>
-    </marker>
-
-    <!-- Subtle glow for nodes -->
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-
-    <style><![CDATA[
-      .label { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; font-size: 18px; fill: #3b82f6; letter-spacing: .5px; }
-      .small { font-size: 14px; }
-      .pill { rx: 10; ry: 10; }
-      .nodeStroke { stroke: url(#gradMain); stroke-width: 4; fill: none; }
-      .pipe { stroke: url(#gradMain); stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-      .pipeAlt { stroke: url(#gradAlt); stroke-width: 8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-      .chip { fill: none; stroke: url(#gradAlt); stroke-width: 2; }
-      .tag { fill: none; stroke: url(#gradMain); stroke-width: 2; }
-      .nodeFill { fill: none; stroke: url(#gradMain); stroke-width: 3; }
-      .ghost { opacity: .15; }
-    ]]></style>
   </defs>
 
-  <!-- Decorative geometric accents (transparent background safe) -->
-  <g class="ghost">
-    <path d="M120 160 H520 M1080 840 H1480" class="nodeStroke"/>
-    <path d="M220 800 V400 M1380 200 V600" class="nodeStroke"/>
-    <circle cx="1400" cy="180" r="60" class="nodeStroke"/>
-    <rect x="110" y="720" width="120" height="120" class="nodeStroke" rx="18" ry="18"/>
+  <!-- Connecting Pipes (wider layout: left=150, center=500, right=850) -->
+  <g id="pipes" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.3">
+    <path d="M 150 150 Q 325 100 500 150" stroke="url(#purpleGradient)"/>
+    <path d="M 500 150 Q 675 200 850 150" stroke="url(#blueGradient)"/>
+    <path d="M 150 300 L 500 300" stroke="url(#purpleGradient)"/>
+    <path d="M 500 300 L 850 300" stroke="url(#blueGradient)"/>
+    <path d="M 150 450 Q 325 500 500 450" stroke="url(#purpleGradient)"/>
+    <path d="M 500 450 Q 675 400 850 450" stroke="url(#blueGradient)"/>
+    <path d="M 500 150 L 500 300" stroke="url(#purpleBlueGradient)"/>
+    <path d="M 500 300 L 500 450" stroke="url(#purpleBlueGradient)"/>
   </g>
 
-  <!-- Central API Hub (hexagon) -->
-  <g id="hub" filter="url(#softGlow)">
-    <polygon points="800,360 900,420 900,540 800,600 700,540 700,420" class="nodeFill"/>
-    <text x="800" y="472" text-anchor="middle" class="label">API HUB</text>
-    <text x="800" y="500" text-anchor="middle" class="label small">Routing • Auth • Transform</text>
+  <!-- Solid Pipes -->
+  <g id="solidPipes" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M 150 150 Q 325 100 500 150" stroke="url(#purpleGradient)"/>
+    <path d="M 500 150 Q 675 200 850 150" stroke="url(#blueGradient)"/>
+    <path d="M 150 300 L 500 300" stroke="url(#purpleGradient)"/>
+    <path d="M 500 300 L 850 300" stroke="url(#blueGradient)"/>
+    <path d="M 150 450 Q 325 500 500 450" stroke="url(#purpleGradient)"/>
+    <path d="M 500 450 Q 675 400 850 450" stroke="url(#blueGradient)"/>
+    <path d="M 500 150 L 500 300" stroke="url(#purpleBlueGradient)"/>
+    <path d="M 500 300 L 500 450" stroke="url(#purpleBlueGradient)"/>
   </g>
 
-  <!-- REST endpoints (left) -->
-  <g id="rest1">
-    <rect x="180" y="300" width="280" height="70" class="tag" rx="12" ry="12"/>
-    <text x="205" y="340" class="label">REST • GET <tspan class="small">/v1/resources</tspan></text>
-  </g>
-  <g id="rest2">
-    <rect x="180" y="420" width="280" height="70" class="tag" rx="12" ry="12"/>
-    <text x="205" y="460" class="label">REST • POST <tspan class="small">/v1/events</tspan></text>
-  </g>
+  <!-- Animated Data Packets (bigger dots) -->
+  <g id="dataFlow">
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path1"/>
+      </animateMotion>
+    </circle>
+    <path id="path1" d="M 150 150 Q 325 100 500 150" fill="none"/>
 
-  <!-- Pipes from REST to HUB with data packets -->
-  <path d="M460,335 C560,335 620,380 700,420" class="pipe" marker-end="url(#arrowHead)"/>
-  <path d="M460,455 C560,455 620,500 700,540" class="pipe" marker-end="url(#arrowHead)"/>
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path2"/>
+      </animateMotion>
+    </circle>
+    <path id="path2" d="M 500 150 Q 675 200 850 150" fill="none"/>
 
-  <!-- Data packets along the pipes -->
-  <rect x="560" y="325" width="26" height="14" class="chip pill" transform="rotate(14 573 332)"/>
-  <rect x="610" y="350" width="22" height="12" class="chip pill" transform="rotate(18 621 356)"/>
-  <rect x="580" y="445" width="26" height="14" class="chip pill" transform="rotate(-10 593 452)"/>
-  <rect x="635" y="470" width="22" height="12" class="chip pill" transform="rotate(-6 646 476)"/>
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="2.5s" repeatCount="indefinite">
+        <mpath href="#path3"/>
+      </animateMotion>
+    </circle>
+    <path id="path3" d="M 150 300 L 500 300" fill="none"/>
 
-  <!-- Upper service node (top-right) -->
-  <g id="serviceA">
-    <circle cx="1260" cy="280" r="54" class="nodeFill"/>
-    <text x="1260" y="285" text-anchor="middle" class="label">Service A</text>
-  </g>
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.5s">
+        <mpath href="#path4"/>
+      </animateMotion>
+    </circle>
+    <path id="path4" d="M 500 300 L 850 300" fill="none"/>
 
-  <!-- Lower service node (right-mid) -->
-  <g id="serviceB">
-    <rect x="1200" y="450" width="120" height="120" class="nodeFill" rx="24" ry="24"/>
-    <text x="1260" y="515" text-anchor="middle" class="label">Service B</text>
-  </g>
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite">
+        <mpath href="#path5"/>
+      </animateMotion>
+    </circle>
+    <path id="path5" d="M 150 450 Q 325 500 500 450" fill="none"/>
 
-  <!-- Webhook endpoint (bottom-right) with generic webhook symbol -->
-  <g id="webhook" filter="url(#softGlow)">
-    <rect x="1120" y="720" width="260" height="90" class="tag" rx="16" ry="16"/>
-    <text x="1250" y="770" text-anchor="middle" class="label">WEBHOOK ENDPOINT</text>
-    <!-- triad symbol -->
-    <g transform="translate(1250,680)">
-      <circle cx="-30" cy="0" r="8" fill="#8b5cf6"/>
-      <circle cx="30" cy="0" r="8" fill="#3b82f6"/>
-      <circle cx="0" cy="36" r="8" fill="#8b5cf6"/>
-      <path d="M-24,-4 C-10,-20 10,-20 24,-4" class="nodeStroke" marker-end="url(#arrowHead)"/>
-      <path d="M20,4 C16,18 6,30 0,36" class="nodeStroke" marker-end="url(#arrowHeadPurple)"/>
-      <path d="M-20,4 C-16,18 -6,30 0,36" class="nodeStroke" marker-end="url(#arrowHead)"/>
-    </g>
-  </g>
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="0.3s">
+        <mpath href="#path6"/>
+      </animateMotion>
+    </circle>
+    <path id="path6" d="M 500 450 Q 675 400 850 450" fill="none"/>
 
-  <!-- Pipes from HUB to right-side services -->
-  <path d="M900,420 C1020,360 1120,320 1206,300" class="pipeAlt" marker-end="url(#arrowHead)"/>
-  <path d="M900,480 C1040,500 1100,520 1200,510" class="pipe" marker-end="url(#arrowHead)"/>
-  <path d="M820,600 C940,700 1080,760 1120,765" class="pipeAlt" marker-end="url(#arrowHeadPurple)"/>
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <mpath href="#path7"/>
+      </animateMotion>
+    </circle>
+    <path id="path7" d="M 500 150 L 500 300" fill="none"/>
 
-  <!-- More data packets -->
-  <rect x="980" y="380" width="26" height="14" class="chip pill" transform="rotate(-12 993 387)"/>
-  <rect x="1030" y="505" width="22" height="12" class="chip pill" transform="rotate(6 1041 511)"/>
-  <rect x="980" y="650" width="26" height="14" class="chip pill" transform="rotate(22 993 657)"/>
-
-  <!-- Connection nodes -->
-  <g id="nodes">
-    <circle cx="1040" cy="360" r="10" fill="#8b5cf6"/>
-    <circle cx="1120" cy="520" r="10" fill="#3b82f6"/>
-    <circle cx="1160" cy="760" r="10" fill="#8b5cf6"/>
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="2s" repeatCount="indefinite">
+        <mpath href="#path8"/>
+      </animateMotion>
+    </circle>
+    <path id="path8" d="M 500 300 L 500 450" fill="none"/>
   </g>
 
-  <!-- Caption tags near pipes -->
-  <g>
-    <text x="620" y="315" class="label small">JSON packets</text>
-    <text x="980" y="480" class="label small">API connection</text>
-    <text x="930" y="690" class="label small">Webhook delivery</text>
+  <!-- REST Endpoint Nodes (bigger circles + bigger labels, labels moved lower) -->
+  <g id="leftNodes" font-family="Arial, sans-serif">
+    <!-- Top -->
+    <circle cx="150" cy="150" r="54" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <circle cx="150" cy="150" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <text x="150" y="150" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="16" font-weight="bold">GET</text>
+    <text x="150" y="232" text-anchor="middle" fill="#8b5cf6" font-size="16" font-weight="700">REST API</text>
+
+    <!-- Middle -->
+    <circle cx="150" cy="300" r="54" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <circle cx="150" cy="300" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <text x="150" y="300" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="16" font-weight="bold">POST</text>
+    <text x="150" y="382" text-anchor="middle" fill="#8b5cf6" font-size="16" font-weight="700">REST API</text>
+
+    <!-- Bottom -->
+    <circle cx="150" cy="450" r="54" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <circle cx="150" cy="450" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <text x="150" y="450" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="16" font-weight="bold">PUT</text>
+    <text x="150" y="532" text-anchor="middle" fill="#8b5cf6" font-size="16" font-weight="700">REST API</text>
+  </g>
+
+  <!-- Central Hub (bigger labels) -->
+  <g id="centralHub" font-family="Arial, sans-serif">
+    <circle cx="500" cy="300" r="75" fill="url(#purpleBlueGradient)" filter="url(#glow)"/>
+    <circle cx="500" cy="300" r="65" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <circle cx="500" cy="300" r="52" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+
+    <!-- API Symbol -->
+    <path d="M 485 290 L 495 280 L 505 290 M 495 280 L 495 320 M 485 310 L 515 310"
+          stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+
+    <text x="500" y="420" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="800">API HUB</text>
+  </g>
+
+  <!-- Webhook Endpoint Nodes (bigger labels, labels moved lower) -->
+  <g id="rightNodes" font-family="Arial, sans-serif">
+    <!-- Top -->
+    <circle cx="850" cy="150" r="54" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <circle cx="850" cy="150" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <path d="M 840 145 L 845 140 L 860 155 M 845 140 L 845 160 M 860 145 L 845 160"
+          stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="850" y="232" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">WEBHOOK</text>
+
+    <!-- Middle -->
+    <circle cx="850" cy="300" r="54" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <circle cx="850" cy="300" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <path d="M 840 295 L 845 290 L 860 305 M 845 290 L 845 310 M 860 295 L 845 310"
+          stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="850" y="382" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">WEBHOOK</text>
+
+    <!-- Bottom -->
+    <circle cx="850" cy="450" r="54" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <circle cx="850" cy="450" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <path d="M 840 445 L 845 440 L 860 455 M 845 440 L 845 460 M 860 445 L 845 460"
+          stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="850" y="532" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">WEBHOOK</text>
+  </g>
+
+  <!-- Connection Points (bigger) -->
+  <g id="connectionPoints" fill="#fff" opacity="0.9">
+    <circle cx="500" cy="150" r="8"/>
+    <circle cx="500" cy="450" r="8"/>
+  </g>
+
+  <!-- Pipe Indicators (repositioned for wider layout) -->
+  <g id="pipeIndicators" opacity="0.6">
+    <rect x="300" y="145" width="8" height="10" rx="2" fill="#8b5cf6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="650" y="145" width="8" height="10" rx="2" fill="#3b82f6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+    </rect>
+    <rect x="300" y="295" width="8" height="10" rx="2" fill="#8b5cf6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </rect>
+    <rect x="650" y="295" width="8" height="10" rx="2" fill="#3b82f6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" begin="0.8s"/>
+    </rect>
   </g>
 </svg>
