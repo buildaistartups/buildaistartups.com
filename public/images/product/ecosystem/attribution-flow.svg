@@ -46,6 +46,17 @@
     </filter>
     
     <style>
+      @keyframes travel {
+        0% { offset-distance: 0%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { offset-distance: 100%; opacity: 0; }
+      }
+      
+      .tracking-dot {
+        animation: travel 4s ease-in-out infinite;
+      }
+      
       text {
         font-family: system-ui, -apple-system, sans-serif;
         font-weight: 700;
@@ -55,6 +66,13 @@
   
   <!-- Title -->
   <text x="400" y="40" font-size="28" font-weight="800" fill="url(#purpleBlue)" text-anchor="middle">Referral Attribution Flow</text>
+  
+  <!-- Flow Path (for tracking dots) -->
+  <path id="flowPath1" d="M 200 150 L 500 150" fill="none"/>
+  <path id="flowPath2" d="M 600 150 L 650 250" fill="none"/>
+  <path id="flowPath3" d="M 650 350 L 600 450" fill="none"/>
+  <path id="flowPath4" d="M 500 500 L 300 500" fill="none"/>
+  <path id="returnPath" d="M 200 500 Q 100 350 200 200" fill="none"/>
   
   <!-- Connection Lines -->
   <line x1="200" y1="150" x2="500" y2="150" stroke="url(#purpleBlue)" stroke-width="4" opacity="0.4"/>
@@ -76,6 +94,37 @@
   <g class="arrow">
     <polygon points="310,495 300,500 310,505" fill="url(#purpleBlue)" opacity="0.8"/>
   </g>
+  
+  <!-- Tracking Dots -->
+  <circle class="tracking-dot" r="8" fill="url(#vibrantPurple)" filter="url(#glow)" style="animation-delay: 0s">
+    <animateMotion dur="4s" repeatCount="indefinite">
+      <mpath href="#flowPath1"/>
+    </animateMotion>
+  </circle>
+  
+  <circle class="tracking-dot" r="8" fill="url(#vibrantBlue)" filter="url(#glow)" style="animation-delay: 1s">
+    <animateMotion dur="4s" repeatCount="indefinite">
+      <mpath href="#flowPath2"/>
+    </animateMotion>
+  </circle>
+  
+  <circle class="tracking-dot" r="8" fill="url(#vibrantPurple)" filter="url(#glow)" style="animation-delay: 2s">
+    <animateMotion dur="4s" repeatCount="indefinite">
+      <mpath href="#flowPath3"/>
+    </animateMotion>
+  </circle>
+  
+  <circle class="tracking-dot" r="8" fill="url(#vibrantBlue)" filter="url(#glow)" style="animation-delay: 3s">
+    <animateMotion dur="4s" repeatCount="indefinite">
+      <mpath href="#flowPath4"/>
+    </animateMotion>
+  </circle>
+  
+  <circle class="tracking-dot" r="8" fill="url(#greenGradient)" filter="url(#glow)" style="animation-delay: 4s">
+    <animateMotion dur="6s" repeatCount="indefinite">
+      <mpath href="#returnPath"/>
+    </animateMotion>
+  </circle>
   
   <!-- Step 1: App A (Top Left) -->
   <g class="step-node">
@@ -134,13 +183,14 @@
     <text x="550" y="600" font-size="14" fill="#6b7280" text-anchor="middle">Purchase/Action</text>
   </g>
   
-  <!-- Step 5: Reward (Bottom) -->
+  <!-- Step 5: Reward (Bottom) - NO STAR -->
   <g class="step-node">
     <circle cx="250" cy="500" r="60" fill="url(#greenGradient)" filter="url(#shadow)"/>
     <circle cx="250" cy="500" r="50" fill="none" stroke="#10b981" stroke-width="3" opacity="0.6"/>
     
-    <g class="reward-icon">
-      <path d="M 250 485 L 255 495 L 265 497 L 257 505 L 260 515 L 250 509 L 240 515 L 243 505 L 235 497 L 245 495 Z" fill="white" opacity="0.9"/>
+    <g class="icon">
+      <circle cx="250" cy="500" r="20" fill="white" opacity="0.9"/>
+      <text x="250" y="510" font-size="28" text-anchor="middle">💰</text>
     </g>
     
     <text x="250" y="580" font-size="18" fill="#10b981" text-anchor="middle">Reward</text>
