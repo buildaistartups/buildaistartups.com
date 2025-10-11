@@ -20,16 +20,18 @@
   <!-- Inner decorative circle -->
   <circle cx="100" cy="100" r="72" fill="none" stroke="url(#purpleBlueGrad)" stroke-width="1.5" opacity="0.3" stroke-dasharray="4,4"/>
   
-  <!-- Percentage symbol -->
+  <!-- Percentage symbol (FIXED) -->
   <g id="percentSymbol">
     <!-- Top circle of % -->
-    <circle cx="85" cy="75" r="8" fill="none" stroke="#8B5CF6" stroke-width="3"/>
+    <circle cx="82" cy="80" r="9" fill="#8B5CF6"/>
+    <circle cx="82" cy="80" r="5" fill="white"/>
     
     <!-- Diagonal line of % -->
-    <line x1="80" y1="80" x2="120" y2="120" stroke="url(#purpleBlueGrad)" stroke-width="4" stroke-linecap="round"/>
+    <line x1="75" y1="88" x2="125" y2="112" stroke="url(#purpleBlueGrad)" stroke-width="5" stroke-linecap="round"/>
     
     <!-- Bottom circle of % -->
-    <circle cx="115" cy="125" r="8" fill="none" stroke="#3B82F6" stroke-width="3"/>
+    <circle cx="118" cy="120" r="9" fill="#3B82F6"/>
+    <circle cx="118" cy="120" r="5" fill="white"/>
   </g>
   
   <!-- Small dollar sign indicator (top right) -->
