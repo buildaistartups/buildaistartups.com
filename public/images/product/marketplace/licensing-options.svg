@@ -64,7 +64,6 @@
 
     /* Card typography */
     .h6       { font: 900 28px/1.28 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
-    /* smaller subtitles under titles */
     .muted    { font: 800 16px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-muted); }
     .body     { font: 700 18px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-body); }
     .chip     { font: 900 16px/1.1  ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
@@ -180,9 +179,9 @@
       <use href="#icon-doc" transform="translate(64,78) translate(1,0) scale(1.40) translate(-24,-24)"/>
 
       <text x="116" y="72" class="h6">Single Use</text>
-      <text x="116" y="110" class="muted">Best for one project</text>
+      <!-- moved closer to title -->
+      <text x="116" y="100" class="muted">Best for one project</text>
 
-      <!-- Bigger chip (unchanged from prior step) -->
       <g transform="translate(22,150)">
         <rect x="0" y="-17" rx="14" width="210" height="34" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
         <text x="14" y="0" class="chip" dominant-baseline="middle">1 product / project</text>
@@ -210,9 +209,10 @@
       <use href="#icon-stack" transform="translate(64,78) translate(0,-2) scale(1.40) translate(-24,-24)"/>
 
       <text x="116" y="72" class="h6">Multi Use</text>
+      <!-- moved both lines up -->
       <text class="muted">
-        <tspan x="116" y="110">Unlimited projects</tspan>
-        <tspan x="116" y="132">(one company)</tspan>
+        <tspan x="116" y="100">Unlimited projects</tspan>
+        <tspan x="116" y="120">(one company)</tspan>
       </text>
 
       <g transform="translate(22,150)">
@@ -242,7 +242,8 @@
       <use href="#icon-oem" transform="translate(64,78) scale(1.40) translate(-24,-24)"/>
 
       <text x="116" y="72" class="h6">OEM</text>
-      <text x="116" y="110" class="muted">Embed and redistribute</text>
+      <!-- moved closer to title -->
+      <text x="116" y="100" class="muted">Embed and redistribute</text>
 
       <g transform="translate(22,150)">
         <rect x="0" y="-17" rx="14" width="260" height="34" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
