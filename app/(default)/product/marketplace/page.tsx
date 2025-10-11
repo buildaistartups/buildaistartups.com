@@ -169,11 +169,11 @@ export default function MarketplacePage() {
               <p className="mt-3 text-sm text-slate-400">Transparent fees · Stripe Connect · Optional escrow</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
                 <img 
                   src="/images/product/marketplace/hero.svg" 
                   alt="Marketplace storefront showing multiple micro-SaaS product listings with Build Scores" 
-                  className="h-full w-full object-contain"
+                  className="max-h-full max-w-full object-contain"
                   loading="eager"
                 />
               </div>
@@ -247,11 +247,11 @@ export default function MarketplacePage() {
             <p className="mt-2 text-slate-300">From discovery to handoff in minutes</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/checkout-flow.svg" 
                 alt="Marketplace checkout flow from browse to payout" 
-                className="h-32 w-auto mx-auto"
+                className="h-32 w-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -273,11 +273,11 @@ export default function MarketplacePage() {
                 <li>Clear license terms and usage rights</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/live-demo.svg" 
                 alt="Live demo interface with interactive preview" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -287,11 +287,11 @@ export default function MarketplacePage() {
         {/* Licensing Options */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/licensing-options.svg" 
                 alt="Different licensing models: Single Use, Multi Use, OEM" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -327,11 +327,11 @@ export default function MarketplacePage() {
                 <li>License compliance and IP verification</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/transfer-checklist.svg" 
                 alt="Transfer-readiness checklist with completion indicators" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -373,11 +373,11 @@ export default function MarketplacePage() {
         {/* Escrow Protection */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/escrow-protection.svg" 
                 alt="Secure escrow protection for buyers and sellers" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -412,11 +412,11 @@ export default function MarketplacePage() {
                 <li>Audit trail for listing changes and negotiations</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/due-diligence.svg" 
                 alt="Due diligence dashboard with Build Score and quality metrics" 
-                className="w-full h-auto"
+                className="max-w-full max-h-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -476,42 +476,43 @@ export default function MarketplacePage() {
                 ready: '6/6',
               },
             ].map((p, i) => (
-              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-4">
+              <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 overflow-hidden">
+                <div className="aspect-video w-full bg-slate-900/50 p-5 flex items-center justify-center">
                   <img 
                     src="/images/product/marketplace/listing-card.svg" 
                     alt={`${p.name} marketplace listing card`} 
-                    className="max-h-full max-w-full h-auto w-auto object-contain opacity-80"
+                    className="max-h-full max-w-full object-contain"
                     loading="lazy"
-                    style={{ maxHeight: '120px', maxWidth: '200px' }}
                   />
                 </div>
-                <div className="mt-3 text-base font-medium">{p.name}</div>
-                <p className="text-sm text-slate-400">{p.vp}</p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
-                    <span key={t} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
-                      {t}
+                <div className="p-4">
+                  <div className="text-base font-medium">{p.name}</div>
+                  <p className="text-sm text-slate-400">{p.vp}</p>
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {p.tags.map((t) => (
+                      <span key={t} className="rounded-md border border-white/10 bg-slate-950/40 px-2 py-0.5 text-xs text-slate-300">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="mt-2 flex items-center gap-3 text-xs text-slate-400">
+                    <span>
+                      Build Score: <span className="text-slate-200">{p.score}</span>
                     </span>
-                  ))}
-                </div>
-                <div className="mt-2 flex items-center gap-3 text-xs text-slate-400">
-                  <span>
-                    Build Score: <span className="text-slate-200">{p.score}</span>
-                  </span>
-                  <span>•</span>
-                  <span>
-                    Transfer-ready: <span className="text-slate-200">{p.ready}</span>
-                  </span>
-                </div>
-                <div className="mt-3 flex items-center gap-2">
-                  <Link href="#" className="text-sm text-sky-300 hover:underline">
-                    Live demo
-                  </Link>
-                  <span className="text-slate-600">•</span>
-                  <Link href="#" className="text-sm text-sky-300 hover:underline">
-                    Due diligence
-                  </Link>
+                    <span>•</span>
+                    <span>
+                      Transfer-ready: <span className="text-slate-200">{p.ready}</span>
+                    </span>
+                  </div>
+                  <div className="mt-3 flex items-center gap-2">
+                    <Link href="#" className="text-sm text-sky-300 hover:underline">
+                      Live demo
+                    </Link>
+                    <span className="text-slate-600">•</span>
+                    <Link href="#" className="text-sm text-sky-300 hover:underline">
+                      Due diligence
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
