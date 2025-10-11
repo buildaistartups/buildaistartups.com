@@ -62,10 +62,12 @@
     .title    { font: 800 36px/1.12 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); letter-spacing:.2px; }
     .subtitle { font: 800 15px/1    ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--indigo-800); letter-spacing:.16em; text-transform:uppercase; }
 
-    .h6       { font: 900 24px/1.25 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
-    .body     { font: 700 16px/1.5  ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-body); }
-    .muted    { font: 700 16px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-muted); }
-    .chip     { font: 800 12px/1    ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
+    /* Card typography */
+    .h6       { font: 900 28px/1.28 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
+    /* smaller subtitles under titles */
+    .muted    { font: 800 16px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-muted); }
+    .body     { font: 700 18px/1.55 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-body); }
+    .chip     { font: 900 16px/1.1  ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial; fill: var(--text-title); }
 
     .ring     { fill:none; stroke:url(#ringGrad); stroke-width:3; }
     .tick     { fill:none; stroke:var(--indigo-800); stroke-width:3; stroke-linecap:round; stroke-linejoin:round; }
@@ -115,7 +117,7 @@
       <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
     </radialGradient>
 
-    <!-- Icons (48×48 logical box) -->
+    <!-- Icons -->
     <g id="icon-doc">
       <path d="M22 6H12a2 2 0 0 0-2 2v28a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V18L22 6z" fill="url(#barGrad1)"/>
       <path d="M22 6v10a2 2 0 0 0 2 2h10" fill="none" stroke="#FFFFFF" stroke-width="2"/>
@@ -150,7 +152,7 @@
     <g id="icon-check"><path d="M3 9l4 4 9-9" class="tick"/></g>
   </defs>
 
-  <!-- ================== HEADER (moved down closer to cards) ================== -->
+  <!-- ================== HEADER ================== -->
   <g transform="translate(80,100)">
     <text class="subtitle">Licensing Models</text>
     <text class="title" y="48">Choose the right license for your use case</text>
@@ -172,27 +174,26 @@
       <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#diagLines)" opacity="0.25"/>
       <rect x="0.5" y="0.5" width="319" height="459" rx="21.5" fill="none" stroke="var(--card-stroke-outer)"/>
       <rect x="1" y="1" width="318" height="458" rx="21" fill="none" stroke="url(#cardStrokeGrad)" opacity="0.9"/>
-
       <rect x="0" y="0" width="320" height="10" class="bar" fill="url(#barGrad1)"/>
 
       <circle cx="64" cy="78" r="36" class="ring"/>
-      <!-- Left card: icon perfectly centered horizontally -->
       <use href="#icon-doc" transform="translate(64,78) translate(1,0) scale(1.40) translate(-24,-24)"/>
 
-      <text x="116" y="68" class="h6">Single Use</text>
-      <text x="116" y="100" class="muted">Best for one project</text>
+      <text x="116" y="72" class="h6">Single Use</text>
+      <text x="116" y="110" class="muted">Best for one project</text>
 
-      <g transform="translate(22,138)">
-        <rect x="0" y="-16" rx="12" width="160" height="28" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
-        <text x="12" y="4" class="chip">1 product / project</text>
+      <!-- Bigger chip (unchanged from prior step) -->
+      <g transform="translate(22,150)">
+        <rect x="0" y="-17" rx="14" width="210" height="34" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
+        <text x="14" y="0" class="chip" dominant-baseline="middle">1 product / project</text>
       </g>
 
-      <g transform="translate(26,182)">
-        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="8"  class="body">Scope: one product</text>
-        <use href="#icon-check" transform="translate(0,52)"/><text x="28" y="60" class="body">Seats: single team</text>
-        <use href="#icon-check" transform="translate(0,104)"/><text x="28" y="112" class="body">No redistribution</text>
-        <use href="#icon-check" transform="translate(0,156)"/><text x="28" y="164" class="body">Updates for 12 months</text>
-        <use href="#icon-check" transform="translate(0,208)"/><text x="28" y="216" class="body">Email support</text>
+      <g transform="translate(26,196)">
+        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="10"  class="body">Scope: one product</text>
+        <use href="#icon-check" transform="translate(0,54)"/><text x="28" y="64" class="body">Seats: single team</text>
+        <use href="#icon-check" transform="translate(0,108)"/><text x="28" y="118" class="body">No redistribution</text>
+        <use href="#icon-check" transform="translate(0,162)"/><text x="28" y="172" class="body">Updates for 12 months</text>
+        <use href="#icon-check" transform="translate(0,216)"/><text x="28" y="226" class="body">Email support</text>
       </g>
     </g>
 
@@ -203,31 +204,28 @@
       <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#diagLines)" opacity="0.25"/>
       <rect x="0.5" y="0.5" width="319" height="459" rx="21.5" fill="none" stroke="var(--card-stroke-outer)"/>
       <rect x="1" y="1" width="318" height="458" rx="21" fill="none" stroke="url(#cardStrokeGrad)" opacity="0.9"/>
-
       <rect x="0" y="0" width="320" height="10" class="bar" fill="url(#barGrad2)"/>
 
       <circle cx="64" cy="78" r="36" class="ring"/>
-      <!-- Middle card: icon centered vertically in the ring -->
       <use href="#icon-stack" transform="translate(64,78) translate(0,-2) scale(1.40) translate(-24,-24)"/>
 
-      <text x="116" y="68" class="h6">Multi Use</text>
-      <!-- Wrapped subtitle into two lines -->
+      <text x="116" y="72" class="h6">Multi Use</text>
       <text class="muted">
-        <tspan x="116" y="100">Unlimited projects</tspan>
-        <tspan x="116" y="120">(one company)</tspan>
+        <tspan x="116" y="110">Unlimited projects</tspan>
+        <tspan x="116" y="132">(one company)</tspan>
       </text>
 
-      <g transform="translate(22,138)">
-        <rect x="0" y="-16" rx="12" width="232" height="28" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
-        <text x="12" y="4" class="chip">Unlimited projects, internal</text>
+      <g transform="translate(22,150)">
+        <rect x="0" y="-17" rx="14" width="290" height="34" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
+        <text x="14" y="0" class="chip" dominant-baseline="middle">Unlimited projects, internal</text>
       </g>
 
-      <g transform="translate(26,182)">
-        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="8"  class="body">Scope: same legal entity</text>
-        <use href="#icon-check" transform="translate(0,52)"/><text x="28" y="60" class="body">Seats: multiple teams</text>
-        <use href="#icon-check" transform="translate(0,104)"/><text x="28" y="112" class="body">No redistribution</text>
-        <use href="#icon-check" transform="translate(0,156)"/><text x="28" y="164" class="body">Maintenance while active</text>
-        <use href="#icon-check" transform="translate(0,208)"/><text x="28" y="216" class="body">Priority email support</text>
+      <g transform="translate(26,196)">
+        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="10"  class="body">Scope: same legal entity</text>
+        <use href="#icon-check" transform="translate(0,54)"/><text x="28" y="64" class="body">Seats: multiple teams</text>
+        <use href="#icon-check" transform="translate(0,108)"/><text x="28" y="118" class="body">No redistribution</text>
+        <use href="#icon-check" transform="translate(0,162)"/><text x="28" y="172" class="body">Maintenance while active</text>
+        <use href="#icon-check" transform="translate(0,216)"/><text x="28" y="226" class="body">Priority email support</text>
       </g>
     </g>
 
@@ -238,26 +236,25 @@
       <rect x="0" y="0" width="320" height="460" rx="22" fill="url(#diagLines)" opacity="0.25"/>
       <rect x="0.5" y="0.5" width="319" height="459" rx="21.5" fill="none" stroke="var(--card-stroke-outer)"/>
       <rect x="1" y="1" width="318" height="458" rx="21" fill="none" stroke="url(#cardStrokeGrad)" opacity="0.9"/>
-
       <rect x="0" y="0" width="320" height="10" class="bar" fill="url(#barGrad3)"/>
 
       <circle cx="64" cy="78" r="36" class="ring"/>
       <use href="#icon-oem" transform="translate(64,78) scale(1.40) translate(-24,-24)"/>
 
-      <text x="116" y="68" class="h6">OEM</text>
-      <text x="116" y="100" class="muted">Embed and redistribute</text>
+      <text x="116" y="72" class="h6">OEM</text>
+      <text x="116" y="110" class="muted">Embed and redistribute</text>
 
-      <g transform="translate(22,138)">
-        <rect x="0" y="-16" rx="12" width="212" height="28" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
-        <text x="12" y="4" class="chip">Commercial redistribution</text>
+      <g transform="translate(22,150)">
+        <rect x="0" y="-17" rx="14" width="260" height="34" fill="rgba(203,213,255,0.35)" stroke="var(--violet-200)"/>
+        <text x="14" y="0" class="chip" dominant-baseline="middle">Commercial redistribution</text>
       </g>
 
-      <g transform="translate(26,182)">
-        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="8"  class="body">Resale/redistribution allowed</text>
-        <use href="#icon-check" transform="translate(0,52)"/><text x="28" y="60" class="body">Attribution required</text>
-        <use href="#icon-check" transform="translate(0,104)"/><text x="28" y="112" class="body">Binary/distributed form only</text>
-        <use href="#icon-check" transform="translate(0,156)"/><text x="28" y="164" class="body">SLA &amp; security review</text>
-        <use href="#icon-check" transform="translate(0,208)"/><text x="28" y="216" class="body">Partner success manager</text>
+      <g transform="translate(26,196)">
+        <use href="#icon-check" transform="translate(0,0)"/><text x="28" y="10"  class="body">Resale/redistribution allowed</text>
+        <use href="#icon-check" transform="translate(0,54)"/><text x="28" y="64" class="body">Attribution required</text>
+        <use href="#icon-check" transform="translate(0,108)"/><text x="28" y="118" class="body">Binary/distributed form only</text>
+        <use href="#icon-check" transform="translate(0,162)"/><text x="28" y="172" class="body">SLA &amp; security review</text>
+        <use href="#icon-check" transform="translate(0,216)"/><text x="28" y="226" class="body">Partner success manager</text>
       </g>
     </g>
   </g>
