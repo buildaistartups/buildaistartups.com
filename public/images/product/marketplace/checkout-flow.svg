@@ -17,7 +17,7 @@
   </defs>
 
   <!-- centered scale for whole composition -->
-  <g transform="translate(450,175) scale(1.1) translate(-360,-175)">
+  <g transform="translate(450,175) scale(1.1) translate(-420,-175)">
 
     <!-- Step 1: Browse -->
     <g transform="translate(40, 40)">
