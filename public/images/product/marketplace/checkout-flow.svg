@@ -8,6 +8,14 @@
       <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
     </linearGradient>
+    
+    <!-- Arrow marker definition -->
+    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 2 2 L 10 6 L 2 10 L 4 6 Z" fill="#8B5CF6" />
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 2 2 L 10 6 L 2 10 L 4 6 Z" fill="#3B82F6" />
+    </marker>
   </defs>
   
   <!-- Step 1: Browse -->
@@ -28,10 +36,9 @@
     <text x="40" y="122" text-anchor="middle" fill="#3B82F6" font-size="12">Explore items</text>
   </g>
   
-  <!-- Arrow 1 -->
-  <g transform="translate(155, 80)">
-    <line x1="0" y1="0" x2="60" y2="0" stroke="url(#purpleGrad)" stroke-width="3"/>
-    <polygon points="70,0 60,-5 60,5" fill="url(#purpleGrad)"/>
+  <!-- Arrow 1 - Centered between circles -->
+  <g>
+    <line x1="148" y1="80" x2="272" y2="80" stroke="#8B5CF6" stroke-width="3" marker-end="url(#arrowPurple)"/>
   </g>
   
   <!-- Step 2: View Details -->
@@ -45,10 +52,9 @@
     <text x="40" y="122" text-anchor="middle" fill="#3B82F6" font-size="12">Review item</text>
   </g>
   
-  <!-- Arrow 2 -->
-  <g transform="translate(375, 80)">
-    <line x1="0" y1="0" x2="60" y2="0" stroke="url(#blueGrad)" stroke-width="3"/>
-    <polygon points="70,0 60,-5 60,5" fill="url(#blueGrad)"/>
+  <!-- Arrow 2 - Centered between circles -->
+  <g>
+    <line x1="368" y1="80" x2="492" y2="80" stroke="#3B82F6" stroke-width="3" marker-end="url(#arrowBlue)"/>
   </g>
   
   <!-- Step 3: Purchase -->
@@ -70,10 +76,9 @@
     </g>
   </g>
   
-  <!-- Arrow 3 -->
-  <g transform="translate(595, 80)">
-    <line x1="0" y1="0" x2="60" y2="0" stroke="url(#purpleGrad)" stroke-width="3"/>
-    <polygon points="70,0 60,-5 60,5" fill="url(#purpleGrad)"/>
+  <!-- Arrow 3 - Centered between circles -->
+  <g>
+    <line x1="588" y1="80" x2="712" y2="80" stroke="#8B5CF6" stroke-width="3" marker-end="url(#arrowPurple)"/>
   </g>
   
   <!-- Step 4: Transfer -->
@@ -87,10 +92,9 @@
     <text x="40" y="122" text-anchor="middle" fill="#3B82F6" font-size="12">Item delivered</text>
   </g>
   
-  <!-- Arrow 4 -->
-  <g transform="translate(815, 80)">
-    <line x1="0" y1="0" x2="60" y2="0" stroke="url(#blueGrad)" stroke-width="3"/>
-    <polygon points="70,0 60,-5 60,5" fill="url(#blueGrad)"/>
+  <!-- Arrow 4 - Centered between circles -->
+  <g>
+    <line x1="808" y1="80" x2="932" y2="80" stroke="#3B82F6" stroke-width="3" marker-end="url(#arrowBlue)"/>
   </g>
   
   <!-- Step 5: Payout -->
