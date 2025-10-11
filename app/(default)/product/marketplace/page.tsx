@@ -7,7 +7,7 @@ const BRAND = 'Build AI Starups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
 const CANON = `${SITE}/product/marketplace`
-const OG = '/og/product-marketplace.png' // Updated to use your new OG image
+const OG = '/og/product-marketplace.png'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -169,11 +169,11 @@ export default function MarketplacePage() {
               <p className="mt-3 text-sm text-slate-400">Transparent fees · Stripe Connect · Optional escrow</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+              <div className="aspect-video w-full rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
                 <img 
                   src="/images/product/marketplace/hero.svg" 
                   alt="Marketplace storefront showing multiple micro-SaaS product listings with Build Scores" 
-                  className="max-h-full max-w-full object-contain"
+                  className="w-full h-full object-contain"
                   loading="eager"
                 />
               </div>
@@ -247,11 +247,11 @@ export default function MarketplacePage() {
             <p className="mt-2 text-slate-300">From discovery to handoff in minutes</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/checkout-flow.svg" 
                 alt="Marketplace checkout flow from browse to payout" 
-                className="h-32 w-auto object-contain"
+                className="h-32 w-auto object-contain mx-auto"
                 loading="lazy"
               />
             </div>
@@ -273,11 +273,11 @@ export default function MarketplacePage() {
                 <li>Clear license terms and usage rights</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/live-demo.svg" 
                 alt="Live demo interface with interactive preview" 
-                className="max-w-full max-h-full object-contain"
+                className="w-full h-auto object-contain mx-auto"
                 loading="lazy"
               />
             </div>
@@ -287,11 +287,11 @@ export default function MarketplacePage() {
         {/* Licensing Options */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/licensing-options.svg" 
                 alt="Different licensing models: Single Use, Multi Use, OEM" 
-                className="max-w-full max-h-full object-contain"
+                className="w-full h-auto object-contain mx-auto"
                 loading="lazy"
               />
             </div>
@@ -327,11 +327,11 @@ export default function MarketplacePage() {
                 <li>License compliance and IP verification</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/transfer-checklist.svg" 
                 alt="Transfer-readiness checklist with completion indicators" 
-                className="max-w-full max-h-full object-contain"
+                className="w-full h-auto object-contain mx-auto"
                 loading="lazy"
               />
             </div>
@@ -342,14 +342,12 @@ export default function MarketplacePage() {
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center justify-center">
-                <img 
-                  src="/images/product/marketplace/badge-fee.svg" 
-                  alt="Transparent fees badge" 
-                  className="h-8 w-auto object-contain"
-                  loading="lazy"
-                />
-              </div>
+              <img 
+                src="/images/product/marketplace/badge-fee.svg" 
+                alt="Transparent fees badge" 
+                className="h-8 w-auto object-contain"
+                loading="lazy"
+              />
               <h2 className="text-2xl font-semibold">Fees & payouts</h2>
             </div>
             <p className="mt-2 text-slate-300">
@@ -375,11 +373,11 @@ export default function MarketplacePage() {
         {/* Escrow Protection */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/escrow-protection.svg" 
                 alt="Secure escrow protection for buyers and sellers" 
-                className="max-w-full max-h-full object-contain"
+                className="w-full h-auto object-contain mx-auto"
                 loading="lazy"
               />
             </div>
@@ -414,11 +412,11 @@ export default function MarketplacePage() {
                 <li>Audit trail for listing changes and negotiations</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6 flex items-center justify-center">
               <img 
                 src="/images/product/marketplace/due-diligence.svg" 
                 alt="Due diligence dashboard with Build Score and quality metrics" 
-                className="max-w-full max-h-full object-contain"
+                className="w-full h-auto object-contain mx-auto"
                 loading="lazy"
               />
             </div>
@@ -483,7 +481,7 @@ export default function MarketplacePage() {
                   <img 
                     src="/images/product/marketplace/listing-card.svg" 
                     alt={`${p.name} marketplace listing card`} 
-                    className="max-h-full max-w-full object-contain"
+                    className="w-full h-full object-contain"
                     loading="lazy"
                   />
                 </div>
