@@ -1,47 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="192" height="56" viewBox="0 0 192 56" role="img" aria-label="Transparent fees pricing badge with percent symbol" fill="none">
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="192" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#0EA5E9"/>
+    <!-- Gradient definitions -->
+    <linearGradient id="purpleBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="56" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0"/>
+    <linearGradient id="lightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:0.2" />
     </linearGradient>
-    <filter id="soft" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="0.6" result="blur"/>
-      <feComposite in="blur" in2="SourceAlpha" operator="out"/>
-      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0   0 0 0 0.2 0"/>
-      <feBlend in="SourceGraphic" mode="normal"/>
-    </filter>
   </defs>
-
-  <!-- Outline pill (transparent fill for a true transparent background) -->
-  <rect x="1" y="1" width="190" height="54" rx="14" fill="none" stroke="url(#g)" stroke-width="2" vector-effect="non-scaling-stroke"/>
-  <!-- subtle top sheen (very light, optional) -->
-  <rect x="2" y="2" width="188" height="52" rx="13" fill="url(#g2)" />
-
-  <!-- % symbol built from shapes for crisp rendering at small sizes -->
-  <g transform="translate(16,10)" stroke="url(#g)" stroke-width="6" stroke-linecap="round" vector-effect="non-scaling-stroke">
-    <!-- slash -->
-    <line x1="0" y1="28" x2="28" y2="0"/>
-    <!-- dots -->
-    <circle cx="30" cy="30" r="0.01" stroke="none" fill="none"/><!-- keeps group size consistent -->
+  
+  <!-- Outer circle background -->
+  <circle cx="100" cy="100" r="95" fill="url(#lightGrad)"/>
+  
+  <!-- Main badge circle -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#purpleBlueGrad)" stroke-width="4"/>
+  
+  <!-- Inner decorative circle -->
+  <circle cx="100" cy="100" r="72" fill="none" stroke="url(#purpleBlueGrad)" stroke-width="1.5" opacity="0.3" stroke-dasharray="4,4"/>
+  
+  <!-- Percentage symbol -->
+  <g id="percentSymbol">
+    <!-- Top circle of % -->
+    <circle cx="85" cy="75" r="8" fill="none" stroke="#8B5CF6" stroke-width="3"/>
+    
+    <!-- Diagonal line of % -->
+    <line x1="80" y1="80" x2="120" y2="120" stroke="url(#purpleBlueGrad)" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Bottom circle of % -->
+    <circle cx="115" cy="125" r="8" fill="none" stroke="#3B82F6" stroke-width="3"/>
   </g>
-  <g transform="translate(12,10)" fill="url(#g)">
-    <circle cx="12" cy="8" r="5.5"/>
-    <circle cx="40" cy="36" r="5.5"/>
+  
+  <!-- Small dollar sign indicator (top right) -->
+  <g transform="translate(135, 55)">
+    <circle cx="0" cy="0" r="12" fill="#10B981" opacity="0.15"/>
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#10B981" stroke-width="1.5"/>
+    <text x="0" y="5" text-anchor="middle" fill="#059669" font-size="14" font-weight="700">$</text>
   </g>
-
-  <!-- "Transparent fees" text -->
-  <text x="72" y="33" font-size="14" font-weight="600" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, 'Apple Color Emoji', 'Segoe UI Emoji'" fill="url(#g)" letter-spacing=".2">
-    TRANSPARENT FEES
-  </text>
-
-  <!-- Small $ coin indicator -->
-  <g transform="translate(0,0)">
-    <circle cx="164" cy="16" r="9" fill="url(#g)" filter="url(#soft)"/>
-    <text x="164" y="20" text-anchor="middle" font-size="12" font-weight="700" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" fill="#ffffff">$</text>
+  
+  <!-- Text: TRANSPARENT -->
+  <text x="100" y="155" text-anchor="middle" fill="#8B5CF6" font-size="14" font-weight="700" letter-spacing="1">TRANSPARENT</text>
+  
+  <!-- Text: FEES -->
+  <text x="100" y="172" text-anchor="middle" fill="#3B82F6" font-size="16" font-weight="800" letter-spacing="1.5">FEES</text>
+  
+  <!-- Decorative corner elements -->
+  <g opacity="0.4">
+    <circle cx="40" cy="40" r="3" fill="#8B5CF6"/>
+    <circle cx="160" cy="40" r="3" fill="#3B82F6"/>
+    <circle cx="40" cy="160" r="3" fill="#3B82F6"/>
+    <circle cx="160" cy="160" r="3" fill="#8B5CF6"/>
   </g>
 </svg>
