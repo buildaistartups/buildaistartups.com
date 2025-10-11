@@ -1,17 +1,32 @@
 <svg width="200" height="32" viewBox="0 0 200 32" role="img" aria-label="transparent fees badge" xmlns="http://www.w3.org/2000/svg">
   <title>transparent fees</title>
   <defs>
+    <!-- Accent gradient (stroke, icons, text) -->
     <linearGradient id="pf-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#7C4DFF"/>
       <stop offset="100%" stop-color="#2BB0FF"/>
     </linearGradient>
+
+    <!-- Light blue pill background -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F3F9FF"/>
+      <stop offset="100%" stop-color="#E1F1FF"/>
+    </linearGradient>
+
+    <!-- Subtle glossy highlight on top -->
+    <linearGradient id="shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.0"/>
+    </linearGradient>
   </defs>
 
-  <!-- Pill with light-blue background -->
+  <!-- Pill with gradient fill and accent stroke -->
   <rect x="0.75" y="0.75" width="198.5" height="30.5" rx="15.25"
-        fill="#EAF3FF" stroke="url(#pf-grad-2)" stroke-width="1.5"/>
+        fill="url(#bg-grad)" stroke="url(#pf-grad-2)" stroke-width="1.5"/>
+  <!-- Top highlight (very subtle) -->
+  <rect x="0.75" y="0.75" width="198.5" height="30.5" rx="15.25" fill="url(#shine)"/>
 
-  <!-- Centered cluster: % icon (24) + 10 gap + text (112) + 10 gap + $ icon (16) = 172 total -->
+  <!-- Centered cluster: % icon (24) + 10 gap + text (112) + 10 gap + $ icon (16) = 172 -->
   <!-- (200 - 172) / 2 = 14 -->
   <g transform="translate(14,0)">
     <!-- % icon -->
@@ -24,10 +39,10 @@
       </g>
     </g>
 
-    <!-- text (fixed width for precise centering) -->
-    <text x="34" y="20" font-size="12.5" font-weight="600"
+    <!-- Bold text -->
+    <text x="34" y="20" font-size="12.5" font-weight="700"
           font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji'"
-          fill="url(#pf-grad-2)" letter-spacing=".2px"
+          fill="url(#pf-grad-2)" letter-spacing=".15px"
           textLength="112" lengthAdjust="spacingAndGlyphs">transparent fees</text>
 
     <!-- $ indicator -->
