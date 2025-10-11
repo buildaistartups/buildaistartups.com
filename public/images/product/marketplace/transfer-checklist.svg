@@ -2,6 +2,7 @@
 <svg width="2592" height="1944" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- ====== Defs ====== -->
   <defs>
+    <!-- Gradients -->
     <linearGradient id="gradPurpleBlue" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#8B5CF6"/>
       <stop offset="100%" stop-color="#3B82F6"/>
@@ -10,25 +11,36 @@
       <stop offset="0%" stop-color="#EAE4FD"/>
       <stop offset="100%" stop-color="#C1B7FD"/>
     </linearGradient>
+    <!-- Card background tint -->
+    <linearGradient id="cardBgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7F5FF"/>
+      <stop offset="100%" stop-color="#EEF6FF"/>
+    </linearGradient>
+
     <radialGradient id="glow" cx="50%" cy="35%" r="60%">
       <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.26"/>
       <stop offset="70%" stop-color="#3B82F6" stop-opacity="0.12"/>
       <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
     </radialGradient>
+
+    <!-- Shadow -->
     <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
       <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="#000000" flood-opacity="0.12"/>
     </filter>
+
+    <!-- Reusable check icon -->
     <symbol id="checkIcon" viewBox="0 0 24 24">
       <path d="M5 13.2l5 5 9-12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
   </defs>
 
-  <!-- Ambient glow -->
+  <!-- Ambient glow (keeps overall background transparent) -->
   <ellipse cx="600" cy="360" rx="520" ry="300" fill="url(#glow)"/>
 
-  <!-- Clipboard -->
+  <!-- ====== Clipboard/Card ====== -->
   <g filter="url(#softShadow)">
-    <rect x="260" y="150" width="680" height="560" rx="28" fill="white"/>
+    <!-- Board with tinted background -->
+    <rect x="260" y="150" width="680" height="560" rx="28" fill="url(#cardBgGrad)"/>
     <rect x="260" y="150" width="680" height="560" rx="28" fill="none" stroke="url(#gradPurpleBlue)" stroke-width="2"/>
 
     <!-- Clip -->
@@ -40,7 +52,7 @@
     </g>
 
     <!-- Header bar -->
-    <rect x="260" y="180" width="680" height="70" rx="0" fill="url(#gradSoft)" opacity="0.6"/>
+    <rect x="260" y="180" width="680" height="70" rx="0" fill="url(#gradSoft)" opacity="0.65"/>
 
     <!-- Title -->
     <text x="300" y="228" font-size="34" font-family="Arial" fill="#1F2937" font-weight="700">
@@ -56,7 +68,7 @@
       <text x="0" y="8" text-anchor="middle" font-size="26" font-family="Arial" font-weight="700" fill="#1F2937">100%</text>
     </g>
 
-    <!-- Linear progress pill (right edge aligned @ 920; width 260 => x = 920 - 260 = 660) -->
+    <!-- Linear progress pill (right edge aligned @ 920; width 260 => x = 660) -->
     <g transform="translate(660,260)">
       <rect x="0" y="0" width="260" height="32" rx="16" fill="#F1F5F9"/>
       <rect x="0" y="0" width="260" height="32" rx="16" fill="url(#gradPurpleBlue)" opacity="0.18"/>
@@ -65,12 +77,12 @@
       <text x="40" y="23" font-size="20" font-family="Arial" font-weight="700" fill="white">Ready to Transfer</text>
     </g>
 
-    <!-- Checklist Items (centered stripes; pills slightly right) -->
+    <!-- ====== Checklist Items (darker stripe backgrounds) ====== -->
     <g transform="translate(280,310)">
       <!-- Row 1 -->
       <g>
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="#F8FAFC"/>
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.06"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="#EAF0FF"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.10"/>
         <circle cx="34" cy="35" r="15" fill="url(#gradPurpleBlue)"/>
         <use href="#checkIcon" x="21" y="22" width="28" height="28"/>
         <text x="70" y="34" font-size="26" font-family="Arial" font-weight="700" fill="#1F2937">Domain</text>
@@ -83,8 +95,8 @@
 
       <!-- Row 2 -->
       <g transform="translate(0,78)">
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="#F8FAFC"/>
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.06"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="#EAF0FF"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.10"/>
         <circle cx="34" cy="35" r="15" fill="url(#gradPurpleBlue)"/>
         <use href="#checkIcon" x="21" y="22" width="28" height="28"/>
         <text x="70" y="34" font-size="26" font-family="Arial" font-weight="700" fill="#1F2937">Stripe</text>
@@ -97,8 +109,8 @@
 
       <!-- Row 3 -->
       <g transform="translate(0,156)">
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="#F8FAFC"/>
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.06"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="#EAF0FF"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.10"/>
         <circle cx="34" cy="35" r="15" fill="url(#gradPurpleBlue)"/>
         <use href="#checkIcon" x="21" y="22" width="28" height="28"/>
         <text x="70" y="34" font-size="26" font-family="Arial" font-weight="700" fill="#1F2937">Analytics</text>
@@ -111,8 +123,8 @@
 
       <!-- Row 4 -->
       <g transform="translate(0,234)">
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="#F8FAFC"/>
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.06"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="#EAF0FF"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.10"/>
         <circle cx="34" cy="35" r="15" fill="url(#gradPurpleBlue)"/>
         <use href="#checkIcon" x="21" y="22" width="28" height="28"/>
         <text x="70" y="34" font-size="26" font-family="Arial" font-weight="700" fill="#1F2937">Docs</text>
@@ -125,8 +137,8 @@
 
       <!-- Row 5 -->
       <g transform="translate(0,312)">
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="#F8FAFC"/>
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.06"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="#EAF0FF"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.10"/>
         <circle cx="34" cy="35" r="15" fill="url(#gradPurpleBlue)"/>
         <use href="#checkIcon" x="21" y="22" width="28" height="28"/>
         <text x="70" y="34" font-size="26" font-family="Arial" font-weight="700" fill="#1F2937">Backups</text>
@@ -139,8 +151,8 @@
 
       <!-- Row 6 -->
       <g transform="translate(0,390)">
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="#F8FAFC"/>
-        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.06"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="#EAF0FF"/>
+        <rect x="0" y="0" width="640" height="70" rx="14" fill="url(#gradPurpleBlue)" opacity="0.10"/>
         <circle cx="34" cy="35" r="15" fill="url(#gradPurpleBlue)"/>
         <use href="#checkIcon" x="21" y="22" width="28" height="28"/>
         <text x="70" y="34" font-size="26" font-family="Arial" font-weight="700" fill="#1F2937">Support</text>
