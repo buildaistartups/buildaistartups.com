@@ -133,7 +133,7 @@
     <rect x="640" y="110" width="520" height="200" rx="12" fill="url(#cardGradient)" stroke="#6366F1" stroke-width="2"/>
     
     <text x="660" y="140" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#6366F1">
-      Compliance & Verification
+      Compliance and Verification
     </text>
     
     <!-- Verification badges -->
@@ -277,7 +277,7 @@
     </text>
     <circle cx="390" cy="737.5" r="3" fill="#10B981"/>
     <text x="400" y="741" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">
-      Avg/Day: 61.6
+      Avg per Day: 61.6
     </text>
   </g>
   
@@ -360,12 +360,12 @@
       </g>
     </g>
     
-    <!-- Security & Performance -->
+    <!-- Security and Performance -->
     <g id="securityPerformanceCard" filter="url(#shadow)">
       <rect x="620" y="550" width="540" height="210" rx="12" fill="url(#cardGradient)" stroke="#6366F1" stroke-width="2"/>
       
       <text x="640" y="580" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#6366F1">
-        Security & Performance
+        Security and Performance
       </text>
       
       <!-- Security score circle -->
