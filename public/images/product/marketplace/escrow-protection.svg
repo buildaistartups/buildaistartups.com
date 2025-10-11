@@ -1,163 +1,194 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" width="1000" height="900">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Buyer–Seller secure payments with Stripe Connect (vector)</title>
+  <desc id="desc">Dark UI illustration showing a central shield/lock, a buyer on the left, a seller on the right, check marks, escrow/KYC/3D Secure badges, PCI fingerprint, and a centered Stripe Connect badge.</desc>
+
+  <!-- ========== DEFS ========== -->
   <defs>
-    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#9333EA;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+    <linearGradient id="gradPrimary" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#6366F1"/>
     </linearGradient>
+    <linearGradient id="gradSoft" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#7C8CF8"/>
+    </linearGradient>
+    <linearGradient id="gradGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FCD34D"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="gradGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#34D399"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="innerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="atop"/>
+    </filter>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#C7C9FF"/>
+    </marker>
+
+    <!-- Reusable icons -->
+    <g id="checkCircle">
+      <circle cx="0" cy="0" r="44" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+      <path d="M-16 2 l10 10 l22 -26" fill="none" stroke="url(#gradPrimary)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- NICER LOCK ICON with gradient and details -->
+    <g id="miniLock">
+      <rect x="-22" y="-12" width="44" height="32" rx="8" fill="url(#gradPrimary)" stroke="#E5E7FF" stroke-width="3"/>
+      <path d="M-10 -12 v-10 a10 10 0 0 1 20 0 v10" fill="none" stroke="#E5E7FF" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="0" cy="6" r="6" fill="#E5E7FF"/>
+      <rect x="-2" y="6" width="4" height="10" rx="2" fill="#E5E7FF"/>
+      <!-- Shine effect -->
+      <path d="M-16 -8 l6 -6 q2 -2 4 0 l4 4" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+    </g>
+
+    <g id="tinyShield">
+      <path d="M0 -36 L28 -22 V12 C28 26 14 42 0 46 C-14 42 -28 26 -28 12 V-22 Z"
+            fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+      <rect x="-9" y="-4" width="18" height="18" rx="4" fill="url(#gradPrimary)"/>
+    </g>
+
+    <g id="fingerprint" stroke="#C7C9FF" stroke-width="3.5" stroke-linecap="round" fill="none">
+      <path d="M0 -30 c22 0 40 18 40 40"/>
+      <path d="M0 -20 c16 0 30 14 30 30"/>
+      <path d="M0 -10 c12 0 22 10 22 22"/>
+      <path d="M0 0 c8 0 14 6 14 14"/>
+      <path d="M-14 6 c0 -12 10 -22 22 -22"/>
+      <path d="M-22 16 c0 -18 14 -32 32 -32"/>
+      <path d="M-30 26 c0 -25 20 -45 45 -45"/>
+    </g>
+
+    <!-- NICER BUYER ICON - Wallet with card -->
+    <g id="walletIcon">
+      <rect x="-28" y="-20" width="56" height="40" rx="6" fill="url(#gradPrimary)" stroke="#E5E7FF" stroke-width="3"/>
+      <rect x="-20" y="-12" width="40" height="6" rx="2" fill="#E5E7FF" opacity="0.8"/>
+      <rect x="-20" y="-2" width="28" height="18" rx="3" fill="#0E152D" stroke="#E5E7FF" stroke-width="2"/>
+      <circle cx="16" cy="7" r="5" fill="url(#gradGold)"/>
+      <path d="M-24 -24 l48 0" stroke="#E5E7FF" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+    </g>
+
+    <!-- NICER SELLER ICON - Shopping bag with dollar sign -->
+    <g id="shopIcon">
+      <path d="M-24 -8 l-6 36 q-1 8 6 8 h48 q7 0 6 -8 l-6 -36 z" fill="url(#gradGreen)" stroke="#E5E7FF" stroke-width="3"/>
+      <path d="M-18 -8 v-8 q0 -12 18 -12 q18 0 18 12 v8" fill="none" stroke="#E5E7FF" stroke-width="3" stroke-linecap="round"/>
+      <text x="0" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#E5E7FF">$</text>
+      <circle cx="0" cy="12" r="16" fill="none" stroke="#E5E7FF" stroke-width="2" opacity="0.5"/>
+    </g>
   </defs>
+
+  <!-- ========== TRANSPARENT BACKGROUND ========== -->
+  <rect width="1200" height="900" fill="none"/>
   
-  <!-- Buyer (Left Side) -->
-  <g id="buyer">
-    <!-- Head -->
-    <circle cx="200" cy="280" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-    <!-- Body -->
-    <path d="M200 315 Q180 315 170 340 L170 400 L230 400 L230 340 Q220 315 200 315 Z" 
-          fill="#8B5CF6" stroke="#6366F1" stroke-width="3"/>
-    <!-- Arm with phone -->
-    <rect x="230" y="340" width="40" height="8" rx="4" fill="#8B5CF6" stroke="#6366F1" stroke-width="2"/>
-    <rect x="265" y="330" width="25" height="40" rx="4" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-    <circle cx="277" cy="345" r="3" fill="#6366F1"/>
-    <!-- Label -->
-    <text x="200" y="440" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
-          fill="#6366F1" text-anchor="middle">Buyer</text>
+  <path d="M220,180 C360,60 840,60 980,180" stroke="#5B64E8" stroke-opacity="0.5" stroke-width="4" stroke-dasharray="8 14" fill="none"/>
+
+  <!-- Top lock icons with nicer design -->
+  <g transform="translate(260,150)" filter="url(#softShadow)">
+    <circle r="52" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+    <use href="#miniLock" transform="scale(1.2)"/>
+  </g>
+  <g transform="translate(940,150)" filter="url(#softShadow)">
+    <circle r="52" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+    <use href="#miniLock" transform="scale(1.2)"/>
   </g>
 
-  <!-- Seller (Right Side) -->
-  <g id="seller">
-    <!-- Head -->
-    <circle cx="800" cy="280" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-    <!-- Hair -->
-    <path d="M770 265 Q770 245 785 240 Q800 235 815 240 Q830 245 830 265" 
-          fill="#8B5CF6" stroke="#6366F1" stroke-width="3"/>
-    <!-- Body -->
-    <path d="M800 315 Q780 315 770 340 L770 400 L830 400 L830 340 Q820 315 800 315 Z" 
-          fill="#8B5CF6" stroke="#6366F1" stroke-width="3"/>
-    <!-- Package -->
-    <rect x="730" y="360" width="45" height="45" rx="3" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-    <line x1="730" y1="375" x2="775" y2="375" stroke="#6366F1" stroke-width="2"/>
-    <line x1="752" y1="360" x2="752" y2="405" stroke="#6366F1" stroke-width="2"/>
-    <!-- Label -->
-    <text x="800" y="440" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
-          fill="#6366F1" text-anchor="middle">Seller</text>
+  <!-- ========== CENTRAL SHIELD ========== -->
+  <g transform="translate(600,340)" filter="url(#softShadow)">
+    <path d="M0,-170 L170,-90 V70 C170,150 95,230 0,255 C-95,230 -170,150 -170,70 V-90 Z"
+          fill="#0E152D" stroke="url(#gradPrimary)" stroke-width="10"/>
+    <path d="M0,-130 L130,-62 V55 C130,118 70,176 0,194 C-70,176 -130,118 -130,55 V-62 Z"
+          fill="#152042" stroke="#C7C9FF" stroke-opacity="0.9" stroke-width="6"/>
+    <g>
+      <rect x="-70" y="-10" width="140" height="120" rx="22" fill="url(#gradSoft)" stroke="#E5E7FF" stroke-width="6"/>
+      <path d="M-34 -10 v-40 a34 34 0 0 1 68 0 v40" fill="none" stroke="#E5E7FF" stroke-width="10" stroke-linecap="round"/>
+      <rect x="-14" y="38" width="28" height="42" rx="8" fill="#0E152D" stroke="#E5E7FF" stroke-width="6"/>
+    </g>
   </g>
 
-  <!-- Central Shield -->
-  <g id="shield">
-    <!-- Shield outline -->
-    <path d="M500 150 L560 170 L560 280 Q560 330 500 360 Q440 330 440 280 L440 170 Z" 
-          fill="url(#shieldGradient)" stroke="#E0E7FF" stroke-width="6"/>
-    <path d="M500 150 L560 170 L560 280 Q560 330 500 360 Q440 330 440 280 L440 170 Z" 
-          fill="none" stroke="#6366F1" stroke-width="3"/>
+  <!-- Arrows -->
+  <path d="M320,360 H480" stroke="#C7C9FF" stroke-width="5" marker-end="url(#arrow)"/>
+  <path d="M720,360 H880" stroke="#C7C9FF" stroke-width="5" marker-end="url(#arrow)"/>
+
+  <!-- ========== CHARACTERS WITH NICER ICONS ========== -->
+  <g transform="translate(250,380)">
+    <circle cx="-10" cy="-110" r="44" fill="#2A2F53" stroke="#C7C9FF" stroke-width="3"/>
+    <path d="M-48 -118 q22 -26 50 -20 q20 4 28 20 q-10 -8 -26 -8 q-28 0 -52 8 z" fill="#7F85F8"/>
+    <circle cx="-22" cy="-110" r="6" fill="#FFFFFF"/>
+    <path d="M-4 -97 q-9 10 -22 10" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M-98,20 q10 -84 64 -120 q78 40 86 116 q-18 36 -78 36 q-62 0 -72 -32 z" fill="#2A2F53" stroke="#C7C9FF" stroke-width="3"/>
+    <path d="M-64 -28 l36 30 l40 -48" fill="none" stroke="#7F85F8" stroke-width="5"/>
     
-    <!-- Lock on shield -->
-    <rect x="480" y="250" width="40" height="35" rx="4" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-    <path d="M485 250 L485 235 Q485 220 500 220 Q515 220 515 235 L515 250" 
-          fill="none" stroke="#6366F1" stroke-width="3"/>
-    <circle cx="500" cy="267" r="4" fill="#6366F1"/>
-    <line x1="500" y1="271" x2="500" y2="278" stroke="#6366F1" stroke-width="3"/>
-  </g>
-
-  <!-- Arrow from Buyer to Shield -->
-  <g id="arrow1">
-    <line x1="290" y1="370" x2="420" y2="300" stroke="#6366F1" stroke-width="4" stroke-dasharray="none"/>
-    <polygon points="420,300 405,295 410,308" fill="#6366F1"/>
-  </g>
-
-  <!-- Arrow from Shield to Seller -->
-  <g id="arrow2">
-    <line x1="580" y1="300" x2="710" y2="370" stroke="#6366F1" stroke-width="4"/>
-    <polygon points="710,370 695,365 700,378" fill="#6366F1"/>
-  </g>
-
-  <!-- Top Security Icons -->
-  <!-- Checkmark Shield (top left) -->
-  <g id="checkShield">
-    <circle cx="280" cy="120" r="40" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-    <path d="M280 95 L295 100 L295 135 Q295 145 280 150 Q265 145 265 135 L265 100 Z" 
-          fill="#A78BFA" stroke="#6366F1" stroke-width="2"/>
-    <polyline points="272,120 278,126 290,112" fill="none" stroke="#6366F1" stroke-width="3" stroke-linecap="round"/>
-  </g>
-
-  <!-- Padlock (top right) -->
-  <g id="padlock">
-    <rect x="700" y="110" width="50" height="40" rx="6" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-    <path d="M710 110 L710 90 Q710 70 725 70 Q740 70 740 90 L740 110" 
-          fill="none" stroke="#6366F1" stroke-width="3"/>
-    <circle cx="725" cy="130" r="5" fill="#6366F1"/>
-  </g>
-
-  <!-- Curved dashed line connecting top icons -->
-  <path d="M320 120 Q500 80 700 120" fill="none" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8"/>
-
-  <!-- Stripe Connect Branding -->
-  <g id="stripeBranding">
-    <rect x="350" y="480" width="300" height="70" rx="10" fill="none" stroke="#6366F1" stroke-width="4"/>
-    <text x="500" y="530" font-family="Arial, sans-serif" font-size="36" font-weight="bold" 
-          fill="#6366F1" text-anchor="middle">stripe CONNECT</text>
-    <polygon points="500,555 490,565 510,565" fill="#6366F1"/>
-  </g>
-
-  <!-- Bottom Security Features -->
-  <!-- Checkmark 1 -->
-  <circle cx="220" cy="650" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-  <polyline points="205,650 218,663 240,638" fill="none" stroke="#6366F1" stroke-width="4" stroke-linecap="round"/>
-
-  <!-- Checkmark 2 -->
-  <circle cx="680" cy="650" r="35" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-  <polyline points="665,650 678,663 700,638" fill="none" stroke="#6366F1" stroke-width="4" stroke-linecap="round"/>
-
-  <!-- Security Badge -->
-  <g id="badge">
-    <path d="M850 620 L885 630 L885 680 Q885 700 850 710 Q815 700 815 680 L815 630 Z" 
-          fill="#A78BFA" stroke="#6366F1" stroke-width="3"/>
-    <rect x="835" y="655" width="30" height="20" rx="2" fill="#E0E7FF" stroke="#6366F1" stroke-width="2"/>
-    <line x1="840" y1="660" x2="860" y2="660" stroke="#6366F1" stroke-width="1"/>
-    <line x1="840" y1="665" x2="860" y2="665" stroke="#6366F1" stroke-width="1"/>
-    <line x1="840" y1="670" x2="860" y2="670" stroke="#6366F1" stroke-width="1"/>
-  </g>
-
-  <!-- Dashed flow lines -->
-  <path d="M255 650 L400 600" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8" fill="none"/>
-  <path d="M600 600 L645 650" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8" fill="none"/>
-  <path d="M715 650 L780 650" stroke="#6366F1" stroke-width="3" stroke-dasharray="10,8" fill="none"/>
-
-  <!-- Security Labels -->
-  <!-- Escrow -->
-  <rect x="420" y="740" width="160" height="50" rx="8" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-  <text x="500" y="773" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
-        fill="#6366F1" text-anchor="middle">Escrow</text>
-
-  <!-- KYC -->
-  <rect x="600" y="740" width="120" height="50" rx="8" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-  <text x="660" y="773" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
-        fill="#6366F1" text-anchor="middle">KYC</text>
-
-  <!-- 3D Secure -->
-  <rect x="450" y="810" width="220" height="50" rx="8" fill="#E0E7FF" stroke="#6366F1" stroke-width="3"/>
-  <text x="560" y="843" font-family="Arial, sans-serif" font-size="28" font-weight="bold" 
-        fill="#6366F1" text-anchor="middle">3D Secure</text>
-
-  <!-- PCI with icons -->
-  <g id="pci">
-    <!-- Small lock -->
-    <rect x="190" y="770" width="25" height="20" rx="3" fill="#E0E7FF" stroke="#6366F1" stroke-width="2"/>
-    <path d="M195 770 L195 762 Q195 755 202 755 Q210 755 210 762 L210 770" 
-          fill="none" stroke="#6366F1" stroke-width="2"/>
-    
-    <!-- Fingerprint -->
-    <g transform="translate(280, 760)">
-      <ellipse cx="0" cy="0" rx="25" ry="30" fill="none" stroke="#6366F1" stroke-width="2"/>
-      <ellipse cx="0" cy="0" rx="18" ry="22" fill="none" stroke="#6366F1" stroke-width="2"/>
-      <ellipse cx="0" cy="0" rx="11" ry="14" fill="none" stroke="#6366F1" stroke-width="2"/>
-      <line x1="-5" y1="-15" x2="-5" y2="15" stroke="#6366F1" stroke-width="2"/>
+    <!-- Nicer wallet icon for buyer -->
+    <g transform="translate(46,-40)">
+      <use href="#walletIcon" transform="scale(1.3)"/>
     </g>
     
-    <!-- PCI Text -->
-    <text x="240" y="830" font-family="Arial, sans-serif" font-size="32" font-weight="bold" 
-          fill="#6366F1" text-anchor="middle">PCI</text>
+    <text x="-110" y="110" fill="#BFC3FF" font-family="Inter, ui-sans-serif, system-ui" font-weight="700" font-size="40">Buyer</text>
   </g>
 
-  <!-- Connecting lines to labels -->
-  <path d="M400 750 Q410 720 450 600" stroke="#6366F1" stroke-width="2" stroke-dasharray="8,6" fill="none"/>
-  <path d="M600 750 Q590 680 550 600" stroke="#6366F1" stroke-width="2" stroke-dasharray="8,6" fill="none"/>
+  <g transform="translate(950,380)">
+    <circle cx="-10" cy="-110" r="44" fill="#2A2F53" stroke="#C7C9FF" stroke-width="3"/>
+    <path d="M-46 -120 q20 -22 56 -16 q14 18 14 42 q-10 -12 -44 -12 q-18 0 -26 6 z" fill="#7F85F8"/>
+    <circle cx="-22" cy="-110" r="6" fill="#FFFFFF"/>
+    <path d="M-6 -98 q10 10 22 10" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M-96,18 q16 -84 88 -116 q66 44 74 116 q-20 36 -80 36 q-62 0 -82 -36 z" fill="#2A2F53" stroke="#C7C9FF" stroke-width="3"/>
+    
+    <!-- Nicer shop icon for seller -->
+    <g transform="translate(32,0)">
+      <use href="#shopIcon" transform="scale(1.3)"/>
+    </g>
+    
+    <text x="-90" y="110" fill="#BFC3FF" font-family="Inter, ui-sans-serif, system-ui" font-weight="700" font-size="40">Seller</text>
+  </g>
+
+  <!-- ========== SIDE ICONS & BADGES ========== -->
+  <g transform="translate(220,610)"><use href="#checkCircle"/></g>
+  <g transform="translate(980,610)"><use href="#checkCircle"/></g>
+  <g transform="translate(1040,640)" filter="url(#softShadow)"><use href="#tinyShield"/></g>
+  <g transform="translate(210,150)" filter="url(#softShadow)"><use href="#tinyShield" transform="scale(0.7)"/></g>
+
+  <!-- PCI with BIGGER text -->
+  <g transform="translate(330,720)">
+    <rect x="-80" y="-60" width="160" height="120" rx="20" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+    <g transform="translate(0,0) scale(0.85)"><use href="#fingerprint"/></g>
+    <text x="0" y="84" text-anchor="middle" font-family="Inter, ui-sans-serif, system-ui" font-size="42" font-weight="800" fill="#BFC3FF">PCI</text>
+  </g>
+
+  <path d="M280,610 H920" stroke="#5B64E8" stroke-width="4" stroke-dasharray="10 12" opacity="0.6"/>
+
+  <!-- Escrow / KYC / 3D Secure with BIGGER text -->
+  <g font-family="Inter, ui-sans-serif, system-ui" font-size="42" font-weight="800" fill="#E9EBFF">
+    <g transform="translate(560,720)">
+      <rect x="-110" y="-42" width="220" height="84" rx="18" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+      <text x="0" y="16" text-anchor="middle">Escrow</text>
+    </g>
+    <g transform="translate(780,720)">
+      <rect x="-96" y="-42" width="192" height="84" rx="18" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+      <text x="0" y="16" text-anchor="middle">KYC</text>
+    </g>
+    <g transform="translate(720,804)">
+      <rect x="-170" y="-42" width="340" height="84" rx="18" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+      <text x="0" y="16" text-anchor="middle">3D Secure</text>
+    </g>
+  </g>
+
+  <!-- ========== STRIPE CONNECT BADGE (centered text) ========== -->
+  <g transform="translate(600,540)" filter="url(#softShadow)">
+    <rect x="-220" y="-52" width="440" height="104" rx="24" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+    <!-- small notch -->
+    <path d="M-140,52 l-16,14 h312 l-16 -14" fill="#0E152D" stroke="#C7C9FF" stroke-width="3"/>
+
+    <!-- Centered combined text -->
+    <text x="0" y="0" text-anchor="middle" dominant-baseline="middle" font-family="Inter, ui-sans-serif, system-ui">
+      <tspan font-size="50" font-weight="900" fill="url(#gradPrimary)">stripe</tspan>
+      <tspan dx="14" font-size="36" font-weight="700" fill="#C7C9FF">CONNECT</tspan>
+    </text>
+  </g>
 </svg>
