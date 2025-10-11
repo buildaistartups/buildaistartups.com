@@ -11,26 +11,22 @@
   <rect x="0.75" y="0.75" width="198.5" height="30.5" rx="15.25"
         fill="#EAF3FF" stroke="url(#pf-grad-2)" stroke-width="1.5"/>
 
-  <!-- Left icon: proper % sign -->
-  <g transform="translate(8,4)">
-    <!-- subtle ring -->
+  <!-- Left icon: proper % sign (moved toward center) -->
+  <g transform="translate(22,4)">
     <circle cx="12" cy="12" r="10" fill="none" stroke="url(#pf-grad-2)" stroke-width="1.6"/>
-    <!-- % glyph (donut dots + monoline slash) -->
     <g fill="none" stroke="url(#pf-grad-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <!-- slash at ~45° -->
       <line x1="7.5" y1="16.5" x2="16.5" y2="7.5"/>
-      <!-- dots aligned to the slash: top slightly higher, bottom slightly lower -->
       <circle cx="9.6" cy="8.2" r="2.2"/>
       <circle cx="14.4" cy="15.8" r="2.2"/>
     </g>
   </g>
 
-  <!-- Text -->
-  <text x="44" y="20" font-size="12.5" font-weight="600"
+  <!-- Text moved toward center -->
+  <text x="58" y="20" font-size="12.5" font-weight="600"
         font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji'"
         fill="url(#pf-grad-2)" letter-spacing=".2px">transparent fees</text>
 
-  <!-- Small $ indicator -->
+  <!-- Small $ indicator (unchanged on the right) -->
   <g transform="translate(166,8)">
     <circle cx="8" cy="8" r="7.25" fill="none" stroke="url(#pf-grad-2)" stroke-width="1.5"/>
     <text x="8" y="12" text-anchor="middle" font-size="12" font-weight="700"
