@@ -132,8 +132,8 @@
     <circle cx="200" cy="150" r="50" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.6"/>
     
     <g class="icon">
-      <rect x="185" y="135" width="30" height="30" rx="6" fill="white" opacity="0.9"/>
-      <text x="200" y="157" font-size="20" fill="#8b5cf6" text-anchor="middle">A</text>
+      <rect x="175" y="125" width="50" height="50" rx="8" fill="white" opacity="0.9"/>
+      <text x="200" y="162" font-size="32" fill="#8b5cf6" text-anchor="middle" font-weight="800">A</text>
     </g>
     
     <text x="200" y="230" font-size="18" fill="#8b5cf6" text-anchor="middle">App A</text>
@@ -146,9 +146,9 @@
     <circle cx="550" cy="150" r="50" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
     
     <g class="icon">
-      <path d="M 535 140 L 555 135 L 565 145 L 565 155 L 555 165 L 535 160 Z" fill="white" opacity="0.9"/>
-      <path d="M 565 145 L 570 142 L 570 158 L 565 155" fill="white" opacity="0.9"/>
-      <circle cx="532" cy="154" r="4" fill="white" opacity="0.9"/>
+      <path d="M 520 130 L 560 120 L 580 145 L 580 165 L 560 180 L 520 170 Z" fill="white" opacity="0.9"/>
+      <path d="M 580 145 L 590 140 L 590 170 L 580 165" fill="white" opacity="0.9"/>
+      <circle cx="515" cy="165" r="6" fill="white" opacity="0.9"/>
     </g>
     
     <text x="550" y="230" font-size="18" fill="#3b82f6" text-anchor="middle">Cross-Promo</text>
@@ -161,8 +161,8 @@
     <circle cx="650" cy="300" r="50" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
     
     <g class="icon">
-      <rect x="635" y="285" width="30" height="30" rx="6" fill="white" opacity="0.9"/>
-      <text x="650" y="307" font-size="20" fill="#8b5cf6" text-anchor="middle">B</text>
+      <rect x="625" y="275" width="50" height="50" rx="8" fill="white" opacity="0.9"/>
+      <text x="650" y="312" font-size="32" fill="#8b5cf6" text-anchor="middle" font-weight="800">B</text>
     </g>
     
     <text x="650" y="380" font-size="18" fill="#8b5cf6" text-anchor="middle">App B</text>
@@ -175,8 +175,8 @@
     <circle cx="550" cy="500" r="50" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
     
     <g class="icon">
-      <circle cx="550" cy="500" r="20" fill="white" opacity="0.9"/>
-      <path d="M 540 500 L 547 507 L 560 492" stroke="#3b82f6" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="550" cy="500" r="30" fill="white" opacity="0.9"/>
+      <path d="M 535 500 L 545 512 L 570 485" stroke="#3b82f6" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
     
     <text x="550" y="580" font-size="18" fill="#3b82f6" text-anchor="middle">Conversion</text>
@@ -189,8 +189,8 @@
     <circle cx="250" cy="500" r="50" fill="none" stroke="#10b981" stroke-width="3" opacity="0.6"/>
     
     <g class="icon">
-      <circle cx="250" cy="500" r="20" fill="white" opacity="0.9"/>
-      <text x="250" y="510" font-size="28" text-anchor="middle">💰</text>
+      <circle cx="250" cy="500" r="30" fill="white" opacity="0.9"/>
+      <text x="250" y="518" font-size="42" text-anchor="middle">💰</text>
     </g>
     
     <text x="250" y="580" font-size="18" fill="#10b981" text-anchor="middle">Reward</text>
