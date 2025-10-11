@@ -46,11 +46,6 @@
     </filter>
     
     <style>
-      @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 0.9; }
-        50% { transform: scale(1.1); opacity: 1; }
-      }
-      
       @keyframes glow-pulse {
         0%, 100% { filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.6)); }
         50% { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 1)) drop-shadow(0 0 30px rgba(59, 130, 246, 0.8)); }
@@ -63,23 +58,13 @@
         100% { offset-distance: 100%; opacity: 0; }
       }
       
-      @keyframes fadeIn {
-        from { opacity: 0; transform: scale(0.8); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      
-      @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
-      }
-      
       @keyframes rotate {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
       }
       
       .step-node {
-        animation: pulse 2.5s ease-in-out infinite, glow-pulse 3s ease-in-out infinite;
+        animation: glow-pulse 3s ease-in-out infinite;
         transform-origin: center;
       }
       
@@ -87,17 +72,9 @@
         animation: travel 4s ease-in-out infinite;
       }
       
-      .icon {
-        animation: bounce 2s ease-in-out infinite;
-      }
-      
       .reward-icon {
-        animation: rotate 3s linear infinite, pulse 2s ease-in-out infinite;
+        animation: rotate 3s linear infinite;
         transform-origin: center;
-      }
-      
-      .arrow {
-        animation: pulse 2s ease-in-out infinite;
       }
       
       text {
@@ -128,13 +105,13 @@
   <g class="arrow">
     <polygon points="490,145 500,150 490,155" fill="url(#purpleBlue)" opacity="0.8"/>
   </g>
-  <g class="arrow" style="animation-delay: 0.3s">
+  <g class="arrow">
     <polygon points="645,245 650,250 640,253" fill="url(#purpleBlue)" opacity="0.8"/>
   </g>
-  <g class="arrow" style="animation-delay: 0.6s">
+  <g class="arrow">
     <polygon points="605,445 600,450 595,442" fill="url(#purpleBlue)" opacity="0.8"/>
   </g>
-  <g class="arrow" style="animation-delay: 0.9s">
+  <g class="arrow">
     <polygon points="310,495 300,500 310,505" fill="url(#purpleBlue)" opacity="0.8"/>
   </g>
   
@@ -174,7 +151,7 @@
     <circle cx="200" cy="150" r="60" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
     <circle cx="200" cy="150" r="50" fill="none" stroke="#a855f7" stroke-width="3" opacity="0.6"/>
     
-    <g class="icon" style="animation-delay: 0s">
+    <g class="icon">
       <rect x="185" y="135" width="30" height="30" rx="6" fill="white" opacity="0.9"/>
       <text x="200" y="157" font-size="20" fill="#8b5cf6" text-anchor="middle">A</text>
     </g>
@@ -188,7 +165,7 @@
     <circle cx="550" cy="150" r="60" fill="url(#vibrantBlue)" filter="url(#shadow)"/>
     <circle cx="550" cy="150" r="50" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
     
-    <g class="icon" style="animation-delay: 0.3s">
+    <g class="icon">
       <path d="M 535 140 L 555 135 L 565 145 L 565 155 L 555 165 L 535 160 Z" fill="white" opacity="0.9"/>
       <path d="M 565 145 L 570 142 L 570 158 L 565 155" fill="white" opacity="0.9"/>
       <circle cx="532" cy="154" r="4" fill="white" opacity="0.9"/>
@@ -203,7 +180,7 @@
     <circle cx="650" cy="300" r="60" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
     <circle cx="650" cy="300" r="50" fill="none" stroke="#8b5cf6" stroke-width="3" opacity="0.6"/>
     
-    <g class="icon" style="animation-delay: 0.6s">
+    <g class="icon">
       <rect x="635" y="285" width="30" height="30" rx="6" fill="white" opacity="0.9"/>
       <text x="650" y="307" font-size="20" fill="#8b5cf6" text-anchor="middle">B</text>
     </g>
@@ -217,7 +194,7 @@
     <circle cx="550" cy="500" r="60" fill="url(#vibrantBlue)" filter="url(#shadow)"/>
     <circle cx="550" cy="500" r="50" fill="none" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
     
-    <g class="icon" style="animation-delay: 0.9s">
+    <g class="icon">
       <circle cx="550" cy="500" r="20" fill="white" opacity="0.9"/>
       <path d="M 540 500 L 547 507 L 560 492" stroke="#3b82f6" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
