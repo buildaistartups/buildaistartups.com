@@ -16,8 +16,8 @@
 
     <!-- Soft panel gradient for the "Common Error Codes" box -->
     <linearGradient id="panelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#eef2ff"/>   <!-- indigo-50 -->
-      <stop offset="100%" stop-color="#e0e7ff"/> <!-- indigo-100 -->
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
     </linearGradient>
 
     <!-- Shadow -->
@@ -32,7 +32,6 @@
     <marker id="retryArrow" markerWidth="10" markerHeight="10" refX="10" refY="3" orient="auto">
       <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" />
     </marker>
-    <!-- Arrow whose LEFT side (base) attaches to the line end -->
     <marker id="retryArrowLeftAttach" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto">
       <polygon points="0 0, 10 3, 0 6" fill="#f59e0b" />
     </marker>
@@ -46,7 +45,7 @@
   <text x="170.667" y="138" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">API Request</text>
   <text x="170.667" y="166" font-family="Arial, sans-serif" font-size="14" fill="#ede9fe" text-anchor="middle">POST /api/endpoint</text>
 
-  <!-- Arrow 1 (start shifted to stay attached to box's right edge) -->
+  <!-- Arrow 1 -->
   <line x1="280.667" y1="150" x2="370" y2="150" stroke="#6366f1" stroke-width="4" marker-end="url(#arrowhead)"/>
 
   <!-- 2. Validation -->
@@ -69,7 +68,6 @@
 
   <!-- 3. Error Detection -->
   <rect x="360" y="250" width="240" height="130" rx="14" fill="url(#errorGrad)" stroke="#b91c1c" stroke-width="3" filter="url(#softShadow)"/>
-  <!-- smaller, moved-left warning circle -->
   <circle cx="388" cy="295" r="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
   <text x="388" y="300" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#f59e0b" text-anchor="middle">!</text>
 
@@ -96,7 +94,7 @@
   <text x="190" y="508" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Retry?</text>
   <text x="190" y="528" font-family="Arial, sans-serif" font-size="13" fill="#dbeafe" text-anchor="middle">Attempts &lt; 3</text>
 
-  <!-- Retry Arrow (MOVED MORE TO THE LEFT - now x=20 instead of x=40) -->
+  <!-- Retry Arrow (orange) -->
   <path d="M 110 510
            Q 20 510 20 260
            Q 20 154 10 154
@@ -105,7 +103,8 @@
         fill="none" marker-end="url(#retryArrowLeftAttach)"/>
   <circle cx="20" cy="260" r="18" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
   <text x="20" y="268" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#f59e0b" text-anchor="middle">↻</text>
-  <text x="85" y="402" font-family="Arial, sans-serif" font-size="13" fill="#f59e0b" font-weight="bold">Yes</text>
+  <!-- "Yes" label moved closer to the orange line -->
+  <text x="55" y="402" font-family="Arial, sans-serif" font-size="13" fill="#f59e0b" font-weight="bold">Yes</text>
 
   <!-- No Retry - Final Error -->
   <line x1="190" y1="560" x2="190" y2="625" stroke="#6366f1" stroke-width="4" marker-end="url(#arrowhead)"/>
@@ -116,7 +115,7 @@
   <text x="190" y="660" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">Failed</text>
   <text x="190" y="685" font-family="Arial, sans-serif" font-size="14" fill="#e5e7eb" text-anchor="middle">Max retries exceeded</text>
 
-  <!-- Common Error Codes BOX (now with soft gradient background) -->
+  <!-- Common Error Codes BOX (soft gradient) -->
   <rect x="610" y="240" width="380" height="430" rx="14"
         fill="url(#panelGrad)" stroke="#a5b4fc" stroke-width="3"
         filter="url(#softShadow)"/>
@@ -153,9 +152,10 @@
     <text x="14" y="416" font-family="Arial, sans-serif" font-size="14" fill="#7f1d1d">Service Unavailable - Temporary outage</text>
   </g>
 
-  <!-- Legend below the "503 Service Unavailable" row -->
-  <g transform="translate(630, 760)">
+  <!-- Legend shifted further left -->
+  <g transform="translate(540, 760)">
     <text x="0" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#334155">Legend:</text>
+
     <circle cx="74" cy="-4" r="10" fill="url(#purpleGrad)"/>
     <text x="92" y="0" font-family="Arial, sans-serif" font-size="13" fill="#334155">Process</text>
 
@@ -163,6 +163,6 @@
     <text x="222" y="0" font-family="Arial, sans-serif" font-size="13" fill="#334155">Decision</text>
 
     <line x1="316" y1="-4" x2="354" y2="-4" stroke="#f59e0b" stroke-width="4" stroke-linecap="round" marker-end="url(#retryArrow)"/>
-    <text x="362" y="0" font-family="Arial, sans-serif" font-size="13" fill="#334155">Retry Flow</text>
+    <text x="370" y="0" font-family="Arial, sans-serif" font-size="13" fill="#334155" text-anchor="start">Retry Flow</text>
   </g>
 </svg>
