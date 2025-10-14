@@ -51,27 +51,16 @@ const audiences: Audience[] = [
   },
 ]
 
-/** ---- Inline Badge Icons (bigger + bolder), overlaid on cards ---- */
-function RocketBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
+/** ---------------- Pure glyph icons (no background tiles), bold strokes ---------------- */
+function RocketGlyph({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
   return (
     <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
       <defs>
         <linearGradient id="gradRocket" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".85" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".85" />
+          <stop offset="0%" stopColor="#8b5cf6" />
+          <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
-        <radialGradient id="haloRocket" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".25" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".05" />
-        </radialGradient>
-        <filter id="softRocket" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#3b82f6" floodOpacity=".18" />
-        </filter>
       </defs>
-      <g filter="url(#softRocket)">
-        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloRocket)" stroke="rgba(255,255,255,0.12)" />
-        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
-      </g>
       <g transform="translate(16,16)" stroke="url(#gradRocket)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
         <path d="M32 4c7 6.2 10.8 13.9 10.8 22.3 0 4.1-1.8 8.1-4.8 11.1H26c-3-3-4.8-7-4.8-11.1C21.2 17.9 25 10.2 32 4z" />
         <circle cx="32" cy="20.5" r="4.2" />
@@ -83,26 +72,15 @@ function RocketBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: 
   )
 }
 
-function EcosystemBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
+function EcosystemGlyph({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
   return (
     <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
       <defs>
         <linearGradient id="gradEco" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".85" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".85" />
+          <stop offset="0%" stopColor="#8b5cf6" />
+          <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
-        <radialGradient id="haloEco" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".25" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".05" />
-        </radialGradient>
-        <filter id="softEco" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#3b82f6" floodOpacity=".18" />
-        </filter>
       </defs>
-      <g filter="url(#softEco)">
-        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloEco)" stroke="rgba(255,255,255,0.12)" />
-        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
-      </g>
       <g transform="translate(16,16)" stroke="url(#gradEco)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="32" cy="32" r="6.5" />
         <ellipse cx="32" cy="32" rx="20.5" ry="12.5" transform="rotate(-15 32 32)" />
@@ -117,26 +95,15 @@ function EcosystemBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className
   )
 }
 
-function AIBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
+function AIGlyph({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
   return (
     <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
       <defs>
         <linearGradient id="gradAI" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".85" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".85" />
+          <stop offset="0%" stopColor="#8b5cf6" />
+          <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
-        <radialGradient id="haloAI" cx="50%" cy="50%" r="60%">
-          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".25" />
-          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".05" />
-        </radialGradient>
-        <filter id="softAI" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#3b82f6" floodOpacity=".18" />
-        </filter>
       </defs>
-      <g filter="url(#softAI)">
-        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloAI)" stroke="rgba(255,255,255,0.12)" />
-        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
-      </g>
       <g transform="translate(16,16)" stroke="url(#gradAI)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
         <rect x="18" y="18" width="28" height="28" rx="5.5" ry="5.5" />
         <path d="M32 10v6M32 50v6M10 32h6M50 32h6M18 14l-4-4M46 14l4-4M18 50l-4 4M46 50l4 4" />
@@ -163,7 +130,10 @@ export default function Hero() {
   return (
     <section className="relative">
       {/* Bottom glow background */}
-      <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
+      <div
+        className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
+        aria-hidden="true"
+      >
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0">
           <Image src={Illustration} className="max-w-none" width={2146} height={744} priority alt="" />
         </div>
@@ -183,7 +153,9 @@ export default function Hero() {
                   <button
                     key={idx}
                     onClick={() => setI(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${idx === i ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'}`}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      idx === i ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
+                    }`}
                     aria-label={`Show: ${audiences[idx].title}`}
                   />
                 ))}
@@ -198,11 +170,11 @@ export default function Hero() {
                 <h1
                   className="
                     font-bold tracking-tight
-                    text-4xl md:text-[53.33px] lg:text-[57.33px]
-                    leading-tight md:leading-[1.06]
+                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller */
+                    leading-tight md:leading-[1.06]               /* tighter interline; descender-safe */
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
-                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]
+                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* protect descenders */
                   "
                 >
                   <span className="hidden md:block">
@@ -218,87 +190,98 @@ export default function Hero() {
                 </p>
               </div>
 
-              {/* Value props — badges now sit directly on each card */}
-              <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-left">
-                {/* Card 1 — rose tint */}
-                <div
-                  className="
-                    spotlight-card relative overflow-hidden
-                    rounded-2xl border border-slate-800
-                    bg-slate-900/25 p-4 md:px-6 md:pt-6 md:pb-5
-                    shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                  "
+              {/* CTAs — Stellar size (h-9 px-4 text-sm), up by 2pt */}
+              <div className="mt-8 -translate-y-[5.33px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Link
+                  href={a.cta1.href}
+                  className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
                 >
-                  <div
-                    className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10
-                               bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]
-                               blur-2xl"
-                    aria-hidden="true"
-                  />
-                  {/* Badge placed directly on card */}
-                  <div className="absolute top-4 left-4">
-                    <RocketBadge />
-                  </div>
-
-                  {/* Text content padded below the badge */}
-                  <div className="pt-20 md:pt-24 pr-2">
-                    <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-                    <div className="text-xs text-slate-400">From idea to live product</div>
-                  </div>
-                </div>
-
-                {/* Card 2 — indigo tint */}
-                <div
-                  className="
-                    spotlight-card relative overflow-hidden
-                    rounded-2xl border border-slate-800
-                    bg-slate-900/25 p-4 md:px-6 md:pt-6 md:pb-5
-                    shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                  "
+                  {a.cta1.text}
+                </Link>
+                <Link
+                  href={a.cta2.href}
+                  className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500/30"
                 >
-                  <div
-                    className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
-                               bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]
-                               blur-2xl"
-                    aria-hidden="true"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <EcosystemBadge />
-                  </div>
+                  {a.cta2.text}
+                </Link>
+              </div>
+            </div>
 
-                  <div className="pt-20 md:pt-24 pr-2">
-                    <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
-                    <div className="text-xs text-slate-400">Everything you need to succeed</div>
-                  </div>
-                </div>
-
-                {/* Card 3 — teal tint */}
+            {/* Value props — centered like original, no inner icon cards */}
+            <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
+              {/* Card 1 — rose tint */}
+              <div
+                className="
+                  spotlight-card relative overflow-hidden
+                  rounded-2xl border border-slate-800
+                  bg-slate-900/25 p-4 md:pb-3 md:px-6 md:pt-6
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                "
+              >
                 <div
-                  className="
-                    spotlight-card relative overflow-hidden
-                    rounded-2xl border border-slate-800
-                    bg-slate-900/25 p-4 md:px-6 md:pt-6 md:pb-5
-                    shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                  "
-                >
-                  <div
-                    className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-72 -z-10
-                               bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]
-                               blur-2xl"
-                    aria-hidden="true"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <AIBadge />
+                  className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10
+                             bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]
+                             blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative">
+                  <div className="mb-3 flex justify-center">
+                    <RocketGlyph className="h-16 w-16 md:h-20 md:w-20" />
                   </div>
-
-                  <div className="pt-20 md:pt-24 pr-2">
-                    <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
-                    <div className="text-xs text-slate-400">Smart tools at every step</div>
-                  </div>
+                  <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+                  <div className="text-xs text-slate-400">From idea to live product</div>
                 </div>
               </div>
-              {/* /Value props */}
+
+              {/* Card 2 — indigo tint */}
+              <div
+                className="
+                  spotlight-card relative overflow-hidden
+                  rounded-2xl border border-slate-800
+                  bg-slate-900/25 p-4 md:pb-3 md:px-6 md:pt-6
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                "
+              >
+                <div
+                  className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
+                             bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]
+                             blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative">
+                  <div className="mb-3 flex justify-center">
+                    <EcosystemGlyph className="h-16 w-16 md:h-20 md:w-20" />
+                  </div>
+                  <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+                  <div className="text-xs text-slate-400">Everything you need to succeed</div>
+                </div>
+              </div>
+
+              {/* Card 3 — teal tint */}
+              <div
+                className="
+                  spotlight-card relative overflow-hidden
+                  rounded-2xl border border-slate-800
+                  bg-slate-900/25 p-4 md:pb-3 md:px-6 md:pt-6
+                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                "
+              >
+                <div
+                  className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-72 -z-10
+                             bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]
+                             blur-2xl"
+                  aria-hidden="true"
+                />
+                <div className="relative">
+                  <div className="mb-3 flex justify-center">
+                    <AIGlyph className="h-16 w-16 md:h-20 md:w-20" />
+                  </div>
+                  <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+                  <div className="text-xs text-slate-400">Smart tools at every step</div>
+                </div>
+              </div>
             </div>
+            {/* /Value props */}
           </div>
         </div>
       </div>
