@@ -51,8 +51,8 @@ const audiences: Audience[] = [
   },
 ]
 
-/** ---- Badge Icons (bigger + bolder) ---- */
-function RocketBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className?: string }) {
+/** ---- Inline Badge Icons (bigger + bolder), overlaid on cards ---- */
+function RocketBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
   return (
     <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
       <defs>
@@ -72,14 +72,7 @@ function RocketBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className?: 
         <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloRocket)" stroke="rgba(255,255,255,0.12)" />
         <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
       </g>
-      <g
-        transform="translate(16,16)"
-        stroke="url(#gradRocket)"
-        fill="none"
-        strokeWidth={3.25}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <g transform="translate(16,16)" stroke="url(#gradRocket)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
         <path d="M32 4c7 6.2 10.8 13.9 10.8 22.3 0 4.1-1.8 8.1-4.8 11.1H26c-3-3-4.8-7-4.8-11.1C21.2 17.9 25 10.2 32 4z" />
         <circle cx="32" cy="20.5" r="4.2" />
         <path d="M24 37c-4 0-8 2.2-10.8 6 3.6 0 5.8.8 7.5 2.5" />
@@ -90,7 +83,7 @@ function RocketBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className?: 
   )
 }
 
-function EcosystemBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className?: string }) {
+function EcosystemBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
   return (
     <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
       <defs>
@@ -110,14 +103,7 @@ function EcosystemBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className
         <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloEco)" stroke="rgba(255,255,255,0.12)" />
         <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
       </g>
-      <g
-        transform="translate(16,16)"
-        stroke="url(#gradEco)"
-        fill="none"
-        strokeWidth={3.25}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <g transform="translate(16,16)" stroke="url(#gradEco)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
         <circle cx="32" cy="32" r="6.5" />
         <ellipse cx="32" cy="32" rx="20.5" ry="12.5" transform="rotate(-15 32 32)" />
         <circle cx="52" cy="25" r="4" />
@@ -131,7 +117,7 @@ function EcosystemBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className
   )
 }
 
-function AIBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className?: string }) {
+function AIBadge({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
   return (
     <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
       <defs>
@@ -151,14 +137,7 @@ function AIBadge({ className = 'h-14 w-14 md:h-16 md:w-16' }: { className?: stri
         <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloAI)" stroke="rgba(255,255,255,0.12)" />
         <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
       </g>
-      <g
-        transform="translate(16,16)"
-        stroke="url(#gradAI)"
-        fill="none"
-        strokeWidth={3.25}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <g transform="translate(16,16)" stroke="url(#gradAI)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
         <rect x="18" y="18" width="28" height="28" rx="5.5" ry="5.5" />
         <path d="M32 10v6M32 50v6M10 32h6M50 32h6M18 14l-4-4M46 14l4-4M18 50l-4 4M46 50l4 4" />
         <circle cx="28" cy="28" r="3.6" />
@@ -184,10 +163,7 @@ export default function Hero() {
   return (
     <section className="relative">
       {/* Bottom glow background */}
-      <div
-        className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden"
-        aria-hidden="true"
-      >
+      <div className="absolute inset-0 -z-10 -mx-28 rounded-b-[3rem] pointer-events-none overflow-hidden" aria-hidden="true">
         <div className="absolute left-1/2 -translate-x-1/2 bottom-0">
           <Image src={Illustration} className="max-w-none" width={2146} height={744} priority alt="" />
         </div>
@@ -207,9 +183,7 @@ export default function Hero() {
                   <button
                     key={idx}
                     onClick={() => setI(idx)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      idx === i ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'
-                    }`}
+                    className={`w-2 h-2 rounded-full transition-all ${idx === i ? 'w-8 bg-purple-500' : 'bg-slate-600 hover:bg-slate-500'}`}
                     aria-label={`Show: ${audiences[idx].title}`}
                   />
                 ))}
@@ -244,98 +218,87 @@ export default function Hero() {
                 </p>
               </div>
 
-              {/* CTAs — Stellar size (h-9 px-4 text-sm), up by 2pt */}
-              <div className="mt-8 -translate-y-[5.33px] flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                <Link
-                  href={a.cta1.href}
-                  className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:from-purple-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500/40"
+              {/* Value props — badges now sit directly on each card */}
+              <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-left">
+                {/* Card 1 — rose tint */}
+                <div
+                  className="
+                    spotlight-card relative overflow-hidden
+                    rounded-2xl border border-slate-800
+                    bg-slate-900/25 p-4 md:px-6 md:pt-6 md:pb-5
+                    shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  "
                 >
-                  {a.cta1.text}
-                </Link>
-                <Link
-                  href={a.cta2.href}
-                  className="inline-flex items-center justify-center h-9 px-4 rounded-full text-sm font-medium bg-slate-800 text-slate-200 border border-slate-700 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500/30"
+                  <div
+                    className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10
+                               bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]
+                               blur-2xl"
+                    aria-hidden="true"
+                  />
+                  {/* Badge placed directly on card */}
+                  <div className="absolute top-4 left-4">
+                    <RocketBadge />
+                  </div>
+
+                  {/* Text content padded below the badge */}
+                  <div className="pt-20 md:pt-24 pr-2">
+                    <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
+                    <div className="text-xs text-slate-400">From idea to live product</div>
+                  </div>
+                </div>
+
+                {/* Card 2 — indigo tint */}
+                <div
+                  className="
+                    spotlight-card relative overflow-hidden
+                    rounded-2xl border border-slate-800
+                    bg-slate-900/25 p-4 md:px-6 md:pt-6 md:pb-5
+                    shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  "
                 >
-                  {a.cta2.text}
-                </Link>
+                  <div
+                    className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
+                               bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]
+                               blur-2xl"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <EcosystemBadge />
+                  </div>
+
+                  <div className="pt-20 md:pt-24 pr-2">
+                    <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
+                    <div className="text-xs text-slate-400">Everything you need to succeed</div>
+                  </div>
+                </div>
+
+                {/* Card 3 — teal tint */}
+                <div
+                  className="
+                    spotlight-card relative overflow-hidden
+                    rounded-2xl border border-slate-800
+                    bg-slate-900/25 p-4 md:px-6 md:pt-6 md:pb-5
+                    shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
+                  "
+                >
+                  <div
+                    className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-72 -z-10
+                               bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]
+                               blur-2xl"
+                    aria-hidden="true"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <AIBadge />
+                  </div>
+
+                  <div className="pt-20 md:pt-24 pr-2">
+                    <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
+                    <div className="text-xs text-slate-400">Smart tools at every step</div>
+                  </div>
+                </div>
               </div>
+              {/* /Value props */}
             </div>
-
-            {/* Value props — spotlight-card lighting; keep 0.5pt up; NO hover effects; 3pt shorter; increased transparency */}
-            <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
-              {/* Card 1 — rose tint */}
-              <div
-                className="
-                  spotlight-card relative overflow-hidden
-                  rounded-2xl border border-slate-800
-                  bg-slate-900/25 p-4 md:pb-3 md:px-6 md:pt-6
-                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                "
-              >
-                <div
-                  className="pointer-events-none absolute -top-10 -left-10 h-56 w-72 -z-10
-                             bg-[radial-gradient(closest-side,rgba(244,114,182,0.12),transparent_60%)]
-                             blur-2xl"
-                  aria-hidden="true"
-                />
-                <div className="relative">
-                  <div className="mb-3 flex justify-center">
-                    <RocketBadge className="h-14 w-14 md:h-16 md:w-16" />
-                  </div>
-                  <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
-                  <div className="text-xs text-slate-400">From idea to live product</div>
-                </div>
-              </div>
-
-              {/* Card 2 — indigo tint */}
-              <div
-                className="
-                  spotlight-card relative overflow-hidden
-                  rounded-2xl border border-slate-800
-                  bg-slate-900/25 p-4 md:pb-3 md:px-6 md:pt-6
-                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                "
-              >
-                <div
-                  className="pointer-events-none absolute -top-10 -right-10 h-56 w-72 -z-10
-                             bg-[radial-gradient(closest-side,rgba(99,102,241,0.12),transparent_60%)]
-                             blur-2xl"
-                  aria-hidden="true"
-                />
-                <div className="relative">
-                  <div className="mb-3 flex justify-center">
-                    <EcosystemBadge className="h-14 w-14 md:h-16 md:w-16" />
-                  </div>
-                  <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
-                  <div className="text-xs text-slate-400">Everything you need to succeed</div>
-                </div>
-              </div>
-
-              {/* Card 3 — teal tint */}
-              <div
-                className="
-                  spotlight-card relative overflow-hidden
-                  rounded-2xl border border-slate-800
-                  bg-slate-900/25 p-4 md:pb-3 md:px-6 md:pt-6
-                  shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]
-                "
-              >
-                <div
-                  className="pointer-events-none absolute -bottom-12 -right-10 h-56 w-72 -z-10
-                             bg-[radial-gradient(closest-side,rgba(20,184,166,0.12),transparent_60%)]
-                             blur-2xl"
-                  aria-hidden="true"
-                />
-                <div className="relative">
-                  <div className="mb-3 flex justify-center">
-                    <AIBadge className="h-14 w-14 md:h-16 md:w-16" />
-                  </div>
-                  <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
-                  <div className="text-xs text-slate-400">Smart tools at every step</div>
-                </div>
-              </div>
-            </div>
-            {/* /Value props */}
           </div>
         </div>
       </div>
