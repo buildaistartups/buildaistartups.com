@@ -51,11 +51,131 @@ const audiences: Audience[] = [
   },
 ]
 
+/** ---- Badge Icons (inline SVG, light/dark friendly, unique IDs) ---- */
+function RocketBadge({ className = 'h-12 w-12' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="gradRocket" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".85" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".85" />
+        </linearGradient>
+        <radialGradient id="haloRocket" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".25" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".05" />
+        </radialGradient>
+        <filter id="softRocket" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#3b82f6" floodOpacity=".15" />
+        </filter>
+      </defs>
+      <g filter="url(#softRocket)">
+        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloRocket)" stroke="rgba(255,255,255,0.12)" />
+        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
+      </g>
+      <g
+        transform="translate(16,16)"
+        stroke="url(#gradRocket)"
+        fill="none"
+        strokeWidth={2.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M32 4c7 6.2 10.8 13.9 10.8 22.3 0 4.1-1.8 8.1-4.8 11.1H26c-3-3-4.8-7-4.8-11.1C21.2 17.9 25 10.2 32 4z" />
+        <circle cx="32" cy="20.5" r="4" />
+        <path d="M24 37c-4 0-8 2.2-10.8 6 3.6 0 5.8.8 7.5 2.5" />
+        <path d="M40 37c4 0 8 2.2 10.8 6-3.6 0-5.8.8-7.5 2.5" />
+        <path d="M28.5 44c0-3 2.5-5 5.5-5s5.5 2 5.5 5" />
+      </g>
+    </svg>
+  )
+}
+
+function EcosystemBadge({ className = 'h-12 w-12' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="gradEco" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".85" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".85" />
+        </linearGradient>
+        <radialGradient id="haloEco" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".25" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".05" />
+        </radialGradient>
+        <filter id="softEco" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#3b82f6" floodOpacity=".15" />
+        </filter>
+      </defs>
+      <g filter="url(#softEco)">
+        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloEco)" stroke="rgba(255,255,255,0.12)" />
+        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
+      </g>
+      <g
+        transform="translate(16,16)"
+        stroke="url(#gradEco)"
+        fill="none"
+        strokeWidth={2.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="32" cy="32" r="6" />
+        <ellipse cx="32" cy="32" rx="20" ry="12" transform="rotate(-15 32 32)" />
+        <circle cx="52" cy="25" r="3.5" />
+        <circle cx="18" cy="43" r="3.5" />
+        <circle cx="42" cy="48" r="3.5" />
+        <path d="M36 28c3.2-1.2 6.3-1.7 8.6.7" />
+        <path d="M28 36c-3.1 1.3-6.1 1.7-8.3-.6" />
+        <path d="M34 36c2.8 2.2 5.7 3.4 8.1 3" />
+      </g>
+    </svg>
+  )
+}
+
+function AIBadge({ className = 'h-12 w-12' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
+      <defs>
+        <linearGradient id="gradAI" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".85" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".85" />
+        </linearGradient>
+        <radialGradient id="haloAI" cx="50%" cy="50%" r="60%">
+          <stop offset="0%" stopColor="#8b5cf6" stopOpacity=".25" />
+          <stop offset="100%" stopColor="#3b82f6" stopOpacity=".05" />
+        </radialGradient>
+        <filter id="softAI" x="-20%" y="-20%" width="140%" height="140%">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#3b82f6" floodOpacity=".15" />
+        </filter>
+      </defs>
+      <g filter="url(#softAI)">
+        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="url(#haloAI)" stroke="rgba(255,255,255,0.12)" />
+        <rect x="8" y="8" width="80" height="80" rx="20" ry="20" fill="none" stroke="rgba(255,255,255,0.08)" />
+      </g>
+      <g
+        transform="translate(16,16)"
+        stroke="url(#gradAI)"
+        fill="none"
+        strokeWidth={2.6}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="18" y="18" width="28" height="28" rx="5" ry="5" />
+        <path d="M32 10v6M32 50v6M10 32h6M50 32h6M18 14l-4-4M46 14l4-4M18 50l-4 4M46 50l4 4" />
+        <circle cx="28" cy="28" r="3.2" />
+        <circle cx="36" cy="28" r="3.2" />
+        <circle cx="32" cy="38" r="3.2" />
+        <path d="M28 28h8M28 28l4 10M36 28l-4 10" />
+      </g>
+    </svg>
+  )
+}
+/** ------------------------------------------------------------------- */
+
 export default function Hero() {
   const [i, setI] = useState(0)
 
   useEffect(() => {
-    const id = setInterval(() => setI(p => (p + 1) % audiences.length), 5000)
+    const id = setInterval(() => setI((p) => (p + 1) % audiences.length), 5000)
     return () => clearInterval(id)
   }, [])
 
@@ -104,11 +224,11 @@ export default function Hero() {
                 <h1
                   className="
                     font-bold tracking-tight
-                    text-4xl md:text-[53.33px] lg:text-[57.33px]  /* 0.5pt smaller */
-                    leading-tight md:leading-[1.06]               /* tighter interline; descender-safe */
+                    text-4xl md:text-[53.33px] lg:text-[57.33px]
+                    leading-tight md:leading-[1.06]
                     bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent
                     overflow-visible
-                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]   /* protect descenders */
+                    md:[&>span>span]:pb-[1px] lg:[&>span>span]:pb-[2px]
                   "
                 >
                   <span className="hidden md:block">
@@ -159,7 +279,9 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="text-2xl mb-2">🚀</div>
+                  <div className="mb-3 flex justify-center">
+                    <RocketBadge className="h-12 w-12" />
+                  </div>
                   <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
                   <div className="text-xs text-slate-400">From idea to live product</div>
                 </div>
@@ -181,7 +303,9 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="text-2xl mb-2">🤝</div>
+                  <div className="mb-3 flex justify-center">
+                    <EcosystemBadge className="h-12 w-12" />
+                  </div>
                   <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
                   <div className="text-xs text-slate-400">Everything you need to succeed</div>
                 </div>
@@ -203,7 +327,9 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="text-2xl mb-2">💡</div>
+                  <div className="mb-3 flex justify-center">
+                    <AIBadge className="h-12 w-12" />
+                  </div>
                   <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
                   <div className="text-xs text-slate-400">Smart tools at every step</div>
                 </div>
