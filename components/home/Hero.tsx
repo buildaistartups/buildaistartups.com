@@ -51,77 +51,11 @@ const audiences: Audience[] = [
   },
 ]
 
-/** ---------------- Pure glyph icons (no background tiles), bold strokes ---------------- */
-function RocketGlyph({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="gradRocket" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#3b82f6" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(16,16)" stroke="url(#gradRocket)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
-        <path d="M32 4c7 6.2 10.8 13.9 10.8 22.3 0 4.1-1.8 8.1-4.8 11.1H26c-3-3-4.8-7-4.8-11.1C21.2 17.9 25 10.2 32 4z" />
-        <circle cx="32" cy="20.5" r="4.2" />
-        <path d="M24 37c-4 0-8 2.2-10.8 6 3.6 0 5.8.8 7.5 2.5" />
-        <path d="M40 37c4 0 8 2.2 10.8 6-3.6 0-5.8.8-7.5 2.5" />
-        <path d="M28.5 44c0-3 2.5-5 5.5-5s5.5 2 5.5 5" />
-      </g>
-    </svg>
-  )
-}
-
-function EcosystemGlyph({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="gradEco" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#3b82f6" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(16,16)" stroke="url(#gradEco)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="32" cy="32" r="6.5" />
-        <ellipse cx="32" cy="32" rx="20.5" ry="12.5" transform="rotate(-15 32 32)" />
-        <circle cx="52" cy="25" r="4" />
-        <circle cx="18" cy="43" r="4" />
-        <circle cx="42" cy="48" r="4" />
-        <path d="M36 28c3.2-1.2 6.3-1.7 8.6.7" />
-        <path d="M28 36c-3.1 1.3-6.1 1.7-8.3-.6" />
-        <path d="M34 36c2.8 2.2 5.7 3.4 8.1 3" />
-      </g>
-    </svg>
-  )
-}
-
-function AIGlyph({ className = 'h-16 w-16 md:h-20 md:w-20' }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 96 96" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="gradAI" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#3b82f6" />
-        </linearGradient>
-      </defs>
-      <g transform="translate(16,16)" stroke="url(#gradAI)" fill="none" strokeWidth={3.25} strokeLinecap="round" strokeLinejoin="round">
-        <rect x="18" y="18" width="28" height="28" rx="5.5" ry="5.5" />
-        <path d="M32 10v6M32 50v6M10 32h6M50 32h6M18 14l-4-4M46 14l4-4M18 50l-4 4M46 50l4 4" />
-        <circle cx="28" cy="28" r="3.6" />
-        <circle cx="36" cy="28" r="3.6" />
-        <circle cx="32" cy="38" r="3.6" />
-        <path d="M28 28h8M28 28l4 10M36 28l-4 10" />
-      </g>
-    </svg>
-  )
-}
-/** ------------------------------------------------------------------- */
-
 export default function Hero() {
   const [i, setI] = useState(0)
 
   useEffect(() => {
-    const id = setInterval(() => setI((p) => (p + 1) % audiences.length), 5000)
+    const id = setInterval(() => setI(p => (p + 1) % audiences.length), 5000)
     return () => clearInterval(id)
   }, [])
 
@@ -207,7 +141,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Value props — centered like original, no inner icon cards */}
+            {/* Value props — spotlight-card lighting; keep 0.5pt up; NO hover effects; 3pt shorter; increased transparency */}
             <div className="mt-16 -translate-y-[0.67px] grid md:grid-cols-3 gap-6 text-center">
               {/* Card 1 — rose tint */}
               <div
@@ -225,9 +159,7 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="mb-3 flex justify-center">
-                    <RocketGlyph className="h-16 w-16 md:h-20 md:w-20" />
-                  </div>
+                  <div className="text-2xl mb-2">🚀</div>
                   <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
                   <div className="text-xs text-slate-400">From idea to live product</div>
                 </div>
@@ -249,9 +181,7 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="mb-3 flex justify-center">
-                    <EcosystemGlyph className="h-16 w-16 md:h-20 md:w-20" />
-                  </div>
+                  <div className="text-2xl mb-2">🤝</div>
                   <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
                   <div className="text-xs text-slate-400">Everything you need to succeed</div>
                 </div>
@@ -273,9 +203,7 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="mb-3 flex justify-center">
-                    <AIGlyph className="h-16 w-16 md:h-20 md:w-20" />
-                  </div>
+                  <div className="text-2xl mb-2">💡</div>
                   <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
                   <div className="text-xs text-slate-400">Smart tools at every step</div>
                 </div>
