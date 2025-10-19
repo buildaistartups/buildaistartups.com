@@ -40,15 +40,20 @@
 
   <!-- ========== LAYOUT HELPERS ========== -->
   <!-- Timeline positions: x: 50, 175, 300, 425, 550 ; y baseline: 100 -->
+  <!-- Circle radius: 20, so circles go from center-20 to center+20 -->
 
   <!-- Main timeline line -->
   <line x1="50" y1="100" x2="550" y2="100" class="line"/>
 
-  <!-- Segment chevrons (progress flow) -->
-  <line x1="112.5" y1="100" x2="162.5" y2="100" class="connector" marker-end="url(#chev)"/>
-  <line x1="237.5" y1="100" x2="287.5" y2="100" class="connector" marker-end="url(#chev)"/>
-  <line x1="362.5" y1="100" x2="412.5" y2="100" class="connector" marker-end="url(#chev)"/>
-  <line x1="487.5" y1="100" x2="537.5" y2="100" class="connector" marker-end="url(#chev)"/>
+  <!-- Segment chevrons (progress flow) - properly spaced to not overlap circles -->
+  <!-- Friday to Sat AM: from 50+20=70 to 175-20=155 -->
+  <line x1="70" y1="100" x2="155" y2="100" class="connector" marker-end="url(#chev)"/>
+  <!-- Sat AM to Sat PM: from 175+20=195 to 300-20=280 -->
+  <line x1="195" y1="100" x2="280" y2="100" class="connector" marker-end="url(#chev)"/>
+  <!-- Sat PM to Sun AM: from 300+20=320 to 425-20=405 -->
+  <line x1="320" y1="100" x2="405" y2="100" class="connector" marker-end="url(#chev)"/>
+  <!-- Sun AM to Sun PM: from 425+20=445 to 550-20=530 -->
+  <line x1="445" y1="100" x2="530" y2="100" class="connector" marker-end="url(#chev)"/>
 
   <!-- ========== NODES ========== -->
 
