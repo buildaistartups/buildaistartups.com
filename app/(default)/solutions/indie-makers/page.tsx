@@ -167,11 +167,11 @@ export default function IndieMakersPage() {
               <p className="mt-3 text-sm text-slate-400">Solo-friendly · Predictable builds · Deploy to Vercel</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
                 <img 
                   src="/images/solutions/indie-makers/hero.svg" 
                   alt="Indie maker weekend build journey from idea to live product" 
-                  className="max-h-full max-w-full h-auto w-auto object-contain"
+                  className="h-full w-full object-contain"
                   loading="eager"
                 />
               </div>
@@ -205,11 +205,11 @@ export default function IndieMakersPage() {
             <p className="mt-2 text-slate-300">One person, one weekend, one shipped product</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[200px]">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
               <img 
                 src="/images/solutions/indie-makers/solo-workflow.svg" 
                 alt="Solo developer workflow showing independence and efficiency" 
-                className="max-h-48 max-w-full h-auto w-auto object-contain"
+                className="h-48 w-auto mx-auto"
                 loading="lazy"
               />
             </div>
@@ -251,11 +251,11 @@ export default function IndieMakersPage() {
                 <li>Monday: Talk to real users</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[200px]">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
                 src="/images/solutions/indie-makers/build-speed.svg" 
                 alt="Weekend to launch speed indicator" 
-                className="max-h-full max-w-full h-auto w-auto object-contain"
+                className="w-full h-auto"
                 loading="lazy"
               />
             </div>
@@ -285,11 +285,11 @@ export default function IndieMakersPage() {
                 </Link>
               </div>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[200px]">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
                 src="/images/solutions/indie-makers/starter-kits.svg" 
                 alt="Starter kits overview showing SaaS, API, and Content options" 
-                className="max-h-full max-w-full h-auto w-auto object-contain"
+                className="w-full h-auto"
                 loading="lazy"
               />
             </div>
@@ -299,11 +299,11 @@ export default function IndieMakersPage() {
         {/* No Lock-in */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[200px]">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
                 src="/images/solutions/indie-makers/no-lockin.svg" 
                 alt="No lock-in diagram showing ownership of all accounts and services" 
-                className="max-h-full max-w-full h-auto w-auto object-contain"
+                className="w-full h-auto"
                 loading="lazy"
               />
             </div>
@@ -330,11 +330,11 @@ export default function IndieMakersPage() {
           </div>
           
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[150px]">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
               <img 
                 src="/images/solutions/indie-makers/production-ready.svg" 
                 alt="Production-ready features checklist" 
-                className="max-h-32 max-w-full h-auto w-auto object-contain"
+                className="h-32 w-auto mx-auto"
                 loading="lazy"
               />
             </div>
@@ -360,11 +360,11 @@ export default function IndieMakersPage() {
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">Weekend to Launch</h2>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[200px]">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
                 src="/images/solutions/indie-makers/weekend-timeline.svg" 
                 alt="Weekend launch timeline from Friday to Sunday" 
-                className="max-h-full max-w-full h-auto w-auto object-contain"
+                className="w-full h-auto"
                 loading="lazy"
               />
             </div>
@@ -393,11 +393,11 @@ export default function IndieMakersPage() {
                 <li>Analytics and conversion tracking</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[200px]">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
                 src="/images/solutions/indie-makers/growth-pack.svg" 
                 alt="Growth basics pack with SEO, email, and social tools" 
-                className="max-h-full max-w-full h-auto w-auto object-contain"
+                className="w-full h-auto"
                 loading="lazy"
               />
             </div>
@@ -414,12 +414,13 @@ export default function IndieMakersPage() {
               { name: 'DocsCraft', vp: 'Docs & changelog generator', tags: ['DevTools', 'Content'] },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center">
+                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 flex items-center justify-center p-4">
                   <img 
                     src="/images/solutions/indie-makers/example-projects.svg" 
                     alt={`${p.name} indie project example`} 
-                    className="max-h-full max-w-full h-auto w-auto object-contain"
+                    className="max-h-full max-w-full h-auto w-auto object-contain opacity-80"
                     loading="lazy"
+                    style={{ maxHeight: '120px', maxWidth: '200px' }}
                   />
                 </div>
                 <div className="mt-3 text-base font-medium">{p.name}</div>
@@ -439,11 +440,11 @@ export default function IndieMakersPage() {
         {/* Success Story */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-5 flex items-center justify-center min-h-[200px]">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
                 src="/images/solutions/indie-makers/success-story.svg" 
                 alt="Weekend indie maker success story from idea to users" 
-                className="max-h-full max-w-full h-auto w-auto object-contain"
+                className="w-full h-auto"
                 loading="lazy"
               />
             </div>
@@ -469,7 +470,7 @@ export default function IndieMakersPage() {
               <img 
                 src="/images/solutions/indie-makers/pricing-tiers.svg" 
                 alt="Indie-friendly pricing tiers" 
-                className="h-8 w-auto object-contain"
+                className="h-8 w-auto"
                 loading="lazy"
               />
               <h2 className="text-2xl font-semibold">Indie-friendly pricing</h2>
