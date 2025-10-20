@@ -1,4 +1,4 @@
-<!-- WEEKEND TO LAUNCH – ticks on OUTER edge; pointer at -36°; FRI/100 centered; badges lowered & centered under FRI/needle/100 -->
+<!-- WEEKEND TO LAUNCH – title set to blue (#3B82F6) -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 900">
   <defs>
     <linearGradient id="gradPB" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -27,11 +27,11 @@
     </linearGradient>
   </defs>
 
-  <!-- Title -->
+  <!-- Title (now blue) -->
   <text x="550" y="92" text-anchor="middle"
         font-family="Inter, Segoe UI, Arial, sans-serif"
         font-size="80" font-weight="900" letter-spacing="10"
-        fill="#1A1C39">WEEKEND TO LAUNCH</text>
+        fill="#3B82F6">WEEKEND TO LAUNCH</text>
 
   <!-- Gauge -->
   <g transform="translate(550,480)">
@@ -83,7 +83,7 @@
         font-family="Inter, Segoe UI, Arial, sans-serif"
         font-size="62" font-weight="800" fill="#A6B3FF">100</text>
 
-  <!-- Badges: lowered a bit and horizontally centered under FRI (x=245), pointer (x=550), and 100 (x=855) -->
+  <!-- Badges: centered under FRI (x=245), pointer (x=550), and 100 (x=855); lowered a bit -->
   <g font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="800" text-anchor="middle">
     <!-- under FRI -->
     <g transform="translate(245,660)">
