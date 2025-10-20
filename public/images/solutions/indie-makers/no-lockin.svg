@@ -1,5 +1,5 @@
 <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Your Accounts — Ownership & Control</title>
+  <title id="title">Your Accounts — Ownership &amp; Control</title>
   <desc id="desc">Central YOU OWN badge connected to GitHub, Vercel, Stripe, and Database accounts. Purple/blue theme, unlock symbols, ownership indicators, and freedom arrows. Transparent background.</desc>
 
   <defs>
@@ -15,14 +15,14 @@
 
     <!-- Icon backgrounds: light, high-contrast for blue text -->
     <linearGradient id="iconBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F3F0FF"/>  <!-- soft lavender -->
-      <stop offset="100%" stop-color="#E6F0FF"/> <!-- soft blue -->
+      <stop offset="0%" stop-color="#F3F0FF"/>
+      <stop offset="100%" stop-color="#E6F0FF"/>
     </linearGradient>
 
     <!-- Small chip backgrounds (lock/key) -->
     <linearGradient id="chipBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E9D5FF"/>  <!-- light purple -->
-      <stop offset="100%" stop-color="#DBEAFE"/> <!-- light blue -->
+      <stop offset="0%" stop-color="#E9D5FF"/>
+      <stop offset="100%" stop-color="#DBEAFE"/>
     </linearGradient>
 
     <!-- Soft shadow -->
@@ -93,7 +93,7 @@
     </g>
   </g>
 
-  <!-- NODES (now with colored icon backgrounds) -->
+  <!-- NODES (colored icon backgrounds) -->
   <!-- GitHub (top-left) -->
   <g id="github" transform="translate(120,60)">
     <circle r="22" fill="url(#iconBg)" stroke="url(#purpleBlue)" stroke-width="2"/>
@@ -103,7 +103,6 @@
 
   <!-- Database (bottom-left) -->
   <g id="database" transform="translate(120,140)">
-    <!-- Cylinder with gradient background fills -->
     <ellipse cx="0" cy="-14" rx="22" ry="8" fill="url(#iconBg)" stroke="url(#purpleBlue)" stroke-width="2"/>
     <rect x="-22" y="-14" width="44" height="28" fill="url(#iconBg)" stroke="url(#purpleBlue)" stroke-width="2"/>
     <ellipse cx="0" cy="14" rx="22" ry="8" fill="url(#iconBg)" stroke="url(#purpleBlue)" stroke-width="2"/>
