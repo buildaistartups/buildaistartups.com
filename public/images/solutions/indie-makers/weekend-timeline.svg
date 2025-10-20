@@ -40,46 +40,39 @@
   <!-- Main baseline (subtle, sits under arrows) -->
   <line x1="50" y1="100" x2="550" y2="100" class="line"/>
 
-  <!-- ========== SOLID ARROWS BETWEEN CIRCLES (recomputed for r=26, gap=8, headLen=16) ========== -->
+  <!-- ========== SOLID ARROWS BETWEEN CIRCLES (r=26, gap=8, headLen=16) ========== -->
   <!-- y is 94..106 (12px tall) -->
-
-  <!-- Fri → Sat AM -->
-  <!-- start = 50+26+8=84 ; tip = 175-26-8=141 ; base = 141-16=125 -->
   <polygon class="arrow" points="84,94 125,94 141,100 125,106 84,106"/>
-
-  <!-- Sat AM → Sat PM -->
-  <!-- start = 175+26+8=209 ; tip = 300-26-8=266 ; base = 250 -->
   <polygon class="arrow" points="209,94 250,94 266,100 250,106 209,106"/>
-
-  <!-- Sat PM → Sun AM -->
-  <!-- start = 300+26+8=334 ; tip = 425-26-8=391 ; base = 375 -->
   <polygon class="arrow" points="334,94 375,94 391,100 375,106 334,106"/>
-
-  <!-- Sun AM → Sun PM -->
-  <!-- start = 425+26+8=459 ; tip = 550-26-8=516 ; base = 500 -->
   <polygon class="arrow" points="459,94 500,94 516,100 500,106 459,106"/>
 
   <!-- ========== NODES ========== -->
 
-  <!-- Friday: Lightbulb + GitHub -->
+  <!-- Friday: Lightbulb + GH pill (white text) -->
   <g transform="translate(50,100)">
-    <!-- bigger glow + node -->
+    <!-- Time -->
+    <text class="time" text-anchor="middle" x="0" y="-38">Fri</text>
+
+    <!-- Node -->
     <circle cx="0" cy="0" r="36" fill="url(#glow)"/>
     <circle cx="0" cy="0" r="26" class="node"/>
-    <!-- Icon bigger -->
+
+    <!-- Icon -->
     <g class="icon" transform="translate(0,0) scale(1.2)">
       <path d="M0,-12 a10,10 0 0 1 10,10 c0,3.5 -1.8,5.8 -3.8,7.6 -0.8,0.7 -1.2,1.6 -1.2,2.4 h-10 c0-0.9 -0.4-1.7 -1.2-2.4 -2-1.8 -3.8-4.1 -3.8-7.6 a10,10 0 0 1 10-10z"/>
       <path d="M-4,-2 q4,-3 8,0"/>
       <rect x="-5" y="6" width="10" height="4" rx="2" ry="2" />
       <line x1="-4" y1="8" x2="4" y2="8"/>
     </g>
-    <!-- GH pill -->
+
+    <!-- In-circle pill (GH) with FORCED WHITE text -->
     <g transform="translate(14,-22)">
       <rect x="-12" y="-8" width="24" height="16" rx="8" fill="url(#gradPB)"/>
-      <text x="0" y="4" text-anchor="middle" class="mini" fill="#ffffff">GH</text>
+      <text x="0" y="4" text-anchor="middle" class="mini" style="fill:#ffffff">GH</text>
     </g>
-    <!-- Labels -->
-    <text class="time" text-anchor="middle" x="0" y="-38">Fri</text>
+
+    <!-- Bottom label -->
     <text class="label" text-anchor="middle" x="0" y="44">Ideate &amp; Setup</text>
   </g>
 
@@ -150,7 +143,7 @@
     <line x1="175" y1="88" x2="175" y2="84"/>
     <line x1="300" y1="88" x2="300" y2="84"/>
     <line x1="425" y1="88" x2="425" y2="84"/>
-    <line x1="550" y1="88" x2="550"  y2="84"/>
+    <line x1="550" y1="88" x2="550" y2="84"/>
   </g>
 
   <!-- ========== MOTIVATIONAL TAGLINE ========== -->
