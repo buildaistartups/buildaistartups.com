@@ -1,199 +1,69 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<svg width="64" height="32" viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pricing Tiers: Starter, Builder, Studio</title>
+  <desc id="desc">Three ascending steps with feature icons, pricing badges, and upgrade arrows in purple and blue.</desc>
+
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="gradStep" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#6d28d9" />
-      <stop offset="100%" stop-color="#0ea5e9" />
+    <linearGradient id="gPurpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <linearGradient id="gradBadge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7c3aed" />
-      <stop offset="100%" stop-color="#2563eb" />
+    <linearGradient id="gBluePurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
     </linearGradient>
-    <linearGradient id="gradArrow" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#7c3aed" />
-      <stop offset="100%" stop-color="#0ea5e9" />
-    </linearGradient>
-
-    <!-- Arrowhead marker -->
-    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M0,0 L12,6 L0,12 z" fill="url(#gradArrow)" />
+    <marker id="arrow" viewBox="0 0 6 6" refX="4" refY="3" markerWidth="2.5" markerHeight="2.5" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#8B5CF6"/>
     </marker>
-
-    <!-- Shadows -->
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
-      <feOffset in="blur" dx="0" dy="10" result="offsetBlur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.18"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode in="offsetBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- Icon paths (stroke-based for scalability) -->
-    <g id="icon-check">
-      <path d="M5 14 L11 20 L23 7" fill="none" stroke="url(#gradStep)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <g id="icon-bolt">
-      <path d="M14 4 L8 16 H15 L12 28 L24 12 H16 L20 4 Z" fill="url(#gradStep)" />
-    </g>
-    <g id="icon-shield">
-      <path d="M16 4 L28 8 V16 C28 24 22 28 16 32 C10 28 4 24 4 16 V8 Z" fill="none" stroke="url(#gradStep)" stroke-width="2.5" />
-      <path d="M10 17 L15 22 L22 12" fill="none" stroke="url(#gradStep)" stroke-width="2.5" stroke-linecap="round" />
-    </g>
-    <g id="icon-star">
-      <path d="M16 3 L20 12 L30 12 L22 18 L25 28 L16 22 L7 28 L10 18 L2 12 L12 12 Z" fill="url(#gradStep)" />
-    </g>
-    <g id="icon-rocket">
-      <path d="M16 4 C22 6 26 12 26 18 C26 22 24 26 20 30 L12 22 C16 18 18 12 16 4 Z" fill="none" stroke="url(#gradStep)" stroke-width="2.5"/>
-      <path d="M10 24 C8 26 6 30 6 32 C8 32 12 30 14 28 Z" fill="url(#gradBadge)"/>
-      <circle cx="18.5" cy="14.5" r="3" fill="none" stroke="url(#gradStep)" stroke-width="2"/>
-    </g>
-
-    <!-- Badges -->
-    <g id="price-badge">
-      <circle cx="0" cy="0" r="50" fill="url(#gradBadge)" />
-      <circle cx="0" cy="0" r="50" fill="none" stroke="white" stroke-opacity="0.35" stroke-width="2"/>
-    </g>
-
-    <style><![CDATA[
-      .title { font: 700 28px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #0f172a; }
-      .subtitle { font: 600 18px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #1f2937; }
-      .priceText { font: 800 26px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: middle; }
-      .label { font: 700 14px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #6d28d9; letter-spacing: 0.08em; }
-      .tag { font: 700 12px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #ffffff; }
-      .muted { font: 500 14px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #475569; }
-      .value { font: 700 12px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #0ea5e9; }
-      .upgrade { font: 700 14px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; fill: #0ea5e9; }
-    ]]></style>
+    <style>
+      .step { fill: url(#gPurpleBlue); stroke: #111827; stroke-opacity: .45; stroke-width: .8; rx:2; }
+      .label { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 700; fill: #FFFFFF; }
+      .badge { fill: url(#gBluePurple); stroke: rgba(17,24,39,.35); stroke-width: .6; }
+      .icon { fill: none; stroke: #FFFFFF; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
+      .arrow { fill: none; stroke: #8B5CF6; stroke-width: .7; marker-end: url(#arrow); stroke-linecap: round; }
+      .spark { fill: #FFFFFF; opacity: .9; }
+    </style>
   </defs>
 
-  <!-- Title -->
-  <g transform="translate(120,90)">
-    <text class="title">Pricing Tiers</text>
-    <text class="muted" y="34">Clear, value‑focused steps from Starter to Studio</text>
+  <!-- Starter -->
+  <rect class="step" x="2" y="22" width="16" height="8" rx="2"/>
+  <circle cx="10" cy="26" r="3.2" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  <path class="icon" d="M8.8 26.1 l1.0 1.2 l2.0 -2.2"/>
+  <g transform="translate(3,16)">
+    <rect class="badge" x="0" y="0" width="14" height="5" rx="2.5"/>
+    <text class="label" x="7" y="3.7" font-size="3.1" text-anchor="middle">Free</text>
   </g>
 
-  <!-- Step 1: Starter (free) -->
-  <g transform="translate(170,540)" filter="url(#softShadow)">
-    <rect x="0" y="0" rx="24" ry="24" width="420" height="220" fill="white" fill-opacity="0.9" stroke="url(#gradStep)" stroke-width="3"/>
-    <!-- Header -->
-    <text class="label" x="24" y="40">STARTER</text>
-    <text class="subtitle" x="24" y="78">Free to get going</text>
-
-    <!-- Icons row -->
-    <g transform="translate(24,110) scale(1)">
-      <use href="#icon-check"/>
-    </g>
-    <text class="muted" x="64" y="132">Basic features</text>
-
-    <g transform="translate(24,150) scale(1)">
-      <use href="#icon-shield"/>
-    </g>
-    <text class="muted" x="64" y="172">Core security</text>
-
-    <g transform="translate(24,190) scale(1)">
-      <use href="#icon-bolt"/>
-    </g>
-    <text class="muted" x="64" y="212">Community support</text>
-
-    <!-- Badge -->
-    <g transform="translate(370,46)">
-      <use href="#price-badge"/>
-      <text class="priceText" y="4">FREE</text>
-    </g>
+  <!-- Builder -->
+  <rect class="step" x="20" y="15" width="18" height="15" rx="2"/>
+  <g transform="translate(29,22)">
+    <path class="icon" d="M-5 -1 l5 -3 l5 3 l-5 3 z"/>
+    <path class="icon" d="M-5 1.5 l5 3 l5 -3"/>
+  </g>
+  <g transform="translate(21,8)">
+    <rect class="badge" x="0" y="0" width="16" height="6" rx="3"/>
+    <text class="label" x="8" y="4.2" font-size="3.4" text-anchor="middle">$49</text>
   </g>
 
-  <!-- Step 2: Builder ($49) -->
-  <g transform="translate(620,420)" filter="url(#softShadow)">
-    <rect x="0" y="0" rx="24" ry="24" width="460" height="260" fill="white" fill-opacity="0.95" stroke="url(#gradStep)" stroke-width="3"/>
-    <!-- Header -->
-    <text class="label" x="24" y="40">BUILDER</text>
-    <text class="subtitle" x="24" y="78">Scale your workflow</text>
-
-    <!-- Icons row -->
-    <g transform="translate(24,112) scale(1)">
-      <use href="#icon-check"/>
-    </g>
-    <text class="muted" x="64" y="134">Everything in Starter</text>
-
-    <g transform="translate(24,152) scale(1)">
-      <use href="#icon-bolt"/>
-    </g>
-    <text class="muted" x="64" y="174">Priority processing</text>
-
-    <g transform="translate(24,192) scale(1)">
-      <use href="#icon-star"/>
-    </g>
-    <text class="muted" x="64" y="214">Advanced analytics</text>
-
-    <!-- Value tag -->
-    <g transform="translate(24,20)">
-      <rect x="0" y="-16" rx="10" ry="10" width="92" height="24" fill="url(#gradBadge)" />
-      <text class="tag" x="46" y="0" text-anchor="middle" dominant-baseline="central">POPULAR</text>
-    </g>
-
-    <!-- Badge -->
-    <g transform="translate(410,52)">
-      <use href="#price-badge"/>
-      <text class="priceText" y="-6">$49</text>
-      <text class="priceText" y="22" style="font-size:14px; font-weight:700; fill:#e0e7ff;">/mo</text>
-    </g>
+  <!-- Studio -->
+  <rect class="step" x="40" y="8" width="22" height="22" rx="2"/>
+  <g transform="translate(51,18)">
+    <path class="icon" d="M0 -5 c3 2 3 7 0 9 c-3 -2 -3 -7 0 -9 z"/>
+    <path class="icon" d="M0 4 l-2 3 M0 4 l2 3"/>
+    <path class="icon" d="M0 -1.5 a1.2 1.2 0 1 0 0.01 0"/>
+  </g>
+  <g transform="translate(41,0)">
+    <rect class="badge" x="0" y="0" width="20" height="7" rx="3.5"/>
+    <text class="label" x="10" y="4.9" font-size="3.6" text-anchor="middle">$149</text>
   </g>
 
-  <!-- Step 3: Studio ($149) -->
-  <g transform="translate(1080,300)" filter="url(#softShadow)">
-    <rect x="0" y="0" rx="24" ry="24" width="470" height="300" fill="white" fill-opacity="0.98" stroke="url(#gradStep)" stroke-width="3"/>
-    <!-- Header -->
-    <text class="label" x="24" y="40">STUDIO</text>
-    <text class="subtitle" x="24" y="78">Pro tools, full power</text>
+  <!-- Upgrade arrows — shifted ~1px left -->
+  <!-- Previously: M17.45 15.56 L21.55 13.94 -->
+  <path class="arrow" d="M16.45 15.56 L20.55 13.94"/>
+  <!-- Previously: M37.92 7.96 L42.08 6.54 -->
+  <path class="arrow" d="M36.92 7.96 L41.08 6.54"/>
 
-    <!-- Icons row -->
-    <g transform="translate(24,112) scale(1)">
-      <use href="#icon-check"/>
-    </g>
-    <text class="muted" x="64" y="134">Everything in Builder</text>
-
-    <g transform="translate(24,152) scale(1)">
-      <use href="#icon-rocket"/>
-    </g>
-    <text class="muted" x="64" y="174">Automation & AI</text>
-
-    <g transform="translate(24,192) scale(1)">
-      <use href="#icon-star"/>
-    </g>
-    <text class="muted" x="64" y="214">Premium support</text>
-
-    <!-- Value tag -->
-    <g transform="translate(24,20)">
-      <rect x="0" y="-16" rx="10" ry="10" width="116" height="24" fill="url(#gradBadge)" />
-      <text class="tag" x="58" y="0" text-anchor="middle" dominant-baseline="central">BEST VALUE</text>
-    </g>
-
-    <!-- Badge -->
-    <g transform="translate(420,62)">
-      <use href="#price-badge"/>
-      <text class="priceText" y="-6">$149</text>
-      <text class="priceText" y="22" style="font-size:14px; font-weight:700; fill:#e0e7ff;">/mo</text>
-    </g>
-  </g>
-
-  <!-- Upgrade arrows -->
-  <g>
-    <path d="M 590 520 C 640 500 650 480 680 460" fill="none" stroke="url(#gradArrow)" stroke-width="4" marker-end="url(#arrowhead)" />
-    <text class="upgrade" x="630" y="490">Upgrade</text>
-
-    <path d="M 1050 400 C 1100 380 1120 350 1150 330" fill="none" stroke="url(#gradArrow)" stroke-width="4" marker-end="url(#arrowhead)" />
-    <text class="upgrade" x="1090" y="370">Upgrade</text>
-  </g>
-
-  <!-- Discreet step baselines to imply ascending steps -->
-  <g opacity="0.25">
-    <rect x="150" y="760" width="470" height="10" rx="5" fill="url(#gradStep)"/>
-    <rect x="600" y="640" width="510" height="10" rx="5" fill="url(#gradStep)"/>
-    <rect x="1060" y="520" width="520" height="10" rx="5" fill="url(#gradStep)"/>
-  </g>
+  <!-- Value sparks -->
+  <rect class="spark" x="58" y="6" width="1.2" height="1.2" rx=".6"/>
+  <rect class="spark" x="56" y="4" width="1.2" height="1.2" rx=".6"/>
+  <rect class="spark" x="60.5" y="7.5" width="1.2" height="1.2" rx=".6"/>
 </svg>
