@@ -1,158 +1,45 @@
-<svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Weekend maker timeline from Friday to Sunday with five stages">
-  <title>Weekend Maker Timeline</title>
-  <desc>Friday ideation and GitHub setup, Saturday AM coding, Saturday PM design/UI, Sunday AM deploy, Sunday PM growth/users.</desc>
+<!-- Replace your entire <style> ... </style> block with this -->
+<style>
+  /* Adaptive text colors + outline */
+  :root{
+    --txt: #0f172a;      /* light theme primary */
+    --txt-sub: #334155;  /* light theme secondary */
+    --txt-mini: #475569; /* light theme tertiary */
+    --txt-stroke: rgba(255,255,255,.45); /* light: soft white halo */
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --txt: #e5e7eb;      /* dark theme primary (slate-200) */
+      --txt-sub: #cbd5e1;  /* dark theme secondary (slate-300) */
+      --txt-mini: #94a3b8; /* dark theme tertiary (slate-400) */
+      --txt-stroke: rgba(0,0,0,.55); /* dark: soft black halo */
+    }
+  }
 
-  <!-- ========== DEFINITIONS ========== -->
-  <defs>
-    <!-- Purple → Blue -->
-    <linearGradient id="gradPB" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
+  .time {
+    font: 700 13px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    fill: var(--txt);
+    paint-order: stroke fill;
+    stroke: var(--txt-stroke);
+    stroke-width: .8;
+  }
+  .label {
+    font: 600 13px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    fill: var(--txt-sub);
+    paint-order: stroke fill;
+    stroke: var(--txt-stroke);
+    stroke-width: .8;
+  }
+  .mini {
+    font: 600 11px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    fill: var(--txt-mini);
+    paint-order: stroke fill;
+    stroke: var(--txt-stroke);
+    stroke-width: .8;
+  }
 
-    <!-- Node subtle fill (works on light/dark) -->
-    <linearGradient id="nodeFill" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.65"/>
-    </linearGradient>
-
-    <!-- Soft glow -->
-    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
-    </radialGradient>
-
-    <style>
-      .time { font: 700 11px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif; fill:#0f172a; }
-      .label { font: 600 11px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif; fill:#334155; }
-      .mini { font: 600 9px ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif; fill:#475569; }
-      .line { stroke:url(#gradPB); stroke-width:6; stroke-linecap:round; vector-effect:non-scaling-stroke; opacity:0.25; }
-      .node { fill:url(#nodeFill); stroke:url(#gradPB); stroke-width:3; }
-      .icon { fill:none; stroke:url(#gradPB); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
-      .arrow { fill:url(#gradPB); }
-    </style>
-  </defs>
-
-  <!-- ========== LAYOUT HELPERS ========== -->
-  <!-- Timeline positions: x: 50, 175, 300, 425, 550 ; y baseline: 100 -->
-  <!-- Circle radius: 20 -->
-
-  <!-- Main baseline (subtle, sits under arrows) -->
-  <line x1="50" y1="100" x2="550" y2="100" class="line"/>
-
-  <!-- ========== SOLID ARROWS BETWEEN CIRCLES ========== -->
-  <!-- Geometry: gap=8 from node edge; headLen=16; shaft half-height=6 -->
-  <!-- Fri → Sat AM -->
-  <polygon class="arrow"
-    points="
-      78,94   131,94   147,100   131,106   78,106
-    "/>
-  <!-- Sat AM → Sat PM -->
-  <polygon class="arrow"
-    points="
-      203,94  256,94  272,100  256,106  203,106
-    "/>
-  <!-- Sat PM → Sun AM -->
-  <polygon class="arrow"
-    points="
-      328,94  381,94  397,100  381,106  328,106
-    "/>
-  <!-- Sun AM → Sun PM -->
-  <polygon class="arrow"
-    points="
-      453,94  506,94  522,100  506,106  453,106
-    "/>
-
-  <!-- ========== NODES ========== -->
-
-  <!-- Friday: Lightbulb + GitHub -->
-  <g transform="translate(50,100)">
-    <circle cx="0" cy="0" r="28" fill="url(#glow)"/>
-    <circle cx="0" cy="0" r="20" class="node"/>
-    <g class="icon" transform="translate(0,0)">
-      <path d="M0,-12 a10,10 0 0 1 10,10 c0,3.5 -1.8,5.8 -3.8,7.6 -0.8,0.7 -1.2,1.6 -1.2,2.4 h-10 c0-0.9 -0.4-1.7 -1.2-2.4 -2-1.8 -3.8-4.1 -3.8-7.6 a10,10 0 0 1 10-10z"/>
-      <path d="M-4,-2 q4,-3 8,0"/>
-      <rect x="-5" y="6" width="10" height="4" rx="2" ry="2" />
-      <line x1="-4" y1="8" x2="4" y2="8"/>
-    </g>
-    <g transform="translate(12,-18)">
-      <rect x="-11" y="-7" width="22" height="14" rx="7" fill="url(#gradPB)"/>
-      <text x="0" y="3.5" text-anchor="middle" class="mini" fill="#ffffff">GH</text>
-    </g>
-    <text class="time" text-anchor="middle" x="0" y="-34">Fri</text>
-    <text class="label" text-anchor="middle" x="0" y="38">Ideate &amp; Setup</text>
-  </g>
-
-  <!-- Saturday AM: Code/Repo -->
-  <g transform="translate(175,100)">
-    <circle cx="0" cy="0" r="28" fill="url(#glow)"/>
-    <circle cx="0" cy="0" r="20" class="node"/>
-    <g class="icon">
-      <path d="M-7,-2 l-6,6 M-13,4 l6,6 M7,-2 l6,6 M13,4 l-6,6"/>
-      <circle cx="-1" cy="-6" r="1.8" fill="url(#gradPB)"/>
-      <circle cx="6" cy="2" r="1.8" fill="url(#gradPB)"/>
-      <circle cx="-6" cy="6" r="1.8" fill="url(#gradPB)"/>
-      <path d="M-1,-6 v6 a4,4 0 0 1 -4,4"/>
-      <path d="M-1,-2 h5 a3,3 0 0 1 3,3"/>
-    </g>
-    <text class="time" text-anchor="middle" x="0" y="-34">Sat AM</text>
-    <text class="label" text-anchor="middle" x="0" y="38">Code &amp; Repo</text>
-  </g>
-
-  <!-- Saturday PM: Design/UI -->
-  <g transform="translate(300,100)">
-    <circle cx="0" cy="0" r="28" fill="url(#glow)"/>
-    <circle cx="0" cy="0" r="20" class="node"/>
-    <g class="icon">
-      <rect x="-12" y="-10" width="24" height="20" rx="3"/>
-      <line x1="-12" y1="-6" x2="12" y2="-6"/>
-      <rect x="-9" y="-3" width="8" height="6" rx="1"/>
-      <rect x="3" y="-3" width="8" height="6" rx="1"/>
-      <rect x="-9" y="5" width="20" height="6" rx="1"/>
-    </g>
-    <text class="time" text-anchor="middle" x="0" y="-34">Sat PM</text>
-    <text class="label" text-anchor="middle" x="0" y="38">Design &amp; UI</text>
-  </g>
-
-  <!-- Sunday AM: Rocket/Deploy -->
-  <g transform="translate(425,100)">
-    <circle cx="0" cy="0" r="28" fill="url(#glow)"/>
-    <circle cx="0" cy="0" r="20" class="node"/>
-    <g class="icon">
-      <path d="M0,-10 c6,2 8,8 6,14 -2,-1 -5,-1 -6,-1 -1,0 -4,0 -6,1 -2,-6 0,-12 6,-14z"/>
-      <circle cx="1" cy="-5" r="2"/>
-      <path d="M-6,4 l-4,4 M6,4 l4,4"/>
-      <path d="M0,6 c0,3 -2,5 -4,6 1,-3 1,-6 4,-6z"/>
-    </g>
-    <text class="time" text-anchor="middle" x="0" y="-34">Sun AM</text>
-    <text class="label" text-anchor="middle" x="0" y="38">Deploy</text>
-  </g>
-
-  <!-- Sunday PM: Growth/Users -->
-  <g transform="translate(550,100)">
-    <circle cx="0" cy="0" r="28" fill="url(#glow)"/>
-    <circle cx="0" cy="0" r="20" class="node"/>
-    <g class="icon">
-      <rect x="-11" y="-7" width="16" height="12" rx="2"/>
-      <path d="M-9,3 l6,-6 l3,3 l5,-5" />
-      <path d="M5,-5 v-3" />
-      <path d="M5,-8 l3,0" />
-      <circle cx="10" cy="4" r="2" />
-      <circle cx="6" cy="6.5" r="1.6" />
-    </g>
-    <text class="time" text-anchor="middle" x="0" y="-34">Sun PM</text>
-    <text class="label" text-anchor="middle" x="0" y="38">Growth &amp; Users</text>
-  </g>
-
-  <!-- ========== TIME INDICATORS (subtle ticks) ========== -->
-  <g stroke="#94a3b8" stroke-width="1" opacity="0.6">
-    <line x1="50"  y1="88" x2="50"  y2="84"/>
-    <line x1="175" y1="88" x2="175" y2="84"/>
-    <line x1="300" y1="88" x2="300" y2="84"/>
-    <line x1="425" y1="88" x2="425" y2="84"/>
-    <line x1="550" y1="88" x2="550" y2="84"/>
-  </g>
-
-  <!-- ========== MOTIVATIONAL TAGLINE ========== -->
-  <text x="300" y="170" text-anchor="middle" class="mini" fill="#334155">Idea → Code → Design → Ship → Grow</text>
-</svg>
+  .line { stroke:url(#gradPB); stroke-width:6; stroke-linecap:round; vector-effect:non-scaling-stroke; opacity:.25; }
+  .node { fill:url(#nodeFill); stroke:url(#gradPB); stroke-width:3; }
+  .icon { fill:none; stroke:url(#gradPB); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; vector-effect:non-scaling-stroke; }
+  .arrow { fill:url(#gradPB); }
+</style>
