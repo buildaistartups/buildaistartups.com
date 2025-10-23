@@ -40,13 +40,13 @@
   <!-- Central Workflow Circle -->
   <g id="centralWorkflow" filter="url(#softShadow)">
     <!-- Main circle background -->
-    <circle cx="400" cy="400" r="160" fill="#ffffff" stroke="url(#primaryGradient)" stroke-width="3"/>
+    <circle cx="400" cy="400" r="160" fill="#f0f9ff" stroke="url(#primaryGradient)" stroke-width="3"/>
     
     <!-- Workflow stages circle paths -->
     <g id="workflowStages">
       <!-- SPEC Stage (Top) -->
       <g id="specStage">
-        <circle cx="400" cy="260" r="45" fill="url(#primaryGradient)" opacity="0.1"/>
+        <circle cx="400" cy="260" r="45" fill="#c4b5fd" opacity="0.4"/>
         <circle cx="400" cy="260" r="45" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Document icon -->
         <rect x="385" y="245" width="30" height="35" rx="2" fill="none" stroke="#8b5cf6" stroke-width="2"/>
@@ -59,7 +59,7 @@
       
       <!-- CODE Stage (Right) -->
       <g id="codeStage">
-        <circle cx="540" cy="400" r="45" fill="url(#primaryGradient)" opacity="0.1"/>
+        <circle cx="540" cy="400" r="45" fill="#93c5fd" opacity="0.4"/>
         <circle cx="540" cy="400" r="45" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Code brackets icon -->
         <path d="M 530 385 L 520 395 L 530 405" fill="none" stroke="#5b8ff6" stroke-width="2.5" stroke-linecap="round"/>
@@ -72,7 +72,7 @@
       
       <!-- REVIEW Stage (Bottom) -->
       <g id="reviewStage">
-        <circle cx="400" cy="540" r="45" fill="url(#primaryGradient)" opacity="0.1"/>
+        <circle cx="400" cy="540" r="45" fill="#7dd3fc" opacity="0.4"/>
         <circle cx="400" cy="540" r="45" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Checklist icon -->
         <rect x="385" y="523" width="30" height="35" rx="2" fill="none" stroke="#4f8ff6" stroke-width="2"/>
@@ -85,7 +85,7 @@
       
       <!-- DEPLOY Stage (Left) -->
       <g id="deployStage">
-        <circle cx="260" cy="400" r="45" fill="url(#primaryGradient)" opacity="0.1"/>
+        <circle cx="260" cy="400" r="45" fill="#a5b4fc" opacity="0.4"/>
         <circle cx="260" cy="400" r="45" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Rocket icon -->
         <path d="M 260 385 L 255 405 L 260 402 L 265 405 Z" fill="#4f7ff6" stroke="#4f7ff6" stroke-width="1.5"/>
@@ -183,7 +183,7 @@
     <line x1="19" y1="39" x2="37" y2="39" stroke="#8b5cf6" stroke-width="1.5"/>
     <line x1="19" y1="45" x2="32" y2="45" stroke="#8b5cf6" stroke-width="1.5"/>
     <!-- Label -->
-    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1f2937">Product Manager</text>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#3b82f6">Product Manager</text>
   </g>
   
   <!-- UI/UX Designer (Top Right) -->
@@ -205,7 +205,7 @@
     <rect x="-3" y="40" width="11" height="8" rx="1" fill="#10b981" opacity="0.5"/>
     <circle cx="15" cy="39" r="4" fill="#f59e0b" opacity="0.5"/>
     <!-- Label -->
-    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1f2937">UI/UX Designer</text>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#3b82f6">UI/UX Designer</text>
   </g>
   
   <!-- Frontend Engineer (Bottom Right) -->
@@ -228,7 +228,7 @@
     <!-- Base -->
     <rect x="-37" y="35" width="74" height="3" rx="1" fill="#374151"/>
     <!-- Label -->
-    <text x="0" y="-60" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1f2937">Frontend Engineer</text>
+    <text x="20" y="-60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#3b82f6">Frontend Engineer</text>
   </g>
   
   <!-- DevOps Specialist (Bottom Left) -->
@@ -252,7 +252,7 @@
     <circle cx="20" cy="42" r="3" fill="#10b981"/>
     <circle cx="20" cy="49" r="3" fill="#ef4444"/>
     <!-- Label -->
-    <text x="0" y="-60" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1f2937">DevOps Specialist</text>
+    <text x="-20" y="-60" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#3b82f6">DevOps Specialist</text>
   </g>
   
   <!-- Real-time Collaboration Elements -->
@@ -304,10 +304,10 @@
   </g>
   
   <!-- Connection Lines from Team to Workflow -->
-  <g id="connectionLines" opacity="0.2">
-    <path d="M 155 185 Q 250 280 345 305" fill="none" stroke="url(#primaryGradient)" stroke-width="2" stroke-dasharray="4,4"/>
-    <path d="M 645 185 Q 550 280 455 305" fill="none" stroke="url(#primaryGradient)" stroke-width="2" stroke-dasharray="4,4"/>
-    <path d="M 645 615 Q 550 520 455 495" fill="none" stroke="url(#primaryGradient)" stroke-width="2" stroke-dasharray="4,4"/>
-    <path d="M 155 615 Q 250 520 345 495" fill="none" stroke="url(#primaryGradient)" stroke-width="2" stroke-dasharray="4,4"/>
+  <g id="connectionLines" opacity="0.5">
+    <path d="M 155 185 Q 250 280 345 305" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
+    <path d="M 645 185 Q 550 280 455 305" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
+    <path d="M 645 615 Q 550 520 455 495" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
+    <path d="M 155 615 Q 250 520 345 495" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
   </g>
 </svg>
