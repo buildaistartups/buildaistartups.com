@@ -1,10 +1,10 @@
-// app/(default)/solutions/startups/page.tsx
+// app/(default)/solutions/product-teams/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/og/solutions-startups.png' // Updated to use your new OG image
+const ogImage = '/og/solutions-product-teams.png' // Updated to use your new OG image
 
 export const metadata: Metadata = {
   title: 'Product Teams — compress roadmap from months to days | Build AI Starups',
@@ -136,7 +136,7 @@ export default function ProductTeamsPage() {
             <div className="relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
                 <img 
-                  src="/images/solutions/startups/hero.svg" 
+                  src="/images/solutions/product-teams/hero.svg" 
                   alt="Product team collaboration workflow from spec to deploy with review gates" 
                   className="h-full w-full object-contain"
                   loading="eager"
@@ -174,7 +174,7 @@ export default function ProductTeamsPage() {
           <div className="flex justify-center mb-8">
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
               <img 
-                src="/images/solutions/startups/team-flow.svg" 
+                src="/images/solutions/product-teams/team-flow.svg" 
                 alt="Cross-functional team alignment around structured spec" 
                 className="h-48 w-auto mx-auto"
                 loading="lazy"
@@ -220,7 +220,7 @@ export default function ProductTeamsPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/operating-modes.svg" 
+                src="/images/solutions/product-teams/operating-modes.svg" 
                 alt="Copilot vs Autopilot operating modes comparison" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -234,7 +234,7 @@ export default function ProductTeamsPage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/review-gates.svg" 
+                src="/images/solutions/product-teams/review-gates.svg" 
                 alt="Review gates and approval workflow system" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -272,7 +272,7 @@ export default function ProductTeamsPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/quality-gates.svg" 
+                src="/images/solutions/product-teams/quality-gates.svg" 
                 alt="Quality gates dashboard with Build Score metrics" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -286,7 +286,7 @@ export default function ProductTeamsPage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/build-score.svg" 
+                src="/images/solutions/product-teams/build-score.svg" 
                 alt="Build Score calculation and metrics breakdown" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -324,7 +324,7 @@ export default function ProductTeamsPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/feature-flags.svg" 
+                src="/images/solutions/product-teams/feature-flags.svg" 
                 alt="Feature flags system with gradual rollouts and controls" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -338,7 +338,7 @@ export default function ProductTeamsPage() {
           <div className="grid items-center gap-10 md:grid-cols-2">
             <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/audit-logs.svg" 
+                src="/images/solutions/product-teams/audit-logs.svg" 
                 alt="Audit logs and team activity tracking" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -369,7 +369,7 @@ export default function ProductTeamsPage() {
           <div className="flex justify-center mb-8">
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/integrations.svg" 
+                src="/images/solutions/product-teams/integrations.svg" 
                 alt="Enterprise integrations ecosystem" 
                 className="h-32 w-auto mx-auto"
                 loading="lazy"
@@ -412,7 +412,7 @@ export default function ProductTeamsPage() {
             </div>
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/team-starter-kits.svg" 
+                src="/images/solutions/product-teams/team-starter-kits.svg" 
                 alt="Team-ready starter kits with enterprise features" 
                 className="w-full h-auto"
                 loading="lazy"
@@ -427,7 +427,7 @@ export default function ProductTeamsPage() {
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
               <img 
-                src="/images/solutions/startups/pilot-timeline.svg" 
+                src="/images/solutions/product-teams/pilot-timeline.svg" 
                 alt="30-day pilot rollout timeline with weekly milestones" 
                 className="w-full h-auto"
                 loading="lazy"
