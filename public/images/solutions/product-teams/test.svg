@@ -46,136 +46,114 @@
     <g id="workflowStages">
       <!-- SPEC Stage (Top) -->
       <g id="specStage">
-        <circle cx="512" cy="188" r="32" fill="#ddd6fe"/>
-        <circle cx="512" cy="188" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
+        <circle cx="512" cy="187" r="32" fill="#ddd6fe"/>
+        <circle cx="512" cy="187" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Document icon -->
-        <rect x="501" y="177" width="22" height="25" rx="2" fill="none" stroke="#8b5cf6" stroke-width="2"/>
-        <line x1="505" y1="183" x2="515" y2="183" stroke="#8b5cf6" stroke-width="1.5"/>
-        <line x1="505" y1="188" x2="519" y2="188" stroke="#8b5cf6" stroke-width="1.5"/>
-        <line x1="505" y1="193" x2="519" y2="193" stroke="#8b5cf6" stroke-width="1.5"/>
-        <line x1="505" y1="198" x2="513" y2="198" stroke="#8b5cf6" stroke-width="1.5"/>
-        <text x="512" y="213" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8b5cf6">SPEC</text>
+        <rect x="501" y="176" width="22" height="25" rx="2" fill="none" stroke="#8b5cf6" stroke-width="2"/>
+        <line x1="505" y1="182" x2="515" y2="182" stroke="#8b5cf6" stroke-width="1.5"/>
+        <line x1="505" y1="187" x2="519" y2="187" stroke="#8b5cf6" stroke-width="1.5"/>
+        <line x1="505" y1="192" x2="519" y2="192" stroke="#8b5cf6" stroke-width="1.5"/>
+        <line x1="505" y1="197" x2="512" y2="197" stroke="#8b5cf6" stroke-width="1.5"/>
+        <text x="512" y="212" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5cf6">SPEC</text>
       </g>
       
       <!-- CODE Stage (Right) -->
       <g id="codeStage">
-        <circle cx="612" cy="288" r="32" fill="#bfdbfe"/>
-        <circle cx="612" cy="288" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
+        <circle cx="613" cy="288" r="32" fill="#bfdbfe"/>
+        <circle cx="613" cy="288" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Code brackets icon -->
-        <path d="M 605 278 L 598 284 L 605 290" fill="none" stroke="#5b8ff6" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M 619 278 L 626 284 L 619 290" fill="none" stroke="#5b8ff6" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 606 277 L 598 284 L 606 291" fill="none" stroke="#5b8ff6" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M 620 277 L 628 284 L 620 291" fill="none" stroke="#5b8ff6" stroke-width="2.5" stroke-linecap="round"/>
         <circle cx="608" cy="284" r="1.5" fill="#5b8ff6"/>
-        <circle cx="612" cy="284" r="1.5" fill="#5b8ff6"/>
-        <circle cx="616" cy="284" r="1.5" fill="#5b8ff6"/>
-        <text x="612" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#5b8ff6">CODE</text>
+        <circle cx="613" cy="284" r="1.5" fill="#5b8ff6"/>
+        <circle cx="618" cy="284" r="1.5" fill="#5b8ff6"/>
+        <text x="613" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#5b8ff6">CODE</text>
       </g>
       
       <!-- REVIEW Stage (Bottom) -->
       <g id="reviewStage">
-        <circle cx="512" cy="388" r="32" fill="#bae6fd"/>
-        <circle cx="512" cy="388" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
+        <circle cx="512" cy="389" r="32" fill="#bae6fd"/>
+        <circle cx="512" cy="389" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Checklist icon -->
-        <rect x="501" y="376" width="22" height="25" rx="2" fill="none" stroke="#4f8ff6" stroke-width="2"/>
-        <polyline points="505,383 508,386 514,380" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="505,390 508,393 514,387" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="516" y1="383" x2="519" y2="383" stroke="#4f8ff6" stroke-width="1.5"/>
-        <line x1="516" y1="390" x2="519" y2="390" stroke="#4f8ff6" stroke-width="1.5"/>
-        <text x="512" y="413" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4f8ff6">REVIEW</text>
+        <rect x="501" y="377" width="22" height="25" rx="2" fill="none" stroke="#4f8ff6" stroke-width="2"/>
+        <polyline points="505,384 508,387 512,382" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="505,391 508,394 512,389" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="514" y1="384" x2="519" y2="384" stroke="#4f8ff6" stroke-width="1.5"/>
+        <line x1="514" y1="391" x2="519" y2="391" stroke="#4f8ff6" stroke-width="1.5"/>
+        <text x="512" y="414" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4f8ff6">REVIEW</text>
       </g>
       
       <!-- DEPLOY Stage (Left) -->
       <g id="deployStage">
-        <circle cx="412" cy="288" r="32" fill="#c7d2fe"/>
-        <circle cx="412" cy="288" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
+        <circle cx="411" cy="288" r="32" fill="#c7d2fe"/>
+        <circle cx="411" cy="288" r="32" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Rocket icon -->
-        <path d="M 412 278 L 408 292 L 412 290 L 416 292 Z" fill="#4f7ff6" stroke="#4f7ff6" stroke-width="1.5"/>
-        <ellipse cx="412" cy="295" rx="6" ry="3" fill="#ef4444" opacity="0.6"/>
-        <circle cx="412" cy="285" r="2" fill="#ffffff"/>
+        <path d="M 411 277 L 407 291 L 411 289 L 415 291 Z" fill="#4f7ff6" stroke="#4f7ff6" stroke-width="1.5"/>
+        <ellipse cx="411" cy="294" rx="6" ry="3" fill="#ef4444" opacity="0.6"/>
+        <circle cx="411" cy="284" r="2" fill="#ffffff"/>
         <!-- Cloud -->
-        <ellipse cx="418" cy="280" rx="4" ry="2" fill="#e0e7ff" opacity="0.7"/>
-        <ellipse cx="406" cy="280" rx="4" ry="2" fill="#e0e7ff" opacity="0.7"/>
-        <text x="412" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4f7ff6">DEPLOY</text>
+        <ellipse cx="417" cy="279" rx="4" ry="2" fill="#e0e7ff" opacity="0.7"/>
+        <ellipse cx="405" cy="279" rx="4" ry="2" fill="#e0e7ff" opacity="0.7"/>
+        <text x="411" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#4f7ff6">DEPLOY</text>
       </g>
     </g>
     
     <!-- Connecting flow lines with motion blur -->
     <g id="flowLines" opacity="0.6">
-      <path d="M 512 220 Q 562 238 580 288" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
+      <path d="M 512 219 Q 562 238 581 288" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
         <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
       </path>
-      <path d="M 580 288 Q 562 338 512 356" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
+      <path d="M 581 288 Q 562 338 512 357" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
         <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
       </path>
-      <path d="M 512 356 Q 462 338 444 288" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
+      <path d="M 512 357 Q 462 338 443 288" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
         <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
       </path>
-      <path d="M 444 288 Q 462 238 512 220" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
+      <path d="M 443 288 Q 462 238 512 219" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="5,5" filter="url(#motionBlur)">
         <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
       </path>
     </g>
     
     <!-- Approval checkpoints (green checkmarks) -->
     <g id="approvalCheckpoints">
-      <circle cx="547" cy="223" r="8" fill="#10b981"/>
-      <polyline points="543,223 545,225 551,219" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="548" cy="223" r="9" fill="#10b981"/>
+      <polyline points="544,223 546,225 552,220" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       
-      <circle cx="577" cy="323" r="8" fill="#10b981"/>
-      <polyline points="573,323 575,325 581,319" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="586" cy="324" r="9" fill="#10b981"/>
+      <polyline points="582,324 584,326 590,321" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       
-      <circle cx="477" cy="353" r="8" fill="#10b981"/>
-      <polyline points="473,353 475,355 481,349" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="476" cy="353" r="9" fill="#10b981"/>
+      <polyline points="472,353 474,355 480,350" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       
-      <circle cx="447" cy="253" r="8" fill="#10b981"/>
-      <polyline points="443,253 445,255 451,249" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="438" cy="252" r="9" fill="#10b981"/>
+      <polyline points="434,252 436,254 442,249" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
   </g>
   
   <!-- Quality Gates (Shield icons with metrics) -->
   <g id="qualityGates">
-    <g transform="translate(558, 212)">
-      <path d="M 0 0 L 3 -1 L 9 -1 L 12 0 L 12 6 Q 12 10 6 12 Q 0 10 0 6 Z" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1.5"/>
-      <text x="6" y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#f59e0b">92%</text>
+    <g transform="translate(571, 212)">
+      <path d="M 0 0 L 4 -2 L 12 -2 L 16 0 L 16 8 Q 16 14 8 16 Q 0 14 0 8 Z" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="8" y="8" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#f59e0b">92%</text>
     </g>
     
-    <g transform="translate(455, 372)">
-      <path d="M 0 0 L 3 -1 L 9 -1 L 12 0 L 12 6 Q 12 10 6 12 Q 0 10 0 6 Z" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1.5"/>
-      <text x="6" y="6" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#8b5cf6">95%</text>
+    <g transform="translate(437, 371)">
+      <path d="M 0 0 L 4 -2 L 12 -2 L 16 0 L 16 8 Q 16 14 8 16 Q 0 14 0 8 Z" fill="#8b5cf6" opacity="0.2" stroke="#8b5cf6" stroke-width="1.5"/>
+      <text x="8" y="8" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#8b5cf6">95%</text>
     </g>
   </g>
   
-  <!-- Feature Flags (Toggle switches) -->
-  <g id="featureFlags">
-    <g transform="translate(320, 332)">
-      <rect x="0" y="0" width="22" height="10" rx="5" fill="#10b981" opacity="0.3"/>
-      <circle cx="17" cy="5" r="4" fill="#10b981"/>
-      <text x="25" y="7" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">Flag A</text>
-    </g>
-    <g transform="translate(320, 346)">
-      <rect x="0" y="0" width="22" height="10" rx="5" fill="#d1d5db" opacity="0.3"/>
-      <circle cx="5" cy="5" r="4" fill="#9ca3af"/>
-      <text x="25" y="7" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">Flag B</text>
-    </g>
-  </g>
-  
-  <!-- Git Branch Visualization -->
-  <g id="gitBranches" opacity="0.5">
-    <path d="M 504 230 Q 497 245 497 260" fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-dasharray="3,2"/>
-    <path d="M 520 230 Q 527 245 527 260" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>
-    <circle cx="504" cy="230" r="2" fill="#8b5cf6"/>
-    <circle cx="520" cy="230" r="2" fill="#3b82f6"/>
-  </g>
-  
-  <!-- Connection Lines from Team to Workflow -->
-  <g id="connectionLines" opacity="0.5">
-    <path d="M 199 133 Q 320 202 443 220" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
-    <path d="M 825 133 Q 704 202 581 220" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
-    <path d="M 825 443 Q 704 374 581 356" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
-    <path d="M 199 443 Q 320 374 443 356" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
+  <!-- Integration Lines (connecting team members to workflow) -->
+  <g id="integrationLines" opacity="0.3">
+    <path d="M 153 108 Q 330 145 475 219" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
+    <path d="M 871 108 Q 694 145 549 219" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
+    <path d="M 871 443 Q 694 374 549 357" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
+    <path d="M 153 443 Q 330 374 475 357" fill="none" stroke="url(#primaryGradient)" stroke-width="4" stroke-dasharray="8,4"/>
   </g>
   
   <!-- Team Members -->
   <!-- Product Manager (Top Left) -->
-  <g id="productManager" transform="translate(154, 108)">
+  <g id="productManager" transform="translate(153, 108)">
     <circle cx="0" cy="0" r="36" fill="#fef3c7" filter="url(#softShadow)"/>
     <!-- Head -->
     <circle cx="0" cy="-6" r="11" fill="#d97706"/>
@@ -186,16 +164,16 @@
     <rect x="10" y="8" width="7" height="14" rx="4" fill="#d97706"/>
     <!-- Document -->
     <rect x="10" y="14" width="20" height="25" rx="2" fill="#c7d2fe" stroke="#8b5cf6" stroke-width="2"/>
-    <line x1="13" y1="19" x2="27" y2="19" stroke="#8b5cf6" stroke-width="1"/>
-    <line x1="13" y1="24" x2="27" y2="24" stroke="#8b5cf6" stroke-width="1"/>
-    <line x1="13" y1="28" x2="27" y2="28" stroke="#8b5cf6" stroke-width="1"/>
-    <line x1="13" y1="32" x2="23" y2="32" stroke="#8b5cf6" stroke-width="1"/>
+    <line x1="14" y1="19" x2="26" y2="19" stroke="#8b5cf6" stroke-width="1.5"/>
+    <line x1="14" y1="24" x2="26" y2="24" stroke="#8b5cf6" stroke-width="1.5"/>
+    <line x1="14" y1="28" x2="26" y2="28" stroke="#8b5cf6" stroke-width="1.5"/>
+    <line x1="14" y1="32" x2="23" y2="32" stroke="#8b5cf6" stroke-width="1.5"/>
     <!-- Label -->
-    <text x="0" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#3b82f6">Product Manager</text>
+    <text x="0" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#3b82f6">Product Manager</text>
   </g>
   
   <!-- UI/UX Designer (Top Right) -->
-  <g id="uiDesigner" transform="translate(870, 108)">
+  <g id="uiDesigner" transform="translate(871, 108)">
     <circle cx="0" cy="0" r="36" fill="#ddd6fe" filter="url(#softShadow)"/>
     <!-- Head -->
     <circle cx="0" cy="-6" r="11" fill="#a78bfa"/>
@@ -213,11 +191,11 @@
     <rect x="-2" y="29" width="8" height="6" rx="1" fill="#10b981" opacity="0.5"/>
     <circle cx="11" cy="28" r="3" fill="#f59e0b" opacity="0.5"/>
     <!-- Label -->
-    <text x="0" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#3b82f6">UI/UX Designer</text>
+    <text x="0" y="54" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#3b82f6">UI/UX Designer</text>
   </g>
   
   <!-- Frontend Engineer (Bottom Right) -->
-  <g id="frontendEngineer" transform="translate(870, 468)">
+  <g id="frontendEngineer" transform="translate(871, 468)">
     <circle cx="0" cy="0" r="36" fill="#dbeafe" filter="url(#softShadow)"/>
     <!-- Head -->
     <circle cx="0" cy="-6" r="11" fill="#60a5fa"/>
@@ -236,11 +214,11 @@
     <!-- Base -->
     <rect x="-26" y="25" width="52" height="2" rx="1" fill="#374151"/>
     <!-- Label -->
-    <text x="14" y="-43" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#3b82f6">Frontend Engineer</text>
+    <text x="14" y="-43" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#3b82f6">Frontend Engineer</text>
   </g>
   
   <!-- DevOps Specialist (Bottom Left) -->
-  <g id="devopsSpecialist" transform="translate(154, 468)">
+  <g id="devopsSpecialist" transform="translate(153, 468)">
     <circle cx="0" cy="0" r="36" fill="#fecaca" filter="url(#softShadow)"/>
     <!-- Head -->
     <circle cx="0" cy="-6" r="11" fill="#f87171"/>
@@ -252,7 +230,7 @@
     <!-- Dashboard screen -->
     <rect x="-19" y="14" width="38" height="29" rx="2" fill="#0f172a" stroke="#3b82f6" stroke-width="2"/>
     <!-- Dashboard elements -->
-    <rect x="-16" y="18" width="32" height="4" rx="1" fill="#10b981" opacity="0.7"/>
+    <rect x="-16" y="18" width="31" height="4" rx="1" fill="#10b981" opacity="0.7"/>
     <rect x="-16" y="24" width="14" height="3" rx="1" fill="#8b5cf6" opacity="0.7"/>
     <rect x="-16" y="29" width="19" height="3" rx="1" fill="#3b82f6" opacity="0.7"/>
     <rect x="-16" y="34" width="24" height="3" rx="1" fill="#f59e0b" opacity="0.7"/>
@@ -260,28 +238,28 @@
     <circle cx="14" cy="30" r="2" fill="#10b981"/>
     <circle cx="14" cy="35" r="2" fill="#ef4444"/>
     <!-- Label -->
-    <text x="-14" y="-43" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#3b82f6">DevOps Specialist</text>
+    <text x="-14" y="-43" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#3b82f6">DevOps Specialist</text>
   </g>
   
   <!-- Real-time Collaboration Elements -->
   <!-- Shared Cursors -->
   <g id="sharedCursors">
-    <g transform="translate(540, 267)">
-      <path d="M 0 0 L 0 9 L 3 7 L 4 10 L 6 9 L 4 6 L 7 6 Z" fill="#8b5cf6" filter="url(#softShadow)"/>
+    <g transform="translate(528, 258)">
+      <path d="M 0 0 L 0 9 L 3 7 L 4 9 L 6 9 L 4 6 L 7 6 Z" fill="#8b5cf6" filter="url(#softShadow)"/>
       <rect x="9" y="1" width="25" height="9" rx="2" fill="#8b5cf6" opacity="0.9"/>
       <text x="21" y="7" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#ffffff">Sarah</text>
     </g>
     
-    <g transform="translate(584, 296)">
-      <path d="M 0 0 L 0 9 L 3 7 L 4 10 L 6 9 L 4 6 L 7 6 Z" fill="#3b82f6" filter="url(#softShadow)"/>
-      <rect x="9" y="1" width="21" height="9" rx="2" fill="#3b82f6" opacity="0.9"/>
-      <text x="19" y="7" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#ffffff">Alex</text>
+    <g transform="translate(586, 293)">
+      <path d="M 0 0 L 0 9 L 3 7 L 4 9 L 6 9 L 4 6 L 7 6 Z" fill="#3b82f6" filter="url(#softShadow)"/>
+      <rect x="9" y="1" width="22" height="9" rx="2" fill="#3b82f6" opacity="0.9"/>
+      <text x="20" y="7" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#ffffff">Alex</text>
     </g>
   </g>
   
   <!-- Comment Threads -->
   <g id="commentThreads">
-    <g transform="translate(658, 260)">
+    <g transform="translate(642, 259)">
       <rect x="0" y="0" width="43" height="25" rx="3" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5" filter="url(#softShadow)"/>
       <circle cx="6" cy="7" r="3" fill="#8b5cf6"/>
       <rect x="11" y="5" width="25" height="2" rx="1" fill="#e5e7eb"/>
@@ -294,7 +272,7 @@
   
   <!-- Simultaneous Edit Indicators -->
   <g id="editIndicators">
-    <g transform="translate(468, 374)">
+    <g transform="translate(470, 374)">
       <circle cx="0" cy="0" r="4" fill="#10b981" opacity="0.3">
         <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
@@ -302,7 +280,7 @@
       <circle cx="0" cy="0" r="3" fill="#10b981"/>
     </g>
     
-    <g transform="translate(556, 202)">
+    <g transform="translate(554, 202)">
       <circle cx="0" cy="0" r="4" fill="#8b5cf6" opacity="0.3">
         <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
         <animate attributeName="opacity" values="0.3;0;0.3" dur="2s" repeatCount="indefinite"/>
