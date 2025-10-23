@@ -54,19 +54,19 @@ export default function StartupsPage() {
                 <h3 className="text-sm font-semibold text-violet-400 mb-4">PLATFORM CAPABILITIES</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
+                    <span className="text-blue-400">✓︎</span>
                     <span className="text-sm">Team Alignment Tools</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
+                    <span className="text-blue-400">✓︎</span>
                     <span className="text-sm">AI Code Generation</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
+                    <span className="text-blue-400">✓︎</span>
                     <span className="text-sm">Built-in Analytics</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-green-400">✓</span>
+                    <span className="text-blue-400">✓︎</span>
                     <span className="text-sm">Payment Integration</span>
                   </div>
                 </div>
@@ -124,29 +124,29 @@ export default function StartupsPage() {
                 phase: "Validate",
                 description: "Test your idea with real users",
                 tools: ["Idea Validation Framework", "User Interview Templates", "Market Research Tools"],
-                icon: "🎯"
+                icon: "🎯︎"
               },
               {
                 phase: "Build",
                 description: "Create your MVP with AI assistance",
                 tools: ["AI Code Generator", "Component Library", "Testing Suite"],
-                icon: "🏗️"
+                icon: "🏗️︎"
               },
               {
                 phase: "Launch",
                 description: "Deploy and go to market",
                 tools: ["One-Click Deploy", "Marketing Templates", "Analytics Setup"],
-                icon: "🚀"
+                icon: "🚀︎"
               },
               {
                 phase: "Grow",
                 description: "Scale with data-driven insights",
                 tools: ["Growth Experiments", "A/B Testing", "Customer Insights"],
-                icon: "📈"
+                icon: "📈︎"
               }
             ].map((stage, idx) => (
               <div key={idx} className="bg-slate-800 rounded-xl p-6 border border-violet-500/20 hover:border-violet-500/40 transition-all">
-                <div className="text-3xl mb-4">{stage.icon}</div>
+                <div className="text-3xl mb-4 text-blue-400">{stage.icon}</div>
                 <h3 className="text-xl font-bold mb-2">{stage.phase}</h3>
                 <p className="text-slate-300 mb-4 text-sm">{stage.description}</p>
                 <div className="space-y-2">
@@ -171,86 +171,86 @@ export default function StartupsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-              <div className="text-4xl mb-4">👥</div>
+              <div className="text-4xl mb-4 text-blue-400">👥︎</div>
               <h3 className="text-2xl font-bold mb-4">Team Alignment</h3>
               <p className="text-slate-300 mb-6">
                 Keep technical and non-technical founders synchronized with shared dashboards and clear specs.
               </p>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li>✓ Shared project views</li>
-                <li>✓ Role-based access</li>
-                <li>✓ Decision tracking</li>
-                <li>✓ Progress visibility</li>
+                <li>✓︎ Shared project views</li>
+                <li>✓︎ Role-based access</li>
+                <li>✓︎ Decision tracking</li>
+                <li>✓︎ Progress visibility</li>
               </ul>
             </div>
 
             <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-              <div className="text-4xl mb-4">🤖</div>
+              <div className="text-4xl mb-4 text-blue-400">🤖︎</div>
               <h3 className="text-2xl font-bold mb-4">AI-Powered Building</h3>
               <p className="text-slate-300 mb-6">
                 Use AI to accelerate development while maintaining control over your product.
               </p>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li>✓ Code generation</li>
-                <li>✓ Component suggestions</li>
-                <li>✓ Documentation writing</li>
-                <li>✓ Test creation</li>
+                <li>✓︎ Code generation</li>
+                <li>✓︎ Component suggestions</li>
+                <li>✓︎ Documentation writing</li>
+                <li>✓︎ Test creation</li>
               </ul>
             </div>
 
             <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-              <div className="text-4xl mb-4">🌐</div>
+              <div className="text-4xl mb-4 text-blue-400">🌐︎</div>
               <h3 className="text-2xl font-bold mb-4">Ecosystem Benefits</h3>
               <p className="text-slate-300 mb-6">
                 Connect with other startups for partnerships, knowledge sharing, and growth.
               </p>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li>✓ Partner matching</li>
-                <li>✓ Shared components</li>
-                <li>✓ Community support</li>
-                <li>✓ Cross-promotion options</li>
+                <li>✓︎ Partner matching</li>
+                <li>✓︎ Shared components</li>
+                <li>✓︎ Community support</li>
+                <li>✓︎ Cross-promotion options</li>
               </ul>
             </div>
 
             <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-              <div className="text-4xl mb-4">📊</div>
+              <div className="text-4xl mb-4 text-blue-400">📊︎</div>
               <h3 className="text-2xl font-bold mb-4">Built-in Analytics</h3>
               <p className="text-slate-300 mb-6">
                 Understand your users and make data-driven decisions from day one.
               </p>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li>✓ User behavior tracking</li>
-                <li>✓ Conversion funnels</li>
-                <li>✓ Custom dashboards</li>
-                <li>✓ Export capabilities</li>
+                <li>✓︎ User behavior tracking</li>
+                <li>✓︎ Conversion funnels</li>
+                <li>✓︎ Custom dashboards</li>
+                <li>✓︎ Export capabilities</li>
               </ul>
             </div>
 
             <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-              <div className="text-4xl mb-4">💳</div>
+              <div className="text-4xl mb-4 text-blue-400">💳︎</div>
               <h3 className="text-2xl font-bold mb-4">Payment Ready</h3>
               <p className="text-slate-300 mb-6">
                 Start accepting payments immediately with integrated billing solutions.
               </p>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li>✓ Stripe integration</li>
-                <li>✓ Subscription management</li>
-                <li>✓ Usage-based billing</li>
-                <li>✓ Invoice generation</li>
+                <li>✓︎ Stripe integration</li>
+                <li>✓︎ Subscription management</li>
+                <li>✓︎ Usage-based billing</li>
+                <li>✓︎ Invoice generation</li>
               </ul>
             </div>
 
             <div className="bg-slate-800 rounded-xl p-8 border border-slate-700">
-              <div className="text-4xl mb-4">🔧</div>
+              <div className="text-4xl mb-4 text-blue-400">🔧︎</div>
               <h3 className="text-2xl font-bold mb-4">Developer Tools</h3>
               <p className="text-slate-300 mb-6">
                 Professional development environment with everything you need.
               </p>
               <ul className="space-y-2 text-sm text-slate-400">
-                <li>✓ CI/CD pipelines</li>
-                <li>✓ Testing frameworks</li>
-                <li>✓ Version control</li>
-                <li>✓ Deployment automation</li>
+                <li>✓︎ CI/CD pipelines</li>
+                <li>✓︎ Testing frameworks</li>
+                <li>✓︎ Version control</li>
+                <li>✓︎ Deployment automation</li>
               </ul>
             </div>
           </div>
@@ -342,10 +342,10 @@ export default function StartupsPage() {
               </div>
               <p className="text-sm text-slate-400 mb-6">Perfect for validation</p>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>✓ Core tools</li>
-                <li>✓ Community access</li>
-                <li>✓ Basic templates</li>
-                <li>✓ Limited AI usage</li>
+                <li>✓︎ Core tools</li>
+                <li>✓︎ Community access</li>
+                <li>✓︎ Basic templates</li>
+                <li>✓︎ Limited AI usage</li>
               </ul>
               <Link href="/signup" className="block w-full mt-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg text-center font-semibold transition-all">
                 Start Free
@@ -363,10 +363,10 @@ export default function StartupsPage() {
               </div>
               <p className="text-sm text-slate-400 mb-6">For building products</p>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>✓ Everything in Free</li>
-                <li>✓ Unlimited AI usage</li>
-                <li>✓ Priority support</li>
-                <li>✓ Advanced analytics</li>
+                <li>✓︎ Everything in Free</li>
+                <li>✓︎ Unlimited AI usage</li>
+                <li>✓︎ Priority support</li>
+                <li>✓︎ Advanced analytics</li>
               </ul>
               <Link href="/signup" className="block w-full mt-6 py-3 bg-violet-600 hover:bg-violet-500 rounded-lg text-center font-semibold transition-all">
                 Choose Startup
@@ -381,10 +381,10 @@ export default function StartupsPage() {
               </div>
               <p className="text-sm text-slate-400 mb-6">For scaling teams</p>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>✓ Everything in Startup</li>
-                <li>✓ Team features</li>
-                <li>✓ API access</li>
-                <li>✓ Custom integrations</li>
+                <li>✓︎ Everything in Startup</li>
+                <li>✓︎ Team features</li>
+                <li>✓︎ API access</li>
+                <li>✓︎ Custom integrations</li>
               </ul>
               <Link href="/signup" className="block w-full mt-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg text-center font-semibold transition-all">
                 Choose Growth
@@ -398,10 +398,10 @@ export default function StartupsPage() {
               </div>
               <p className="text-sm text-slate-400 mb-6">For large teams</p>
               <ul className="space-y-2 text-sm text-slate-300">
-                <li>✓ Everything in Growth</li>
-                <li>✓ Dedicated support</li>
-                <li>✓ SLA guarantees</li>
-                <li>✓ Custom development</li>
+                <li>✓︎ Everything in Growth</li>
+                <li>✓︎ Dedicated support</li>
+                <li>✓︎ SLA guarantees</li>
+                <li>✓︎ Custom development</li>
               </ul>
               <Link href="/contact" className="block w-full mt-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg text-center font-semibold transition-all">
                 Contact Sales
