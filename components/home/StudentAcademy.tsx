@@ -6,10 +6,10 @@ import Link from 'next/link'
 import { GraduationCap, Award, Briefcase, DollarSign, ChevronRight } from 'lucide-react'
 
 const certificationPath = [
-  { level: 'Foundation', skills: 'HTML/JS', icon: '📜' },
-  { level: 'Builder', skills: 'First Product', icon: '📜' },
-  { level: 'Advanced', skills: 'Scale to Users', icon: '📜' },
-  { level: 'Master', skills: 'Exit Ready', icon: '📜' }
+  { level: 'Foundation', skills: 'HTML/JS', icon: '🎓︎' },
+  { level: 'Builder', skills: 'First Product', icon: '🏆︎' },
+  { level: 'Advanced', skills: 'Scale to Users', icon: '🥇︎' },
+  { level: 'Master', skills: 'Exit Ready', icon: '🏅︎' }
 ]
 
 const universities = ['Stanford', 'MIT', 'Harvard', 'Berkeley', 'CMU']
@@ -35,7 +35,7 @@ export default function StudentAcademy() {
               {certificationPath.map((cert, index) => (
                 <div key={cert.level} className="flex items-center">
                   <div className="text-center">
-                    <div className="text-4xl mb-2">{cert.icon}</div>
+                    <div className="text-4xl mb-2 text-blue-400">{cert.icon}</div>
                     <div className="text-sm font-semibold text-slate-200">{cert.level}</div>
                     <div className="text-xs text-slate-400 mt-1">{cert.skills}</div>
                   </div>
@@ -69,7 +69,7 @@ export default function StudentAcademy() {
                 'Startup Team Matching'
               ].map((benefit) => (
                 <div key={benefit} className="flex items-center gap-3">
-                  <Award className="w-4 h-4 text-yellow-400" />
+                  <span className="text-blue-400 text-lg">✓︎</span>
                   <span className="text-slate-300">{benefit}</span>
                 </div>
               ))}
