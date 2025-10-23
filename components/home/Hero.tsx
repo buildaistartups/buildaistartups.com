@@ -159,7 +159,7 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="text-2xl mb-2">🚀</div>
+                  <div className="text-3xl mb-2 text-blue-400">🚀︎</div>
                   <div className="text-sm font-semibold text-slate-200">Rapid Launch</div>
                   <div className="text-xs text-slate-400">From idea to live product</div>
                 </div>
@@ -181,7 +181,7 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="text-2xl mb-2">🤝</div>
+                  <div className="text-3xl mb-2 text-blue-400">🤝︎</div>
                   <div className="text-sm font-semibold text-slate-200">Complete Ecosystem</div>
                   <div className="text-xs text-slate-400">Everything you need to succeed</div>
                 </div>
@@ -203,7 +203,7 @@ export default function Hero() {
                   aria-hidden="true"
                 />
                 <div className="relative">
-                  <div className="text-2xl mb-2">💡</div>
+                  <div className="text-3xl mb-2 text-blue-400">💡︎</div>
                   <div className="text-sm font-semibold text-slate-200">AI-Powered</div>
                   <div className="text-xs text-slate-400">Smart tools at every step</div>
                 </div>
