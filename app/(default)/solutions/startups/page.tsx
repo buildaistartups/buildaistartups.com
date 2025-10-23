@@ -1,4 +1,4 @@
- import type { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
 
@@ -93,15 +93,13 @@ export default function StartupsPage() {
             </div>
 
             <div className="relative">
-              <div className="aspect-square relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-blue-600/20 rounded-3xl animate-pulse" />
-                <div className="relative z-10 p-8">
-                  <img 
-                    src="/images/solutions/startups/hero.svg" 
-                    alt="Startup Ecosystem Platform"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                <img 
+                  src="/images/solutions/startups/hero.svg" 
+                  alt="Startup Ecosystem Platform"
+                  className="w-full h-full object-contain"
+                  loading="eager"
+                />
               </div>
             </div>
           </div>
