@@ -93,13 +93,15 @@ export default function StartupsPage() {
             </div>
 
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
-                <img 
-                  src="/images/solutions/startups/hero.svg" 
-                  alt="Startup Ecosystem Platform"
-                  className="w-full h-full object-contain"
-                  loading="eager"
-                />
+              <div className="aspect-square relative">
+                <div className="w-full h-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+                  <img 
+                    src="/images/solutions/startups/hero.svg" 
+                    alt="Startup Ecosystem Platform"
+                    className="w-full h-full object-contain"
+                    loading="eager"
+                  />
+                </div>
               </div>
             </div>
           </div>
