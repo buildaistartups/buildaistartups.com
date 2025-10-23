@@ -46,21 +46,21 @@ export default function ClosingPromise() {
             {/* Value props */}
             <div className="grid md:grid-cols-3 gap-8 mb-10">
               <div className="text-center">
-                <div className="text-4xl mb-4">🚀</div>
+                <div className="text-4xl mb-4 text-blue-400">🚀︎</div>
                 <h4 className="text-lg md:text-xl font-bold text-purple-400 mb-2">Launch Fast</h4>
                 <p className="text-sm text-slate-400">
                   Go from idea to live product faster than ever before possible
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl mb-4">📈</div>
+                <div className="text-4xl mb-4 text-blue-400">📈︎</div>
                 <h4 className="text-lg md:text-xl font-bold text-green-400 mb-2">Scale Smart</h4>
                 <p className="text-sm text-slate-400">
                   Built-in tools to grow from zero to revenue efficiently
                 </p>
               </div>
               <div className="text-center">
-                <div className="text-4xl mb-4">🌍</div>
+                <div className="text-4xl mb-4 text-blue-400">🌍︎</div>
                 <h4 className="text-lg md:text-xl font-bold text-blue-400 mb-2">Impact Global</h4>
                 <p className="text-sm text-slate-400">
                   Join a community building the future of AI
