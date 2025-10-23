@@ -130,7 +130,7 @@ export default function StartupsPage() {
                 phase: "Build",
                 description: "Create your MVP with AI assistance",
                 tools: ["AI Code Generator", "Component Library", "Testing Suite"],
-                icon: "🏗️︎"
+                icon: "🔨︎"
               },
               {
                 phase: "Launch",
