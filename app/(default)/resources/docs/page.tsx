@@ -1,4 +1,3 @@
-// app/(default)/resources/docs/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
@@ -157,13 +156,13 @@ export default function DocsHomePage() {
           {/* On-page nav */}
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { href: '#quickstart', t: 'Quick Start', d: 'First build in minutes', icon: '🚀' },
-              { href: '#concepts', t: 'Core Concepts', d: 'Spec DSL, Build Score, modes', icon: '🧠' },
-              { href: '#api', t: 'API Reference', d: 'Endpoints and auth', icon: '⚡' },
-              { href: '#webhooks', t: 'Webhooks', d: 'Events and signatures', icon: '🔗' },
+              { href: '#quickstart', t: 'Quick Start', d: 'First build in minutes', icon: '⚡︎' },
+              { href: '#concepts', t: 'Core Concepts', d: 'Spec DSL, Build Score, modes', icon: '◉︎' },
+              { href: '#api', t: 'API Reference', d: 'Endpoints and auth', icon: '⚙︎' },
+              { href: '#webhooks', t: 'Webhooks', d: 'Events and signatures', icon: '⧈︎' },
             ].map((x) => (
               <a key={x.href} href={x.href} className="group rounded-xl border border-white/10 bg-slate-900/40 p-4 hover:bg-white/5 hover:border-violet-500/30 transition-all">
-                <div className="text-2xl mb-2">{x.icon}</div>
+                <div className="text-2xl mb-2 text-blue-400">{x.icon}</div>
                 <div className="text-base font-medium group-hover:text-violet-300 transition-colors">{x.t}</div>
                 <div className="text-sm text-slate-400">{x.d}</div>
               </a>
@@ -261,7 +260,7 @@ class BAS {
 
           <div className="mt-6 rounded-xl border border-violet-500/30 bg-violet-500/10 p-4">
             <div className="flex items-start gap-3">
-              <div className="text-violet-400 text-xl">💡</div>
+              <div className="text-blue-400 text-xl">◆︎</div>
               <div>
                 <div className="font-medium text-violet-300">Environment Setup</div>
                 <div className="text-sm text-slate-300 mt-1">
@@ -287,22 +286,22 @@ class BAS {
                 {
                   t: 'Spec DSL',
                   d: 'A structured PRD that defines scope, ICP, UX outline, data model, pricing, and integrations. Keeps PM/Design/Eng aligned.',
-                  icon: '📋'
+                  icon: '▣︎'
                 },
                 {
                   t: 'Build Loop',
                   d: 'Intent → Spec → Repo → UI/Copy → Docs → Pricing → Deploy → Experiments → Learn. Continuous improvement by signals.',
-                  icon: '🔄'
+                  icon: '↻︎'
                 },
                 {
                   t: 'Build Score',
                   d: 'A composite score from gates (lint/types, tests, security, performance, licenses). Threshold controls Autopilot shipping.',
-                  icon: '📊'
+                  icon: '▤︎'
                 },
               ].map((c) => (
                 <div key={c.t} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
                   <div className="flex items-start gap-3">
-                    <div className="text-2xl">{c.icon}</div>
+                    <div className="text-2xl text-blue-400">{c.icon}</div>
                     <div>
                       <div className="text-base font-medium">{c.t}</div>
                       <p className="mt-1 text-sm text-slate-400">{c.d}</p>
@@ -316,22 +315,22 @@ class BAS {
                 {
                   t: 'Modes',
                   d: 'Copilot pauses at gates for approvals. Autopilot ships automatically when all gates pass and score meets threshold.',
-                  icon: '🎯'
+                  icon: '◎︎'
                 },
                 {
                   t: 'Quality Gates',
                   d: 'Static analysis, unit/smoke tests, dependency & license checks, Lighthouse budgets, security scans.',
-                  icon: '🛡️'
+                  icon: '⬟︎'
                 },
                 {
                   t: 'Starter Kits',
                   d: 'SaaS, API, and Content templates with routes, components, docs, analytics, and pricing wiring.',
-                  icon: '🚀'
+                  icon: '▲︎'
                 },
               ].map((c) => (
                 <div key={c.t} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
                   <div className="flex items-start gap-3">
-                    <div className="text-2xl">{c.icon}</div>
+                    <div className="text-2xl text-blue-400">{c.icon}</div>
                     <div>
                       <div className="text-base font-medium">{c.t}</div>
                       <p className="mt-1 text-sm text-slate-400">{c.d}</p>
@@ -429,13 +428,13 @@ curl -H "Authorization: Bearer $BAS_API_KEY" \\
           <div className="grid gap-6 lg:grid-cols-2 mb-8">
             <div className="space-y-4">
               {[
-                { t: 'Build lifecycle', e: ['build.started', 'build.completed', 'build.failed'], icon: '🔨' },
-                { t: 'Experiments', e: ['experiment.started', 'experiment.won'], icon: '🧪' },
-                { t: 'Marketplace', e: ['marketplace.listed', 'marketplace.offer', 'marketplace.transferred'], icon: '🏪' },
+                { t: 'Build lifecycle', e: ['build.started', 'build.completed', 'build.failed'], icon: '⚒︎' },
+                { t: 'Experiments', e: ['experiment.started', 'experiment.won'], icon: '◈︎' },
+                { t: 'Marketplace', e: ['marketplace.listed', 'marketplace.offer', 'marketplace.transferred'], icon: '⬢︎' },
               ].map((x, i) => (
                 <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4 hover:border-violet-500/30 transition-colors">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xl">{x.icon}</span>
+                    <span className="text-xl text-blue-400">{x.icon}</span>
                     <div className="text-base font-medium">{x.t}</div>
                   </div>
                   <div className="text-xs text-slate-400">{x.e.join(' · ')}</div>
@@ -504,7 +503,7 @@ export function verifySignature(
 
           <div className="mt-6 rounded-xl border border-orange-500/30 bg-orange-500/10 p-4">
             <div className="flex items-start gap-3">
-              <div className="text-orange-400 text-xl">⚠️</div>
+              <div className="text-blue-400 text-xl">⚠︎</div>
               <div>
                 <div className="font-medium text-orange-300">Replay Protection</div>
                 <div className="text-sm text-slate-300 mt-1">
@@ -525,7 +524,7 @@ export function verifySignature(
           <div className="grid gap-6 lg:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="text-2xl">📦</div>
+                <div className="text-2xl text-blue-400">▣︎</div>
                 <div>
                   <div className="text-lg font-semibold">JavaScript/TypeScript</div>
                   <div className="text-sm text-slate-400">Coming soon</div>
@@ -546,7 +545,7 @@ console.log('Build started:', id)`}
             </div>
             <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="text-2xl">⚡</div>
+                <div className="text-2xl text-blue-400">⚡︎</div>
                 <div>
                   <div className="text-lg font-semibold">CLI</div>
                   <div className="text-sm text-slate-400">Coming soon</div>
@@ -573,7 +572,7 @@ npx bas status --id BUILDX`}
             <div className="space-y-6">
               <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="text-xl">🔐</div>
+                  <div className="text-xl text-blue-400">🔒︎</div>
                   <div className="text-base font-medium">Authentication & secrets</div>
                 </div>
                 <ul className="space-y-2 text-sm text-slate-400">
@@ -593,7 +592,7 @@ npx bas status --id BUILDX`}
               </div>
               <div className="rounded-xl border border-white/10 bg-slate-900/40 p-5">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="text-xl">🛡️</div>
+                  <div className="text-xl text-blue-400">⬟︎</div>
                   <div className="text-base font-medium">Quality gates</div>
                 </div>
                 <ul className="space-y-2 text-sm text-slate-400">
@@ -624,7 +623,7 @@ npx bas status --id BUILDX`}
 
           <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-4">
             <div className="flex items-start gap-3">
-              <div className="text-blue-400 text-xl">📋</div>
+              <div className="text-blue-400 text-xl">▣︎</div>
               <div>
                 <div className="font-medium text-blue-300">Enterprise Requirements</div>
                 <div className="text-sm text-slate-300 mt-1">
@@ -682,13 +681,13 @@ npx bas status --id BUILDX`}
           <h2 className="text-2xl font-semibold mb-6">Resources</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { href: '/product/builder', t: 'Builder', d: 'Spec → repo → UI → pricing → deploy', icon: '🏗️' },
-              { href: '/product/ecosystem', t: 'Ecosystem', d: 'Cross-promotions & shared growth', icon: '🌐' },
-              { href: '/product/marketplace', t: 'Marketplace', d: 'List, license, or transfer', icon: '🏪' },
-              { href: '/product/api', t: 'API', d: 'Automation & webhooks', icon: '⚡' },
+              { href: '/product/builder', t: 'Builder', d: 'Spec → repo → UI → pricing → deploy', icon: '⚒︎' },
+              { href: '/product/ecosystem', t: 'Ecosystem', d: 'Cross-promotions & shared growth', icon: '◉︎' },
+              { href: '/product/marketplace', t: 'Marketplace', d: 'List, license, or transfer', icon: '⬢︎' },
+              { href: '/product/api', t: 'API', d: 'Automation & webhooks', icon: '⚡︎' },
             ].map((x) => (
               <Link key={x.href} href={x.href} className="group rounded-xl border border-white/10 bg-slate-900/40 p-4 hover:bg-white/5 hover:border-violet-500/30 transition-all">
-                <div className="text-2xl mb-2">{x.icon}</div>
+                <div className="text-2xl mb-2 text-blue-400">{x.icon}</div>
                 <div className="text-base font-medium group-hover:text-violet-300 transition-colors">{x.t}</div>
                 <div className="text-sm text-slate-400">{x.d}</div>
               </Link>
@@ -709,27 +708,27 @@ npx bas status --id BUILDX`}
               {
                 q: 'Do I need the API?',
                 a: 'No. It\'s optional for automation and integrations.',
-                icon: '❓'
+                icon: '◐︎'
               },
               {
                 q: 'Who owns the code and revenue?',
                 a: 'You do. Your GitHub, your infra, your Stripe.',
-                icon: '👤'
+                icon: '◯︎'
               },
               {
                 q: 'How are builds validated?',
                 a: 'Through gates and a Build Score. Failures pause Autopilot.',
-                icon: '✅'
+                icon: '✓︎'
               },
               {
                 q: 'What are the rate limits?',
                 a: '60 req/min per key by default. Contact us for higher tiers.',
-                icon: '⏱️'
+                icon: '◷︎'
               },
             ].map((faq, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
                 <div className="flex items-start gap-3">
-                  <div className="text-xl">{faq.icon}</div>
+                  <div className="text-xl text-blue-400">{faq.icon}</div>
                   <div>
                     <h3 className="text-base font-medium text-slate-200">{faq.q}</h3>
                     <p className="mt-1 text-sm text-slate-300">{faq.a}</p>
