@@ -97,7 +97,7 @@ export default function StartupsPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-600/20 to-blue-600/20 rounded-3xl animate-pulse" />
                 <div className="relative z-10 p-8">
                   <img 
-                    src="/images/ecosystem-startups.svg" 
+                    src="/images/solutions/startups/hero.svg" 
                     alt="Startup Ecosystem Platform"
                     className="w-full h-full object-contain"
                   />
