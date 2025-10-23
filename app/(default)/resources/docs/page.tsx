@@ -503,7 +503,7 @@ export function verifySignature(
 
           <div className="mt-6 rounded-xl border border-orange-500/30 bg-orange-500/10 p-4">
             <div className="flex items-start gap-3">
-              <div className="text-blue-400 text-xl">⚠︎</div>
+              <div className="text-orange-400 text-xl">⚠︎</div>
               <div>
                 <div className="font-medium text-orange-300">Replay Protection</div>
                 <div className="text-sm text-slate-300 mt-1">
