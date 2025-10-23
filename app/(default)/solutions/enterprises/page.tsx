@@ -186,7 +186,7 @@ export default function EnterprisesPage() {
             <div className="space-y-6">
               <div className="bg-slate-800 rounded-xl p-6 border border-blue-500/20">
                 <div className="flex items-start gap-4">
-                  <div className="text-2xl text-blue-400">☁️︎</div>
+                  <div className="text-2xl text-blue-400">☁︎</div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Deployment Options</h3>
                     <p className="text-slate-300 text-sm">
