@@ -1,4 +1,3 @@
-// app/(default)/resources/templates/page.tsx
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Script from 'next/script'
@@ -62,7 +61,7 @@ const templates = [
     score: 92,
     route: '/generate?template=saas-starter',
     category: 'SaaS',
-    icon: '🏢',
+    icon: '⬢︎',
     featured: true,
   },
   {
@@ -75,7 +74,7 @@ const templates = [
     score: 89,
     route: '/generate?template=api-starter',
     category: 'API',
-    icon: '⚡',
+    icon: '⚡︎',
     featured: true,
   },
   {
@@ -88,7 +87,7 @@ const templates = [
     score: 87,
     route: '/generate?template=content-docs',
     category: 'Content',
-    icon: '📚',
+    icon: '▤︎',
     featured: true,
   },
   {
@@ -101,7 +100,7 @@ const templates = [
     score: 85,
     route: '/generate?template=growth-microsite',
     category: 'Growth',
-    icon: '📈',
+    icon: '▲︎',
   },
   {
     slug: 'ai-assistant-widget',
@@ -113,7 +112,7 @@ const templates = [
     score: 86,
     route: '/generate?template=ai-assistant-widget',
     category: 'AI',
-    icon: '🤖',
+    icon: '◉︎',
   },
   {
     slug: 'stripe-subscriptions',
@@ -125,7 +124,7 @@ const templates = [
     score: 88,
     route: '/generate?template=stripe-subscriptions',
     category: 'SaaS',
-    icon: '💳',
+    icon: '▣︎',
   },
   {
     slug: 'support-inbox-ai',
@@ -137,7 +136,7 @@ const templates = [
     score: 84,
     route: '/generate?template=support-inbox-ai',
     category: 'SaaS',
-    icon: '📧',
+    icon: '◈︎',
   },
   {
     slug: 'programmatic-seo-blog',
@@ -149,7 +148,7 @@ const templates = [
     score: 83,
     route: '/generate?template=programmatic-seo-blog',
     category: 'Content',
-    icon: '🔍',
+    icon: '◐︎',
   },
   {
     slug: 'customer-portal',
@@ -161,7 +160,7 @@ const templates = [
     score: 82,
     route: '/generate?template=customer-portal',
     category: 'SaaS',
-    icon: '👥',
+    icon: '◯︎',
   },
   {
     slug: 'data-reporting-kit',
@@ -173,7 +172,7 @@ const templates = [
     score: 81,
     route: '/generate?template=data-reporting-kit',
     category: 'Analytics',
-    icon: '📊',
+    icon: '▤︎',
   },
 ]
 
@@ -253,10 +252,10 @@ export default function TemplatesPage() {
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a href="#catalog" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400 transition-colors">
-                  📋 Browse templates
+                  <span className="text-blue-400 mr-2">▣︎</span> Browse templates
                 </a>
                 <Link href="/generate" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors">
-                  🚀 Use a template
+                  <span className="text-blue-400 mr-2">⚡︎</span> Use a template
                 </Link>
               </div>
               <p className="mt-3 text-sm text-slate-400">SaaS · API · Content/Docs · Growth · AI components</p>
@@ -346,7 +345,7 @@ export default function TemplatesPage() {
                 </div>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-lg">{t.icon}</span>
+                    <span className="text-lg text-blue-400">{t.icon}</span>
                     <div className="text-base font-semibold group-hover:text-violet-300 transition-colors">{t.name}</div>
                   </div>
                   <div className="flex items-center gap-1">
@@ -396,7 +395,7 @@ export default function TemplatesPage() {
                 </div>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-lg">{t.icon}</span>
+                    <span className="text-lg text-blue-400">{t.icon}</span>
                     <div className="text-base font-semibold group-hover:text-violet-300 transition-colors">{t.name}</div>
                   </div>
                   <div className="flex items-center gap-1">
@@ -449,19 +448,19 @@ export default function TemplatesPage() {
                     step: 1,
                     title: 'Select a template',
                     desc: 'Choose from production-ready starters with pre-configured best practices',
-                    icon: '📋'
+                    icon: '▣︎'
                   },
                   {
                     step: 2,
                     title: 'Customize the Spec',
                     desc: 'Edit ICP, features, data model, pricing, and integrations to fit your needs',
-                    icon: '⚙️'
+                    icon: '⚙︎'
                   },
                   {
                     step: 3,
                     title: 'Build & Deploy',
                     desc: 'Run the loop: repo → UI/copy → docs → pricing → deploy → experiments',
-                    icon: '🚀'
+                    icon: '⚡︎'
                   },
                 ].map((item) => (
                   <div key={item.step} className="flex gap-4 p-4 rounded-xl border border-white/10 bg-slate-950/40 hover:border-violet-500/30 transition-colors">
@@ -470,7 +469,7 @@ export default function TemplatesPage() {
                     </div>
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <span className="text-lg">{item.icon}</span>
+                        <span className="text-lg text-blue-400">{item.icon}</span>
                         <div className="font-medium text-slate-200">{item.title}</div>
                       </div>
                       <div className="text-sm text-slate-400">{item.desc}</div>
@@ -499,10 +498,10 @@ export default function TemplatesPage() {
 
               <div className="mt-6 flex gap-3">
                 <Link href="/product/builder" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-5 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors">
-                  🏗️ See the Builder
+                  <span className="text-blue-400 mr-2">⚒︎</span> See the Builder
                 </Link>
                 <Link href="/generate" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-5 py-3 font-medium text-white hover:bg-violet-400 transition-colors">
-                  🚀 Start with a template
+                  <span className="text-blue-400 mr-2">⚡︎</span> Start with a template
                 </Link>
               </div>
             </div>
@@ -510,7 +509,7 @@ export default function TemplatesPage() {
             {/* Spec DSL snippet */}
             <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-6">
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">📝</span>
+                <span className="text-xl text-blue-400">▣︎</span>
                 <div className="text-sm font-medium text-slate-200">Spec DSL (excerpt)</div>
               </div>
               <pre className="overflow-auto rounded-lg border border-white/10 bg-slate-950/60 p-4 text-xs text-slate-300 mb-4">
@@ -576,7 +575,7 @@ export default function TemplatesPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-white/10 bg-slate-900/40 p-6">
               <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">🏆</span>
+                <span className="text-xl text-blue-400">◎︎</span>
                 <div className="text-base font-medium">Quality gates</div>
               </div>
               <div className="space-y-3">
@@ -621,7 +620,7 @@ export default function TemplatesPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-5">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-green-400 text-xl">📄</span>
+                <span className="text-blue-400 text-xl">▣︎</span>
                 <div className="text-base font-medium text-green-300">License</div>
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -631,7 +630,7 @@ export default function TemplatesPage() {
             </div>
             <div className="rounded-xl border border-blue-500/30 bg-blue-500/10 p-5">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-blue-400 text-xl">🔄</span>
+                <span className="text-blue-400 text-xl">↻︎</span>
                 <div className="text-base font-medium text-blue-300">Versioning</div>
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
@@ -649,27 +648,27 @@ export default function TemplatesPage() {
               {
                 q: 'Can I mix templates?',
                 a: 'Yes. Start with one, then add modules from another (e.g., add API Starter to SaaS).',
-                icon: '🔄'
+                icon: '↻︎'
               },
               {
                 q: 'Do templates lock me in?',
                 a: 'No. You own the repo and infra; templates are just scaffolds to accelerate shipping.',
-                icon: '🔓'
+                icon: '◯︎'
               },
               {
                 q: 'Are there example datasets or fixtures?',
                 a: 'Yes. Starters include seed data and fixtures for tests and preview deployments.',
-                icon: '📊'
+                icon: '▤︎'
               },
               {
                 q: 'How do I contribute a template?',
                 a: 'We publish a spec and review checklist. Start at the roadmap or contact us.',
-                icon: '🤝'
+                icon: '◈︎'
               },
             ].map((faq, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-5 hover:border-violet-500/30 transition-colors">
                 <div className="flex items-start gap-3">
-                  <div className="text-xl">{faq.icon}</div>
+                  <div className="text-xl text-blue-400">{faq.icon}</div>
                   <div>
                     <h3 className="text-base font-medium text-slate-200 mb-2">{faq.q}</h3>
                     <p className="text-sm text-slate-300 leading-relaxed">{faq.a}</p>
@@ -689,10 +688,10 @@ export default function TemplatesPage() {
             </p>
             <div className="mt-6 flex items-center justify-center gap-3">
               <Link href="/generate" className="inline-flex items-center justify-center rounded-lg bg-violet-500 px-6 py-3 font-medium text-white hover:bg-violet-400 transition-colors">
-                🚀 Use a template
+                <span className="text-blue-400 mr-2">⚡︎</span> Use a template
               </Link>
               <Link href="/product/builder" className="inline-flex items-center justify-center rounded-lg border border-white/10 px-6 py-3 font-medium text-slate-200 hover:bg-white/5 transition-colors">
-                🏗️ How the Builder works
+                <span className="text-blue-400 mr-2">⚒︎</span> How the Builder works
               </Link>
             </div>
           </div>
