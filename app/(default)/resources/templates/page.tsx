@@ -620,7 +620,7 @@ export default function TemplatesPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-5">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-blue-400 text-xl">▣︎</span>
+                <span className="text-green-400 text-xl">▣︎</span>
                 <div className="text-base font-medium text-green-300">License</div>
               </div>
               <p className="text-sm text-slate-300 leading-relaxed">
