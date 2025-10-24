@@ -59,14 +59,6 @@
         </marker>
     </defs>
     
-    <!-- Background -->
-    <rect width="800" height="500" fill="url(#backgroundGradient)"/>
-    
-    <!-- Decorative background elements -->
-    <circle cx="700" cy="100" r="60" fill="#7C3AED" opacity="0.03"/>
-    <circle cx="150" cy="400" r="80" fill="#06B6D4" opacity="0.03"/>
-    <circle cx="650" cy="350" r="40" fill="#3B82F6" opacity="0.03"/>
-    
     <!-- Enhanced Title -->
     <text x="400" y="50" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="700" fill="#5B21B6" text-anchor="middle" filter="url(#textShadow)">
         4-Week Pilot Progression
