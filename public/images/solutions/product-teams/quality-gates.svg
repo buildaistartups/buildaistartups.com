@@ -1,282 +1,597 @@
-import React from 'react';
+<svg
+  width="600"
+  height="400"
+  viewBox="0 0 600 400"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="gradient-0" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="gradient-1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="gradient-2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="gradient-3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="gradient-4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
 
-export default function QualityDashboard() {
-  const metrics = [
-    { name: 'Tests', score: 98, status: 'passed', threshold: 90 },
-    { name: 'Lint', score: 95, status: 'passed', threshold: 85 },
-    { name: 'Security', score: 100, status: 'passed', threshold: 95 },
-    { name: 'Performance', score: 88, status: 'passed', threshold: 80 },
-    { name: 'Licenses', score: 100, status: 'passed', threshold: 100 }
-  ];
+  <!-- Background card -->
+  <rect
+    x="20"
+    y="20"
+    width="560"
+    height="360"
+    rx="16"
+    fill="#1e1b4b"
+    opacity="0.95"
+  />
 
-  const overallScore = Math.round(
-    metrics.reduce((sum, m) => sum + m.score, 0) / metrics.length
-  );
+  <!-- Header -->
+  <text
+    x="40"
+    y="55"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="24"
+    font-weight="700"
+    fill="#e0e7ff"
+  >
+    Quality Gates Dashboard
+  </text>
 
-  const getScoreColor = (score) => {
-    if (score >= 95) return '#8b5cf6';
-    if (score >= 85) return '#3b82f6';
-    if (score >= 70) return '#fbbf24';
-    return '#ef4444';
-  };
+  <!-- Overall Build Score Circle -->
+  <g transform="translate(470, 100)">
+    <!-- Outer circle background -->
+    <circle cx="0" cy="0" r="55" fill="#312e81" opacity="0.5" />
+    
+    <!-- Progress circle background -->
+    <circle
+      cx="0"
+      cy="0"
+      r="45"
+      fill="none"
+      stroke="#312e81"
+      stroke-width="8"
+    />
+    
+    <!-- Progress circle -->
+    <circle
+      cx="0"
+      cy="0"
+      r="45"
+      fill="none"
+      stroke="url(#scoreGradient)"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-dasharray="271.62 283"
+      transform="rotate(-90)"
+      filter="url(#glow)"
+    />
+    
+    <!-- Score text -->
+    <text
+      x="0"
+      y="-5"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="32"
+      font-weight="700"
+      fill="#e0e7ff"
+    >
+      96
+    </text>
+    <text
+      x="0"
+      y="15"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="11"
+      fill="#a5b4fc"
+    >
+      BUILD SCORE
+    </text>
+  </g>
 
-  const getGradientId = (index) => `gradient-${index}`;
+  <!-- Status badge -->
+  <g transform="translate(450, 195)">
+    <rect x="0" y="0" width="80" height="24" rx="12" fill="#10b981" opacity="0.2" />
+    <text
+      x="40"
+      y="16"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="11"
+      font-weight="600"
+      fill="#10b981"
+    >
+      ✓ PASSED
+    </text>
+  </g>
 
-  return (
-    <div className="w-full h-full flex items-center justify-center p-4 bg-transparent">
-      <svg
-        width="600"
-        height="400"
-        viewBox="0 0 600 400"
-        xmlns="http://www.w3.org/2000/svg"
-        className="bg-transparent"
-      >
-        <defs>
-          {metrics.map((_, index) => (
-            <linearGradient
-              key={index}
-              id={getGradientId(index)}
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="0%"
-            >
-              <stop offset="0%" stopColor="#8b5cf6" />
-              <stop offset="100%" stopColor="#3b82f6" />
-            </linearGradient>
-          ))}
-          <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#3b82f6" />
-          </linearGradient>
-          
-          {/* Glow filter */}
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
+  <!-- Metrics section -->
+  <text
+    x="40"
+    y="105"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="14"
+    font-weight="600"
+    fill="#a5b4fc"
+  >
+    Quality Metrics
+  </text>
 
-        {/* Background card */}
-        <rect
-          x="20"
-          y="20"
-          width="560"
-          height="360"
-          rx="16"
-          fill="#1e1b4b"
-          opacity="0.95"
-        />
+  <!-- Metric 1: Tests (98%) -->
+  <g>
+    <text
+      x="40"
+      y="130"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="13"
+      font-weight="600"
+      fill="#e0e7ff"
+    >
+      Tests
+    </text>
+    
+    <!-- Check mark -->
+    <circle cx="131" cy="125" r="8" fill="#10b981" opacity="0.2" />
+    <text
+      x="131"
+      y="130"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="11"
+      font-weight="700"
+      fill="#10b981"
+    >
+      ✓
+    </text>
 
-        {/* Header */}
-        <text
-          x="40"
-          y="55"
-          fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="24"
-          fontWeight="700"
-          fill="#e0e7ff"
-        >
-          Quality Gates Dashboard
-        </text>
+    <!-- Score percentage -->
+    <text
+      x="390"
+      y="143"
+      text-anchor="end"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="18"
+      font-weight="700"
+      fill="#8b5cf6"
+    >
+      98%
+    </text>
 
-        {/* Overall Build Score Circle */}
-        <g transform="translate(470, 100)">
-          {/* Outer circle background */}
-          <circle cx="0" cy="0" r="55" fill="#312e81" opacity="0.5" />
-          
-          {/* Progress circle background */}
-          <circle
-            cx="0"
-            cy="0"
-            r="45"
-            fill="none"
-            stroke="#312e81"
-            strokeWidth="8"
-          />
-          
-          {/* Progress circle */}
-          <circle
-            cx="0"
-            cy="0"
-            r="45"
-            fill="none"
-            stroke="url(#scoreGradient)"
-            strokeWidth="8"
-            strokeLinecap="round"
-            strokeDasharray={`${(overallScore / 100) * 283} 283`}
-            transform="rotate(-90)"
-            filter="url(#glow)"
-          />
-          
-          {/* Score text */}
-          <text
-            x="0"
-            y="-5"
-            textAnchor="middle"
-            fontFamily="system-ui, -apple-system, sans-serif"
-            fontSize="32"
-            fontWeight="700"
-            fill="#e0e7ff"
-          >
-            {overallScore}
-          </text>
-          <text
-            x="0"
-            y="15"
-            textAnchor="middle"
-            fontFamily="system-ui, -apple-system, sans-serif"
-            fontSize="11"
-            fill="#a5b4fc"
-          >
-            BUILD SCORE
-          </text>
-        </g>
+    <!-- Progress bar background -->
+    <rect
+      x="40"
+      y="138"
+      width="280"
+      height="8"
+      rx="4"
+      fill="#312e81"
+      opacity="0.5"
+    />
 
-        {/* Status badge */}
-        <g transform="translate(450, 195)">
-          <rect x="0" y="0" width="80" height="24" rx="12" fill="#10b981" opacity="0.2" />
-          <text
-            x="40"
-            y="16"
-            textAnchor="middle"
-            fontFamily="system-ui, -apple-system, sans-serif"
-            fontSize="11"
-            fontWeight="600"
-            fill="#10b981"
-          >
-            ✓ PASSED
-          </text>
-        </g>
+    <!-- Progress bar fill -->
+    <rect
+      x="40"
+      y="138"
+      width="274.4"
+      height="8"
+      rx="4"
+      fill="url(#gradient-0)"
+    />
 
-        {/* Metrics section */}
-        <text
-          x="40"
-          y="105"
-          fontFamily="system-ui, -apple-system, sans-serif"
-          fontSize="14"
-          fontWeight="600"
-          fill="#a5b4fc"
-        >
-          Quality Metrics
-        </text>
+    <!-- Threshold indicator -->
+    <line
+      x1="292"
+      y1="135"
+      x2="292"
+      y2="149"
+      stroke="#fbbf24"
+      stroke-width="2"
+      stroke-dasharray="2,2"
+      opacity="0.6"
+    />
 
-        {/* Individual metrics */}
-        {metrics.map((metric, index) => {
-          const y = 130 + index * 45;
-          const barWidth = 280;
-          const progressWidth = (metric.score / 100) * barWidth;
-          const thresholdPosition = (metric.threshold / 100) * barWidth;
+    <!-- Threshold label -->
+    <text
+      x="292"
+      y="158"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="12"
+      fill="#fbbf24"
+      opacity="0.7"
+    >
+      90%
+    </text>
+  </g>
 
-          return (
-            <g key={index}>
-              {/* Metric name and score */}
-              <text
-                x="40"
-                y={y}
-                fontFamily="system-ui, -apple-system, sans-serif"
-                fontSize="13"
-                fontWeight="600"
-                fill="#e0e7ff"
-              >
-                {metric.name}
-              </text>
-              
-              {/* Check mark */}
-              <circle cx="131" cy={y - 5} r="8" fill="#10b981" opacity="0.2" />
-              <text
-                x="131"
-                y={y}
-                textAnchor="middle"
-                fontFamily="system-ui, -apple-system, sans-serif"
-                fontSize="11"
-                fontWeight="700"
-                fill="#10b981"
-              >
-                ✓
-              </text>
+  <!-- Metric 2: Lint (95%) -->
+  <g>
+    <text
+      x="40"
+      y="175"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="13"
+      font-weight="600"
+      fill="#e0e7ff"
+    >
+      Lint
+    </text>
+    
+    <!-- Check mark -->
+    <circle cx="131" cy="170" r="8" fill="#10b981" opacity="0.2" />
+    <text
+      x="131"
+      y="175"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="11"
+      font-weight="700"
+      fill="#10b981"
+    >
+      ✓
+    </text>
 
-              {/* Score percentage */}
-              <text
-                x="390"
-                y={y + 13}
-                textAnchor="end"
-                fontFamily="system-ui, -apple-system, sans-serif"
-                fontSize="18"
-                fontWeight="700"
-                fill={getScoreColor(metric.score)}
-              >
-                {metric.score}%
-              </text>
+    <!-- Score percentage -->
+    <text
+      x="390"
+      y="188"
+      text-anchor="end"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="18"
+      font-weight="700"
+      fill="#8b5cf6"
+    >
+      95%
+    </text>
 
-              {/* Progress bar background */}
-              <rect
-                x="40"
-                y={y + 8}
-                width={barWidth}
-                height="8"
-                rx="4"
-                fill="#312e81"
-                opacity="0.5"
-              />
+    <!-- Progress bar background -->
+    <rect
+      x="40"
+      y="183"
+      width="280"
+      height="8"
+      rx="4"
+      fill="#312e81"
+      opacity="0.5"
+    />
 
-              {/* Progress bar fill */}
-              <rect
-                x="40"
-                y={y + 8}
-                width={progressWidth}
-                height="8"
-                rx="4"
-                fill={`url(#${getGradientId(index)})`}
-              />
+    <!-- Progress bar fill -->
+    <rect
+      x="40"
+      y="183"
+      width="266"
+      height="8"
+      rx="4"
+      fill="url(#gradient-1)"
+    />
 
-              {/* Threshold indicator */}
-              <line
-                x1={40 + thresholdPosition}
-                y1={y + 5}
-                x2={40 + thresholdPosition}
-                y2={y + 19}
-                stroke="#fbbf24"
-                strokeWidth="2"
-                strokeDasharray="2,2"
-                opacity="0.6"
-              />
+    <!-- Threshold indicator -->
+    <line
+      x1="278"
+      y1="180"
+      x2="278"
+      y2="194"
+      stroke="#fbbf24"
+      stroke-width="2"
+      stroke-dasharray="2,2"
+      opacity="0.6"
+    />
 
-              {/* Threshold label */}
-              <text
-                x={40 + thresholdPosition}
-                y={y + 28}
-                textAnchor="middle"
-                fontFamily="system-ui, -apple-system, sans-serif"
-                fontSize="12"
-                fill="#fbbf24"
-                opacity="0.7"
-              >
-                {metric.threshold}%
-              </text>
-            </g>
-          );
-        })}
+    <!-- Threshold label -->
+    <text
+      x="278"
+      y="203"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="12"
+      fill="#fbbf24"
+      opacity="0.7"
+    >
+      85%
+    </text>
+  </g>
 
-        {/* Legend */}
-        <g transform="translate(40, 350)">
-          <text
-            x="0"
-            y="0"
-            fontFamily="system-ui, -apple-system, sans-serif"
-            fontSize="10"
-            fill="#a5b4fc"
-            opacity="0.7"
-          >
-            <tspan>━━ Threshold </tspan>
-            <tspan dx="20">● Status </tspan>
-            <tspan dx="20">█ Progress</tspan>
-          </text>
-        </g>
-      </svg>
-    </div>
-  );
-}
+  <!-- Metric 3: Security (100%) -->
+  <g>
+    <text
+      x="40"
+      y="220"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="13"
+      font-weight="600"
+      fill="#e0e7ff"
+    >
+      Security
+    </text>
+    
+    <!-- Check mark -->
+    <circle cx="131" cy="215" r="8" fill="#10b981" opacity="0.2" />
+    <text
+      x="131"
+      y="220"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="11"
+      font-weight="700"
+      fill="#10b981"
+    >
+      ✓
+    </text>
+
+    <!-- Score percentage -->
+    <text
+      x="390"
+      y="233"
+      text-anchor="end"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="18"
+      font-weight="700"
+      fill="#8b5cf6"
+    >
+      100%
+    </text>
+
+    <!-- Progress bar background -->
+    <rect
+      x="40"
+      y="228"
+      width="280"
+      height="8"
+      rx="4"
+      fill="#312e81"
+      opacity="0.5"
+    />
+
+    <!-- Progress bar fill -->
+    <rect
+      x="40"
+      y="228"
+      width="280"
+      height="8"
+      rx="4"
+      fill="url(#gradient-2)"
+    />
+
+    <!-- Threshold indicator -->
+    <line
+      x1="306"
+      y1="225"
+      x2="306"
+      y2="239"
+      stroke="#fbbf24"
+      stroke-width="2"
+      stroke-dasharray="2,2"
+      opacity="0.6"
+    />
+
+    <!-- Threshold label -->
+    <text
+      x="306"
+      y="248"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="12"
+      fill="#fbbf24"
+      opacity="0.7"
+    >
+      95%
+    </text>
+  </g>
+
+  <!-- Metric 4: Performance (88%) -->
+  <g>
+    <text
+      x="40"
+      y="265"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="13"
+      font-weight="600"
+      fill="#e0e7ff"
+    >
+      Performance
+    </text>
+    
+    <!-- Check mark -->
+    <circle cx="131" cy="260" r="8" fill="#10b981" opacity="0.2" />
+    <text
+      x="131"
+      y="265"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="11"
+      font-weight="700"
+      fill="#10b981"
+    >
+      ✓
+    </text>
+
+    <!-- Score percentage -->
+    <text
+      x="390"
+      y="278"
+      text-anchor="end"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="18"
+      font-weight="700"
+      fill="#3b82f6"
+    >
+      88%
+    </text>
+
+    <!-- Progress bar background -->
+    <rect
+      x="40"
+      y="273"
+      width="280"
+      height="8"
+      rx="4"
+      fill="#312e81"
+      opacity="0.5"
+    />
+
+    <!-- Progress bar fill -->
+    <rect
+      x="40"
+      y="273"
+      width="246.4"
+      height="8"
+      rx="4"
+      fill="url(#gradient-3)"
+    />
+
+    <!-- Threshold indicator -->
+    <line
+      x1="264"
+      y1="270"
+      x2="264"
+      y2="284"
+      stroke="#fbbf24"
+      stroke-width="2"
+      stroke-dasharray="2,2"
+      opacity="0.6"
+    />
+
+    <!-- Threshold label -->
+    <text
+      x="264"
+      y="293"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="12"
+      fill="#fbbf24"
+      opacity="0.7"
+    >
+      80%
+    </text>
+  </g>
+
+  <!-- Metric 5: Licenses (100%) -->
+  <g>
+    <text
+      x="40"
+      y="310"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="13"
+      font-weight="600"
+      fill="#e0e7ff"
+    >
+      Licenses
+    </text>
+    
+    <!-- Check mark -->
+    <circle cx="131" cy="305" r="8" fill="#10b981" opacity="0.2" />
+    <text
+      x="131"
+      y="310"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="11"
+      font-weight="700"
+      fill="#10b981"
+    >
+      ✓
+    </text>
+
+    <!-- Score percentage -->
+    <text
+      x="390"
+      y="323"
+      text-anchor="end"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="18"
+      font-weight="700"
+      fill="#8b5cf6"
+    >
+      100%
+    </text>
+
+    <!-- Progress bar background -->
+    <rect
+      x="40"
+      y="318"
+      width="280"
+      height="8"
+      rx="4"
+      fill="#312e81"
+      opacity="0.5"
+    />
+
+    <!-- Progress bar fill -->
+    <rect
+      x="40"
+      y="318"
+      width="280"
+      height="8"
+      rx="4"
+      fill="url(#gradient-4)"
+    />
+
+    <!-- Threshold indicator -->
+    <line
+      x1="320"
+      y1="315"
+      x2="320"
+      y2="329"
+      stroke="#fbbf24"
+      stroke-width="2"
+      stroke-dasharray="2,2"
+      opacity="0.6"
+    />
+
+    <!-- Threshold label -->
+    <text
+      x="320"
+      y="338"
+      text-anchor="middle"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="12"
+      fill="#fbbf24"
+      opacity="0.7"
+    >
+      100%
+    </text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(40, 350)">
+    <text
+      x="0"
+      y="0"
+      font-family="system-ui, -apple-system, sans-serif"
+      font-size="10"
+      fill="#a5b4fc"
+      opacity="0.7"
+    >
+      <tspan>━━ Threshold </tspan>
+      <tspan dx="20">● Status </tspan>
+      <tspan dx="20">█ Progress</tspan>
+    </text>
+  </g>
+</svg>
