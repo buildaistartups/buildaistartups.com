@@ -114,17 +114,17 @@
   <g transform="translate(30, 350)">
     <text x="-5" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6">Thresholds:</text>
     
-    <line x1="70" y1="-3" x2="85" y2="-3" stroke="#FCA5A5" stroke-width="2" stroke-dasharray="2,2"/>
-    <text x="100" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FCA5A5">Warning (70)</text>
+    <line x1="75" y1="-3" x2="88" y2="-3" stroke="#FCA5A5" stroke-width="2" stroke-dasharray="2,2"/>
+    <text x="92" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FCA5A5">Warning (70)</text>
     
-    <line x1="195" y1="-3" x2="210" y2="-3" stroke="#86EFAC" stroke-width="2" stroke-dasharray="2,2"/>
-    <text x="215" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22C55E">Excellent (90)</text>
+    <line x1="180" y1="-3" x2="193" y2="-3" stroke="#86EFAC" stroke-width="2" stroke-dasharray="2,2"/>
+    <text x="197" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22C55E">Excellent (90)</text>
     
-    <circle cx="325" cy="-3" r="4" fill="url(#purpleGradient)"/>
-    <text x="335" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#8B5CF6">Primary Metrics</text>
+    <circle cx="295" cy="-3" r="4" fill="url(#purpleGradient)"/>
+    <text x="303" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#8B5CF6">Primary Metrics</text>
     
-    <circle cx="465" cy="-3" r="4" fill="url(#blueGradient)"/>
-    <text x="475" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3B82F6">Secondary Metrics</text>
+    <circle cx="420" cy="-3" r="4" fill="url(#blueGradient)"/>
+    <text x="428" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3B82F6">Secondary Metrics</text>
   </g>
   
   <!-- Status Badge -->
