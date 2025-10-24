@@ -173,6 +173,6 @@
     
     <rect x="340" y="335" width="140" height="26" rx="4" fill="#06B6D4" opacity="0.1"/>
     <text x="410" y="350" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#06B6D4" text-anchor="middle">
-        Goal: Validate & Scale
+        Goal: Validate &amp; Scale
     </text>
 </svg>
