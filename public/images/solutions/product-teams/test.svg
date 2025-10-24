@@ -13,12 +13,6 @@
       <stop offset="100%" style="stop-color:#1f618d;stop-opacity:1" />
     </linearGradient>
     
-    <!-- Background gradient -->
-    <radialGradient id="backgroundGradient" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
-    </radialGradient>
-    
     <!-- Glow effects -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -47,19 +41,12 @@
     </marker>
   </defs>
   
-  <!-- Background -->
-  <rect width="800" height="500" fill="url(#backgroundGradient)"/>
-  
-  <!-- Decorative background elements -->
-  <circle cx="100" cy="100" r="80" fill="#ffffff" opacity="0.1"/>
-  <circle cx="700" cy="400" r="60" fill="#ffffff" opacity="0.1"/>
-  <circle cx="750" cy="150" r="40" fill="#ffffff" opacity="0.1"/>
-  
   <!-- Title with enhanced styling -->
   <text x="400" y="50" font-family="'Segoe UI', Arial, sans-serif" font-size="32" font-weight="700" fill="#2c3e50" text-anchor="middle" filter="url(#dropshadow)">
     Workflow Mode Comparison
   </text>
-  <text x="400" y="75" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="400" fill="#7f8c8d" text-anchor="middle">
+  <!-- Enhanced subtitle - bigger and more visible -->
+  <text x="400" y="80" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="600" fill="#34495e" text-anchor="middle">
     Choose your automation level
   </text>
   
@@ -69,36 +56,38 @@
     <rect x="50" y="100" width="300" height="350" rx="20" fill="#ffffff" filter="url(#cardShadow)" opacity="0.95"/>
     
     <!-- Header Box -->
-    <rect x="70" y="120" width="260" height="60" rx="15" fill="url(#purpleGradient)" filter="url(#glow)"/>
-    <text x="200" y="155" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
+    <rect x="70" y="120" width="260" height="70" rx="15" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <text x="200" y="150" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
       COPILOT MODE
     </text>
-    <text x="200" y="172" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="400" fill="#f8f9fa" text-anchor="middle">
+    <!-- Enhanced subtitle - bigger and more visible -->
+    <text x="200" y="175" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="500" fill="#f8f9fa" text-anchor="middle">
       Human-guided automation
     </text>
     
     <!-- Enhanced Toggle Switch -->
-    <g transform="translate(170, 195)">
+    <g transform="translate(150, 205)">
       <rect x="0" y="0" width="60" height="25" rx="12.5" fill="#e9ecef" stroke="#8e44ad" stroke-width="2"/>
       <circle cx="15" cy="12.5" r="10" fill="url(#purpleGradient)" filter="url(#dropshadow)"/>
-      <text x="70" y="17" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#2c3e50" font-weight="500">Manual Control</text>
+      <!-- Enhanced control text - bigger -->
+      <text x="70" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#2c3e50" font-weight="600">Manual Control</text>
     </g>
     
     <!-- Workflow Steps with enhanced design -->
     <!-- Step 1 -->
-    <rect x="80" y="240" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#8e44ad" stroke-width="2" filter="url(#dropshadow)"/>
-    <circle cx="105" cy="265" r="12" fill="#8e44ad"/>
-    <text x="115" y="270" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">1</text>
-    <text x="130" y="268" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
+    <rect x="80" y="250" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#8e44ad" stroke-width="2" filter="url(#dropshadow)"/>
+    <circle cx="105" cy="275" r="12" fill="#8e44ad"/>
+    <text x="115" y="280" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">1</text>
+    <text x="130" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
       Task Initiated
     </text>
-    <text x="130" y="282" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
+    <text x="130" y="292" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
       System awaits user input
     </text>
     
     <!-- Human Approval Gate 1 -->
-    <circle cx="200" cy="315" r="25" fill="url(#purpleGradient)" filter="url(#glow)"/>
-    <g transform="translate(200, 315)">
+    <circle cx="200" cy="325" r="25" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <g transform="translate(200, 325)">
       <!-- Enhanced human icon -->
       <circle cx="0" cy="-8" r="6" fill="white"/>
       <path d="M -8,0 L -8,10 L -4,15 L 4,15 L 8,10 L 8,0 Z" fill="white"/>
@@ -106,21 +95,21 @@
       <circle cx="3" cy="-8" r="1" fill="#8e44ad"/>
       <path d="M -2,-5 Q 0,-3 2,-5" stroke="#8e44ad" stroke-width="1" fill="none"/>
     </g>
-    <text x="200" y="350" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#8e44ad" text-anchor="middle" font-weight="bold">
+    <text x="200" y="360" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#8e44ad" text-anchor="middle" font-weight="bold">
       APPROVAL REQUIRED
     </text>
     
     <!-- Enhanced Arrow -->
-    <path d="M 200,360 Q 200,370 200,375" stroke="#8e44ad" stroke-width="3" fill="none" marker-end="url(#arrowPurple)" opacity="0.8"/>
+    <path d="M 200,370 Q 200,380 200,385" stroke="#8e44ad" stroke-width="3" fill="none" marker-end="url(#arrowPurple)" opacity="0.8"/>
     
     <!-- Step 2 -->
-    <rect x="80" y="380" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#8e44ad" stroke-width="2" filter="url(#dropshadow)"/>
-    <circle cx="105" cy="405" r="12" fill="#8e44ad"/>
-    <text x="115" y="410" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">2</text>
-    <text x="130" y="408" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
+    <rect x="80" y="390" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#8e44ad" stroke-width="2" filter="url(#dropshadow)"/>
+    <circle cx="105" cy="415" r="12" fill="#8e44ad"/>
+    <text x="115" y="420" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">2</text>
+    <text x="130" y="418" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
       Process Execution
     </text>
-    <text x="130" y="422" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
+    <text x="130" y="432" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
       Controlled automation
     </text>
   </g>
@@ -131,36 +120,38 @@
     <rect x="450" y="100" width="300" height="350" rx="20" fill="#ffffff" filter="url(#cardShadow)" opacity="0.95"/>
     
     <!-- Header Box -->
-    <rect x="470" y="120" width="260" height="60" rx="15" fill="url(#blueGradient)" filter="url(#glow)"/>
-    <text x="600" y="155" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
+    <rect x="470" y="120" width="260" height="70" rx="15" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <text x="600" y="150" font-family="'Segoe UI', Arial, sans-serif" font-size="20" font-weight="700" fill="white" text-anchor="middle">
       AUTOPILOT MODE
     </text>
-    <text x="600" y="172" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="400" fill="#f8f9fa" text-anchor="middle">
+    <!-- Enhanced subtitle - bigger and more visible -->
+    <text x="600" y="175" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="500" fill="#f8f9fa" text-anchor="middle">
       Fully autonomous execution
     </text>
     
     <!-- Enhanced Toggle Switch -->
-    <g transform="translate(570, 195)">
+    <g transform="translate(550, 205)">
       <rect x="0" y="0" width="60" height="25" rx="12.5" fill="#e9ecef" stroke="#2980b9" stroke-width="2"/>
       <circle cx="45" cy="12.5" r="10" fill="url(#blueGradient)" filter="url(#dropshadow)"/>
-      <text x="-85" y="17" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#2c3e50" font-weight="500">Auto Control</text>
+      <!-- Enhanced control text - bigger -->
+      <text x="-105" y="18" font-family="'Segoe UI', Arial, sans-serif" font-size="16" fill="#2c3e50" font-weight="600">Auto Control</text>
     </g>
     
     <!-- Workflow Steps -->
     <!-- Step 1 -->
-    <rect x="480" y="240" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#2980b9" stroke-width="2" filter="url(#dropshadow)"/>
-    <circle cx="505" cy="265" r="12" fill="#2980b9"/>
-    <text x="515" y="270" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">1</text>
-    <text x="530" y="268" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
+    <rect x="480" y="250" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#2980b9" stroke-width="2" filter="url(#dropshadow)"/>
+    <circle cx="505" cy="275" r="12" fill="#2980b9"/>
+    <text x="515" y="280" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">1</text>
+    <text x="530" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
       Task Initiated
     </text>
-    <text x="530" y="282" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
+    <text x="530" y="292" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
       Automatic processing begins
     </text>
     
     <!-- Automation Symbol 1 -->
-    <circle cx="600" cy="315" r="25" fill="url(#blueGradient)" filter="url(#glow)"/>
-    <g transform="translate(600, 315)">
+    <circle cx="600" cy="325" r="25" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <g transform="translate(600, 325)">
       <!-- Enhanced gear icon -->
       <circle cx="0" cy="0" r="12" fill="none" stroke="white" stroke-width="2.5"/>
       <circle cx="0" cy="0" r="4" fill="white"/>
@@ -169,21 +160,21 @@
         <path d="M -8.5,-8.5 L -12.7,-12.7 M 8.5,8.5 L 12.7,12.7 M -8.5,8.5 L -12.7,12.7 M 8.5,-8.5 L 12.7,-12.7"/>
       </g>
     </g>
-    <text x="600" y="350" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#2980b9" text-anchor="middle" font-weight="bold">
+    <text x="600" y="360" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="#2980b9" text-anchor="middle" font-weight="bold">
       AUTO PROCESSING
     </text>
     
     <!-- Enhanced Arrow -->
-    <path d="M 600,360 Q 600,370 600,375" stroke="#2980b9" stroke-width="3" fill="none" marker-end="url(#arrowBlue)" opacity="0.8"/>
+    <path d="M 600,370 Q 600,380 600,385" stroke="#2980b9" stroke-width="3" fill="none" marker-end="url(#arrowBlue)" opacity="0.8"/>
     
     <!-- Step 2 -->
-    <rect x="480" y="380" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#2980b9" stroke-width="2" filter="url(#dropshadow)"/>
-    <circle cx="505" cy="405" r="12" fill="#2980b9"/>
-    <text x="515" y="410" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">2</text>
-    <text x="530" y="408" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
+    <rect x="480" y="390" width="240" height="50" rx="10" fill="#f8f9fa" stroke="#2980b9" stroke-width="2" filter="url(#dropshadow)"/>
+    <circle cx="505" cy="415" r="12" fill="#2980b9"/>
+    <text x="515" y="420" font-family="'Segoe UI', Arial, sans-serif" font-size="10" fill="white" font-weight="bold">2</text>
+    <text x="530" y="418" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#2c3e50" font-weight="600">
       Process Execution
     </text>
-    <text x="530" y="422" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
+    <text x="530" y="432" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#7f8c8d">
       Seamless automation
     </text>
   </g>
@@ -194,13 +185,13 @@
   <text x="400" y="280" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#7f8c8d" text-anchor="middle" font-weight="bold">VS</text>
   
   <!-- Performance indicators -->
-  <g transform="translate(50, 460)">
+  <g transform="translate(50, 470)">
     <text x="0" y="0" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#8e44ad" font-weight="600">
       ⚡ Control: High | Speed: Medium | Flexibility: Maximum
     </text>
   </g>
   
-  <g transform="translate(450, 460)">
+  <g transform="translate(450, 470)">
     <text x="0" y="0" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#2980b9" font-weight="600">
       🚀 Control: Low | Speed: High | Efficiency: Maximum
     </text>
