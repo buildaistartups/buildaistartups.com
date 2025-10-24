@@ -32,7 +32,7 @@
   <!-- Header Section -->
   <g id="header">
     <rect x="20" y="20" width="560" height="60" rx="8" fill="url(#purpleGrad)" filter="url(#shadow)"/>
-    <text x="40" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">Audit Logs & Activity Tracking</text>
+    <text x="40" y="50" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">Audit Logs &amp; Activity Tracking</text>
     
     <!-- Security Badge -->
     <g transform="translate(490, 50)">
