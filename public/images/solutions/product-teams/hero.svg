@@ -40,7 +40,7 @@
   <!-- Central Workflow Circle -->
   <g id="centralWorkflow" filter="url(#softShadow)">
     <!-- Main circle background -->
-    <circle cx="512" cy="288" r="225" fill="#e0f2fe" stroke="url(#primaryGradient)" stroke-width="3"/>
+    <circle cx="512" cy="288" r="225" fill="#e9d5ff" stroke="url(#primaryGradient)" stroke-width="3"/>
     
     <!-- Workflow stages circle paths -->
     <g id="workflowStages">
