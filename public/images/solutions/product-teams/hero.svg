@@ -49,12 +49,12 @@
         <circle cx="512" cy="109" r="63" fill="#ddd6fe"/>
         <circle cx="512" cy="109" r="63" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Document icon -->
-        <rect x="489" y="86" width="46" height="53" rx="3" fill="none" stroke="#8b5cf6" stroke-width="2.5"/>
-        <line x1="495" y1="97" x2="524" y2="97" stroke="#8b5cf6" stroke-width="2"/>
-        <line x1="495" y1="109" x2="532" y2="109" stroke="#8b5cf6" stroke-width="2"/>
-        <line x1="495" y1="121" x2="532" y2="121" stroke="#8b5cf6" stroke-width="2"/>
-        <line x1="495" y1="133" x2="521" y2="133" stroke="#8b5cf6" stroke-width="2"/>
-        <text x="512" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#8b5cf6">SPEC</text>
+        <rect x="485" y="79" width="54" height="63" rx="3" fill="none" stroke="#8b5cf6" stroke-width="3"/>
+        <line x1="492" y1="92" x2="527" y2="92" stroke="#8b5cf6" stroke-width="2.5"/>
+        <line x1="492" y1="106" x2="535" y2="106" stroke="#8b5cf6" stroke-width="2.5"/>
+        <line x1="492" y1="120" x2="535" y2="120" stroke="#8b5cf6" stroke-width="2.5"/>
+        <line x1="492" y1="134" x2="524" y2="134" stroke="#8b5cf6" stroke-width="2.5"/>
+        <text x="512" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8b5cf6">SPEC</text>
       </g>
       
       <!-- CODE Stage (Right) -->
@@ -62,12 +62,12 @@
         <circle cx="712" cy="288" r="63" fill="#bfdbfe"/>
         <circle cx="712" cy="288" r="63" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Code brackets icon -->
-        <path d="M 697 266 L 682 284 L 697 302" fill="none" stroke="#5b8ff6" stroke-width="4" stroke-linecap="round"/>
-        <path d="M 727 266 L 742 284 L 727 302" fill="none" stroke="#5b8ff6" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="703" cy="284" r="3" fill="#5b8ff6"/>
-        <circle cx="712" cy="284" r="3" fill="#5b8ff6"/>
-        <circle cx="721" cy="284" r="3" fill="#5b8ff6"/>
-        <text x="712" y="333" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#5b8ff6">CODE</text>
+        <path d="M 694 255 L 676 279 L 694 303" fill="none" stroke="#5b8ff6" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 730 255 L 748 279 L 730 303" fill="none" stroke="#5b8ff6" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="702" cy="279" r="4" fill="#5b8ff6"/>
+        <circle cx="712" cy="279" r="4" fill="#5b8ff6"/>
+        <circle cx="722" cy="279" r="4" fill="#5b8ff6"/>
+        <text x="712" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#5b8ff6">CODE</text>
       </g>
       
       <!-- REVIEW Stage (Bottom) -->
@@ -75,12 +75,12 @@
         <circle cx="512" cy="467" r="63" fill="#bae6fd"/>
         <circle cx="512" cy="467" r="63" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Checklist icon -->
-        <rect x="489" y="444" width="46" height="53" rx="3" fill="none" stroke="#4f8ff6" stroke-width="2.5"/>
-        <polyline points="495,458 501,464 513,451" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <polyline points="495,475 501,481 513,468" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="517" y1="458" x2="527" y2="458" stroke="#4f8ff6" stroke-width="2"/>
-        <line x1="517" y1="475" x2="527" y2="475" stroke="#4f8ff6" stroke-width="2"/>
-        <text x="512" y="513" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4f8ff6">REVIEW</text>
+        <rect x="485" y="437" width="54" height="63" rx="3" fill="none" stroke="#4f8ff6" stroke-width="3"/>
+        <polyline points="492,453 499,460 514,444" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline points="492,473 499,480 514,464" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="520" y1="453" x2="532" y2="453" stroke="#4f8ff6" stroke-width="2.5"/>
+        <line x1="520" y1="473" x2="532" y2="473" stroke="#4f8ff6" stroke-width="2.5"/>
+        <text x="512" y="518" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4f8ff6">REVIEW</text>
       </g>
       
       <!-- DEPLOY Stage (Left) -->
@@ -88,13 +88,13 @@
         <circle cx="312" cy="288" r="63" fill="#c7d2fe"/>
         <circle cx="312" cy="288" r="63" fill="none" stroke="url(#primaryGradient)" stroke-width="2"/>
         <!-- Rocket icon -->
-        <path d="M 312 264 L 305 297 L 312 292 L 319 297 Z" fill="#4f7ff6" stroke="#4f7ff6" stroke-width="2"/>
-        <ellipse cx="312" cy="304" rx="13" ry="6" fill="#ef4444" opacity="0.6"/>
-        <circle cx="312" cy="279" r="4" fill="#ffffff"/>
+        <path d="M 312 255 L 303 297 L 312 292 L 321 297 Z" fill="#4f7ff6" stroke="#4f7ff6" stroke-width="2.5"/>
+        <ellipse cx="312" cy="305" rx="16" ry="8" fill="#ef4444" opacity="0.6"/>
+        <circle cx="312" cy="273" r="5" fill="#ffffff"/>
         <!-- Cloud -->
-        <ellipse cx="324" cy="265" rx="8" ry="5" fill="#e0e7ff" opacity="0.7"/>
-        <ellipse cx="300" cy="265" rx="8" ry="5" fill="#e0e7ff" opacity="0.7"/>
-        <text x="312" y="333" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4f7ff6">DEPLOY</text>
+        <ellipse cx="327" cy="257" rx="10" ry="6" fill="#e0e7ff" opacity="0.7"/>
+        <ellipse cx="297" cy="257" rx="10" ry="6" fill="#e0e7ff" opacity="0.7"/>
+        <text x="312" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#4f7ff6">DEPLOY</text>
       </g>
     </g>
     
@@ -244,7 +244,7 @@
   
   <!-- Comment Threads -->
   <g id="commentThreads">
-    <g transform="translate(740, 235)">
+    <g transform="translate(755, 235)">
       <rect x="0" y="0" width="73" height="45" rx="5" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" filter="url(#softShadow)"/>
       <circle cx="10" cy="13" r="5" fill="#8b5cf6"/>
       <rect x="19" y="9" width="45" height="4" rx="1" fill="#e5e7eb"/>
