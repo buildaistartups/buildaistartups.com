@@ -28,7 +28,7 @@
     <g transform="translate(130, 120)">
       <rect x="0" y="0" width="40" height="20" rx="10" fill="#9b59b6" stroke="#7d3c98" stroke-width="2"/>
       <circle cx="12" cy="10" r="7" fill="white"/>
-      <text x="50" y="14" font-family="Arial, sans-serif" font-size="13" fill="#2874a6">Manual</text>
+      <text x="50" y="14" font-family="Arial, sans-serif" font-size="13" fill="#9b59b6">Manual</text>
     </g>
     
     <!-- Workflow Steps -->
