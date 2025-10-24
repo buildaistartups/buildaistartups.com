@@ -24,10 +24,15 @@
       <stop offset="0%" style="stop-color:#DBEAFE;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#BFDBFE;stop-opacity:1" />
     </linearGradient>
+    
+    <!-- Arrow marker definition moved to defs -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#6366F1"/>
+    </marker>
   </defs>
   
   <!-- Title -->
-  <text x="300" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#6366F1" text-anchor="middle">Review Gates & Approval Workflow</text>
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#6366F1" text-anchor="middle">Review Gates &amp; Approval Workflow</text>
   
   <!-- Main Flow Path -->
   <path d="M 28 200 L 570 200" stroke="#E5E7EB" stroke-width="3" fill="none"/>
@@ -212,10 +217,4 @@
   <path d="M 115 200 L 185 200" stroke="#6366F1" stroke-width="2" marker-end="url(#arrowhead)"/>
   <path d="M 255 200 L 325 200" stroke="#6366F1" stroke-width="2" marker-end="url(#arrowhead)"/>
   <path d="M 395 200 L 465 200" stroke="#6366F1" stroke-width="2" marker-end="url(#arrowhead)"/>
-  
-  <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#6366F1"/>
-    </marker>
-  </defs>
 </svg>
