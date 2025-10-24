@@ -157,15 +157,15 @@
   
   <!-- Enhanced Integration Lines -->
   <g id="integrationLines" opacity="0.4">
-    <path d="M 100 150 Q 306 181 462 172" fill="none" stroke="url(#primaryGradient)" stroke-width="5" stroke-dasharray="10,5"/>
-    <path d="M 924 150 Q 718 181 562 172" fill="none" stroke="url(#primaryGradient)" stroke-width="5" stroke-dasharray="10,5"/>
+    <path d="M 100 180 Q 306 211 462 172" fill="none" stroke="url(#primaryGradient)" stroke-width="5" stroke-dasharray="10,5"/>
+    <path d="M 924 180 Q 718 211 562 172" fill="none" stroke="url(#primaryGradient)" stroke-width="5" stroke-dasharray="10,5"/>
     <path d="M 924 422 Q 718 431 562 404" fill="none" stroke="url(#primaryGradient)" stroke-width="5" stroke-dasharray="10,5"/>
     <path d="M 100 419 Q 306 431 462 404" fill="none" stroke="url(#primaryGradient)" stroke-width="5" stroke-dasharray="10,5"/>
   </g>
   
   <!-- Team Members with enhanced styling -->
-  <!-- Product Manager (Top Left) -->
-  <g id="productManager" transform="translate(100, 75)">
+  <!-- Product Manager (Top Left) - Moved down -->
+  <g id="productManager" transform="translate(100, 105)">
     <circle cx="0" cy="0" r="75" fill="#fef3c7" filter="url(#softShadow)" stroke="url(#primaryGradient)" stroke-width="3"/>
     <!-- Head -->
     <circle cx="0" cy="-11" r="23" fill="#d97706"/>
@@ -182,11 +182,11 @@
     <line x1="29" y1="68" x2="49" y2="68" stroke="#8b5cf6" stroke-width="2.5"/>
     <!-- Enhanced Label with background -->
     <rect x="-60" y="100" width="120" height="22" rx="11" fill="#3b82f6" opacity="0.1"/>
-    <text x="0" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#3b82f6">Product Manager</text>
+    <text x="0" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#3b82f6">Product Manager</text>
   </g>
   
-  <!-- UI/UX Designer (Top Right) -->
-  <g id="uiDesigner" transform="translate(924, 75)">
+  <!-- UI/UX Designer (Top Right) - Moved down -->
+  <g id="uiDesigner" transform="translate(924, 105)">
     <circle cx="0" cy="0" r="75" fill="#ddd6fe" filter="url(#softShadow)" stroke="url(#primaryGradient)" stroke-width="3"/>
     <!-- Head -->
     <circle cx="0" cy="-11" r="23" fill="#a78bfa"/>
@@ -205,7 +205,7 @@
     <circle cx="24" cy="59" r="6" fill="#f59e0b" opacity="0.6"/>
     <!-- Enhanced Label with background -->
     <rect x="-60" y="100" width="120" height="22" rx="11" fill="#8b5cf6" opacity="0.1"/>
-    <text x="0" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#8b5cf6">UI/UX Designer</text>
+    <text x="0" y="114" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#8b5cf6">UI/UX Designer</text>
   </g>
   
   <!-- Frontend Engineer (Bottom Right) -->
@@ -229,7 +229,7 @@
     <rect x="-55" y="54" width="110" height="5" rx="2" fill="#374151"/>
     <!-- Enhanced Label with background -->
     <rect x="-70" y="-105" width="140" height="22" rx="11" fill="#3b82f6" opacity="0.1"/>
-    <text x="0" y="-91" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#3b82f6">Frontend Engineer</text>
+    <text x="0" y="-91" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#3b82f6">Frontend Engineer</text>
   </g>
   
   <!-- DevOps Specialist (Bottom Left) -->
@@ -254,7 +254,7 @@
     <circle cx="30" cy="65" r="5" fill="#ef4444"/>
     <!-- Enhanced Label with background -->
     <rect x="-70" y="-105" width="140" height="22" rx="11" fill="#ef4444" opacity="0.1"/>
-    <text x="0" y="-91" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#ef4444">DevOps Specialist</text>
+    <text x="0" y="-91" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ef4444">DevOps Specialist</text>
   </g>
   
   <!-- Enhanced Real-time Collaboration Elements -->
