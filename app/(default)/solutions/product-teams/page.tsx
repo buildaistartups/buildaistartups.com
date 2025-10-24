@@ -453,7 +453,7 @@ export default function ProductTeamsPage() {
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
                 <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50">
-                  <img src={`/media/projects/team-${i + 1}.png`} alt={p.name} className="h-full w-full object-cover" />
+                  <img src={`/images/solutions/product-teams/team-${i + 1}.svg`} alt={p.name} className="h-full w-full object-cover" />
                 </div>
                 <div className="mt-3 text-base font-medium">{p.name}</div>
                 <p className="text-sm text-slate-400">{p.vp}</p>
