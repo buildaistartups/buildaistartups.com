@@ -37,8 +37,8 @@
   
   <!-- Overall Score Circle -->
   <g transform="translate(470, 130)">
-    <circle cx="0" cy="0" r="70" fill="none" stroke="#D1D5DB" stroke-width="12"/>
-    <circle cx="0" cy="0" r="70" fill="none" stroke="url(#scoreGradient)" stroke-width="12" 
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#D1D5DB" stroke-width="16"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="url(#scoreGradient)" stroke-width="16" 
             stroke-dasharray="395.84" stroke-dashoffset="59.376" 
             transform="rotate(-90)" stroke-linecap="round"/>
     <text x="0" y="-10" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#6366F1" text-anchor="middle">85</text>
