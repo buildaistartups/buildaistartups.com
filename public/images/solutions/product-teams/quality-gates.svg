@@ -1,162 +1,282 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+import React from 'react';
 
-<defs>
-  <linearGradient id="gradPB" x1="0%" y1="0%" x2="100%" y2="0%">
-<stop offset="0%" stop-color="#6C63FF" stop-opacity="1"/>
-<stop offset="100%" stop-color="#36B0FF" stop-opacity="1"/>
-</linearGradient>
-  <linearGradient id="gradGauge" x1="0%" y1="0%" x2="100%" y2="0%">
-<stop offset="0%" stop-color="#5B52F2" stop-opacity="1"/>
-<stop offset="100%" stop-color="#2563EB" stop-opacity="1"/>
-</linearGradient>
-  <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-    <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.15"/>
-  </filter>
-  <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
-    <feOffset dx="0" dy="2"/>
-    <feGaussianBlur stdDeviation="2" result="offset-blur"/>
-    <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
-    <feFlood flood-color="#000000" flood-opacity="0.2" result="color"/>
-    <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
-    <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
-  </filter>
-  <style>
-    .title { font: 700 38px "Inter", "Segoe UI", Arial, sans-serif; fill: #0f172a; }
-    .subtitle { font: 500 18px "Inter", "Segoe UI", Arial, sans-serif; fill: #475569; }
-    .label { font: 600 20px "Inter", "Segoe UI", Arial, sans-serif; fill: #0f172a; }
-    .value { font: 700 24px "Inter", "Segoe UI", Arial, sans-serif; fill: #0f172a; }
-    .small { font: 500 14px "Inter", "Segoe UI", Arial, sans-serif; fill: #475569; }
-    .muted { font: 500 14px "Inter", "Segoe UI", Arial, sans-serif; fill: #64748b; }
-    .badge { font: 700 14px "Inter", "Segoe UI", Arial, sans-serif; fill: #FFFFFF; }
-  </style>
-</defs>
+export default function QualityDashboard() {
+  const metrics = [
+    { name: 'Tests', score: 98, status: 'passed', threshold: 90 },
+    { name: 'Lint', score: 95, status: 'passed', threshold: 85 },
+    { name: 'Security', score: 100, status: 'passed', threshold: 95 },
+    { name: 'Performance', score: 88, status: 'passed', threshold: 80 },
+    { name: 'Licenses', score: 100, status: 'passed', threshold: 100 }
+  ];
 
+  const overallScore = Math.round(
+    metrics.reduce((sum, m) => sum + m.score, 0) / metrics.length
+  );
 
-<g transform="translate(32,32)">
-  <text class="title">Quality Gates &amp; Build Score</text>
-  <text class="subtitle" y="36">Automated code quality dashboard</text>
-</g>
+  const getScoreColor = (score) => {
+    if (score >= 95) return '#8b5cf6';
+    if (score >= 85) return '#3b82f6';
+    if (score >= 70) return '#fbbf24';
+    return '#ef4444';
+  };
 
-<rect x="32" y="116" rx="24" ry="24" width="560" height="380" fill="#ffffff00" stroke="#cbd5e1" stroke-opacity="0.3" filter="url(#softShadow)"/>
-<g transform="translate(0,0)">
-  <!-- Gauge base -->
-  <path d="M 162.0 346.0 A 150 150 0 0 1 462.0 346.0" fill="none" stroke="#cbd5e1" stroke-width="16" stroke-linecap="round" opacity="0.6"/>
-  <!-- Gauge value -->
-  <path d="M 162.0 346.0 A 150 150 0 1 1 457.2874741692947 308.6965169252717" fill="none" stroke="url(#gradGauge)" stroke-width="18" stroke-linecap="round"/>
-  <line x1="176.0" y1="346.0" x2="164.0" y2="346.0" stroke="#cbd5e1" stroke-width="2" />
-<line x1="182.6563137838591" y1="303.9736887650072" x2="171.24363558831726" y2="300.2654848325078" stroke="#cbd5e1" stroke-width="2" />
-<line x1="201.97368876500713" y1="266.06120568822365" x2="192.26548483250775" y2="259.007782660714" stroke="#cbd5e1" stroke-width="2" />
-<line x1="232.06120568822365" y1="235.97368876500718" x2="225.00778266071396" y2="226.2654848325078" stroke="#cbd5e1" stroke-width="2" />
-<line x1="269.9736887650071" y1="216.65631378385913" x2="266.26548483250775" y2="205.2436355883173" stroke="#cbd5e1" stroke-width="2" />
-<line x1="312.0" y1="210.0" x2="312.0" y2="198.0" stroke="#cbd5e1" stroke-width="2" />
-<line x1="354.0263112349928" y1="216.6563137838591" x2="357.7345151674922" y2="205.24363558831726" stroke="#cbd5e1" stroke-width="2" />
-<line x1="391.9387943117763" y1="235.97368876500713" x2="398.99221733928596" y2="226.26548483250775" stroke="#cbd5e1" stroke-width="2" />
-<line x1="422.0263112349928" y1="266.0612056882236" x2="431.7345151674922" y2="259.00778266071393" stroke="#cbd5e1" stroke-width="2" />
-<line x1="441.3436862161409" y1="303.9736887650071" x2="452.75636441168274" y2="300.26548483250775" stroke="#cbd5e1" stroke-width="2" />
-<line x1="448.0" y1="345.99999999999994" x2="460.0" y2="345.99999999999994" stroke="#cbd5e1" stroke-width="2" />
-</g>
+  const getGradientId = (index) => `gradient-${index}`;
 
-  <text x="312.0" y="170" text-anchor="middle" class="label">Build Score</text>
-  <text x="312.0" y="386.0" text-anchor="middle" class="value">92/100</text>
+  return (
+    <div className="w-full h-full flex items-center justify-center p-4 bg-transparent">
+      <svg
+        width="600"
+        height="400"
+        viewBox="0 0 600 400"
+        xmlns="http://www.w3.org/2000/svg"
+        className="bg-transparent"
+      >
+        <defs>
+          {metrics.map((_, index) => (
+            <linearGradient
+              key={index}
+              id={getGradientId(index)}
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#3b82f6" />
+            </linearGradient>
+          ))}
+          <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#8b5cf6" />
+            <stop offset="100%" stopColor="#3b82f6" />
+          </linearGradient>
+          
+          {/* Glow filter */}
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge>
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
 
+        {/* Background card */}
+        <rect
+          x="20"
+          y="20"
+          width="560"
+          height="360"
+          rx="16"
+          fill="#1e1b4b"
+          opacity="0.95"
+        />
 
-<g transform="translate(56,162)">
-  <rect x="0" y="-18" width="116" height="26" rx="13.0" ry="13.0" fill="#2563EB" opacity="0.15" />
-  <text class="badge" x="10" y="-36" fill="#2563EB">Status: PASS</text>
-</g>
-<rect x="624.0" y="116" rx="20" ry="20" width="174.4" height="380" fill="#ffffff00" stroke="#cbd5e1" stroke-opacity="0.3" filter="url(#softShadow)"/>
-<text class="label" x="644.0" y="162">Tests</text>
+        {/* Header */}
+        <text
+          x="40"
+          y="55"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          fontSize="24"
+          fontWeight="700"
+          fill="#e0e7ff"
+        >
+          Quality Gates Dashboard
+        </text>
 
-<g transform="translate(756.4,144) scale(0.8333333333333334)">
-  <path d="M20.285 6.709a1 1 0 0 1 .006 1.414l-9.1 9.2a1 1 0 0 1-1.44.012L3.71 11.179a1 1 0 1 1 1.415-1.414l5.246 5.246 8.396-8.338a1 1 0 0 1 1.518.036z" fill="#36B0FF"/>
-</g>
-<text class="value" x="644.0" y="202">88%</text>
-<text class="muted" x="644.0" y="228">Target ≥ 80%</text>
+        {/* Overall Build Score Circle */}
+        <g transform="translate(470, 100)">
+          {/* Outer circle background */}
+          <circle cx="0" cy="0" r="55" fill="#312e81" opacity="0.5" />
+          
+          {/* Progress circle background */}
+          <circle
+            cx="0"
+            cy="0"
+            r="45"
+            fill="none"
+            stroke="#312e81"
+            strokeWidth="8"
+          />
+          
+          {/* Progress circle */}
+          <circle
+            cx="0"
+            cy="0"
+            r="45"
+            fill="none"
+            stroke="url(#scoreGradient)"
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeDasharray={`${(overallScore / 100) * 283} 283`}
+            transform="rotate(-90)"
+            filter="url(#glow)"
+          />
+          
+          {/* Score text */}
+          <text
+            x="0"
+            y="-5"
+            textAnchor="middle"
+            fontFamily="system-ui, -apple-system, sans-serif"
+            fontSize="32"
+            fontWeight="700"
+            fill="#e0e7ff"
+          >
+            {overallScore}
+          </text>
+          <text
+            x="0"
+            y="15"
+            textAnchor="middle"
+            fontFamily="system-ui, -apple-system, sans-serif"
+            fontSize="11"
+            fill="#a5b4fc"
+          >
+            BUILD SCORE
+          </text>
+        </g>
 
-  <rect x="644.0" y="256" width="134.4" height="14" rx="7.0" ry="7.0" fill="#1f2937" opacity="0.9"/>
-  <rect x="644.0" y="256" width="118.272" height="14" rx="7.0" ry="7.0" fill="url(#gradPB)"/>
-  <!-- threshold marker -->
-  <line x1="751.52" y1="250" x2="751.52" y2="276" stroke="#6C63FF" stroke-width="3" stroke-linecap="round"/>
+        {/* Status badge */}
+        <g transform="translate(450, 195)">
+          <rect x="0" y="0" width="80" height="24" rx="12" fill="#10b981" opacity="0.2" />
+          <text
+            x="40"
+            y="16"
+            textAnchor="middle"
+            fontFamily="system-ui, -apple-system, sans-serif"
+            fontSize="11"
+            fontWeight="600"
+            fill="#10b981"
+          >
+            ✓ PASSED
+          </text>
+        </g>
 
-<path d="M 644.00 444.00 L 650.72 446.46 L 657.44 449.10 L 664.16 451.58 L 670.88 453.53 L 677.60 454.59 L 684.32 454.54 L 691.04 453.29 L 697.76 450.93 L 704.48 447.71 L 711.20 444.02 L 717.92 440.33 L 724.64 437.10 L 731.36 434.73 L 738.08 433.46 L 744.80 433.40 L 751.52 434.46 L 758.24 436.39 L 764.96 438.87 L 771.68 441.52 L 778.40 443.98" fill="none" stroke="#6C63FF" stroke-opacity="0.6" stroke-width="2"/>
-<text class="small" x="644.0" y="418">trend</text>
-<rect x="816.4" y="116" rx="20" ry="20" width="174.4" height="380" fill="#ffffff00" stroke="#cbd5e1" stroke-opacity="0.3" filter="url(#softShadow)"/>
-<text class="label" x="836.4" y="162">Lint</text>
+        {/* Metrics section */}
+        <text
+          x="40"
+          y="105"
+          fontFamily="system-ui, -apple-system, sans-serif"
+          fontSize="14"
+          fontWeight="600"
+          fill="#a5b4fc"
+        >
+          Quality Metrics
+        </text>
 
-<g transform="translate(948.8,144) scale(0.8333333333333334)">
-  <path d="M20.285 6.709a1 1 0 0 1 .006 1.414l-9.1 9.2a1 1 0 0 1-1.44.012L3.71 11.179a1 1 0 1 1 1.415-1.414l5.246 5.246 8.396-8.338a1 1 0 0 1 1.518.036z" fill="#36B0FF"/>
-</g>
-<text class="value" x="836.4" y="202">97%</text>
-<text class="muted" x="836.4" y="228">Target ≥ 95%</text>
+        {/* Individual metrics */}
+        {metrics.map((metric, index) => {
+          const y = 130 + index * 45;
+          const barWidth = 280;
+          const progressWidth = (metric.score / 100) * barWidth;
+          const thresholdPosition = (metric.threshold / 100) * barWidth;
 
-  <rect x="836.4" y="256" width="134.4" height="14" rx="7.0" ry="7.0" fill="#1f2937" opacity="0.9"/>
-  <rect x="836.4" y="256" width="130.368" height="14" rx="7.0" ry="7.0" fill="url(#gradPB)"/>
-  <!-- threshold marker -->
-  <line x1="964.0799999999999" y1="250" x2="964.0799999999999" y2="276" stroke="#6C63FF" stroke-width="3" stroke-linecap="round"/>
+          return (
+            <g key={index}>
+              {/* Metric name and score */}
+              <text
+                x="40"
+                y={y}
+                fontFamily="system-ui, -apple-system, sans-serif"
+                fontSize="13"
+                fontWeight="600"
+                fill="#e0e7ff"
+              >
+                {metric.name}
+              </text>
+              
+              {/* Check mark */}
+              <circle cx="131" cy={y - 5} r="8" fill="#10b981" opacity="0.2" />
+              <text
+                x="131"
+                y={y}
+                textAnchor="middle"
+                fontFamily="system-ui, -apple-system, sans-serif"
+                fontSize="11"
+                fontWeight="700"
+                fill="#10b981"
+              >
+                ✓
+              </text>
 
-<path d="M 836.40 444.00 L 843.12 446.46 L 849.84 449.10 L 856.56 451.58 L 863.28 453.53 L 870.00 454.59 L 876.72 454.54 L 883.44 453.29 L 890.16 450.93 L 896.88 447.71 L 903.60 444.02 L 910.32 440.33 L 917.04 437.10 L 923.76 434.73 L 930.48 433.46 L 937.20 433.40 L 943.92 434.46 L 950.64 436.39 L 957.36 438.87 L 964.08 441.52 L 970.80 443.98" fill="none" stroke="#6C63FF" stroke-opacity="0.6" stroke-width="2"/>
-<text class="small" x="836.4" y="418">trend</text>
-<rect x="1008.8" y="116" rx="20" ry="20" width="174.4" height="380" fill="#ffffff00" stroke="#cbd5e1" stroke-opacity="0.3" filter="url(#softShadow)"/>
-<text class="label" x="1028.8" y="162">Security</text>
+              {/* Score percentage */}
+              <text
+                x="390"
+                y={y + 13}
+                textAnchor="end"
+                fontFamily="system-ui, -apple-system, sans-serif"
+                fontSize="18"
+                fontWeight="700"
+                fill={getScoreColor(metric.score)}
+              >
+                {metric.score}%
+              </text>
 
-<g transform="translate(1141.2,144) scale(0.8333333333333334)">
-  <path d="M20.285 6.709a1 1 0 0 1 .006 1.414l-9.1 9.2a1 1 0 0 1-1.44.012L3.71 11.179a1 1 0 1 1 1.415-1.414l5.246 5.246 8.396-8.338a1 1 0 0 1 1.518.036z" fill="#36B0FF"/>
-</g>
-<text class="value" x="1028.8" y="202">99%</text>
-<text class="muted" x="1028.8" y="228">Target ≥ 95%</text>
+              {/* Progress bar background */}
+              <rect
+                x="40"
+                y={y + 8}
+                width={barWidth}
+                height="8"
+                rx="4"
+                fill="#312e81"
+                opacity="0.5"
+              />
 
-  <rect x="1028.8" y="256" width="134.4" height="14" rx="7.0" ry="7.0" fill="#1f2937" opacity="0.9"/>
-  <rect x="1028.8" y="256" width="133.056" height="14" rx="7.0" ry="7.0" fill="url(#gradPB)"/>
-  <!-- threshold marker -->
-  <line x1="1156.48" y1="250" x2="1156.48" y2="276" stroke="#6C63FF" stroke-width="3" stroke-linecap="round"/>
+              {/* Progress bar fill */}
+              <rect
+                x="40"
+                y={y + 8}
+                width={progressWidth}
+                height="8"
+                rx="4"
+                fill={`url(#${getGradientId(index)})`}
+              />
 
-<path d="M 1028.80 444.00 L 1035.52 446.46 L 1042.24 449.10 L 1048.96 451.58 L 1055.68 453.53 L 1062.40 454.59 L 1069.12 454.54 L 1075.84 453.29 L 1082.56 450.93 L 1089.28 447.71 L 1096.00 444.02 L 1102.72 440.33 L 1109.44 437.10 L 1116.16 434.73 L 1122.88 433.46 L 1129.60 433.40 L 1136.32 434.46 L 1143.04 436.39 L 1149.76 438.87 L 1156.48 441.52 L 1163.20 443.98" fill="none" stroke="#6C63FF" stroke-opacity="0.6" stroke-width="2"/>
-<text class="small" x="1028.8" y="418">trend</text>
-<rect x="1201.2" y="116" rx="20" ry="20" width="174.4" height="380" fill="#ffffff00" stroke="#cbd5e1" stroke-opacity="0.3" filter="url(#softShadow)"/>
-<text class="label" x="1221.2" y="162">Performance</text>
+              {/* Threshold indicator */}
+              <line
+                x1={40 + thresholdPosition}
+                y1={y + 5}
+                x2={40 + thresholdPosition}
+                y2={y + 19}
+                stroke="#fbbf24"
+                strokeWidth="2"
+                strokeDasharray="2,2"
+                opacity="0.6"
+              />
 
-<g transform="translate(1333.6000000000001,144) scale(0.8333333333333334)">
-  <path d="M20.285 6.709a1 1 0 0 1 .006 1.414l-9.1 9.2a1 1 0 0 1-1.44.012L3.71 11.179a1 1 0 1 1 1.415-1.414l5.246 5.246 8.396-8.338a1 1 0 0 1 1.518.036z" fill="#36B0FF"/>
-</g>
-<text class="value" x="1221.2" y="202">86</text>
-<text class="muted" x="1221.2" y="228">Target ≥ 80</text>
+              {/* Threshold label */}
+              <text
+                x={40 + thresholdPosition}
+                y={y + 28}
+                textAnchor="middle"
+                fontFamily="system-ui, -apple-system, sans-serif"
+                fontSize="12"
+                fill="#fbbf24"
+                opacity="0.7"
+              >
+                {metric.threshold}%
+              </text>
+            </g>
+          );
+        })}
 
-  <rect x="1221.2" y="256" width="134.4" height="14" rx="7.0" ry="7.0" fill="#1f2937" opacity="0.9"/>
-  <rect x="1221.2" y="256" width="115.584" height="14" rx="7.0" ry="7.0" fill="url(#gradPB)"/>
-  <!-- threshold marker -->
-  <line x1="1328.72" y1="250" x2="1328.72" y2="276" stroke="#6C63FF" stroke-width="3" stroke-linecap="round"/>
-
-<path d="M 1221.20 444.00 L 1227.92 446.46 L 1234.64 449.10 L 1241.36 451.58 L 1248.08 453.53 L 1254.80 454.59 L 1261.52 454.54 L 1268.24 453.29 L 1274.96 450.93 L 1281.68 447.71 L 1288.40 444.02 L 1295.12 440.33 L 1301.84 437.10 L 1308.56 434.73 L 1315.28 433.46 L 1322.00 433.40 L 1328.72 434.46 L 1335.44 436.39 L 1342.16 438.87 L 1348.88 441.52 L 1355.60 443.98" fill="none" stroke="#6C63FF" stroke-opacity="0.6" stroke-width="2"/>
-<text class="small" x="1221.2" y="418">trend</text>
-<rect x="1393.6" y="116" rx="20" ry="20" width="174.4" height="380" fill="#ffffff00" stroke="#cbd5e1" stroke-opacity="0.3" filter="url(#softShadow)"/>
-<text class="label" x="1413.6" y="162">Licenses</text>
-
-<g transform="translate(1526.0,144) scale(0.8333333333333334)">
-  <path d="M20.285 6.709a1 1 0 0 1 .006 1.414l-9.1 9.2a1 1 0 0 1-1.44.012L3.71 11.179a1 1 0 1 1 1.415-1.414l5.246 5.246 8.396-8.338a1 1 0 0 1 1.518.036z" fill="#36B0FF"/>
-</g>
-<text class="value" x="1413.6" y="202">100%</text>
-<text class="muted" x="1413.6" y="228">Target ≥ 100%</text>
-
-  <rect x="1413.6" y="256" width="134.4" height="14" rx="7.0" ry="7.0" fill="#1f2937" opacity="0.9"/>
-  <rect x="1413.6" y="256" width="134.4" height="14" rx="7.0" ry="7.0" fill="url(#gradPB)"/>
-  <!-- threshold marker -->
-  <line x1="1548.0" y1="250" x2="1548.0" y2="276" stroke="#6C63FF" stroke-width="3" stroke-linecap="round"/>
-
-<path d="M 1413.60 444.00 L 1420.32 446.46 L 1427.04 449.10 L 1433.76 451.58 L 1440.48 453.53 L 1447.20 454.59 L 1453.92 454.54 L 1460.64 453.29 L 1467.36 450.93 L 1474.08 447.71 L 1480.80 444.02 L 1487.52 440.33 L 1494.24 437.10 L 1500.96 434.73 L 1507.68 433.46 L 1514.40 433.40 L 1521.12 434.46 L 1527.84 436.39 L 1534.56 438.87 L 1541.28 441.52 L 1548.00 443.98" fill="none" stroke="#6C63FF" stroke-opacity="0.6" stroke-width="2"/>
-<text class="small" x="1413.6" y="418">trend</text>
-<rect x="32" y="528" rx="20" ry="20" width="1536" height="440" fill="#ffffff00" stroke="#cbd5e1" stroke-opacity="0.3" filter="url(#softShadow)"/>
-
-  <g transform="translate(52, 556)">
-    <rect x="0" y="-16" width="14" height="14" rx="7" fill="#1f2937"/>
-    <text class="small" x="22" y="-4">Progress</text>
-    <rect x="120" y="-16" width="14" height="14" rx="7" fill="url(#gradPB)"/>
-    <text class="small" x="142" y="-4">Current value</text>
-    <line x1="300" y1="-12" x2="314" y2="-12" stroke="#6C63FF" stroke-width="3" />
-    <text class="small" x="318" y="-4">Quality threshold</text>
-  </g>
-  <text class="subtitle" x="52" y="604">Notes</text>
-  <text class="small" x="52" y="632">• Threshold marker shows the minimum acceptable quality gate value.</text>
-  <text class="small" x="52" y="656">• Colors: Purple/Blue gradient indicates positive progression and pass status.</text>
-  <text class="small" x="52" y="680">• Transparent background (SVG) for seamless overlay in reports &amp; slides.</text>
-
-</svg>
+        {/* Legend */}
+        <g transform="translate(40, 350)">
+          <text
+            x="0"
+            y="0"
+            fontFamily="system-ui, -apple-system, sans-serif"
+            fontSize="10"
+            fill="#a5b4fc"
+            opacity="0.7"
+          >
+            <tspan>━━ Threshold </tspan>
+            <tspan dx="20">● Status </tspan>
+            <tspan dx="20">█ Progress</tspan>
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+}
