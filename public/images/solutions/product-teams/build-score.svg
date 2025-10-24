@@ -1,75 +1,136 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
   <defs>
-    <linearGradient id="gradPB" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#6C4CF4"/>
-      <stop offset="100%" stop-color="#12A1FF"/>
+    <!-- Gradients -->
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="gradBlue" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#12A1FF"/>
-      <stop offset="100%" stop-color="#6C4CF4"/>
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
     </linearGradient>
-    <filter id="shadowSoft" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.15"/>
+    
+    <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0.9" />
+    </linearGradient>
+    
+    <!-- Filter for shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
-    <style>
-      .title { font: 700 28px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0E2A47; }
-      .subtitle { font: 600 16px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #4B5563; }
-      .label { font: 600 14px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0E2A47; }
-      .small { font: 12px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #4B5563; }
-      .big { font: 800 56px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: #0E2A47; }
-      .chip { font: 600 12px 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; fill: white; }
-      .mono { font: 600 12px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; fill: #4B5563; }
-    </style>
   </defs>
-<text class="title" x="40" y="50">Build Score Dashboard</text>
-<text class="subtitle" x="40" y="76">Weighted metrics combine into an overall score · 2025-09-16</text>
-<circle cx="280" cy="320" r="128.0" stroke="#E5E7EB" stroke-width="24" fill="none" opacity="0.6"/>
-<path d="M 280.0000 192.0000 A 128.0000 128.0000 0 1 1 171.9260 251.4142" stroke="url(#gradPB)" stroke-width="24" fill="none" stroke-linecap="round" filter="url(#shadowSoft)"/>
-<line x1="186.15" y1="251.82" x2="166.74" y2="237.71" stroke="#6C4CF4" stroke-width="3"/>
-<text class="big" x="280" y="330" text-anchor="middle">84</text>
-<text class="subtitle" x="280" y="368" text-anchor="middle">Overall Build Score</text>
-<text class="label" x="520" y="160">Code Quality <tspan class="small">(25%)</tspan></text>
-<text class="label" x="1140" y="160" text-anchor="end">92%</text>
-<rect x="520" y="170" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
-<rect x="520" y="170" width="570.4" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
-<line x1="1047.0" y1="164" x2="1047.0" y2="192" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
-<text class="small" x="1053.0" y="204">Threshold 85%</text>
-<text class="label" x="520" y="244">Security <tspan class="small">(25%)</tspan></text>
-<text class="label" x="1140" y="244" text-anchor="end">78%</text>
-<rect x="520" y="254" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
-<rect x="520" y="254" width="483.6" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
-<line x1="1047.0" y1="248" x2="1047.0" y2="276" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
-<text class="small" x="1053.0" y="288">Threshold 85%</text>
-<text class="label" x="520" y="328">Performance <tspan class="small">(25%)</tspan></text>
-<text class="label" x="1140" y="328" text-anchor="end">86%</text>
-<rect x="520" y="338" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
-<rect x="520" y="338" width="533.2" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
-<line x1="1047.0" y1="332" x2="1047.0" y2="360" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
-<text class="small" x="1053.0" y="372">Threshold 85%</text>
-<text class="label" x="520" y="412">Documentation <tspan class="small">(25%)</tspan></text>
-<text class="label" x="1140" y="412" text-anchor="end">80%</text>
-<rect x="520" y="422" width="620" height="16" rx="8.0" ry="8.0" fill="#E5E7EB" opacity="0.35"/>
-<rect x="520" y="422" width="496.0" height="16" rx="8.0" ry="8.0" fill="url(#gradPB)" filter="url(#shadowSoft)"/>
-<line x1="1047.0" y1="416" x2="1047.0" y2="444" stroke="#6C4CF4" stroke-dasharray="4,4" stroke-width="2"/>
-<text class="small" x="1053.0" y="456">Threshold 85%</text>
-<rect x="520" y="114" width="200" height="28" rx="14" ry="14" fill="url(#gradPB)"/>
-<text class="chip" x="534" y="133">Weights: 25% each</text>
-<circle cx="742" cy="128" r="6" fill="#6C4CF4"/>
-<text class="small" x="754" y="132">Threshold</text>
-<polygon points="300,580.0 330.0,610 300,640.0 270.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="0.5"/>
-<polygon points="300,550.0 360.0,610 300,670.0 240.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="0.5"/>
-<polygon points="300,520.0 390.0,610 300,700.0 210.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="0.5"/>
-<polygon points="300,490.0 420.0,610 300,730.0 180.0,610" fill="none" stroke="#E5E7EB" stroke-width="1" opacity="1.0"/>
-<line x1="300" y1="610" x2="300" y2="490" stroke="#E5E7EB" stroke-width="1"/>
-<line x1="300" y1="610" x2="420" y2="610" stroke="#E5E7EB" stroke-width="1"/>
-<line x1="300" y1="610" x2="300" y2="730" stroke="#E5E7EB" stroke-width="1"/>
-<line x1="300" y1="610" x2="180" y2="610" stroke="#E5E7EB" stroke-width="1"/>
-<polygon points="300.00,499.60 393.60,610.00 300.00,713.20 204.00,610.00" fill="url(#gradBlue)" opacity="0.25" stroke="url(#gradPB)" stroke-width="2"/>
-<text class="label" x="300" y="474" text-anchor="middle">Code Quality <tspan class="small">92%</tspan></text>
-<text class="label" x="430" y="614" text-anchor="start">Security <tspan class="small">78%</tspan></text>
-<text class="label" x="300" y="750" text-anchor="middle">Performance <tspan class="small">86%</tspan></text>
-<text class="label" x="170" y="614" text-anchor="end">Documentation <tspan class="small">80%</tspan></text>
-<text class="small" x="300" y="772" text-anchor="middle">Radar profile across weighted axes</text>
-<text class="mono" x="40" y="760">Transparent background · Purple/Blue palette · Progress indicators + threshold lines</text>
+  
+  <!-- Title -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#6366F1" text-anchor="middle">
+    Build Score Dashboard
+  </text>
+  
+  <!-- Overall Score Circle -->
+  <g transform="translate(470, 130)">
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#D1D5DB" stroke-width="12"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="url(#scoreGradient)" stroke-width="12" 
+            stroke-dasharray="395.84" stroke-dashoffset="59.376" 
+            transform="rotate(-90)" stroke-linecap="round"/>
+    <text x="0" y="-10" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#6366F1" text-anchor="middle">85</text>
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="16" fill="#6366F1" text-anchor="middle">Overall</text>
+    <text x="0" y="34" font-family="Arial, sans-serif" font-size="14" fill="#6366F1" text-anchor="middle">Build Score</text>
+  </g>
+  
+  <!-- Metrics Section -->
+  <g transform="translate(30, 80)">
+    <!-- Code Quality -->
+    <g>
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#8B5CF6">Code Quality</text>
+      <text x="280" y="0" font-family="Arial, sans-serif" font-size="14" fill="#8B5CF6" text-anchor="end">25% weight</text>
+      
+      <!-- Progress bar background -->
+      <rect x="0" y="8" width="280" height="20" rx="10" fill="#D1D5DB"/>
+      
+      <!-- Threshold markers -->
+      <line x1="196" y1="8" x2="196" y2="28" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="2,2"/>
+      <line x1="252" y1="8" x2="252" y2="28" stroke="#86EFAC" stroke-width="1" stroke-dasharray="2,2"/>
+      
+      <!-- Progress fill -->
+      <rect x="0" y="8" width="246.4" height="20" rx="10" fill="url(#purpleGradient)"/>
+      
+      <!-- Score text -->
+      <text x="290" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8B5CF6">88</text>
+    </g>
+    
+    <!-- Security -->
+    <g transform="translate(0, 60)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#3B82F6">Security</text>
+      <text x="280" y="0" font-family="Arial, sans-serif" font-size="14" fill="#3B82F6" text-anchor="end">25% weight</text>
+      
+      <rect x="0" y="8" width="280" height="20" rx="10" fill="#D1D5DB"/>
+      <line x1="196" y1="8" x2="196" y2="28" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="2,2"/>
+      <line x1="252" y1="8" x2="252" y2="28" stroke="#86EFAC" stroke-width="1" stroke-dasharray="2,2"/>
+      
+      <rect x="0" y="8" width="229.6" height="20" rx="10" fill="url(#blueGradient)"/>
+      
+      <text x="290" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3B82F6">82</text>
+    </g>
+    
+    <!-- Performance -->
+    <g transform="translate(0, 120)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#8B5CF6">Performance</text>
+      <text x="280" y="0" font-family="Arial, sans-serif" font-size="14" fill="#8B5CF6" text-anchor="end">25% weight</text>
+      
+      <rect x="0" y="8" width="280" height="20" rx="10" fill="#D1D5DB"/>
+      <line x1="196" y1="8" x2="196" y2="28" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="2,2"/>
+      <line x1="252" y1="8" x2="252" y2="28" stroke="#86EFAC" stroke-width="1" stroke-dasharray="2,2"/>
+      
+      <rect x="0" y="8" width="257.6" height="20" rx="10" fill="url(#purpleGradient)"/>
+      
+      <text x="290" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8B5CF6">92</text>
+    </g>
+    
+    <!-- Documentation -->
+    <g transform="translate(0, 180)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#3B82F6">Documentation</text>
+      <text x="280" y="0" font-family="Arial, sans-serif" font-size="14" fill="#3B82F6" text-anchor="end">25% weight</text>
+      
+      <rect x="0" y="8" width="280" height="20" rx="10" fill="#D1D5DB"/>
+      <line x1="196" y1="8" x2="196" y2="28" stroke="#FCA5A5" stroke-width="1" stroke-dasharray="2,2"/>
+      <line x1="252" y1="8" x2="252" y2="28" stroke="#86EFAC" stroke-width="1" stroke-dasharray="2,2"/>
+      
+      <rect x="0" y="8" width="218.4" height="20" rx="10" fill="url(#blueGradient)"/>
+      
+      <text x="290" y="22" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#3B82F6">78</text>
+    </g>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(30, 350)">
+    <text x="-5" y="0" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6">Thresholds:</text>
+    
+    <line x1="70" y1="-3" x2="85" y2="-3" stroke="#FCA5A5" stroke-width="2" stroke-dasharray="2,2"/>
+    <text x="100" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#FCA5A5">Warning (70)</text>
+    
+    <line x1="195" y1="-3" x2="210" y2="-3" stroke="#86EFAC" stroke-width="2" stroke-dasharray="2,2"/>
+    <text x="215" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22C55E">Excellent (90)</text>
+    
+    <circle cx="325" cy="-3" r="4" fill="url(#purpleGradient)"/>
+    <text x="335" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#8B5CF6">Primary Metrics</text>
+    
+    <circle cx="465" cy="-3" r="4" fill="url(#blueGradient)"/>
+    <text x="475" y="0" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#3B82F6">Secondary Metrics</text>
+  </g>
+  
+  <!-- Status Badge -->
+  <g transform="translate(470, 250)">
+    <rect x="-45" y="-15" width="90" height="30" rx="15" fill="#10B981" opacity="0.1"/>
+    <rect x="-45" y="-15" width="90" height="30" rx="15" fill="none" stroke="#10B981" stroke-width="2"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#059669" text-anchor="middle">PASSING</text>
+  </g>
 </svg>
