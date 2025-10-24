@@ -57,7 +57,7 @@
   <!-- Title -->
   <g id="title" transform="translate(300, 25)">
     <rect x="-150" y="-12" width="300" height="24" rx="12" fill="url(#primaryGradient)" opacity="0.1"/>
-    <text x="0" y="4" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="url(#primaryGradient)">Feature Flag Management & Gradual Rollout</text>
+    <text x="0" y="4" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="url(#primaryGradient)">Feature Flag Management and Gradual Rollout</text>
   </g>
   
   <!-- Feature Flag Control Panel -->
@@ -147,7 +147,7 @@
     
     <!-- Segments Title -->
     <rect x="10" y="10" width="480" height="20" rx="4" fill="url(#primaryGradient)" opacity="0.1"/>
-    <text x="250" y="23" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#6366f1">User Segments & Targeting</text>
+    <text x="250" y="23" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="700" fill="#6366f1">User Segments and Targeting</text>
     
     <!-- Segment 1: Internal Users -->
     <g transform="translate(30, 45)">
@@ -190,7 +190,7 @@
     </g>
   </g>
   
-  <!-- Monitoring & Analytics -->
+  <!-- Monitoring and Analytics -->
   <g id="monitoring" transform="translate(50, 300)">
     <rect x="0" y="0" width="240" height="80" rx="8" fill="#f8fafc" stroke="url(#primaryGradient)" stroke-width="2" filter="url(#softShadow)"/>
     
@@ -252,7 +252,7 @@
     <!-- Auto-Rollback Trigger -->
     <g transform="translate(20, 65)">
       <circle cx="5" cy="5" r="3" fill="url(#warningGradient)"/>
-      <text x="12" y="8" font-family="Arial, sans-serif" font-size="8" font-weight="600" fill="#374151">Auto-trigger at >5% error rate</text>
+      <text x="12" y="8" font-family="Arial, sans-serif" font-size="8" font-weight="600" fill="#374151">Auto-trigger at greater than 5% error rate</text>
     </g>
   </g>
   
