@@ -1,1 +1,152 @@
-x
+<svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .bg-dark { fill: #0f172a; }
+      .bg-card { fill: #1e293b; }
+      .bg-input { fill: #334155; }
+      .text-primary { fill: #f1f5f9; }
+      .text-secondary { fill: #94a3b8; }
+      .text-green { fill: #10b981; }
+      .mono { font-family: 'Courier New', monospace; }
+      .sans { font-family: -apple-system, sans-serif; }
+      .border { stroke: #334155; stroke-width: 1; fill: none; }
+      .grid-line { stroke: #334155; stroke-width: 0.5; opacity: 0.3; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg-dark" width="640" height="360"/>
+  
+  <!-- Header -->
+  <text class="text-primary sans" x="20" y="28" font-size="18" font-weight="600">API Dashboard</text>
+  <circle cx="605" cy="22" r="6" fill="#10b981"/>
+  <text class="text-green sans" x="565" y="27" font-size="11">Active</text>
+  
+  <!-- Left Column - API Keys & Metrics -->
+  <g id="left-column">
+    <!-- API Key Card -->
+    <rect class="bg-card" x="20" y="45" width="300" height="140" rx="6"/>
+    <text class="text-primary sans" x="30" y="65" font-size="12" font-weight="600">API Key Management</text>
+    
+    <!-- Key 1 -->
+    <rect class="bg-input" x="30" y="75" width="260" height="28" rx="4"/>
+    <text class="text-secondary mono" x="38" y="93" font-size="10">sk_live_••••••••••••••••3kL9</text>
+    <circle cx="278" cy="89" r="3" fill="#10b981"/>
+    
+    <!-- Key 2 -->
+    <rect class="bg-input" x="30" y="110" width="260" height="28" rx="4"/>
+    <text class="text-secondary mono" x="38" y="128" font-size="10">sk_test_••••••••••••••••7mW2</text>
+    <circle cx="278" cy="124" r="3" fill="#64748b"/>
+    
+    <!-- Generate Key Button -->
+    <rect x="30" y="150" width="100" height="24" rx="4" fill="#10b981"/>
+    <text x="48" y="166" font-size="11" fill="#0f172a" font-weight="600" class="sans">+ New Key</text>
+    
+    <!-- Usage Metrics Graph -->
+    <rect class="bg-card" x="20" y="200" width="300" height="140" rx="6"/>
+    <text class="text-primary sans" x="30" y="220" font-size="12" font-weight="600">Usage Metrics</text>
+    <text class="text-secondary sans" x="30" y="235" font-size="9">Last 7 days</text>
+    
+    <!-- Grid lines -->
+    <line class="grid-line" x1="40" y1="250" x2="300" y2="250"/>
+    <line class="grid-line" x1="40" y1="275" x2="300" y2="275"/>
+    <line class="grid-line" x1="40" y1="300" x2="300" y2="300"/>
+    <line class="grid-line" x1="40" y1="325" x2="300" y2="325"/>
+    
+    <!-- Y-axis labels -->
+    <text class="text-secondary sans" x="38" y="254" font-size="8" text-anchor="end">10k</text>
+    <text class="text-secondary sans" x="38" y="279" font-size="8" text-anchor="end">7.5k</text>
+    <text class="text-secondary sans" x="38" y="304" font-size="8" text-anchor="end">5k</text>
+    <text class="text-secondary sans" x="38" y="329" font-size="8" text-anchor="end">2.5k</text>
+    
+    <!-- Graph line -->
+    <polyline points="49,310 86,305 123,285 160,295 197,270 234,280 271,260 309,265" 
+              fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Fill under curve -->
+    <polyline points="49,325 49,310 86,305 123,285 160,295 197,270 234,280 271,260 309,265 309,325" 
+              fill="#10b981" opacity="0.1"/>
+    
+    <!-- Data points -->
+    <circle cx="49" cy="310" r="3" fill="#10b981"/>
+    <circle cx="86" cy="305" r="3" fill="#10b981"/>
+    <circle cx="123" cy="285" r="3" fill="#10b981"/>
+    <circle cx="160" cy="295" r="3" fill="#10b981"/>
+    <circle cx="197" cy="270" r="3" fill="#10b981"/>
+    <circle cx="234" cy="280" r="3" fill="#10b981"/>
+    <circle cx="271" cy="260" r="3" fill="#10b981"/>
+    <circle cx="309" cy="265" r="3" fill="#10b981"/>
+  </g>
+  
+  <!-- Right Column - Code Snippets & Stats -->
+  <g id="right-column">
+    <!-- Code Snippet Panel -->
+    <rect class="bg-card" x="335" y="45" width="285" height="200" rx="6"/>
+    <text class="text-primary sans" x="345" y="65" font-size="12" font-weight="600">Quick Start</text>
+    
+    <!-- Language Tabs -->
+    <rect x="345" y="75" width="45" height="22" rx="3" fill="#10b981"/>
+    <text x="355" y="90" font-size="10" fill="#0f172a" font-weight="600" class="sans">cURL</text>
+    
+    <rect x="395" y="75" width="50" height="22" rx="3" fill="#334155"/>
+    <text x="403" y="90" font-size="10" fill="#94a3b8" class="sans">Python</text>
+    
+    <rect x="450" y="75" width="35" height="22" rx="3" fill="#334155"/>
+    <text x="456" y="90" font-size="10" fill="#94a3b8" class="sans">JS</text>
+    
+    <!-- Code Block -->
+    <rect class="bg-input" x="345" y="105" width="265" height="130" rx="4"/>
+    
+    <!-- Code text -->
+    <text class="text-secondary mono" x="355" y="122" font-size="9">curl https://api.example.com/v1 \</text>
+    <text class="text-secondary mono" x="365" y="137" font-size="9">-H </text>
+    <text class="text-green mono" x="385" y="137" font-size="9">"Authorization: Bearer</text>
+    <text class="text-green mono" x="365" y="152" font-size="9">sk_live_3kL9..."</text>
+    <text class="text-secondary mono" x="365" y="167" font-size="9">-H </text>
+    <text class="text-green mono" x="385" y="167" font-size="9">"Content-Type:</text>
+    <text class="text-green mono" x="365" y="182" font-size="9">application/json"</text>
+    <text class="text-secondary mono" x="365" y="197" font-size="9">-d </text>
+    <text class="text-green mono" x="385" y="197" font-size="9">'{"action": "query"}'</text>
+    
+    <!-- Copy button indicator -->
+    <rect x="588" y="112" width="14" height="14" rx="2" fill="#334155"/>
+    <path d="M 592 116 L 592 122 L 598 122 L 598 116 Z M 594 114 L 594 115 L 596 115 L 596 120 L 595 120" 
+          stroke="#94a3b8" stroke-width="0.8" fill="none"/>
+    
+    <!-- Rate Limits Card -->
+    <rect class="bg-card" x="335" y="260" width="135" height="80" rx="6"/>
+    <text class="text-primary sans" x="345" y="280" font-size="11" font-weight="600">Rate Limits</text>
+    
+    <!-- Rate limit bars -->
+    <rect x="345" y="290" width="115" height="4" rx="2" fill="#334155"/>
+    <rect x="345" y="290" width="82" height="4" rx="2" fill="#10b981"/>
+    <text class="text-secondary sans" x="345" y="305" font-size="8">1,247 / 1,500 req/min</text>
+    
+    <rect x="345" y="313" width="115" height="4" rx="2" fill="#334155"/>
+    <rect x="345" y="313" width="92" height="4" rx="2" fill="#10b981"/>
+    <text class="text-secondary sans" x="345" y="328" font-size="8">46.2k / 50k req/day</text>
+    
+    <!-- Endpoint Performance Card -->
+    <rect class="bg-card" x="485" y="260" width="135" height="80" rx="6"/>
+    <text class="text-primary sans" x="495" y="280" font-size="11" font-weight="600">Performance</text>
+    
+    <!-- Latency metric -->
+    <text class="text-green sans" x="495" y="300" font-size="20" font-weight="700">24ms</text>
+    <text class="text-secondary sans" x="495" y="313" font-size="8">Avg Response Time</text>
+    
+    <!-- Success rate -->
+    <text class="text-primary sans" x="495" y="330" font-size="13" font-weight="600">99.97%</text>
+    <text class="text-secondary sans" x="542" y="330" font-size="8">uptime</text>
+  </g>
+  
+  <!-- Status indicators at bottom -->
+  <g id="status-bar">
+    <circle cx="250" cy="352" r="2" fill="#10b981"/>
+    <text class="text-secondary sans" x="256" y="355" font-size="8">Operational</text>
+    
+    <circle cx="335" cy="352" r="2" fill="#10b981"/>
+    <text class="text-secondary sans" x="341" y="355" font-size="8">v2.4.1</text>
+    
+    <text class="text-secondary sans" x="395" y="355" font-size="8">Last updated: 2 min ago</text>
+  </g>
+</svg>
