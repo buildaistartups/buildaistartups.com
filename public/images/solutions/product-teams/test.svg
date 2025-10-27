@@ -10,9 +10,9 @@
     </linearGradient>
     
     <radialGradient id="cosmicGlow" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.4" />
-      <stop offset="30%" style="stop-color:#764ba2;stop-opacity:0.3" />
-      <stop offset="60%" style="stop-color:#f093fb;stop-opacity:0.2" />
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.3" />
+      <stop offset="30%" style="stop-color:#764ba2;stop-opacity:0.2" />
+      <stop offset="60%" style="stop-color:#f093fb;stop-opacity:0.1" />
       <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0" />
     </radialGradient>
     
@@ -36,10 +36,10 @@
       <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
     </linearGradient>
     
-    <!-- Exceptional Filters -->
+    <!-- Enhanced Filters for Transparency -->
     <filter id="cosmicShadow" x="-100%" y="-100%" width="300%" height="300%">
-      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#667eea" flood-opacity="0.3"/>
-      <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#764ba2" flood-opacity="0.2"/>
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#667eea" flood-opacity="0.2"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#764ba2" flood-opacity="0.15"/>
       <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#1a202c" flood-opacity="0.1"/>
     </filter>
     
@@ -72,24 +72,23 @@
       <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Mesh Gradient Background -->
+    <!-- Transparent Mesh Pattern -->
     <pattern id="meshPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-      <circle cx="25" cy="25" r="1" fill="#667eea" opacity="0.1">
-        <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+      <circle cx="25" cy="25" r="1" fill="#667eea" opacity="0.08">
+        <animate attributeName="opacity" values="0.08;0.15;0.08" dur="4s" repeatCount="indefinite"/>
       </circle>
-      <circle cx="75" cy="75" r="1" fill="#f093fb" opacity="0.1">
-        <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
+      <circle cx="75" cy="75" r="1" fill="#f093fb" opacity="0.08">
+        <animate attributeName="opacity" values="0.08;0.15;0.08" dur="5s" repeatCount="indefinite"/>
       </circle>
     </pattern>
   </defs>
   
-  <!-- Cosmic Background -->
-  <rect width="1024" height="576" fill="linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%)"/>
-  <rect width="1024" height="576" fill="url(#meshPattern)"/>
-  <circle cx="512" cy="288" r="400" fill="url(#cosmicGlow)"/>
+  <!-- Transparent Background with Subtle Pattern -->
+  <rect width="1024" height="576" fill="url(#meshPattern)" opacity="0.3"/>
+  <circle cx="512" cy="288" r="400" fill="url(#cosmicGlow)" opacity="0.4"/>
   
   <!-- Floating Particles -->
-  <g id="particles" opacity="0.4">
+  <g id="particles" opacity="0.5">
     <use href="#particle" x="150" y="100">
       <animateTransform attributeName="transform" type="translate" values="0,0; 20,-10; 0,0" dur="6s" repeatCount="indefinite"/>
     </use>
@@ -107,20 +106,20 @@
   <!-- Central Cosmic Hub -->
   <g id="centralHub" filter="url(#cosmicShadow)">
     <!-- Outer Energy Ring -->
-    <circle cx="512" cy="288" r="250" fill="none" stroke="url(#heroGradient)" stroke-width="2" opacity="0.3">
+    <circle cx="512" cy="288" r="250" fill="none" stroke="url(#heroGradient)" stroke-width="2" opacity="0.4">
       <animate attributeName="r" values="250;270;250" dur="4s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0.2;0.4" dur="4s" repeatCount="indefinite"/>
     </circle>
     
     <!-- Main Hub -->
-    <circle cx="512" cy="288" r="200" fill="rgba(255,255,255,0.02)" stroke="url(#heroGradient)" stroke-width="3" filter="url(#innerGlow)"/>
-    <circle cx="512" cy="288" r="190" fill="none" stroke="url(#heroGradient)" stroke-width="1" opacity="0.5"/>
+    <circle cx="512" cy="288" r="200" fill="rgba(255,255,255,0.1)" stroke="url(#heroGradient)" stroke-width="3" filter="url(#innerGlow)"/>
+    <circle cx="512" cy="288" r="190" fill="none" stroke="url(#heroGradient)" stroke-width="1" opacity="0.6"/>
     
     <!-- Workflow Nodes -->
     <!-- SPEC Node -->
     <g id="specNode" transform="translate(512,128)" filter="url(#neonGlow)">
-      <circle r="50" fill="rgba(102,126,234,0.1)" stroke="url(#specGradient)" stroke-width="3"/>
-      <circle r="40" fill="rgba(102,126,234,0.05)"/>
+      <circle r="50" fill="rgba(102,126,234,0.15)" stroke="url(#specGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(102,126,234,0.08)"/>
       
       <!-- Holographic Document -->
       <g transform="translate(-20,-20)">
@@ -146,12 +145,12 @@
     
     <!-- CODE Node -->
     <g id="codeNode" transform="translate(672,288)" filter="url(#neonGlow)">
-      <circle r="50" fill="rgba(79,172,254,0.1)" stroke="url(#codeGradient)" stroke-width="3"/>
-      <circle r="40" fill="rgba(79,172,254,0.05)"/>
+      <circle r="50" fill="rgba(79,172,254,0.15)" stroke="url(#codeGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(79,172,254,0.08)"/>
       
       <!-- Holographic Code -->
       <g transform="translate(-20,-20)">
-        <rect width="40" height="40" rx="4" fill="rgba(79,172,254,0.05)" stroke="url(#codeGradient)" stroke-width="2"/>
+        <rect width="40" height="40" rx="4" fill="rgba(79,172,254,0.08)" stroke="url(#codeGradient)" stroke-width="2"/>
         
         <!-- Code brackets with animation -->
         <path d="M 8 10 L 2 20 L 8 30" fill="none" stroke="url(#codeGradient)" stroke-width="2.5" stroke-linecap="round">
@@ -178,12 +177,12 @@
     
     <!-- REVIEW Node -->
     <g id="reviewNode" transform="translate(512,448)" filter="url(#neonGlow)">
-      <circle r="50" fill="rgba(240,147,251,0.1)" stroke="url(#reviewGradient)" stroke-width="3"/>
-      <circle r="40" fill="rgba(240,147,251,0.05)"/>
+      <circle r="50" fill="rgba(240,147,251,0.15)" stroke="url(#reviewGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(240,147,251,0.08)"/>
       
       <!-- Holographic Review -->
       <g transform="translate(-20,-20)">
-        <rect width="40" height="40" rx="4" fill="rgba(240,147,251,0.05)" stroke="url(#reviewGradient)" stroke-width="2"/>
+        <rect width="40" height="40" rx="4" fill="rgba(240,147,251,0.08)" stroke="url(#reviewGradient)" stroke-width="2"/>
         
         <!-- Animated checkmarks -->
         <g transform="translate(8,8)">
@@ -220,8 +219,8 @@
     
     <!-- DEPLOY Node -->
     <g id="deployNode" transform="translate(352,288)" filter="url(#neonGlow)">
-      <circle r="50" fill="rgba(168,237,234,0.1)" stroke="url(#deployGradient)" stroke-width="3"/>
-      <circle r="40" fill="rgba(168,237,234,0.05)"/>
+      <circle r="50" fill="rgba(168,237,234,0.15)" stroke="url(#deployGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(168,237,234,0.08)"/>
       
       <!-- Holographic Rocket -->
       <g transform="translate(0,-15)">
@@ -252,7 +251,7 @@
     </g>
     
     <!-- Energy Flow Lines -->
-    <g id="energyFlow" opacity="0.7">
+    <g id="energyFlow" opacity="0.8">
       <path d="M 512 178 Q 592 233 622 288" fill="none" stroke="url(#heroGradient)" stroke-width="3" stroke-dasharray="15,10">
         <animate attributeName="stroke-dashoffset" from="0" to="25" dur="2s" repeatCount="indefinite"/>
       </path>
@@ -271,8 +270,8 @@
   <!-- Team Members as Floating Holograms -->
   <!-- Product Manager -->
   <g id="productManager" transform="translate(150,150)" filter="url(#neonGlow)">
-    <circle r="60" fill="rgba(102,126,234,0.1)" stroke="url(#specGradient)" stroke-width="2"/>
-    <circle r="50" fill="rgba(102,126,234,0.05)">
+    <circle r="60" fill="rgba(102,126,234,0.12)" stroke="url(#specGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(102,126,234,0.06)">
       <animate attributeName="r" values="50;52;50" dur="3s" repeatCount="indefinite"/>
     </circle>
     
@@ -281,7 +280,7 @@
     <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#specGradient)" opacity="0.6"/>
     
     <!-- Floating Documents -->
-    <g opacity="0.7">
+    <g opacity="0.8">
       <rect x="25" y="15" width="25" height="30" rx="2" fill="rgba(255,255,255,0.9)" stroke="url(#specGradient)" stroke-width="1">
         <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
       </rect>
@@ -295,8 +294,8 @@
   
   <!-- UI/UX Designer -->
   <g id="uiDesigner" transform="translate(874,150)" filter="url(#neonGlow)">
-    <circle r="60" fill="rgba(79,172,254,0.1)" stroke="url(#codeGradient)" stroke-width="2"/>
-    <circle r="50" fill="rgba(79,172,254,0.05)">
+    <circle r="60" fill="rgba(79,172,254,0.12)" stroke="url(#codeGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(79,172,254,0.06)">
       <animate attributeName="r" values="50;52;50" dur="3.5s" repeatCount="indefinite"/>
     </circle>
     
@@ -305,7 +304,7 @@
     <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#codeGradient)" opacity="0.6"/>
     
     <!-- Floating Design Elements -->
-    <g opacity="0.7">
+    <g opacity="0.8">
       <rect x="-45" y="20" width="35" height="25" rx="3" fill="rgba(30,41,59,0.9)" stroke="url(#codeGradient)" stroke-width="1">
         <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="3.5s" repeatCount="indefinite"/>
       </rect>
@@ -320,8 +319,8 @@
   
   <!-- Frontend Engineer -->
   <g id="frontendEngineer" transform="translate(874,426)" filter="url(#neonGlow)">
-    <circle r="60" fill="rgba(240,147,251,0.1)" stroke="url(#reviewGradient)" stroke-width="2"/>
-    <circle r="50" fill="rgba(240,147,251,0.05)">
+    <circle r="60" fill="rgba(240,147,251,0.12)" stroke="url(#reviewGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(240,147,251,0.06)">
       <animate attributeName="r" values="50;52;50" dur="4s" repeatCount="indefinite"/>
     </circle>
     
@@ -330,7 +329,7 @@
     <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#reviewGradient)" opacity="0.6"/>
     
     <!-- Floating Laptop -->
-    <g opacity="0.7">
+    <g opacity="0.8">
       <path d="M -35 35 L -30 20 L 30 20 L 35 35 Z" fill="rgba(30,41,59,0.9)" stroke="url(#reviewGradient)" stroke-width="1">
         <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="4s" repeatCount="indefinite"/>
       </path>
@@ -345,8 +344,8 @@
   
   <!-- DevOps Specialist -->
   <g id="devopsSpecialist" transform="translate(150,426)" filter="url(#neonGlow)">
-    <circle r="60" fill="rgba(168,237,234,0.1)" stroke="url(#deployGradient)" stroke-width="2"/>
-    <circle r="50" fill="rgba(168,237,234,0.05)">
+    <circle r="60" fill="rgba(168,237,234,0.12)" stroke="url(#deployGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(168,237,234,0.06)">
       <animate attributeName="r" values="50;52;50" dur="4.5s" repeatCount="indefinite"/>
     </circle>
     
@@ -355,7 +354,7 @@
     <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#deployGradient)" opacity="0.6"/>
     
     <!-- Floating Dashboard -->
-    <g opacity="0.7">
+    <g opacity="0.8">
       <rect x="25" y="15" width="30" height="25" rx="3" fill="rgba(15,23,42,0.9)" stroke="url(#deployGradient)" stroke-width="1">
         <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="4.5s" repeatCount="indefinite"/>
       </rect>
@@ -374,7 +373,7 @@
   <!-- Floating Quality Metrics -->
   <g id="qualityMetrics" filter="url(#neonGlow)">
     <g transform="translate(600,180)">
-      <rect width="60" height="20" rx="10" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1"/>
+      <rect width="60" height="20" rx="10" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1"/>
       <circle cx="15" cy="10" r="3" fill="#10b981">
         <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/>
       </circle>
@@ -382,7 +381,7 @@
     </g>
     
     <g transform="translate(364,396)">
-      <rect width="60" height="20" rx="10" fill="rgba(102,126,234,0.1)" stroke="#667eea" stroke-width="1"/>
+      <rect width="60" height="20" rx="10" fill="rgba(102,126,234,0.15)" stroke="#667eea" stroke-width="1"/>
       <circle cx="15" cy="10" r="3" fill="#667eea">
         <animate attributeName="r" values="3;4;3" dur="2.5s" repeatCount="indefinite"/>
       </circle>
@@ -420,27 +419,27 @@
     </g>
   </g>
   
-  <!-- Cosmic Title -->
-  <g id="cosmicTitle" transform="translate(512,40)" filter="url(#cosmicShadow)">
-    <rect x="-280" y="-25" width="560" height="50" rx="25" fill="rgba(255,255,255,0.05)" stroke="url(#heroGradient)" stroke-width="2"/>
+  <!-- Title -->
+  <g id="title" transform="translate(512,40)" filter="url(#cosmicShadow)">
+    <rect x="-280" y="-25" width="560" height="50" rx="25" fill="rgba(255,255,255,0.15)" stroke="url(#heroGradient)" stroke-width="2"/>
     <text y="8" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="28" font-weight="700" fill="url(#heroGradient)">
       Collaborative Development Ecosystem
     </text>
     
     <!-- Floating accent elements -->
-    <circle cx="-250" cy="0" r="3" fill="url(#heroGradient)" opacity="0.6">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    <circle cx="-250" cy="0" r="3" fill="url(#heroGradient)" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="250" cy="0" r="3" fill="url(#heroGradient)" opacity="0.6">
-      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1s" repeatCount="indefinite"/>
+    <circle cx="250" cy="0" r="3" fill="url(#heroGradient)" opacity="0.7">
+      <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" begin="1s" repeatCount="indefinite"/>
     </circle>
   </g>
   
   <!-- Ambient Pulse Effect -->
-  <g id="ambientPulse" opacity="0.2">
+  <g id="ambientPulse" opacity="0.3">
     <circle cx="512" cy="288" r="300" fill="none" stroke="url(#heroGradient)" stroke-width="1">
       <animate attributeName="r" values="300;350;300" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0.2;0.05;0.2" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.1;0.3" dur="6s" repeatCount="indefinite"/>
     </circle>
   </g>
 </svg>
