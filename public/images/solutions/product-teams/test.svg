@@ -1,45 +1,65 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 576" width="1024" height="576">
   <defs>
-    <!-- Premium Gradients with Modern Color Palette -->
-    <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Exceptional Gradient Collection -->
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#f5576c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="secondaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <radialGradient id="cosmicGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.4" />
+      <stop offset="30%" style="stop-color:#764ba2;stop-opacity:0.3" />
+      <stop offset="60%" style="stop-color:#f093fb;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#4facfe;stop-opacity:0" />
+    </radialGradient>
+    
+    <linearGradient id="specGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    <linearGradient id="reviewGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
     </linearGradient>
     
-    <radialGradient id="backgroundGlow" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.15" />
-      <stop offset="70%" style="stop-color:#764ba2;stop-opacity:0.08" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0" />
-    </radialGradient>
+    <linearGradient id="deployGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
     
-    <radialGradient id="centerGlow" cx="50%" cy="50%" r="40%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
-      <stop offset="70%" style="stop-color:#f8fafc;stop-opacity:0.7" />
-      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:0.5" />
-    </radialGradient>
-    
-    <!-- Premium Shadow Filters -->
-    <filter id="premiumShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1a202c" flood-opacity="0.15"/>
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1a202c" flood-opacity="0.1"/>
+    <!-- Exceptional Filters -->
+    <filter id="cosmicShadow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="20" stdDeviation="25" flood-color="#667eea" flood-opacity="0.3"/>
+      <feDropShadow dx="0" dy="8" stdDeviation="15" flood-color="#764ba2" flood-opacity="0.2"/>
+      <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#1a202c" flood-opacity="0.1"/>
     </filter>
     
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="0" dy="0" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.8"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="innerGlow" x="-50%" y="-50%" width="200%" height="200%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feOffset dx="0" dy="0" result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.3"/>
+        <feFuncA type="linear" slope="0.5"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
@@ -47,298 +67,380 @@
       </feMerge>
     </filter>
     
-    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feOffset dx="0" dy="2"/>
-      <feGaussianBlur stdDeviation="2" result="offset-blur"/>
-      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
-      <feFlood flood-color="#1a202c" flood-opacity="0.1" result="color"/>
-      <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
-      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
-    </filter>
+    <!-- Particle System -->
+    <circle id="particle" r="1.5" fill="url(#heroGradient)" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;0.2;0.6" dur="3s" repeatCount="indefinite"/>
+    </circle>
     
-    <!-- Enhanced Motion Effects -->
-    <filter id="motionBlur">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2 0" />
-    </filter>
-    
-    <!-- Glass Morphism Effect -->
-    <filter id="glassMorphism" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
-      <feOffset dx="0" dy="1" result="offsetblur"/>
-      <feComponentTransfer>
-        <feFuncA type="linear" slope="0.2"/>
-      </feComponentTransfer>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  
-  <!-- Premium Background -->
-  <rect width="1024" height="576" fill="url(#backgroundGlow)"/>
-  
-  <!-- Subtle Grid Pattern -->
-  <defs>
-    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="0.5" opacity="0.3"/>
+    <!-- Mesh Gradient Background -->
+    <pattern id="meshPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <circle cx="25" cy="25" r="1" fill="#667eea" opacity="0.1">
+        <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="75" cy="75" r="1" fill="#f093fb" opacity="0.1">
+        <animate attributeName="opacity" values="0.1;0.3;0.1" dur="5s" repeatCount="indefinite"/>
+      </circle>
     </pattern>
   </defs>
-  <rect width="1024" height="576" fill="url(#grid)"/>
   
-  <!-- Central Workflow Hub -->
-  <g id="centralWorkflow" filter="url(#premiumShadow)">
-    <!-- Outer glow ring -->
-    <circle cx="512" cy="288" r="240" fill="none" stroke="url(#primaryGradient)" stroke-width="2" opacity="0.3"/>
-    
-    <!-- Main circle with glass morphism -->
-    <circle cx="512" cy="288" r="220" fill="url(#centerGlow)" stroke="url(#primaryGradient)" stroke-width="3"/>
-    
-    <!-- Inner decorative rings -->
-    <circle cx="512" cy="288" r="205" fill="none" stroke="url(#secondaryGradient)" stroke-width="1" opacity="0.4"/>
-    <circle cx="512" cy="288" r="190" fill="none" stroke="url(#primaryGradient)" stroke-width="0.5" opacity="0.6"/>
-    
-    <!-- Workflow Stages with Enhanced Design -->
-    <g id="workflowStages">
-      <!-- SPEC Stage (Top) -->
-      <g id="specStage" filter="url(#softGlow)">
-        <circle cx="512" cy="120" r="65" fill="rgba(255,255,255,0.95)" stroke="url(#primaryGradient)" stroke-width="3"/>
-        <circle cx="512" cy="120" r="55" fill="rgba(102,126,234,0.1)"/>
-        
-        <!-- Modern document icon -->
-        <rect x="485" y="90" width="54" height="60" rx="6" fill="none" stroke="#667eea" stroke-width="2.5"/>
-        <rect x="490" y="95" width="44" height="50" rx="2" fill="rgba(102,126,234,0.05)"/>
-        <line x1="495" y1="105" x2="525" y2="105" stroke="#667eea" stroke-width="2" opacity="0.8"/>
-        <line x1="495" y1="115" x2="530" y2="115" stroke="#667eea" stroke-width="2" opacity="0.6"/>
-        <line x1="495" y1="125" x2="530" y2="125" stroke="#667eea" stroke-width="2" opacity="0.6"/>
-        <line x1="495" y1="135" x2="520" y2="135" stroke="#667eea" stroke-width="2" opacity="0.4"/>
-        
-        <!-- Premium label -->
-        <rect x="485" y="155" width="54" height="22" rx="11" fill="rgba(102,126,234,0.1)" stroke="url(#primaryGradient)" stroke-width="1"/>
-        <text x="512" y="169" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#667eea">SPEC</text>
-      </g>
-      
-      <!-- CODE Stage (Right) -->
-      <g id="codeStage" filter="url(#softGlow)">
-        <circle cx="700" cy="288" r="65" fill="rgba(255,255,255,0.95)" stroke="url(#secondaryGradient)" stroke-width="3"/>
-        <circle cx="700" cy="288" r="55" fill="rgba(79,172,254,0.1)"/>
-        
-        <!-- Modern code icon -->
-        <rect x="673" y="258" width="54" height="60" rx="6" fill="rgba(79,172,254,0.05)" stroke="#4facfe" stroke-width="2"/>
-        <path d="M 685 275 L 675 285 L 685 295" fill="none" stroke="#4facfe" stroke-width="3" stroke-linecap="round"/>
-        <path d="M 715 275 L 725 285 L 715 295" fill="none" stroke="#4facfe" stroke-width="3" stroke-linecap="round"/>
-        <line x1="695" y1="275" x2="705" y2="295" stroke="#4facfe" stroke-width="2.5" stroke-linecap="round"/>
-        
-        <!-- Premium label -->
-        <rect x="673" y="323" width="54" height="22" rx="11" fill="rgba(79,172,254,0.1)" stroke="url(#secondaryGradient)" stroke-width="1"/>
-        <text x="700" y="337" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#4facfe">CODE</text>
-      </g>
-      
-      <!-- REVIEW Stage (Bottom) -->
-      <g id="reviewStage" filter="url(#softGlow)">
-        <circle cx="512" cy="456" r="65" fill="rgba(255,255,255,0.95)" stroke="url(#accentGradient)" stroke-width="3"/>
-        <circle cx="512" cy="456" r="55" fill="rgba(247,112,154,0.1)"/>
-        
-        <!-- Modern review icon -->
-        <rect x="485" y="426" width="54" height="60" rx="6" fill="rgba(247,112,154,0.05)" stroke="#fa709a" stroke-width="2"/>
-        <circle cx="505" cy="446" r="8" fill="none" stroke="#fa709a" stroke-width="2.5"/>
-        <polyline points="500,446 503,449 508,441" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="525" cy="456" r="8" fill="none" stroke="#fa709a" stroke-width="2.5"/>
-        <polyline points="520,456 523,459 528,451" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="505" cy="466" r="8" fill="none" stroke="#fa709a" stroke-width="2.5"/>
-        <polyline points="500,466 503,469 508,461" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
-        
-        <!-- Premium label -->
-        <rect x="475" y="491" width="74" height="22" rx="11" fill="rgba(247,112,154,0.1)" stroke="url(#accentGradient)" stroke-width="1"/>
-        <text x="512" y="505" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#fa709a">REVIEW</text>
-      </g>
-      
-      <!-- DEPLOY Stage (Left) -->
-      <g id="deployStage" filter="url(#softGlow)">
-        <circle cx="324" cy="288" r="65" fill="rgba(255,255,255,0.95)" stroke="url(#primaryGradient)" stroke-width="3"/>
-        <circle cx="324" cy="288" r="55" fill="rgba(118,75,162,0.1)"/>
-        
-        <!-- Modern rocket icon -->
-        <path d="M 324 258 L 315 298 L 324 293 L 333 298 Z" fill="#764ba2" stroke="#764ba2" stroke-width="1"/>
-        <ellipse cx="324" cy="305" rx="18" ry="10" fill="rgba(239,68,68,0.6)"/>
-        <circle cx="324" cy="275" r="6" fill="#ffffff" stroke="#764ba2" stroke-width="1"/>
-        <ellipse cx="340" cy="265" rx="8" ry="5" fill="rgba(224,231,255,0.8)"/>
-        <ellipse cx="308" cy="265" rx="8" ry="5" fill="rgba(224,231,255,0.8)"/>
-        
-        <!-- Premium label -->
-        <rect x="287" y="323" width="74" height="22" rx="11" fill="rgba(118,75,162,0.1)" stroke="url(#primaryGradient)" stroke-width="1"/>
-        <text x="324" y="337" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#764ba2">DEPLOY</text>
-      </g>
-    </g>
-    
-    <!-- Premium Flow Lines with Smooth Animation -->
-    <g id="flowLines" opacity="0.6">
-      <path d="M 512 185 Q 606 235 635 288" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="12,8">
-        <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 635 288 Q 606 341 512 391" fill="none" stroke="url(#secondaryGradient)" stroke-width="3" stroke-dasharray="12,8">
-        <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 512 391 Q 418 341 389 288" fill="none" stroke="url(#accentGradient)" stroke-width="3" stroke-dasharray="12,8">
-        <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
-      </path>
-      <path d="M 389 288 Q 418 235 512 185" fill="none" stroke="url(#primaryGradient)" stroke-width="3" stroke-dasharray="12,8">
-        <animate attributeName="stroke-dashoffset" from="0" to="20" dur="2s" repeatCount="indefinite"/>
-      </path>
-    </g>
+  <!-- Cosmic Background -->
+  <rect width="1024" height="576" fill="linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%)"/>
+  <rect width="1024" height="576" fill="url(#meshPattern)"/>
+  <circle cx="512" cy="288" r="400" fill="url(#cosmicGlow)"/>
+  
+  <!-- Floating Particles -->
+  <g id="particles" opacity="0.4">
+    <use href="#particle" x="150" y="100">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 20,-10; 0,0" dur="6s" repeatCount="indefinite"/>
+    </use>
+    <use href="#particle" x="850" y="150">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -15,15; 0,0" dur="7s" repeatCount="indefinite"/>
+    </use>
+    <use href="#particle" x="200" y="450">
+      <animateTransform attributeName="transform" type="translate" values="0,0; 25,5; 0,0" dur="8s" repeatCount="indefinite"/>
+    </use>
+    <use href="#particle" x="800" y="500">
+      <animateTransform attributeName="transform" type="translate" values="0,0; -20,-8; 0,0" dur="5s" repeatCount="indefinite"/>
+    </use>
   </g>
   
-  <!-- Premium Team Members -->
-  <!-- Product Manager (Top Left) -->
-  <g id="productManager" transform="translate(120, 120)" filter="url(#premiumShadow)">
-    <circle cx="0" cy="0" r="70" fill="rgba(255,255,255,0.95)" stroke="url(#primaryGradient)" stroke-width="2"/>
-    <circle cx="0" cy="0" r="60" fill="rgba(102,126,234,0.05)"/>
-    
-    <!-- Modern avatar -->
-    <circle cx="0" cy="-15" r="20" fill="#667eea"/>
-    <path d="M -25 15 L -18 8 L 18 8 L 25 15 L 25 50 L -25 50 Z" fill="#4facfe"/>
-    <rect x="-30" y="12" width="12" height="25" rx="6" fill="#667eea"/>
-    <rect x="18" y="12" width="12" height="25" rx="6" fill="#667eea"/>
-    
-    <!-- Premium document -->
-    <rect x="18" y="25" width="35" height="45" rx="4" fill="#ffffff" stroke="#667eea" stroke-width="2"/>
-    <line x1="24" y1="33" x2="47" y2="33" stroke="#667eea" stroke-width="1.5"/>
-    <line x1="24" y1="40" x2="47" y2="40" stroke="#667eea" stroke-width="1.5"/>
-    <line x1="24" y1="47" x2="47" y2="47" stroke="#667eea" stroke-width="1.5"/>
-    <line x1="24" y1="54" x2="42" y2="54" stroke="#667eea" stroke-width="1.5"/>
-    
-    <!-- Premium label -->
-    <rect x="-65" y="85" width="130" height="24" rx="12" fill="rgba(102,126,234,0.1)" stroke="url(#primaryGradient)" stroke-width="1"/>
-    <text x="0" y="100" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#667eea">Product Manager</text>
-  </g>
-  
-  <!-- UI/UX Designer (Top Right) -->
-  <g id="uiDesigner" transform="translate(904, 120)" filter="url(#premiumShadow)">
-    <circle cx="0" cy="0" r="70" fill="rgba(255,255,255,0.95)" stroke="url(#secondaryGradient)" stroke-width="2"/>
-    <circle cx="0" cy="0" r="60" fill="rgba(79,172,254,0.05)"/>
-    
-    <!-- Modern avatar -->
-    <circle cx="0" cy="-15" r="20" fill="#4facfe"/>
-    <path d="M -25 15 L -18 8 L 18 8 L 25 15 L 25 50 L -25 50 Z" fill="#00f2fe"/>
-    <rect x="-30" y="12" width="12" height="25" rx="6" fill="#4facfe"/>
-    <rect x="18" y="12" width="12" height="25" rx="6" fill="#4facfe"/>
-    
-    <!-- Premium tablet -->
-    <rect x="-30" y="30" width="60" height="40" rx="6" fill="#1f2937" stroke="#4facfe" stroke-width="2"/>
-    <rect x="-25" y="35" width="50" height="30" rx="2" fill="#ffffff"/>
-    <rect x="-20" y="40" width="12" height="12" rx="2" fill="#4facfe" opacity="0.7"/>
-    <rect x="-5" y="40" width="12" height="6" rx="1" fill="#00f2fe" opacity="0.7"/>
-    <rect x="-5" y="48" width="12" height="10" rx="1" fill="#10b981" opacity="0.7"/>
-    <circle cx="15" cy="48" r="5" fill="#fa709a" opacity="0.7"/>
-    
-    <!-- Premium label -->
-    <rect x="-65" y="85" width="130" height="24" rx="12" fill="rgba(79,172,254,0.1)" stroke="url(#secondaryGradient)" stroke-width="1"/>
-    <text x="0" y="100" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#4facfe">UI/UX Designer</text>
-  </g>
-  
-  <!-- Frontend Engineer (Bottom Right) -->
-  <g id="frontendEngineer" transform="translate(904, 456)" filter="url(#premiumShadow)">
-    <circle cx="0" cy="0" r="70" fill="rgba(255,255,255,0.95)" stroke="url(#accentGradient)" stroke-width="2"/>
-    <circle cx="0" cy="0" r="60" fill="rgba(247,112,154,0.05)"/>
-    
-    <!-- Modern avatar -->
-    <circle cx="0" cy="-15" r="20" fill="#fa709a"/>
-    <path d="M -25 15 L -18 8 L 18 8 L 25 15 L 25 50 L -25 50 Z" fill="#fee140"/>
-    <rect x="-30" y="12" width="12" height="25" rx="6" fill="#fa709a"/>
-    <rect x="18" y="12" width="12" height="25" rx="6" fill="#fa709a"/>
-    
-    <!-- Premium laptop -->
-    <path d="M -40 45 L -32 25 L 32 25 L 40 45 Z" fill="#1f2937" stroke="#fa709a" stroke-width="2"/>
-    <rect x="-28" y="27" width="56" height="16" rx="1" fill="#0f172a"/>
-    <line x1="-22" y1="31" x2="-10" y2="31" stroke="#10b981" stroke-width="1.5"/>
-    <line x1="-22" y1="35" x2="-5" y2="35" stroke="#fa709a" stroke-width="1.5"/>
-    <line x1="-22" y1="39" x2="-12" y2="39" stroke="#fee140" stroke-width="1.5"/>
-    <rect x="-45" y="45" width="90" height="4" rx="2" fill="#374151"/>
-    
-    <!-- Premium label -->
-    <rect x="-70" y="-100" width="140" height="24" rx="12" fill="rgba(247,112,154,0.1)" stroke="url(#accentGradient)" stroke-width="1"/>
-    <text x="0" y="-85" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#fa709a">Frontend Engineer</text>
-  </g>
-  
-  <!-- DevOps Specialist (Bottom Left) -->
-  <g id="devopsSpecialist" transform="translate(120, 456)" filter="url(#premiumShadow)">
-    <circle cx="0" cy="0" r="70" fill="rgba(255,255,255,0.95)" stroke="url(#primaryGradient)" stroke-width="2"/>
-    <circle cx="0" cy="0" r="60" fill="rgba(118,75,162,0.05)"/>
-    
-    <!-- Modern avatar -->
-    <circle cx="0" cy="-15" r="20" fill="#764ba2"/>
-    <path d="M -25 15 L -18 8 L 18 8 L 25 15 L 25 50 L -25 50 Z" fill="#f093fb"/>
-    <rect x="-30" y="12" width="12" height="25" rx="6" fill="#764ba2"/>
-    <rect x="18" y="12" width="12" height="25" rx="6" fill="#764ba2"/>
-    
-    <!-- Premium dashboard -->
-    <rect x="-35" y="20" width="70" height="50" rx="6" fill="#0f172a" stroke="#764ba2" stroke-width="2"/>
-    <rect x="-30" y="26" width="60" height="6" rx="2" fill="#10b981" opacity="0.8"/>
-    <rect x="-30" y="35" width="25" height="4" rx="1" fill="#764ba2" opacity="0.8"/>
-    <rect x="-30" y="42" width="35" height="4" rx="1" fill="#f093fb" opacity="0.8"/>
-    <rect x="-30" y="49" width="40" height="4" rx="1" fill="#fa709a" opacity="0.8"/>
-    <circle cx="25" cy="37" r="4" fill="#10b981"/>
-    <circle cx="25" cy="45" r="4" fill="#10b981"/>
-    <circle cx="25" cy="53" r="4" fill="#ef4444"/>
-    
-    <!-- Premium label -->
-    <rect x="-70" y="-100" width="140" height="24" rx="12" fill="rgba(118,75,162,0.1)" stroke="url(#primaryGradient)" stroke-width="1"/>
-    <text x="0" y="-85" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#764ba2">DevOps Specialist</text>
-  </g>
-  
-  <!-- Premium Quality Indicators -->
-  <g id="qualityIndicators" filter="url(#glassMorphism)">
-    <g transform="translate(620, 170)">
-      <rect x="0" y="0" width="50" height="24" rx="12" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1"/>
-      <circle cx="12" cy="12" r="4" fill="#10b981"/>
-      <text x="25" y="16" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#10b981">98%</text>
-    </g>
-    
-    <g transform="translate(354, 406)">
-      <rect x="0" y="0" width="50" height="24" rx="12" fill="rgba(102,126,234,0.1)" stroke="#667eea" stroke-width="1"/>
-      <circle cx="12" cy="12" r="4" fill="#667eea"/>
-      <text x="25" y="16" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#667eea">96%</text>
-    </g>
-  </g>
-  
-  <!-- Premium Collaboration Elements -->
-  <g id="collaborationElements" filter="url(#softGlow)">
-    <!-- Live cursors -->
-    <g transform="translate(540, 230)">
-      <path d="M 0 0 L 0 12 L 4 9 L 5 12 L 7 11 L 5 8 L 9 8 Z" fill="#667eea"/>
-      <rect x="12" y="2" width="32" height="12" rx="6" fill="rgba(102,126,234,0.9)"/>
-      <text x="28" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="8" font-weight="500" fill="#ffffff">Sarah</text>
-    </g>
-    
-    <g transform="translate(680, 320)">
-      <path d="M 0 0 L 0 12 L 4 9 L 5 12 L 7 11 L 5 8 L 9 8 Z" fill="#4facfe"/>
-      <rect x="12" y="2" width="28" height="12" rx="6" fill="rgba(79,172,254,0.9)"/>
-      <text x="26" y="10" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="8" font-weight="500" fill="#ffffff">Alex</text>
-    </g>
-    
-    <!-- Comment bubble -->
-    <g transform="translate(750, 250)">
-      <rect x="0" y="0" width="65" height="40" rx="8" fill="rgba(255,255,255,0.95)" stroke="rgba(102,126,234,0.3)" stroke-width="1"/>
-      <circle cx="8" cy="12" r="3" fill="#667eea"/>
-      <rect x="15" y="9" width="40" height="3" rx="1" fill="#e5e7eb"/>
-      <rect x="15" y="15" width="30" height="3" rx="1" fill="#e5e7eb"/>
-      <circle cx="8" cy="28" r="3" fill="#4facfe"/>
-      <rect x="15" y="25" width="42" height="3" rx="1" fill="#e5e7eb"/>
-      <rect x="15" y="31" width="35" height="3" rx="1" fill="#e5e7eb"/>
-    </g>
-  </g>
-  
-  <!-- Premium Title -->
-  <g id="title" transform="translate(512, 30)" filter="url(#softGlow)">
-    <rect x="-250" y="-20" width="500" height="40" rx="20" fill="rgba(255,255,255,0.1)" stroke="url(#primaryGradient)" stroke-width="1"/>
-    <text x="0" y="8" text-anchor="middle" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="700" fill="url(#primaryGradient)">Collaborative Development Workflow</text>
-  </g>
-  
-  <!-- Subtle Animation Elements -->
-  <g id="pulseElements" opacity="0.3">
-    <circle cx="512" cy="288" r="260" fill="none" stroke="url(#primaryGradient)" stroke-width="1">
-      <animate attributeName="r" values="260;280;260" dur="4s" repeatCount="indefinite"/>
+  <!-- Central Cosmic Hub -->
+  <g id="centralHub" filter="url(#cosmicShadow)">
+    <!-- Outer Energy Ring -->
+    <circle cx="512" cy="288" r="250" fill="none" stroke="url(#heroGradient)" stroke-width="2" opacity="0.3">
+      <animate attributeName="r" values="250;270;250" dur="4s" repeatCount="indefinite"/>
       <animate attributeName="opacity" values="0.3;0.1;0.3" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Main Hub -->
+    <circle cx="512" cy="288" r="200" fill="rgba(255,255,255,0.02)" stroke="url(#heroGradient)" stroke-width="3" filter="url(#innerGlow)"/>
+    <circle cx="512" cy="288" r="190" fill="none" stroke="url(#heroGradient)" stroke-width="1" opacity="0.5"/>
+    
+    <!-- Workflow Nodes -->
+    <!-- SPEC Node -->
+    <g id="specNode" transform="translate(512,128)" filter="url(#neonGlow)">
+      <circle r="50" fill="rgba(102,126,234,0.1)" stroke="url(#specGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(102,126,234,0.05)"/>
+      
+      <!-- Holographic Document -->
+      <g transform="translate(-20,-20)">
+        <rect width="40" height="50" rx="4" fill="none" stroke="url(#specGradient)" stroke-width="2"/>
+        <rect x="3" y="3" width="34" height="44" rx="2" fill="rgba(102,126,234,0.1)"/>
+        <line x1="8" y1="12" x2="32" y2="12" stroke="url(#specGradient)" stroke-width="1.5" opacity="0.8"/>
+        <line x1="8" y1="18" x2="32" y2="18" stroke="url(#specGradient)" stroke-width="1.5" opacity="0.6"/>
+        <line x1="8" y1="24" x2="28" y2="24" stroke="url(#specGradient)" stroke-width="1.5" opacity="0.6"/>
+        <line x1="8" y1="30" x2="30" y2="30" stroke="url(#specGradient)" stroke-width="1.5" opacity="0.4"/>
+        
+        <!-- Floating holographic elements -->
+        <circle cx="35" cy="8" r="2" fill="url(#specGradient)" opacity="0.6">
+          <animate attributeName="cy" values="8;5;8" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="38" cy="15" r="1.5" fill="url(#specGradient)" opacity="0.4">
+          <animate attributeName="cy" values="15;12;15" dur="2.5s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+      
+      <!-- Floating Label -->
+      <text y="75" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="600" fill="url(#specGradient)">SPECIFICATION</text>
+    </g>
+    
+    <!-- CODE Node -->
+    <g id="codeNode" transform="translate(672,288)" filter="url(#neonGlow)">
+      <circle r="50" fill="rgba(79,172,254,0.1)" stroke="url(#codeGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(79,172,254,0.05)"/>
+      
+      <!-- Holographic Code -->
+      <g transform="translate(-20,-20)">
+        <rect width="40" height="40" rx="4" fill="rgba(79,172,254,0.05)" stroke="url(#codeGradient)" stroke-width="2"/>
+        
+        <!-- Code brackets with animation -->
+        <path d="M 8 10 L 2 20 L 8 30" fill="none" stroke="url(#codeGradient)" stroke-width="2.5" stroke-linecap="round">
+          <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+        </path>
+        <path d="M 32 10 L 38 20 L 32 30" fill="none" stroke="url(#codeGradient)" stroke-width="2.5" stroke-linecap="round">
+          <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite"/>
+        </path>
+        
+        <!-- Floating code elements -->
+        <line x1="12" y1="15" x2="22" y2="15" stroke="url(#codeGradient)" stroke-width="2" opacity="0.7">
+          <animate attributeName="opacity" values="0.7;1;0.7" dur="1.5s" repeatCount="indefinite"/>
+        </line>
+        <line x1="15" y1="20" x2="28" y2="20" stroke="url(#codeGradient)" stroke-width="2" opacity="0.5">
+          <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2.2s" repeatCount="indefinite"/>
+        </line>
+        <line x1="12" y1="25" x2="25" y2="25" stroke="url(#codeGradient)" stroke-width="2" opacity="0.6">
+          <animate attributeName="opacity" values="0.6;1;0.6" dur="1.8s" repeatCount="indefinite"/>
+        </line>
+      </g>
+      
+      <text y="75" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="600" fill="url(#codeGradient)">DEVELOPMENT</text>
+    </g>
+    
+    <!-- REVIEW Node -->
+    <g id="reviewNode" transform="translate(512,448)" filter="url(#neonGlow)">
+      <circle r="50" fill="rgba(240,147,251,0.1)" stroke="url(#reviewGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(240,147,251,0.05)"/>
+      
+      <!-- Holographic Review -->
+      <g transform="translate(-20,-20)">
+        <rect width="40" height="40" rx="4" fill="rgba(240,147,251,0.05)" stroke="url(#reviewGradient)" stroke-width="2"/>
+        
+        <!-- Animated checkmarks -->
+        <g transform="translate(8,8)">
+          <circle cx="6" cy="6" r="5" fill="none" stroke="url(#reviewGradient)" stroke-width="1.5" opacity="0.6"/>
+          <polyline points="3,6 5,8 9,4" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round">
+            <animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/>
+          </polyline>
+        </g>
+        
+        <g transform="translate(20,8)">
+          <circle cx="6" cy="6" r="5" fill="none" stroke="url(#reviewGradient)" stroke-width="1.5" opacity="0.6"/>
+          <polyline points="3,6 5,8 9,4" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round">
+            <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0.5s" repeatCount="indefinite"/>
+          </polyline>
+        </g>
+        
+        <g transform="translate(8,20)">
+          <circle cx="6" cy="6" r="5" fill="none" stroke="url(#reviewGradient)" stroke-width="1.5" opacity="0.6"/>
+          <polyline points="3,6 5,8 9,4" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round">
+            <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1s" repeatCount="indefinite"/>
+          </polyline>
+        </g>
+        
+        <g transform="translate(20,20)">
+          <circle cx="6" cy="6" r="5" fill="none" stroke="url(#reviewGradient)" stroke-width="1.5" opacity="0.6"/>
+          <polyline points="3,6 5,8 9,4" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round">
+            <animate attributeName="opacity" values="0;1;0" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+          </polyline>
+        </g>
+      </g>
+      
+      <text y="75" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="600" fill="url(#reviewGradient)">REVIEW</text>
+    </g>
+    
+    <!-- DEPLOY Node -->
+    <g id="deployNode" transform="translate(352,288)" filter="url(#neonGlow)">
+      <circle r="50" fill="rgba(168,237,234,0.1)" stroke="url(#deployGradient)" stroke-width="3"/>
+      <circle r="40" fill="rgba(168,237,234,0.05)"/>
+      
+      <!-- Holographic Rocket -->
+      <g transform="translate(0,-15)">
+        <!-- Rocket body -->
+        <path d="M 0 -15 L -8 20 L 0 15 L 8 20 Z" fill="url(#deployGradient)" opacity="0.8"/>
+        
+        <!-- Rocket flames with animation -->
+        <ellipse cx="0" cy="25" rx="12" ry="8" fill="#ff6b6b" opacity="0.7">
+          <animate attributeName="ry" values="8;12;8" dur="0.5s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.7;1;0.7" dur="0.5s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <!-- Window -->
+        <circle cx="0" cy="0" r="4" fill="rgba(255,255,255,0.9)" stroke="url(#deployGradient)" stroke-width="1"/>
+        
+        <!-- Exhaust particles -->
+        <circle cx="-3" cy="30" r="1" fill="#ff9999" opacity="0.8">
+          <animateTransform attributeName="transform" type="translate" values="0,0; -5,15; -10,30" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0;0" dur="1s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="3" cy="30" r="1" fill="#ff9999" opacity="0.8">
+          <animateTransform attributeName="transform" type="translate" values="0,0; 5,15; 10,30" dur="1s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="0.8;0;0" dur="1s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+      
+      <text y="75" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="14" font-weight="600" fill="url(#deployGradient)">DEPLOYMENT</text>
+    </g>
+    
+    <!-- Energy Flow Lines -->
+    <g id="energyFlow" opacity="0.7">
+      <path d="M 512 178 Q 592 233 622 288" fill="none" stroke="url(#heroGradient)" stroke-width="3" stroke-dasharray="15,10">
+        <animate attributeName="stroke-dashoffset" from="0" to="25" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 622 288 Q 592 343 512 398" fill="none" stroke="url(#heroGradient)" stroke-width="3" stroke-dasharray="15,10">
+        <animate attributeName="stroke-dashoffset" from="0" to="25" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 512 398 Q 432 343 402 288" fill="none" stroke="url(#heroGradient)" stroke-width="3" stroke-dasharray="15,10">
+        <animate attributeName="stroke-dashoffset" from="0" to="25" dur="2s" repeatCount="indefinite"/>
+      </path>
+      <path d="M 402 288 Q 432 233 512 178" fill="none" stroke="url(#heroGradient)" stroke-width="3" stroke-dasharray="15,10">
+        <animate attributeName="stroke-dashoffset" from="0" to="25" dur="2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- Team Members as Floating Holograms -->
+  <!-- Product Manager -->
+  <g id="productManager" transform="translate(150,150)" filter="url(#neonGlow)">
+    <circle r="60" fill="rgba(102,126,234,0.1)" stroke="url(#specGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(102,126,234,0.05)">
+      <animate attributeName="r" values="50;52;50" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Holographic Avatar -->
+    <circle cy="-10" r="15" fill="url(#specGradient)" opacity="0.8"/>
+    <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#specGradient)" opacity="0.6"/>
+    
+    <!-- Floating Documents -->
+    <g opacity="0.7">
+      <rect x="25" y="15" width="25" height="30" rx="2" fill="rgba(255,255,255,0.9)" stroke="url(#specGradient)" stroke-width="1">
+        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-3; 0,0" dur="4s" repeatCount="indefinite"/>
+      </rect>
+      <line x1="28" y1="22" x2="47" y2="22" stroke="url(#specGradient)" stroke-width="1"/>
+      <line x1="28" y1="27" x2="47" y2="27" stroke="url(#specGradient)" stroke-width="1"/>
+      <line x1="28" y1="32" x2="45" y2="32" stroke="url(#specGradient)" stroke-width="1"/>
+    </g>
+    
+    <text y="80" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" font-weight="600" fill="url(#specGradient)">Product Manager</text>
+  </g>
+  
+  <!-- UI/UX Designer -->
+  <g id="uiDesigner" transform="translate(874,150)" filter="url(#neonGlow)">
+    <circle r="60" fill="rgba(79,172,254,0.1)" stroke="url(#codeGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(79,172,254,0.05)">
+      <animate attributeName="r" values="50;52;50" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Holographic Avatar -->
+    <circle cy="-10" r="15" fill="url(#codeGradient)" opacity="0.8"/>
+    <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#codeGradient)" opacity="0.6"/>
+    
+    <!-- Floating Design Elements -->
+    <g opacity="0.7">
+      <rect x="-45" y="20" width="35" height="25" rx="3" fill="rgba(30,41,59,0.9)" stroke="url(#codeGradient)" stroke-width="1">
+        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="3.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="-40" y="25" width="25" height="15" rx="1" fill="rgba(255,255,255,0.9)"/>
+      <rect x="-38" y="27" width="8" height="8" rx="1" fill="url(#codeGradient)" opacity="0.6"/>
+      <rect x="-27" y="27" width="8" height="4" rx="1" fill="url(#codeGradient)" opacity="0.4"/>
+      <rect x="-27" y="33" width="8" height="5" rx="1" fill="url(#codeGradient)" opacity="0.4"/>
+    </g>
+    
+    <text y="80" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" font-weight="600" fill="url(#codeGradient)">UI/UX Designer</text>
+  </g>
+  
+  <!-- Frontend Engineer -->
+  <g id="frontendEngineer" transform="translate(874,426)" filter="url(#neonGlow)">
+    <circle r="60" fill="rgba(240,147,251,0.1)" stroke="url(#reviewGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(240,147,251,0.05)">
+      <animate attributeName="r" values="50;52;50" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Holographic Avatar -->
+    <circle cy="-10" r="15" fill="url(#reviewGradient)" opacity="0.8"/>
+    <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#reviewGradient)" opacity="0.6"/>
+    
+    <!-- Floating Laptop -->
+    <g opacity="0.7">
+      <path d="M -35 35 L -30 20 L 30 20 L 35 35 Z" fill="rgba(30,41,59,0.9)" stroke="url(#reviewGradient)" stroke-width="1">
+        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="4s" repeatCount="indefinite"/>
+      </path>
+      <rect x="-25" y="22" width="50" height="12" rx="1" fill="rgba(15,23,42,0.9)"/>
+      <line x1="-20" y1="26" x2="-10" y2="26" stroke="#10b981" stroke-width="1"/>
+      <line x1="-20" y1="29" x2="-5" y2="29" stroke="url(#reviewGradient)" stroke-width="1"/>
+      <line x1="-20" y1="32" x2="-12" y2="32" stroke="url(#reviewGradient)" stroke-width="1"/>
+    </g>
+    
+    <text y="80" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" font-weight="600" fill="url(#reviewGradient)">Frontend Engineer</text>
+  </g>
+  
+  <!-- DevOps Specialist -->
+  <g id="devopsSpecialist" transform="translate(150,426)" filter="url(#neonGlow)">
+    <circle r="60" fill="rgba(168,237,234,0.1)" stroke="url(#deployGradient)" stroke-width="2"/>
+    <circle r="50" fill="rgba(168,237,234,0.05)">
+      <animate attributeName="r" values="50;52;50" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Holographic Avatar -->
+    <circle cy="-10" r="15" fill="url(#deployGradient)" opacity="0.8"/>
+    <path d="M -20 10 L -15 5 L 15 5 L 20 10 L 20 35 L -20 35 Z" fill="url(#deployGradient)" opacity="0.6"/>
+    
+    <!-- Floating Dashboard -->
+    <g opacity="0.7">
+      <rect x="25" y="15" width="30" height="25" rx="3" fill="rgba(15,23,42,0.9)" stroke="url(#deployGradient)" stroke-width="1">
+        <animateTransform attributeName="transform" type="translate" values="0,0; 0,-2; 0,0" dur="4.5s" repeatCount="indefinite"/>
+      </rect>
+      <rect x="28" y="19" width="24" height="3" rx="1" fill="#10b981" opacity="0.8"/>
+      <rect x="28" y="24" width="12" height="2" rx="1" fill="url(#deployGradient)" opacity="0.8"/>
+      <rect x="28" y="28" width="16" height="2" rx="1" fill="url(#deployGradient)" opacity="0.8"/>
+      <rect x="28" y="32" width="20" height="2" rx="1" fill="url(#deployGradient)" opacity="0.8"/>
+      <circle cx="50" cy="25" r="2" fill="#10b981"/>
+      <circle cx="50" cy="30" r="2" fill="#10b981"/>
+      <circle cx="50" cy="35" r="2" fill="#ef4444"/>
+    </g>
+    
+    <text y="80" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="12" font-weight="600" fill="url(#deployGradient)">DevOps Specialist</text>
+  </g>
+  
+  <!-- Floating Quality Metrics -->
+  <g id="qualityMetrics" filter="url(#neonGlow)">
+    <g transform="translate(600,180)">
+      <rect width="60" height="20" rx="10" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1"/>
+      <circle cx="15" cy="10" r="3" fill="#10b981">
+        <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="35" y="13" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#10b981">99.2%</text>
+    </g>
+    
+    <g transform="translate(364,396)">
+      <rect width="60" height="20" rx="10" fill="rgba(102,126,234,0.1)" stroke="#667eea" stroke-width="1"/>
+      <circle cx="15" cy="10" r="3" fill="#667eea">
+        <animate attributeName="r" values="3;4;3" dur="2.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="35" y="13" font-family="SF Pro Display, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#667eea">97.8%</text>
+    </g>
+  </g>
+  
+  <!-- Live Collaboration Indicators -->
+  <g id="liveCollaboration" filter="url(#neonGlow)">
+    <!-- Live Cursors -->
+    <g transform="translate(550,250)">
+      <path d="M 0 0 L 0 10 L 3 7 L 4 10 L 6 9 L 4 6 L 7 6 Z" fill="#667eea"/>
+      <rect x="10" y="2" width="28" height="10" rx="5" fill="rgba(102,126,234,0.9)"/>
+      <text x="24" y="8" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="6" font-weight="500" fill="#ffffff">Sarah</text>
+      <animateTransform attributeName="transform" type="translate" values="550,250; 570,240; 550,250" dur="3s" repeatCount="indefinite"/>
+    </g>
+    
+    <g transform="translate(680,320)">
+      <path d="M 0 0 L 0 10 L 3 7 L 4 10 L 6 9 L 4 6 L 7 6 Z" fill="#4facfe"/>
+      <rect x="10" y="2" width="24" height="10" rx="5" fill="rgba(79,172,254,0.9)"/>
+      <text x="22" y="8" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="6" font-weight="500" fill="#ffffff">Alex</text>
+      <animateTransform attributeName="transform" type="translate" values="680,320; 660,330; 680,320" dur="4s" repeatCount="indefinite"/>
+    </g>
+    
+    <!-- Floating Comment -->
+    <g transform="translate(720,270)">
+      <rect width="55" height="35" rx="6" fill="rgba(255,255,255,0.95)" stroke="rgba(102,126,234,0.3)" stroke-width="1"/>
+      <circle cx="6" cy="10" r="2" fill="#667eea"/>
+      <rect x="12" y="8" width="35" height="2" rx="1" fill="#e5e7eb"/>
+      <rect x="12" y="12" width="25" height="2" rx="1" fill="#e5e7eb"/>
+      <circle cx="6" cy="22" r="2" fill="#4facfe"/>
+      <rect x="12" y="20" width="38" height="2" rx="1" fill="#e5e7eb"/>
+      <rect x="12" y="24" width="30" height="2" rx="1" fill="#e5e7eb"/>
+      <animateTransform attributeName="transform" type="translate" values="720,270; 720,265; 720,270" dur="5s" repeatCount="indefinite"/>
+    </g>
+  </g>
+  
+  <!-- Cosmic Title -->
+  <g id="cosmicTitle" transform="translate(512,40)" filter="url(#cosmicShadow)">
+    <rect x="-280" y="-25" width="560" height="50" rx="25" fill="rgba(255,255,255,0.05)" stroke="url(#heroGradient)" stroke-width="2"/>
+    <text y="8" text-anchor="middle" font-family="SF Pro Display, -apple-system, sans-serif" font-size="28" font-weight="700" fill="url(#heroGradient)">
+      Collaborative Development Ecosystem
+    </text>
+    
+    <!-- Floating accent elements -->
+    <circle cx="-250" cy="0" r="3" fill="url(#heroGradient)" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="0" r="3" fill="url(#heroGradient)" opacity="0.6">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Ambient Pulse Effect -->
+  <g id="ambientPulse" opacity="0.2">
+    <circle cx="512" cy="288" r="300" fill="none" stroke="url(#heroGradient)" stroke-width="1">
+      <animate attributeName="r" values="300;350;300" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.2;0.05;0.2" dur="6s" repeatCount="indefinite"/>
     </circle>
   </g>
 </svg>
