@@ -98,12 +98,39 @@
       <text x="0" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Sourcing</text>
       <text x="0" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#8b5cf6">12 deals</text>
       
-      <!-- Further stages follow similar structure -->
+      <!-- Stage 2 -->
+      <rect x="290" y="0" width="270" height="8" rx="4" fill="#e2e8f0"/>
+      <rect x="290" y="0" width="180" height="8" rx="4" fill="url(#purpleBlue)"/>
+      <text x="290" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Screening</text>
+      <text x="290" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#7c3aed">8 deals</text>
+      
+      <!-- Stage 3 -->
+      <rect x="580" y="0" width="270" height="8" rx="4" fill="#e2e8f0"/>
+      <rect x="580" y="0" width="120" height="8" rx="4" fill="url(#blueGrad)"/>
+      <text x="580" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Due Diligence</text>
+      <text x="580" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#3b82f6">4 deals</text>
+      
+      <!-- Stage 4 -->
+      <rect x="870" y="0" width="270" height="8" rx="4" fill="#e2e8f0"/>
+      <rect x="870" y="0" width="80" height="8" rx="4" fill="#3b82f6"/>
+      <text x="870" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Term Sheet</text>
+      <text x="870" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#2563eb">3 deals</text>
     </g>
   </g>
   
-  <!-- Adjusted content -->
-  <!-- Add any other sections requiring a soft glow and subtle gradient consistency here -->
+  <!-- Startup Cards -->
+  <g id="startupCards" transform="translate(40, 250)">
+    <!-- Card 1 -->
+    <g filter="url(#cardShadow)">
+      <rect x="0" y="0" width="360" height="180" rx="12" fill="white"/>
+      <rect x="15" y="15" width="140" height="90" rx="8" fill="#f1f5f9"/>
+      <circle cx="130" cy="70" r="20" fill="url(#purpleBlue)" opacity="0.2"/>
+      <path d="M125 70 L135 65 L135 75 Z" fill="#8b5cf6"/>
+      <text x="170" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#1e293b">TechFlow AI</text>
+      <text x="170" y="50" font-family="Arial, sans-serif" font-size="12" fill="#64748b">AI-Powered Analytics</text>
+      <text x="20" y="170" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6">View Demo</text>
+    </g>
+  </g>
   
   <!-- Decorative Elements -->
   <circle cx="1150" cy="30" r="3" fill="#8b5cf6" opacity="0.6"/>
