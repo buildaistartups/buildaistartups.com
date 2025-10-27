@@ -92,7 +92,14 @@
     <g id="header">
       <!-- Glassmorphic Header Card -->
       <g filter="url(#softShadow)">
-        <rect x="30" y="25" width="1140" height="85" rx="16" fill="white" opacity="0.95"/>
+        <defs>
+          <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#faf8ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f0f9ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="30" y="25" width="1140" height="85" rx="16" fill="url(#headerBg)"/>
         
         <!-- Title with icon -->
         <circle cx="55" cy="50" r="14" fill="url(#purpleBlue)" filter="url(#glow)"/>
@@ -129,19 +136,37 @@
         <!-- Enhanced Stats -->
         <g id="stats">
           <!-- Stat 1 -->
-          <rect x="745" y="43" width="140" height="60" rx="12" fill="url(#purpleGlow)" opacity="0.1"/>
+          <defs>
+            <linearGradient id="stat1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#faf5ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="745" y="43" width="140" height="60" rx="12" fill="url(#stat1Bg)"/>
           <text x="765" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">ACTIVE DEALS</text>
           <text x="765" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#8b5cf6">24</text>
           <circle cx="855" cy="82" r="6" fill="#22c55e" opacity="0.2"/>
           <text x="860" y="84" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#22c55e">+3</text>
           
           <!-- Stat 2 -->
-          <rect x="900" y="43" width="155" height="60" rx="12" fill="url(#blueGlow)" opacity="0.1"/>
+          <defs>
+            <linearGradient id="stat2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#eff6ff;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="900" y="43" width="155" height="60" rx="12" fill="url(#stat2Bg)"/>
           <text x="920" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">DEPLOYED CAPITAL</text>
           <text x="920" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#3b82f6">$2.4M</text>
           
           <!-- Stat 3 -->
-          <rect x="1070" y="43" width="85" height="60" rx="12" fill="url(#purpleBlue)" opacity="0.08"/>
+          <defs>
+            <linearGradient id="stat3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#faf8ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f0f5ff;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="1070" y="43" width="85" height="60" rx="12" fill="url(#stat3Bg)"/>
           <text x="1090" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">IRR</text>
           <text x="1090" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="url(#purpleBlue)">34%</text>
         </g>
@@ -151,7 +176,14 @@
     <!-- Investment Pipeline Visualization -->
     <g id="pipeline" transform="translate(30, 130)">
       <g filter="url(#softShadow)">
-        <rect x="0" y="0" width="1140" height="95" rx="16" fill="white" opacity="0.95"/>
+        <defs>
+          <linearGradient id="pipelineBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fafafa;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f8faff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="1140" height="95" rx="16" fill="url(#pipelineBg)"/>
         
         <text x="25" y="18" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Investment Pipeline</text>
         <text x="25" y="35" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Real-time deal flow tracking</text>
@@ -198,7 +230,13 @@
       
       <!-- Card 1 - TechFlow AI -->
       <g filter="url(#cardShadow)">
-        <rect x="0" y="0" width="368" height="195" rx="16" fill="white"/>
+        <defs>
+          <linearGradient id="card1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fdfbff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card1Bg)"/>
         <rect x="0" y="0" width="368" height="8" rx="16" fill="url(#purpleGlow)"/>
         
         <!-- Enhanced Demo Preview -->
@@ -278,7 +316,13 @@
       
       <!-- Card 2 - CloudVault -->
       <g transform="translate(388, 0)" filter="url(#cardShadow)">
-        <rect x="0" y="0" width="368" height="195" rx="16" fill="white"/>
+        <defs>
+          <linearGradient id="card2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f7fbff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card2Bg)"/>
         <rect x="0" y="0" width="368" height="8" rx="16" fill="url(#blueGlow)"/>
         
         <!-- Enhanced Demo Preview -->
@@ -357,7 +401,13 @@
       
       <!-- Card 3 - MetaHealth -->
       <g transform="translate(776, 0)" filter="url(#cardShadow)">
-        <rect x="0" y="0" width="364" height="195" rx="16" fill="white"/>
+        <defs>
+          <linearGradient id="card3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fdf8ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f8f5ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="364" height="195" rx="16" fill="url(#card3Bg)"/>
         <rect x="0" y="0" width="364" height="8" rx="16" fill="url(#purpleBlue)"/>
         
         <!-- Enhanced Demo Preview -->
@@ -445,7 +495,14 @@
       
       <!-- Portfolio Performance Chart -->
       <g filter="url(#cardShadow)">
-        <rect x="0" y="0" width="555" height="185" rx="16" fill="white"/>
+        <defs>
+          <linearGradient id="portfolioBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fdfbff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#faf8ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="555" height="185" rx="16" fill="url(#portfolioBg)"/>
         
         <text x="25" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Portfolio Performance</text>
         <text x="25" y="47" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Last 12 months</text>
@@ -510,7 +567,14 @@
       
       <!-- Key Metrics Dashboard -->
       <g transform="translate(575, 0)" filter="url(#cardShadow)">
-        <rect x="0" y="0" width="565" height="185" rx="16" fill="white"/>
+        <defs>
+          <linearGradient id="metricsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f5f9ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f0f5ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="565" height="185" rx="16" fill="url(#metricsBg)"/>
         
         <text x="25" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Key Investment Metrics</text>
         
