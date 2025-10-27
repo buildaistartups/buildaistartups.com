@@ -77,13 +77,6 @@
     </filter>
   </defs>
   
-  <!-- Background with gradient mesh -->
-  <rect width="1200" height="675" fill="url(#meshGradient)"/>
-  
-  <!-- Decorative background elements -->
-  <circle cx="100" cy="100" r="200" fill="url(#radialPurple)"/>
-  <circle cx="1100" cy="550" r="250" fill="url(#radialBlue)"/>
-  <circle cx="600" cy="350" r="180" fill="url(#radialPurple)"/>
   
   <!-- Main Container -->
   <g id="mainContent">
@@ -95,11 +88,11 @@
         <defs>
           <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-            <stop offset="50%" style="stop-color:#faf8ff;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#f0f9ff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f5f3ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#eff6ff;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect x="30" y="25" width="1140" height="85" rx="16" fill="url(#headerBg)"/>
+        <rect x="30" y="25" width="1140" height="85" rx="16" fill="url(#headerBg)" stroke="#e0e7ff" stroke-width="1"/>
         
         <!-- Title with icon -->
         <circle cx="55" cy="50" r="14" fill="url(#purpleBlue)" filter="url(#glow)"/>
@@ -139,10 +132,10 @@
           <defs>
             <linearGradient id="stat1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" style="stop-color:#faf5ff;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f3e8ff;stop-opacity:1" />
             </linearGradient>
           </defs>
-          <rect x="745" y="43" width="140" height="60" rx="12" fill="url(#stat1Bg)"/>
+          <rect x="745" y="43" width="140" height="60" rx="12" fill="url(#stat1Bg)" stroke="#e9d5ff" stroke-width="1"/>
           <text x="765" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">ACTIVE DEALS</text>
           <text x="765" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#8b5cf6">24</text>
           <circle cx="855" cy="82" r="6" fill="#22c55e" opacity="0.2"/>
@@ -151,22 +144,22 @@
           <!-- Stat 2 -->
           <defs>
             <linearGradient id="stat2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#eff6ff;stop-opacity:1" />
+              <stop offset="0%" style="stop-color:#eff6ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
             </linearGradient>
           </defs>
-          <rect x="900" y="43" width="155" height="60" rx="12" fill="url(#stat2Bg)"/>
+          <rect x="900" y="43" width="155" height="60" rx="12" fill="url(#stat2Bg)" stroke="#bfdbfe" stroke-width="1"/>
           <text x="920" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">DEPLOYED CAPITAL</text>
           <text x="920" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#3b82f6">$2.4M</text>
           
           <!-- Stat 3 -->
           <defs>
             <linearGradient id="stat3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#faf8ff;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#f0f5ff;stop-opacity:1" />
+              <stop offset="0%" style="stop-color:#f5f3ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
             </linearGradient>
           </defs>
-          <rect x="1070" y="43" width="85" height="60" rx="12" fill="url(#stat3Bg)"/>
+          <rect x="1070" y="43" width="85" height="60" rx="12" fill="url(#stat3Bg)" stroke="#c7d2fe" stroke-width="1"/>
           <text x="1090" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">IRR</text>
           <text x="1090" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="url(#purpleBlue)">34%</text>
         </g>
@@ -178,12 +171,12 @@
       <g filter="url(#softShadow)">
         <defs>
           <linearGradient id="pipelineBg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#fafafa;stop-opacity:1" />
-            <stop offset="50%" style="stop-color:#f8faff;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f8f9ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="1140" height="95" rx="16" fill="url(#pipelineBg)"/>
+        <rect x="0" y="0" width="1140" height="95" rx="16" fill="url(#pipelineBg)" stroke="#e0e7ff" stroke-width="1"/>
         
         <text x="25" y="18" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Investment Pipeline</text>
         <text x="25" y="35" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Real-time deal flow tracking</text>
@@ -232,11 +225,11 @@
       <g filter="url(#cardShadow)">
         <defs>
           <linearGradient id="card1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#fdfbff;stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card1Bg)"/>
+        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card1Bg)" stroke="#e9d5ff" stroke-width="1"/>
         <rect x="0" y="0" width="368" height="8" rx="16" fill="url(#purpleGlow)"/>
         
         <!-- Enhanced Demo Preview -->
@@ -318,11 +311,11 @@
       <g transform="translate(388, 0)" filter="url(#cardShadow)">
         <defs>
           <linearGradient id="card2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#f7fbff;stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#eff6ff;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card2Bg)"/>
+        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card2Bg)" stroke="#bfdbfe" stroke-width="1"/>
         <rect x="0" y="0" width="368" height="8" rx="16" fill="url(#blueGlow)"/>
         
         <!-- Enhanced Demo Preview -->
@@ -403,11 +396,11 @@
       <g transform="translate(776, 0)" filter="url(#cardShadow)">
         <defs>
           <linearGradient id="card3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#fdf8ff;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#f8f5ff;stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="364" height="195" rx="16" fill="url(#card3Bg)"/>
+        <rect x="0" y="0" width="364" height="195" rx="16" fill="url(#card3Bg)" stroke="#e9d5ff" stroke-width="1"/>
         <rect x="0" y="0" width="364" height="8" rx="16" fill="url(#purpleBlue)"/>
         
         <!-- Enhanced Demo Preview -->
@@ -497,12 +490,12 @@
       <g filter="url(#cardShadow)">
         <defs>
           <linearGradient id="portfolioBg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#fdfbff;stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
             <stop offset="50%" style="stop-color:#faf8ff;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="555" height="185" rx="16" fill="url(#portfolioBg)"/>
+        <rect x="0" y="0" width="555" height="185" rx="16" fill="url(#portfolioBg)" stroke="#e0e7ff" stroke-width="1"/>
         
         <text x="25" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Portfolio Performance</text>
         <text x="25" y="47" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Last 12 months</text>
@@ -569,12 +562,12 @@
       <g transform="translate(575, 0)" filter="url(#cardShadow)">
         <defs>
           <linearGradient id="metricsBg" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:1" />
-            <stop offset="50%" style="stop-color:#f5f9ff;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#f0f5ff;stop-opacity:1" />
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#eff6ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
           </linearGradient>
         </defs>
-        <rect x="0" y="0" width="565" height="185" rx="16" fill="url(#metricsBg)"/>
+        <rect x="0" y="0" width="565" height="185" rx="16" fill="url(#metricsBg)" stroke="#bfdbfe" stroke-width="1"/>
         
         <text x="25" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Key Investment Metrics</text>
         
