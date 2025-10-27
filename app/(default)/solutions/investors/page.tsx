@@ -95,7 +95,7 @@ export default function InvestorsPage() {
               <p className="mt-3 text-sm text-slate-400">Live demos · Pipeline scoring · Cohort tracking · Exit-ready</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
                 <img 
                   src="/images/solutions/investors/hero.svg" 
                   alt="Investor dashboard with live demos and deal flow management" 
@@ -115,11 +115,11 @@ export default function InvestorsPage() {
             <p className="mt-2 text-slate-300">Working products tell the real story</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-8">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/live-demo.svg" 
                 alt="Live demo previews vs traditional pitch decks comparison" 
-                className="h-48 w-auto mx-auto"
+                className="h-48 w-auto"
                 loading="lazy"
               />
             </div>
@@ -160,7 +160,7 @@ export default function InvestorsPage() {
                 <li><strong>Code quality:</strong> Architecture, tests, and technical debt analysis</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/pipeline-scoring.svg" 
                 alt="Automated pipeline scoring system with startup rankings" 
@@ -174,7 +174,7 @@ export default function InvestorsPage() {
         {/* Comparable Metrics */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/comparable-metrics.svg" 
                 alt="Standardized startup metrics dashboard for comparison" 
@@ -214,7 +214,7 @@ export default function InvestorsPage() {
                 <li>Live demo links updated automatically</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/cohort-tracking.svg" 
                 alt="Cohort tracking and watchlist management for investors" 
@@ -228,7 +228,7 @@ export default function InvestorsPage() {
         {/* Deal Flow Automation */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/deal-flow.svg" 
                 alt="Automated deal flow process from discovery to decision" 
@@ -259,11 +259,11 @@ export default function InvestorsPage() {
             <p className="mt-2 text-slate-300">Track performance across your entire portfolio</p>
           </div>
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/portfolio-dashboard.svg" 
                 alt="Comprehensive portfolio dashboard with performance tracking" 
-                className="h-48 w-auto mx-auto"
+                className="h-48 w-auto"
                 loading="lazy"
               />
             </div>
@@ -286,7 +286,7 @@ export default function InvestorsPage() {
                 <li>Transfer-ready handover checklists</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/exit-ready.svg" 
                 alt="Exit-ready assets and documentation for fast due diligence" 
@@ -300,7 +300,7 @@ export default function InvestorsPage() {
         {/* Due Diligence Acceleration */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/due-diligence.svg" 
                 alt="Accelerated due diligence process comparison" 
@@ -339,7 +339,7 @@ export default function InvestorsPage() {
                 <li>Investment thesis validation</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/market-intelligence.svg" 
                 alt="Market intelligence and trend analysis dashboard" 
@@ -353,7 +353,7 @@ export default function InvestorsPage() {
         {/* Investment Thesis Tracking */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/investors/thesis-tracking.svg" 
                 alt="Investment thesis tracking and validation system" 
