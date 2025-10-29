@@ -84,6 +84,56 @@ export default async function Page({
 
   return (
     <>
+      {/* Custom styles for cards */}
+      <style jsx global>{`
+        .card {
+          padding: 15px !important;
+        }
+        
+        .card img {
+          display: block !important;
+          margin: 0 auto !important;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+        
+        .card .image-container {
+          display: flex !important;
+          justify-content: center !important;
+          align-items: center !important;
+          padding: 15px !important;
+        }
+        
+        /* Alternative selectors in case cards have different class names */
+        [class*="card"] {
+          padding: 15px !important;
+        }
+        
+        [class*="card"] img {
+          display: block !important;
+          margin: 0 auto !important;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+        
+        /* For Tailwind CSS cards */
+        .bg-white img,
+        .bg-gray-50 img,
+        .bg-gray-100 img,
+        .border img {
+          display: block !important;
+          margin: 0 auto !important;
+          max-width: 100% !important;
+          height: auto !important;
+        }
+        
+        .bg-white,
+        .bg-gray-50,
+        .bg-gray-100 {
+          padding: 15px !important;
+        }
+      `}</style>
+
       {/* Structured data */}
       <Script id="ld-org" type="application/ld+json" strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
