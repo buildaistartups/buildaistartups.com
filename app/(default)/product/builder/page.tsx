@@ -85,15 +85,62 @@ export default async function Page({
   return (
     <>
       {/* Structured data */}
-      <Script id="ld-org" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-      <Script id="ld-app" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }} />
-      <Script id="ld-breadcrumb" type="application/ld+json" strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <Script
+        id="ld-org"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+      />
+      <Script
+        id="ld-app"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(appJsonLd) }}
+      />
+      <Script
+        id="ld-breadcrumb"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
 
-      {/* Vertical-aware Builder */}
-      <BuilderVerticalPage vertical={vertical} />
+      {/* Page wrapper to scope CSS */}
+      <div className="builder-page">
+        {/* Vertical-aware Builder */}
+        <BuilderVerticalPage vertical={vertical} />
+      </div>
+
+      {/* Card-with-image padding + centering (scoped to this page) */}
+      <style jsx global>{`
+        /* Apply 15px inner padding to any "card-like" element that contains an <img> */
+        .builder-page .card:has(img),
+        .builder-page [class*='card']:has(img),
+        .builder-page [data-card]:has(img) {
+          padding: 15px !important;
+          box-sizing: border-box;
+        }
+
+        /* Center plain <img> elements inside those cards */
+        .builder-page .card img,
+        .builder-page [class*='card'] img,
+        .builder-page [data-card] img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          height: auto;
+          max-width: 100%;
+        }
+
+        /* If a <picture> is used, ensure its contents are centered too */
+        .builder-page .card picture,
+        .builder-page [class*='card'] picture,
+        .builder-page [data-card] picture {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 100%;
+        }
+      `}</style>
     </>
   )
 }
