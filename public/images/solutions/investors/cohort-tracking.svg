@@ -13,41 +13,41 @@
       <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
     </linearGradient>
     
-    <!-- Stunning vibrant card gradients -->
-    <linearGradient id="timelineVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#FF8E8E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FFB3B3;stop-opacity:1" />
+    <!-- Professional color gradients -->
+    <linearGradient id="timelineProfessional" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F1F5F9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E2E8F0;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="aiHeaderVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#9333EA;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#A855F7;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#C084FC;stop-opacity:1" />
+    <linearGradient id="aiHeaderProfessional" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E293B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#334155;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="aiCardVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#E879F9;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#F0ABFC;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#F8BBD9;stop-opacity:1" />
+    <linearGradient id="aiCardProfessional" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F8FAFC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F1F5F9;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="fintechHeaderVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0891B2;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#06B6D4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#67E8F9;stop-opacity:1" />
+    <linearGradient id="fintechHeaderProfessional" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1E293B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="fintechCardVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#67E8F9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#A5F3FC;stop-opacity:1" />
+    <linearGradient id="fintechCardProfessional" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F0F9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F2FE;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="legendVibrant" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#FBBF24;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FDE047;stop-opacity:1" />
+    <linearGradient id="legendProfessional" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEFCE8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FEF3C7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FDE68A;stop-opacity:1" />
     </linearGradient>
     
     <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -59,7 +59,7 @@
     <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
       <feOffset dx="0" dy="4" result="offset"/>
-      <feFlood flood-color="#0F172A" flood-opacity="0.15"/>
+      <feFlood flood-color="#0F172A" flood-opacity="0.08"/>
       <feComposite in2="offset" operator="in"/>
       <feMerge>
         <feMergeNode/>
@@ -111,296 +111,296 @@
     <text x="1000" y="80" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#10B981">↑ 3.2% YoY</text>
   </g>
   
-  <!-- Enhanced Timeline - VIBRANT RED/CORAL BACKGROUND -->
+  <!-- Enhanced Timeline - PROFESSIONAL LIGHT GREY -->
   <g id="timeline">
-    <rect x="60" y="150" width="1080" height="80" rx="16" fill="url(#timelineVibrant)" filter="url(#cardShadow)" stroke="#FF4757" stroke-width="2"/>
+    <rect x="60" y="150" width="1080" height="80" rx="16" fill="url(#timelineProfessional)" filter="url(#cardShadow)" stroke="#CBD5E1" stroke-width="1"/>
     
     <!-- Timeline Line - Centered at y=190 (middle of 80px box) -->
-    <line x1="120" y1="190" x2="1080" y2="190" stroke="#FFFFFF" stroke-width="4"/>
+    <line x1="120" y1="190" x2="1080" y2="190" stroke="url(#purpleGradient)" stroke-width="4"/>
     
     <!-- Timeline Points - All centered vertically -->
     <g id="q1-2024">
-      <circle cx="120" cy="190" r="8" fill="#FFFFFF" filter="url(#glowEffect)"/>
-      <circle cx="120" cy="190" r="4" fill="#FF4757"/>
-      <text x="120" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Q1 2024</text>
-      <text x="120" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">3 investments</text>
+      <circle cx="120" cy="190" r="8" fill="#6366F1" filter="url(#glowEffect)"/>
+      <circle cx="120" cy="190" r="4" fill="white"/>
+      <text x="120" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q1 2024</text>
+      <text x="120" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">3 investments</text>
     </g>
     
     <g id="q2-2024">
-      <circle cx="400" cy="190" r="8" fill="#FFFFFF" filter="url(#glowEffect)"/>
-      <circle cx="400" cy="190" r="4" fill="#FF4757"/>
-      <text x="400" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Q2 2024</text>
-      <text x="400" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">5 investments</text>
+      <circle cx="400" cy="190" r="8" fill="#8B5CF6" filter="url(#glowEffect)"/>
+      <circle cx="400" cy="190" r="4" fill="white"/>
+      <text x="400" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q2 2024</text>
+      <text x="400" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">5 investments</text>
     </g>
     
     <g id="q3-2024">
-      <circle cx="680" cy="190" r="8" fill="#FFFFFF" filter="url(#glowEffect)"/>
-      <circle cx="680" cy="190" r="4" fill="#FF4757"/>
-      <text x="680" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Q3 2024</text>
-      <text x="680" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Current</text>
+      <circle cx="680" cy="190" r="8" fill="#3B82F6" filter="url(#glowEffect)"/>
+      <circle cx="680" cy="190" r="4" fill="white"/>
+      <text x="680" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q3 2024</text>
+      <text x="680" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">Current</text>
     </g>
     
     <g id="q4-2024">
-      <circle cx="960" cy="190" r="8" fill="#FFB3B3" stroke="#FFFFFF" stroke-width="2"/>
-      <circle cx="960" cy="190" r="4" fill="#FFFFFF"/>
-      <text x="960" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF" text-anchor="middle">Q4 2024</text>
-      <text x="960" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle">Planned</text>
+      <circle cx="960" cy="190" r="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/>
+      <circle cx="960" cy="190" r="4" fill="#F8FAFC"/>
+      <text x="960" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#94A3B8" text-anchor="middle">Q4 2024</text>
+      <text x="960" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Planned</text>
     </g>
   </g>
   
-  <!-- AI Infrastructure Cohort - VIBRANT PURPLE BACKGROUND -->
+  <!-- AI Infrastructure Cohort - PROFESSIONAL DARK SLATE -->
   <g id="ai-cohort">
     <!-- Cohort Header Card -->
-    <rect x="60" y="260" width="1080" height="80" rx="16" fill="url(#aiHeaderVibrant)" filter="url(#cardShadow)" stroke="#9333EA" stroke-width="2"/>
-    <rect x="60" y="260" width="8" height="80" rx="4" fill="#FFFFFF"/>
+    <rect x="60" y="260" width="1080" height="80" rx="16" fill="url(#aiHeaderProfessional)" filter="url(#cardShadow)" stroke="#475569" stroke-width="1"/>
+    <rect x="60" y="260" width="8" height="80" rx="4" fill="url(#purpleGradient)"/>
     
     <!-- Cohort Icon -->
-    <circle cx="110" cy="300" r="20" fill="rgba(255,255,255,0.3)"/>
-    <circle cx="110" cy="300" r="12" fill="#FFFFFF"/>
-    <text x="110" y="306" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#9333EA" text-anchor="middle">AI</text>
+    <circle cx="110" cy="300" r="20" fill="url(#purpleGradient)" opacity="0.2"/>
+    <circle cx="110" cy="300" r="12" fill="url(#purpleGradient)"/>
+    <text x="110" y="306" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">AI</text>
     
     <!-- Cohort Info -->
-    <text x="150" y="290" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">
+    <text x="150" y="290" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="700" fill="white">
       AI Infrastructure
     </text>
-    <text x="150" y="310" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#FFFFFF" font-weight="500">
+    <text x="150" y="310" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#CBD5E1" font-weight="500">
       8 companies · $12.5M deployed · Target milestone: 80%
     </text>
     
     <!-- Enhanced Progress Indicator -->
     <g id="ai-progress">
-      <rect x="900" y="280" width="200" height="40" rx="20" fill="rgba(255,255,255,0.2)"/>
-      <rect x="900" y="280" width="152" height="40" rx="20" fill="#FFFFFF"/>
-      <text x="1000" y="305" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#9333EA" text-anchor="middle">76%</text>
+      <rect x="900" y="280" width="200" height="40" rx="20" fill="#F1F5F9"/>
+      <rect x="900" y="280" width="152" height="40" rx="20" fill="url(#purpleGradient)"/>
+      <text x="1000" y="305" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">76%</text>
       <text x="1000" y="335" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#10B981" text-anchor="middle" font-weight="600">↑ 4% this quarter</text>
     </g>
   </g>
   
-  <!-- AI Company Cards - VIBRANT PINK/MAGENTA BACKGROUNDS -->
+  <!-- AI Company Cards - PROFESSIONAL WHITE/LIGHT GREY -->
   <g id="ai-companies">
     <!-- Company 1: VectorDB Inc -->
     <g id="vectordb" filter="url(#cardShadow)">
-      <rect x="80" y="360" width="240" height="120" rx="16" fill="url(#aiCardVibrant)" stroke="#E879F9" stroke-width="2"/>
+      <rect x="80" y="360" width="240" height="120" rx="16" fill="url(#aiCardProfessional)" stroke="#E2E8F0" stroke-width="1"/>
       
       <!-- Company Header -->
-      <circle cx="110" cy="390" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="110" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#C026D3" text-anchor="middle">V</text>
+      <circle cx="110" cy="390" r="16" fill="#EDE9FE"/>
+      <text x="110" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">V</text>
       
-      <text x="135" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">VectorDB Inc</text>
-      <text x="135" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Seed · $2.5M · Q1 2024</text>
+      <text x="135" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">VectorDB Inc</text>
+      <text x="135" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $2.5M · Q1 2024</text>
       
       <!-- Status Badge -->
       <rect x="250" y="370" width="60" height="20" rx="10" fill="#DCFCE7"/>
       <text x="280" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
       <!-- Progress Bar -->
-      <rect x="100" y="420" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
-      <rect x="100" y="420" width="170" height="8" rx="4" fill="#FFFFFF"/>
+      <rect x="100" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="100" y="420" width="170" height="8" rx="4" fill="url(#purpleGradient)"/>
       
       <!-- Metrics -->
       <text x="100" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">85% milestone</text>
-      <text x="100" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Next: Series A preparation</text>
+      <text x="100" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Next: Series A preparation</text>
     </g>
     
     <!-- Company 2: NeuralScale -->
     <g id="neuralscale" filter="url(#cardShadow)">
-      <rect x="340" y="360" width="240" height="120" rx="16" fill="url(#aiCardVibrant)" stroke="#E879F9" stroke-width="2"/>
+      <rect x="340" y="360" width="240" height="120" rx="16" fill="url(#aiCardProfessional)" stroke="#E2E8F0" stroke-width="1"/>
       
-      <circle cx="370" cy="390" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="370" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#C026D3" text-anchor="middle">N</text>
+      <circle cx="370" cy="390" r="16" fill="#EDE9FE"/>
+      <text x="370" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">N</text>
       
-      <text x="395" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">NeuralScale</text>
-      <text x="395" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Series A · $5M · Q2 2024</text>
+      <text x="395" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">NeuralScale</text>
+      <text x="395" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $5M · Q2 2024</text>
       
       <!-- Status Badge -->
       <rect x="510" y="370" width="60" height="20" rx="10" fill="#DCFCE7"/>
       <text x="540" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
-      <rect x="360" y="420" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
-      <rect x="360" y="420" width="140" height="8" rx="4" fill="#FFFFFF"/>
+      <rect x="360" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="360" y="420" width="140" height="8" rx="4" fill="url(#purpleGradient)"/>
       
       <text x="360" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">70% milestone</text>
-      <text x="360" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Revenue scaling phase</text>
+      <text x="360" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Revenue scaling phase</text>
     </g>
     
     <!-- Company 3: InferenceAI -->
     <g id="inferenceai" filter="url(#cardShadow)">
-      <rect x="600" y="360" width="240" height="120" rx="16" fill="url(#aiCardVibrant)" stroke="#E879F9" stroke-width="2"/>
+      <rect x="600" y="360" width="240" height="120" rx="16" fill="url(#aiCardProfessional)" stroke="#E2E8F0" stroke-width="1"/>
       
-      <circle cx="630" cy="390" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="630" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#C026D3" text-anchor="middle">I</text>
+      <circle cx="630" cy="390" r="16" fill="#EDE9FE"/>
+      <text x="630" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">I</text>
       
-      <text x="655" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">InferenceAI</text>
-      <text x="655" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Seed · $1.8M · Q2 2024</text>
+      <text x="655" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">InferenceAI</text>
+      <text x="655" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $1.8M · Q2 2024</text>
       
       <!-- Status Badge -->
       <rect x="770" y="370" width="60" height="20" rx="10" fill="#FEF3C7"/>
       <text x="800" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
       
-      <rect x="620" y="420" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <rect x="620" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="620" y="420" width="120" height="8" rx="4" fill="#F59E0B"/>
       
       <text x="620" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#F59E0B">60% milestone</text>
-      <text x="620" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Product-market fit phase</text>
+      <text x="620" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Product-market fit phase</text>
     </g>
     
     <!-- Watchlist Card -->
     <g id="ai-watchlist" filter="url(#cardShadow)">
-      <rect x="860" y="360" width="240" height="120" rx="16" fill="url(#aiCardVibrant)" stroke="#E879F9" stroke-width="2" stroke-dasharray="8,4"/>
+      <rect x="860" y="360" width="240" height="120" rx="16" fill="url(#aiCardProfessional)" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="8,4"/>
       
-      <circle cx="890" cy="390" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="890" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#C026D3" text-anchor="middle">🔍</text>
+      <circle cx="890" cy="390" r="16" fill="#F3F4F6"/>
+      <text x="890" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">🔍</text>
       
-      <text x="915" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">ComputeLayer</text>
-      <text x="915" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Pre-seed · Target: $2M</text>
+      <text x="915" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">ComputeLayer</text>
+      <text x="915" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Pre-seed · Target: $2M</text>
       
       <!-- Status Badge -->
-      <rect x="1030" y="370" width="60" height="20" rx="10" fill="rgba(255,255,255,0.8)"/>
-      <text x="1060" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#C026D3" text-anchor="middle">PIPELINE</text>
+      <rect x="1030" y="370" width="60" height="20" rx="10" fill="#EDE9FE"/>
+      <text x="1060" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">PIPELINE</text>
       
-      <rect x="880" y="420" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
-      <rect x="880" y="420" width="60" height="8" rx="4" fill="#FFFFFF"/>
+      <rect x="880" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="880" y="420" width="60" height="8" rx="4" fill="#8B5CF6"/>
       
-      <text x="880" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Due diligence</text>
-      <text x="880" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Target close: Q4 2024</text>
+      <text x="880" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#8B5CF6">Due diligence</text>
+      <text x="880" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Target close: Q4 2024</text>
     </g>
   </g>
   
-  <!-- EU Fintech Cohort - VIBRANT CYAN BACKGROUND -->
+  <!-- EU Fintech Cohort - PROFESSIONAL DARK NAVY -->
   <g id="fintech-cohort">
     <!-- Cohort Header Card -->
-    <rect x="60" y="500" width="1080" height="80" rx="16" fill="url(#fintechHeaderVibrant)" filter="url(#cardShadow)" stroke="#0891B2" stroke-width="2"/>
-    <rect x="60" y="500" width="8" height="80" rx="4" fill="#FFFFFF"/>
+    <rect x="60" y="500" width="1080" height="80" rx="16" fill="url(#fintechHeaderProfessional)" filter="url(#cardShadow)" stroke="#334155" stroke-width="1"/>
+    <rect x="60" y="500" width="8" height="80" rx="4" fill="url(#blueGradient)"/>
     
     <!-- Cohort Icon -->
-    <circle cx="110" cy="540" r="20" fill="rgba(255,255,255,0.3)"/>
-    <circle cx="110" cy="540" r="12" fill="#FFFFFF"/>
-    <text x="110" y="546" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#0891B2" text-anchor="middle">€</text>
+    <circle cx="110" cy="540" r="20" fill="url(#blueGradient)" opacity="0.2"/>
+    <circle cx="110" cy="540" r="12" fill="url(#blueGradient)"/>
+    <text x="110" y="546" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">€</text>
     
     <!-- Cohort Info -->
-    <text x="150" y="530" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">
+    <text x="150" y="530" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="700" fill="white">
       EU Fintech
     </text>
-    <text x="150" y="550" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#FFFFFF" font-weight="500">
+    <text x="150" y="550" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#CBD5E1" font-weight="500">
       5 companies · $8.2M deployed · Target milestone: 75%
     </text>
     
     <!-- Enhanced Progress Indicator -->
     <g id="fintech-progress">
-      <rect x="900" y="520" width="200" height="40" rx="20" fill="rgba(255,255,255,0.2)"/>
-      <rect x="900" y="520" width="136" height="40" rx="20" fill="#FFFFFF"/>
-      <text x="1000" y="545" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#0891B2" text-anchor="middle">68%</text>
+      <rect x="900" y="520" width="200" height="40" rx="20" fill="#F1F5F9"/>
+      <rect x="900" y="520" width="136" height="40" rx="20" fill="url(#blueGradient)"/>
+      <text x="1000" y="545" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">68%</text>
       <text x="1000" y="575" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#F59E0B" text-anchor="middle" font-weight="600">↓ 2% this quarter</text>
     </g>
   </g>
   
-  <!-- Fintech Company Cards - VIBRANT CYAN/TURQUOISE BACKGROUNDS -->
+  <!-- Fintech Company Cards - PROFESSIONAL LIGHT BLUE TINT -->
   <g id="fintech-companies">
     <!-- Company 1: PayFlow EU -->
     <g id="payflow" filter="url(#cardShadow)">
-      <rect x="80" y="600" width="240" height="120" rx="16" fill="url(#fintechCardVibrant)" stroke="#22D3EE" stroke-width="2"/>
+      <rect x="80" y="600" width="240" height="120" rx="16" fill="url(#fintechCardProfessional)" stroke="#E2E8F0" stroke-width="1"/>
       
-      <circle cx="110" cy="630" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="110" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#0891B2" text-anchor="middle">P</text>
+      <circle cx="110" cy="630" r="16" fill="#DBEAFE"/>
+      <text x="110" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">P</text>
       
-      <text x="135" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">PayFlow EU</text>
-      <text x="135" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Series A · $3.5M · Q1 2024</text>
+      <text x="135" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">PayFlow EU</text>
+      <text x="135" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $3.5M · Q1 2024</text>
       
       <!-- Status Badge -->
       <rect x="250" y="610" width="60" height="20" rx="10" fill="#DCFCE7"/>
       <text x="280" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
-      <rect x="100" y="660" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
-      <rect x="100" y="660" width="184" height="8" rx="4" fill="#FFFFFF"/>
+      <rect x="100" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="100" y="660" width="184" height="8" rx="4" fill="url(#blueGradient)"/>
       
       <text x="100" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">92% milestone</text>
-      <text x="100" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Market expansion phase</text>
+      <text x="100" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Market expansion phase</text>
     </g>
     
     <!-- Company 2: NeoBank.io -->
     <g id="neobank" filter="url(#cardShadow)">
-      <rect x="340" y="600" width="240" height="120" rx="16" fill="url(#fintechCardVibrant)" stroke="#22D3EE" stroke-width="2"/>
+      <rect x="340" y="600" width="240" height="120" rx="16" fill="url(#fintechCardProfessional)" stroke="#E2E8F0" stroke-width="1"/>
       
-      <circle cx="370" cy="630" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="370" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#0891B2" text-anchor="middle">N</text>
+      <circle cx="370" cy="630" r="16" fill="#DBEAFE"/>
+      <text x="370" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">N</text>
       
-      <text x="395" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">NeoBank.io</text>
-      <text x="395" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Seed · $2M · Q2 2024</text>
+      <text x="395" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">NeoBank.io</text>
+      <text x="395" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $2M · Q2 2024</text>
       
       <!-- Status Badge -->
       <rect x="510" y="610" width="60" height="20" rx="10" fill="#FEF3C7"/>
       <text x="540" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
       
-      <rect x="360" y="660" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+      <rect x="360" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="360" y="660" width="110" height="8" rx="4" fill="#F59E0B"/>
       
       <text x="360" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#F59E0B">55% milestone</text>
-      <text x="360" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Regulatory approval pending</text>
+      <text x="360" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Regulatory approval pending</text>
     </g>
     
     <!-- Company 3: WealthTech -->
     <g id="wealthtech" filter="url(#cardShadow)">
-      <rect x="600" y="600" width="240" height="120" rx="16" fill="url(#fintechCardVibrant)" stroke="#22D3EE" stroke-width="2"/>
+      <rect x="600" y="600" width="240" height="120" rx="16" fill="url(#fintechCardProfessional)" stroke="#E2E8F0" stroke-width="1"/>
       
-      <circle cx="630" cy="630" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="630" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#0891B2" text-anchor="middle">W</text>
+      <circle cx="630" cy="630" r="16" fill="#DBEAFE"/>
+      <text x="630" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">W</text>
       
-      <text x="655" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">WealthTech</text>
-      <text x="655" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Series A · $2.7M · Q2 2024</text>
+      <text x="655" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">WealthTech</text>
+      <text x="655" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $2.7M · Q2 2024</text>
       
       <!-- Status Badge -->
       <rect x="770" y="610" width="60" height="20" rx="10" fill="#DCFCE7"/>
       <text x="800" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
-      <rect x="620" y="660" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
-      <rect x="620" y="660" width="130" height="8" rx="4" fill="#FFFFFF"/>
+      <rect x="620" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="620" y="660" width="130" height="8" rx="4" fill="url(#blueGradient)"/>
       
       <text x="620" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">65% milestone</text>
-      <text x="620" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Customer acquisition focus</text>
+      <text x="620" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Customer acquisition focus</text>
     </g>
     
     <!-- Fintech Watchlist -->
     <g id="fintech-watchlist" filter="url(#cardShadow)">
-      <rect x="860" y="600" width="240" height="120" rx="16" fill="url(#fintechCardVibrant)" stroke="#22D3EE" stroke-width="2" stroke-dasharray="8,4"/>
+      <rect x="860" y="600" width="240" height="120" rx="16" fill="url(#fintechCardProfessional)" stroke="#3B82F6" stroke-width="2" stroke-dasharray="8,4"/>
       
-      <circle cx="890" cy="630" r="16" fill="rgba(255,255,255,0.8)"/>
-      <text x="890" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#0891B2" text-anchor="middle">🔍</text>
+      <circle cx="890" cy="630" r="16" fill="#F3F4F6"/>
+      <text x="890" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">🔍</text>
       
-      <text x="915" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">OpenBanking+</text>
-      <text x="915" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#FFFFFF">Seed stage · DD phase</text>
+      <text x="915" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">OpenBanking+</text>
+      <text x="915" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed stage · DD phase</text>
       
       <!-- Status Badge -->
-      <rect x="1030" y="610" width="60" height="20" rx="10" fill="rgba(255,255,255,0.8)"/>
-      <text x="1060" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#0891B2" text-anchor="middle">PIPELINE</text>
+      <rect x="1030" y="610" width="60" height="20" rx="10" fill="#DBEAFE"/>
+      <text x="1060" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#3B82F6" text-anchor="middle">PIPELINE</text>
       
-      <rect x="880" y="660" width="200" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
-      <rect x="880" y="660" width="80" height="8" rx="4" fill="#FFFFFF"/>
+      <rect x="880" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="880" y="660" width="80" height="8" rx="4" fill="#3B82F6"/>
       
-      <text x="880" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#FFFFFF">Due diligence</text>
-      <text x="880" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#FFFFFF">Target close: Q1 2025</text>
+      <text x="880" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#3B82F6">Due diligence</text>
+      <text x="880" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Target close: Q1 2025</text>
     </g>
   </g>
   
-  <!-- Enhanced Legend - VIBRANT YELLOW/GOLD BACKGROUND -->
+  <!-- Enhanced Legend - PROFESSIONAL WARM BEIGE -->
   <g id="legend">
-    <rect x="60" y="740" width="1080" height="50" rx="16" fill="url(#legendVibrant)" filter="url(#cardShadow)" stroke="#F59E0B" stroke-width="2"/>
+    <rect x="60" y="740" width="1080" height="50" rx="16" fill="url(#legendProfessional)" filter="url(#cardShadow)" stroke="#D97706" stroke-width="1"/>
     
     <!-- Legend Title -->
-    <text x="90" y="770" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Performance Legend</text>
+    <text x="90" y="770" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#92400E">Performance Legend</text>
     
     <!-- Legend Items -->
     <g id="legend-items">
       <circle cx="280" cy="765" r="6" fill="#10B981"/>
-      <text x="295" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#FFFFFF" font-weight="500">On Track (≥70%)</text>
+      <text x="295" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#059669" font-weight="500">On Track (≥70%)</text>
       
-      <circle cx="450" cy="765" r="6" fill="#EF4444"/>
-      <text x="465" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#FFFFFF" font-weight="500">At Risk (50-69%)</text>
+      <circle cx="450" cy="765" r="6" fill="#F59E0B"/>
+      <text x="465" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#D97706" font-weight="500">At Risk (50-69%)</text>
       
-      <circle cx="620" cy="765" r="6" fill="#DC2626"/>
-      <text x="635" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#FFFFFF" font-weight="500">Off Track (less than 50%)</text>
+      <circle cx="620" cy="765" r="6" fill="#EF4444"/>
+      <text x="635" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#DC2626" font-weight="500">Off Track (less than 50%)</text>
       
-      <rect x="820" y="759" width="40" height="12" rx="2" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="870" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#FFFFFF" font-weight="500">Pipeline/Watchlist</text>
+      <rect x="820" y="759" width="40" height="12" rx="2" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="870" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#7C3AED" font-weight="500">Pipeline/Watchlist</text>
     </g>
   </g>
 </svg>
