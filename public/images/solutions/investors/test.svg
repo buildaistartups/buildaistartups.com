@@ -17,14 +17,83 @@
       <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+    <!-- Stunning Card Background Gradients -->
+    <linearGradient id="premiumCardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#f8fafc;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#e0e7ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#ddd6fe;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="card2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#f0f9ff;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#dbeafe;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#bfdbfe;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="card3Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#faf5ff;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#e9d5ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#d8b4fe;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#ecfdf5;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#d1fae5;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#a7f3d0;stop-opacity:0.7" />
+    </linearGradient>
+    
+    <linearGradient id="matrixGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#fefce8;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#fef3c7;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#fed7aa;stop-opacity:0.7" />
     </linearGradient>
     
     <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1e293b;stop-opacity:0.95" />
       <stop offset="100%" style="stop-color:#334155;stop-opacity:0.95" />
+    </linearGradient>
+    
+    <linearGradient id="footerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:0.95" />
+      <stop offset="50%" style="stop-color:#1e293b;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:0.85" />
+    </linearGradient>
+    
+    <!-- Text Color Gradients -->
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="subtitleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0f766e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0369a1;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Stunning Box Background Gradients -->
+    <linearGradient id="criteriaBox1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="criteriaBox2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#eff6ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="criteriaBox3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf5ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#f3e8ff;stop-opacity:0.6" />
+    </linearGradient>
+    
+    <linearGradient id="criteriaBox4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0f9ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:0.6" />
     </linearGradient>
     
     <!-- Advanced Shadow Filters -->
@@ -83,7 +152,7 @@
   <!-- Enhanced Startup Cards -->
   <!-- Card 1 - Premium Winner -->
   <g transform="translate(30, 65)" filter="url(#cardShadow)">
-    <rect width="240" height="155" rx="12" fill="url(#cardGradient)" stroke="url(#purpleBlue)" stroke-width="2"/>
+    <rect width="240" height="155" rx="12" fill="url(#premiumCardGradient)" stroke="url(#purpleBlue)" stroke-width="2"/>
     
     <!-- Premium Header with Gradient -->
     <rect width="240" height="40" rx="12" fill="url(#purpleBlue)"/>
@@ -148,7 +217,7 @@
   
   <!-- Card 2 - Enhanced Design -->
   <g transform="translate(285, 65)" filter="url(#cardShadow)">
-    <rect width="240" height="155" rx="12" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect width="240" height="155" rx="12" fill="url(#card2Gradient)" stroke="#3b82f6" stroke-width="1.5"/>
     <rect width="240" height="40" rx="12" fill="url(#headerGradient)"/>
     
     <text x="20" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="white">
@@ -197,7 +266,7 @@
   
   <!-- Card 3 - Enhanced Design -->
   <g transform="translate(540, 65)" filter="url(#cardShadow)">
-    <rect width="240" height="155" rx="12" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect width="240" height="155" rx="12" fill="url(#card3Gradient)" stroke="#8b5cf6" stroke-width="1.5"/>
     <rect width="240" height="40" rx="12" fill="url(#headerGradient)" opacity="0.7"/>
     
     <text x="20" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="600" fill="white">
@@ -246,9 +315,9 @@
   
   <!-- Enhanced Comparison Chart -->
   <g transform="translate(30, 240)">
-    <rect width="370" height="220" rx="12" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="370" height="220" rx="12" fill="url(#chartGradient)" stroke="#10b981" stroke-width="1.5" filter="url(#cardShadow)"/>
     
-    <text x="20" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="#1e293b">
+    <text x="20" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="url(#titleGradient)">
       Portfolio Performance
     </text>
     
@@ -257,10 +326,10 @@
     <line x1="50" y1="60" x2="50" y2="180" stroke="#e2e8f0" stroke-width="2"/>
     
     <!-- Grid and Labels -->
-    <text x="42" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="end">100</text>
-    <text x="42" y="95" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="end">75</text>
-    <text x="42" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="end">50</text>
-    <text x="42" y="155" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="end">25</text>
+    <text x="42" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#0f766e" text-anchor="end">100</text>
+    <text x="42" y="95" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#0f766e" text-anchor="end">75</text>
+    <text x="42" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#0f766e" text-anchor="end">50</text>
+    <text x="42" y="155" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#0f766e" text-anchor="end">25</text>
     
     <!-- Enhanced Bars with Gradients - ALL with glowing effect -->
     <rect x="80" y="68" width="60" height="112" rx="6" fill="url(#purpleBlue)" filter="url(#glowEffect)"/>
@@ -278,9 +347,9 @@
   
   <!-- Enhanced Scoring Criteria Panel -->
   <g transform="translate(420, 240)">
-    <rect width="350" height="220" rx="12" fill="url(#cardGradient)" stroke="#e2e8f0" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect width="350" height="220" rx="12" fill="url(#matrixGradient)" stroke="#f59e0b" stroke-width="1.5" filter="url(#cardShadow)"/>
     
-    <text x="20" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="#1e293b">
+    <text x="20" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="url(#titleGradient)">
       AI Scoring Matrix
     </text>
     
@@ -292,35 +361,35 @@
     
     <!-- Enhanced Criteria Items - Content moved additional 5px left -->
     <g transform="translate(20, 40)">
-      <rect x="0" y="0" width="310" height="38" rx="8" fill="url(#purpleBlue)" opacity="0.1" stroke="url(#purpleBlue)" stroke-width="1"/>
+      <rect x="0" y="0" width="310" height="38" rx="8" fill="url(#criteriaBox1)" stroke="url(#purpleBlue)" stroke-width="1"/>
       <circle cx="11" cy="19" r="16" fill="url(#purpleBlue)" filter="url(#glowEffect)"/>
       <text x="11" y="24" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">1</text>
-      <text x="36" y="16" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e293b">Market Opportunity</text>
-      <text x="36" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b">TAM analysis, growth trends, timing</text>
+      <text x="36" y="16" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af">Market Opportunity</text>
+      <text x="36" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#0f766e">TAM analysis, growth trends, timing</text>
       <circle cx="266" cy="19" r="8" fill="url(#greenGradient)"/>
       <text x="281" y="23" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#059669">35%</text>
       
-      <rect x="0" y="45" width="310" height="38" rx="8" fill="#3b82f6" opacity="0.08" stroke="#3b82f6" stroke-width="1"/>
+      <rect x="0" y="45" width="310" height="38" rx="8" fill="url(#criteriaBox2)" stroke="#3b82f6" stroke-width="1"/>
       <circle cx="11" cy="64" r="16" fill="#3b82f6"/>
       <text x="11" y="69" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">2</text>
-      <text x="36" y="61" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e293b">Competitive Advantage</text>
-      <text x="36" y="73" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b">IP portfolio, network effects, barriers</text>
+      <text x="36" y="61" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e40af">Competitive Advantage</text>
+      <text x="36" y="73" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#0f766e">IP portfolio, network effects, barriers</text>
       <circle cx="266" cy="64" r="8" fill="#3b82f6"/>
       <text x="281" y="68" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#3b82f6">30%</text>
       
-      <rect x="0" y="90" width="310" height="38" rx="8" fill="#8b5cf6" opacity="0.08" stroke="#8b5cf6" stroke-width="1"/>
+      <rect x="0" y="90" width="310" height="38" rx="8" fill="url(#criteriaBox3)" stroke="#8b5cf6" stroke-width="1"/>
       <circle cx="11" cy="109" r="16" fill="#8b5cf6"/>
       <text x="11" y="114" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">3</text>
-      <text x="36" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e293b">Team Excellence</text>
-      <text x="36" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b">Track record, execution speed, culture</text>
+      <text x="36" y="106" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#7c3aed">Team Excellence</text>
+      <text x="36" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#0f766e">Track record, execution speed, culture</text>
       <circle cx="266" cy="109" r="8" fill="#8b5cf6"/>
       <text x="281" y="113" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#8b5cf6">25%</text>
       
-      <rect x="0" y="135" width="310" height="38" rx="8" fill="#60a5fa" opacity="0.08" stroke="#60a5fa" stroke-width="1"/>
+      <rect x="0" y="135" width="310" height="38" rx="8" fill="url(#criteriaBox4)" stroke="#60a5fa" stroke-width="1"/>
       <circle cx="11" cy="154" r="16" fill="#60a5fa"/>
       <text x="11" y="159" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">4</text>
-      <text x="36" y="151" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#1e293b">Traction Metrics</text>
-      <text x="36" y="163" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b">Revenue growth, user adoption, retention</text>
+      <text x="36" y="151" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#0369a1">Traction Metrics</text>
+      <text x="36" y="163" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#0f766e">Revenue growth, user adoption, retention</text>
       <circle cx="266" cy="154" r="8" fill="#60a5fa"/>
       <text x="281" y="158" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#60a5fa">10%</text>
     </g>
@@ -328,7 +397,7 @@
   
   <!-- Enhanced Footer Dashboard -->
   <g transform="translate(30, 480)">
-    <rect x="0" y="0" width="740" height="80" rx="12" fill="url(#headerGradient)" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="740" height="80" rx="12" fill="url(#footerGradient)" filter="url(#cardShadow)"/>
     
     <text x="25" y="25" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="white">
       Real-Time Analytics Dashboard
