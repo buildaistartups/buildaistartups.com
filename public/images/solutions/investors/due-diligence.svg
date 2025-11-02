@@ -76,10 +76,10 @@
   
   <!-- Arrow indicating transformation -->
   <g id="transformation-arrow">
-    <path d="M380 200 L420 200" stroke="#1976D2" stroke-width="4" marker-end="url(#arrowhead)"/>
     <text x="400" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1976D2">
       OPTIMIZE
     </text>
+    <path d="M380 207 L420 207" stroke="#1976D2" stroke-width="4" marker-end="url(#arrowhead)"/>
   </g>
   
   <!-- Streamlined Process Section -->
