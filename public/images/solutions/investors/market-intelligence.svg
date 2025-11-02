@@ -12,6 +12,26 @@
       <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:0.8" />
       <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.8" />
     </linearGradient>
+    <linearGradient id="vibrantPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9333EA;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="vibrantBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="vibrantIndigo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#4F46E5;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="vibrantViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:0.15" />
+    </linearGradient>
+    <linearGradient id="vibrantCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#0891B2;stop-opacity:0.15" />
+    </linearGradient>
   </defs>
   
   <!-- Background circles for depth -->
@@ -49,7 +69,7 @@
   
   <!-- Trend Line Chart -->
   <g id="trendChart">
-    <rect x="50" y="360" width="180" height="120" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="50" y="360" width="180" height="120" rx="8" fill="#F5F3FF" stroke="#8B5CF6" stroke-width="2.5"/>
     <text x="140" y="385" text-anchor="middle" fill="#6B21A8" font-size="16" font-weight="bold">Growth Trends</text>
     
     <!-- Trend lines -->
@@ -72,7 +92,7 @@
   
   <!-- Competitive Landscape - Quadrant Chart -->
   <g id="competitive">
-    <rect x="270" y="40" width="240" height="200" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="270" y="40" width="240" height="200" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5"/>
     <text x="390" y="65" text-anchor="middle" fill="#6B21A8" font-size="16" font-weight="bold">Competitive Landscape</text>
     
     <!-- Quadrant lines -->
@@ -100,7 +120,7 @@
   
   <!-- Sector Analysis - Bar Chart -->
   <g id="sectorAnalysis">
-    <rect x="540" y="40" width="240" height="200" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="540" y="40" width="240" height="200" rx="8" fill="#EEF2FF" stroke="#6366F1" stroke-width="2.5"/>
     <text x="660" y="65" text-anchor="middle" fill="#6B21A8" font-size="16" font-weight="bold">Sector Analysis</text>
     
     <!-- Bars -->
@@ -124,7 +144,7 @@
   
   <!-- Market Map - Geographic representation -->
   <g id="marketMap">
-    <rect x="270" y="270" width="240" height="180" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="270" y="270" width="240" height="180" rx="8" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2.5"/>
     <text x="390" y="295" text-anchor="middle" fill="#6B21A8" font-size="16" font-weight="bold">Market Distribution</text>
     
     <!-- Simplified world regions -->
@@ -143,7 +163,7 @@
   
   <!-- Prediction Indicators -->
   <g id="predictions">
-    <rect x="540" y="270" width="240" height="180" rx="8" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+    <rect x="540" y="270" width="240" height="180" rx="8" fill="#ECFEFF" stroke="#06B6D4" stroke-width="2.5"/>
     <text x="660" y="295" text-anchor="middle" fill="#6B21A8" font-size="16" font-weight="bold">Trend Predictions</text>
     
     <!-- Upward arrow -->
@@ -164,15 +184,15 @@
   
   <!-- KPI Indicators -->
   <g id="kpis">
-    <rect x="270" y="475" width="110" height="60" rx="6" fill="url(#lightPurple)" opacity="0.9"/>
-    <text x="325" y="497" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Market Share</text>
-    <text x="325" y="515" text-anchor="middle" fill="white" font-size="18" font-weight="bold">23.7%</text>
-    <text x="325" y="530" text-anchor="middle" fill="white" font-size="10">↑ 3.2%</text>
+    <rect x="273" y="475" width="110" height="60" rx="6" fill="url(#lightPurple)" opacity="0.9"/>
+    <text x="328" y="497" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Market Share</text>
+    <text x="328" y="515" text-anchor="middle" fill="white" font-size="18" font-weight="bold">23.7%</text>
+    <text x="328" y="530" text-anchor="middle" fill="white" font-size="10">↑ 3.2%</text>
     
-    <rect x="395" y="475" width="110" height="60" rx="6" fill="url(#lightBlue)" opacity="0.9"/>
-    <text x="450" y="497" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CAGR</text>
-    <text x="450" y="515" text-anchor="middle" fill="white" font-size="18" font-weight="bold">18.5%</text>
-    <text x="450" y="530" text-anchor="middle" fill="white" font-size="10">2024-2029</text>
+    <rect x="398" y="475" width="110" height="60" rx="6" fill="url(#lightBlue)" opacity="0.9"/>
+    <text x="453" y="497" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CAGR</text>
+    <text x="453" y="515" text-anchor="middle" fill="white" font-size="18" font-weight="bold">18.5%</text>
+    <text x="453" y="530" text-anchor="middle" fill="white" font-size="10">2024-2029</text>
   </g>
   
   <!-- Analytics Icon -->
