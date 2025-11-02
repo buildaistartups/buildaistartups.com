@@ -82,8 +82,8 @@
     <rect x="181" y="48" width="110" height="90" rx="4" fill="#ffffff" stroke="#94A3B8" stroke-width="2.5"/>
     
     <!-- PDF content (static) -->
-    <!-- Title bar -->
-    <rect x="190" y="56" width="70" height="6" rx="2" fill="#94A3B8" opacity="0.5"/>
+    <!-- Title bar - MOVED DOWN 5px -->
+    <rect x="190" y="61" width="70" height="6" rx="2" fill="#94A3B8" opacity="0.5"/>
     
     <!-- Text lines - MOVED DOWN 5px -->
     <rect x="190" y="73" width="85" height="3" rx="1.5" fill="#CBD5E1"/>
