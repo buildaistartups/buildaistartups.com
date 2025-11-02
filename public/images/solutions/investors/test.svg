@@ -107,8 +107,8 @@
       <text x="0" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">1</text>
     </g>
     
-    <!-- Enhanced Score Circle - Moved additional 4px right -->
-    <g transform="translate(210, 85)">
+    <!-- Enhanced Score Circle - Moved 3px right -->
+    <g transform="translate(217, 85)">
       <circle cx="0" cy="0" r="18" fill="none" stroke="#e5e7eb" stroke-width="3"/>
       <circle cx="0" cy="0" r="18" fill="none" stroke="url(#purpleBlue)" stroke-width="3" 
               stroke-dasharray="113" stroke-dashoffset="9" transform="rotate(-90)" filter="url(#glowEffect)"/>
@@ -117,8 +117,8 @@
       <text x="0" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748b" text-anchor="middle">SCORE</text>
     </g>
     
-    <!-- Enhanced Metrics with Icons -->
-    <g transform="translate(9, 55)">
+    <!-- Enhanced Metrics with Icons - Moved 3px left -->
+    <g transform="translate(6, 55)">
       <!-- Market Size -->
       <circle cx="3" cy="3" r="3" fill="#6366f1" opacity="0.2"/>
       <text x="9" y="7" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#6366f1">Market Size</text>
@@ -160,8 +160,8 @@
       <text x="0" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">2</text>
     </g>
     
-    <!-- Score Circle - Moved additional 4px right -->
-    <g transform="translate(210, 85)">
+    <!-- Score Circle - Moved 3px right -->
+    <g transform="translate(217, 85)">
       <circle cx="0" cy="0" r="18" fill="none" stroke="#e5e7eb" stroke-width="3"/>
       <circle cx="0" cy="0" r="18" fill="none" stroke="#3b82f6" stroke-width="3" 
               stroke-dasharray="113" stroke-dashoffset="28" transform="rotate(-90)"/>
@@ -170,8 +170,8 @@
       <text x="0" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748b" text-anchor="middle">SCORE</text>
     </g>
     
-    <!-- Metrics -->
-    <g transform="translate(9, 55)">
+    <!-- Metrics - Moved 3px left -->
+    <g transform="translate(6, 55)">
       <circle cx="3" cy="3" r="3" fill="#6366f1" opacity="0.2"/>
       <text x="9" y="7" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#6366f1">Market Size</text>
       <rect x="9" y="10" width="150" height="8" rx="4" fill="#e5e7eb"/>
@@ -209,8 +209,8 @@
       <text x="0" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">3</text>
     </g>
     
-    <!-- Score Circle - Moved additional 4px right -->
-    <g transform="translate(210, 85)">
+    <!-- Score Circle - Moved 3px right -->
+    <g transform="translate(217, 85)">
       <circle cx="0" cy="0" r="18" fill="none" stroke="#e5e7eb" stroke-width="3"/>
       <circle cx="0" cy="0" r="18" fill="none" stroke="#a78bfa" stroke-width="3" 
               stroke-dasharray="113" stroke-dashoffset="45" transform="rotate(-90)"/>
@@ -219,8 +219,8 @@
       <text x="0" y="10" font-family="'Segoe UI', system-ui, sans-serif" font-size="7" font-weight="600" fill="#64748b" text-anchor="middle">SCORE</text>
     </g>
     
-    <!-- Metrics -->
-    <g transform="translate(9, 55)">
+    <!-- Metrics - Moved 3px left -->
+    <g transform="translate(6, 55)">
       <circle cx="3" cy="3" r="3" fill="#6366f1" opacity="0.2"/>
       <text x="9" y="7" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#6366f1">Market Size</text>
       <rect x="9" y="10" width="150" height="8" rx="4" fill="#e5e7eb"/>
