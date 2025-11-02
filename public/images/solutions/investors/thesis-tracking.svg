@@ -4,7 +4,7 @@
   
   <!-- Title -->
   <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4A148C">
-    Investment Thesis Tracking & Validation
+    Investment Thesis Tracking and Validation
   </text>
   
   <!-- Thesis Categories Container -->
@@ -288,6 +288,6 @@
     <circle cx="300" cy="575" r="6" fill="#FF9800"/>
     <text x="315" y="580" font-family="Arial, sans-serif" font-size="10" fill="#FF9800">Medium (60-80%)</text>
     <circle cx="420" cy="575" r="6" fill="#F44336"/>
-    <text x="435" y="580" font-family="Arial, sans-serif" font-size="10" fill="#F44336">Low (<60%)</text>
+    <text x="435" y="580" font-family="Arial, sans-serif" font-size="10" fill="#F44336">Low (less than 60%)</text>
   </g>
 </svg>
