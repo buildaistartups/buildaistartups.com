@@ -85,11 +85,11 @@
     <!-- Title bar -->
     <rect x="190" y="56" width="70" height="6" rx="2" fill="#94A3B8" opacity="0.5"/>
     
-    <!-- Text lines -->
-    <rect x="190" y="68" width="85" height="3" rx="1.5" fill="#CBD5E1"/>
-    <rect x="190" y="74" width="75" height="3" rx="1.5" fill="#CBD5E1"/>
-    <rect x="190" y="80" width="80" height="3" rx="1.5" fill="#CBD5E1"/>
-    <rect x="190" y="86" width="70" height="3" rx="1.5" fill="#CBD5E1"/>
+    <!-- Text lines - MOVED DOWN 5px -->
+    <rect x="190" y="73" width="85" height="3" rx="1.5" fill="#CBD5E1"/>
+    <rect x="190" y="79" width="75" height="3" rx="1.5" fill="#CBD5E1"/>
+    <rect x="190" y="85" width="80" height="3" rx="1.5" fill="#CBD5E1"/>
+    <rect x="190" y="91" width="70" height="3" rx="1.5" fill="#CBD5E1"/>
     
     <!-- Chart placeholder (static) -->
     <rect x="192" y="96" width="75" height="35" rx="3" fill="#E2E8F0"/>
