@@ -420,16 +420,4 @@
       <text x="75" y="28" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="800" fill="#10b981">68%</text>
     </g>
   </g>
-  
-  <!-- Decorative Elements -->
-  <circle cx="750" cy="550" r="40" fill="url(#purpleBlue)" opacity="0.05"/>
-  <circle cx="730" cy="570" r="25" fill="#3b82f6" opacity="0.03"/>
-  <circle cx="80" cy="560" r="30" fill="#8b5cf6" opacity="0.04"/>
-  
-  <!-- Floating Elements -->
-  <g transform="translate(700, 300)" opacity="0.1">
-    <circle cx="0" cy="0" r="3" fill="url(#purpleBlue)"/>
-    <circle cx="15" cy="-10" r="2" fill="#3b82f6"/>
-    <circle cx="-8" cy="12" r="2.5" fill="#8b5cf6"/>
-  </g>
 </svg>
