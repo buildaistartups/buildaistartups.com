@@ -1,263 +1,300 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
   <defs>
-    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    <!-- Enhanced Gradients -->
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#A78BFA;stop-opacity:0.1" />
+    
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="lightBlue" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:0.1" />
+    
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAFBFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F1F5F9;stop-opacity:1" />
     </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FEFEFE;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E293B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#334155;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Advanced Filters -->
+    <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="4" result="offset"/>
+      <feFlood flood-color="#0F172A" flood-opacity="0.08"/>
+      <feComposite in2="offset" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
+    
+    <filter id="glowEffect" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="headerShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Patterns -->
+    <pattern id="gridPattern" patternUnits="userSpaceOnUse" width="40" height="40">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#E2E8F0" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
   </defs>
   
   <!-- Background -->
-  <rect width="800" height="600" fill="none"/>
+  <rect width="1200" height="800" fill="url(#backgroundGradient)"/>
+  <rect width="1200" height="800" fill="url(#gridPattern)" opacity="0.4"/>
   
-  <!-- Header -->
-  <text x="400" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#6366F1" text-anchor="middle">
-    Startup Metrics Comparison Dashboard
+  <!-- Header Section with Enhanced Styling -->
+  <rect x="0" y="0" width="1200" height="120" fill="url(#headerGradient)" filter="url(#headerShadow)"/>
+  
+  <!-- Logo/Brand Element -->
+  <circle cx="60" cy="60" r="25" fill="#6366F1" opacity="0.2"/>
+  <circle cx="60" cy="60" r="18" fill="#6366F1"/>
+  <text x="60" y="68" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">P</text>
+  
+  <!-- Main Title -->
+  <text x="110" y="55" font-family="Inter, -apple-system, sans-serif" font-size="36" font-weight="800" fill="white" letter-spacing="-0.02em">
+    Portfolio Cohort Analytics
   </text>
-  <text x="400" y="50" font-family="Arial, sans-serif" font-size="12" fill="#8B5CF6" text-anchor="middle">
-    Normalized Performance Analytics | Q4 2025
+  <text x="110" y="80" font-family="Inter, -apple-system, sans-serif" font-size="16" fill="#CBD5E1" font-weight="400">
+    Investment thesis-driven portfolio management & performance tracking
   </text>
   
-  <!-- Startup Profile Cards - MOVED DOWN 20px -->
-  <!-- Card 1: TechFlow AI -->
-  <g transform="translate(20, 90)">
-    <rect width="180" height="100" rx="8" fill="url(#lightPurple)" filter="url(#shadow)"/>
-    <rect width="180" height="4" rx="2" fill="url(#purpleBlue)"/>
-    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6366F1" text-anchor="middle">TechFlow AI</text>
-    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#8B5CF6">Activation: 78%</text>
-    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#8B5CF6">Retention: 82%</text>
-    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#8B5CF6">MRR: $145K</text>
-    <circle cx="160" cy="85" r="8" fill="#10B981"/>
-    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+23%</text>
-  </g>
-  
-  <!-- Card 2: DataSync Pro -->
-  <g transform="translate(210, 90)">
-    <rect width="180" height="100" rx="8" fill="url(#lightBlue)" filter="url(#shadow)"/>
-    <rect width="180" height="4" rx="2" fill="#3B82F6"/>
-    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">DataSync Pro</text>
-    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#60A5FA">Activation: 65%</text>
-    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#60A5FA">Retention: 71%</text>
-    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#60A5FA">MRR: $98K</text>
-    <circle cx="160" cy="85" r="8" fill="#10B981"/>
-    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+18%</text>
-  </g>
-  
-  <!-- Card 3: CloudNest -->
-  <g transform="translate(400, 90)">
-    <rect width="180" height="100" rx="8" fill="url(#lightPurple)" filter="url(#shadow)"/>
-    <rect width="180" height="4" rx="2" fill="#8B5CF6"/>
-    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#A855F7" text-anchor="middle">CloudNest</text>
-    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#C084FC">Activation: 85%</text>
-    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#C084FC">Retention: 88%</text>
-    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#C084FC">MRR: $203K</text>
-    <circle cx="160" cy="85" r="8" fill="#10B981"/>
-    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+31%</text>
-  </g>
-  
-  <!-- Card 4: AutoScale -->
-  <g transform="translate(590, 90)">
-    <rect width="180" height="100" rx="8" fill="url(#lightBlue)" filter="url(#shadow)"/>
-    <rect width="180" height="4" rx="2" fill="#3B82F6"/>
-    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#0EA5E9" text-anchor="middle">AutoScale</text>
-    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#38BDF8">Activation: 72%</text>
-    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#38BDF8">Retention: 76%</text>
-    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#38BDF8">MRR: $127K</text>
-    <circle cx="160" cy="85" r="8" fill="#F59E0B"/>
-    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">+12%</text>
-  </g>
-  
-  <!-- Normalized Metrics Charts Section - MOVED DOWN 20px -->
-  <g transform="translate(20, 210)">
-    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6366F1">Normalized Performance Metrics</text>
+  <!-- Key Metrics in Header -->
+  <g id="headerMetrics">
+    <rect x="800" y="25" width="160" height="70" rx="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="820" y="45" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#CBD5E1" font-weight="500">Total AUM</text>
+    <text x="820" y="65" font-family="Inter, -apple-system, sans-serif" font-size="24" fill="white" font-weight="700">$20.7M</text>
+    <text x="820" y="80" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#10B981">↑ 12.3% QoQ</text>
     
-    <!-- Activation Rate Chart -->
-    <g transform="translate(0, 25)">
-      <rect width="175" height="120" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
-      <text x="88" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6" text-anchor="middle">Activation Rate</text>
-      
-      <!-- Bars -->
-      <rect x="20" y="35" width="30" height="62" fill="#8B5CF6" opacity="0.8"/>
-      <rect x="55" y="47" width="30" height="50" fill="#3B82F6" opacity="0.8"/>
-      <rect x="90" y="27" width="30" height="70" fill="#8B5CF6" opacity="0.8"/>
-      <rect x="125" y="40" width="30" height="57" fill="#3B82F6" opacity="0.8"/>
-      
-      <!-- Values -->
-      <text x="35" y="32" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" text-anchor="middle">78%</text>
-      <text x="70" y="44" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" text-anchor="middle">65%</text>
-      <text x="105" y="24" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle">85%</text>
-      <text x="140" y="37" font-family="Arial, sans-serif" font-size="9" fill="#0EA5E9" text-anchor="middle">72%</text>
-      
-      <!-- Labels -->
-      <text x="35" y="110" font-family="Arial, sans-serif" font-size="8" fill="#A855F7" text-anchor="middle">Tech</text>
-      <text x="70" y="110" font-family="Arial, sans-serif" font-size="8" fill="#3B82F6" text-anchor="middle">Data</text>
-      <text x="105" y="110" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" text-anchor="middle">Cloud</text>
-      <text x="140" y="110" font-family="Arial, sans-serif" font-size="8" fill="#0EA5E9" text-anchor="middle">Auto</text>
+    <rect x="980" y="25" width="160" height="70" rx="12" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    <text x="1000" y="45" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#CBD5E1" font-weight="500">Portfolio IRR</text>
+    <text x="1000" y="65" font-family="Inter, -apple-system, sans-serif" font-size="24" fill="white" font-weight="700">28.4%</text>
+    <text x="1000" y="80" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#10B981">↑ 3.2% YoY</text>
+  </g>
+  
+  <!-- Enhanced Timeline -->
+  <g id="timeline">
+    <rect x="60" y="150" width="1080" height="80" rx="16" fill="white" filter="url(#cardShadow)"/>
+    
+    <!-- Timeline Line -->
+    <line x1="120" y1="190" x2="1080" y2="190" stroke="url(#purpleGradient)" stroke-width="4"/>
+    
+    <!-- Timeline Points -->
+    <g id="q1-2024">
+      <circle cx="120" cy="190" r="8" fill="#6366F1" filter="url(#glowEffect)"/>
+      <circle cx="120" cy="190" r="4" fill="white"/>
+      <text x="120" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q1 2024</text>
+      <text x="120" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">3 investments</text>
     </g>
     
-    <!-- Retention Rate Chart -->
-    <g transform="translate(185, 25)">
-      <rect width="175" height="120" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
-      <text x="88" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6" text-anchor="middle">Retention Rate</text>
-      
-      <!-- Bars -->
-      <rect x="20" y="30" width="30" height="67" fill="#8B5CF6" opacity="0.8"/>
-      <rect x="55" y="38" width="30" height="59" fill="#3B82F6" opacity="0.8"/>
-      <rect x="90" y="24" width="30" height="73" fill="#8B5CF6" opacity="0.8"/>
-      <rect x="125" y="33" width="30" height="64" fill="#3B82F6" opacity="0.8"/>
-      
-      <!-- Values -->
-      <text x="35" y="27" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" text-anchor="middle">82%</text>
-      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" text-anchor="middle">71%</text>
-      <text x="105" y="23" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle">88%</text>
-      <text x="140" y="30" font-family="Arial, sans-serif" font-size="9" fill="#0EA5E9" text-anchor="middle">76%</text>
-      
-      <!-- Labels -->
-      <text x="35" y="110" font-family="Arial, sans-serif" font-size="8" fill="#A855F7" text-anchor="middle">Tech</text>
-      <text x="70" y="110" font-family="Arial, sans-serif" font-size="8" fill="#3B82F6" text-anchor="middle">Data</text>
-      <text x="105" y="110" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" text-anchor="middle">Cloud</text>
-      <text x="140" y="110" font-family="Arial, sans-serif" font-size="8" fill="#0EA5E9" text-anchor="middle">Auto</text>
+    <g id="q2-2024">
+      <circle cx="400" cy="190" r="8" fill="#8B5CF6" filter="url(#glowEffect)"/>
+      <circle cx="400" cy="190" r="4" fill="white"/>
+      <text x="400" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q2 2024</text>
+      <text x="400" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">5 investments</text>
     </g>
     
-    <!-- Revenue Trend Lines -->
-    <g transform="translate(370, 25)">
-      <rect width="195" height="120" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
-      <text x="98" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6" text-anchor="middle">MRR Growth Trends</text>
-      
-      <!-- Grid lines -->
-      <line x1="20" y1="30" x2="175" y2="30" stroke="#E5E7EB" stroke-width="0.5"/>
-      <line x1="20" y1="52" x2="175" y2="52" stroke="#E5E7EB" stroke-width="0.5"/>
-      <line x1="20" y1="74" x2="175" y2="74" stroke="#E5E7EB" stroke-width="0.5"/>
-      <line x1="20" y1="96" x2="175" y2="96" stroke="#E5E7EB" stroke-width="0.5"/>
-      
-      <!-- TechFlow AI trend -->
-      <polyline points="20,60 50,52 80,46 110,40 140,35 170,30" fill="none" stroke="#8B5CF6" stroke-width="2.5"/>
-      <circle cx="170" cy="30" r="3" fill="#8B5CF6"/>
-      
-      <!-- DataSync Pro trend -->
-      <polyline points="20,80 50,74 80,70 110,65 140,61 170,58" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
-      <circle cx="170" cy="58" r="3" fill="#3B82F6"/>
-      
-      <!-- CloudNest trend -->
-      <polyline points="20,55 50,45 80,38 110,32 140,27 170,22" fill="none" stroke="#A78BFA" stroke-width="2.5"/>
-      <circle cx="170" cy="22" r="3" fill="#A78BFA"/>
-      
-      <!-- AutoScale trend -->
-      <polyline points="20,75 50,68 80,63 110,59 140,56 170,53" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
-      <circle cx="170" cy="53" r="3" fill="#60A5FA"/>
-      
-      <!-- Axis labels -->
-      <text x="20" y="108" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle">Jan</text>
-      <text x="50" y="108" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle">Feb</text>
-      <text x="80" y="108" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle">Mar</text>
-      <text x="110" y="108" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle">Apr</text>
-      <text x="140" y="108" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle">May</text>
-      <text x="170" y="108" font-family="Arial, sans-serif" font-size="7" fill="#F59E0B" text-anchor="middle">Jun</text>
+    <g id="q3-2024">
+      <circle cx="680" cy="190" r="8" fill="#3B82F6" filter="url(#glowEffect)"/>
+      <circle cx="680" cy="190" r="4" fill="white"/>
+      <text x="680" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q3 2024</text>
+      <text x="680" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">Current</text>
+    </g>
+    
+    <g id="q4-2024">
+      <circle cx="960" cy="190" r="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/>
+      <circle cx="960" cy="190" r="4" fill="#F8FAFC"/>
+      <text x="960" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#94A3B8" text-anchor="middle">Q4 2024</text>
+      <text x="960" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Planned</text>
     </g>
   </g>
   
-  <!-- Usage Funnel Section - MOVED DOWN 20px (from previous 15px) -->
-  <g transform="translate(20, 375)">
-    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6366F1">Average Usage Funnel Analysis</text>
+  <!-- AI Infrastructure Cohort -->
+  <g id="ai-cohort">
+    <!-- Cohort Header Card -->
+    <rect x="60" y="260" width="1080" height="80" rx="16" fill="white" filter="url(#cardShadow)"/>
+    <rect x="60" y="260" width="8" height="80" rx="4" fill="url(#purpleGradient)"/>
     
-    <g transform="translate(0, 25)">
-      <rect width="370" height="140" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
-      
-      <!-- Funnel stages - MOVED 5px DOWN from previous position -->
-      <polygon points="60,20 310,20 280,45 90,45" fill="url(#purpleBlue)" opacity="0.7"/>
-      <polygon points="90,50 280,50 260,75 110,75" fill="#8B5CF6" opacity="0.6"/>
-      <polygon points="110,80 260,80 245,105 125,105" fill="#3B82F6" opacity="0.5"/>
-      <polygon points="125,110 245,110 235,125 135,125" fill="#60A5FA" opacity="0.4"/>
-      
-      <!-- Labels and percentages - MOVED 5px DOWN from previous position -->
-      <text x="185" y="35" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Sign Up (100%)</text>
-      <text x="185" y="65" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Activation (75%)</text>
-      <text x="185" y="95" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Regular Use (52%)</text>
-      <text x="185" y="120" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Premium (28%)</text>
+    <!-- Cohort Icon -->
+    <circle cx="110" cy="300" r="20" fill="url(#purpleGradient)" opacity="0.1"/>
+    <circle cx="110" cy="300" r="12" fill="url(#purpleGradient)"/>
+    <text x="110" y="306" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">AI</text>
+    
+    <!-- Cohort Info -->
+    <text x="150" y="290" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#1E293B">
+      AI Infrastructure
+    </text>
+    <text x="150" y="310" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#64748B" font-weight="500">
+      8 companies · $12.5M deployed · Target milestone: 80%
+    </text>
+    
+    <!-- Enhanced Progress Indicator -->
+    <g id="ai-progress">
+      <rect x="900" y="280" width="200" height="40" rx="20" fill="#F1F5F9"/>
+      <rect x="900" y="280" width="152" height="40" rx="20" fill="url(#purpleGradient)"/>
+      <text x="1000" y="305" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">76%</text>
+      <text x="1000" y="335" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#10B981" text-anchor="middle" font-weight="600">↑ 4% this quarter</text>
     </g>
   </g>
   
-  <!-- KPI Comparison Table - MOVED DOWN 20px (from previous 15px) -->
-  <g transform="translate(410, 375)">
-    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6366F1">Key Performance Indicators</text>
+  <!-- AI Company Cards -->
+  <g id="ai-companies">
+    <!-- Company 1: VectorDB Inc -->
+    <g id="vectordb" filter="url(#cardShadow)">
+      <rect x="80" y="360" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#E2E8F0" stroke-width="1"/>
+      
+      <!-- Company Header -->
+      <circle cx="110" cy="390" r="16" fill="#EDE9FE"/>
+      <text x="110" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">V</text>
+      
+      <text x="135" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">VectorDB Inc</text>
+      <text x="135" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $2.5M · Q1 2024</text>
+      
+      <!-- Status Badge -->
+      <rect x="240" y="375" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="270" y="388" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
+      
+      <!-- Progress Bar -->
+      <rect x="100" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="100" y="420" width="170" height="8" rx="4" fill="url(#purpleGradient)"/>
+      
+      <!-- Metrics -->
+      <text x="100" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">85% milestone</text>
+      <text x="100" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Next: Series A preparation</text>
+    </g>
     
-    <g transform="translate(0, 25)">
-      <rect width="360" height="140" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+    <!-- Company 2: NeuralScale -->
+    <g id="neuralscale" filter="url(#cardShadow)">
+      <rect x="340" y="360" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#E2E8F0" stroke-width="1"/>
       
-      <!-- Table Header -->
-      <rect x="10" y="10" width="340" height="20" fill="url(#purpleBlue)" opacity="0.15"/>
-      <text x="20" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">Metric</text>
-      <text x="130" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">Industry Avg</text>
-      <text x="230" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">Portfolio Avg</text>
-      <text x="310" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">Status</text>
+      <circle cx="370" cy="390" r="16" fill="#EDE9FE"/>
+      <text x="370" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">N</text>
       
-      <!-- Row 1 -->
-      <text x="20" y="45" font-family="Arial, sans-serif" font-size="9" fill="#A855F7">CAC Payback</text>
-      <text x="150" y="45" font-family="Arial, sans-serif" font-size="9" fill="#EC4899">12 months</text>
-      <text x="243" y="45" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" font-weight="bold">8 months</text>
-      <circle cx="325" cy="42" r="5" fill="#10B981"/>
+      <text x="395" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">NeuralScale</text>
+      <text x="395" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $5M · Q2 2024</text>
       
-      <!-- Row 2 -->
-      <text x="20" y="65" font-family="Arial, sans-serif" font-size="9" fill="#A855F7">Churn Rate</text>
-      <text x="150" y="65" font-family="Arial, sans-serif" font-size="9" fill="#EC4899">5.2%</text>
-      <text x="243" y="65" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" font-weight="bold">3.1%</text>
-      <circle cx="325" cy="62" r="5" fill="#10B981"/>
+      <rect x="500" y="375" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="530" y="388" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
-      <!-- Row 3 -->
-      <text x="20" y="85" font-family="Arial, sans-serif" font-size="9" fill="#A855F7">NPS Score</text>
-      <text x="150" y="85" font-family="Arial, sans-serif" font-size="9" fill="#EC4899">42</text>
-      <text x="243" y="85" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" font-weight="bold">67</text>
-      <circle cx="325" cy="82" r="5" fill="#10B981"/>
+      <rect x="360" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="360" y="420" width="140" height="8" rx="4" fill="url(#purpleGradient)"/>
       
-      <!-- Row 4 -->
-      <text x="20" y="105" font-family="Arial, sans-serif" font-size="9" fill="#A855F7">Gross Margin</text>
-      <text x="150" y="105" font-family="Arial, sans-serif" font-size="9" fill="#EC4899">68%</text>
-      <text x="243" y="105" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" font-weight="bold">78%</text>
-      <circle cx="325" cy="102" r="5" fill="#10B981"/>
+      <text x="360" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">70% milestone</text>
+      <text x="360" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Revenue scaling phase</text>
+    </g>
+    
+    <!-- Company 3: InferenceAI -->
+    <g id="inferenceai" filter="url(#cardShadow)">
+      <rect x="600" y="360" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#E2E8F0" stroke-width="1"/>
       
-      <!-- Row 5 -->
-      <text x="20" y="125" font-family="Arial, sans-serif" font-size="9" fill="#A855F7">LTV/CAC Ratio</text>
-      <text x="150" y="125" font-family="Arial, sans-serif" font-size="9" fill="#EC4899">3.2x</text>
-      <text x="243" y="125" font-family="Arial, sans-serif" font-size="9" fill="#6366F1" font-weight="bold">4.8x</text>
-      <circle cx="325" cy="122" r="5" fill="#10B981"/>
+      <circle cx="630" cy="390" r="16" fill="#EDE9FE"/>
+      <text x="630" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">I</text>
+      
+      <text x="655" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">InferenceAI</text>
+      <text x="655" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $1.8M · Q2 2024</text>
+      
+      <rect x="760" y="375" width="60" height="20" rx="10" fill="#FEF3C7"/>
+      <text x="790" y="388" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
+      
+      <rect x="620" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="620" y="420" width="120" height="8" rx="4" fill="#F59E0B"/>
+      
+      <text x="620" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#F59E0B">60% milestone</text>
+      <text x="620" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Product-market fit phase</text>
+    </g>
+    
+    <!-- Watchlist Card -->
+    <g id="ai-watchlist" filter="url(#cardShadow)">
+      <rect x="860" y="360" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="8,4"/>
+      
+      <circle cx="890" cy="390" r="16" fill="#F3F4F6"/>
+      <text x="890" y="396" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">🔍</text>
+      
+      <text x="915" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">ComputeLayer</text>
+      <text x="915" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Pre-seed · Target: $2M</text>
+      
+      <rect x="1020" y="375" width="60" height="20" rx="10" fill="#EDE9FE"/>
+      <text x="1050" y="388" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">PIPELINE</text>
+      
+      <rect x="880" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="880" y="420" width="60" height="8" rx="4" fill="#8B5CF6"/>
+      
+      <text x="880" y="445" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#8B5CF6">Due diligence</text>
+      <text x="880" y="465" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Target close: Q4 2024</text>
     </g>
   </g>
   
-  <!-- Legend - MOVED DOWN 7px MORE -->
-  <g transform="translate(20, 552)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#6366F1">Legend:</text>
+  <!-- EU Fintech Cohort -->
+  <g id="fintech-cohort">
+    <!-- Cohort Header Card -->
+    <rect x="60" y="500" width="1080" height="80" rx="16" fill="white" filter="url(#cardShadow)"/>
+    <rect x="60" y="500" width="8" height="80" rx="4" fill="url(#blueGradient)"/>
     
-    <circle cx="60" cy="-3" r="5" fill="#8B5CF6"/>
-    <text x="70" y="0" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6">TechFlow AI</text>
+    <!-- Cohort Icon -->
+    <circle cx="110" cy="540" r="20" fill="url(#blueGradient)" opacity="0.1"/>
+    <circle cx="110" cy="540" r="12" fill="url(#blueGradient)"/>
+    <text x="110" y="546" font-family="Inter, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">€</text>
     
-    <circle cx="160" cy="-3" r="5" fill="#3B82F6"/>
-    <text x="170" y="0" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6">DataSync Pro</text>
+    <!-- Cohort Info -->
+    <text x="150" y="530" font-family="Inter, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#1E293B">
+      EU Fintech
+    </text>
+    <text x="150" y="550" font-family="Inter, -apple-system, sans-serif" font-size="14" fill="#64748B" font-weight="500">
+      5 companies · $8.2M deployed · Target milestone: 75%
+    </text>
     
-    <circle cx="270" cy="-3" r="5" fill="#A78BFA"/>
-    <text x="280" y="0" font-family="Arial, sans-serif" font-size="9" fill="#A855F7">CloudNest</text>
-    
-    <circle cx="370" cy="-3" r="5" fill="#60A5FA"/>
-    <text x="380" y="0" font-family="Arial, sans-serif" font-size="9" fill="#0EA5E9">AutoScale</text>
-    
-    <circle cx="500" cy="-3" r="5" fill="#10B981"/>
-    <text x="510" y="0" font-family="Arial, sans-serif" font-size="9" fill="#10B981">Above Target</text>
-    
-    <circle cx="610" cy="-3" r="5" fill="#F59E0B"/>
-    <text x="620" y="0" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B">On Track</text>
+    <!-- Enhanced Progress Indicator -->
+    <g id="fintech-progress">
+      <rect x="900" y="520" width="200" height="40" rx="20" fill="#F1F5F9"/>
+      <rect x="900" y="520" width="136" height="40" rx="20" fill="url(#blueGradient)"/>
+      <text x="1000" y="545" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">68%</text>
+      <text x="1000" y="575" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#F59E0B" text-anchor="middle" font-weight="600">↓ 2% this quarter</text>
+    </g>
   </g>
   
-  <!-- Footer - KEPT IN ORIGINAL POSITION -->
-  <text x="400" y="580" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle">
-    Data normalized across portfolio companies | Confidential Investment Analytics
-  </text>
+  <!-- Enhanced Legend -->
+  <g id="legend">
+    <rect x="60" y="700" width="1080" height="80" rx="16" fill="white" filter="url(#cardShadow)"/>
+    
+    <text x="90" y="730" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">Performance Legend</text>
+    
+    <!-- Legend Items -->
+    <g id="legend-items">
+      <circle cx="250" cy="725" r="6" fill="#10B981"/>
+      <text x="265" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">On Track (≥70%)</text>
+      
+      <circle cx="400" cy="725" r="6" fill="#F59E0B"/>
+      <text x="415" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">At Risk (50-69%)</text>
+      
+      <circle cx="550" cy="725" r="6" fill="#EF4444"/>
+      <text x="565" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Off Track (&lt;50%)</text>
+      
+      <rect x="700" y="719" width="40" height="12" rx="2" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="750" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Pipeline/Watchlist</text>
+    </g>
+    
+    <rect x="90" y="745" width="1000" height="25" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="110" y="762" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B" font-weight="400">
+      Real-time portfolio analytics • Milestone tracking • Risk assessment • Pipeline management • Performance benchmarking
+    </text>
+  </g>
 </svg>
