@@ -38,7 +38,7 @@
     <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#475569">Retention: 82%</text>
     <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#475569">MRR: $145K</text>
     <circle cx="160" cy="85" r="8" fill="#10B981"/>
-    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+23%</text>
+    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+23%</text>
   </g>
   
   <!-- Card 2: DataSync Pro -->
@@ -50,7 +50,7 @@
     <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#475569">Retention: 71%</text>
     <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#475569">MRR: $98K</text>
     <circle cx="160" cy="85" r="8" fill="#10B981"/>
-    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+18%</text>
+    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+18%</text>
   </g>
   
   <!-- Card 3: CloudNest -->
@@ -62,7 +62,7 @@
     <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#475569">Retention: 88%</text>
     <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#475569">MRR: $203K</text>
     <circle cx="160" cy="85" r="8" fill="#10B981"/>
-    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+31%</text>
+    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+31%</text>
   </g>
   
   <!-- Card 4: AutoScale -->
@@ -74,7 +74,7 @@
     <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#475569">Retention: 76%</text>
     <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#475569">MRR: $127K</text>
     <circle cx="160" cy="85" r="8" fill="#F59E0B"/>
-    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">+12%</text>
+    <text x="125" y="90" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">+12%</text>
   </g>
   
   <!-- Normalized Metrics Charts Section - MOVED DOWN 20px -->
