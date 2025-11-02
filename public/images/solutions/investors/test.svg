@@ -71,13 +71,13 @@
     Automated Pipeline Scoring System
   </text>
   
-  <!-- Premium Automation Badge -->
-  <g transform="translate(720, 22)">
-    <rect x="-35" y="-12" width="70" height="24" rx="12" fill="url(#purpleBlue)" filter="url(#glowEffect)"/>
+  <!-- Premium Automation Badge - Extended -->
+  <g transform="translate(680, 22)">
+    <rect x="-35" y="-12" width="110" height="24" rx="12" fill="url(#purpleBlue)" filter="url(#glowEffect)"/>
     <circle cx="-20" cy="0" r="6" fill="white" opacity="0.9"/>
     <path d="M -23,-3 L -17,3 M -23,3 L -17,-3" stroke="url(#purpleBlue)" stroke-width="1.2" fill="none"/>
     <circle cx="-20" cy="0" r="2.5" fill="none" stroke="url(#purpleBlue)" stroke-width="1"/>
-    <text x="5" y="4" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="white">AI POWERED</text>
+    <text x="25" y="4" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="white" text-anchor="middle">AI POWERED</text>
   </g>
   
   <!-- Enhanced Startup Cards -->
@@ -107,8 +107,8 @@
       <text x="0" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">1</text>
     </g>
     
-    <!-- Enhanced Score Circle -->
-    <g transform="translate(200, 95)">
+    <!-- Enhanced Score Circle - Moved up 5px -->
+    <g transform="translate(200, 90)">
       <circle cx="0" cy="0" r="22" fill="none" stroke="#e5e7eb" stroke-width="4"/>
       <circle cx="0" cy="0" r="22" fill="none" stroke="url(#purpleBlue)" stroke-width="4" 
               stroke-dasharray="138" stroke-dashoffset="11" transform="rotate(-90)" filter="url(#glowEffect)"/>
@@ -117,8 +117,8 @@
       <text x="0" y="12" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748b" text-anchor="middle">SCORE</text>
     </g>
     
-    <!-- Enhanced Metrics with Icons -->
-    <g transform="translate(15, 65)">
+    <!-- Enhanced Metrics with Icons - Moved up 5px -->
+    <g transform="translate(15, 60)">
       <!-- Market Size -->
       <circle cx="3" cy="3" r="3" fill="#6366f1" opacity="0.2"/>
       <text x="12" y="7" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#6366f1">Market Size</text>
@@ -160,7 +160,8 @@
       <text x="0" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">2</text>
     </g>
     
-    <g transform="translate(200, 95)">
+    <!-- Score Circle - Moved up 5px -->
+    <g transform="translate(200, 90)">
       <circle cx="0" cy="0" r="22" fill="none" stroke="#e5e7eb" stroke-width="4"/>
       <circle cx="0" cy="0" r="22" fill="none" stroke="#3b82f6" stroke-width="4" 
               stroke-dasharray="138" stroke-dashoffset="35" transform="rotate(-90)"/>
@@ -169,7 +170,8 @@
       <text x="0" y="12" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748b" text-anchor="middle">SCORE</text>
     </g>
     
-    <g transform="translate(15, 65)">
+    <!-- Metrics - Moved up 5px -->
+    <g transform="translate(15, 60)">
       <circle cx="3" cy="3" r="3" fill="#6366f1" opacity="0.2"/>
       <text x="12" y="7" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#6366f1">Market Size</text>
       <rect x="12" y="10" width="150" height="8" rx="4" fill="#e5e7eb"/>
@@ -207,7 +209,8 @@
       <text x="0" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">3</text>
     </g>
     
-    <g transform="translate(200, 95)">
+    <!-- Score Circle - Moved up 5px -->
+    <g transform="translate(200, 90)">
       <circle cx="0" cy="0" r="22" fill="none" stroke="#e5e7eb" stroke-width="4"/>
       <circle cx="0" cy="0" r="22" fill="none" stroke="#a78bfa" stroke-width="4" 
               stroke-dasharray="138" stroke-dashoffset="55" transform="rotate(-90)"/>
@@ -216,7 +219,8 @@
       <text x="0" y="12" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" font-weight="600" fill="#64748b" text-anchor="middle">SCORE</text>
     </g>
     
-    <g transform="translate(15, 65)">
+    <!-- Metrics - Moved up 5px -->
+    <g transform="translate(15, 60)">
       <circle cx="3" cy="3" r="3" fill="#6366f1" opacity="0.2"/>
       <text x="12" y="7" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" fill="#6366f1">Market Size</text>
       <rect x="12" y="10" width="150" height="8" rx="4" fill="#e5e7eb"/>
@@ -258,16 +262,16 @@
     <text x="42" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="end">50</text>
     <text x="42" y="155" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" text-anchor="end">25</text>
     
-    <!-- Enhanced Bars with Gradients -->
+    <!-- Enhanced Bars with Gradients - ALL with glowing effect -->
     <rect x="80" y="68" width="60" height="112" rx="6" fill="url(#purpleBlue)" filter="url(#glowEffect)"/>
     <text x="110" y="195" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" fill="#6366f1" text-anchor="middle">TechFlow</text>
     <text x="110" y="210" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="#6366f1" text-anchor="middle">92</text>
     
-    <rect x="170" y="90" width="60" height="90" rx="6" fill="#3b82f6" opacity="0.9"/>
+    <rect x="170" y="90" width="60" height="90" rx="6" fill="#3b82f6" opacity="0.9" filter="url(#glowEffect)"/>
     <text x="200" y="195" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" fill="#3b82f6" text-anchor="middle">DataSync</text>
     <text x="200" y="210" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="#3b82f6" text-anchor="middle">75</text>
     
-    <rect x="260" y="112" width="60" height="68" rx="6" fill="#a78bfa" opacity="0.8"/>
+    <rect x="260" y="112" width="60" height="68" rx="6" fill="#a78bfa" opacity="0.8" filter="url(#glowEffect)"/>
     <text x="290" y="195" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" fill="#a78bfa" text-anchor="middle">CloudBase</text>
     <text x="290" y="210" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="800" fill="#a78bfa" text-anchor="middle">60</text>
   </g>
