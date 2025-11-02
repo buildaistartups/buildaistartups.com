@@ -1,369 +1,99 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
-  <defs>
-    <!-- Gradients -->
-    <linearGradient id="gradPB" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#2563EB"/>
-    </linearGradient>
-    <linearGradient id="gradPB2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.9"/>
-    </linearGradient>
-    <linearGradient id="gradFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.20"/>
-      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.02"/>
-    </linearGradient>
-
-    <!-- Shadows -->
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.18"/>
-    </filter>
-
-    <!-- Card template via symbol for reuse -->
-    <symbol id="card" viewBox="0 0 360 220">
-      <rect x="0" y="0" width="360" height="220" rx="18" fill="#ffffff" fill-opacity="0.92" stroke="url(#gradPB2)" stroke-opacity="0.25" filter="url(#softShadow)"/>
-    </symbol>
-
-    <style>
-      @font-face {
-        font-family: "Inter";
-        src: local("Inter"), local("Inter UI");
-      }
-      .h1 { font: 700 28px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0b1020; }
-      .h2 { font: 700 18px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0b1020; }
-      .h3 { font: 600 14px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #334155; }
-      .label { font: 500 12px/1 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #475569; }
-      .num { font: 700 24px/1.2 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0b1020; }
-      .muted { fill: #64748B; font: 500 12px/1 Inter, system-ui, -apple-system, Segoe UI; }
-      .chip { font: 700 12px/1 Inter, system-ui, -apple-system, Segoe UI; fill: #0b1020; }
-      .btnLabel { font: 700 13px/1 Inter, system-ui, -apple-system, Segoe UI; fill: #ffffff; }
-      .mono { font: 600 12px/1.2 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; fill: #0b1020; }
-      .green { fill: #10B981; }
-      .red { fill: #EF4444; }
-      .blue { fill: #2563EB; }
-      .purple { fill: #7C3AED; }
-      .muteline { stroke: #E2E8F0; stroke-width: 1; stroke-opacity: 0.8; }
-      .axis { stroke: #CBD5E1; stroke-width: 1; }
-    </style>
-  </defs>
-
-  <!-- Title Row / Toolbar -->
-  <g transform="translate(40,20)">
-    <text class="h1">Portfolio Dashboard</text>
-    <g transform="translate(1180,-10)">
-      <!-- Date range chips -->
-      <g transform="translate(0,0)">
-        <rect x="0" y="0" width="44" height="28" rx="14" fill="#F1F5F9" />
-        <text x="22" y="19" text-anchor="middle" class="chip">1D</text>
-      </g>
-      <g transform="translate(54,0)">
-        <rect x="0" y="0" width="48" height="28" rx="14" fill="#F1F5F9" />
-        <text x="24" y="19" text-anchor="middle" class="chip">1W</text>
-      </g>
-      <g transform="translate(112,0)">
-        <rect x="0" y="0" width="50" height="28" rx="14" fill="url(#gradPB2)" />
-        <text x="25" y="19" text-anchor="middle" class="btnLabel">1M</text>
-      </g>
-      <g transform="translate(172,0)">
-        <rect x="0" y="0" width="54" height="28" rx="14" fill="#F1F5F9" />
-        <text x="27" y="19" text-anchor="middle" class="chip">YTD</text>
-      </g>
-      <g transform="translate(236,0)">
-        <rect x="0" y="0" width="46" height="28" rx="14" fill="#F1F5F9" />
-        <text x="23" y="19" text-anchor="middle" class="chip">1Y</text>
-      </g>
-      <g transform="translate(292,0)">
-        <rect x="0" y="0" width="48" height="28" rx="14" fill="#F1F5F9" />
-        <text x="24" y="19" text-anchor="middle" class="chip">All</text>
-      </g>
-    </g>
-  </g>
-
-  <!-- Card: Total Value -->
-  <g transform="translate(40,60)">
-    <use href="#card"/>
-    <text x="24" y="36" class="h2">Total Portfolio Value</text>
-    <text x="24" y="78" class="num">$1,254,320</text>
-    <g transform="translate(24,92)">
-      <rect x="0" y="0" width="90" height="24" rx="12" fill="#ECFDF5"/>
-      <circle cx="12" cy="12" r="4" class="green"/>
-      <text x="26" y="16" class="label" fill="#065F46">+2.84% • 30d</text>
-    </g>
-    <!-- Sparkline -->
-    <g transform="translate(24,130)">
-      <path d="M0,62 C60,30 120,54 180,34 C240,14 300,30 360,8" fill="none" stroke="url(#gradPB2)" stroke-width="3"/>
-      <path d="M0,62 L0,80 L360,80 L360,8 C300,30 240,14 180,34 C120,54 60,30 0,62Z" fill="url(#gradFill)"/>
-      <!-- Axis -->
-      <line x1="0" y1="80" x2="360" y2="80" class="axis"/>
-      <text x="0" y="98" class="muted">30d</text>
-      <text x="330" y="98" class="muted">Today</text>
-    </g>
-  </g>
-
-  <!-- Card: Holdings (compact table) -->
-  <g transform="translate(40,300)">
-    <use href="#card"/>
-    <text x="24" y="36" class="h2">Top Holdings</text>
-
-    <!-- Headers -->
-    <g transform="translate(24,56)">
-      <text class="label">Ticker</text>
-      <text x="90" class="label">Name</text>
-      <text x="220" class="label">Price</text>
-      <text x="280" class="label">Day</text>
-      <text x="320" class="label">Weight</text>
-    </g>
-
-    <!-- Rows -->
-    <g transform="translate(24,78)">
-      <line x1="0" y1="0" x2="312" y2="0" class="muteline"/>
-      <g transform="translate(0,14)">
-        <text class="mono purple">AAPL</text>
-        <text x="90" class="label">Apple Inc.</text>
-        <text x="220" class="mono">$228.12</text>
-        <text x="280" class="mono green">+0.9%</text>
-        <g transform="translate(315,-6)">
-          <rect x="0" y="6" width="40" height="8" rx="4" fill="#E0E7FF"/>
-          <rect x="0" y="6" width="28" height="8" rx="4" fill="url(#gradPB)"/>
-        </g>
-      </g>
-
-      <g transform="translate(0,44)">
-        <text class="mono purple">MSFT</text>
-        <text x="90" class="label">Microsoft</text>
-        <text x="220" class="mono">$427.35</text>
-        <text x="280" class="mono green">+1.2%</text>
-        <g transform="translate(315,-6)">
-          <rect x="0" y="6" width="40" height="8" rx="4" fill="#E0E7FF"/>
-          <rect x="0" y="6" width="22" height="8" rx="4" fill="url(#gradPB)"/>
-        </g>
-      </g>
-
-      <g transform="translate(0,74)">
-        <text class="mono purple">ETH</text>
-        <text x="90" class="label">Ethereum</text>
-        <text x="220" class="mono">$3,120</text>
-        <text x="280" class="mono red">-0.4%</text>
-        <g transform="translate(315,-6)">
-          <rect x="0" y="6" width="40" height="8" rx="4" fill="#E0E7FF"/>
-          <rect x="0" y="6" width="14" height="8" rx="4" fill="url(#gradPB)"/>
-        </g>
-      </g>
-
-      <g transform="translate(0,104)">
-        <text class="mono purple">TLT</text>
-        <text x="90" class="label">US Treasury (20+)</text>
-        <text x="220" class="mono">$92.83</text>
-        <text x="280" class="mono green">+0.3%</text>
-        <g transform="translate(315,-6)">
-          <rect x="0" y="6" width="40" height="8" rx="4" fill="#E0E7FF"/>
-          <rect x="0" y="6" width="10" height="8" rx="4" fill="url(#gradPB)"/>
-        </g>
-      </g>
-    </g>
-  </g>
-
-  <!-- Card: Performance (full chart) -->
-  <g transform="translate(420,60)">
-    <rect x="0" y="0" width="780" height="460" rx="18" fill="#ffffff" fill-opacity="0.92" stroke="url(#gradPB2)" stroke-opacity="0.25" filter="url(#softShadow)"/>
-    <text x="24" y="36" class="h2">Performance</text>
-    <text x="24" y="66" class="muted">Last 12 months</text>
-
-    <!-- Grid -->
-    <g transform="translate(24,80)">
-      <rect x="0" y="0" width="732" height="320" fill="none" stroke="#E2E8F0" stroke-opacity="0.6" rx="10"/>
-      <!-- horizontal lines -->
-      <g>
-        <line x1="0" y1="64" x2="732" y2="64" class="muteline"/>
-        <line x1="0" y1="128" x2="732" y2="128" class="muteline"/>
-        <line x1="0" y1="192" x2="732" y2="192" class="muteline"/>
-        <line x1="0" y1="256" x2="732" y2="256" class="muteline"/>
-      </g>
-
-      <!-- Area series -->
-      <path d="M0,250 C60,220 120,230 180,210 C240,190 300,210 360,160 C420,110 480,150 540,120 C600,90 660,130 720,80 L720,320 L0,320Z" fill="url(#gradFill)"/>
-      <path d="M0,250 C60,220 120,230 180,210 C240,190 300,210 360,160 C420,110 480,150 540,120 C600,90 660,130 720,80" fill="none" stroke="url(#gradPB)" stroke-width="4"/>
-
-      <!-- Markers -->
-      <g>
-        <circle cx="360" cy="160" r="5" fill="#ffffff" stroke="url(#gradPB)" stroke-width="3"/>
-        <circle cx="540" cy="120" r="5" fill="#ffffff" stroke="url(#gradPB)" stroke-width="3"/>
-        <circle cx="720" cy="80" r="5" fill="#ffffff" stroke="url(#gradPB)" stroke-width="3"/>
-      </g>
-
-      <!-- Axes labels -->
-      <g>
-        <text x="-4" y="8" class="muted">+25%</text>
-        <text x="-4" y="70" class="muted">+15%</text>
-        <text x="-4" y="134" class="muted">+5%</text>
-        <text x="-4" y="198" class="muted">-5%</text>
-        <text x="-4" y="262" class="muted">-15%</text>
-      </g>
-      <g transform="translate(0,340)">
-        <text x="0" class="muted">Oct</text>
-        <text x="120" class="muted">Nov</text>
-        <text x="240" class="muted">Dec</text>
-        <text x="360" class="muted">Jan</text>
-        <text x="480" class="muted">Mar</text>
-        <text x="600" class="muted">May</text>
-        <text x="700" class="muted">Jul</text>
-      </g>
-    </g>
-
-    <!-- KPI Badges -->
-    <g transform="translate(520,16)">
-      <rect x="0" y="0" width="116" height="30" rx="15" fill="#EEF2FF"/>
-      <circle cx="16" cy="15" r="5" fill="url(#gradPB)"/>
-      <text x="30" y="20" class="label">Sharpe 1.21</text>
-    </g>
-    <g transform="translate(648,16)">
-      <rect x="0" y="0" width="128" height="30" rx="15" fill="#ECFEFF"/>
-      <circle cx="16" cy="15" r="5" class="blue"/>
-      <text x="30" y="20" class="label">Vol 9.4%</text>
-    </g>
-  </g>
-
-  <!-- Card: Allocation (donut + legend) -->
-  <g transform="translate(1220,60)">
-    <rect x="0" y="0" width="340" height="460" rx="18" fill="#ffffff" fill-opacity="0.92" stroke="url(#gradPB2)" stroke-opacity="0.25" filter="url(#softShadow)"/>
-    <text x="24" y="36" class="h2">Allocation</text>
-    <g transform="translate(170,230)">
-      <!-- Donut base -->
-      <circle r="100" fill="none" stroke="#EEF2FF" stroke-width="28"/>
-      <!-- Segments using stroke-dasharray -->
-      <!-- Equities 48% -->
-      <circle r="100" fill="none" stroke="url(#gradPB)" stroke-width="28" stroke-linecap="round"
-              stroke-dasharray="301.59 326.73" transform="rotate(-90)"/>
-      <!-- Bonds 22% -->
-      <circle r="100" fill="none" stroke="#93C5FD" stroke-width="28" stroke-linecap="round"
-              stroke-dasharray="138.22 490.10" transform="rotate(-90 0 0)"/>
-      <!-- Crypto 12% -->
-      <circle r="100" fill="none" stroke="#A78BFA" stroke-width="28" stroke-linecap="round"
-              stroke-dasharray="75.40 552.92" transform="rotate(-90 0 0)"/>
-      <!-- Real Estate 10% -->
-      <circle r="100" fill="none" stroke="#60A5FA" stroke-width="28" stroke-linecap="round"
-              stroke-dasharray="62.83 565.49" transform="rotate(-90 0 0)"/>
-      <!-- Cash 8% -->
-      <circle r="100" fill="none" stroke="#C4B5FD" stroke-width="28" stroke-linecap="round"
-              stroke-dasharray="50.26 578.06" transform="rotate(-90 0 0)"/>
-      <!-- Center text -->
-      <text y="-4" text-anchor="middle" class="num">$1.25M</text>
-      <text y="18" text-anchor="middle" class="muted">100% allocated</text>
-    </g>
-    <!-- Legend -->
-    <g transform="translate(24,320)">
-      <g>
-        <rect x="0" y="-10" width="12" height="12" rx="3" fill="url(#gradPB)"/>
-        <text x="20" y="0" class="label">Equities</text>
-        <text x="240" y="0" class="mono">48%</text>
-      </g>
-      <g transform="translate(0,26)">
-        <rect x="0" y="-10" width="12" height="12" rx="3" fill="#93C5FD"/>
-        <text x="20" y="0" class="label">Bonds</text>
-        <text x="240" y="0" class="mono">22%</text>
-      </g>
-      <g transform="translate(0,52)">
-        <rect x="0" y="-10" width="12" height="12" rx="3" fill="#A78BFA"/>
-        <text x="20" y="0" class="label">Crypto</text>
-        <text x="240" y="0" class="mono">12%</text>
-      </g>
-      <g transform="translate(0,78)">
-        <rect x="0" y="-10" width="12" height="12" rx="3" fill="#60A5FA"/>
-        <text x="20" y="0" class="label">Real Estate</text>
-        <text x="240" y="0" class="mono">10%</text>
-      </g>
-      <g transform="translate(0,104)">
-        <rect x="0" y="-10" width="12" height="12" rx="3" fill="#C4B5FD"/>
-        <text x="20" y="0" class="label">Cash</text>
-        <text x="240" y="0" class="mono">8%</text>
-      </g>
-    </g>
-  </g>
-
-  <!-- Card: Risk & Factors -->
-  <g transform="translate(420,540)">
-    <rect x="0" y="0" width="780" height="220" rx="18" fill="#ffffff" fill-opacity="0.92" stroke="url(#gradPB2)" stroke-opacity="0.25" filter="url(#softShadow)"/>
-    <text x="24" y="36" class="h2">Risk & Factors</text>
-
-    <!-- Gauges -->
-    <g transform="translate(24,64)">
-      <!-- Volatility -->
-      <text class="label">Volatility</text>
-      <rect x="0" y="10" width="320" height="10" rx="5" fill="#EEF2FF"/>
-      <rect x="0" y="10" width="188" height="10" rx="5" fill="url(#gradPB)"/>
-      <text x="330" y="20" class="mono">9.4%</text>
-    </g>
-    <g transform="translate(24,108)">
-      <!-- Sharpe -->
-      <text class="label">Sharpe</text>
-      <rect x="0" y="10" width="320" height="10" rx="5" fill="#EEF2FF"/>
-      <rect x="0" y="10" width="230" height="10" rx="5" fill="url(#gradPB)"/>
-      <text x="330" y="20" class="mono">1.21</text>
-    </g>
-    <g transform="translate(24,152)">
-      <!-- Beta -->
-      <text class="label">Beta (vs SPY)</text>
-      <rect x="0" y="10" width="320" height="10" rx="5" fill="#EEF2FF"/>
-      <rect x="0" y="10" width="176" height="10" rx="5" fill="url(#gradPB)"/>
-      <text x="330" y="20" class="mono">0.55</text>
-    </g>
-
-    <!-- Mini-sparklines -->
-    <g transform="translate(420,68)">
-      <text class="label">Drawdown</text>
-      <path d="M0,62 C60,40 120,70 180,40 240,10 300,20 340,8" fill="none" stroke="#A78BFA" stroke-width="3"/>
-      <line x1="0" y1="80" x2="360" y2="80" class="axis"/>
-    </g>
-    <g transform="translate(420,132)">
-      <text class="label">Alpha</text>
-      <path d="M0,62 C60,60 120,56 180,44 240,28 300,22 340,26" fill="none" stroke="#60A5FA" stroke-width="3"/>
-      <line x1="0" y1="80" x2="360" y2="80" class="axis"/>
-    </g>
-  </g>
-
-  <!-- Card: Tools -->
-  <g transform="translate(1220,540)">
-    <rect x="0" y="0" width="340" height="220" rx="18" fill="#ffffff" fill-opacity="0.92" stroke="url(#gradPB2)" stroke-opacity="0.25" filter="url(#softShadow)"/>
-    <text x="24" y="36" class="h2">Portfolio Tools</text>
-
-    <!-- Rebalance slider -->
-    <g transform="translate(24,64)">
-      <text class="label">Rebalance Threshold</text>
-      <rect x="0" y="12" width="292" height="6" rx="3" fill="#E5E7EB"/>
-      <rect x="0" y="12" width="176" height="6" rx="3" fill="url(#gradPB)"/>
-      <circle cx="176" cy="15" r="10" fill="#ffffff" stroke="url(#gradPB2)" stroke-width="3"/>
-      <text x="300" y="20" class="mono">±5%</text>
-    </g>
-
-    <!-- Auto-invest toggle -->
-    <g transform="translate(24,112)">
-      <text class="label">Auto-Invest</text>
-      <rect x="184" y="0" width="56" height="28" rx="14" fill="url(#gradPB2)"/>
-      <circle cx="214" cy="14" r="12" fill="#ffffff"/>
-      <text x="248" y="18" class="btnLabel">ON</text>
-    </g>
-
-    <!-- Alerts -->
-    <g transform="translate(24,154)">
-      <text class="label">Alerts</text>
-      <g transform="translate(184,-6)">
-        <rect x="0" y="0" width="140" height="28" rx="14" fill="#F1F5F9"/>
-        <text x="14" y="18" class="chip">Drawdown &gt; 10%</text>
-      </g>
-    </g>
-
-    <!-- Action buttons -->
-    <g transform="translate(24,190)">
-      <rect x="0" y="-8" width="132" height="32" rx="16" fill="url(#gradPB2)"/>
-      <text x="66" y="12" text-anchor="middle" class="btnLabel">Add Asset</text>
-      <rect x="152" y="-8" width="164" height="32" rx="16" fill="#EEF2FF"/>
-      <text x="234" y="12" text-anchor="middle" class="chip">Download Report</text>
-    </g>
-  </g>
-
-  <!-- Footer note (invisible background) -->
-  <g transform="translate(40,960)">
-    <text class="muted">Vector SVG • Transparent background • Purple/Blue theme</text>
-  </g>
+<svg width="320" height="192" viewBox="0 0 320 192" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="320" height="192" fill="transparent"/>
+  
+  <!-- Main Dashboard Container -->
+  <rect x="8" y="8" width="304" height="176" fill="#f8f9ff" stroke="#e1e5ff" stroke-width="1" rx="8"/>
+  
+  <!-- Header -->
+  <text x="16" y="26" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4c1d95">Portfolio Dashboard</text>
+  <text x="280" y="26" font-family="Arial, sans-serif" font-size="10" fill="#6366f1">$127,450</text>
+  
+  <!-- Investment Cards Row 1 -->
+  <!-- Card 1: Stocks -->
+  <rect x="16" y="36" width="70" height="50" fill="#8b5cf6" rx="4" opacity="0.9"/>
+  <text x="20" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">STOCKS</text>
+  <text x="20" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$45,200</text>
+  <text x="20" y="68" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd">+12.5%</text>
+  <polygon points="60,72 65,68 70,70 75,66 80,64" fill="none" stroke="#c4b5fd" stroke-width="1"/>
+  
+  <!-- Card 2: Bonds -->
+  <rect x="92" y="36" width="70" height="50" fill="#6366f1" rx="4" opacity="0.9"/>
+  <text x="96" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">BONDS</text>
+  <text x="96" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$32,100</text>
+  <text x="96" y="68" font-family="Arial, sans-serif" font-size="7" fill="#a5b4fc">+4.2%</text>
+  <polygon points="136,72 141,70 146,68 151,69 156,67" fill="none" stroke="#a5b4fc" stroke-width="1"/>
+  
+  <!-- Card 3: ETFs -->
+  <rect x="168" y="36" width="70" height="50" fill="#7c3aed" rx="4" opacity="0.9"/>
+  <text x="172" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">ETFs</text>
+  <text x="172" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$28,750</text>
+  <text x="172" y="68" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd">+8.7%</text>
+  <polygon points="212,72 217,69 222,66 227,68 232,65" fill="none" stroke="#c4b5fd" stroke-width="1"/>
+  
+  <!-- Card 4: Crypto -->
+  <rect x="244" y="36" width="60" height="50" fill="#5b21b6" rx="4" opacity="0.9"/>
+  <text x="248" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">CRYPTO</text>
+  <text x="248" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$21,400</text>
+  <text x="248" y="68" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd">+24.1%</text>
+  <polygon points="284,72 287,68 290,70 293,66 296,64" fill="none" stroke="#c4b5fd" stroke-width="1"/>
+  
+  <!-- Portfolio Allocation Pie Chart -->
+  <circle cx="60" cy="130" r="25" fill="none" stroke="#e5e7eb" stroke-width="2"/>
+  <!-- Stocks: 35% -->
+  <path d="M 60 105 A 25 25 0 0 1 81.77 145.45 L 60 130 Z" fill="#8b5cf6"/>
+  <!-- Bonds: 25% -->
+  <path d="M 81.77 145.45 A 25 25 0 0 1 38.23 145.45 L 60 130 Z" fill="#6366f1"/>
+  <!-- ETFs: 23% -->
+  <path d="M 38.23 145.45 A 25 25 0 0 1 50.18 107.32 L 60 130 Z" fill="#7c3aed"/>
+  <!-- Crypto: 17% -->
+  <path d="M 50.18 107.32 A 25 25 0 0 1 60 105 L 60 130 Z" fill="#5b21b6"/>
+  
+  <text x="30" y="168" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#4c1d95">Allocation</text>
+  
+  <!-- Performance Graph -->
+  <rect x="110" y="100" width="120" height="60" fill="none" stroke="#e1e5ff" stroke-width="1" rx="4"/>
+  <text x="114" y="112" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#4c1d95">6M Performance</text>
+  
+  <!-- Graph Lines -->
+  <polyline points="115,150 125,145 135,140 145,138 155,142 165,135 175,130 185,128 195,125 205,120 215,118 225,115" 
+            fill="none" stroke="#8b5cf6" stroke-width="2"/>
+  <polyline points="115,155 125,152 135,148 145,146 155,149 165,144 175,141 185,139 195,136 205,133 215,131 225,128" 
+            fill="none" stroke="#6366f1" stroke-width="2"/>
+  
+  <!-- Graph Grid -->
+  <line x1="115" y1="120" x2="225" y2="120" stroke="#f3f4f6" stroke-width="0.5"/>
+  <line x1="115" y1="135" x2="225" y2="135" stroke="#f3f4f6" stroke-width="0.5"/>
+  <line x1="115" y1="150" x2="225" y2="150" stroke="#f3f4f6" stroke-width="0.5"/>
+  
+  <!-- Performance Indicators -->
+  <rect x="240" y="100" width="64" height="60" fill="#faf5ff" stroke="#e1e5ff" stroke-width="1" rx="4"/>
+  <text x="244" y="112" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#4c1d95">Metrics</text>
+  
+  <text x="244" y="124" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">Total Return</text>
+  <text x="244" y="132" font-family="Arial, sans-serif" font-size="8" fill="#059669" font-weight="bold">+15.2%</text>
+  
+  <text x="244" y="142" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">Risk Score</text>
+  <text x="244" y="150" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" font-weight="bold">7.2/10</text>
+  
+  <!-- Growth Indicators -->
+  <polygon points="268,125 273,120 278,125" fill="#059669"/>
+  <polygon points="268,145 273,140 278,145" fill="#f59e0b"/>
+  
+  <!-- Legend -->
+  <rect x="16" y="168" width="8" height="4" fill="#8b5cf6"/>
+  <text x="28" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Stocks 35%</text>
+  
+  <rect x="80" y="168" width="8" height="4" fill="#6366f1"/>
+  <text x="92" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Bonds 25%</text>
+  
+  <rect x="140" y="168" width="8" height="4" fill="#7c3aed"/>
+  <text x="152" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">ETFs 23%</text>
+  
+  <rect x="190" y="168" width="8" height="4" fill="#5b21b6"/>
+  <text x="202" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Crypto 17%</text>
+  
+  <!-- Status Indicators -->
+  <circle cx="290" cy="170" r="3" fill="#10b981"/>
+  <text x="270" y="182" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Active</text>
 </svg>
