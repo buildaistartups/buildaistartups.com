@@ -28,9 +28,9 @@
     Normalized Performance Analytics | Q4 2025
   </text>
   
-  <!-- Startup Profile Cards -->
+  <!-- Startup Profile Cards - MOVED DOWN 20px -->
   <!-- Card 1: TechFlow AI -->
-  <g transform="translate(20, 70)">
+  <g transform="translate(20, 90)">
     <rect width="180" height="100" rx="8" fill="url(#lightPurple)" filter="url(#shadow)"/>
     <rect width="180" height="4" rx="2" fill="url(#purpleBlue)"/>
     <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">TechFlow AI</text>
@@ -42,7 +42,7 @@
   </g>
   
   <!-- Card 2: DataSync Pro -->
-  <g transform="translate(210, 70)">
+  <g transform="translate(210, 90)">
     <rect width="180" height="100" rx="8" fill="url(#lightBlue)" filter="url(#shadow)"/>
     <rect width="180" height="4" rx="2" fill="#3B82F6"/>
     <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">DataSync Pro</text>
@@ -54,7 +54,7 @@
   </g>
   
   <!-- Card 3: CloudNest -->
-  <g transform="translate(400, 70)">
+  <g transform="translate(400, 90)">
     <rect width="180" height="100" rx="8" fill="url(#lightPurple)" filter="url(#shadow)"/>
     <rect width="180" height="4" rx="2" fill="#8B5CF6"/>
     <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">CloudNest</text>
@@ -66,7 +66,7 @@
   </g>
   
   <!-- Card 4: AutoScale -->
-  <g transform="translate(590, 70)">
+  <g transform="translate(590, 90)">
     <rect width="180" height="100" rx="8" fill="url(#lightBlue)" filter="url(#shadow)"/>
     <rect width="180" height="4" rx="2" fill="#3B82F6"/>
     <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">AutoScale</text>
@@ -77,8 +77,8 @@
     <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">+12%</text>
   </g>
   
-  <!-- Normalized Metrics Charts Section -->
-  <g transform="translate(20, 190)">
+  <!-- Normalized Metrics Charts Section - MOVED DOWN 20px -->
+  <g transform="translate(20, 210)">
     <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Normalized Performance Metrics</text>
     
     <!-- Activation Rate Chart -->
@@ -166,8 +166,8 @@
     </g>
   </g>
   
-  <!-- Usage Funnel Section - MOVED DOWN 15px -->
-  <g transform="translate(20, 355)">
+  <!-- Usage Funnel Section - MOVED DOWN 20px (from previous 15px) -->
+  <g transform="translate(20, 375)">
     <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Average Usage Funnel Analysis</text>
     
     <g transform="translate(0, 25)">
@@ -187,8 +187,8 @@
     </g>
   </g>
   
-  <!-- KPI Comparison Table - MOVED DOWN 15px -->
-  <g transform="translate(410, 355)">
+  <!-- KPI Comparison Table - MOVED DOWN 20px (from previous 15px) -->
+  <g transform="translate(410, 375)">
     <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Key Performance Indicators</text>
     
     <g transform="translate(0, 25)">
@@ -233,8 +233,8 @@
     </g>
   </g>
   
-  <!-- Legend - MOVED DOWN 15px -->
-  <g transform="translate(20, 525)">
+  <!-- Legend - MOVED DOWN 20px (from previous 15px) -->
+  <g transform="translate(20, 545)">
     <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2D3748">Legend:</text>
     
     <circle cx="60" cy="-3" r="5" fill="#8B5CF6"/>
