@@ -354,25 +354,26 @@
     </g>
   </g>
   
-  <!-- Enhanced Legend -->
+  <!-- Enhanced Legend - CENTERED VERTICALLY -->
   <g id="legend">
     <rect x="60" y="740" width="1080" height="50" rx="16" fill="white" filter="url(#cardShadow)"/>
     
-    <text x="90" y="765" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">Performance Legend</text>
+    <!-- Legend Title - Centered vertically -->
+    <text x="90" y="770" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">Performance Legend</text>
     
-    <!-- Legend Items -->
+    <!-- Legend Items - All centered at y=765 (middle of 50px box) -->
     <g id="legend-items">
-      <circle cx="280" cy="760" r="6" fill="#10B981"/>
-      <text x="295" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">On Track (≥70%)</text>
+      <circle cx="280" cy="765" r="6" fill="#10B981"/>
+      <text x="295" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">On Track (≥70%)</text>
       
-      <circle cx="450" cy="760" r="6" fill="#F59E0B"/>
-      <text x="465" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">At Risk (50-69%)</text>
+      <circle cx="450" cy="765" r="6" fill="#F59E0B"/>
+      <text x="465" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">At Risk (50-69%)</text>
       
-      <circle cx="620" cy="760" r="6" fill="#EF4444"/>
-      <text x="635" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Off Track (less than 50%)</text>
+      <circle cx="620" cy="765" r="6" fill="#EF4444"/>
+      <text x="635" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Off Track (less than 50%)</text>
       
-      <rect x="820" y="754" width="40" height="12" rx="2" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="870" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Pipeline/Watchlist</text>
+      <rect x="820" y="759" width="40" height="12" rx="2" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="870" y="770" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Pipeline/Watchlist</text>
     </g>
   </g>
 </svg>
