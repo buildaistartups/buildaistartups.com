@@ -1,99 +1,155 @@
-<svg width="320" height="192" viewBox="0 0 320 192" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="320" height="192" fill="transparent"/>
+<svg viewBox="0 0 320 192" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:0.05" />
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.05" />
+    </linearGradient>
+    <linearGradient id="graphGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0" />
+    </linearGradient>
+    <linearGradient id="performanceBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E8FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="allocationBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EDE9FE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0E7FF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
   
-  <!-- Main Dashboard Container -->
-  <rect x="8" y="8" width="304" height="176" fill="#f8f9ff" stroke="#e1e5ff" stroke-width="1" rx="8"/>
+  <!-- Header Section -->
+  <text x="8" y="12" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#6D28D9">Portfolio Overview</text>
+  <text x="8" y="22" font-family="Arial, sans-serif" font-size="6" fill="#7C3AED">Total Value: $248,450</text>
   
-  <!-- Header -->
-  <text x="16" y="26" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#4c1d95">Portfolio Dashboard</text>
-  <text x="280" y="26" font-family="Arial, sans-serif" font-size="10" fill="#6366f1">$127,450</text>
+  <!-- Performance Badge -->
+  <rect x="260" y="4" width="52" height="16" rx="8" fill="#10B981" opacity="0.15"/>
+  <text x="268" y="14" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#10B981">+12.4%</text>
   
   <!-- Investment Cards Row 1 -->
   <!-- Card 1: Stocks -->
-  <rect x="16" y="36" width="70" height="50" fill="#8b5cf6" rx="4" opacity="0.9"/>
-  <text x="20" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">STOCKS</text>
-  <text x="20" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$45,200</text>
-  <text x="20" y="68" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd">+12.5%</text>
-  <polygon points="60,72 65,68 70,70 75,66 80,64" fill="none" stroke="#c4b5fd" stroke-width="1"/>
+  <rect x="8" y="30" width="72" height="48" rx="4" fill="url(#cardGrad1)" stroke="#8B5CF6" stroke-width="0.5"/>
+  <circle cx="16" cy="38" r="4" fill="#8B5CF6"/>
+  <path d="M 14.5 38 L 16 39.5 L 17.5 36.5" stroke="white" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="23" y="40" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#7C3AED">Stocks</text>
+  <text x="12" y="52" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#6D28D9">$98,200</text>
+  <text x="12" y="61" font-family="Arial, sans-serif" font-size="5" fill="#10B981">↑ 8.5%</text>
+  <text x="34" y="61" font-family="Arial, sans-serif" font-size="5" fill="#8B5CF6">39.5%</text>
+  <!-- Mini chart -->
+  <polyline points="12,68 20,65 28,67 36,63 44,64 52,61 60,59 68,62 76,58" 
+            fill="none" stroke="#8B5CF6" stroke-width="1"/>
   
-  <!-- Card 2: Bonds -->
-  <rect x="92" y="36" width="70" height="50" fill="#6366f1" rx="4" opacity="0.9"/>
-  <text x="96" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">BONDS</text>
-  <text x="96" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$32,100</text>
-  <text x="96" y="68" font-family="Arial, sans-serif" font-size="7" fill="#a5b4fc">+4.2%</text>
-  <polygon points="136,72 141,70 146,68 151,69 156,67" fill="none" stroke="#a5b4fc" stroke-width="1"/>
+  <!-- Card 2: Crypto -->
+  <rect x="84" y="30" width="72" height="48" rx="4" fill="url(#cardGrad2)" stroke="#3B82F6" stroke-width="0.5"/>
+  <circle cx="92" cy="38" r="4" fill="#3B82F6"/>
+  <text x="90" y="40.5" font-family="Arial, sans-serif" font-size="5" font-weight="bold" fill="white">₿</text>
+  <text x="99" y="40" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#2563EB">Crypto</text>
+  <text x="88" y="52" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#1D4ED8">$62,150</text>
+  <text x="88" y="61" font-family="Arial, sans-serif" font-size="5" fill="#10B981">↑ 24.2%</text>
+  <text x="115" y="61" font-family="Arial, sans-serif" font-size="5" fill="#3B82F6">25.0%</text>
+  <!-- Mini chart -->
+  <polyline points="88,68 96,66 104,69 112,64 120,66 128,62 136,63 144,60 152,58" 
+            fill="none" stroke="#3B82F6" stroke-width="1"/>
   
-  <!-- Card 3: ETFs -->
-  <rect x="168" y="36" width="70" height="50" fill="#7c3aed" rx="4" opacity="0.9"/>
-  <text x="172" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">ETFs</text>
-  <text x="172" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$28,750</text>
-  <text x="172" y="68" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd">+8.7%</text>
-  <polygon points="212,72 217,69 222,66 227,68 232,65" fill="none" stroke="#c4b5fd" stroke-width="1"/>
+  <!-- Card 3: Bonds -->
+  <rect x="160" y="30" width="72" height="48" rx="4" fill="url(#cardGrad1)" stroke="#7C3AED" stroke-width="0.5"/>
+  <circle cx="168" cy="38" r="4" fill="#7C3AED"/>
+  <rect x="166" y="36" width="4" height="4" fill="white" rx="0.5"/>
+  <text x="175" y="40" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#7C3AED">Bonds</text>
+  <text x="164" y="52" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#6D28D9">$45,800</text>
+  <text x="164" y="61" font-family="Arial, sans-serif" font-size="5" fill="#10B981">↑ 4.1%</text>
+  <text x="189" y="61" font-family="Arial, sans-serif" font-size="5" fill="#8B5CF6">18.4%</text>
+  <!-- Mini chart -->
+  <polyline points="164,70 172,69 180,68 188,69 196,68 204,67 212,68 220,67 228,66" 
+            fill="none" stroke="#7C3AED" stroke-width="1"/>
   
-  <!-- Card 4: Crypto -->
-  <rect x="244" y="36" width="60" height="50" fill="#5b21b6" rx="4" opacity="0.9"/>
-  <text x="248" y="48" font-family="Arial, sans-serif" font-size="8" fill="white" font-weight="bold">CRYPTO</text>
-  <text x="248" y="58" font-family="Arial, sans-serif" font-size="10" fill="white">$21,400</text>
-  <text x="248" y="68" font-family="Arial, sans-serif" font-size="7" fill="#c4b5fd">+24.1%</text>
-  <polygon points="284,72 287,68 290,70 293,66 296,64" fill="none" stroke="#c4b5fd" stroke-width="1"/>
+  <!-- Card 4: Real Estate -->
+  <rect x="236" y="30" width="76" height="48" rx="4" fill="url(#cardGrad2)" stroke="#2563EB" stroke-width="0.5"/>
+  <circle cx="244" cy="38" r="4" fill="#2563EB"/>
+  <path d="M 242 40 L 244 38 L 246 40 L 246 42 L 242 42 Z" fill="white"/>
+  <text x="251" y="40" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#2563EB">Real Estate</text>
+  <text x="240" y="52" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#1D4ED8">$42,300</text>
+  <text x="240" y="61" font-family="Arial, sans-serif" font-size="5" fill="#10B981">↑ 6.8%</text>
+  <text x="267" y="61" font-family="Arial, sans-serif" font-size="5" fill="#3B82F6">17.1%</text>
+  <!-- Mini chart -->
+  <polyline points="240,68 248,67 256,69 264,66 272,67 280,65 288,66 296,64 304,65" 
+            fill="none" stroke="#2563EB" stroke-width="1"/>
   
-  <!-- Portfolio Allocation Pie Chart -->
-  <circle cx="60" cy="130" r="25" fill="none" stroke="#e5e7eb" stroke-width="2"/>
-  <!-- Stocks: 35% -->
-  <path d="M 60 105 A 25 25 0 0 1 81.77 145.45 L 60 130 Z" fill="#8b5cf6"/>
-  <!-- Bonds: 25% -->
-  <path d="M 81.77 145.45 A 25 25 0 0 1 38.23 145.45 L 60 130 Z" fill="#6366f1"/>
-  <!-- ETFs: 23% -->
-  <path d="M 38.23 145.45 A 25 25 0 0 1 50.18 107.32 L 60 130 Z" fill="#7c3aed"/>
-  <!-- Crypto: 17% -->
-  <path d="M 50.18 107.32 A 25 25 0 0 1 60 105 L 60 130 Z" fill="#5b21b6"/>
+  <!-- Performance Graph Section -->
+  <rect x="8" y="84" width="150" height="100" rx="4" fill="url(#performanceBg)" stroke="#C4B5FD" stroke-width="0.5"/>
+  <text x="12" y="92" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#6D28D9">Portfolio Performance</text>
+  <text x="12" y="100" font-family="Arial, sans-serif" font-size="5" fill="#7C3AED">Last 12 months</text>
   
-  <text x="30" y="168" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#4c1d95">Allocation</text>
+  <!-- Grid lines -->
+  <line x1="12" y1="108" x2="154" y2="108" stroke="#E5E7EB" stroke-width="0.3" stroke-dasharray="2,2"/>
+  <line x1="12" y1="128" x2="154" y2="128" stroke="#E5E7EB" stroke-width="0.3" stroke-dasharray="2,2"/>
+  <line x1="12" y1="148" x2="154" y2="148" stroke="#E5E7EB" stroke-width="0.3" stroke-dasharray="2,2"/>
+  <line x1="12" y1="168" x2="154" y2="168" stroke="#E5E7EB" stroke-width="0.3" stroke-dasharray="2,2"/>
   
-  <!-- Performance Graph -->
-  <rect x="110" y="100" width="120" height="60" fill="none" stroke="#e1e5ff" stroke-width="1" rx="4"/>
-  <text x="114" y="112" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#4c1d95">6M Performance</text>
+  <!-- Performance area chart -->
+  <path d="M 12 155 L 24 152 L 36 158 L 48 145 L 60 148 L 72 138 L 84 142 L 96 132 L 108 135 L 120 125 L 132 128 L 144 118 L 154 115 L 154 168 L 12 168 Z" 
+        fill="url(#graphGrad)"/>
+  <polyline points="12,155 24,152 36,158 48,145 60,148 72,138 84,142 96,132 108,135 120,125 132,128 144,118 154,115" 
+            fill="none" stroke="#8B5CF6" stroke-width="1.5"/>
   
-  <!-- Graph Lines -->
-  <polyline points="115,150 125,145 135,140 145,138 155,142 165,135 175,130 185,128 195,125 205,120 215,118 225,115" 
-            fill="none" stroke="#8b5cf6" stroke-width="2"/>
-  <polyline points="115,155 125,152 135,148 145,146 155,149 165,144 175,141 185,139 195,136 205,133 215,131 225,128" 
-            fill="none" stroke="#6366f1" stroke-width="2"/>
+  <!-- Y-axis labels -->
+  <text x="12" y="112" font-family="Arial, sans-serif" font-size="5" fill="#8B5CF6">$280K</text>
+  <text x="12" y="132" font-family="Arial, sans-serif" font-size="5" fill="#8B5CF6">$250K</text>
+  <text x="12" y="152" font-family="Arial, sans-serif" font-size="5" fill="#8B5CF6">$220K</text>
+  <text x="12" y="172" font-family="Arial, sans-serif" font-size="5" fill="#8B5CF6">$190K</text>
   
-  <!-- Graph Grid -->
-  <line x1="115" y1="120" x2="225" y2="120" stroke="#f3f4f6" stroke-width="0.5"/>
-  <line x1="115" y1="135" x2="225" y2="135" stroke="#f3f4f6" stroke-width="0.5"/>
-  <line x1="115" y1="150" x2="225" y2="150" stroke="#f3f4f6" stroke-width="0.5"/>
+  <!-- X-axis labels -->
+  <text x="14" y="180" font-family="Arial, sans-serif" font-size="5" fill="#A78BFA">Jan</text>
+  <text x="66" y="180" font-family="Arial, sans-serif" font-size="5" fill="#A78BFA">Jun</text>
+  <text x="135" y="180" font-family="Arial, sans-serif" font-size="5" fill="#A78BFA">Nov</text>
   
-  <!-- Performance Indicators -->
-  <rect x="240" y="100" width="64" height="60" fill="#faf5ff" stroke="#e1e5ff" stroke-width="1" rx="4"/>
-  <text x="244" y="112" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#4c1d95">Metrics</text>
+  <!-- Allocation Pie Chart Section -->
+  <rect x="162" y="84" width="150" height="100" rx="4" fill="url(#allocationBg)" stroke="#C7D2FE" stroke-width="0.5"/>
+  <text x="166" y="92" font-family="Arial, sans-serif" font-size="6" font-weight="bold" fill="#4338CA">Asset Allocation</text>
   
-  <text x="244" y="124" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">Total Return</text>
-  <text x="244" y="132" font-family="Arial, sans-serif" font-size="8" fill="#059669" font-weight="bold">+15.2%</text>
+  <!-- Donut Chart -->
+  <circle cx="202" cy="135" r="28" fill="none" stroke="#E5E7EB" stroke-width="12"/>
+  <!-- Stocks 39.5% -->
+  <circle cx="202" cy="135" r="28" fill="none" stroke="#8B5CF6" stroke-width="12"
+          stroke-dasharray="69.4 175.9" transform="rotate(-90 202 135)"/>
+  <!-- Crypto 25% -->
+  <circle cx="202" cy="135" r="28" fill="none" stroke="#3B82F6" stroke-width="12"
+          stroke-dasharray="44 175.9" stroke-dashoffset="-69.4" transform="rotate(-90 202 135)"/>
+  <!-- Bonds 18.4% -->
+  <circle cx="202" cy="135" r="28" fill="none" stroke="#7C3AED" stroke-width="12"
+          stroke-dasharray="32.4 175.9" stroke-dashoffset="-113.4" transform="rotate(-90 202 135)"/>
+  <!-- Real Estate 17.1% -->
+  <circle cx="202" cy="135" r="28" fill="none" stroke="#2563EB" stroke-width="12"
+          stroke-dasharray="30.1 175.9" stroke-dashoffset="-145.8" transform="rotate(-90 202 135)"/>
   
-  <text x="244" y="142" font-family="Arial, sans-serif" font-size="7" fill="#6b7280">Risk Score</text>
-  <text x="244" y="150" font-family="Arial, sans-serif" font-size="8" fill="#7c3aed" font-weight="bold">7.2/10</text>
-  
-  <!-- Growth Indicators -->
-  <polygon points="268,125 273,120 278,125" fill="#059669"/>
-  <polygon points="268,145 273,140 278,145" fill="#f59e0b"/>
+  <!-- Center circle -->
+  <circle cx="202" cy="135" r="16" fill="white"/>
+  <text x="202" y="133" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#6D28D9" text-anchor="middle">100%</text>
+  <text x="202" y="141" font-family="Arial, sans-serif" font-size="5" fill="#7C3AED" text-anchor="middle">Allocated</text>
   
   <!-- Legend -->
-  <rect x="16" y="168" width="8" height="4" fill="#8b5cf6"/>
-  <text x="28" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Stocks 35%</text>
+  <circle cx="245" cy="110" r="2.5" fill="#8B5CF6"/>
+  <text x="251" y="112" font-family="Arial, sans-serif" font-size="5" fill="#7C3AED">Stocks 39.5%</text>
   
-  <rect x="80" y="168" width="8" height="4" fill="#6366f1"/>
-  <text x="92" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Bonds 25%</text>
+  <circle cx="245" cy="122" r="2.5" fill="#3B82F6"/>
+  <text x="251" y="124" font-family="Arial, sans-serif" font-size="5" fill="#2563EB">Crypto 25.0%</text>
   
-  <rect x="140" y="168" width="8" height="4" fill="#7c3aed"/>
-  <text x="152" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">ETFs 23%</text>
+  <circle cx="245" cy="134" r="2.5" fill="#7C3AED"/>
+  <text x="251" y="136" font-family="Arial, sans-serif" font-size="5" fill="#6D28D9">Bonds 18.4%</text>
   
-  <rect x="190" y="168" width="8" height="4" fill="#5b21b6"/>
-  <text x="202" y="172" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Crypto 17%</text>
+  <circle cx="245" cy="146" r="2.5" fill="#2563EB"/>
+  <text x="251" y="148" font-family="Arial, sans-serif" font-size="5" fill="#1D4ED8">Real Est. 17.1%</text>
   
-  <!-- Status Indicators -->
-  <circle cx="290" cy="170" r="3" fill="#10b981"/>
-  <text x="270" y="182" font-family="Arial, sans-serif" font-size="7" fill="#4c1d95">Active</text>
+  <!-- Stats -->
+  <rect x="238" y="158" width="68" height="20" rx="2" fill="url(#purpleBlue)" opacity="0.1"/>
+  <text x="243" y="166" font-family="Arial, sans-serif" font-size="5" fill="#7C3AED">Risk Score</text>
+  <text x="243" y="174" font-family="Arial, sans-serif" font-size="7" font-weight="bold" fill="#8B5CF6">Moderate</text>
 </svg>
