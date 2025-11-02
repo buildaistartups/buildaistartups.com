@@ -79,7 +79,7 @@
   
   <!-- Normalized Metrics Charts Section -->
   <g transform="translate(20, 190)">
-    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Normalized Performance Metrics</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Normalized Performance Metrics</text>
     
     <!-- Activation Rate Chart -->
     <g transform="translate(0, 25)">
@@ -168,7 +168,7 @@
   
   <!-- Usage Funnel Section -->
   <g transform="translate(20, 340)">
-    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Average Usage Funnel Analysis</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Average Usage Funnel Analysis</text>
     
     <g transform="translate(0, 25)">
       <rect width="370" height="140" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
@@ -189,7 +189,7 @@
   
   <!-- KPI Comparison Table -->
   <g transform="translate(410, 340)">
-    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Key Performance Indicators</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Key Performance Indicators</text>
     
     <g transform="translate(0, 25)">
       <rect width="360" height="140" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
