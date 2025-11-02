@@ -185,8 +185,8 @@
     <line x1="290" y1="220" x2="470" y2="220" stroke="#7C3AED" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
     <line x1="470" y1="220" x2="650" y2="220" stroke="#3B82F6" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
     
-    <!-- Data flow label -->
-    <text x="400" y="235" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#6B7280" opacity="0.8">Automated Data Flow</text>
+    <!-- Data flow label - MADE BIGGER -->
+    <text x="400" y="235" font-family="Arial, sans-serif" font-size="12" font-weight="500" text-anchor="middle" fill="#6B7280" opacity="0.9">Automated Data Flow</text>
   </g>
   
   <!-- Key Metrics Box -->
