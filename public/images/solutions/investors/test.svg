@@ -119,7 +119,7 @@
       <!-- Values -->
       <text x="35" y="27" font-family="Arial, sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">82%</text>
       <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">71%</text>
-      <text x="105" y="24" font-family="Arial, sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">88%</text>
+      <text x="105" y="23" font-family="Arial, sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">88%</text>
       <text x="140" y="30" font-family="Arial, sans-serif" font-size="9" fill="#1E293B" text-anchor="middle">76%</text>
       
       <!-- Labels -->
@@ -173,17 +173,17 @@
     <g transform="translate(0, 25)">
       <rect width="370" height="140" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
       
-      <!-- Funnel stages -->
-      <polygon points="60,30 310,30 280,55 90,55" fill="url(#purpleBlue)" opacity="0.7"/>
-      <polygon points="90,60 280,60 260,85 110,85" fill="#8B5CF6" opacity="0.6"/>
-      <polygon points="110,90 260,90 245,115 125,115" fill="#3B82F6" opacity="0.5"/>
-      <polygon points="125,120 245,120 235,135 135,135" fill="#60A5FA" opacity="0.4"/>
+      <!-- Funnel stages - MOVED 15px UP -->
+      <polygon points="60,15 310,15 280,40 90,40" fill="url(#purpleBlue)" opacity="0.7"/>
+      <polygon points="90,45 280,45 260,70 110,70" fill="#8B5CF6" opacity="0.6"/>
+      <polygon points="110,75 260,75 245,100 125,100" fill="#3B82F6" opacity="0.5"/>
+      <polygon points="125,105 245,105 235,120 135,120" fill="#60A5FA" opacity="0.4"/>
       
-      <!-- Labels and percentages -->
-      <text x="185" y="45" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Sign Up (100%)</text>
-      <text x="185" y="75" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Activation (75%)</text>
-      <text x="185" y="105" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Regular Use (52%)</text>
-      <text x="185" y="130" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Premium (28%)</text>
+      <!-- Labels and percentages - MOVED 15px UP -->
+      <text x="185" y="30" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Sign Up (100%)</text>
+      <text x="185" y="60" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Activation (75%)</text>
+      <text x="185" y="90" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Regular Use (52%)</text>
+      <text x="185" y="115" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Premium (28%)</text>
     </g>
   </g>
   
