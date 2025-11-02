@@ -1,310 +1,352 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
-  <!-- Definitions -->
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" style="background: transparent;">
   <defs>
-    <!-- Purple to Blue Gradient -->
+    <!-- Gradients -->
     <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
     </linearGradient>
     
-    <!-- Purple Gradient -->
-    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.1" />
     </linearGradient>
     
-    <!-- Blue Gradient -->
-    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <linearGradient id="lightBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.1" />
     </linearGradient>
     
-    <!-- Card Shadow -->
-    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
-      <feOffset dx="0" dy="4" result="offsetblur"/>
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="1" result="offsetblur"/>
       <feComponentTransfer>
-        <feFuncA type="linear" slope="0.15"/>
+        <feFuncA type="linear" slope="0.2"/>
       </feComponentTransfer>
       <feMerge>
         <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
-    <!-- Soft Glow -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
   
-  <!-- Background -->
-  <rect width="1200" height="675" fill="#f8fafc" opacity="0"/>
+  <!-- Title -->
+  <text x="400" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#8B5CF6" text-anchor="middle">
+    Automated Pipeline Scoring System
+  </text>
   
-  <!-- Header Section -->
-  <g id="header">
-    <!-- Title -->
-    <text x="40" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1e293b">
-      Deal Flow Dashboard
+  <!-- Automation Symbol -->
+  <g transform="translate(750, 15)">
+    <circle cx="0" cy="0" r="14" fill="url(#purpleBlue)" opacity="0.9"/>
+    <path d="M -6,-6 L 6,6 M -6,6 L 6,-6" stroke="white" stroke-width="1.5" fill="none"/>
+    <circle cx="0" cy="0" r="5" fill="none" stroke="white" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Startup Card 1 - High Score -->
+  <g transform="translate(30, 50)" filter="url(#shadow)">
+    <rect width="230" height="140" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect width="230" height="35" rx="8" fill="url(#purpleBlue)" opacity="0.9"/>
+    
+    <!-- Card Header -->
+    <text x="15" y="23" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      TechFlow AI
+    </text>
+    <circle cx="205" cy="18" r="12" fill="white" opacity="0.9"/>
+    <text x="205" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6" text-anchor="middle">1</text>
+    
+    <!-- Overall Score -->
+    <g transform="translate(198, 85)">
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#E5E7EB" stroke-width="3.5"/>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="url(#purpleBlue)" stroke-width="3.5" 
+              stroke-dasharray="113" stroke-dashoffset="9" transform="rotate(-90)"/>
+      <text x="0" y="1" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#8B5CF6" text-anchor="middle">92</text>
+      <text x="0" y="10" font-family="Arial, sans-serif" font-size="6.5" fill="#6B7280" text-anchor="middle">SCORE</text>
+    </g>
+    
+    <!-- Metrics -->
+    <g transform="translate(12, 55)">
+      <!-- Market Size -->
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6">Market Size</text>
+      <rect x="0" y="4" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="4" width="126" height="6" rx="3" fill="#8B5CF6"/>
+      <text x="145" y="9" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">$12B</text>
+      
+      <!-- Defensibility -->
+      <text x="0" y="24" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6">Defensibility</text>
+      <rect x="0" y="28" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="28" width="119" height="6" rx="3" fill="#3B82F6"/>
+      <text x="145" y="33" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">85%</text>
+      
+      <!-- Speed -->
+      <text x="0" y="48" font-family="Arial, sans-serif" font-size="9" fill="#A78BFA">Speed</text>
+      <rect x="0" y="52" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="52" width="133" height="6" rx="3" fill="url(#purpleBlue)"/>
+      <text x="145" y="57" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">95%</text>
+    </g>
+    
+    <!-- Status Badge -->
+    <rect x="15" y="117" width="70" height="16" rx="8" fill="#10B981" opacity="0.2"/>
+    <text x="50" y="128" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#10B981" text-anchor="middle">APPROVED</text>
+  </g>
+  
+  <!-- Startup Card 2 - Medium Score -->
+  <g transform="translate(285, 50)" filter="url(#shadow)">
+    <rect width="230" height="140" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect width="230" height="35" rx="8" fill="url(#lightBlue)"/>
+    
+    <!-- Card Header -->
+    <text x="15" y="23" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1F2937">
+      DataSync Pro
+    </text>
+    <circle cx="205" cy="18" r="12" fill="#3B82F6" opacity="0.2"/>
+    <text x="205" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3B82F6" text-anchor="middle">2</text>
+    
+    <!-- Overall Score -->
+    <g transform="translate(198, 85)">
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#E5E7EB" stroke-width="3.5"/>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#3B82F6" stroke-width="3.5" 
+              stroke-dasharray="113" stroke-dashoffset="28" transform="rotate(-90)"/>
+      <text x="0" y="1" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">75</text>
+      <text x="0" y="10" font-family="Arial, sans-serif" font-size="6.5" fill="#6B7280" text-anchor="middle">SCORE</text>
+    </g>
+    
+    <!-- Metrics -->
+    <g transform="translate(12, 55)">
+      <!-- Market Size -->
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6">Market Size</text>
+      <rect x="0" y="4" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="4" width="98" height="6" rx="3" fill="#8B5CF6"/>
+      <text x="145" y="9" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">$8B</text>
+      
+      <!-- Defensibility -->
+      <text x="0" y="24" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6">Defensibility</text>
+      <rect x="0" y="28" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="28" width="91" height="6" rx="3" fill="#3B82F6"/>
+      <text x="145" y="33" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">65%</text>
+      
+      <!-- Speed -->
+      <text x="0" y="48" font-family="Arial, sans-serif" font-size="9" fill="#60A5FA">Speed</text>
+      <rect x="0" y="52" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="52" width="112" height="6" rx="3" fill="#3B82F6"/>
+      <text x="145" y="57" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#3B82F6">80%</text>
+    </g>
+    
+    <!-- Status Badge -->
+    <rect x="15" y="117" width="70" height="16" rx="8" fill="#F59E0B" opacity="0.2"/>
+    <text x="50" y="128" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#F59E0B" text-anchor="middle">REVIEW</text>
+  </g>
+  
+  <!-- Startup Card 3 - Lower Score -->
+  <g transform="translate(540, 50)" filter="url(#shadow)">
+    <rect width="230" height="140" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5"/>
+    <rect width="230" height="35" rx="8" fill="url(#lightPurple)"/>
+    
+    <!-- Card Header -->
+    <text x="15" y="23" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1F2937">
+      CloudBase Inc
+    </text>
+    <circle cx="205" cy="18" r="12" fill="#8B5CF6" opacity="0.2"/>
+    <text x="205" y="22" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6" text-anchor="middle">3</text>
+    
+    <!-- Overall Score -->
+    <g transform="translate(198, 85)">
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#E5E7EB" stroke-width="3.5"/>
+      <circle cx="0" cy="0" r="18" fill="none" stroke="#A78BFA" stroke-width="3.5" 
+              stroke-dasharray="113" stroke-dashoffset="45" transform="rotate(-90)"/>
+      <text x="0" y="1" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#A78BFA" text-anchor="middle">60</text>
+      <text x="0" y="10" font-family="Arial, sans-serif" font-size="6.5" fill="#6B7280" text-anchor="middle">SCORE</text>
+    </g>
+    
+    <!-- Metrics -->
+    <g transform="translate(12, 55)">
+      <!-- Market Size -->
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6">Market Size</text>
+      <rect x="0" y="4" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="4" width="70" height="6" rx="3" fill="#8B5CF6"/>
+      <text x="145" y="9" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#8B5CF6">$5B</text>
+      
+      <!-- Defensibility -->
+      <text x="0" y="24" font-family="Arial, sans-serif" font-size="9" fill="#A78BFA">Defensibility</text>
+      <rect x="0" y="28" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="28" width="77" height="6" rx="3" fill="#A78BFA"/>
+      <text x="145" y="33" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#A78BFA">55%</text>
+      
+      <!-- Speed -->
+      <text x="0" y="48" font-family="Arial, sans-serif" font-size="9" fill="#A78BFA">Speed</text>
+      <rect x="0" y="52" width="140" height="6" rx="3" fill="#E5E7EB"/>
+      <rect x="0" y="52" width="91" height="6" rx="3" fill="#A78BFA"/>
+      <text x="145" y="57" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#A78BFA">65%</text>
+    </g>
+    
+    <!-- Status Badge -->
+    <rect x="15" y="117" width="70" height="16" rx="8" fill="#6B7280" opacity="0.2"/>
+    <text x="50" y="128" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#6B7280" text-anchor="middle">PENDING</text>
+  </g>
+  
+  <!-- Comparison Chart Section -->
+  <g transform="translate(30, 220)">
+    <rect width="360" height="200" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+    
+    <!-- Chart Title -->
+    <text x="15" y="22" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#8B5CF6">
+      Portfolio Comparison
     </text>
     
-    <!-- Filter Pills -->
-    <g id="filters">
-      <rect x="40" y="65" width="90" height="32" rx="16" fill="url(#purpleBlue)" filter="url(#glow)"/>
-      <text x="85" y="86" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">All Deals</text>
-      
-      <rect x="140" y="65" width="95" height="32" rx="16" fill="#e2e8f0"/>
-      <text x="187.5" y="86" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="#64748b" text-anchor="middle">In Review</text>
-      
-      <rect x="245" y="65" width="100" height="32" rx="16" fill="#e2e8f0"/>
-      <text x="295" y="86" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="#64748b" text-anchor="middle">Due Diligence</text>
-      
-      <rect x="355" y="65" width="85" height="32" rx="16" fill="#e2e8f0"/>
-      <text x="397.5" y="86" font-family="Arial, sans-serif" font-size="13" font-weight="500" fill="#64748b" text-anchor="middle">Portfolio</text>
+    <!-- Automated Icon -->
+    <g transform="translate(330, 15)">
+      <circle cx="0" cy="0" r="10" fill="url(#purpleBlue)" opacity="0.2"/>
+      <path d="M -4,-4 L 4,4 M -4,4 L 4,-4" stroke="#8B5CF6" stroke-width="1.2" fill="none"/>
+      <circle cx="0" cy="0" r="3" fill="none" stroke="#8B5CF6" stroke-width="1.2"/>
     </g>
     
-    <!-- Stats Overview -->
-    <g id="stats">
-      <g>
-        <text x="850" y="50" font-family="Arial, sans-serif" font-size="13" fill="#64748b" font-weight="500">ACTIVE DEALS</text>
-        <text x="850" y="78" font-family="Arial, sans-serif" font-size="24" fill="#8b5cf6" font-weight="bold">24</text>
-      </g>
-      <g>
-        <text x="980" y="50" font-family="Arial, sans-serif" font-size="13" fill="#64748b" font-weight="500">THIS MONTH</text>
-        <text x="980" y="78" font-family="Arial, sans-serif" font-size="24" fill="#3b82f6" font-weight="bold">$2.4M</text>
-      </g>
+    <!-- Chart Axes -->
+    <line x1="40" y1="165" x2="340" y2="165" stroke="#E5E7EB" stroke-width="1.5"/>
+    <line x1="40" y1="50" x2="40" y2="165" stroke="#E5E7EB" stroke-width="1.5"/>
+    
+    <!-- Y-axis labels -->
+    <text x="32" y="53" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" text-anchor="end">100</text>
+    <text x="32" y="81" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" text-anchor="end">75</text>
+    <text x="32" y="109" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" text-anchor="end">50</text>
+    <text x="32" y="137" font-family="Arial, sans-serif" font-size="8" fill="#8B5CF6" text-anchor="end">25</text>
+    
+    <!-- Grid lines -->
+    <line x1="40" y1="50" x2="340" y2="50" stroke="#F3F4F6" stroke-width="1"/>
+    <line x1="40" y1="78" x2="340" y2="78" stroke="#F3F4F6" stroke-width="1"/>
+    <line x1="40" y1="107" x2="340" y2="107" stroke="#F3F4F6" stroke-width="1"/>
+    <line x1="40" y1="136" x2="340" y2="136" stroke="#F3F4F6" stroke-width="1"/>
+    
+    <!-- Bars -->
+    <!-- TechFlow AI -->
+    <rect x="75" y="59" width="55" height="106" rx="3" fill="url(#purpleBlue)" opacity="0.8"/>
+    <text x="102.5" y="178" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6" text-anchor="middle">TechFlow</text>
+    <text x="102.5" y="190" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B5CF6" text-anchor="middle">92</text>
+    
+    <!-- DataSync Pro -->
+    <rect x="160" y="78" width="55" height="87" rx="3" fill="#3B82F6" opacity="0.7"/>
+    <text x="187.5" y="178" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6" text-anchor="middle">DataSync</text>
+    <text x="187.5" y="190" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3B82F6" text-anchor="middle">75</text>
+    
+    <!-- CloudBase Inc -->
+    <rect x="245" y="96" width="55" height="69" rx="3" fill="#A78BFA" opacity="0.7"/>
+    <text x="272.5" y="178" font-family="Arial, sans-serif" font-size="9" fill="#A78BFA" text-anchor="middle">CloudBase</text>
+    <text x="272.5" y="190" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#A78BFA" text-anchor="middle">60</text>
+  </g>
+  
+  <!-- Ranking System Panel -->
+  <g transform="translate(410, 220)">
+    <rect width="360" height="200" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1.5" filter="url(#shadow)"/>
+    
+    <!-- Panel Title -->
+    <text x="15" y="22" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#8B5CF6">
+      Scoring Criteria
+    </text>
+    
+    <!-- Gear Icon for Automation -->
+    <g transform="translate(330, 15)">
+      <circle cx="0" cy="0" r="11" fill="url(#purpleBlue)" opacity="0.9"/>
+      <path d="M 0,-6 L 1.5,-4.5 L 6,-4.5 L 3,-1.5 L 4.5,3 L 0,0 L -4.5,3 L -3,-1.5 L -6,-4.5 L -1.5,-4.5 Z" fill="white" opacity="0.9"/>
+      <circle cx="0" cy="0" r="2.5" fill="white"/>
+    </g>
+    
+    <!-- Ranking Items -->
+    <g transform="translate(15, 40)">
+      <!-- Item 1 -->
+      <rect x="0" y="-9" width="330" height="35" rx="6" fill="url(#lightPurple)"/>
+      <circle cx="18" cy="8.5" r="14" fill="url(#purpleBlue)"/>
+      <text x="18" y="13" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">1</text>
+      <text x="40" y="7" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6">Market Opportunity</text>
+      <text x="40" y="19" font-family="Arial, sans-serif" font-size="8" fill="#A78BFA">TAM, growth rate, trends</text>
+      <circle cx="290" cy="8.5" r="6" fill="#10B981"/>
+      <text x="305" y="12" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#10B981">35%</text>
+      
+      <!-- Item 2 -->
+      <rect x="0" y="32" width="330" height="35" rx="6" fill="url(#lightBlue)"/>
+      <circle cx="18" cy="49.5" r="14" fill="#3B82F6"/>
+      <text x="18" y="54" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">2</text>
+      <text x="40" y="48" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3B82F6">Competitive Moat</text>
+      <text x="40" y="60" font-family="Arial, sans-serif" font-size="8" fill="#60A5FA">IP, network effects, switching</text>
+      <circle cx="290" cy="49.5" r="6" fill="#3B82F6"/>
+      <text x="305" y="53" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3B82F6">30%</text>
+      
+      <!-- Item 3 -->
+      <rect x="0" y="73" width="330" height="35" rx="6" fill="url(#lightPurple)"/>
+      <circle cx="18" cy="90.5" r="14" fill="#A78BFA"/>
+      <text x="18" y="95" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">3</text>
+      <text x="40" y="89" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6">Team & Execution</text>
+      <text x="40" y="101" font-family="Arial, sans-serif" font-size="8" fill="#A78BFA">Experience, velocity, hires</text>
+      <circle cx="290" cy="90.5" r="6" fill="#8B5CF6"/>
+      <text x="305" y="94" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B5CF6">25%</text>
+      
+      <!-- Item 4 -->
+      <rect x="0" y="114" width="330" height="35" rx="6" fill="url(#lightBlue)"/>
+      <circle cx="18" cy="131.5" r="14" fill="#60A5FA"/>
+      <text x="18" y="136" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">4</text>
+      <text x="40" y="130" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3B82F6">Traction Metrics</text>
+      <text x="40" y="142" font-family="Arial, sans-serif" font-size="8" fill="#60A5FA">Revenue, users, growth rate</text>
+      <circle cx="290" cy="131.5" r="6" fill="#60A5FA"/>
+      <text x="305" y="135" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#60A5FA">10%</text>
     </g>
   </g>
   
-  <!-- Investment Pipeline -->
-  <g id="pipeline" transform="translate(40, 120)">
-    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#1e293b">Investment Pipeline</text>
+  <!-- Footer Indicators -->
+  <g transform="translate(30, 450)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#8B5CF6">Automated Scoring Engine</text>
     
-    <!-- Pipeline Stages -->
+    <!-- Processing indicator -->
     <g transform="translate(0, 20)">
-      <!-- Stage 1 -->
-      <rect x="0" y="0" width="270" height="8" rx="4" fill="#e2e8f0"/>
-      <rect x="0" y="0" width="240" height="8" rx="4" fill="url(#purpleGrad)"/>
-      <text x="0" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Sourcing</text>
-      <text x="0" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#8b5cf6">12 deals</text>
-      
-      <!-- Stage 2 -->
-      <rect x="290" y="0" width="270" height="8" rx="4" fill="#e2e8f0"/>
-      <rect x="290" y="0" width="180" height="8" rx="4" fill="url(#purpleBlue)"/>
-      <text x="290" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Screening</text>
-      <text x="290" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#7c3aed">8 deals</text>
-      
-      <!-- Stage 3 -->
-      <rect x="580" y="0" width="270" height="8" rx="4" fill="#e2e8f0"/>
-      <rect x="580" y="0" width="120" height="8" rx="4" fill="url(#blueGrad)"/>
-      <text x="580" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Due Diligence</text>
-      <text x="580" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#3b82f6">4 deals</text>
-      
-      <!-- Stage 4 -->
-      <rect x="870" y="0" width="270" height="8" rx="4" fill="#e2e8f0"/>
-      <rect x="870" y="0" width="80" height="8" rx="4" fill="#3b82f6"/>
-      <text x="870" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Term Sheet</text>
-      <text x="870" y="42" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#2563eb">3 deals</text>
+      <circle cx="5" cy="0" r="5" fill="#10B981"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="9" fill="#10B981">127 companies evaluated</text>
     </g>
+    
+    <g transform="translate(180, 20)">
+      <circle cx="5" cy="0" r="5" fill="#3B82F6"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6">Real-time scoring</text>
+    </g>
+    
+    <g transform="translate(340, 20)">
+      <circle cx="5" cy="0" r="5" fill="#8B5CF6"/>
+      <text x="15" y="4" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6">ML-powered insights</text>
+    </g>
+    
+    <!-- Checkmark icon -->
+    <g transform="translate(505, 20)">
+      <circle cx="0" cy="0" r="6" fill="none" stroke="url(#purpleBlue)" stroke-width="1.5"/>
+      <path d="M -2.5,0 L -1,2 L 3,-2.5" stroke="url(#purpleBlue)" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="515" y="4" font-family="Arial, sans-serif" font-size="9" fill="#A78BFA">Auto-validated</text>
   </g>
   
-  <!-- Startup Cards Grid -->
-  <g id="startupCards" transform="translate(40, 250)">
-    <!-- Card 1 -->
-    <g filter="url(#cardShadow)">
-      <rect x="0" y="0" width="360" height="180" rx="12" fill="white"/>
-      
-      <!-- Demo Preview -->
-      <rect x="15" y="15" width="140" height="90" rx="8" fill="#f1f5f9"/>
-      <rect x="20" y="20" width="60" height="6" rx="3" fill="url(#purpleGrad)"/>
-      <rect x="20" y="32" width="100" height="6" rx="3" fill="#e2e8f0"/>
-      <rect x="20" y="44" width="80" height="6" rx="3" fill="#e2e8f0"/>
-      <circle cx="130" cy="70" r="20" fill="url(#purpleBlue)" opacity="0.2"/>
-      <path d="M125 70 L135 65 L135 75 Z" fill="#8b5cf6"/>
-      
-      <!-- Company Info -->
-      <text x="170" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#1e293b">TechFlow AI</text>
-      <text x="170" y="50" font-family="Arial, sans-serif" font-size="12" fill="#64748b">AI-Powered Analytics</text>
-      
-      <!-- Score Badge -->
-      <rect x="170" y="60" width="60" height="24" rx="12" fill="#dcfce7"/>
-      <circle cx="182" cy="72" r="4" fill="#22c55e"/>
-      <text x="190" y="77" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#16a34a">9.2</text>
-      
-      <!-- Metrics -->
-      <g transform="translate(15, 120)">
-        <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">ARR</text>
-        <text x="0" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#8b5cf6">$1.2M</text>
-        
-        <text x="100" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">GROWTH</text>
-        <text x="100" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#22c55e">+127%</text>
-        
-        <text x="200" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">STAGE</text>
-        <text x="200" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#3b82f6">Series A</text>
-      </g>
-      
-      <!-- Action Button -->
-      <rect x="15" y="150" width="330" height="18" rx="9" fill="url(#purpleBlue)" opacity="0.1"/>
-      <text x="180" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#8b5cf6" text-anchor="middle">View Demo →</text>
+  <!-- System Status -->
+  <g transform="translate(30, 510)">
+    <rect x="0" y="0" width="740" height="60" rx="8" fill="url(#lightPurple)" opacity="0.3"/>
+    
+    <!-- Status items -->
+    <g transform="translate(40, 20)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B5CF6">Pipeline Status</text>
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="8" fill="#A78BFA">Last updated: 2 minutes ago</text>
     </g>
     
-    <!-- Card 2 -->
-    <g transform="translate(380, 0)" filter="url(#cardShadow)">
-      <rect x="0" y="0" width="360" height="180" rx="12" fill="white"/>
-      
-      <!-- Demo Preview -->
-      <rect x="15" y="15" width="140" height="90" rx="8" fill="#f1f5f9"/>
-      <circle cx="55" cy="35" r="12" fill="url(#blueGrad)" opacity="0.3"/>
-      <circle cx="95" cy="35" r="12" fill="url(#blueGrad)" opacity="0.3"/>
-      <rect x="20" y="55" width="120" height="8" rx="4" fill="url(#blueGrad)"/>
-      <rect x="20" y="68" width="90" height="8" rx="4" fill="#e2e8f0"/>
-      <rect x="20" y="81" width="105" height="8" rx="4" fill="#e2e8f0"/>
-      
-      <!-- Company Info -->
-      <text x="170" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#1e293b">CloudVault</text>
-      <text x="170" y="50" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Enterprise Security</text>
-      
-      <!-- Score Badge -->
-      <rect x="170" y="60" width="60" height="24" rx="12" fill="#dbeafe"/>
-      <circle cx="182" cy="72" r="4" fill="#3b82f6"/>
-      <text x="190" y="77" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#2563eb">8.8</text>
-      
-      <!-- Metrics -->
-      <g transform="translate(15, 120)">
-        <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">ARR</text>
-        <text x="0" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#3b82f6">$2.8M</text>
-        
-        <text x="100" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">GROWTH</text>
-        <text x="100" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#22c55e">+89%</text>
-        
-        <text x="200" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">STAGE</text>
-        <text x="200" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#3b82f6">Series A</text>
-      </g>
-      
-      <!-- Action Button -->
-      <rect x="15" y="150" width="330" height="18" rx="9" fill="url(#blueGrad)" opacity="0.1"/>
-      <text x="180" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#3b82f6" text-anchor="middle">View Demo →</text>
+    <g transform="translate(230, 20)">
+      <rect x="0" y="-10" width="100" height="30" rx="4" fill="white" opacity="0.5"/>
+      <text x="10" y="5" font-family="Arial, sans-serif" font-size="9" fill="#8B5CF6">Avg Score:</text>
+      <text x="75" y="5" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8B5CF6">75.6</text>
     </g>
     
-    <!-- Card 3 -->
-    <g transform="translate(760, 0)" filter="url(#cardShadow)">
-      <rect x="0" y="0" width="360" height="180" rx="12" fill="white"/>
-      
-      <!-- Demo Preview - Chart Style -->
-      <rect x="15" y="15" width="140" height="90" rx="8" fill="#f1f5f9"/>
-      <!-- Mini chart bars -->
-      <rect x="25" y="75" width="12" height="20" rx="2" fill="url(#purpleGrad)" opacity="0.6"/>
-      <rect x="42" y="65" width="12" height="30" rx="2" fill="url(#purpleGrad)" opacity="0.7"/>
-      <rect x="59" y="55" width="12" height="40" rx="2" fill="url(#purpleGrad)" opacity="0.8"/>
-      <rect x="76" y="45" width="12" height="50" rx="2" fill="url(#purpleBlue)"/>
-      <rect x="93" y="50" width="12" height="45" rx="2" fill="url(#blueGrad)" opacity="0.8"/>
-      <rect x="110" y="60" width="12" height="35" rx="2" fill="url(#blueGrad)" opacity="0.7"/>
-      <rect x="127" y="70" width="12" height="25" rx="2" fill="url(#blueGrad)" opacity="0.6"/>
-      
-      <!-- Company Info -->
-      <text x="170" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#1e293b">MetaHealth</text>
-      <text x="170" y="50" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Digital Healthcare</text>
-      
-      <!-- Score Badge -->
-      <rect x="170" y="60" width="60" height="24" rx="12" fill="#f3e8ff"/>
-      <circle cx="182" cy="72" r="4" fill="#8b5cf6"/>
-      <text x="190" y="77" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#7c3aed">9.5</text>
-      
-      <!-- Metrics -->
-      <g transform="translate(15, 120)">
-        <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">ARR</text>
-        <text x="0" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#8b5cf6">$890K</text>
-        
-        <text x="100" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">GROWTH</text>
-        <text x="100" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#22c55e">+156%</text>
-        
-        <text x="200" y="0" font-family="Arial, sans-serif" font-size="11" fill="#64748b">STAGE</text>
-        <text x="200" y="16" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#8b5cf6">Seed</text>
-      </g>
-      
-      <!-- Action Button -->
-      <rect x="15" y="150" width="330" height="18" rx="9" fill="url(#purpleBlue)" opacity="0.1"/>
-      <text x="180" y="162" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#7c3aed" text-anchor="middle">View Demo →</text>
-    </g>
-  </g>
-  
-  <!-- Bottom Section - Portfolio Metrics -->
-  <g id="portfolioMetrics" transform="translate(40, 455)">
-    <!-- Left Panel - Performance Chart -->
-    <g filter="url(#cardShadow)">
-      <rect x="0" y="0" width="540" height="180" rx="12" fill="white"/>
-      <text x="20" y="30" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#1e293b">Portfolio Performance</text>
-      
-      <!-- Chart Area -->
-      <g transform="translate(30, 55)">
-        <!-- Grid lines -->
-        <line x1="0" y1="0" x2="490" y2="0" stroke="#e2e8f0" stroke-width="1"/>
-        <line x1="0" y1="25" x2="490" y2="25" stroke="#e2e8f0" stroke-width="1"/>
-        <line x1="0" y1="50" x2="490" y2="50" stroke="#e2e8f0" stroke-width="1"/>
-        <line x1="0" y1="75" x2="490" y2="75" stroke="#e2e8f0" stroke-width="1"/>
-        <line x1="0" y1="100" x2="490" y2="100" stroke="#e2e8f0" stroke-width="1"/>
-        
-        <!-- Performance line -->
-        <path d="M 0,85 L 70,75 L 140,60 L 210,50 L 280,40 L 350,35 L 420,25 L 490,15" 
-              fill="none" stroke="url(#purpleBlue)" stroke-width="3" stroke-linecap="round"/>
-        
-        <!-- Area under curve -->
-        <path d="M 0,85 L 70,75 L 140,60 L 210,50 L 280,40 L 350,35 L 420,25 L 490,15 L 490,100 L 0,100 Z" 
-              fill="url(#purpleBlue)" opacity="0.1"/>
-        
-        <!-- Data points -->
-        <circle cx="0" cy="85" r="4" fill="#8b5cf6"/>
-        <circle cx="140" cy="60" r="4" fill="#8b5cf6"/>
-        <circle cx="280" cy="40" r="4" fill="#3b82f6"/>
-        <circle cx="420" cy="25" r="4" fill="#3b82f6"/>
-        <circle cx="490" cy="15" r="5" fill="#3b82f6" filter="url(#glow)"/>
-      </g>
-      
-      <!-- Legend -->
-      <g transform="translate(380, 25)">
-        <circle cx="0" cy="-3" r="4" fill="#8b5cf6"/>
-        <text x="12" y="0" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Total Value</text>
-        <text x="80" y="0" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#8b5cf6">+147%</text>
-      </g>
+    <g transform="translate(360, 20)">
+      <rect x="0" y="-10" width="100" height="30" rx="4" fill="white" opacity="0.5"/>
+      <text x="10" y="5" font-family="Arial, sans-serif" font-size="9" fill="#10B981">Pass Rate:</text>
+      <text x="70" y="5" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#10B981">68%</text>
     </g>
     
-    <!-- Right Panel - Key Metrics -->
-    <g transform="translate(560, 0)" filter="url(#cardShadow)">
-      <rect x="0" y="0" width="580" height="180" rx="12" fill="white"/>
-      <text x="20" y="30" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#1e293b">Key Metrics</text>
-      
-      <!-- Metric Cards -->
-      <g transform="translate(20, 50)">
-        <!-- Metric 1 -->
-        <rect x="0" y="0" width="170" height="100" rx="8" fill="url(#purpleBlue)" opacity="0.05"/>
-        <text x="15" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b" font-weight="500">AVG DEAL SIZE</text>
-        <text x="15" y="55" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#8b5cf6">$850K</text>
-        <rect x="15" y="68" width="60" height="20" rx="10" fill="#dcfce7"/>
-        <text x="45" y="82" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a" text-anchor="middle">+12%</text>
-        
-        <!-- Metric 2 -->
-        <rect x="190" y="0" width="170" height="100" rx="8" fill="url(#blueGrad)" opacity="0.05"/>
-        <text x="205" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b" font-weight="500">SUCCESS RATE</text>
-        <text x="205" y="55" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#3b82f6">67%</text>
-        <rect x="205" y="68" width="55" height="20" rx="10" fill="#dcfce7"/>
-        <text x="232.5" y="82" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a" text-anchor="middle">+8%</text>
-        
-        <!-- Metric 3 -->
-        <rect x="380" y="0" width="170" height="100" rx="8" fill="url(#purpleGrad)" opacity="0.05"/>
-        <text x="395" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b" font-weight="500">TIME TO CLOSE</text>
-        <text x="395" y="55" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#8b5cf6">42d</text>
-        <rect x="395" y="68" width="60" height="20" rx="10" fill="#fee2e2"/>
-        <text x="425" y="82" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#ef4444" text-anchor="middle">-5d</text>
-      </g>
+    <g transform="translate(490, 20)">
+      <rect x="0" y="-10" width="120" height="30" rx="4" fill="white" opacity="0.5"/>
+      <text x="10" y="5" font-family="Arial, sans-serif" font-size="9" fill="#3B82F6">Processing:</text>
+      <text x="75" y="5" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3B82F6">12 deals</text>
     </g>
   </g>
   
   <!-- Decorative Elements -->
-  <circle cx="1150" cy="30" r="3" fill="#8b5cf6" opacity="0.3"/>
-  <circle cx="1170" cy="50" r="2" fill="#3b82f6" opacity="0.3"/>
-  <circle cx="1130" cy="60" r="2.5" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="760" cy="550" r="30" fill="url(#purpleBlue)" opacity="0.1"/>
+  <circle cx="740" cy="570" r="18" fill="#3B82F6" opacity="0.08"/>
+  <circle cx="60" cy="560" r="22" fill="#8B5CF6" opacity="0.08"/>
 </svg>
