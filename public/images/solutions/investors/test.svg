@@ -75,7 +75,7 @@
     Portfolio Cohort Analytics
   </text>
   <text x="110" y="80" font-family="Inter, -apple-system, sans-serif" font-size="16" fill="#CBD5E1" font-weight="400">
-    Investment thesis-driven portfolio management & performance tracking
+    Investment thesis-driven portfolio management and performance tracking
   </text>
   
   <!-- Key Metrics in Header -->
@@ -271,30 +271,108 @@
     </g>
   </g>
   
+  <!-- Fintech Company Cards -->
+  <g id="fintech-companies">
+    <!-- Company 1: PayFlow EU -->
+    <g id="payflow" filter="url(#cardShadow)">
+      <rect x="80" y="600" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#E2E8F0" stroke-width="1"/>
+      
+      <circle cx="110" cy="630" r="16" fill="#DBEAFE"/>
+      <text x="110" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">P</text>
+      
+      <text x="135" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">PayFlow EU</text>
+      <text x="135" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $3.5M · Q1 2024</text>
+      
+      <rect x="240" y="615" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="270" y="628" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
+      
+      <rect x="100" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="100" y="660" width="184" height="8" rx="4" fill="url(#blueGradient)"/>
+      
+      <text x="100" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">92% milestone</text>
+      <text x="100" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Market expansion phase</text>
+    </g>
+    
+    <!-- Company 2: NeoBank.io -->
+    <g id="neobank" filter="url(#cardShadow)">
+      <rect x="340" y="600" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#E2E8F0" stroke-width="1"/>
+      
+      <circle cx="370" cy="630" r="16" fill="#DBEAFE"/>
+      <text x="370" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">N</text>
+      
+      <text x="395" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">NeoBank.io</text>
+      <text x="395" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $2M · Q2 2024</text>
+      
+      <rect x="500" y="615" width="60" height="20" rx="10" fill="#FEF3C7"/>
+      <text x="530" y="628" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
+      
+      <rect x="360" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="360" y="660" width="110" height="8" rx="4" fill="#F59E0B"/>
+      
+      <text x="360" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#F59E0B">55% milestone</text>
+      <text x="360" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Regulatory approval pending</text>
+    </g>
+    
+    <!-- Company 3: WealthTech -->
+    <g id="wealthtech" filter="url(#cardShadow)">
+      <rect x="600" y="600" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#E2E8F0" stroke-width="1"/>
+      
+      <circle cx="630" cy="630" r="16" fill="#DBEAFE"/>
+      <text x="630" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">W</text>
+      
+      <text x="655" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">WealthTech</text>
+      <text x="655" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $2.7M · Q2 2024</text>
+      
+      <rect x="760" y="615" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="790" y="628" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
+      
+      <rect x="620" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="620" y="660" width="130" height="8" rx="4" fill="url(#blueGradient)"/>
+      
+      <text x="620" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#10B981">65% milestone</text>
+      <text x="620" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Customer acquisition focus</text>
+    </g>
+    
+    <!-- Fintech Watchlist -->
+    <g id="fintech-watchlist" filter="url(#cardShadow)">
+      <rect x="860" y="600" width="240" height="120" rx="16" fill="url(#cardGradient)" stroke="#3B82F6" stroke-width="2" stroke-dasharray="8,4"/>
+      
+      <circle cx="890" cy="630" r="16" fill="#F3F4F6"/>
+      <text x="890" y="636" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#3B82F6" text-anchor="middle">🔍</text>
+      
+      <text x="915" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">OpenBanking+</text>
+      <text x="915" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed stage · DD phase</text>
+      
+      <rect x="1020" y="615" width="60" height="20" rx="10" fill="#DBEAFE"/>
+      <text x="1050" y="628" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#3B82F6" text-anchor="middle">PIPELINE</text>
+      
+      <rect x="880" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
+      <rect x="880" y="660" width="80" height="8" rx="4" fill="#3B82F6"/>
+      
+      <text x="880" y="685" font-family="Inter, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#3B82F6">Due diligence</text>
+      <text x="880" y="705" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B">Target close: Q1 2025</text>
+    </g>
+  </g>
+  
   <!-- Enhanced Legend -->
   <g id="legend">
-    <rect x="60" y="700" width="1080" height="80" rx="16" fill="white" filter="url(#cardShadow)"/>
+    <rect x="60" y="740" width="1080" height="50" rx="16" fill="white" filter="url(#cardShadow)"/>
     
-    <text x="90" y="730" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">Performance Legend</text>
+    <text x="90" y="765" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">Performance Legend</text>
     
     <!-- Legend Items -->
     <g id="legend-items">
-      <circle cx="250" cy="725" r="6" fill="#10B981"/>
-      <text x="265" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">On Track (≥70%)</text>
+      <circle cx="280" cy="760" r="6" fill="#10B981"/>
+      <text x="295" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">On Track (≥70%)</text>
       
-      <circle cx="400" cy="725" r="6" fill="#F59E0B"/>
-      <text x="415" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">At Risk (50-69%)</text>
+      <circle cx="450" cy="760" r="6" fill="#F59E0B"/>
+      <text x="465" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">At Risk (50-69%)</text>
       
-      <circle cx="550" cy="725" r="6" fill="#EF4444"/>
-      <text x="565" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Off Track (&lt;50%)</text>
+      <circle cx="620" cy="760" r="6" fill="#EF4444"/>
+      <text x="635" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Off Track (less than 50%)</text>
       
-      <rect x="700" y="719" width="40" height="12" rx="2" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,2"/>
-      <text x="750" y="730" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Pipeline/Watchlist</text>
+      <rect x="820" y="754" width="40" height="12" rx="2" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4,2"/>
+      <text x="870" y="765" font-family="Inter, -apple-system, sans-serif" font-size="13" fill="#64748B" font-weight="500">Pipeline/Watchlist</text>
     </g>
-    
-    <rect x="90" y="745" width="1000" height="25" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
-    <text x="110" y="762" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B" font-weight="400">
-      Real-time portfolio analytics • Milestone tracking • Risk assessment • Pipeline management • Performance benchmarking
-    </text>
   </g>
 </svg>
