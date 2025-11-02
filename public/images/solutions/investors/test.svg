@@ -1,347 +1,263 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
   <defs>
-    <!-- Premium Gradients -->
-    <linearGradient id="premiumPurple" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#5b73e8;stop-opacity:1" />
+    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
     </linearGradient>
-    
-    <linearGradient id="premiumBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#00f2fe;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#A78BFA;stop-opacity:0.1" />
     </linearGradient>
-    
-    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffd89b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#19547b;stop-opacity:1" />
+    <linearGradient id="lightBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:0.1" />
     </linearGradient>
-    
-    <!-- Card Backgrounds -->
-    <linearGradient id="cardBg1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.95" />
-      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:0.95" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fef7ff;stop-opacity:0.95" />
-      <stop offset="100%" style="stop-color:#f3f4f6;stop-opacity:0.95" />
-    </linearGradient>
-    
-    <!-- Background Pattern -->
-    <pattern id="backgroundPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <circle cx="20" cy="20" r="1" fill="#e5e7eb" opacity="0.3"/>
-    </pattern>
-    
-    <!-- Enhanced Shadows -->
-    <filter id="premiumShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
-      <feOffset dx="0" dy="4" result="offset"/>
-      <feFlood flood-color="#000000" flood-opacity="0.1"/>
-      <feComposite in2="offset" operator="in"/>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <filter id="glowEffect" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <!-- Subtle Noise Texture -->
-    <filter id="noiseTexture">
-      <feTurbulence baseFrequency="0.9" numOctaves="4" result="noise"/>
-      <feColorMatrix in="noise" type="saturate" values="0"/>
-      <feComponentTransfer>
-        <feFuncA type="discrete" tableValues="0 .5 0 .5 0 .5 0 .5"/>
-      </feComponentTransfer>
-      <feComposite operator="over" in2="SourceGraphic"/>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
     </filter>
   </defs>
   
-  <!-- Premium Background -->
-  <rect width="800" height="600" fill="url(#backgroundPattern)"/>
-  <rect width="800" height="600" fill="linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)" opacity="0.8"/>
+  <!-- Background -->
+  <rect width="800" height="600" fill="none"/>
   
-  <!-- Header Section with Enhanced Typography -->
-  <g transform="translate(0, 0)">
-    <rect x="0" y="0" width="800" height="80" fill="url(#premiumPurple)" opacity="0.05"/>
-    <text x="400" y="35" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#1e293b" text-anchor="middle" letter-spacing="-0.5px">
-      Startup Metrics Comparison Dashboard
-    </text>
-    <text x="400" y="55" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" fill="#64748b" text-anchor="middle" font-weight="500">
-      Normalized Performance Analytics • Q4 2025 • Portfolio Overview
-    </text>
-    <!-- Decorative line -->
-    <rect x="300" y="65" width="200" height="2" fill="url(#goldAccent)" rx="1"/>
-  </g>
+  <!-- Header -->
+  <text x="400" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2D3748" text-anchor="middle">
+    Startup Metrics Comparison Dashboard
+  </text>
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="12" fill="#4A5568" text-anchor="middle">
+    Normalized Performance Analytics | Q4 2025
+  </text>
   
-  <!-- Enhanced Startup Profile Cards -->
+  <!-- Startup Profile Cards -->
   <!-- Card 1: TechFlow AI -->
-  <g transform="translate(20, 90)">
-    <rect width="180" height="110" rx="12" fill="url(#cardBg1)" filter="url(#premiumShadow)" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1"/>
-    <rect width="180" height="4" rx="2" fill="url(#premiumPurple)"/>
-    <circle cx="25" cy="25" r="8" fill="url(#premiumPurple)" opacity="0.2"/>
-    <circle cx="25" cy="25" r="4" fill="url(#premiumPurple)"/>
-    
-    <text x="45" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="#1e293b">TechFlow AI</text>
-    <text x="20" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Activation Rate</text>
-    <text x="20" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Retention Rate</text>
-    <text x="20" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Monthly Revenue</text>
-    
-    <text x="160" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">78%</text>
-    <text x="160" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">82%</text>
-    <text x="160" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">$145K</text>
-    
-    <rect x="120" y="90" width="50" height="16" rx="8" fill="#10b981" opacity="0.1"/>
-    <text x="145" y="100" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#10b981" font-weight="700" text-anchor="middle">↗ +23%</text>
+  <g transform="translate(20, 70)">
+    <rect width="180" height="100" rx="8" fill="url(#lightPurple)" filter="url(#shadow)"/>
+    <rect width="180" height="4" rx="2" fill="url(#purpleBlue)"/>
+    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">TechFlow AI</text>
+    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Activation: 78%</text>
+    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Retention: 82%</text>
+    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">MRR: $145K</text>
+    <circle cx="160" cy="85" r="8" fill="#10B981"/>
+    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+23%</text>
   </g>
   
   <!-- Card 2: DataSync Pro -->
-  <g transform="translate(210, 90)">
-    <rect width="180" height="110" rx="12" fill="url(#cardBg2)" filter="url(#premiumShadow)" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
-    <rect width="180" height="4" rx="2" fill="url(#premiumBlue)"/>
-    <circle cx="25" cy="25" r="8" fill="url(#premiumBlue)" opacity="0.2"/>
-    <circle cx="25" cy="25" r="4" fill="url(#premiumBlue)"/>
-    
-    <text x="45" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="#1e293b">DataSync Pro</text>
-    <text x="20" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Activation Rate</text>
-    <text x="20" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Retention Rate</text>
-    <text x="20" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Monthly Revenue</text>
-    
-    <text x="160" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">65%</text>
-    <text x="160" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">71%</text>
-    <text x="160" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">$98K</text>
-    
-    <rect x="120" y="90" width="50" height="16" rx="8" fill="#10b981" opacity="0.1"/>
-    <text x="145" y="100" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#10b981" font-weight="700" text-anchor="middle">↗ +18%</text>
+  <g transform="translate(210, 70)">
+    <rect width="180" height="100" rx="8" fill="url(#lightBlue)" filter="url(#shadow)"/>
+    <rect width="180" height="4" rx="2" fill="#3B82F6"/>
+    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">DataSync Pro</text>
+    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Activation: 65%</text>
+    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Retention: 71%</text>
+    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">MRR: $98K</text>
+    <circle cx="160" cy="85" r="8" fill="#10B981"/>
+    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+18%</text>
   </g>
   
   <!-- Card 3: CloudNest -->
-  <g transform="translate(400, 90)">
-    <rect width="180" height="110" rx="12" fill="url(#cardBg1)" filter="url(#premiumShadow)" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1"/>
-    <rect width="180" height="4" rx="2" fill="url(#premiumPurple)"/>
-    <circle cx="25" cy="25" r="8" fill="url(#premiumPurple)" opacity="0.2"/>
-    <circle cx="25" cy="25" r="4" fill="url(#premiumPurple)"/>
-    
-    <text x="45" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="#1e293b">CloudNest</text>
-    <text x="20" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Activation Rate</text>
-    <text x="20" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Retention Rate</text>
-    <text x="20" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Monthly Revenue</text>
-    
-    <text x="160" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">85%</text>
-    <text x="160" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">88%</text>
-    <text x="160" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">$203K</text>
-    
-    <rect x="120" y="90" width="50" height="16" rx="8" fill="#10b981" opacity="0.1"/>
-    <text x="145" y="100" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#10b981" font-weight="700" text-anchor="middle">↗ +31%</text>
+  <g transform="translate(400, 70)">
+    <rect width="180" height="100" rx="8" fill="url(#lightPurple)" filter="url(#shadow)"/>
+    <rect width="180" height="4" rx="2" fill="#8B5CF6"/>
+    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">CloudNest</text>
+    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Activation: 85%</text>
+    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Retention: 88%</text>
+    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">MRR: $203K</text>
+    <circle cx="160" cy="85" r="8" fill="#10B981"/>
+    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#10B981" font-weight="bold">+31%</text>
   </g>
   
   <!-- Card 4: AutoScale -->
-  <g transform="translate(590, 90)">
-    <rect width="180" height="110" rx="12" fill="url(#cardBg2)" filter="url(#premiumShadow)" stroke="rgba(59, 130, 246, 0.2)" stroke-width="1"/>
-    <rect width="180" height="4" rx="2" fill="url(#premiumBlue)"/>
-    <circle cx="25" cy="25" r="8" fill="url(#premiumBlue)" opacity="0.2"/>
-    <circle cx="25" cy="25" r="4" fill="url(#premiumBlue)"/>
-    
-    <text x="45" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="#1e293b">AutoScale</text>
-    <text x="20" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Activation Rate</text>
-    <text x="20" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Retention Rate</text>
-    <text x="20" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" fill="#64748b" font-weight="500">Monthly Revenue</text>
-    
-    <text x="160" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">72%</text>
-    <text x="160" y="65" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">76%</text>
-    <text x="160" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#1e293b" font-weight="700" text-anchor="end">$127K</text>
-    
-    <rect x="120" y="90" width="50" height="16" rx="8" fill="#f59e0b" opacity="0.1"/>
-    <text x="145" y="100" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#f59e0b" font-weight="700" text-anchor="middle">↗ +12%</text>
+  <g transform="translate(590, 70)">
+    <rect width="180" height="100" rx="8" fill="url(#lightBlue)" filter="url(#shadow)"/>
+    <rect width="180" height="4" rx="2" fill="#3B82F6"/>
+    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748" text-anchor="middle">AutoScale</text>
+    <text x="10" y="45" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Activation: 72%</text>
+    <text x="10" y="60" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">Retention: 76%</text>
+    <text x="10" y="75" font-family="Arial, sans-serif" font-size="12" fill="#4A5568">MRR: $127K</text>
+    <circle cx="160" cy="85" r="8" fill="#F59E0B"/>
+    <text x="140" y="90" font-family="Arial, sans-serif" font-size="9" fill="#F59E0B" font-weight="bold">+12%</text>
   </g>
   
-  <!-- Enhanced Charts Section -->
-  <g transform="translate(20, 220)">
-    <text x="0" y="0" font-family="'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#1e293b" letter-spacing="-0.3px">Performance Analytics</text>
+  <!-- Normalized Metrics Charts Section -->
+  <g transform="translate(20, 190)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Normalized Performance Metrics</text>
     
     <!-- Activation Rate Chart -->
     <g transform="translate(0, 25)">
-      <rect width="185" height="130" rx="12" fill="url(#cardBg1)" filter="url(#premiumShadow)" stroke="rgba(139, 92, 246, 0.1)" stroke-width="1"/>
-      <text x="93" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151" text-anchor="middle">Activation Rate</text>
+      <rect width="175" height="120" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+      <text x="88" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2D3748" text-anchor="middle">Activation Rate</text>
       
-      <!-- Enhanced bars with gradients -->
-      <rect x="25" y="40" width="28" height="62" rx="4" fill="url(#premiumPurple)" opacity="0.9"/>
-      <rect x="60" y="52" width="28" height="50" rx="4" fill="url(#premiumBlue)" opacity="0.9"/>
-      <rect x="95" y="32" width="28" height="70" rx="4" fill="url(#premiumPurple)" opacity="0.9"/>
-      <rect x="130" y="45" width="28" height="57" rx="4" fill="url(#premiumBlue)" opacity="0.9"/>
+      <!-- Bars -->
+      <rect x="20" y="35" width="30" height="62" fill="#8B5CF6" opacity="0.8"/>
+      <rect x="55" y="47" width="30" height="50" fill="#3B82F6" opacity="0.8"/>
+      <rect x="90" y="27" width="30" height="70" fill="#8B5CF6" opacity="0.8"/>
+      <rect x="125" y="40" width="30" height="57" fill="#3B82F6" opacity="0.8"/>
       
-      <!-- Value labels with better positioning -->
-      <text x="39" y="37" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">78%</text>
-      <text x="74" y="49" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">65%</text>
-      <text x="109" y="29" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">85%</text>
-      <text x="144" y="42" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">72%</text>
+      <!-- Values -->
+      <text x="35" y="32" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">78%</text>
+      <text x="70" y="44" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">65%</text>
+      <text x="105" y="24" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">85%</text>
+      <text x="140" y="37" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">72%</text>
       
-      <!-- Company labels -->
-      <text x="39" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Tech</text>
-      <text x="74" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Data</text>
-      <text x="109" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Cloud</text>
-      <text x="144" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Auto</text>
+      <!-- Labels -->
+      <text x="35" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Tech</text>
+      <text x="70" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Data</text>
+      <text x="105" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Cloud</text>
+      <text x="140" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Auto</text>
     </g>
     
     <!-- Retention Rate Chart -->
-    <g transform="translate(195, 25)">
-      <rect width="185" height="130" rx="12" fill="url(#cardBg2)" filter="url(#premiumShadow)" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/>
-      <text x="93" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151" text-anchor="middle">Retention Rate</text>
+    <g transform="translate(185, 25)">
+      <rect width="175" height="120" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+      <text x="88" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2D3748" text-anchor="middle">Retention Rate</text>
       
-      <!-- Enhanced bars -->
-      <rect x="25" y="35" width="28" height="67" rx="4" fill="url(#premiumPurple)" opacity="0.9"/>
-      <rect x="60" y="43" width="28" height="59" rx="4" fill="url(#premiumBlue)" opacity="0.9"/>
-      <rect x="95" y="29" width="28" height="73" rx="4" fill="url(#premiumPurple)" opacity="0.9"/>
-      <rect x="130" y="38" width="28" height="64" rx="4" fill="url(#premiumBlue)" opacity="0.9"/>
+      <!-- Bars -->
+      <rect x="20" y="30" width="30" height="67" fill="#8B5CF6" opacity="0.8"/>
+      <rect x="55" y="38" width="30" height="59" fill="#3B82F6" opacity="0.8"/>
+      <rect x="90" y="24" width="30" height="73" fill="#8B5CF6" opacity="0.8"/>
+      <rect x="125" y="33" width="30" height="64" fill="#3B82F6" opacity="0.8"/>
       
-      <!-- Value labels -->
-      <text x="39" y="32" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">82%</text>
-      <text x="74" y="40" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">71%</text>
-      <text x="109" y="26" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">88%</text>
-      <text x="144" y="35" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" text-anchor="middle" font-weight="700">76%</text>
+      <!-- Values -->
+      <text x="35" y="27" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">82%</text>
+      <text x="70" y="35" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">71%</text>
+      <text x="105" y="21" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">88%</text>
+      <text x="140" y="30" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" text-anchor="middle">76%</text>
       
-      <!-- Company labels -->
-      <text x="39" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Tech</text>
-      <text x="74" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Data</text>
-      <text x="109" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Cloud</text>
-      <text x="144" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="9" fill="#64748b" text-anchor="middle" font-weight="500">Auto</text>
+      <!-- Labels -->
+      <text x="35" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Tech</text>
+      <text x="70" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Data</text>
+      <text x="105" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Cloud</text>
+      <text x="140" y="110" font-family="Arial, sans-serif" font-size="8" fill="#4A5568" text-anchor="middle">Auto</text>
     </g>
     
-    <!-- Enhanced Revenue Trend Chart -->
-    <g transform="translate(390, 25)">
-      <rect width="205" height="130" rx="12" fill="url(#cardBg1)" filter="url(#premiumShadow)" stroke="rgba(139, 92, 246, 0.1)" stroke-width="1"/>
-      <text x="103" y="20" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600" fill="#374151" text-anchor="middle">MRR Growth Trends</text>
+    <!-- Revenue Trend Lines -->
+    <g transform="translate(370, 25)">
+      <rect width="195" height="120" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+      <text x="98" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2D3748" text-anchor="middle">MRR Growth Trends</text>
       
-      <!-- Grid lines with subtle styling -->
-      <line x1="25" y1="35" x2="180" y2="35" stroke="#e2e8f0" stroke-width="0.5"/>
-      <line x1="25" y1="57" x2="180" y2="57" stroke="#e2e8f0" stroke-width="0.5"/>
-      <line x1="25" y1="79" x2="180" y2="79" stroke="#e2e8f0" stroke-width="0.5"/>
-      <line x1="25" y1="101" x2="180" y2="101" stroke="#e2e8f0" stroke-width="0.5"/>
+      <!-- Grid lines -->
+      <line x1="20" y1="30" x2="175" y2="30" stroke="#E5E7EB" stroke-width="0.5"/>
+      <line x1="20" y1="52" x2="175" y2="52" stroke="#E5E7EB" stroke-width="0.5"/>
+      <line x1="20" y1="74" x2="175" y2="74" stroke="#E5E7EB" stroke-width="0.5"/>
+      <line x1="20" y1="96" x2="175" y2="96" stroke="#E5E7EB" stroke-width="0.5"/>
       
-      <!-- Enhanced trend lines with glow effect -->
-      <polyline points="25,65 55,57 85,51 115,45 145,40 175,35" fill="none" stroke="url(#premiumPurple)" stroke-width="3" filter="url(#glowEffect)"/>
-      <circle cx="175" cy="35" r="4" fill="url(#premiumPurple)"/>
+      <!-- TechFlow AI trend -->
+      <polyline points="20,60 50,52 80,46 110,40 140,35 170,30" fill="none" stroke="#8B5CF6" stroke-width="2.5"/>
+      <circle cx="170" cy="30" r="3" fill="#8B5CF6"/>
       
-      <polyline points="25,85 55,79 85,75 115,70 145,66 175,63" fill="none" stroke="url(#premiumBlue)" stroke-width="3" filter="url(#glowEffect)"/>
-      <circle cx="175" cy="63" r="4" fill="url(#premiumBlue)"/>
+      <!-- DataSync Pro trend -->
+      <polyline points="20,80 50,74 80,70 110,65 140,61 170,58" fill="none" stroke="#3B82F6" stroke-width="2.5"/>
+      <circle cx="170" cy="58" r="3" fill="#3B82F6"/>
       
-      <polyline points="25,60 55,50 85,43 115,37 145,32 175,27" fill="none" stroke="#a78bfa" stroke-width="3" filter="url(#glowEffect)"/>
-      <circle cx="175" cy="27" r="4" fill="#a78bfa"/>
+      <!-- CloudNest trend -->
+      <polyline points="20,55 50,45 80,38 110,32 140,27 170,22" fill="none" stroke="#A78BFA" stroke-width="2.5"/>
+      <circle cx="170" cy="22" r="3" fill="#A78BFA"/>
       
-      <polyline points="25,80 55,73 85,68 115,64 145,61 175,58" fill="none" stroke="#60a5fa" stroke-width="3" filter="url(#glowEffect)"/>
-      <circle cx="175" cy="58" r="4" fill="#60a5fa"/>
+      <!-- AutoScale trend -->
+      <polyline points="20,75 50,68 80,63 110,59 140,56 170,53" fill="none" stroke="#60A5FA" stroke-width="2.5"/>
+      <circle cx="170" cy="53" r="3" fill="#60A5FA"/>
       
-      <!-- Month labels -->
-      <text x="25" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle" font-weight="500">Jan</text>
-      <text x="55" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle" font-weight="500">Feb</text>
-      <text x="85" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle" font-weight="500">Mar</text>
-      <text x="115" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle" font-weight="500">Apr</text>
-      <text x="145" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle" font-weight="500">May</text>
-      <text x="175" y="118" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle" font-weight="500">Jun</text>
+      <!-- Axis labels -->
+      <text x="20" y="108" font-family="Arial, sans-serif" font-size="7" fill="#718096" text-anchor="middle">Jan</text>
+      <text x="50" y="108" font-family="Arial, sans-serif" font-size="7" fill="#718096" text-anchor="middle">Feb</text>
+      <text x="80" y="108" font-family="Arial, sans-serif" font-size="7" fill="#718096" text-anchor="middle">Mar</text>
+      <text x="110" y="108" font-family="Arial, sans-serif" font-size="7" fill="#718096" text-anchor="middle">Apr</text>
+      <text x="140" y="108" font-family="Arial, sans-serif" font-size="7" fill="#718096" text-anchor="middle">May</text>
+      <text x="170" y="108" font-family="Arial, sans-serif" font-size="7" fill="#718096" text-anchor="middle">Jun</text>
     </g>
   </g>
   
-  <!-- Enhanced Usage Funnel -->
-  <g transform="translate(20, 375)">
-    <text x="0" y="0" font-family="'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#1e293b" letter-spacing="-0.3px">Usage Funnel Analysis</text>
+  <!-- Usage Funnel Section -->
+  <g transform="translate(20, 340)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Average Usage Funnel Analysis</text>
     
     <g transform="translate(0, 25)">
-      <rect width="380" height="150" rx="12" fill="url(#cardBg1)" filter="url(#premiumShadow)" stroke="rgba(139, 92, 246, 0.1)" stroke-width="1"/>
+      <rect width="370" height="140" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
       
-      <!-- Enhanced funnel with gradients -->
-      <polygon points="70,35 320,35 290,60 100,60" fill="url(#premiumPurple)" opacity="0.8"/>
-      <polygon points="100,65 290,65 270,90 120,90" fill="url(#premiumBlue)" opacity="0.7"/>
-      <polygon points="120,95 270,95 255,120 135,120" fill="#8b5cf6" opacity="0.6"/>
-      <polygon points="135,125 255,125 245,140 145,140" fill="#60a5fa" opacity="0.5"/>
+      <!-- Funnel stages -->
+      <polygon points="60,30 310,30 280,55 90,55" fill="url(#purpleBlue)" opacity="0.7"/>
+      <polygon points="90,60 280,60 260,85 110,85" fill="#8B5CF6" opacity="0.6"/>
+      <polygon points="110,90 260,90 245,115 125,115" fill="#3B82F6" opacity="0.5"/>
+      <polygon points="125,120 245,120 235,135 135,135" fill="#60A5FA" opacity="0.4"/>
       
-      <!-- Enhanced labels -->
-      <text x="195" y="50" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">Sign Up (100%)</text>
-      <text x="195" y="80" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">Activation (75%)</text>
-      <text x="195" y="110" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">Regular Use (52%)</text>
-      <text x="195" y="135" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" fill="#ffffff" text-anchor="middle" font-weight="700">Premium (28%)</text>
+      <!-- Labels and percentages -->
+      <text x="185" y="45" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Sign Up (100%)</text>
+      <text x="185" y="75" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Activation (75%)</text>
+      <text x="185" y="105" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Regular Use (52%)</text>
+      <text x="185" y="130" font-family="Arial, sans-serif" font-size="11" fill="#FFFFFF" text-anchor="middle" font-weight="bold">Premium (28%)</text>
     </g>
   </g>
   
-  <!-- Enhanced KPI Table -->
-  <g transform="translate(420, 375)">
-    <text x="0" y="0" font-family="'Segoe UI', system-ui, sans-serif" font-size="18" font-weight="700" fill="#1e293b" letter-spacing="-0.3px">Key Performance Indicators</text>
+  <!-- KPI Comparison Table -->
+  <g transform="translate(410, 340)">
+    <text x="0" y="15" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2D3748">Key Performance Indicators</text>
     
     <g transform="translate(0, 25)">
-      <rect width="360" height="150" rx="12" fill="url(#cardBg2)" filter="url(#premiumShadow)" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"/>
+      <rect width="360" height="140" rx="6" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
       
-      <!-- Enhanced table header -->
-      <rect x="15" y="15" width="330" height="25" fill="url(#premiumPurple)" opacity="0.1" rx="6"/>
-      <text x="25" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#374151">Metric</text>
-      <text x="140" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#374151">Industry Avg</text>
-      <text x="240" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#374151">Portfolio Avg</text>
-      <text x="320" y="30" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#374151">Status</text>
+      <!-- Table Header -->
+      <rect x="10" y="10" width="340" height="20" fill="url(#purpleBlue)" opacity="0.15"/>
+      <text x="20" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2D3748">Metric</text>
+      <text x="130" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2D3748">Industry Avg</text>
+      <text x="230" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2D3748">Portfolio Avg</text>
+      <text x="310" y="23" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2D3748">Status</text>
       
-      <!-- Enhanced table rows -->
-      <text x="25" y="55" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">CAC Payback Period</text>
-      <text x="160" y="55" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">12 months</text>
-      <text x="260" y="55" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" font-weight="700">8 months</text>
-      <circle cx="330" cy="52" r="6" fill="#10b981"/>
-      <text x="330" y="56" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">✓</text>
+      <!-- Row 1 -->
+      <text x="20" y="45" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">CAC Payback</text>
+      <text x="150" y="45" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">12 months</text>
+      <text x="243" y="45" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" font-weight="bold">8 months</text>
+      <circle cx="325" cy="42" r="5" fill="#10B981"/>
       
-      <text x="25" y="75" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">Monthly Churn Rate</text>
-      <text x="160" y="75" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">5.2%</text>
-      <text x="260" y="75" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" font-weight="700">3.1%</text>
-      <circle cx="330" cy="72" r="6" fill="#10b981"/>
-      <text x="330" y="76" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">✓</text>
+      <!-- Row 2 -->
+      <text x="20" y="65" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">Churn Rate</text>
+      <text x="150" y="65" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">5.2%</text>
+      <text x="243" y="65" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" font-weight="bold">3.1%</text>
+      <circle cx="325" cy="62" r="5" fill="#10B981"/>
       
-      <text x="25" y="95" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">Net Promoter Score</text>
-      <text x="160" y="95" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">42</text>
-      <text x="260" y="95" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" font-weight="700">67</text>
-      <circle cx="330" cy="92" r="6" fill="#10b981"/>
-      <text x="330" y="96" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">✓</text>
+      <!-- Row 3 -->
+      <text x="20" y="85" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">NPS Score</text>
+      <text x="150" y="85" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">42</text>
+      <text x="243" y="85" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" font-weight="bold">67</text>
+      <circle cx="325" cy="82" r="5" fill="#10B981"/>
       
-      <text x="25" y="115" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">Gross Margin %</text>
-      <text x="160" y="115" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">68%</text>
-      <text x="260" y="115" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" font-weight="700">78%</text>
-      <circle cx="330" cy="112" r="6" fill="#10b981"/>
-      <text x="330" y="116" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">✓</text>
+      <!-- Row 4 -->
+      <text x="20" y="105" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">Gross Margin</text>
+      <text x="150" y="105" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">68%</text>
+      <text x="243" y="105" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" font-weight="bold">78%</text>
+      <circle cx="325" cy="102" r="5" fill="#10B981"/>
       
-      <text x="25" y="135" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">LTV/CAC Ratio</text>
-      <text x="160" y="135" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">3.2x</text>
-      <text x="260" y="135" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#1e293b" font-weight="700">4.8x</text>
-      <circle cx="330" cy="132" r="6" fill="#10b981"/>
-      <text x="330" y="136" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle" font-weight="700">✓</text>
+      <!-- Row 5 -->
+      <text x="20" y="125" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">LTV/CAC Ratio</text>
+      <text x="150" y="125" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">3.2x</text>
+      <text x="243" y="125" font-family="Arial, sans-serif" font-size="9" fill="#2D3748" font-weight="bold">4.8x</text>
+      <circle cx="325" cy="122" r="5" fill="#10B981"/>
     </g>
   </g>
   
-  <!-- Enhanced Legend -->
-  <g transform="translate(20, 545)">
-    <text x="0" y="0" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="700" fill="#374151">Legend:</text>
+  <!-- Legend -->
+  <g transform="translate(20, 510)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2D3748">Legend:</text>
     
-    <circle cx="65" cy="-3" r="6" fill="url(#premiumPurple)"/>
-    <text x="75" y="1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">TechFlow AI</text>
+    <circle cx="60" cy="-3" r="5" fill="#8B5CF6"/>
+    <text x="70" y="0" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">TechFlow AI</text>
     
-    <circle cx="175" cy="-3" r="6" fill="url(#premiumBlue)"/>
-    <text x="185" y="1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">DataSync Pro</text>
+    <circle cx="160" cy="-3" r="5" fill="#3B82F6"/>
+    <text x="170" y="0" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">DataSync Pro</text>
     
-    <circle cx="285" cy="-3" r="6" fill="#a78bfa"/>
-    <text x="295" y="1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">CloudNest</text>
+    <circle cx="270" cy="-3" r="5" fill="#A78BFA"/>
+    <text x="280" y="0" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">CloudNest</text>
     
-    <circle cx="385" cy="-3" r="6" fill="#60a5fa"/>
-    <text x="395" y="1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">AutoScale</text>
+    <circle cx="370" cy="-3" r="5" fill="#60A5FA"/>
+    <text x="380" y="0" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">AutoScale</text>
     
-    <circle cx="485" cy="-3" r="6" fill="#10b981"/>
-    <text x="495" y="1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">Above Target</text>
+    <circle cx="500" cy="-3" r="5" fill="#10B981"/>
+    <text x="510" y="0" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">Above Target</text>
     
-    <circle cx="595" cy="-3" r="6" fill="#f59e0b"/>
-    <text x="605" y="1" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#64748b" font-weight="500">On Track</text>
+    <circle cx="610" cy="-3" r="5" fill="#F59E0B"/>
+    <text x="620" y="0" font-family="Arial, sans-serif" font-size="9" fill="#4A5568">On Track</text>
   </g>
   
-  <!-- Enhanced Footer -->
-  <text x="400" y="585" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="middle" font-weight="500">
-    Data normalized across portfolio companies • Confidential Investment Analytics • Generated Q4 2025
+  <!-- Footer -->
+  <text x="400" y="580" font-family="Arial, sans-serif" font-size="9" fill="#718096" text-anchor="middle">
+    Data normalized across portfolio companies | Confidential Investment Analytics
   </text>
 </svg>
