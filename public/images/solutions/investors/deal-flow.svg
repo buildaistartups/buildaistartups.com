@@ -147,8 +147,8 @@
     <text x="650" y="205" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#2563EB">80% faster scheduling</text>
   </g>
   
-  <!-- Arrow 4: Demo to Decision (from right side of Demo, down, then left to Decision corner) -->
-  <path d="M 710 140 L 730 140 L 730 280 L 450 280 L 450 315" stroke="url(#purpleBlue)" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <!-- Arrow 4: Demo to Decision (pointing exactly to top corner of Decision diamond at 400,300) -->
+  <path d="M 710 140 L 730 140 L 730 280 L 400 280 L 400 300" stroke="url(#purpleBlue)" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   
   <!-- Stage 5: Decision -->
   <g id="decision">
