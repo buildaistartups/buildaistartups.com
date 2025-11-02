@@ -91,40 +91,40 @@
     <text x="1000" y="80" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#10B981">↑ 3.2% YoY</text>
   </g>
   
-  <!-- Enhanced Timeline -->
+  <!-- Enhanced Timeline - CENTERED VERTICALLY -->
   <g id="timeline">
     <rect x="60" y="150" width="1080" height="80" rx="16" fill="white" filter="url(#cardShadow)"/>
     
-    <!-- Timeline Line -->
+    <!-- Timeline Line - Centered at y=190 (middle of 80px box) -->
     <line x1="120" y1="190" x2="1080" y2="190" stroke="url(#purpleGradient)" stroke-width="4"/>
     
-    <!-- Timeline Points -->
+    <!-- Timeline Points - All centered vertically -->
     <g id="q1-2024">
       <circle cx="120" cy="190" r="8" fill="#6366F1" filter="url(#glowEffect)"/>
       <circle cx="120" cy="190" r="4" fill="white"/>
-      <text x="120" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q1 2024</text>
-      <text x="120" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">3 investments</text>
+      <text x="120" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q1 2024</text>
+      <text x="120" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">3 investments</text>
     </g>
     
     <g id="q2-2024">
       <circle cx="400" cy="190" r="8" fill="#8B5CF6" filter="url(#glowEffect)"/>
       <circle cx="400" cy="190" r="4" fill="white"/>
-      <text x="400" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q2 2024</text>
-      <text x="400" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">5 investments</text>
+      <text x="400" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q2 2024</text>
+      <text x="400" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">5 investments</text>
     </g>
     
     <g id="q3-2024">
       <circle cx="680" cy="190" r="8" fill="#3B82F6" filter="url(#glowEffect)"/>
       <circle cx="680" cy="190" r="4" fill="white"/>
-      <text x="680" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q3 2024</text>
-      <text x="680" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">Current</text>
+      <text x="680" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#475569" text-anchor="middle">Q3 2024</text>
+      <text x="680" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#64748B" text-anchor="middle">Current</text>
     </g>
     
     <g id="q4-2024">
       <circle cx="960" cy="190" r="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2"/>
       <circle cx="960" cy="190" r="4" fill="#F8FAFC"/>
-      <text x="960" y="215" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#94A3B8" text-anchor="middle">Q4 2024</text>
-      <text x="960" y="230" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Planned</text>
+      <text x="960" y="180" font-family="Inter, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#94A3B8" text-anchor="middle">Q4 2024</text>
+      <text x="960" y="205" font-family="Inter, -apple-system, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">Planned</text>
     </g>
   </g>
   
