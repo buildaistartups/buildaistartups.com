@@ -156,7 +156,7 @@
     </g>
   </g>
   
-  <!-- AI Company Cards -->
+  <!-- AI Company Cards - THIRD ROW -->
   <g id="ai-companies">
     <!-- Company 1: VectorDB Inc -->
     <g id="vectordb" filter="url(#cardShadow)">
@@ -169,9 +169,9 @@
       <text x="135" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">VectorDB Inc</text>
       <text x="135" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $2.5M · Q1 2024</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="240" y="370" width="60" height="20" rx="10" fill="#DCFCE7"/>
-      <text x="270" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="250" y="370" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="280" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
       <!-- Progress Bar -->
       <rect x="100" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
@@ -192,9 +192,9 @@
       <text x="395" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">NeuralScale</text>
       <text x="395" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $5M · Q2 2024</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="500" y="370" width="60" height="20" rx="10" fill="#DCFCE7"/>
-      <text x="530" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="510" y="370" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="540" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
       <rect x="360" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="360" y="420" width="140" height="8" rx="4" fill="url(#purpleGradient)"/>
@@ -213,9 +213,9 @@
       <text x="655" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">InferenceAI</text>
       <text x="655" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $1.8M · Q2 2024</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="760" y="370" width="60" height="20" rx="10" fill="#FEF3C7"/>
-      <text x="790" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="770" y="370" width="60" height="20" rx="10" fill="#FEF3C7"/>
+      <text x="800" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
       
       <rect x="620" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="620" y="420" width="120" height="8" rx="4" fill="#F59E0B"/>
@@ -234,9 +234,9 @@
       <text x="915" y="385" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">ComputeLayer</text>
       <text x="915" y="400" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Pre-seed · Target: $2M</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="1020" y="370" width="60" height="20" rx="10" fill="#EDE9FE"/>
-      <text x="1050" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">PIPELINE</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="1030" y="370" width="60" height="20" rx="10" fill="#EDE9FE"/>
+      <text x="1060" y="383" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#8B5CF6" text-anchor="middle">PIPELINE</text>
       
       <rect x="880" y="420" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="880" y="420" width="60" height="8" rx="4" fill="#8B5CF6"/>
@@ -274,7 +274,7 @@
     </g>
   </g>
   
-  <!-- Fintech Company Cards -->
+  <!-- Fintech Company Cards - FIFTH ROW -->
   <g id="fintech-companies">
     <!-- Company 1: PayFlow EU -->
     <g id="payflow" filter="url(#cardShadow)">
@@ -286,9 +286,9 @@
       <text x="135" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">PayFlow EU</text>
       <text x="135" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $3.5M · Q1 2024</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="240" y="610" width="60" height="20" rx="10" fill="#DCFCE7"/>
-      <text x="270" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="250" y="610" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="280" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
       <rect x="100" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="100" y="660" width="184" height="8" rx="4" fill="url(#blueGradient)"/>
@@ -307,9 +307,9 @@
       <text x="395" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">NeoBank.io</text>
       <text x="395" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed · $2M · Q2 2024</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="500" y="610" width="60" height="20" rx="10" fill="#FEF3C7"/>
-      <text x="530" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="510" y="610" width="60" height="20" rx="10" fill="#FEF3C7"/>
+      <text x="540" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#92400E" text-anchor="middle">WATCH</text>
       
       <rect x="360" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="360" y="660" width="110" height="8" rx="4" fill="#F59E0B"/>
@@ -328,9 +328,9 @@
       <text x="655" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">WealthTech</text>
       <text x="655" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Series A · $2.7M · Q2 2024</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="760" y="610" width="60" height="20" rx="10" fill="#DCFCE7"/>
-      <text x="790" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="770" y="610" width="60" height="20" rx="10" fill="#DCFCE7"/>
+      <text x="800" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#166534" text-anchor="middle">ON TRACK</text>
       
       <rect x="620" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="620" y="660" width="130" height="8" rx="4" fill="url(#blueGradient)"/>
@@ -349,9 +349,9 @@
       <text x="915" y="625" font-family="Inter, -apple-system, sans-serif" font-size="16" font-weight="700" fill="#1E293B">OpenBanking+</text>
       <text x="915" y="640" font-family="Inter, -apple-system, sans-serif" font-size="12" fill="#64748B">Seed stage · DD phase</text>
       
-      <!-- Status Badge - MOVED UP 5px -->
-      <rect x="1020" y="610" width="60" height="20" rx="10" fill="#DBEAFE"/>
-      <text x="1050" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#3B82F6" text-anchor="middle">PIPELINE</text>
+      <!-- Status Badge - MOVED ADDITIONAL 5px RIGHT -->
+      <rect x="1030" y="610" width="60" height="20" rx="10" fill="#DBEAFE"/>
+      <text x="1060" y="623" font-family="Inter, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#3B82F6" text-anchor="middle">PIPELINE</text>
       
       <rect x="880" y="660" width="200" height="8" rx="4" fill="#F1F5F9"/>
       <rect x="880" y="660" width="80" height="8" rx="4" fill="#3B82F6"/>
