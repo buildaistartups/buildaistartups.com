@@ -8,7 +8,7 @@
       .arrow { fill: none; stroke: #3B82F6; stroke-width: 2; marker-end: url(#arrowhead); }
       .milestone { fill: #3B82F6; }
       .checkpoint { fill: #F59E0B; stroke: #D97706; stroke-width: 1.5; }
-      .checkpoint-text { fill: #78350F; font-family: Arial, sans-serif; font-size: 9px; font-weight: bold; text-anchor: middle; }
+      .checkpoint-text { fill: #78350F; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }
     </style>
     <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
       <polygon points="0 0, 10 3, 0 6" fill="#3B82F6" />
@@ -48,7 +48,7 @@
   <!-- Stage 3: Repo Forge -->
   <rect x="400" y="40" width="150" height="50" rx="5" class="stage-box"/>
   <text x="475" y="60" class="stage-text">3. REPO FORGE</text>
-  <text x="475" y="73" class="deliverable-text">Setup &amp; Structure</text>
+  <text x="475" y="73" class="deliverable-text">Setup & Structure</text>
   <text x="475" y="83" class="deliverable-text">Core Development</text>
   <circle cx="475" cy="25" r="6" class="milestone"/>
   <text x="475" y="15" class="milestone-text">Code Review</text>
@@ -62,7 +62,7 @@
   
   <!-- Stage 4: UI & Copy -->
   <rect x="595" y="40" width="150" height="50" rx="5" class="stage-box"/>
-  <text x="670" y="60" class="stage-text">4. UI &amp; COPY</text>
+  <text x="670" y="60" class="stage-text">4. UI & COPY</text>
   <text x="670" y="73" class="deliverable-text">Design System</text>
   <text x="670" y="83" class="deliverable-text">Content Creation</text>
   <circle cx="670" cy="25" r="6" class="milestone"/>
@@ -77,7 +77,7 @@
   
   <!-- Stage 5: Ship & Learn -->
   <rect x="790" y="40" width="150" height="50" rx="5" class="stage-box"/>
-  <text x="865" y="60" class="stage-text">5. SHIP &amp; LEARN</text>
+  <text x="865" y="60" class="stage-text">5. SHIP & LEARN</text>
   <text x="865" y="73" class="deliverable-text">Launch Product</text>
   <text x="865" y="83" class="deliverable-text">User Feedback</text>
   <circle cx="865" cy="25" r="6" class="milestone"/>
