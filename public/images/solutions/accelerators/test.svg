@@ -1,510 +1,190 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg width="1200" height="128" viewBox="0 0 1200 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions for gradients and patterns -->
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    <!-- Purple gradient -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
     </linearGradient>
     
+    <!-- Blue gradient -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Light purple for milestones -->
     <linearGradient id="lightPurple" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+      <stop offset="0%" style="stop-color:#DDD6FE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C4B5FD;stop-opacity:1" />
     </linearGradient>
     
-    <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
-    </linearGradient>
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6366F1" />
+    </marker>
     
-    <!-- Card Background Gradients -->
-    <linearGradient id="cardBg1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f3e8ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ddd6fe;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#bfdbfe;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg4" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fae8ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg5" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ede9fe;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg6" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg7" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="cardBg8" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f3e8ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ddd6fe;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Timeline Background Gradient -->
-    <linearGradient id="timelineBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
-    </linearGradient>
-    
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>
-    </filter>
-    
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+    <!-- Checkpoint marker -->
+    <marker id="checkpoint" markerWidth="8" markerHeight="8" 
+            refX="4" refY="4" orient="auto">
+      <circle cx="4" cy="4" r="3" fill="#F59E0B" stroke="#D97706" stroke-width="1"/>
+    </marker>
   </defs>
   
-  <!-- Background -->
-  <rect width="1200" height="675" fill="transparent"/>
+  <!-- Background (transparent as requested) -->
   
-  <!-- Header Section -->
-  <g id="header">
-    <!-- Title -->
-    <text x="40" y="45" font-family="Arial, sans-serif" font-size="29" font-weight="bold" fill="#6d28d9">
-      Cohort Management Dashboard
-    </text>
-    <text x="40" y="70" font-family="Arial, sans-serif" font-size="15" fill="#7c3aed">
-      Spring 2024 • 8 Active Teams • Week 6 of 12
-    </text>
+  <!-- Main process flow line -->
+  <line x1="50" y1="64" x2="1150" y2="64" stroke="#6366F1" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 1: Intake -->
+  <g id="step1">
+    <rect x="20" y="40" width="80" height="48" rx="8" fill="url(#purpleGrad)" stroke="#7C3AED" stroke-width="2"/>
+    <text x="60" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">INTAKE</text>
+    <text x="60" y="72" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Onboarding</text>
+    <text x="60" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Assessment</text>
     
-    <!-- Mentor Oversight Indicator -->
-    <g transform="translate(900, 25)">
-      <rect x="0" y="0" width="260" height="60" rx="10" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1.5"/>
-      <circle cx="25" cy="30" r="12" fill="#8b5cf6"/>
-      <path d="M 22 30 L 24 32 L 29 27" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <text x="45" y="28" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#6d28d9">
-        Mentor Oversight
-      </text>
-      <text x="45" y="44" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        12 Mentors Active
-      </text>
-    </g>
+    <!-- Milestone indicator -->
+    <circle cx="60" cy="25" r="6" fill="url(#lightPurple)" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="60" y="29" text-anchor="middle" fill="#5B21B6" font-family="Arial, sans-serif" font-size="8" font-weight="bold">M1</text>
+    
+    <!-- Deliverable -->
+    <rect x="40" y="95" width="40" height="12" rx="2" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1"/>
+    <text x="60" y="103" text-anchor="middle" fill="#374151" font-family="Arial, sans-serif" font-size="7">Profile Setup</text>
   </g>
   
-  <!-- Program Timeline -->
-  <g id="timeline" transform="translate(40, 110)">
-    <rect x="0" y="0" width="1120" height="70" rx="12" fill="url(#timelineBg)" filter="url(#shadow)"/>
+  <!-- Mentor checkpoint 1 -->
+  <circle cx="140" cy="64" r="4" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <text x="140" y="52" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7" font-weight="bold">Mentor</text>
+  <text x="140" y="78" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7">Check</text>
+  
+  <!-- Step 2: Spec Studio -->
+  <g id="step2">
+    <rect x="180" y="40" width="80" height="48" rx="8" fill="url(#blueGrad)" stroke="#2563EB" stroke-width="2"/>
+    <text x="220" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SPEC</text>
+    <text x="220" y="68" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">STUDIO</text>
+    <text x="220" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Requirements</text>
     
-    <!-- Timeline Title -->
-    <text x="20" y="25" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#7c3aed">
-      PROGRAM TIMELINE
-    </text>
+    <!-- Milestone indicator -->
+    <circle cx="220" cy="25" r="6" fill="url(#lightPurple)" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="220" y="29" text-anchor="middle" fill="#5B21B6" font-family="Arial, sans-serif" font-size="8" font-weight="bold">M2</text>
     
-    <!-- Timeline Bar -->
-    <rect x="20" y="35" width="1080" height="8" rx="4" fill="#ddd6fe"/>
-    <rect x="20" y="35" width="540" height="8" rx="4" fill="url(#progressGrad)"/>
-    
-    <!-- Milestone Checkpoints -->
-    <g id="milestones">
-      <!-- Checkpoint 1 - Completed -->
-      <circle cx="180" cy="39" r="8" fill="#8b5cf6" stroke="white" stroke-width="3"/>
-      <text x="180" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">Kickoff</text>
-      
-      <!-- Checkpoint 2 - Completed -->
-      <circle cx="360" cy="39" r="8" fill="#8b5cf6" stroke="white" stroke-width="3"/>
-      <text x="360" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">MVP</text>
-      
-      <!-- Checkpoint 3 - Current -->
-      <circle cx="540" cy="39" r="10" fill="#3b82f6" stroke="white" stroke-width="3" filter="url(#glow)"/>
-      <text x="540" y="60" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#3b82f6" text-anchor="middle">Mid-Demo</text>
-      
-      <!-- Checkpoint 4 - Upcoming -->
-      <circle cx="720" cy="39" r="8" fill="white" stroke="#cbd5e1" stroke-width="3"/>
-      <text x="720" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">Beta</text>
-      
-      <!-- Checkpoint 5 - Upcoming -->
-      <circle cx="900" cy="39" r="8" fill="white" stroke="#cbd5e1" stroke-width="3"/>
-      <text x="900" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">Final Demo</text>
-    </g>
+    <!-- Deliverable -->
+    <rect x="190" y="95" width="60" height="12" rx="2" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1"/>
+    <text x="220" y="103" text-anchor="middle" fill="#374151" font-family="Arial, sans-serif" font-size="7">Project Spec</text>
   </g>
   
-  <!-- Team Cards Grid -->
-  <g id="team-cards">
-    <!-- Row 1 -->
-    <!-- Team Card 1 -->
-    <g transform="translate(40, 210)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg1)" filter="url(#shadow)"/>
-      
-      <!-- Quality Gate Badge -->
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
-      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
-        Approved
-      </text>
-      
-      <!-- Team Name -->
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Alpha
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        AI Learning Platform
-      </text>
-      
-      <!-- Progress Bar -->
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 85%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="272" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <!-- Team Collaboration Icons -->
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <text x="75" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          4 Members
-        </text>
-      </g>
-      
-      <!-- Demo Preview Icon -->
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+  <!-- Mentor checkpoint 2 -->
+  <circle cx="300" cy="64" r="4" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <text x="300" y="52" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7" font-weight="bold">Mentor</text>
+  <text x="300" y="78" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7">Check</text>
+  
+  <!-- Step 3: Repo Forge -->
+  <g id="step3">
+    <rect x="340" y="40" width="80" height="48" rx="8" fill="url(#purpleGrad)" stroke="#7C3AED" stroke-width="2"/>
+    <text x="380" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">REPO</text>
+    <text x="380" y="68" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">FORGE</text>
+    <text x="380" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Development</text>
     
-    <!-- Team Card 2 -->
-    <g transform="translate(420, 210)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg2)" filter="url(#shadow)"/>
-      
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
-      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
-        Approved
-      </text>
-      
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Beta
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        Healthcare Analytics
-      </text>
-      
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 92%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="294" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="72" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <text x="90" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          5 Members
-        </text>
-      </g>
-      
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+    <!-- Milestone indicator -->
+    <circle cx="380" cy="25" r="6" fill="url(#lightPurple)" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="380" y="29" text-anchor="middle" fill="#5B21B6" font-family="Arial, sans-serif" font-size="8" font-weight="bold">M3</text>
     
-    <!-- Team Card 3 -->
-    <g transform="translate(800, 210)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg3)" filter="url(#shadow)"/>
-      
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#fef9c3"/>
-      <circle cx="24" cy="23" r="4" fill="#eab308"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#ca8a04">
-        Review
-      </text>
-      
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Gamma
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        Sustainability Tracker
-      </text>
-      
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 68%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="218" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <text x="58" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          3 Members
-        </text>
-      </g>
-      
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+    <!-- Deliverable -->
+    <rect x="350" y="95" width="60" height="12" rx="2" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1"/>
+    <text x="380" y="103" text-anchor="middle" fill="#374151" font-family="Arial, sans-serif" font-size="7">MVP Code</text>
+  </g>
+  
+  <!-- Mentor checkpoint 3 -->
+  <circle cx="460" cy="64" r="4" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <text x="460" y="52" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7" font-weight="bold">Mentor</text>
+  <text x="460" y="78" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7">Check</text>
+  
+  <!-- Step 4: UI & Copy -->
+  <g id="step4">
+    <rect x="500" y="40" width="80" height="48" rx="8" fill="url(#blueGrad)" stroke="#2563EB" stroke-width="2"/>
+    <text x="540" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">UI & COPY</text>
+    <text x="540" y="72" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Design &</text>
+    <text x="540" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Content</text>
     
-    <!-- Row 2 -->
-    <!-- Team Card 4 -->
-    <g transform="translate(40, 370)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg4)" filter="url(#shadow)"/>
-      
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
-      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
-        Approved
-      </text>
-      
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Delta
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        E-Commerce Optimizer
-      </text>
-      
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 78%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="250" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <text x="75" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          4 Members
-        </text>
-      </g>
-      
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+    <!-- Milestone indicator -->
+    <circle cx="540" cy="25" r="6" fill="url(#lightPurple)" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="540" y="29" text-anchor="middle" fill="#5B21B6" font-family="Arial, sans-serif" font-size="8" font-weight="bold">M4</text>
     
-    <!-- Team Card 5 -->
-    <g transform="translate(420, 370)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg5)" filter="url(#shadow)"/>
-      
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
-      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
-        Approved
-      </text>
-      
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Epsilon
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        Smart Campus App
-      </text>
-      
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 88%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="282" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="72" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <text x="90" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          5 Members
-        </text>
-      </g>
-      
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+    <!-- Deliverable -->
+    <rect x="510" y="95" width="60" height="12" rx="2" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1"/>
+    <text x="540" y="103" text-anchor="middle" fill="#374151" font-family="Arial, sans-serif" font-size="7">UI Complete</text>
+  </g>
+  
+  <!-- Mentor checkpoint 4 -->
+  <circle cx="620" cy="64" r="4" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <text x="620" y="52" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7" font-weight="bold">Mentor</text>
+  <text x="620" y="78" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7">Check</text>
+  
+  <!-- Step 5: Ship & Learn -->
+  <g id="step5">
+    <rect x="660" y="40" width="80" height="48" rx="8" fill="url(#purpleGrad)" stroke="#7C3AED" stroke-width="2"/>
+    <text x="700" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SHIP &</text>
+    <text x="700" y="68" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">LEARN</text>
+    <text x="700" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Deploy & Test</text>
     
-    <!-- Team Card 6 -->
-    <g transform="translate(800, 370)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg6)" filter="url(#shadow)"/>
-      
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#fee2e2"/>
-      <circle cx="24" cy="23" r="4" fill="#ef4444"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#dc2626">
-        At Risk
-      </text>
-      
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Zeta
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        Social Network Tool
-      </text>
-      
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 45%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="144" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <text x="58" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          3 Members
-        </text>
-      </g>
-      
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+    <!-- Milestone indicator -->
+    <circle cx="700" cy="25" r="6" fill="url(#lightPurple)" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="700" y="29" text-anchor="middle" fill="#5B21B6" font-family="Arial, sans-serif" font-size="8" font-weight="bold">M5</text>
     
-    <!-- Row 3 -->
-    <!-- Team Card 7 -->
-    <g transform="translate(40, 530)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg7)" filter="url(#shadow)"/>
-      
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
-      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
-        Approved
-      </text>
-      
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Eta
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        Fintech Dashboard
-      </text>
-      
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 82%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="262" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <text x="75" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          4 Members
-        </text>
-      </g>
-      
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+    <!-- Deliverable -->
+    <rect x="670" y="95" width="60" height="12" rx="2" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1"/>
+    <text x="700" y="103" text-anchor="middle" fill="#374151" font-family="Arial, sans-serif" font-size="7">Live Product</text>
+  </g>
+  
+  <!-- Mentor checkpoint 5 -->
+  <circle cx="780" cy="64" r="4" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <text x="780" y="52" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7" font-weight="bold">Mentor</text>
+  <text x="780" y="78" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7">Check</text>
+  
+  <!-- Step 6: Demo Day -->
+  <g id="step6">
+    <rect x="820" y="40" width="80" height="48" rx="8" fill="url(#blueGrad)" stroke="#2563EB" stroke-width="2"/>
+    <text x="860" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">DEMO</text>
+    <text x="860" y="68" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">DAY</text>
+    <text x="860" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Presentation</text>
     
-    <!-- Team Card 8 -->
-    <g transform="translate(420, 530)">
-      <rect width="360" height="140" rx="12" fill="url(#cardBg8)" filter="url(#shadow)"/>
-      
-      <rect x="12" y="12" width="85" height="22" rx="11" fill="#fef9c3"/>
-      <circle cx="24" cy="23" r="4" fill="#eab308"/>
-      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#ca8a04">
-        Review
-      </text>
-      
-      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
-        Team Theta
-      </text>
-      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-        EdTech Collaboration
-      </text>
-      
-      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
-        Progress: 72%
-      </text>
-      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
-      <rect x="20" y="98" width="230" height="6" rx="3" fill="url(#progressGrad)"/>
-      
-      <g transform="translate(20, 115)">
-        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
-        <circle cx="72" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
-        <text x="90" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
-          5 Members
-        </text>
-      </g>
-      
-      <g transform="translate(290, 108)">
-        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
-        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
-        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
-      </g>
-    </g>
+    <!-- Milestone indicator -->
+    <circle cx="860" cy="25" r="6" fill="url(#lightPurple)" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="860" y="29" text-anchor="middle" fill="#5B21B6" font-family="Arial, sans-serif" font-size="8" font-weight="bold">M6</text>
     
-    <!-- Quality Gate Legend -->
-    <g transform="translate(800, 530)">
-      <rect width="360" height="140" rx="12" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="2"/>
-      
-      <text x="20" y="30" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#6d28d9">
-        Quality Gates
-      </text>
-      
-      <g transform="translate(20, 45)">
-        <circle cx="6" cy="6" r="5" fill="#22c55e"/>
-        <text x="20" y="11" font-family="Arial, sans-serif" font-size="13" fill="#6d28d9">
-          Approved - Ready for Next Phase
-        </text>
-      </g>
-      
-      <g transform="translate(20, 70)">
-        <circle cx="6" cy="6" r="5" fill="#eab308"/>
-        <text x="20" y="11" font-family="Arial, sans-serif" font-size="13" fill="#6d28d9">
-          Under Review - Mentor Feedback
-        </text>
-      </g>
-      
-      <g transform="translate(20, 95)">
-        <circle cx="6" cy="6" r="5" fill="#ef4444"/>
-        <text x="20" y="11" font-family="Arial, sans-serif" font-size="13" fill="#6d28d9">
-          At Risk - Requires Intervention
-        </text>
-      </g>
-      
-      <!-- Decorative Icon -->
-      <g transform="translate(280, 90)">
-        <circle cx="25" cy="25" r="25" fill="#8b5cf6" opacity="0.2"/>
-        <path d="M 20 25 L 23 28 L 30 20" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </g>
-    </g>
+    <!-- Deliverable -->
+    <rect x="830" y="95" width="60" height="12" rx="2" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="1"/>
+    <text x="860" y="103" text-anchor="middle" fill="#374151" font-family="Arial, sans-serif" font-size="7">Final Demo</text>
+  </g>
+  
+  <!-- Final Assessment -->
+  <g id="assessment">
+    <rect x="940" y="45" width="70" height="38" rx="6" fill="#10B981" stroke="#059669" stroke-width="2"/>
+    <text x="975" y="60" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="9" font-weight="bold">GRADUATION</text>
+    <text x="975" y="72" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Assessment</text>
+    
+    <!-- Star for completion -->
+    <polygon points="975,15 978,21 985,21 980,26 982,33 975,29 968,33 970,26 965,21 972,21" 
+             fill="#FCD34D" stroke="#F59E0B" stroke-width="1"/>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <text x="1050" y="20" fill="#374151" font-family="Arial, sans-serif" font-size="8" font-weight="bold">Legend:</text>
+    <circle cx="1060" cy="30" r="3" fill="#F59E0B"/>
+    <text x="1070" y="33" fill="#374151" font-family="Arial, sans-serif" font-size="7">Mentor Checkpoint</text>
+    <circle cx="1060" cy="42" r="3" fill="url(#lightPurple)"/>
+    <text x="1070" y="45" fill="#374151" font-family="Arial, sans-serif" font-size="7">Educational Milestone</text>
+    <rect x="1057" y="50" width="6" height="6" fill="#F3F4F6" stroke="#9CA3AF"/>
+    <text x="1070" y="56" fill="#374151" font-family="Arial, sans-serif" font-size="7">Deliverable</text>
+  </g>
+  
+  <!-- Team progression indicators -->
+  <g id="team-progression">
+    <text x="60" y="15" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="7">Individual</text>
+    <text x="300" y="15" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="7">Team Formation</text>
+    <text x="540" y="15" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="7">Collaboration</text>
+    <text x="780" y="15" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="7">Showcase Ready</text>
   </g>
 </svg>
