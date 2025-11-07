@@ -43,7 +43,7 @@
   
   <!-- Header Bar -->
   <rect x="0" y="0" width="800" height="60" fill="url(#purpleGrad)"/>
-  <text x="20" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">Mentor & Admin Console</text>
+  <text x="20" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">Mentor &amp; Admin Console</text>
   
   <!-- User Profile -->
   <circle cx="740" cy="30" r="18" fill="white" opacity="0.3"/>
@@ -327,12 +327,12 @@
       <!-- Section 1 -->
       <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">User Management</text>
       <rect x="0" y="8" width="215" height="28" rx="4" fill="#F3F4F6" stroke="#3B82F6" stroke-width="1"/>
-      <text x="10" y="26" font-family="Arial, sans-serif" font-size="10" fill="#374151">👥 Manage Users & Permissions</text>
+      <text x="10" y="26" font-family="Arial, sans-serif" font-size="10" fill="#374151">👥 Manage Users &amp; Permissions</text>
       
       <!-- Section 2 -->
       <text x="0" y="55" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">Content Management</text>
       <rect x="0" y="63" width="215" height="28" rx="4" fill="#F3F4F6" stroke="#8B5CF6" stroke-width="1"/>
-      <text x="10" y="81" font-family="Arial, sans-serif" font-size="10" fill="#374151">📦 Course & Module Settings</text>
+      <text x="10" y="81" font-family="Arial, sans-serif" font-size="10" fill="#374151">📦 Course &amp; Module Settings</text>
       
       <!-- Section 3 -->
       <text x="0" y="110" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">System Settings</text>
@@ -340,7 +340,7 @@
       <text x="10" y="136" font-family="Arial, sans-serif" font-size="10" fill="#374151">⚙️ Configure System Parameters</text>
       
       <!-- Section 4 -->
-      <text x="0" y="165" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">Reports & Analytics</text>
+      <text x="0" y="165" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">Reports &amp; Analytics</text>
       <rect x="0" y="173" width="215" height="28" rx="4" fill="#F3F4F6" stroke="#3B82F6" stroke-width="1"/>
       <text x="10" y="191" font-family="Arial, sans-serif" font-size="10" fill="#374151">📈 Generate Reports</text>
     </g>
