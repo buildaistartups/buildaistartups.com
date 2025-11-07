@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Script from 'next/script'
 
 const siteUrl = 'https://www.buildaistartups.com'
-const ogImage = '/og/solutions-accelerators.png' // Updated to use your new OG image
+const ogImage = '/og/solutions-accelerators.png'
 
 export const metadata: Metadata = {
   title: 'Accelerators & Universities — Cohort-in-a-Box for venture creation | Build AI Starups',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
 }
 
-// ---- JSON-LD Schemas ----
+// ---- JSON-LD Schemas ---- (keeping same as original)
 const orgJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -146,11 +146,12 @@ export default function AcceleratorsUniversitiesPage() {
               <p className="mt-3 text-sm text-slate-400">Mentor dashboards · Integrity pack · IP clarity · Optional EU hosting</p>
             </div>
             <div className="relative">
-              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-8">
+              {/* UPDATED: Hero image card with 15px padding and centered image */}
+              <div className="aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
                 <img 
                   src="/images/solutions/accelerators/hero.svg" 
                   alt="Cohort management dashboard with teams, milestones, and progress tracking" 
-                  className="h-full w-full object-contain"
+                  className="max-h-full max-w-full object-contain"
                   loading="eager"
                 />
               </div>
@@ -184,12 +185,13 @@ export default function AcceleratorsUniversitiesPage() {
             <p className="mt-2 text-slate-300">Choose the format that fits your schedule and goals</p>
           </div>
           
+          {/* UPDATED: Program models image card with 15px padding and centered image */}
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/program-models.svg" 
                 alt="Three program models: Cohort-in-a-Box, Studio-in-a-Week, and Venture Studio" 
-                className="h-48 w-auto mx-auto"
+                className="h-48 w-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -234,11 +236,12 @@ export default function AcceleratorsUniversitiesPage() {
                 <li>Manual override options for instructors</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            {/* UPDATED: Team formation image card with 15px padding and centered image */}
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/team-formation.svg" 
                 alt="Automated team formation and skill matching system" 
-                className="w-full h-auto"
+                className="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -249,12 +252,13 @@ export default function AcceleratorsUniversitiesPage() {
         <section className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="text-2xl font-semibold">How a cohort runs</h2>
           <div className="mt-6 mb-8">
+            {/* UPDATED: Cohort workflow image card with 15px padding and centered image */}
             <div className="flex justify-center">
-              <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+              <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
                 <img 
                   src="/images/solutions/accelerators/cohort-workflow.svg" 
                   alt="Six-step cohort workflow from intake to demo day" 
-                  className="h-32 w-auto mx-auto"
+                  className="h-32 w-auto object-contain"
                   loading="lazy"
                 />
               </div>
@@ -303,11 +307,12 @@ export default function AcceleratorsUniversitiesPage() {
                 </Link>
               </div>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            {/* UPDATED: Mentor dashboard image card with 15px padding and centered image */}
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/mentor-dashboard.svg" 
                 alt="Mentor and admin console with team oversight and approval queues" 
-                className="w-full h-auto"
+                className="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -317,11 +322,12 @@ export default function AcceleratorsUniversitiesPage() {
         {/* Quality Gates */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            {/* UPDATED: Quality gates image card with 15px padding and centered image */}
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/quality-gates.svg" 
                 alt="Educational quality gates and assessment system" 
-                className="w-full h-auto"
+                className="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -355,11 +361,12 @@ export default function AcceleratorsUniversitiesPage() {
                 <li>Portfolio building and showcase</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            {/* UPDATED: Student journey image card with 15px padding and centered image */}
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/student-journey.svg" 
                 alt="Student success journey from enrollment to graduation" 
-                className="w-full h-auto"
+                className="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -373,12 +380,13 @@ export default function AcceleratorsUniversitiesPage() {
             <p className="mt-2 text-slate-300">Structured learning with clear milestones and deliverables</p>
           </div>
           
+          {/* UPDATED: Syllabus timeline image card with 15px padding and centered image */}
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/syllabus-timeline.svg" 
                 alt="Four-week syllabus timeline with learning objectives" 
-                className="h-32 w-auto mx-auto"
+                className="h-32 w-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -412,11 +420,12 @@ export default function AcceleratorsUniversitiesPage() {
         {/* Demo Day */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            {/* UPDATED: Demo day image card with 15px padding and centered image */}
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/demo-day.svg" 
                 alt="Demo day showcase with live presentations and evaluations" 
-                className="w-full h-auto"
+                className="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -443,12 +452,13 @@ export default function AcceleratorsUniversitiesPage() {
             <p className="mt-2 text-slate-300">Measurable results that demonstrate program success</p>
           </div>
           
+          {/* UPDATED: Outcomes KPIs image card with 15px padding and centered image */}
           <div className="flex justify-center mb-8">
-            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
+            <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/outcomes-kpis.svg" 
                 alt="Program outcomes and KPI tracking dashboard" 
-                className="h-32 w-auto mx-auto"
+                className="h-32 w-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -487,11 +497,12 @@ export default function AcceleratorsUniversitiesPage() {
                 <li>Institution-specific IP templates</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            {/* UPDATED: Integrity pack image card with 15px padding and centered image */}
+            <div className="rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/integrity-pack.svg" 
                 alt="Academic integrity and compliance features" 
-                className="w-full h-auto"
+                className="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -501,11 +512,12 @@ export default function AcceleratorsUniversitiesPage() {
         {/* IP Ownership */}
         <section className="mx-auto max-w-6xl px-6 py-10">
           <div className="grid items-center gap-10 md:grid-cols-2">
-            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-6">
+            {/* UPDATED: IP ownership image card with 15px padding and centered image */}
+            <div className="order-2 md:order-1 rounded-xl border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
               <img 
                 src="/images/solutions/accelerators/ip-ownership.svg" 
                 alt="Clear IP ownership structure and agreements" 
-                className="w-full h-auto"
+                className="max-h-full max-w-full object-contain"
                 loading="lazy"
               />
             </div>
@@ -529,12 +541,15 @@ export default function AcceleratorsUniversitiesPage() {
         <section className="mx-auto max-w-6xl px-6 py-12">
           <div className="rounded-2xl border border-white/10 bg-slate-900/50 p-6">
             <div className="flex items-center gap-3 mb-4">
-              <img 
-                src="/images/solutions/accelerators/partner-tiers.svg" 
-                alt="Partner tier structure and features" 
-                className="h-8 w-auto"
-                loading="lazy"
-              />
+              {/* UPDATED: Partner tiers icon with proper centering */}
+              <div className="p-[15px] flex items-center justify-center">
+                <img 
+                  src="/images/solutions/accelerators/partner-tiers.svg" 
+                  alt="Partner tier structure and features" 
+                  className="h-8 w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
               <h2 className="text-2xl font-semibold">Partner tiers</h2>
             </div>
             <p className="mt-2 text-slate-300">Start small and scale to full venture studio automation.</p>
@@ -569,8 +584,13 @@ export default function AcceleratorsUniversitiesPage() {
               { name: 'Studio Z', vp: 'Always-on backlog with monthly handoffs', tags: ['Venture Studio'] },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50">
-                  <img src={`/media/projects/acc-${i + 1}.png`} alt={p.name} className="h-full w-full object-cover" />
+                {/* UPDATED: Case snapshot image cards with 15px padding and centered images */}
+                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
+                  <img 
+                    src={`/media/projects/acc-${i + 1}.png`} 
+                    alt={p.name} 
+                    className="max-h-full max-w-full object-contain" 
+                  />
                 </div>
                 <div className="mt-3 text-base font-medium">{p.name}</div>
                 <p className="text-sm text-slate-400">{p.vp}</p>
