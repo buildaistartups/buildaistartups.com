@@ -1,297 +1,353 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="1600" height="1000" viewBox="0 0 1600 1000"
-     xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Gradients -->
-    <linearGradient id="gradPrimary" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#6C2BD9"/>
-      <stop offset="100%" stop-color="#2563EB"/>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="gradSoft" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F5F3FF" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#EFF6FF" stop-opacity="0.95"/>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="gradAccent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8B5CF6"/>
-      <stop offset="100%" stop-color="#3B82F6"/>
+    <linearGradient id="teamBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F3FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EDE9FE;stop-opacity:1" />
     </linearGradient>
-
-    <!-- Shadows -->
-    <filter id="shadowSoft" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    <linearGradient id="approvalBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFF6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="qualityBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF5FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F3E8FF;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="progressBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFF6FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#DBEAFE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mentorBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#DBEAFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BFDBFE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="reviewBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F3FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EDE9FE;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="adminBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#DBEAFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BFDBFE;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.2"/>
     </filter>
-    <filter id="shadowHard" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#000000" flood-opacity="0.16"/>
-    </filter>
-
-    <!-- Pills and buttons -->
-    <style type="text/css"><![CDATA[
-      .title      { font: 700 22px 'Inter', Arial, sans-serif; fill: #0F172A; }
-      .subtitle   { font: 600 16px 'Inter', Arial, sans-serif; fill: #334155; }
-      .kpi-label  { font: 500 12px 'Inter', Arial, sans-serif; fill: #475569; }
-      .kpi-value  { font: 800 28px 'Inter', Arial, sans-serif; fill: #0B1220; }
-      .label      { font: 600 12px 'Inter', Arial, sans-serif; fill: #475569; }
-      .text       { font: 500 13px 'Inter', Arial, sans-serif; fill: #0F172A; }
-      .muted      { font: 500 12px 'Inter', Arial, sans-serif; fill: #64748B; }
-      .btn        { font: 700 12px 'Inter', Arial, sans-serif; fill: white; }
-      .chip       { font: 700 11px 'Inter', Arial, sans-serif; fill: #4F46E5; }
-      .mono       { font: 600 12px 'Menlo', 'Consolas', monospace; fill: #0B1220; }
-      .stroke-grad{ stroke: url(#gradPrimary); }
-    ]]></style>
-
-    <!-- Icons (paths sized to 20x20, scale as needed) -->
-    <g id="icon-check">
-      <path d="M4 10 l4 4 l8 -10" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </g>
-    <g id="icon-x">
-      <path d="M5 5 L15 15 M15 5 L5 15" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
-    </g>
-    <g id="icon-eye">
-      <path d="M2 10 C5 4, 15 4, 18 10 C15 16, 5 16, 2 10 Z" fill="none" stroke="#6366F1" stroke-width="2"/>
-      <circle cx="10" cy="10" r="3" fill="#6366F1"/>
-    </g>
-    <g id="icon-users">
-      <circle cx="8" cy="8" r="4" fill="#8B5CF6"/><circle cx="12" cy="12" r="4" fill="#60A5FA"/>
-    </g>
-    <g id="icon-shield">
-      <path d="M10 2 L18 6 v6 c0 6 -8 8 -8 8 s-8 -2 -8 -8 V6 z" fill="none" stroke="#3B82F6" stroke-width="2"/>
-    </g>
-    <g id="icon-gear">
-      <circle cx="10" cy="10" r="3" fill="none" stroke="#6C2BD9" stroke-width="2"/>
-      <path d="M10 1 v3 M10 16 v3 M1 10 h3 M16 10 h3 M3.2 3.2 l2.1 2.1 M14.7 14.7 l2.1 2.1 M16.8 3.2 l-2.1 2.1 M3.2 16.8 l2.1 -2.1" stroke="#6C2BD9" stroke-width="2" stroke-linecap="round"/>
-    </g>
-    <g id="icon-clipboard">
-      <rect x="5" y="3" width="10" height="14" rx="2" fill="none" stroke="#3B82F6" stroke-width="2"/>
-      <rect x="7.5" y="1.5" width="5" height="3" rx="1.5" fill="#8B5CF6"/>
-    </g>
   </defs>
-
-  <!-- HEADER -->
-  <g filter="url(#shadowHard)">
-    <rect x="40" y="30" width="1520" height="90" rx="20" fill="url(#gradPrimary)"/>
+  
+  <!-- Header Bar -->
+  <rect x="0" y="0" width="800" height="60" fill="url(#purpleGrad)"/>
+  <text x="20" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">Mentor & Admin Console</text>
+  
+  <!-- User Profile -->
+  <circle cx="740" cy="30" r="18" fill="white" opacity="0.3"/>
+  <text x="740" y="36" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">AD</text>
+  
+  <!-- Notifications Badge -->
+  <circle cx="680" cy="30" r="16" fill="white" opacity="0.3"/>
+  <text x="680" y="35" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">5</text>
+  
+  <!-- Main Content Area -->
+  
+  <!-- Left Panel - Team Oversight -->
+  <g filter="url(#shadow)">
+    <rect x="15" y="75" width="250" height="240" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="15" y="110" width="250" height="205" rx="8" fill="url(#teamBg)"/>
+    <rect x="15" y="75" width="250" height="35" rx="8" fill="url(#purpleGrad)"/>
+    <text x="30" y="97" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Team Oversight</text>
+    
+    <!-- Team Members List -->
+    <g transform="translate(25, 120)">
+      <!-- Member 1 -->
+      <circle cx="15" cy="15" r="12" fill="#8B5CF6" opacity="0.2"/>
+      <text x="15" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B5CF6" text-anchor="middle">JD</text>
+      <text x="35" y="18" font-family="Arial, sans-serif" font-size="12" fill="#374151">John Doe</text>
+      <rect x="140" y="8" width="60" height="16" rx="8" fill="#10B981" opacity="0.2"/>
+      <text x="170" y="18" font-family="Arial, sans-serif" font-size="10" fill="#10B981" text-anchor="middle">Active</text>
+      
+      <!-- Progress Bar -->
+      <rect x="35" y="25" width="185" height="4" rx="2" fill="#E5E7EB"/>
+      <rect x="35" y="25" width="130" height="4" rx="2" fill="#10B981"/>
+      <text x="225" y="24" font-family="Arial, sans-serif" font-size="9" fill="#6B7280" text-anchor="end">70%</text>
+      
+      <!-- Member 2 -->
+      <circle cx="15" cy="60" r="12" fill="#3B82F6" opacity="0.2"/>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3B82F6" text-anchor="middle">SM</text>
+      <text x="35" y="63" font-family="Arial, sans-serif" font-size="12" fill="#374151">Sarah Miller</text>
+      <rect x="140" y="53" width="60" height="16" rx="8" fill="#F59E0B" opacity="0.2"/>
+      <text x="170" y="63" font-family="Arial, sans-serif" font-size="10" fill="#F59E0B" text-anchor="middle">Review</text>
+      
+      <rect x="35" y="70" width="185" height="4" rx="2" fill="#E5E7EB"/>
+      <rect x="35" y="70" width="165" height="4" rx="2" fill="#F59E0B"/>
+      <text x="225" y="69" font-family="Arial, sans-serif" font-size="9" fill="#6B7280" text-anchor="end">89%</text>
+      
+      <!-- Member 3 -->
+      <circle cx="15" cy="105" r="12" fill="#6366F1" opacity="0.2"/>
+      <text x="15" y="110" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#6366F1" text-anchor="middle">RJ</text>
+      <text x="35" y="108" font-family="Arial, sans-serif" font-size="12" fill="#374151">Robert Jones</text>
+      <rect x="140" y="98" width="60" height="16" rx="8" fill="#10B981" opacity="0.2"/>
+      <text x="170" y="108" font-family="Arial, sans-serif" font-size="10" fill="#10B981" text-anchor="middle">Active</text>
+      
+      <rect x="35" y="115" width="185" height="4" rx="2" fill="#E5E7EB"/>
+      <rect x="35" y="115" width="92" height="4" rx="2" fill="#10B981"/>
+      <text x="225" y="114" font-family="Arial, sans-serif" font-size="9" fill="#6B7280" text-anchor="end">50%</text>
+      
+      <!-- Member 4 -->
+      <circle cx="15" cy="150" r="12" fill="#8B5CF6" opacity="0.2"/>
+      <text x="15" y="155" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#8B5CF6" text-anchor="middle">EL</text>
+      <text x="35" y="153" font-family="Arial, sans-serif" font-size="12" fill="#374151">Emma Lee</text>
+      <rect x="140" y="143" width="60" height="16" rx="8" fill="#EF4444" opacity="0.2"/>
+      <text x="170" y="153" font-family="Arial, sans-serif" font-size="10" fill="#EF4444" text-anchor="middle">Blocked</text>
+      
+      <rect x="35" y="160" width="185" height="4" rx="2" fill="#E5E7EB"/>
+      <rect x="35" y="160" width="55" height="4" rx="2" fill="#EF4444"/>
+      <text x="225" y="159" font-family="Arial, sans-serif" font-size="9" fill="#6B7280" text-anchor="end">30%</text>
+    </g>
+    
+    <text x="30" y="305" font-family="Arial, sans-serif" font-size="11" fill="#6366F1" font-weight="bold">View All Team Members →</text>
   </g>
-  <text x="80" y="86" font-family="Inter, Arial" font-weight="800" font-size="28" fill="#FFFFFF">Educational Management Suite</text>
-  <!-- Header toggles -->
-  <g transform="translate(1220, 50)">
-    <rect x="0" y="0" width="300" height="50" rx="25" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
-    <rect x="6" y="6" width="144" height="38" rx="19" fill="#FFFFFF"/>
-    <text x="28" y="32" class="btn" fill="url(#gradPrimary)">Mentor Console</text>
-    <text x="168" y="32" class="btn" fill="#FFFFFF">Admin Console</text>
-  </g>
-
-  <!-- SIDEBAR: Mentor Tools -->
-  <g filter="url(#shadowSoft)">
-    <rect x="40" y="140" width="260" height="780" rx="22" fill="url(#gradSoft)" stroke="url(#gradPrimary)" stroke-width="1"/>
-  </g>
-  <text x="70" y="180" class="title">Mentor Tools</text>
-  <!-- Tool list -->
-  <g class="text" transform="translate(60, 210)">
-    <g transform="translate(0,0)"><use href="#icon-users" transform="scale(1.2)"/><text x="34" y="12">Team Roster</text></g>
-    <g transform="translate(0,40)"><use href="#icon-clipboard" transform="scale(1.2)"/><text x="34" y="12">Session Notes</text></g>
-    <g transform="translate(0,80)"><use href="#icon-eye" transform="scale(1.2)"/><text x="34" y="12">Review Submissions</text></g>
-    <g transform="translate(0,120)"><use href="#icon-check" transform="scale(1.2)"/><text x="34" y="12">Quality Checklist</text></g>
-    <g transform="translate(0,160)"><use href="#icon-shield" transform="scale(1.2)"/><text x="34" y="12">Compliance</text></g>
-    <g transform="translate(0,200)"><use href="#icon-gear" transform="scale(1.2)"/><text x="34" y="12">Preferences</text></g>
-  </g>
-
-  <!-- KPI CARDS -->
-  <g>
-    <!-- KPI 1 -->
-    <g filter="url(#shadowSoft)">
-      <rect x="320" y="140" width="300" height="100" rx="18" fill="#FFFFFF" />
-      <rect x="320" y="140" width="300" height="8" rx="8" fill="url(#gradPrimary)" />
-    </g>
-    <text x="340" y="190" class="kpi-label">Active Mentorships</text>
-    <text x="340" y="220" class="kpi-value">128</text>
-
-    <!-- KPI 2 -->
-    <g filter="url(#shadowSoft)">
-      <rect x="640" y="140" width="300" height="100" rx="18" fill="#FFFFFF" />
-      <rect x="640" y="140" width="300" height="8" rx="8" fill="url(#gradPrimary)" />
-    </g>
-    <text x="660" y="190" class="kpi-label">Pending Approvals</text>
-    <text x="660" y="220" class="kpi-value">24</text>
-
-    <!-- KPI 3 -->
-    <g filter="url(#shadowSoft)">
-      <rect x="960" y="140" width="300" height="100" rx="18" fill="#FFFFFF" />
-      <rect x="960" y="140" width="300" height="8" rx="8" fill="url(#gradPrimary)" />
-    </g>
-    <text x="980" y="190" class="kpi-label">Avg Quality Score</text>
-    <text x="980" y="220" class="kpi-value">92%</text>
-
-    <!-- KPI 4 -->
-    <g filter="url(#shadowSoft)">
-      <rect x="1280" y="140" width="300" height="100" rx="18" fill="#FFFFFF" />
-      <rect x="1280" y="140" width="300" height="8" rx="8" fill="url(#gradPrimary)" />
-    </g>
-    <text x="1300" y="190" class="kpi-label">At-Risk Learners</text>
-    <text x="1300" y="220" class="kpi-value">11</text>
-  </g>
-
-  <!-- LEFT: Team Oversight -->
-  <g filter="url(#shadowSoft)">
-    <rect x="320" y="260" width="580" height="320" rx="22" fill="#FFFFFF" />
-  </g>
-  <text x="350" y="300" class="title">Team Oversight</text>
-  <text x="350" y="327" class="muted">Coverage, load, and health signals</text>
-
-  <!-- Team cards -->
-  <g transform="translate(340,350)">
-    <!-- Team A -->
-    <g>
-      <rect x="0" y="0" width="260" height="110" rx="16" fill="url(#gradSoft)" stroke="#E2E8F0"/>
-      <text x="16" y="30" class="subtitle">Team Alpha</text>
-      <text x="16" y="52" class="muted">Mentors: 8 • Learners: 54</text>
-      <!-- progress bar -->
-      <rect x="16" y="66" width="228" height="12" rx="6" fill="#EEF2FF"/>
-      <rect x="16" y="66" width="190" height="12" rx="6" fill="url(#gradPrimary)"/>
-      <text x="16" y="96" class="label">Completion 83%</text>
-    </g>
-    <!-- Team B -->
-    <g transform="translate(290,0)">
-      <rect x="0" y="0" width="260" height="110" rx="16" fill="url(#gradSoft)" stroke="#E2E8F0"/>
-      <text x="16" y="30" class="subtitle">Team Beta</text>
-      <text x="16" y="52" class="muted">Mentors: 5 • Learners: 37</text>
-      <rect x="16" y="66" width="228" height="12" rx="6" fill="#EEF2FF"/>
-      <rect x="16" y="66" width="150" height="12" rx="6" fill="url(#gradPrimary)"/>
-      <text x="16" y="96" class="label">Completion 66%</text>
-    </g>
-    <!-- Team C -->
-    <g transform="translate(0,130)">
-      <rect x="0" y="0" width="260" height="110" rx="16" fill="url(#gradSoft)" stroke="#E2E8F0"/>
-      <text x="16" y="30" class="subtitle">Team Gamma</text>
-      <text x="16" y="52" class="muted">Mentors: 7 • Learners: 42</text>
-      <rect x="16" y="66" width="228" height="12" rx="6" fill="#EEF2FF"/>
-      <rect x="16" y="66" width="205" height="12" rx="6" fill="url(#gradPrimary)"/>
-      <text x="16" y="96" class="label">Completion 90%</text>
-    </g>
-    <!-- Team D -->
-    <g transform="translate(290,130)">
-      <rect x="0" y="0" width="260" height="110" rx="16" fill="url(#gradSoft)" stroke="#E2E8F0"/>
-      <text x="16" y="30" class="subtitle">Team Delta</text>
-      <text x="16" y="52" class="muted">Mentors: 6 • Learners: 39</text>
-      <rect x="16" y="66" width="228" height="12" rx="6" fill="#EEF2FF"/>
-      <rect x="16" y="66" width="120" height="12" rx="6" fill="url(#gradPrimary)"/>
-      <text x="16" y="96" class="label">Completion 53%</text>
-    </g>
-  </g>
-
-  <!-- MIDDLE: Approval Queue / Review Interface -->
-  <g filter="url(#shadowSoft)">
-    <rect x="920" y="260" width="620" height="320" rx="22" fill="#FFFFFF" />
-  </g>
-  <text x="950" y="300" class="title">Approval Queue</text>
-  <text x="950" y="327" class="muted">Submissions awaiting review</text>
-
-  <!-- Queue items -->
-  <g transform="translate(940,350)" class="text">
-    <!-- item 1 -->
-    <g>
-      <rect x="0" y="0" width="580" height="60" rx="14" fill="url(#gradSoft)" stroke="#E2E8F0"/>
-      <circle cx="32" cy="30" r="12" fill="#8B5CF6"/>
-      <text x="54" y="26" class="subtitle">Capstone Draft — Alicia M.</text>
-      <text x="54" y="46" class="muted">Team Alpha • Due: Today</text>
-      <g transform="translate(420,12)">
-        <rect x="0" y="0" width="70" height="36" rx="18" fill="url(#gradPrimary)"/><text x="18" y="24" class="btn">Approve</text>
-        <rect x="82" y="0" width="100" height="36" rx="18" fill="#EEF2FF"/><text x="100" y="24" class="chip">Request changes</text>
-      </g>
-    </g>
-    <!-- item 2 -->
-    <g transform="translate(0,76)">
-      <rect x="0" y="0" width="580" height="60" rx="14" fill="url(#gradSoft)" stroke="#E2E8F0"/>
-      <circle cx="32" cy="30" r="12" fill="#60A5FA"/>
-      <text x="54" y="26" class="subtitle">Weekly Reflection — Omar R.</text>
-      <text x="54" y="46" class="muted">Team Beta • Due: Sep 18</text>
-      <g transform="translate(420,12)">
-        <rect x="0" y="0" width="70" height="36" rx="18" fill="url(#gradPrimary)"/><text x="18" y="24" class="btn">Approve</text>
-        <rect x="82" y="0" width="100" height="36" rx="18" fill="#EEF2FF"/><text x="100" y="24" class="chip">Request changes</text>
-      </g>
-    </g>
-    <!-- item 3 -->
-    <g transform="translate(0,152)">
-      <rect x="0" y="0" width="580" height="60" rx="14" fill="url(#gradSoft)" stroke="#E2E8F0"/>
-      <circle cx="32" cy="30" r="12" fill="#3B82F6"/>
-      <text x="54" y="26" class="subtitle">Quiz Override — Admin Review</text>
-      <text x="54" y="46" class="muted">Team Delta • Flagged</text>
-      <g transform="translate(420,12)">
-        <rect x="0" y="0" width="70" height="36" rx="18" fill="url(#gradPrimary)"/><text x="18" y="24" class="btn">Approve</text>
-        <rect x="82" y="0" width="100" height="36" rx="18" fill="#EEF2FF"/><text x="100" y="24" class="chip">Request changes</text>
-      </g>
+  
+  <!-- Top Right - Approval Queue -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="75" width="245" height="150" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="280" y="110" width="245" height="115" rx="8" fill="url(#approvalBg)"/>
+    <rect x="280" y="75" width="245" height="35" rx="8" fill="url(#blueGrad)"/>
+    <text x="295" y="97" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Approval Queue</text>
+    <circle cx="505" cy="92" r="10" fill="white" opacity="0.3"/>
+    <text x="505" y="97" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">3</text>
+    
+    <!-- Queue Items -->
+    <g transform="translate(290, 120)">
+      <!-- Item 1 -->
+      <rect x="0" y="0" width="225" height="24" rx="4" fill="#F3F4F6"/>
+      <circle cx="10" cy="12" r="4" fill="#F59E0B"/>
+      <text x="19" y="15" font-family="Arial, sans-serif" font-size="11" fill="#374151">Module 3 - Sarah Miller</text>
+      <rect x="170" y="4" width="25" height="16" rx="3" fill="#10B981" opacity="0.8"/>
+      <text x="182.5" y="15" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">✓</text>
+      <rect x="200" y="4" width="25" height="16" rx="3" fill="#EF4444" opacity="0.8"/>
+      <text x="212.5" y="15" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">✗</text>
+      
+      <!-- Item 2 -->
+      <rect x="0" y="32" width="225" height="24" rx="4" fill="#F3F4F6"/>
+      <circle cx="10" cy="44" r="4" fill="#F59E0B"/>
+      <text x="19" y="47" font-family="Arial, sans-serif" font-size="11" fill="#374151">Project Review - John Doe</text>
+      <rect x="170" y="36" width="25" height="16" rx="3" fill="#10B981" opacity="0.8"/>
+      <text x="182.5" y="47" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">✓</text>
+      <rect x="200" y="36" width="25" height="16" rx="3" fill="#EF4444" opacity="0.8"/>
+      <text x="212.5" y="47" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">✗</text>
+      
+      <!-- Item 3 -->
+      <rect x="0" y="64" width="225" height="24" rx="4" fill="#F3F4F6"/>
+      <circle cx="10" cy="76" r="4" fill="#F59E0B"/>
+      <text x="19" y="79" font-family="Arial, sans-serif" font-size="11" fill="#374151">Final Assessment - Emma Lee</text>
+      <rect x="170" y="68" width="25" height="16" rx="3" fill="#10B981" opacity="0.8"/>
+      <text x="182.5" y="79" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">✓</text>
+      <rect x="200" y="68" width="25" height="16" rx="3" fill="#EF4444" opacity="0.8"/>
+      <text x="212.5" y="79" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">✗</text>
     </g>
   </g>
-
-  <!-- LEFT-BOTTOM: Progress Tracking -->
-  <g filter="url(#shadowSoft)">
-    <rect x="320" y="600" width="580" height="320" rx="22" fill="#FFFFFF" />
-  </g>
-  <text x="350" y="640" class="title">Progress Tracking</text>
-  <text x="350" y="667" class="muted">Milestones across cohorts</text>
-
-  <!-- Timeline bars -->
-  <g transform="translate(350,690)">
-    <text x="0" y="0" class="label">Cohort Spring</text>
-    <rect x="120" y="-14" width="360" height="14" rx="7" fill="#EEF2FF"/>
-    <rect x="120" y="-14" width="310" height="14" rx="7" fill="url(#gradPrimary)"/>
-    <text x="490" y="-2" class="muted">86%</text>
-
-    <g transform="translate(0,40)">
-      <text x="0" y="0" class="label">Cohort Summer</text>
-      <rect x="120" y="-14" width="360" height="14" rx="7" fill="#EEF2FF"/>
-      <rect x="120" y="-14" width="240" height="14" rx="7" fill="url(#gradPrimary)"/>
-      <text x="490" y="-2" class="muted">67%</text>
+  
+  <!-- Middle Right - Quality Gates -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="240" width="245" height="165" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="280" y="275" width="245" height="130" rx="8" fill="url(#qualityBg)"/>
+    <rect x="280" y="240" width="245" height="35" rx="8" fill="url(#purpleGrad)"/>
+    <text x="295" y="262" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Quality Gates Monitor</text>
+    
+    <!-- Quality Gate Indicators -->
+    <g transform="translate(295, 285)">
+      <!-- Gate 1 -->
+      <circle cx="8" cy="8" r="6" fill="#10B981"/>
+      <text x="22" y="12" font-family="Arial, sans-serif" font-size="11" fill="#374151">Code Review</text>
+      <text x="200" y="12" font-family="Arial, sans-serif" font-size="11" fill="#10B981" font-weight="bold" text-anchor="end">Passed</text>
+      
+      <!-- Gate 2 -->
+      <circle cx="8" cy="33" r="6" fill="#10B981"/>
+      <text x="22" y="37" font-family="Arial, sans-serif" font-size="11" fill="#374151">Testing</text>
+      <text x="200" y="37" font-family="Arial, sans-serif" font-size="11" fill="#10B981" font-weight="bold" text-anchor="end">Passed</text>
+      
+      <!-- Gate 3 -->
+      <circle cx="8" cy="58" r="6" fill="#F59E0B"/>
+      <text x="22" y="62" font-family="Arial, sans-serif" font-size="11" fill="#374151">Documentation</text>
+      <text x="200" y="62" font-family="Arial, sans-serif" font-size="11" fill="#F59E0B" font-weight="bold" text-anchor="end">In Progress</text>
+      
+      <!-- Gate 4 -->
+      <circle cx="8" cy="83" r="6" fill="#EF4444"/>
+      <text x="22" y="87" font-family="Arial, sans-serif" font-size="11" fill="#374151">Peer Review</text>
+      <text x="200" y="87" font-family="Arial, sans-serif" font-size="11" fill="#EF4444" font-weight="bold" text-anchor="end">Failed</text>
+      
+      <!-- Statistics -->
+      <rect x="0" y="100" width="215" height="15" rx="4" fill="#F9FAFB"/>
+      <text x="10" y="110" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Pass Rate:</text>
+      <text x="70" y="110" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">75%</text>
+      <text x="114" y="110" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Avg Time:</text>
+      <text x="169" y="110" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">2.3 days</text>
     </g>
-    <g transform="translate(0,80)">
-      <text x="0" y="0" class="label">Cohort Fall</text>
-      <rect x="120" y="-14" width="360" height="14" rx="7" fill="#EEF2FF"/>
-      <rect x="120" y="-14" width="95" height="14" rx="7" fill="url(#gradPrimary)"/>
-      <text x="490" y="-2" class="muted">26%</text>
+  </g>
+  
+  <!-- Right Panel - Progress Tracking -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="75" width="245" height="240" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="540" y="110" width="245" height="205" rx="8" fill="url(#progressBg)"/>
+    <rect x="540" y="75" width="245" height="35" rx="8" fill="url(#blueGrad)"/>
+    <text x="555" y="97" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Progress Tracking</text>
+    
+    <!-- Chart Area -->
+    <g transform="translate(560, 125)">
+      <!-- Y-axis labels -->
+      <text x="0" y="5" font-family="Arial, sans-serif" font-size="9" fill="#9CA3AF">100%</text>
+      <text x="0" y="45" font-family="Arial, sans-serif" font-size="9" fill="#9CA3AF">75%</text>
+      <text x="0" y="85" font-family="Arial, sans-serif" font-size="9" fill="#9CA3AF">50%</text>
+      <text x="0" y="125" font-family="Arial, sans-serif" font-size="9" fill="#9CA3AF">25%</text>
+      <text x="0" y="165" font-family="Arial, sans-serif" font-size="9" fill="#9CA3AF">0%</text>
+      
+      <!-- Grid lines -->
+      <line x1="30" y1="0" x2="205" y2="0" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="30" y1="40" x2="205" y2="40" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="30" y1="80" x2="205" y2="80" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="30" y1="120" x2="205" y2="120" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="30" y1="160" x2="205" y2="160" stroke="#E5E7EB" stroke-width="1"/>
+      
+      <!-- Bars -->
+      <rect x="35" y="48" width="30" height="112" rx="2" fill="#8B5CF6" opacity="0.8"/>
+      <text x="50" y="170" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">W1</text>
+      
+      <rect x="75" y="32" width="30" height="128" rx="2" fill="#6366F1" opacity="0.8"/>
+      <text x="90" y="170" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">W2</text>
+      
+      <rect x="115" y="20" width="30" height="140" rx="2" fill="#3B82F6" opacity="0.8"/>
+      <text x="130" y="170" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">W3</text>
+      
+      <rect x="155" y="56" width="30" height="104" rx="2" fill="#60A5FA" opacity="0.8"/>
+      <text x="170" y="170" font-family="Arial, sans-serif" font-size="9" fill="#374151" text-anchor="middle">W4</text>
+    </g>
+    
+    <!-- Legend -->
+    <g transform="translate(565, 295)">
+      <circle cx="5" cy="5" r="4" fill="#3B82F6"/>
+      <text x="15" y="8" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Completion Rate</text>
+      <circle cx="115" cy="5" r="4" fill="#8B5CF6"/>
+      <text x="125" y="8" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Engagement</text>
     </g>
   </g>
-
-  <!-- RIGHT-BOTTOM: Quality Gates Monitoring -->
-  <g filter="url(#shadowSoft)">
-    <rect x="920" y="600" width="620" height="320" rx="22" fill="#FFFFFF" />
-  </g>
-  <text x="950" y="640" class="title">Quality Gates Monitoring</text>
-  <text x="950" y="667" class="muted">Automated gates and manual sign-offs</text>
-
-  <!-- Gate stepper -->
-  <g transform="translate(950,690)">
-    <!-- Step nodes -->
-    <g>
-      <circle cx="20" cy="0" r="10" fill="#10B981"/><use href="#icon-check" x="12" y="-8" />
-      <rect x="32" y="-3" width="110" height="6" rx="3" fill="url(#gradPrimary)"/>
-      <circle cx="150" cy="0" r="10" fill="#10B981"/><use href="#icon-check" x="142" y="-8" />
-      <rect x="162" y="-3" width="110" height="6" rx="3" fill="url(#gradPrimary)"/>
-      <circle cx="280" cy="0" r="10" fill="#F59E0B"/>
-      <rect x="292" y="-3" width="110" height="6" rx="3" fill="#E5E7EB"/>
-      <circle cx="410" cy="0" r="10" fill="#E5E7EB"/>
+  
+  <!-- Bottom Left - Mentor Tools -->
+  <g filter="url(#shadow)">
+    <rect x="15" y="330" width="250" height="255" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="15" y="365" width="250" height="220" rx="8" fill="url(#mentorBg)"/>
+    <rect x="15" y="330" width="250" height="35" rx="8" fill="url(#blueGrad)"/>
+    <text x="30" y="352" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Mentor Tools</text>
+    
+    <!-- Tool Buttons -->
+    <g transform="translate(30, 380)">
+      <!-- Button 1 -->
+      <rect x="0" y="0" width="105" height="50" rx="6" fill="#F3F4F6" stroke="#3B82F6" stroke-width="2"/>
+      <text x="52.5" y="20" font-family="Arial, sans-serif" font-size="20" fill="#3B82F6" text-anchor="middle">📝</text>
+      <text x="52.5" y="40" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="middle" font-weight="bold">Feedback</text>
+      
+      <!-- Button 2 -->
+      <rect x="115" y="0" width="105" height="50" rx="6" fill="#F3F4F6" stroke="#8B5CF6" stroke-width="2"/>
+      <text x="167.5" y="20" font-family="Arial, sans-serif" font-size="20" fill="#8B5CF6" text-anchor="middle">💬</text>
+      <text x="167.5" y="40" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="middle" font-weight="bold">Messages</text>
+      
+      <!-- Button 3 -->
+      <rect x="0" y="60" width="105" height="50" rx="6" fill="#F3F4F6" stroke="#6366F1" stroke-width="2"/>
+      <text x="52.5" y="80" font-family="Arial, sans-serif" font-size="20" fill="#6366F1" text-anchor="middle">📊</text>
+      <text x="52.5" y="100" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="middle" font-weight="bold">Analytics</text>
+      
+      <!-- Button 4 -->
+      <rect x="115" y="60" width="105" height="50" rx="6" fill="#F3F4F6" stroke="#3B82F6" stroke-width="2"/>
+      <text x="167.5" y="80" font-family="Arial, sans-serif" font-size="20" fill="#3B82F6" text-anchor="middle">📅</text>
+      <text x="167.5" y="100" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="middle" font-weight="bold">Schedule</text>
+      
+      <!-- Button 5 -->
+      <rect x="0" y="120" width="105" height="50" rx="6" fill="#F3F4F6" stroke="#8B5CF6" stroke-width="2"/>
+      <text x="52.5" y="140" font-family="Arial, sans-serif" font-size="20" fill="#8B5CF6" text-anchor="middle">🎯</text>
+      <text x="52.5" y="160" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="middle" font-weight="bold">Goals</text>
+      
+      <!-- Button 6 -->
+      <rect x="115" y="120" width="105" height="50" rx="6" fill="#F3F4F6" stroke="#6366F1" stroke-width="2"/>
+      <text x="167.5" y="140" font-family="Arial, sans-serif" font-size="20" fill="#6366F1" text-anchor="middle">📚</text>
+      <text x="167.5" y="160" font-family="Arial, sans-serif" font-size="10" fill="#374151" text-anchor="middle" font-weight="bold">Resources</text>
     </g>
-    <text x="-4" y="26" class="muted">Rubric Review</text>
-    <text x="126" y="26" class="muted">Mentor Sign‑off</text>
-    <text x="256" y="26" class="muted">Admin QA</text>
-    <text x="394" y="26" class="muted">Finalization</text>
+    
+    <!-- Quick Stats -->
+    <rect x="30" y="560" width="220" height="15" rx="4" fill="#F9FAFB"/>
+    <text x="140" y="570" font-family="Arial, sans-serif" font-size="9" fill="#6B7280" text-anchor="middle">Active Sessions: 12 | Pending Reviews: 8</text>
   </g>
-
-  <!-- Heatmap -->
-  <g transform="translate(950,740)">
-    <text x="0" y="-8" class="label">Quality Compliance Heatmap</text>
-    <!-- 5x6 grid of squares -->
-    <rect x="0" y="0" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="24" y="0" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="48" y="0" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="72" y="0" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="96" y="0" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="120" y="0" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="0" y="24" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="24" y="24" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="48" y="24" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="72" y="24" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="96" y="24" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="120" y="24" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="0" y="48" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="24" y="48" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="48" y="48" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="72" y="48" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="96" y="48" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="120" y="48" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="0" y="72" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="24" y="72" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="48" y="72" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="72" y="72" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="96" y="72" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="120" y="72" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="0" y="96" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="24" y="96" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="48" y="96" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="72" y="96" width="18" height="18" rx="4" fill="#93C5FD"/><rect x="96" y="96" width="18" height="18" rx="4" fill="#E0E7FF"/><rect x="120" y="96" width="18" height="18" rx="4" fill="#93C5FD"/>
+  
+  <!-- Bottom Middle - Review Interface -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="420" width="245" height="165" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="280" y="455" width="245" height="130" rx="8" fill="url(#reviewBg)"/>
+    <rect x="280" y="420" width="245" height="35" rx="8" fill="url(#purpleGrad)"/>
+    <text x="295" y="442" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Review Interface</text>
+    
+    <!-- Current Review -->
+    <g transform="translate(295, 465)">
+      <rect x="0" y="0" width="215" height="70" rx="4" fill="#F9FAFB"/>
+      <text x="10" y="15" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">Current: Module 3 - Sarah Miller</text>
+      <text x="10" y="30" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Submitted: 2 hours ago</text>
+      <text x="10" y="45" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Type: Project Submission</text>
+      
+      <!-- Rating -->
+      <text x="10" y="62" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Quality Score:</text>
+      <text x="75" y="62" font-family="Arial, sans-serif" font-size="16" fill="#F59E0B">★★★★</text>
+      <text x="135" y="62" font-family="Arial, sans-serif" font-size="16" fill="#E5E7EB">★</text>
+    </g>
+    
+    <!-- Action Buttons -->
+    <g transform="translate(295, 545)">
+      <rect x="0" y="0" width="65" height="28" rx="4" fill="#10B981"/>
+      <text x="32.5" y="18" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Approve</text>
+      
+      <rect x="75" y="0" width="65" height="28" rx="4" fill="#F59E0B"/>
+      <text x="107.5" y="18" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Revise</text>
+      
+      <rect x="150" y="0" width="65" height="28" rx="4" fill="#EF4444"/>
+      <text x="182.5" y="18" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Reject</text>
+    </g>
   </g>
-
-  <!-- Admin Controls toolbar -->
-  <g transform="translate(1220, 50)">
-    <!-- Already placed toggle in header; add admin quick actions badge below header -->
+  
+  <!-- Bottom Right - Admin Controls -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="330" width="245" height="255" rx="8" fill="white" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="540" y="365" width="245" height="220" rx="8" fill="url(#adminBg)"/>
+    <rect x="540" y="330" width="245" height="35" rx="8" fill="url(#blueGrad)"/>
+    <text x="555" y="352" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Administrative Controls</text>
+    
+    <!-- Control Sections -->
+    <g transform="translate(555, 380)">
+      <!-- Section 1 -->
+      <text x="0" y="0" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">User Management</text>
+      <rect x="0" y="8" width="215" height="28" rx="4" fill="#F3F4F6" stroke="#3B82F6" stroke-width="1"/>
+      <text x="10" y="26" font-family="Arial, sans-serif" font-size="10" fill="#374151">👥 Manage Users & Permissions</text>
+      
+      <!-- Section 2 -->
+      <text x="0" y="55" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">Content Management</text>
+      <rect x="0" y="63" width="215" height="28" rx="4" fill="#F3F4F6" stroke="#8B5CF6" stroke-width="1"/>
+      <text x="10" y="81" font-family="Arial, sans-serif" font-size="10" fill="#374151">📦 Course & Module Settings</text>
+      
+      <!-- Section 3 -->
+      <text x="0" y="110" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">System Settings</text>
+      <rect x="0" y="118" width="215" height="28" rx="4" fill="#F3F4F6" stroke="#6366F1" stroke-width="1"/>
+      <text x="10" y="136" font-family="Arial, sans-serif" font-size="10" fill="#374151">⚙️ Configure System Parameters</text>
+      
+      <!-- Section 4 -->
+      <text x="0" y="165" font-family="Arial, sans-serif" font-size="11" fill="#374151" font-weight="bold">Reports & Analytics</text>
+      <rect x="0" y="173" width="215" height="28" rx="4" fill="#F3F4F6" stroke="#3B82F6" stroke-width="1"/>
+      <text x="10" y="191" font-family="Arial, sans-serif" font-size="10" fill="#374151">📈 Generate Reports</text>
+    </g>
+    
+    <!-- System Status -->
+    <rect x="555" y="560" width="215" height="15" rx="4" fill="#ECFDF5"/>
+    <circle cx="565" cy="567.5" r="3" fill="#10B981"/>
+    <text x="572" y="570" font-family="Arial, sans-serif" font-size="9" fill="#065F46" font-weight="bold">System Status: All Services Operational</text>
   </g>
-  <g transform="translate(920, 220)">
-    <rect x="420" y="-50" width="220" height="40" rx="20" fill="#FFFFFF" stroke="url(#gradPrimary)" filter="url(#shadowSoft)"/>
-    <use href="#icon-gear" x="432" y="-44" />
-    <text x="460" y="-20" class="text">Admin Controls</text>
-    <text x="460" y="-5" class="muted">Roles • Permissions • Bulk</text>
-  </g>
-
-  <!-- Footer watermark (non-obtrusive) -->
-  <text x="60" y="970" class="muted">Transparent background • Vector SVG • Purple/Blue UI</text>
 </svg>
