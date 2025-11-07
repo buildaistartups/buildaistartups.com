@@ -24,15 +24,7 @@
             refX="10" refY="3.5" orient="auto">
       <polygon points="0 0, 10 3.5, 0 7" fill="#6366F1" />
     </marker>
-    
-    <!-- Checkpoint marker -->
-    <marker id="checkpoint" markerWidth="8" markerHeight="8" 
-            refX="4" refY="4" orient="auto">
-      <circle cx="4" cy="4" r="3" fill="#F59E0B" stroke="#D97706" stroke-width="1"/>
-    </marker>
   </defs>
-  
-  <!-- Background (transparent as requested) -->
   
   <!-- Main process flow line -->
   <line x1="50" y1="64" x2="1150" y2="64" stroke="#6366F1" stroke-width="3" marker-end="url(#arrowhead)"/>
@@ -100,11 +92,11 @@
   <text x="460" y="52" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7" font-weight="bold">Mentor</text>
   <text x="460" y="78" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7">Check</text>
   
-  <!-- Step 4: UI & Copy -->
+  <!-- Step 4: UI and Copy -->
   <g id="step4">
     <rect x="500" y="40" width="80" height="48" rx="8" fill="url(#blueGrad)" stroke="#2563EB" stroke-width="2"/>
-    <text x="540" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">UI & COPY</text>
-    <text x="540" y="72" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Design &</text>
+    <text x="540" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">UI + COPY</text>
+    <text x="540" y="72" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Design +</text>
     <text x="540" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Content</text>
     
     <!-- Milestone indicator -->
@@ -121,12 +113,12 @@
   <text x="620" y="52" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7" font-weight="bold">Mentor</text>
   <text x="620" y="78" text-anchor="middle" fill="#92400E" font-family="Arial, sans-serif" font-size="7">Check</text>
   
-  <!-- Step 5: Ship & Learn -->
+  <!-- Step 5: Ship and Learn -->
   <g id="step5">
     <rect x="660" y="40" width="80" height="48" rx="8" fill="url(#purpleGrad)" stroke="#7C3AED" stroke-width="2"/>
-    <text x="700" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SHIP &</text>
+    <text x="700" y="58" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">SHIP +</text>
     <text x="700" y="68" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="bold">LEARN</text>
-    <text x="700" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Deploy & Test</text>
+    <text x="700" y="82" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">Deploy + Test</text>
     
     <!-- Milestone indicator -->
     <circle cx="700" cy="25" r="6" fill="url(#lightPurple)" stroke="#8B5CF6" stroke-width="1"/>
