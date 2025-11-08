@@ -48,7 +48,7 @@
   <rect x="80" y="65" width="520" height="12" rx="6" fill="url(#primaryGrad)" filter="url(#softGlow)"/>
   <rect x="80" y="65" width="520" height="12" rx="6" fill="url(#dots)"/>
   
-  <!-- Phase 2: Ship & Learn -->
+  <!-- Phase 2: Ship and Learn -->
   <rect x="600" y="65" width="520" height="12" rx="6" fill="url(#secondaryGrad)" filter="url(#softGlow)"/>
   <rect x="600" y="65" width="520" height="12" rx="6" fill="url(#dots)"/>
   
@@ -58,33 +58,33 @@
   
   <!-- Week 1 Labels -->
   <rect x="50" y="25" width="60" height="20" rx="10" fill="#667eea" opacity="0.1" filter="url(#dropShadow)"/>
-  <text x="80" y="37" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#667eea" text-anchor="middle">WEEK 1</text>
+  <text x="80" y="37" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#667eea" text-anchor="middle">WEEK 1</text>
   
-  <text x="80" y="95" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Define Intent</text>
-  <text x="80" y="107" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Research & Analysis</text>
-  <text x="80" y="117" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Proposal Documentation</text>
+  <text x="80" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Define Intent</text>
+  <text x="80" y="107" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Research and Analysis</text>
+  <text x="80" y="117" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Proposal Documentation</text>
   
   <!-- Milestone M1 -->
   <circle cx="260" cy="71" r="8" fill="#764ba2" stroke="#ffffff" stroke-width="2" filter="url(#dropShadow)"/>
   <circle cx="260" cy="71" r="3" fill="#ffffff"/>
   
   <rect x="235" y="25" width="50" height="18" rx="9" fill="#764ba2" opacity="0.15" filter="url(#dropShadow)"/>
-  <text x="260" y="36" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="700" fill="#764ba2" text-anchor="middle">M1</text>
+  <text x="260" y="36" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#764ba2" text-anchor="middle">M1</text>
   
-  <text x="260" y="95" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Repository Setup</text>
-  <text x="260" y="107" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• GitHub Initialization</text>
-  <text x="260" y="117" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Project Structure</text>
+  <text x="260" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Repository Setup</text>
+  <text x="260" y="107" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">GitHub Initialization</text>
+  <text x="260" y="117" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Project Structure</text>
   
   <!-- Week 2 -->
   <circle cx="440" cy="71" r="12" fill="#6366f1" stroke="#ffffff" stroke-width="3" filter="url(#dropShadow)"/>
   <circle cx="440" cy="71" r="6" fill="#ffffff" opacity="0.9"/>
   
   <rect x="410" y="25" width="60" height="20" rx="10" fill="#6366f1" opacity="0.1" filter="url(#dropShadow)"/>
-  <text x="440" y="37" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#6366f1" text-anchor="middle">WEEK 2</text>
+  <text x="440" y="37" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#6366f1" text-anchor="middle">WEEK 2</text>
   
-  <text x="440" y="95" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Build Foundation</text>
-  <text x="440" y="107" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Core Development</text>
-  <text x="440" y="117" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Testing Framework</text>
+  <text x="440" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Build Foundation</text>
+  <text x="440" y="107" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Core Development</text>
+  <text x="440" y="117" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Testing Framework</text>
   
   <!-- Phase Transition -->
   <line x1="600" y1="15" x2="600" y2="125" stroke="#e2e8f0" stroke-width="2" opacity="0.5"/>
@@ -93,47 +93,47 @@
   <circle cx="600" cy="71" r="6" fill="#ffffff" opacity="0.9"/>
   
   <rect x="570" y="5" width="60" height="16" rx="8" fill="#475569" filter="url(#dropShadow)"/>
-  <text x="600" y="15" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">MIDPOINT</text>
+  <text x="600" y="15" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">MIDPOINT</text>
   
   <!-- Week 3 -->
   <circle cx="760" cy="71" r="12" fill="#4facfe" stroke="#ffffff" stroke-width="3" filter="url(#dropShadow)"/>
   <circle cx="760" cy="71" r="6" fill="#ffffff" opacity="0.9"/>
   
   <rect x="730" y="25" width="60" height="20" rx="10" fill="#4facfe" opacity="0.1" filter="url(#dropShadow)"/>
-  <text x="760" y="37" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#4facfe" text-anchor="middle">WEEK 3</text>
+  <text x="760" y="37" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#4facfe" text-anchor="middle">WEEK 3</text>
   
-  <text x="760" y="95" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Ship MVP</text>
-  <text x="760" y="107" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Deployment</text>
-  <text x="760" y="117" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• User Testing</text>
+  <text x="760" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Ship MVP</text>
+  <text x="760" y="107" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Deployment</text>
+  <text x="760" y="117" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">User Testing</text>
   
   <!-- Milestone M2 -->
   <circle cx="940" cy="71" r="8" fill="#00f2fe" stroke="#ffffff" stroke-width="2" filter="url(#dropShadow)"/>
   <circle cx="940" cy="71" r="3" fill="#ffffff"/>
   
   <rect x="915" y="25" width="50" height="18" rx="9" fill="#00f2fe" opacity="0.15" filter="url(#dropShadow)"/>
-  <text x="940" y="36" font-family="'Segoe UI', Arial, sans-serif" font-size="9" font-weight="700" fill="#00f2fe" text-anchor="middle">M2</text>
+  <text x="940" y="36" font-family="Arial, sans-serif" font-size="9" font-weight="700" fill="#00f2fe" text-anchor="middle">M2</text>
   
-  <text x="940" y="95" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Iterate & Improve</text>
-  <text x="940" y="107" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Feedback Integration</text>
-  <text x="940" y="117" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Performance Optimization</text>
+  <text x="940" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Iterate and Improve</text>
+  <text x="940" y="107" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Feedback Integration</text>
+  <text x="940" y="117" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Performance Optimization</text>
   
   <!-- Week 4 -->
   <circle cx="1120" cy="71" r="12" fill="#3b82f6" stroke="#ffffff" stroke-width="3" filter="url(#dropShadow)"/>
   <circle cx="1120" cy="71" r="6" fill="#ffffff" opacity="0.9"/>
   
   <rect x="1090" y="25" width="60" height="20" rx="10" fill="#3b82f6" opacity="0.1" filter="url(#dropShadow)"/>
-  <text x="1120" y="37" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="600" fill="#3b82f6" text-anchor="middle">WEEK 4</text>
+  <text x="1120" y="37" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#3b82f6" text-anchor="middle">WEEK 4</text>
   
-  <text x="1120" y="95" font-family="'Segoe UI', Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Final Delivery</text>
-  <text x="1120" y="107" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Presentation</text>
-  <text x="1120" y="117" font-family="'Segoe UI', Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">• Documentation</text>
+  <text x="1120" y="95" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Final Delivery</text>
+  <text x="1120" y="107" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Presentation</text>
+  <text x="1120" y="117" font-family="Arial, sans-serif" font-size="8" fill="#64748b" text-anchor="middle">Documentation</text>
   
   <!-- Enhanced Phase Labels -->
   <rect x="120" y="135" width="200" height="22" rx="11" fill="url(#primaryGrad)" opacity="0.1" filter="url(#dropShadow)"/>
-  <text x="220" y="148" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#667eea" text-anchor="middle">📋 INTENT TO REPOSITORY</text>
+  <text x="220" y="148" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#667eea" text-anchor="middle">INTENT TO REPOSITORY</text>
   
   <rect x="880" y="135" width="200" height="22" rx="11" fill="url(#secondaryGrad)" opacity="0.1" filter="url(#dropShadow)"/>
-  <text x="980" y="148" font-family="'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3b82f6" text-anchor="middle">🚀 SHIP & LEARN</text>
+  <text x="980" y="148" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#3b82f6" text-anchor="middle">SHIP AND LEARN</text>
   
   <!-- Progress Indicators -->
   <polygon points="580,58 590,71 580,84" fill="#667eea" opacity="0.8" filter="url(#dropShadow)"/>
