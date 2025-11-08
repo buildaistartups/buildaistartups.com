@@ -1,191 +1,323 @@
 <svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="purpleBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    <!-- Enhanced gradients -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
     </linearGradient>
-    <linearGradient id="lightPurpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.2" />
-      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:0.2" />
+    
+    <!-- Card background gradients with stunning colors -->
+    <linearGradient id="auditCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEF3C7;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FDE68A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:0.1" />
     </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    
+    <linearGradient id="provenanceCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#DBEAFE;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#BFDBFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <linearGradient id="citationCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E8FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E9D5FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <linearGradient id="policyCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D1FAE5;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#A7F3D0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10B981;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- Status bar gradient -->
+    <linearGradient id="statusBarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFF6FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#DBEAFE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BFDBFE;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Main background gradient -->
+    <linearGradient id="mainBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F1F5F9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E2E8F0;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="accentGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="badgeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Enhanced shadows and effects -->
+    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1E293B" flood-opacity="0.1"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1E293B" flood-opacity="0.06"/>
     </filter>
+    
+    <filter id="badgeShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="12" stdDeviation="20" flood-color="#6366F1" flood-opacity="0.25"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#1E293B" flood-opacity="0.1"/>
+    </filter>
+    
+    <filter id="iconGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#6366F1" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- Background pattern -->
+    <pattern id="backgroundPattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="20" cy="20" r="1" fill="#C7D2FE" opacity="0.4"/>
+    </pattern>
   </defs>
   
-  <!-- Title -->
-  <text x="400" y="40" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#6366F1" text-anchor="middle">
-    Academic Integrity &amp; Compliance
+  <!-- Enhanced background with gradient -->
+  <rect width="800" height="600" fill="url(#mainBgGrad)"/>
+  <rect width="800" height="600" fill="url(#backgroundPattern)"/>
+  
+  <!-- Header section with vibrant typography -->
+  <g>
+    <text x="400" y="45" font-family="'Segoe UI', system-ui, -apple-system, sans-serif" 
+          font-size="32" font-weight="700" fill="#1E40AF" text-anchor="middle" letter-spacing="-0.5px">
+      Academic Integrity &amp; Compliance
+    </text>
+    <text x="400" y="70" font-family="'Segoe UI', system-ui, sans-serif" 
+          font-size="16" font-weight="400" fill="#7C3AED" text-anchor="middle" letter-spacing="0.5px">
+      ENTERPRISE VERIFICATION SYSTEM
+    </text>
+  </g>
+  
+  <!-- Enhanced Central Badge -->
+  <g transform="translate(400, 180)">
+    <!-- Glow effect background -->
+    <circle cx="0" cy="-10" r="80" fill="url(#badgeGlow)" opacity="0.6"/>
+    
+    <!-- Main shield with enhanced design -->
+    <path d="M 0,-65 L 55,-48 L 55,25 Q 55,52 0,68 Q -55,52 -55,25 L -55,-48 Z" 
+          fill="url(#primaryGrad)" filter="url(#badgeShadow)"/>
+    
+    <!-- Inner shield highlight -->
+    <path d="M 0,-60 L 50,-45 L 50,20 Q 50,45 0,60 Q -50,45 -50,20 L -50,-45 Z" 
+          fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+    
+    <!-- Enhanced checkmark with animation-ready design -->
+    <g filter="url(#iconGlow)">
+      <path d="M -25,-2 L -8,15 L 30,-25" stroke="white" stroke-width="8" 
+            stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.3"/>
+      <path d="M -25,-2 L -8,15 L 30,-25" stroke="white" stroke-width="5" 
+            stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+    
+    <!-- Sophisticated decorative elements -->
+    <g opacity="0.8">
+      <!-- Top star -->
+      <path d="M 0,-85 L 4,-95 L 0,-105 L -4,-95 Z" fill="url(#accentGrad2)"/>
+      <circle cx="0" cy="-95" r="3" fill="rgba(255,255,255,0.3)"/>
+      
+      <!-- Right stars -->
+      <path d="M 75,-35 L 85,-35 L 80,-25 L 85,-15 L 75,-15 Z" fill="url(#accentGrad2)"/>
+      <circle cx="80" cy="-25" r="2" fill="rgba(255,255,255,0.3)"/>
+      
+      <path d="M 75,40 L 85,40 L 80,50 L 85,60 L 75,60 Z" fill="url(#accentGrad1)"/>
+      <circle cx="80" cy="50" r="2" fill="rgba(255,255,255,0.3)"/>
+      
+      <!-- Left stars -->
+      <path d="M -75,-35 L -65,-35 L -70,-25 L -65,-15 L -75,-15 Z" fill="url(#accentGrad2)"/>
+      <circle cx="-70" cy="-25" r="2" fill="rgba(255,255,255,0.3)"/>
+      
+      <path d="M -75,40 L -65,40 L -70,50 L -65,60 L -75,60 Z" fill="url(#accentGrad1)"/>
+      <circle cx="-70" cy="50" r="2" fill="rgba(255,255,255,0.3)"/>
+    </g>
+  </g>
+  
+  <!-- Enhanced status text with vibrant color -->
+  <text x="400" y="270" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" 
+        font-weight="600" fill="#059669" text-anchor="middle" letter-spacing="2px">
+    ✓ VERIFIED COMPLIANCE
   </text>
   
-  <!-- Central Badge -->
-  <g transform="translate(400, 180)">
-    <!-- Shield background -->
-    <path d="M 0,-60 L 50,-45 L 50,20 Q 50,45 0,60 Q -50,45 -50,20 L -50,-45 Z" 
-          fill="url(#purpleBlueGrad)" filter="url(#shadow)"/>
-    
-    <!-- Checkmark -->
-    <path d="M -20,0 L -5,15 L 25,-20" stroke="white" stroke-width="6" 
-          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    
-    <!-- Stars around badge -->
-    <path d="M 0,-75 L 3,-83 L 0,-91 L -3,-83 Z" fill="#FCD34D"/>
-    <path d="M 65,-30 L 73,-30 L 68,-22 L 73,-14 L 65,-14 Z" fill="#FCD34D"/>
-    <path d="M 65,35 L 73,35 L 68,43 L 73,51 L 65,51 Z" fill="#FCD34D"/>
-    <path d="M -65,-30 L -57,-30 L -62,-22 L -57,-14 L -65,-14 Z" fill="#FCD34D"/>
-    <path d="M -65,35 L -57,35 L -62,43 L -57,51 L -65,51 Z" fill="#FCD34D"/>
-  </g>
+  <!-- Enhanced Feature Cards with stunning backgrounds -->
   
-  <text x="400" y="260" font-family="Arial, sans-serif" font-size="14" font-weight="600" 
-        fill="#6366F1" text-anchor="middle">VERIFIED COMPLIANCE</text>
-  
-  <!-- Four Feature Cards -->
-  
-  <!-- Audit Logs (Top Left) -->
-  <g transform="translate(80, 320)">
-    <rect x="0" y="0" width="140" height="160" rx="12" fill="url(#lightPurpleGrad)" 
-          stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Audit Logs Card - Golden Theme -->
+  <g transform="translate(60, 320)">
+    <rect x="0" y="0" width="160" height="180" rx="16" fill="url(#auditCardGrad)" 
+          stroke="#F59E0B" stroke-width="2" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="160" height="4" rx="16" fill="#D97706"/>
     
-    <!-- Icon: Document with lines -->
-    <g transform="translate(70, 35)">
-      <rect x="-20" y="-25" width="40" height="50" rx="3" fill="none" stroke="#7C3AED" stroke-width="2.5"/>
-      <line x1="-12" y1="-15" x2="12" y2="-15" stroke="#7C3AED" stroke-width="2"/>
-      <line x1="-12" y1="-5" x2="12" y2="-5" stroke="#7C3AED" stroke-width="2"/>
-      <line x1="-12" y1="5" x2="12" y2="5" stroke="#7C3AED" stroke-width="2"/>
-      <line x1="-12" y1="15" x2="5" y2="15" stroke="#7C3AED" stroke-width="2"/>
-      <circle cx="15" cy="-20" r="8" fill="#10B981"/>
-      <path d="M 12,-20 L 15,-17 L 19,-23" stroke="white" stroke-width="2" fill="none"/>
+    <!-- Enhanced icon -->
+    <g transform="translate(80, 50)">
+      <rect x="-25" y="-30" width="50" height="60" rx="6" fill="#FEF3C7" stroke="#D97706" stroke-width="2.5"/>
+      <line x1="-15" y1="-18" x2="15" y2="-18" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-15" y1="-6" x2="15" y2="-6" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-15" y1="6" x2="15" y2="6" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-15" y1="18" x2="8" y2="18" stroke="#B45309" stroke-width="2.5" stroke-linecap="round"/>
+      
+      <!-- Status indicator -->
+      <circle cx="22" cy="-25" r="10" fill="url(#accentGrad1)" filter="url(#iconGlow)"/>
+      <path d="M 18,-25 L 21,-22 L 26,-28" stroke="white" stroke-width="2.5" 
+            stroke-linecap="round" fill="none"/>
     </g>
     
-    <text x="70" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
-          fill="#5B21B6" text-anchor="middle">Audit Logs</text>
-    <text x="70" y="110" font-family="Arial, sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">
-      Complete activity
-    </text>
-    <text x="70" y="125" font-family="Arial, sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">
-      tracking &amp; review
-    </text>
-    <text x="70" y="140" font-family="Arial, sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">
-      history
-    </text>
+    <text x="80" y="105" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" 
+          font-weight="700" fill="#92400E" text-anchor="middle">Audit Logs</text>
+    <text x="80" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#B45309" text-anchor="middle">Complete activity tracking</text>
+    <text x="80" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#B45309" text-anchor="middle">and comprehensive review</text>
+    <text x="80" y="159" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#B45309" text-anchor="middle">history management</text>
   </g>
   
-  <!-- Provenance Tracking (Top Right) -->
-  <g transform="translate(260, 320)">
-    <rect x="0" y="0" width="140" height="160" rx="12" fill="url(#lightPurpleGrad)" 
-          stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Provenance Tracking Card - Blue Theme -->
+  <g transform="translate(240, 320)">
+    <rect x="0" y="0" width="160" height="180" rx="16" fill="url(#provenanceCardGrad)" 
+          stroke="#3B82F6" stroke-width="2" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="160" height="4" rx="16" fill="#1D4ED8"/>
     
-    <!-- Icon: Chain links -->
-    <g transform="translate(70, 40)">
-      <ellipse cx="-15" cy="-5" rx="10" ry="15" fill="none" stroke="#2563EB" stroke-width="2.5"/>
-      <ellipse cx="15" cy="-5" rx="10" ry="15" fill="none" stroke="#2563EB" stroke-width="2.5"/>
-      <rect x="-5" y="-8" width="10" height="6" fill="#2563EB"/>
-      <circle cx="-15" cy="-15" r="4" fill="#10B981"/>
-      <circle cx="0" cy="-5" r="4" fill="#10B981"/>
-      <circle cx="15" cy="-15" r="4" fill="#10B981"/>
+    <!-- Enhanced chain icon -->
+    <g transform="translate(80, 50)">
+      <ellipse cx="-18" cy="-8" rx="12" ry="18" fill="none" stroke="#1D4ED8" stroke-width="3"/>
+      <ellipse cx="18" cy="-8" rx="12" ry="18" fill="none" stroke="#1D4ED8" stroke-width="3"/>
+      <rect x="-6" y="-12" width="12" height="8" rx="2" fill="#1D4ED8"/>
+      
+      <!-- Connection nodes -->
+      <circle cx="-18" cy="-20" r="5" fill="url(#accentGrad1)"/>
+      <circle cx="0" cy="-8" r="5" fill="url(#accentGrad1)"/>
+      <circle cx="18" cy="-20" r="5" fill="url(#accentGrad1)"/>
+      
+      <!-- Data flow indicators -->
+      <path d="M -8,-8 L 8,-8" stroke="#10B981" stroke-width="2" marker-end="url(#arrow)"/>
     </g>
     
-    <text x="70" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
-          fill="#1E40AF" text-anchor="middle">Provenance</text>
-    <text x="70" y="110" font-family="Arial, sans-serif" font-size="10" fill="#2563EB" text-anchor="middle">
-      Source tracking
-    </text>
-    <text x="70" y="125" font-family="Arial, sans-serif" font-size="10" fill="#2563EB" text-anchor="middle">
-      &amp; attribution
-    </text>
-    <text x="70" y="140" font-family="Arial, sans-serif" font-size="10" fill="#2563EB" text-anchor="middle">
-      verification
-    </text>
+    <text x="80" y="105" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" 
+          font-weight="700" fill="#1E40AF" text-anchor="middle">Provenance</text>
+    <text x="80" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#2563EB" text-anchor="middle">Advanced source tracking</text>
+    <text x="80" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#2563EB" text-anchor="middle">with attribution verification</text>
+    <text x="80" y="159" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#2563EB" text-anchor="middle">and lineage mapping</text>
   </g>
   
-  <!-- Citation Guidance (Bottom Left) -->
-  <g transform="translate(440, 320)">
-    <rect x="0" y="0" width="140" height="160" rx="12" fill="url(#lightPurpleGrad)" 
-          stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Citation Guidance Card - Purple Theme -->
+  <g transform="translate(420, 320)">
+    <rect x="0" y="0" width="160" height="180" rx="16" fill="url(#citationCardGrad)" 
+          stroke="#8B5CF6" stroke-width="2" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="160" height="4" rx="16" fill="#7C3AED"/>
     
-    <!-- Icon: Quote marks with document -->
-    <g transform="translate(70, 38)">
-      <path d="M -20,-15 Q -20,-25 -10,-25 L -10,-20 Q -15,-20 -15,-15 Z" fill="#7C3AED"/>
-      <path d="M -5,-15 Q -5,-25 5,-25 L 5,-20 Q 0,-20 0,-15 Z" fill="#7C3AED"/>
-      <rect x="-18" y="-5" width="36" height="30" rx="2" fill="none" stroke="#7C3AED" stroke-width="2"/>
-      <line x1="-12" y1="3" x2="12" y2="3" stroke="#7C3AED" stroke-width="1.5"/>
-      <line x1="-12" y1="9" x2="12" y2="9" stroke="#7C3AED" stroke-width="1.5"/>
-      <line x1="-12" y1="15" x2="6" y2="15" stroke="#7C3AED" stroke-width="1.5"/>
-      <circle cx="18" cy="18" r="7" fill="#10B981"/>
-      <text x="18" y="23" font-family="Arial, sans-serif" font-size="10" font-weight="bold" 
-            fill="white" text-anchor="middle">?</text>
+    <!-- Enhanced citation icon -->
+    <g transform="translate(80, 50)">
+      <!-- Quote marks -->
+      <path d="M -25,-18 Q -25,-30 -12,-30 L -12,-24 Q -18,-24 -18,-18 Z" fill="#7C3AED"/>
+      <path d="M -8,-18 Q -8,-30 5,-30 L 5,-24 Q -1,-24 -1,-18 Z" fill="#7C3AED"/>
+      
+      <!-- Document -->
+      <rect x="-22" y="-5" width="44" height="35" rx="4" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2.5"/>
+      <line x1="-15" y1="3" x2="15" y2="3" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+      <line x1="-15" y1="10" x2="15" y2="10" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+      <line x1="-15" y1="17" x2="8" y2="17" stroke="#7C3AED" stroke-width="2" stroke-linecap="round"/>
+      
+      <!-- Help indicator -->
+      <circle cx="25" cy="22" r="8" fill="url(#accentGrad1)"/>
+      <text x="25" y="27" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" 
+            font-weight="bold" fill="white" text-anchor="middle">?</text>
     </g>
     
-    <text x="70" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
-          fill="#5B21B6" text-anchor="middle">Citation</text>
-    <text x="70" y="110" font-family="Arial, sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">
-      Automated
-    </text>
-    <text x="70" y="125" font-family="Arial, sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">
-      formatting &amp;
-    </text>
-    <text x="70" y="140" font-family="Arial, sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">
-      style guides
-    </text>
+    <text x="80" y="105" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" 
+          font-weight="700" fill="#6B21A8" text-anchor="middle">Citation</text>
+    <text x="80" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#7C3AED" text-anchor="middle">Automated formatting</text>
+    <text x="80" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#7C3AED" text-anchor="middle">with intelligent style</text>
+    <text x="80" y="159" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#7C3AED" text-anchor="middle">guide recommendations</text>
   </g>
   
-  <!-- Policy Templates (Bottom Right) -->
-  <g transform="translate(620, 320)">
-    <rect x="0" y="0" width="140" height="160" rx="12" fill="url(#lightPurpleGrad)" 
-          stroke="#2563EB" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Policy Templates Card - Green Theme -->
+  <g transform="translate(600, 320)">
+    <rect x="0" y="0" width="160" height="180" rx="16" fill="url(#policyCardGrad)" 
+          stroke="#10B981" stroke-width="2" filter="url(#cardShadow)"/>
+    <rect x="0" y="0" width="160" height="4" rx="16" fill="#059669"/>
     
-    <!-- Icon: Documents stack -->
-    <g transform="translate(70, 40)">
-      <rect x="-20" y="-20" width="35" height="40" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.3"/>
-      <rect x="-17" y="-17" width="35" height="40" rx="2" fill="none" stroke="#2563EB" stroke-width="2" opacity="0.6"/>
-      <rect x="-14" y="-14" width="35" height="40" rx="2" fill="#EFF6FF" stroke="#2563EB" stroke-width="2.5"/>
-      <line x1="-8" y1="-6" x2="14" y2="-6" stroke="#2563EB" stroke-width="2"/>
-      <line x1="-8" y1="0" x2="14" y2="0" stroke="#2563EB" stroke-width="2"/>
-      <line x1="-8" y1="6" x2="14" y2="6" stroke="#2563EB" stroke-width="2"/>
-      <line x1="-8" y1="12" x2="8" y2="12" stroke="#2563EB" stroke-width="2"/>
+    <!-- Enhanced document stack -->
+    <g transform="translate(80, 50)">
+      <rect x="-22" y="-25" width="40" height="48" rx="4" fill="none" stroke="#059669" stroke-width="2" opacity="0.3"/>
+      <rect x="-19" y="-22" width="40" height="48" rx="4" fill="none" stroke="#059669" stroke-width="2" opacity="0.6"/>
+      <rect x="-16" y="-19" width="40" height="48" rx="4" fill="#D1FAE5" stroke="#059669" stroke-width="2.5"/>
+      
+      <!-- Document content -->
+      <line x1="-10" y1="-10" x2="18" y2="-10" stroke="#047857" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-10" y1="-2" x2="18" y2="-2" stroke="#047857" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-10" y1="6" x2="18" y2="6" stroke="#047857" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="-10" y1="14" x2="12" y2="14" stroke="#047857" stroke-width="2.5" stroke-linecap="round"/>
+      
+      <!-- Template indicator -->
+      <circle cx="28" cy="-15" r="6" fill="url(#accentGrad2)"/>
+      <text x="28" y="-11" font-family="'Segoe UI', system-ui, sans-serif" font-size="8" 
+            font-weight="bold" fill="white" text-anchor="middle">T</text>
     </g>
     
-    <text x="70" y="90" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
-          fill="#1E40AF" text-anchor="middle">Policy</text>
-    <text x="70" y="110" font-family="Arial, sans-serif" font-size="10" fill="#2563EB" text-anchor="middle">
-      Ready-to-use
-    </text>
-    <text x="70" y="125" font-family="Arial, sans-serif" font-size="10" fill="#2563EB" text-anchor="middle">
-      templates &amp;
-    </text>
-    <text x="70" y="140" font-family="Arial, sans-serif" font-size="10" fill="#2563EB" text-anchor="middle">
-      guidelines
-    </text>
+    <text x="80" y="105" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" 
+          font-weight="700" fill="#065F46" text-anchor="middle">Policy</text>
+    <text x="80" y="125" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#047857" text-anchor="middle">Enterprise-ready templates</text>
+    <text x="80" y="142" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#047857" text-anchor="middle">with comprehensive</text>
+    <text x="80" y="159" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" 
+          fill="#047857" text-anchor="middle">compliance guidelines</text>
   </g>
   
-  <!-- Bottom Status Bar -->
-  <g transform="translate(200, 520)">
-    <rect x="0" y="0" width="400" height="50" rx="25" fill="url(#lightPurpleGrad)" 
-          stroke="#6366F1" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Enhanced Status Bar with Blue Theme -->
+  <g transform="translate(150, 530)">
+    <rect x="0" y="0" width="500" height="55" rx="28" fill="url(#statusBarGrad)" 
+          stroke="#3B82F6" stroke-width="2" filter="url(#cardShadow)"/>
     
-    <!-- Status indicators - moved 7px more to the left -->
-    <circle cx="58" cy="25" r="8" fill="#10B981"/>
-    <path d="M 55,25 L 58,28 L 62,22" stroke="white" stroke-width="2" fill="none"/>
-    <text x="78" y="30" font-family="Arial, sans-serif" font-size="12" fill="#5B21B6" font-weight="600">
-      Standards Met
-    </text>
+    <!-- Status indicators with enhanced design -->
+    <g transform="translate(80, 27.5)">
+      <circle cx="0" cy="0" r="12" fill="url(#accentGrad1)"/>
+      <path d="M -4,0 L -1,3 L 5,-4" stroke="white" stroke-width="2.5" 
+            stroke-linecap="round" fill="none"/>
+      <text x="25" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" 
+            fill="#1E40AF" font-weight="600">Standards Met</text>
+    </g>
     
-    <circle cx="178" cy="25" r="8" fill="#10B981"/>
-    <path d="M 175,25 L 178,28 L 182,22" stroke="white" stroke-width="2" fill="none"/>
-    <text x="198" y="30" font-family="Arial, sans-serif" font-size="12" fill="#5B21B6" font-weight="600">
-      Verified
-    </text>
+    <g transform="translate(220, 27.5)">
+      <circle cx="0" cy="0" r="12" fill="url(#accentGrad1)"/>
+      <path d="M -4,0 L -1,3 L 5,-4" stroke="white" stroke-width="2.5" 
+            stroke-linecap="round" fill="none"/>
+      <text x="25" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" 
+            fill="#1E40AF" font-weight="600">Verified</text>
+    </g>
     
-    <circle cx="278" cy="25" r="8" fill="#10B981"/>
-    <path d="M 275,25 L 278,28 L 282,22" stroke="white" stroke-width="2" fill="none"/>
-    <text x="298" y="30" font-family="Arial, sans-serif" font-size="12" fill="#5B21B6" font-weight="600">
-      Compliant
-    </text>
+    <g transform="translate(340, 27.5)">
+      <circle cx="0" cy="0" r="12" fill="url(#accentGrad1)"/>
+      <path d="M -4,0 L -1,3 L 5,-4" stroke="white" stroke-width="2.5" 
+            stroke-linecap="round" fill="none"/>
+      <text x="25" y="5" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" 
+            fill="#1E40AF" font-weight="600">Compliant</text>
+    </g>
   </g>
   
-  <!-- Connecting lines from badge to features -->
-  <line x1="350" y1="230" x2="150" y2="320" stroke="#A78BFA" stroke-width="2" stroke-dasharray="5,5" opacity="0.4"/>
-  <line x1="400" y1="240" x2="330" y2="320" stroke="#A78BFA" stroke-width="2" stroke-dasharray="5,5" opacity="0.4"/>
-  <line x1="450" y1="230" x2="510" y2="320" stroke="#A78BFA" stroke-width="2" stroke-dasharray="5,5" opacity="0.4"/>
-  <line x1="460" y1="220" x2="690" y2="320" stroke="#A78BFA" stroke-width="2" stroke-dasharray="5,5" opacity="0.4"/>
+  <!-- Enhanced connecting lines with vibrant colors -->
+  <g opacity="0.5">
+    <path d="M 350,240 Q 250,280 140,320" stroke="#F59E0B" stroke-width="3" 
+          stroke-dasharray="8,4" fill="none"/>
+    <path d="M 400,250 Q 360,285 320,320" stroke="#3B82F6" stroke-width="3" 
+          stroke-dasharray="8,4" fill="none"/>
+    <path d="M 450,240 Q 480,280 500,320" stroke="#8B5CF6" stroke-width="3" 
+          stroke-dasharray="8,4" fill="none"/>
+    <path d="M 460,230 Q 550,275 680,320" stroke="#10B981" stroke-width="3" 
+          stroke-dasharray="8,4" fill="none"/>
+  </g>
 </svg>
