@@ -119,7 +119,7 @@
     <!-- Algorithm steps -->
     <g transform="translate(295, 315)">
       <circle cx="0" cy="0" r="4" fill="#A78BFA"/>
-      <text x="10" y="4" font-family="Arial, sans-serif" font-size="11" fill="white">Analyze skills & interests</text>
+      <text x="10" y="4" font-family="Arial, sans-serif" font-size="11" fill="white">Analyze skills &amp; interests</text>
     </g>
     
     <g transform="translate(295, 335)">
