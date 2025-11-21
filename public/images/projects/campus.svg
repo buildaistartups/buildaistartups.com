@@ -12,15 +12,15 @@
     </linearGradient>
     
     <linearGradient id="pathGlow1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0" />
-      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.9" />
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#c4b5fd;stop-opacity:0.9" />
       <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0" />
     </linearGradient>
     
     <linearGradient id="pathGlow2" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0" />
       <stop offset="50%" style="stop-color:#22d3ee;stop-opacity:0.8" />
-      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+      <stop offset="100%" style="stop-color:#c4b5fd;stop-opacity:0" />
     </linearGradient>
     
     <!-- Filters for glows -->
@@ -41,11 +41,14 @@
     </filter>
   </defs>
   
+  <!-- Background -->
+  <rect width="1600" height="900" fill="#8B5CF6"/>
+  
   <!-- Glowing connection paths -->
   <g opacity="0.7">
     <!-- Horizontal path left to center -->
     <path d="M 350 520 Q 500 520 650 460" stroke="url(#pathGlow1)" stroke-width="4" fill="none" filter="url(#softGlow)"/>
-    <path d="M 350 520 Q 500 520 650 460" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+    <path d="M 350 520 Q 500 520 650 460" stroke="#c4b5fd" stroke-width="2" fill="none"/>
     
     <!-- Vertical path center to top -->
     <path d="M 750 400 Q 750 320 820 280" stroke="url(#pathGlow2)" stroke-width="4" fill="none" filter="url(#softGlow)"/>
@@ -57,13 +60,13 @@
     
     <!-- Bottom connecting path -->
     <path d="M 650 580 Q 750 600 850 580" stroke="url(#pathGlow2)" stroke-width="4" fill="none" filter="url(#softGlow)"/>
-    <path d="M 650 580 Q 750 600 850 580" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+    <path d="M 650 580 Q 750 600 850 580" stroke="#c4b5fd" stroke-width="2" fill="none"/>
   </g>
   
   <!-- Structure 1 (Bottom Left) - Isometric -->
   <g>
     <!-- Shadow -->
-    <ellipse cx="350" cy="560" rx="80" ry="20" fill="#000000" opacity="0.25"/>
+    <ellipse cx="350" cy="560" rx="80" ry="20" fill="#6b21a8" opacity="0.4"/>
     
     <!-- Front face -->
     <path d="M 280 480 L 280 540 L 350 560 L 350 500 Z" fill="url(#buildingGrad1)"/>
@@ -76,12 +79,12 @@
     
     <!-- Light elements -->
     <g opacity="0.8">
-      <rect x="290" y="495" width="8" height="12" fill="#8b5cf6"/>
+      <rect x="290" y="495" width="8" height="12" fill="#c4b5fd"/>
       <rect x="305" y="500" width="8" height="12" fill="#06b6d4" opacity="0.7"/>
-      <rect x="320" y="505" width="8" height="12" fill="#8b5cf6" opacity="0.8"/>
+      <rect x="320" y="505" width="8" height="12" fill="#e0d7ff" opacity="0.8"/>
       
       <rect x="360" y="505" width="8" height="12" fill="#22d3ee" opacity="0.7"/>
-      <rect x="375" y="500" width="8" height="12" fill="#8b5cf6"/>
+      <rect x="375" y="500" width="8" height="12" fill="#ddd6fe"/>
       <rect x="390" y="495" width="8" height="12" fill="#06b6d4" opacity="0.8"/>
     </g>
   </g>
@@ -89,7 +92,7 @@
   <!-- Structure 2 (Center) - Tallest -->
   <g>
     <!-- Shadow -->
-    <ellipse cx="750" cy="500" rx="90" ry="22" fill="#000000" opacity="0.25"/>
+    <ellipse cx="750" cy="500" rx="90" ry="22" fill="#6b21a8" opacity="0.4"/>
     
     <!-- Front face -->
     <path d="M 670 350 L 670 480 L 750 500 L 750 370 Z" fill="url(#buildingGrad1)"/>
@@ -104,36 +107,36 @@
     <g opacity="0.8">
       <!-- Left face -->
       <rect x="685" y="380" width="10" height="15" fill="#06b6d4"/>
-      <rect x="700" y="385" width="10" height="15" fill="#8b5cf6" opacity="0.8"/>
+      <rect x="700" y="385" width="10" height="15" fill="#c4b5fd" opacity="0.8"/>
       <rect x="715" y="390" width="10" height="15" fill="#22d3ee" opacity="0.7"/>
       
-      <rect x="685" y="415" width="10" height="15" fill="#8b5cf6"/>
+      <rect x="685" y="415" width="10" height="15" fill="#ddd6fe"/>
       <rect x="700" y="420" width="10" height="15" fill="#06b6d4" opacity="0.8"/>
-      <rect x="715" y="425" width="10" height="15" fill="#8b5cf6" opacity="0.7"/>
+      <rect x="715" y="425" width="10" height="15" fill="#e0d7ff" opacity="0.7"/>
       
       <rect x="685" y="450" width="10" height="15" fill="#22d3ee" opacity="0.8"/>
-      <rect x="700" y="455" width="10" height="15" fill="#8b5cf6"/>
+      <rect x="700" y="455" width="10" height="15" fill="#c4b5fd"/>
       <rect x="715" y="460" width="10" height="15" fill="#06b6d4" opacity="0.7"/>
       
       <!-- Right face -->
-      <rect x="760" y="390" width="10" height="15" fill="#8b5cf6"/>
+      <rect x="760" y="390" width="10" height="15" fill="#ddd6fe"/>
       <rect x="775" y="385" width="10" height="15" fill="#06b6d4" opacity="0.8"/>
       <rect x="790" y="380" width="10" height="15" fill="#22d3ee" opacity="0.7"/>
       
       <rect x="760" y="425" width="10" height="15" fill="#06b6d4" opacity="0.8"/>
-      <rect x="775" y="420" width="10" height="15" fill="#8b5cf6"/>
+      <rect x="775" y="420" width="10" height="15" fill="#c4b5fd"/>
       <rect x="790" y="415" width="10" height="15" fill="#06b6d4" opacity="0.7"/>
       
-      <rect x="760" y="460" width="10" height="15" fill="#8b5cf6"/>
+      <rect x="760" y="460" width="10" height="15" fill="#e0d7ff"/>
       <rect x="775" y="455" width="10" height="15" fill="#22d3ee" opacity="0.8"/>
-      <rect x="790" y="450" width="10" height="15" fill="#8b5cf6" opacity="0.7"/>
+      <rect x="790" y="450" width="10" height="15" fill="#ddd6fe" opacity="0.7"/>
     </g>
   </g>
   
   <!-- Structure 3 (Top Right) -->
   <g>
     <!-- Shadow -->
-    <ellipse cx="900" cy="320" rx="75" ry="18" fill="#000000" opacity="0.25"/>
+    <ellipse cx="900" cy="320" rx="75" ry="18" fill="#6b21a8" opacity="0.4"/>
     
     <!-- Front face -->
     <path d="M 835 250 L 835 305 L 900 320 L 900 265 Z" fill="url(#buildingGrad1)"/>
@@ -147,10 +150,10 @@
     <!-- Light elements -->
     <g opacity="0.8">
       <rect x="850" y="265" width="8" height="12" fill="#22d3ee"/>
-      <rect x="863" y="270" width="8" height="12" fill="#8b5cf6" opacity="0.8"/>
+      <rect x="863" y="270" width="8" height="12" fill="#c4b5fd" opacity="0.8"/>
       <rect x="876" y="275" width="8" height="12" fill="#06b6d4" opacity="0.7"/>
       
-      <rect x="910" y="275" width="8" height="12" fill="#8b5cf6"/>
+      <rect x="910" y="275" width="8" height="12" fill="#ddd6fe"/>
       <rect x="923" y="270" width="8" height="12" fill="#06b6d4" opacity="0.8"/>
       <rect x="936" y="265" width="8" height="12" fill="#22d3ee" opacity="0.7"/>
     </g>
@@ -159,7 +162,7 @@
   <!-- Structure 4 (Bottom Right) -->
   <g>
     <!-- Shadow -->
-    <ellipse cx="1150" cy="560" rx="85" ry="20" fill="#000000" opacity="0.25"/>
+    <ellipse cx="1150" cy="560" rx="85" ry="20" fill="#6b21a8" opacity="0.4"/>
     
     <!-- Front face -->
     <path d="M 1075 475 L 1075 540 L 1150 560 L 1150 495 Z" fill="url(#buildingGrad1)"/>
@@ -173,63 +176,63 @@
     <!-- Light elements -->
     <g opacity="0.8">
       <rect x="1090" y="495" width="9" height="13" fill="#06b6d4"/>
-      <rect x="1106" y="500" width="9" height="13" fill="#8b5cf6" opacity="0.8"/>
+      <rect x="1106" y="500" width="9" height="13" fill="#c4b5fd" opacity="0.8"/>
       <rect x="1122" y="505" width="9" height="13" fill="#22d3ee" opacity="0.7"/>
       
-      <rect x="1160" y="505" width="9" height="13" fill="#8b5cf6"/>
+      <rect x="1160" y="505" width="9" height="13" fill="#ddd6fe"/>
       <rect x="1176" y="500" width="9" height="13" fill="#06b6d4" opacity="0.8"/>
-      <rect x="1192" y="495" width="9" height="13" fill="#8b5cf6" opacity="0.7"/>
+      <rect x="1192" y="495" width="9" height="13" fill="#e0d7ff" opacity="0.7"/>
     </g>
   </g>
   
   <!-- Connection nodes -->
   <g filter="url(#glow)">
     <!-- Near Structure 1 -->
-    <circle cx="320" cy="510" r="6" fill="#8b5cf6"/>
+    <circle cx="320" cy="510" r="6" fill="#e0d7ff"/>
     <circle cx="340" cy="520" r="5" fill="#22d3ee" opacity="0.9"/>
-    <circle cx="360" cy="515" r="5.5" fill="#8b5cf6" opacity="0.95"/>
+    <circle cx="360" cy="515" r="5.5" fill="#ddd6fe" opacity="0.95"/>
     
     <!-- Near Structure 2 -->
     <circle cx="710" cy="420" r="6" fill="#06b6d4"/>
-    <circle cx="730" cy="435" r="5.5" fill="#8b5cf6" opacity="0.95"/>
+    <circle cx="730" cy="435" r="5.5" fill="#c4b5fd" opacity="0.95"/>
     <circle cx="750" cy="425" r="5" fill="#22d3ee" opacity="0.9"/>
-    <circle cx="770" cy="415" r="6" fill="#8b5cf6"/>
+    <circle cx="770" cy="415" r="6" fill="#e0d7ff"/>
     <circle cx="790" cy="430" r="5" fill="#06b6d4" opacity="0.95"/>
     
     <!-- Near Structure 3 -->
     <circle cx="870" cy="280" r="5" fill="#22d3ee"/>
-    <circle cx="890" cy="290" r="5.5" fill="#8b5cf6" opacity="0.95"/>
+    <circle cx="890" cy="290" r="5.5" fill="#ddd6fe" opacity="0.95"/>
     <circle cx="910" cy="285" r="5" fill="#06b6d4" opacity="0.9"/>
     
     <!-- Near Structure 4 -->
-    <circle cx="1120" cy="520" r="6" fill="#8b5cf6"/>
+    <circle cx="1120" cy="520" r="6" fill="#c4b5fd"/>
     <circle cx="1140" cy="530" r="5" fill="#06b6d4" opacity="0.95"/>
     <circle cx="1160" cy="525" r="5.5" fill="#22d3ee"/>
     
     <!-- Along paths -->
-    <circle cx="500" cy="490" r="4" fill="#8b5cf6" opacity="0.9"/>
+    <circle cx="500" cy="490" r="4" fill="#e0d7ff" opacity="0.9"/>
     <circle cx="750" cy="360" r="4" fill="#22d3ee" opacity="0.9"/>
     <circle cx="1000" cy="510" r="4" fill="#06b6d4" opacity="0.9"/>
-    <circle cx="750" cy="590" r="4" fill="#8b5cf6" opacity="0.9"/>
+    <circle cx="750" cy="590" r="4" fill="#ddd6fe" opacity="0.9"/>
   </g>
   
   <!-- Abstract network tiles -->
   <g opacity="0.8" filter="url(#glow)">
     <!-- Near Structure 1 -->
     <rect x="298" y="505" width="7" height="7" fill="#06b6d4" transform="rotate(45 301.5 508.5)"/>
-    <rect x="368" y="518" width="6" height="6" fill="#8b5cf6" opacity="0.8" transform="rotate(45 371 521)"/>
+    <rect x="368" y="518" width="6" height="6" fill="#e0d7ff" opacity="0.8" transform="rotate(45 371 521)"/>
     
     <!-- Near Structure 2 -->
-    <rect x="695" y="410" width="7" height="7" fill="#8b5cf6" transform="rotate(45 698.5 413.5)"/>
+    <rect x="695" y="410" width="7" height="7" fill="#ddd6fe" transform="rotate(45 698.5 413.5)"/>
     <rect x="738" y="445" width="6" height="6" fill="#22d3ee" opacity="0.8" transform="rotate(45 741 448)"/>
     <rect x="778" y="420" width="7" height="7" fill="#06b6d4" transform="rotate(45 781.5 423.5)"/>
     
     <!-- Near Structure 3 -->
-    <rect x="858" y="275" width="6" height="6" fill="#8b5cf6" opacity="0.8" transform="rotate(45 861 278)"/>
+    <rect x="858" y="275" width="6" height="6" fill="#c4b5fd" opacity="0.8" transform="rotate(45 861 278)"/>
     <rect x="918" y="288" width="6" height="6" fill="#22d3ee" transform="rotate(45 921 291)"/>
     
     <!-- Near Structure 4 -->
     <rect x="1108" y="515" width="7" height="7" fill="#06b6d4" transform="rotate(45 1111.5 518.5)"/>
-    <rect x="1168" y="528" width="6" height="6" fill="#8b5cf6" opacity="0.8" transform="rotate(45 1171 531)"/>
+    <rect x="1168" y="528" width="6" height="6" fill="#e0d7ff" opacity="0.8" transform="rotate(45 1171 531)"/>
   </g>
 </svg>
