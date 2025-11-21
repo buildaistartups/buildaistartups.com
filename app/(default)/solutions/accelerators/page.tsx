@@ -584,12 +584,13 @@ export default function AcceleratorsUniversitiesPage() {
               { name: 'Studio Z', vp: 'Always-on backlog with monthly handoffs', tags: ['Venture Studio'], src: '/images/projects/studioz.svg' },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
-                {/* UPDATED: Case snapshot image cards with 15px padding and centered images */}
-                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
+                {/* UPDATED: Case snapshot image cards with 15px padding and full coverage */}
+                <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 p-[15px]">
                   <img 
                     src={p.src} 
                     alt={p.name} 
-                    className="max-h-full max-w-full object-contain" 
+                    className="h-full w-full object-cover rounded-sm" 
+                    loading="lazy"
                   />
                 </div>
                 <div className="mt-3 text-base font-medium">{p.name}</div>
