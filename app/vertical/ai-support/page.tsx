@@ -2,6 +2,8 @@
 import type { Metadata } from 'next'
 import { verticals } from '@/lib/verticals'
 import BuilderVerticalPage from '@/components/builder/BuilderVerticalPage'
+import Header from '@/components/ui/header'
+import Footer from '@/components/ui/footer'
 
 const vertical = verticals['ai-support']
 
@@ -16,5 +18,15 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <BuilderVerticalPage vertical={vertical} />
+  return (
+    <>
+      <Header />
+      <div className="flex flex-col min-h-screen">
+        <div className="flex-grow">
+          <BuilderVerticalPage vertical={vertical} />
+        </div>
+        <Footer />
+      </div>
+    </>
+  )
 }
