@@ -579,15 +579,15 @@ export default function AcceleratorsUniversitiesPage() {
           <h2 className="text-2xl font-semibold">Snapshots (sample)</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { name: 'Campus X', vp: '15 teams, 11 MVPs, 8 transfer-ready demos', tags: ['University', 'Cohort'] },
-              { name: 'Accelerator Y', vp: 'Demo night with 10 live products and 3 listings', tags: ['Accelerator'] },
-              { name: 'Studio Z', vp: 'Always-on backlog with monthly handoffs', tags: ['Venture Studio'] },
+              { name: 'Campus X', vp: '15 teams, 11 MVPs, 8 transfer-ready demos', tags: ['University', 'Cohort'], src: '/images/projects/campus.svg' },
+              { name: 'Accelerator Y', vp: 'Demo night with 10 live products and 3 listings', tags: ['Accelerator'], src: '/images/projects/acceleratory.svg' },
+              { name: 'Studio Z', vp: 'Always-on backlog with monthly handoffs', tags: ['Venture Studio'], src: '/images/projects/studioz.svg' },
             ].map((p, i) => (
               <div key={i} className="rounded-xl border border-white/10 bg-slate-900/40 p-4">
                 {/* UPDATED: Case snapshot image cards with 15px padding and centered images */}
                 <div className="aspect-video w-full overflow-hidden rounded-lg border border-white/10 bg-slate-900/50 p-[15px] flex items-center justify-center">
                   <img 
-                    src={`/media/projects/acc-${i + 1}.png`} 
+                    src={p.src} 
                     alt={p.name} 
                     className="max-h-full max-w-full object-contain" 
                   />
