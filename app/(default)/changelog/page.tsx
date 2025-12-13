@@ -6,7 +6,8 @@ import Illustration from '@/public/images/page-illustration.svg'
 import PostItem from './post-item'
 import Cta from '@/components/cta-03'
 
-// 👇 ADDED: Force Node.js runtime to enable Static Generation (SSG)
+// 👇 ADDED: Force Node.js runtime. 
+// This overrides any global "Edge" setting and enables Static Generation (SSG) for this page.
 export const runtime = 'nodejs'
 
 const BRAND = 'Build AI Starups'
