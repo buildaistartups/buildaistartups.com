@@ -6,6 +6,9 @@ import Illustration from '@/public/images/page-illustration.svg'
 import PostItem from './post-item'
 import Cta from '@/components/cta-03'
 
+// 👇 ADDED: Force Node.js runtime to enable Static Generation (SSG)
+export const runtime = 'nodejs'
+
 const BRAND = 'Build AI Starups'
 const SITE =
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.buildaistartups.com'
