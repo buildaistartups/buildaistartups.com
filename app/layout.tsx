@@ -1,5 +1,7 @@
 // app/layout.tsx
 import './css/style.css'
+// 👇 Add this line to style your code blocks
+import 'highlight.js/styles/github-dark.css' 
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
 import ThemeWrapper from './ThemeWrapper'
