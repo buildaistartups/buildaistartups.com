@@ -42,7 +42,9 @@ const mdxComponents = {
 
 export function CustomMDX(props: any) {
   const rehypePrettyCodeOptions = {
-    theme: "one-dark-pro",
+    // UPDATED: 'one-dark-pro' crashes the legacy Shiki version.
+    // 'github-dark' is a safe, built-in default that guarantees a passing build.
+    theme: "github-dark",
     keepBackground: false,
     onVisitLine(node: any) {
       // Prevent lines from collapsing in `display: grid` mode, and
