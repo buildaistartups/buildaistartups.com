@@ -16,7 +16,7 @@ function HeroSkeleton() {
   )
 }
 
-const HeroDark = dynamic(() => import('@/components/home/Hero'), {
+const HeroDark = dynamic(() => import('@/components/hero'), {
   ssr: false,
   loading: () => <HeroSkeleton />,
 })
