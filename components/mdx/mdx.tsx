@@ -2,8 +2,9 @@ import React from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import PostLink from "./link";
 import PostImage from "./image";
-import rehypePrettyCode from "rehype-pretty-code";
+import rehypeHighlight from "rehype-highlight";
 
+// Helper to create slugs for headings
 const transformToSlug = (input: string) => {
   return input
     .toLowerCase()
@@ -41,23 +42,14 @@ const mdxComponents = {
 };
 
 export function CustomMDX(props: any) {
-  const rehypePrettyCodeOptions = {
-    // We keep the safe theme
-    theme: "github-dark",
-    keepBackground: false,
-    
-    // ❌ REMOVED: onVisitLine, onVisitHighlightedLine, etc.
-    // These functions cannot be serialized by MDXRemote, causing the build crash.
-    // The plugin will still add data-highlighted-line attributes you can target with CSS.
-  };
-
   return (
     <MDXRemote
       {...props}
       components={{ ...mdxComponents, ...(props.components || {}) }}
       options={{
         mdxOptions: {
-          rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
+          // rehype-highlight is pure JS and works in Edge/Serverless perfectly
+          rehypePlugins: [rehypeHighlight],
         },
       }}
     />
