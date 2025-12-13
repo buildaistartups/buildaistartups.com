@@ -42,23 +42,13 @@ const mdxComponents = {
 
 export function CustomMDX(props: any) {
   const rehypePrettyCodeOptions = {
-    theme: "one-dark-pro",
+    // We keep the safe theme
+    theme: "github-dark",
     keepBackground: false,
-    onVisitLine(node: any) {
-      // Prevent lines from collapsing in `display: grid` mode, and
-      // allow empty lines to be copy/pasted
-      if (node.children.length === 0) {
-        node.children = [{ type: "text", value: " " }];
-      }
-    },
-    onVisitHighlightedLine(node: any) {
-      // Each line node by default has `class="line"`.
-      node.properties.className.push("line--highlighted");
-    },
-    onVisitHighlightedWord(node: any) {
-      // Each word node has no className by default.
-      node.properties.className = ["word--highlighted"];
-    },
+    
+    // ❌ REMOVED: onVisitLine, onVisitHighlightedLine, etc.
+    // These functions cannot be serialized by MDXRemote, causing the build crash.
+    // The plugin will still add data-highlighted-line attributes you can target with CSS.
   };
 
   return (
