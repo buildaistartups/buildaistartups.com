@@ -4,22 +4,21 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const { theme, resolvedTheme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
 
-  const current = resolvedTheme ?? theme
-  const isDark = current === 'dark'
+  const isDark = resolvedTheme === 'dark'
 
   return (
-    <div className="ml-4 inline-flex items-center rounded-full border border-slate-200 bg-white p-[2px] shadow-sm">
+    <div className="ml-4 inline-flex items-center rounded-full border border-slate-300 bg-slate-100 p-[2px]">
       <button
         aria-label="Light mode"
         onClick={() => setTheme('light')}
         className={`grid h-4 w-4 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 ${
-          !isDark ? 'bg-slate-100 text-slate-900' : 'text-slate-500 hover:bg-slate-50'
+          !isDark ? 'bg-white text-slate-800' : 'text-slate-600 hover:bg-white/60'
         }`}
         type="button"
       >
@@ -40,7 +39,7 @@ export default function ThemeToggle() {
         aria-label="Dark mode"
         onClick={() => setTheme('dark')}
         className={`grid h-4 w-4 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 ${
-          isDark ? 'bg-slate-100 text-slate-900' : 'text-slate-500 hover:bg-slate-50'
+          isDark ? 'bg-white text-slate-800' : 'text-slate-600 hover:bg-white/60'
         }`}
         type="button"
       >
