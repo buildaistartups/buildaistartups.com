@@ -4,26 +4,46 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const { theme, resolvedTheme, setTheme } = useTheme()
+  const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
 
-  const current = theme === 'system' ? resolvedTheme : theme
-  const isDark = (current ?? 'dark') === 'dark'
+  const isDark = resolvedTheme === 'dark'
+  const iconClass = (active: boolean) =>
+    active ? 'text-slate-900' : isDark ? 'text-white/80' : 'text-slate-700'
 
   return (
-    <div className="ml-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 p-[2px] dark:border-white/10 dark:bg-white/5 border-slate-200 bg-slate-100">
+    <div
+      className={[
+        'ml-4 inline-flex items-center rounded-full p-[2px] backdrop-blur',
+        // Light mode: slightly darker pill so it’s visible on white
+        'bg-slate-900/10 ring-1 ring-slate-900/15 shadow-[0_0_0_1px_rgba(15,23,42,0.06)]',
+        // Dark mode: your original “glass” pill
+        'dark:bg-white/10 dark:ring-white/20 dark:shadow-none',
+      ].join(' ')}
+    >
       <button
         aria-label="Light mode"
         onClick={() => setTheme('light')}
-        className={`grid h-4 w-4 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70 ${
-          !isDark ? 'bg-white shadow-sm' : 'hover:bg-white/50 dark:hover:bg-white/10'
-        }`}
+        className={[
+          'grid h-4 w-4 place-items-center rounded-full transition',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70',
+          !isDark ? 'bg-white shadow-sm' : 'hover:bg-white/20',
+        ].join(' ')}
         type="button"
       >
-        <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24" aria-hidden="true" className="text-slate-900">
+        <svg
+          width="10"
+          height="10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          className={iconClass(!isDark)}
+        >
           <circle cx="12" cy="12" r="5" />
           <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
         </svg>
@@ -32,12 +52,23 @@ export default function ThemeToggle() {
       <button
         aria-label="Dark mode"
         onClick={() => setTheme('dark')}
-        className={`grid h-4 w-4 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70 ${
-          isDark ? 'bg-white shadow-sm' : 'hover:bg-white/50 dark:hover:bg-white/10'
-        }`}
+        className={[
+          'grid h-4 w-4 place-items-center rounded-full transition',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70',
+          isDark ? 'bg-white shadow-sm' : 'hover:bg-white/20',
+        ].join(' ')}
         type="button"
       >
-        <svg width="10" height="10" fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24" aria-hidden="true" className="text-slate-900">
+        <svg
+          width="10"
+          height="10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          className={iconClass(isDark)}
+        >
           <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
         </svg>
       </button>
