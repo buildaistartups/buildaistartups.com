@@ -9,6 +9,7 @@ export default function ThemeWrapper({ children }: { children: React.ReactNode }
       attribute="class"
       defaultTheme="dark"
       enableSystem={false}
+      storageKey="buildaistartups-theme"
       disableTransitionOnChange
     >
       {children}
