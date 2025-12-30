@@ -13,18 +13,18 @@ export default function ThemeToggle() {
   const isDark = resolvedTheme === 'dark'
 
   return (
-    <div className="ml-4 inline-flex items-center rounded-full border border-slate-300 bg-slate-100 p-[2px]">
+    <div className="ml-4 inline-flex items-center rounded-full border border-slate-300 bg-slate-100 p-[1.5px]">
       <button
         aria-label="Light mode"
         onClick={() => setTheme('light')}
-        className={`grid h-4 w-4 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 ${
+        className={`grid h-3.5 w-3.5 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 ${
           !isDark ? 'bg-white text-slate-800' : 'text-slate-600 hover:bg-white/60'
         }`}
         type="button"
       >
         <svg
           viewBox="0 0 24 24"
-          className="h-[10px] w-[10px]"
+          className="h-[9px] w-[9px]"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.8"
@@ -38,14 +38,14 @@ export default function ThemeToggle() {
       <button
         aria-label="Dark mode"
         onClick={() => setTheme('dark')}
-        className={`grid h-4 w-4 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 ${
+        className={`grid h-3.5 w-3.5 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/60 ${
           isDark ? 'bg-white text-slate-800' : 'text-slate-600 hover:bg-white/60'
         }`}
         type="button"
       >
         <svg
           viewBox="0 0 24 24"
-          className="h-[10px] w-[10px]"
+          className="h-[9px] w-[9px]"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.8"
