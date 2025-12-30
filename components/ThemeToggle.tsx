@@ -4,13 +4,14 @@ import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
 
-  const isDark = resolvedTheme === 'dark'
+  const current = theme === 'system' ? resolvedTheme : theme
+  const isDark = current === 'dark'
 
   return (
     <div className="ml-4 inline-flex items-center rounded-full border border-white/10 bg-white/5 p-[2px] dark:border-white/10 dark:bg-white/5 border-slate-200 bg-slate-100">
