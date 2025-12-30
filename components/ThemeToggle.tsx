@@ -14,18 +14,18 @@ export default function ThemeToggle() {
   const isDark = resolvedTheme === 'dark'
 
   return (
-    <div className="ml-4 inline-flex items-center rounded-full border border-slate-300 bg-slate-200 p-[2px]">
+    <div className="ml-4 inline-flex items-center rounded-full border border-slate-300 bg-slate-200 p-[1.5px]">
       <button
         aria-label="Light mode"
         onClick={() => setTheme('light')}
-        className={`grid h-3.5 w-3.5 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70 ${
+        className={`grid h-3 w-3 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70 ${
           !isDark ? 'bg-white' : 'hover:bg-white/70'
         }`}
         type="button"
       >
         <svg
-          width="9"
-          height="9"
+          width="8"
+          height="8"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.7"
@@ -41,14 +41,14 @@ export default function ThemeToggle() {
       <button
         aria-label="Dark mode"
         onClick={() => setTheme('dark')}
-        className={`grid h-3.5 w-3.5 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70 ${
+        className={`grid h-3 w-3 place-items-center rounded-full transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/70 ${
           isDark ? 'bg-white' : 'hover:bg-white/70'
         }`}
         type="button"
       >
         <svg
-          width="9"
-          height="9"
+          width="8"
+          height="8"
           fill="none"
           stroke="currentColor"
           strokeWidth="1.7"
