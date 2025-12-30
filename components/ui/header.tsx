@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Logo from './logo'
 import MobileMenu from './mobile-menu'
+import ThemeToggle from '@/components/ThemeToggle'
 
 export default function Header() {
   return (
