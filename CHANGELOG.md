@@ -1,5 +1,13 @@
 # CHANGELOG.md
 
+## [3.2.0] - 2025-12-12
+
+- Upgrade to Next.js 16.0.10 and React 19.2.3
+
+## [3.1.0] - 2025-12-06
+
+- Upgrade to Next.js 16.0.7
+
 ## [3.0.0] - 2025-02-04
 
 - Upgrade to Tailwind 4
