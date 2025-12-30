@@ -123,6 +123,18 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+
+  /* Theme base */
+  html { color-scheme: light; }
+  html.dark { color-scheme: dark; }
+
+  body {
+    @apply bg-white text-slate-900;
+  }
+
+  html.dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
 }
 
 /* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
