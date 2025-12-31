@@ -7,15 +7,28 @@ import MobileMenu from './mobile-menu'
 import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
-  // PHASE 1: Auth state is not needed yet as there is no dashboard login
-  /* const [signedIn, setSignedIn] = useState(false)
-  useEffect(() => { ...auth logic... }, [])
-  */
-  
+  const [signedIn, setSignedIn] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const headerRef = useRef<HTMLElement>(null)
 
-  // Dropdown closing logic (Keep this for later when you re-enable dropdowns)
+  useEffect(() => {
+    const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
+    setSignedIn(hasSid)
+    const refresh = () => {
+      const has = document.cookie.split('; ').some((c) => c.startsWith('sid='))
+      setSignedIn(has)
+    }
+    window.addEventListener('visibilitychange', refresh)
+    window.addEventListener('focus', refresh)
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenDropdown(null) }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      window.removeEventListener('visibilitychange', refresh)
+      window.removeEventListener('focus', refresh)
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [])
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (headerRef.current && !headerRef.current.contains(event.target as Node)) setOpenDropdown(null)
@@ -24,7 +37,6 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  // Keyboard nav logic (Keep for accessibility later)
   const focusFirstItem = useCallback((btn: HTMLButtonElement | null) => {
     if (!btn) return
     const panel = btn.nextElementSibling as HTMLElement | null
@@ -51,71 +63,154 @@ export default function Header() {
 
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow flex-wrap items-center justify-center">
-              
-              {/* PHASE 1 HIDDEN: PRODUCT DROPDOWN
+              {/* Product */}
               <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
-                 ... Button & Dropdown Code ...
-              </li>
-              */}
-
-              {/* PHASE 1 HIDDEN: SOLUTIONS DROPDOWN
-              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
-                 ... Button & Dropdown Code ...
-              </li>
-              */}
-
-              {/* PHASE 1 HIDDEN: RESOURCES DROPDOWN
-              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
-                 ... Button & Dropdown Code ...
-              </li>
-              */}
-
-              {/* Pricing - KEEP THIS */}
-              <li className="mx-2 lg:mx-3">
-                <Link
-                  className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
-                  href="/pricing"
-                  onMouseEnter={closeDropdown}
+                <button
+                  type="button"
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded={openDropdown === 'product'}
+                  aria-controls="menu-product"
+                  data-dropdown="product"
+                  onKeyDown={onMenuKeyDown}
+                  onMouseEnter={() => setOpenDropdown('product')}
+                  onClick={() => toggleDropdown('product')}
                 >
+                  Product
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <div
+                  id="menu-product"
+                  role="menu"
+                  className={`absolute left-1/2 z-40 mt-3 w-56 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'product' ? 'visible opacity-100' : 'invisible opacity-0'}`}
+                  onMouseEnter={() => setOpenDropdown('product')}
+                >
+                  <MenuItem href="/product/builder" title="Builder" desc="From brief to repo on demand" onClose={closeDropdown} />
+                  <MenuItem href="/product/ecosystem" title="Ecosystem" desc="Network effects" onClose={closeDropdown} />
+                  <MenuItem href="/product/marketplace" title="Marketplace" desc="Buy & sell startups" onClose={closeDropdown} />
+                  <MenuItem href="/product/api" title="API" desc="Developer tools" onClose={closeDropdown} />
+                </div>
+              </li>
+
+              {/* Solutions */}
+              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
+                <button
+                  type="button"
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded={openDropdown === 'solutions'}
+                  aria-controls="menu-solutions"
+                  data-dropdown="solutions"
+                  onKeyDown={onMenuKeyDown}
+                  onMouseEnter={() => setOpenDropdown('solutions')}
+                  onClick={() => toggleDropdown('solutions')}
+                >
+                  Solutions
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <div
+                  id="menu-solutions"
+                  role="menu"
+                  className={`absolute left-1/2 z-40 mt-3 w-[680px] -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-4 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'solutions' ? 'visible opacity-100' : 'invisible opacity-0'}`}
+                  onMouseEnter={() => setOpenDropdown('solutions')}
+                >
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
+                      <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY ROLE</div>
+                      <ul className="space-y-3">
+                        <MenuItem href="/solutions/indie-makers" title="Indie Makers" desc="Solo founders" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/startups" title="Startups" desc="Founding teams" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/product-teams" title="Product Teams" desc="Enterprise PMs" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/enterprises" title="Enterprises" desc="Innovation labs" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/investors" title="Investors" desc="Portfolio tools" onClose={closeDropdown} />
+                        <MenuItem href="/solutions/accelerators" title="Accelerators & Universities" desc="Cohort management" onClose={closeDropdown} />
+                      </ul>
+                    </div>
+                    <div className="rounded-2xl bg-slate-900/70 border border-slate-800 p-4">
+                      <div className="text-slate-400 text-[11px] mb-2 tracking-wider">BY USE CASE</div>
+                      <ul className="space-y-3">
+                        <MenuItem href="/vertical/ai-leadgen" title="Lead Gen Pipeline" desc="AI sales" onClose={closeDropdown} />
+                        <MenuItem href="/vertical/ai-support" title="Support Copilot" desc="AI support" onClose={closeDropdown} />
+                      </ul>
+                      <div className="text-[11px] text-slate-500 mt-4">Examples, not limits.</div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              {/* Resources */}
+              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
+                <button
+                  type="button"
+                  className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
+                  aria-haspopup="menu"
+                  aria-expanded={openDropdown === 'resources'}
+                  aria-controls="menu-resources"
+                  data-dropdown="resources"
+                  onKeyDown={onMenuKeyDown}
+                  onMouseEnter={() => setOpenDropdown('resources')}
+                  onClick={() => toggleDropdown('resources')}
+                >
+                  Resources
+                  <svg className="ml-1 h-4 w-4 transition-transform duration-150" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z" clipRule="evenodd" />
+                  </svg>
+                </button>
+                <div
+                  id="menu-resources"
+                  role="menu"
+                  className={`absolute left-1/2 z-40 mt-3 w-64 -translate-x-1/2 rounded-xl border border-white/10 bg-slate-900/95 p-2 shadow-xl backdrop-blur transition-all duration-150 ${openDropdown === 'resources' ? 'visible opacity-100' : 'invisible opacity-0'}`}
+                  onMouseEnter={() => setOpenDropdown('resources')}
+                >
+                  <MenuItem href="/resources/docs" title="Docs" desc="Documentation" onClose={closeDropdown} />
+                  <MenuItem href="/resources/templates" title="Templates" desc="Starter kits" onClose={closeDropdown} />
+                  <MenuItem href="/resources/roadmap" title="Roadmap" desc="What's next" onClose={closeDropdown} />
+                  <MenuItem href="/resources/blog" title="Blog" desc="Updates & guides" onClose={closeDropdown} />
+                  <MenuItem href="/resources/changelog" title="Changelog" desc="Release notes" onClose={closeDropdown} />
+                  <MenuItem href="/resources/press" title="Press Kit" desc="Media resources" onClose={closeDropdown} />
+                </div>
+              </li>
+
+              {/* Pricing */}
+              <li className="mx-2 lg:mx-3">
+                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/pricing" onMouseEnter={closeDropdown}>
                   Pricing
                 </Link>
               </li>
 
-              {/* About - KEEP THIS */}
+              {/* About */}
               <li className="mx-2 lg:mx-3">
-                <Link
-                  className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
-                  href="/about"
-                  onMouseEnter={closeDropdown}
-                >
+                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/about" onMouseEnter={closeDropdown}>
                   About
                 </Link>
               </li>
 
+              {/* Contact */}
+              <li className="mx-2 lg:mx-3">
+                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/contact" onMouseEnter={closeDropdown}>
+                  Contact
+                </Link>
+              </li>
             </ul>
           </nav>
 
           {/* Right controls */}
           <div className="ml-auto flex items-center gap-x-3 md:gap-x-4">
-            
-            {/* PHASE 1 HIDDEN: DASHBOARD/SIGN IN 
-            <Link
-              className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
-              href={signedIn ? '/app' : '/signin'}
-              onMouseEnter={closeDropdown}
-            >
+            <Link className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href={signedIn ? '/app' : '/signin'} onMouseEnter={closeDropdown}>
               {signedIn ? 'Dashboard' : 'Sign in'}
             </Link>
-            */}
 
-            {/* CTA BUTTON - Updated for Service */}
             <Link
               className="btn-sm group relative w-full whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
-              href="/pricing" // Link directly to pricing/payment
+              href="/generate"
               onMouseEnter={closeDropdown}
             >
               <span className="relative inline-flex items-center">
-                Get Your Spec
+                Generate Startup
                 <span className="ml-1 translate-x-0 text-purple-500 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">-&gt;</span>
               </span>
             </Link>
@@ -134,7 +229,6 @@ export default function Header() {
   )
 }
 
-// Helper component kept for future use (though currently unused in Phase 1 if dropdowns are hidden)
 function MenuItem({ href, title, desc, onClose }: { href: string; title: string; desc: string; onClose: () => void }) {
   return (
     <Link
