@@ -7,10 +7,14 @@ import MobileMenu from './mobile-menu'
 import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
-  const [signedIn, setSignedIn] = useState(false)
+  // PHASE 1: Auth not needed yet
+  // const [signedIn, setSignedIn] = useState(false)
+  
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const headerRef = useRef<HTMLElement>(null)
 
+  // PHASE 1: Auth check commented out
+  /*
   useEffect(() => {
     const hasSid = document.cookie.split('; ').some((c) => c.startsWith('sid='))
     setSignedIn(hasSid)
@@ -20,13 +24,17 @@ export default function Header() {
     }
     window.addEventListener('visibilitychange', refresh)
     window.addEventListener('focus', refresh)
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenDropdown(null) }
-    window.addEventListener('keydown', onKey)
     return () => {
       window.removeEventListener('visibilitychange', refresh)
       window.removeEventListener('focus', refresh)
-      window.removeEventListener('keydown', onKey)
     }
+  }, [])
+  */
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpenDropdown(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
   }, [])
 
   useEffect(() => {
@@ -63,8 +71,9 @@ export default function Header() {
 
           <nav className="hidden md:flex md:grow">
             <ul className="flex grow flex-wrap items-center justify-center">
-              {/* Product */}
-              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
+              
+              {/* --- PHASE 1 HIDDEN: PRODUCT DROPDOWN --- */}
+              {/* <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
@@ -93,9 +102,10 @@ export default function Header() {
                   <MenuItem href="/product/api" title="API" desc="Developer tools" onClose={closeDropdown} />
                 </div>
               </li>
+              */}
 
-              {/* Solutions */}
-              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
+              {/* --- PHASE 1 HIDDEN: SOLUTIONS DROPDOWN --- */}
+              {/* <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
@@ -141,9 +151,10 @@ export default function Header() {
                   </div>
                 </div>
               </li>
+              */}
 
-              {/* Resources */}
-              <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
+              {/* --- PHASE 1 HIDDEN: RESOURCES DROPDOWN --- */}
+              {/* <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
                 <button
                   type="button"
                   className="inline-flex items-center whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white focus:text-white focus:outline-none"
@@ -174,24 +185,37 @@ export default function Header() {
                   <MenuItem href="/resources/press" title="Press Kit" desc="Media resources" onClose={closeDropdown} />
                 </div>
               </li>
+              */}
 
-              {/* Pricing */}
+              {/* Pricing (KEEP) */}
               <li className="mx-2 lg:mx-3">
-                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/pricing" onMouseEnter={closeDropdown}>
+                <Link
+                  className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
+                  href="/pricing"
+                  onMouseEnter={closeDropdown}
+                >
                   Pricing
                 </Link>
               </li>
 
-              {/* About */}
+              {/* About (KEEP) */}
               <li className="mx-2 lg:mx-3">
-                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/about" onMouseEnter={closeDropdown}>
+                <Link
+                  className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
+                  href="/about"
+                  onMouseEnter={closeDropdown}
+                >
                   About
                 </Link>
               </li>
 
-              {/* Contact */}
+              {/* Contact (KEEP) */}
               <li className="mx-2 lg:mx-3">
-                <Link className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href="/contact" onMouseEnter={closeDropdown}>
+                <Link
+                  className="mx-1 whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
+                  href="/contact"
+                  onMouseEnter={closeDropdown}
+                >
                   Contact
                 </Link>
               </li>
@@ -200,17 +224,25 @@ export default function Header() {
 
           {/* Right controls */}
           <div className="ml-auto flex items-center gap-x-3 md:gap-x-4">
-            <Link className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white" href={signedIn ? '/app' : '/signin'} onMouseEnter={closeDropdown}>
+            
+            {/* PHASE 1 HIDDEN: Dashboard Link 
+            <Link
+              className="whitespace-nowrap text-sm font-medium text-slate-300 transition duration-150 ease-in-out hover:text-white"
+              href={signedIn ? '/app' : '/signin'}
+              onMouseEnter={closeDropdown}
+            >
               {signedIn ? 'Dashboard' : 'Sign in'}
             </Link>
+            */}
 
+            {/* CTA Button */}
             <Link
               className="btn-sm group relative w-full whitespace-nowrap text-slate-300 transition duration-150 ease-in-out hover:text-white [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-slate-800/30"
-              href="/generate"
+              href="/pricing"
               onMouseEnter={closeDropdown}
             >
               <span className="relative inline-flex items-center">
-                Generate Startup
+                Get My Spec
                 <span className="ml-1 translate-x-0 text-purple-500 transition-transform duration-150 ease-in-out group-hover:translate-x-0.5">-&gt;</span>
               </span>
             </Link>
