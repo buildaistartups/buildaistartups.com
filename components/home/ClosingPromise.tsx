@@ -9,7 +9,8 @@ export default function ClosingPromise() {
       {/* page background tint */}
       <div className="absolute inset-0 bg-gradient-to-t from-purple-900/20 to-transparent" />
 
-      {/* Heading kept inside the standard container */}
+      {/* --- PHASE 1 HIDDEN: ORIGINAL HEADER --- */}
+      {/*
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="py-16 md:py-24">
           <div className="text-center mb-8 md:mb-10">
@@ -19,10 +20,12 @@ export default function ClosingPromise() {
           </div>
         </div>
       </div>
+      */}
 
       {/* === FULL-WIDTH PANEL (like the hero) ================================= */}
       <div className="relative w-screen left-1/2 -ml-[50vw]">
         <div className="relative overflow-hidden rounded-none md:rounded-2xl border-y md:border border-slate-800 bg-slate-900/40">
+          
           {/* Glow behind content */}
           <div className="pointer-events-none absolute inset-0 -z-10">
             <div className="absolute left-1/2 -translate-x-1/2 -top-[26%]">
@@ -39,11 +42,14 @@ export default function ClosingPromise() {
 
           {/* Panel content is still constrained to your site width */}
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 md:py-14">
-            <h3 className="text-xl md:text-2xl font-semibold text-slate-200 mb-8 text-center">
-              Join the AI Revolution
+            
+            {/* PHASE 1: SIMPLE HEADER */}
+            <h3 className="text-xl md:text-3xl font-semibold text-slate-200 mb-8 text-center">
+              Ready to Launch Your Idea?
             </h3>
 
-            {/* Value props */}
+            {/* --- PHASE 1 HIDDEN: VALUE PROPS GRID --- */}
+            {/*
             <div className="grid md:grid-cols-3 gap-8 mb-10">
               <div className="text-center">
                 <div className="text-4xl mb-4 text-purple-400">🚀︎</div>
@@ -67,8 +73,10 @@ export default function ClosingPromise() {
                 </p>
               </div>
             </div>
+            */}
 
-            {/* Question */}
+            {/* --- PHASE 1 HIDDEN: QUESTION TEXT --- */}
+            {/*
             <div className="text-center mb-6 md:mb-8">
               <p className="text-xl md:text-2xl font-semibold text-slate-200">
                 Will you be part of the future?
@@ -77,25 +85,37 @@ export default function ClosingPromise() {
                 The tools are ready. The ecosystem is waiting. Your idea deserves to exist.
               </p>
             </div>
+            */}
+            
+            {/* PHASE 1: SIMPLE SUBTITLE */}
+            <div className="text-center mb-10">
+               <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                  Don't let another week pass with your idea stuck in your head. 
+                  Get the professional blueprint you need to start building today.
+               </p>
+            </div>
 
-            {/* CTAs — match height to middle; trim width on 1st & 3rd so all feel similar */}
+            {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              {/* Primary — a touch narrower padding */}
+              
+              {/* Primary - Phase 1 CTA */}
               <Link
-                href="/generate"
+                href="/pricing"
                 className="
                   inline-flex items-center justify-center
-                  h-9 md:h-10 px-3.5 md:px-4
-                  rounded-full text-sm md:text-[15px] font-medium leading-none whitespace-nowrap
+                  h-12 px-8
+                  rounded-full text-lg font-medium leading-none whitespace-nowrap
                   bg-gradient-to-r from-purple-500 to-purple-600 text-white
                   hover:from-purple-600 hover:to-purple-700
-                  focus:outline-none focus:ring-2 focus:ring-purple-500/40
+                  shadow-lg shadow-purple-500/25
+                  transition-all hover:scale-105
                 "
               >
-                Start Your Journey
+                Get My Spec ($49)
               </Link>
 
-              {/* Secondary — reference size */}
+              {/* --- PHASE 1 HIDDEN: SECONDARY BUTTONS --- */}
+              {/*
               <Link
                 href="/find-role"
                 className="
@@ -110,7 +130,6 @@ export default function ClosingPromise() {
                 Find Your Role
               </Link>
 
-              {/* Accent — same trim as primary */}
               <Link
                 href="/ecosystem"
                 className="
@@ -124,18 +143,17 @@ export default function ClosingPromise() {
               >
                 Join the Revolution
               </Link>
+              */}
             </div>
           </div>
         </div>
       </div>
-      {/* ===================================================================== */}
-
-      {/* Closing note — back in the standard container */}
+      
+      {/* Closing note - back in the standard container */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-8 md:pt-10 pb-16 md:pb-24 text-center">
           <p className="text-slate-400 max-w-2xl mx-auto">
-            BuildAIStartups is where ambitious founders, innovative enterprises, and forward-thinking
-            investors come together to build the future. Be among the first to shape this revolution.
+            © 2024 Build AI Startups. All rights reserved.
           </p>
         </div>
       </div>
