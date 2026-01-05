@@ -66,11 +66,13 @@ export default function Header() {
   return (
     <header className="absolute z-30 w-full" ref={headerRef}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="flex h-16 items-center md:h-20">
+        {/* ADDED 'relative' below to anchor the absolute nav */}
+        <div className="relative flex h-16 items-center md:h-20">
           <div><Logo /></div>
 
-          <nav className="hidden md:flex md:grow">
-            <ul className="flex grow flex-wrap items-center justify-center">
+          {/* CHANGED: Absolute positioning to force exact horizontal center */}
+          <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <ul className="flex flex-wrap items-center justify-center">
               
               {/* --- PHASE 1 HIDDEN: PRODUCT DROPDOWN --- */}
               {/* <li className="relative mx-2 lg:mx-3" onMouseLeave={closeDropdown}>
