@@ -15,9 +15,6 @@ export default function Footer() {
                 <div className="mb-4">
                   <Logo />
                 </div>
-                <div className="text-sm text-slate-400 max-w-xs mb-4">
-                  Democratizing AI entrepreneurship. from idea to blueprint in 24 hours.
-                </div>
                 
                 {/* Dynamic Year */}
                 <div className="text-xs text-slate-500">
