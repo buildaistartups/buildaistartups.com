@@ -4,88 +4,67 @@ import Logo from './logo'
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className="border-t border-slate-800 bg-slate-900/20 backdrop-blur-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid sm:grid-cols-12 gap-8 py-8 md:py-12">
           
-          {/* 1st block - Logo */}
+          {/* 1st block - Brand & Trust */}
           <div className="sm:col-span-12 lg:col-span-4 order-1 lg:order-none">
-            <div className="h-full flex flex-col sm:flex-row lg:flex-col justify-between">
+            <div className="h-full flex flex-col justify-between">
               <div className="mb-4 sm:mb-0">
                 <div className="mb-4">
                   <Logo />
                 </div>
-                <div className="text-sm text-slate-300">
-                  © Build AI Startups - All rights reserved.
+                <div className="text-sm text-slate-400 max-w-xs mb-4">
+                  Democratizing AI entrepreneurship. from idea to blueprint in 24 hours.
+                </div>
+                
+                {/* Dynamic Year */}
+                <div className="text-xs text-slate-500">
+                  &copy; {new Date().getFullYear()} Build AI Startups. All rights reserved.
                 </div>
               </div>
+              
+              {/* Optional: Social Links (Uncomment if you have them) */}
+              {/* <div className="flex gap-4 mt-4">
+                <Link href="https://twitter.com/yourhandle" className="text-slate-400 hover:text-purple-500 transition">
+                  <span className="sr-only">Twitter</span>
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 16 16"><path d="M16 3.5c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4 0 1.6 1.1 2.9 2.6 3.2-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4c.7-.5 1.3-1.1 1.7-1.8z" /></svg>
+                </Link>
+              </div> 
+              */}
             </div>
           </div>
 
-          {/* --- PHASE 1 HIDDEN: PRODUCTS COLUMN --- */}
-          {/* <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-sm text-slate-50 font-medium mb-2">Product</h6>
-            <ul className="text-sm space-y-2">
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/product/builder">Builder</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/product/ecosystem">Ecosystem</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/product/marketplace">Marketplace</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/product/api">API</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/pricing">Pricing</Link></li>
-            </ul>
-          </div>
-          */}
+          {/* --- PHASE 1 HIDDEN: FUTURE COLUMNS --- */}
+          {/* <div className="sm:col-span-6 md:col-span-3 lg:col-span-2"> ...Product Links... </div> */}
+          {/* <div className="sm:col-span-6 md:col-span-3 lg:col-span-2"> ...Solutions Links... </div> */}
+          {/* <div className="sm:col-span-6 md:col-span-3 lg:col-span-2"> ...Resources Links... </div> */}
 
-          {/* --- PHASE 1 HIDDEN: SOLUTIONS COLUMN --- */}
-          {/* <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-sm text-slate-50 font-medium mb-2">Solutions</h6>
-            <ul className="text-sm space-y-2">
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/indie-makers">Indie Makers</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/startups">Startups</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/product-teams">Product Teams</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/enterprises">Enterprises</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/investors">Investors</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/solutions/accelerators">Accelerators</Link></li>
-            </ul>
-            <h6 className="text-xs text-slate-400 font-medium mt-5 mb-2 tracking-wider">USE CASES</h6>
-            <ul className="text-sm space-y-2">
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/vertical/ai-leadgen">Lead Gen Pipeline</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/vertical/ai-support">Support Copilot</Link></li>
-            </ul>
-          </div>
-          */}
+          {/* Spacer Column (takes up space of hidden columns to push links right) */}
+          <div className="hidden lg:block lg:col-span-4"></div>
 
-          {/* --- PHASE 1 HIDDEN: RESOURCES COLUMN --- */}
-          {/* <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-sm text-slate-50 font-medium mb-2">Resources</h6>
-            <ul className="text-sm space-y-2">
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/docs">Docs</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/templates">Templates</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/blog">Blog</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/changelog">Changelog</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/resources/press">Press Kit</Link></li>
-            </ul>
-          </div>
-          */}
-
-          {/* 5th block - Project & Legal (ACTIVE) */}
+          {/* 5th block - Project Links */}
           <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
-            <h6 className="text-sm text-slate-50 font-medium mb-2">Project</h6>
+            <h6 className="text-slate-50 font-medium mb-2">Project</h6>
             <ul className="text-sm space-y-2">
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/about">About</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/contact">Contact</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/pricing">Pricing</Link></li>
+              <li><Link className="text-slate-400 hover:text-purple-400 transition duration-150 ease-in-out" href="/pricing">Get Started</Link></li>
+              <li><Link className="text-slate-400 hover:text-purple-400 transition duration-150 ease-in-out" href="/about">About</Link></li>
+              <li><Link className="text-slate-400 hover:text-purple-400 transition duration-150 ease-in-out" href="/contact">Contact</Link></li>
             </ul>
+          </div>
 
-            <h6 className="text-sm text-slate-50 font-medium mt-6 mb-2">Legal</h6>
+          {/* 6th block - Legal Links */}
+          <div className="sm:col-span-6 md:col-span-3 lg:col-span-2">
+            <h6 className="text-slate-50 font-medium mb-2">Legal</h6>
             <ul className="text-sm space-y-2">
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/terms">Terms</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/privacy">Privacy</Link></li>
-              <li><Link className="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="/cookies">Cookies</Link></li>
+              <li><Link className="text-slate-400 hover:text-purple-400 transition duration-150 ease-in-out" href="/terms">Terms</Link></li>
+              <li><Link className="text-slate-400 hover:text-purple-400 transition duration-150 ease-in-out" href="/privacy">Privacy</Link></li>
+              <li><Link className="text-slate-400 hover:text-purple-400 transition duration-150 ease-in-out" href="/cookies">Cookies</Link></li>
             </ul>
           </div>
 
         </div>
-        {/* Bottom strip removed as requested */}
       </div>
     </footer>
   )
