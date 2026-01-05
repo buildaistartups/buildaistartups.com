@@ -97,7 +97,8 @@ export default function StartupJourney() {
              {simpleSteps.map((step, i) => (
                  <div key={i} className="flex flex-col items-center text-center group">
                      <div className="w-16 h-16 bg-slate-900 border border-slate-700 rounded-full flex items-center justify-center mb-4 z-10 group-hover:border-purple-500/50 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all">
-                         {React.cloneElement(step.icon as React.ReactElement, { className: 'w-6 h-6 text-purple-400' })}
+                         {/* FIXED LINE BELOW: Added <any> to cast */}
+                         {React.cloneElement(step.icon as React.ReactElement<any>, { className: 'w-6 h-6 text-purple-400' })}
                      </div>
                      <h3 className="text-lg font-semibold text-slate-200 mb-2">{step.title}</h3>
                      <p className="text-sm text-slate-400">{step.description}</p>
