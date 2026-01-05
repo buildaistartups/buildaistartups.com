@@ -3,8 +3,29 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Lightbulb, Code, Rocket, TrendingUp, Target } from 'lucide-react'
+import { ArrowRight, Lightbulb, Code, Rocket, TrendingUp, Target, FileText } from 'lucide-react'
 
+// --- PHASE 1: SIMPLIFIED STEPS ---
+const simpleSteps = [
+  {
+    icon: <Lightbulb />,
+    title: '1. Describe',
+    description: 'Tell us your idea in plain English.',
+  },
+  {
+    icon: <FileText />,
+    title: '2. Generate',
+    description: 'Our AI architects the database & API.',
+  },
+  {
+    icon: <Code />,
+    title: '3. Receive',
+    description: 'Get your PDF Spec & GitHub Repo.',
+  }
+]
+
+// --- PHASE 1 HIDDEN: ORIGINAL 5 STEPS ---
+/*
 const journeySteps = [
   {
     icon: <Lightbulb />,
@@ -42,32 +63,51 @@ const journeySteps = [
     details: 'Analytics, optimization, and scaling infrastructure'
   }
 ]
+*/
 
 export default function StartupJourney() {
   const [activeStep, setActiveStep] = useState(0)
 
   return (
-    <section className="relative">
+    <section className="relative" id="how-it-works">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* ↓ reduced only TOP padding; kept bottom the same */}
         <div className="pt-8 md:pt-12 pb-12 md:pb-20">
+          
           {/* Section header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 text-purple-400 mb-4">
+            {/* <div className="inline-flex items-center gap-2 text-purple-400 mb-4">
               <Rocket className="w-4 h-4" />
               <span className="text-sm font-medium">THE STARTUP JOURNEY</span>
             </div>
+            */}
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-slate-200 to-slate-500 bg-clip-text text-transparent mb-4">
-              Your Path from Idea to Success
+              How It Works
             </h2>
             <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-              Follow our proven framework to build and launch your AI startup
+              From concept to code in 3 simple steps.
             </p>
           </div>
 
-          {/* Journey Timeline */}
+          {/* --- PHASE 1: SIMPLE 3-COLUMN GRID --- */}
+          <div className="grid md:grid-cols-3 gap-8 relative max-w-4xl mx-auto">
+             {/* Connector Line (Desktop) */}
+             <div className="absolute top-8 left-[16%] right-[16%] h-0.5 bg-slate-800 hidden md:block -z-10 border-t border-dashed border-slate-700"></div>
+
+             {simpleSteps.map((step, i) => (
+                 <div key={i} className="flex flex-col items-center text-center group">
+                     <div className="w-16 h-16 bg-slate-900 border border-slate-700 rounded-full flex items-center justify-center mb-4 z-10 group-hover:border-purple-500/50 group-hover:shadow-[0_0_20px_rgba(168,85,247,0.15)] transition-all">
+                         {React.cloneElement(step.icon as React.ReactElement, { className: 'w-6 h-6 text-purple-400' })}
+                     </div>
+                     <h3 className="text-lg font-semibold text-slate-200 mb-2">{step.title}</h3>
+                     <p className="text-sm text-slate-400">{step.description}</p>
+                 </div>
+             ))}
+          </div>
+
+          {/* --- PHASE 1 HIDDEN: INTERACTIVE TIMELINE --- */}
+          {/*
           <div className="relative">
-            {/* Progress Line */}
             <div className="absolute top-12 left-0 right-0 h-0.5 bg-slate-700 hidden md:block">
               <div 
                 className="h-full bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-500"
@@ -75,7 +115,6 @@ export default function StartupJourney() {
               />
             </div>
 
-            {/* Steps */}
             <div className="grid md:grid-cols-5 gap-6 relative">
               {journeySteps.map((step, index) => (
                 <div
@@ -84,7 +123,6 @@ export default function StartupJourney() {
                   onClick={() => setActiveStep(index)}
                   onMouseEnter={() => setActiveStep(index)}
                 >
-                  {/* Icon */}
                   <div
                     className={`
                       w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center transition-all
@@ -98,7 +136,6 @@ export default function StartupJourney() {
                     })}
                   </div>
 
-                  {/* Content */}
                   <div className="text-center">
                     <div
                       className={`text-xs font-medium mb-1 ${
@@ -120,7 +157,6 @@ export default function StartupJourney() {
               ))}
             </div>
 
-            {/* Active Step Details */}
             <div className="mt-12 bg-gradient-to-br from-purple-900/20 to-blue-900/20 rounded-xl p-6 border border-purple-500/30">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-purple-500/20 rounded-lg">
@@ -144,8 +180,8 @@ export default function StartupJourney() {
               </div>
             </div>
           </div>
+          */}
 
-          {/* Remove fake metrics - Action 4 */}
         </div>
       </div>
     </section>
