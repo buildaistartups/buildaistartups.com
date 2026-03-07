@@ -1,0 +1,157 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A78BFA;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60A5FA;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- SaaS Kit -->
+  <g transform="translate(30, 80)">
+    <!-- Building Block Container -->
+    <rect x="0" y="0" width="160" height="240" rx="12" fill="url(#purpleGrad)" opacity="0.15"/>
+    <rect x="0" y="0" width="160" height="240" rx="12" fill="none" stroke="url(#purpleGrad)" stroke-width="2"/>
+    
+    <!-- Dashboard Icon -->
+    <rect x="30" y="30" width="100" height="70" rx="6" fill="url(#purpleGrad)" opacity="0.3"/>
+    <rect x="38" y="38" width="35" height="25" rx="3" fill="url(#purpleGrad)"/>
+    <rect x="78" y="38" width="35" height="25" rx="3" fill="url(#purpleGrad)"/>
+    <rect x="38" y="68" width="75" height="25" rx="3" fill="url(#purpleGrad)"/>
+    
+    <!-- Team Collaboration Icons -->
+    <g transform="translate(40, 120)">
+      <circle cx="15" cy="15" r="12" fill="url(#purpleGrad)"/>
+      <circle cx="40" cy="15" r="12" fill="url(#purpleGrad)" opacity="0.8"/>
+      <circle cx="65" cy="15" r="12" fill="url(#purpleGrad)" opacity="0.6"/>
+      <!-- User icons -->
+      <circle cx="15" cy="12" r="4" fill="white"/>
+      <path d="M 15 17 Q 15 20 18 21 Q 20 21.5 20 23 L 10 23 Q 10 21.5 12 21 Q 15 20 15 17 Z" fill="white"/>
+      <circle cx="40" cy="12" r="4" fill="white"/>
+      <path d="M 40 17 Q 40 20 43 21 Q 45 21.5 45 23 L 35 23 Q 35 21.5 37 21 Q 40 20 40 17 Z" fill="white"/>
+      <circle cx="65" cy="12" r="4" fill="white"/>
+      <path d="M 65 17 Q 65 20 68 21 Q 70 21.5 70 23 L 60 23 Q 60 21.5 62 21 Q 65 20 65 17 Z" fill="white"/>
+    </g>
+    
+    <!-- Feature indicators -->
+    <circle cx="30" cy="175" r="4" fill="url(#purpleGrad)"/>
+    <rect x="40" y="172" width="90" height="6" rx="3" fill="url(#purpleGrad)" opacity="0.4"/>
+    <circle cx="30" cy="190" r="4" fill="url(#purpleGrad)"/>
+    <rect x="40" y="187" width="70" height="6" rx="3" fill="url(#purpleGrad)" opacity="0.4"/>
+    <circle cx="30" cy="205" r="4" fill="url(#purpleGrad)"/>
+    <rect x="40" y="202" width="80" height="6" rx="3" fill="url(#purpleGrad)" opacity="0.4"/>
+    
+    <!-- Label -->
+    <text x="80" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#purpleGrad)">SaaS Kit</text>
+  </g>
+  
+  <!-- API Kit -->
+  <g transform="translate(220, 80)">
+    <!-- Building Block Container -->
+    <rect x="0" y="0" width="160" height="240" rx="12" fill="url(#blueGrad)" opacity="0.15"/>
+    <rect x="0" y="0" width="160" height="240" rx="12" fill="none" stroke="url(#blueGrad)" stroke-width="2"/>
+    
+    <!-- Documentation Icon -->
+    <rect x="30" y="30" width="100" height="80" rx="6" fill="url(#blueGrad)" opacity="0.3"/>
+    <!-- Code brackets -->
+    <path d="M 50 50 L 45 60 L 50 70" stroke="url(#blueGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 110 50 L 115 60 L 110 70" stroke="url(#blueGrad)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Code lines -->
+    <rect x="60" y="52" width="40" height="4" rx="2" fill="url(#blueGrad)"/>
+    <rect x="60" y="62" width="30" height="4" rx="2" fill="url(#blueGrad)"/>
+    <rect x="60" y="72" width="35" height="4" rx="2" fill="url(#blueGrad)"/>
+    <rect x="60" y="82" width="28" height="4" rx="2" fill="url(#blueGrad)"/>
+    <rect x="60" y="92" width="33" height="4" rx="2" fill="url(#blueGrad)"/>
+    
+    <!-- Team Collaboration Icons -->
+    <g transform="translate(40, 125)">
+      <circle cx="15" cy="15" r="12" fill="url(#blueGrad)"/>
+      <circle cx="40" cy="15" r="12" fill="url(#blueGrad)" opacity="0.8"/>
+      <circle cx="65" cy="15" r="12" fill="url(#blueGrad)" opacity="0.6"/>
+      <!-- User icons -->
+      <circle cx="15" cy="12" r="4" fill="white"/>
+      <path d="M 15 17 Q 15 20 18 21 Q 20 21.5 20 23 L 10 23 Q 10 21.5 12 21 Q 15 20 15 17 Z" fill="white"/>
+      <circle cx="40" cy="12" r="4" fill="white"/>
+      <path d="M 40 17 Q 40 20 43 21 Q 45 21.5 45 23 L 35 23 Q 35 21.5 37 21 Q 40 20 40 17 Z" fill="white"/>
+      <circle cx="65" cy="12" r="4" fill="white"/>
+      <path d="M 65 17 Q 65 20 68 21 Q 70 21.5 70 23 L 60 23 Q 60 21.5 62 21 Q 65 20 65 17 Z" fill="white"/>
+    </g>
+    
+    <!-- Feature indicators -->
+    <circle cx="30" cy="175" r="4" fill="url(#blueGrad)"/>
+    <rect x="40" y="172" width="85" height="6" rx="3" fill="url(#blueGrad)" opacity="0.4"/>
+    <circle cx="30" cy="190" r="4" fill="url(#blueGrad)"/>
+    <rect x="40" y="187" width="75" height="6" rx="3" fill="url(#blueGrad)" opacity="0.4"/>
+    <circle cx="30" cy="205" r="4" fill="url(#blueGrad)"/>
+    <rect x="40" y="202" width="90" height="6" rx="3" fill="url(#blueGrad)" opacity="0.4"/>
+    
+    <!-- Label -->
+    <text x="80" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#blueGrad)">API Kit</text>
+  </g>
+  
+  <!-- Content Kit -->
+  <g transform="translate(410, 80)">
+    <!-- Building Block Container -->
+    <rect x="0" y="0" width="160" height="240" rx="12" fill="url(#purpleBlueGrad)" opacity="0.15"/>
+    <rect x="0" y="0" width="160" height="240" rx="12" fill="none" stroke="url(#purpleBlueGrad)" stroke-width="2"/>
+    
+    <!-- Blog/Docs Icon -->
+    <rect x="30" y="30" width="100" height="80" rx="6" fill="url(#purpleBlueGrad)" opacity="0.3"/>
+    <!-- Document icon -->
+    <rect x="45" y="45" width="70" height="50" rx="4" fill="white" opacity="0.9"/>
+    <rect x="52" y="52" width="30" height="5" rx="2" fill="url(#purpleBlueGrad)"/>
+    <rect x="52" y="62" width="56" height="3" rx="1.5" fill="url(#purpleBlueGrad)" opacity="0.6"/>
+    <rect x="52" y="68" width="56" height="3" rx="1.5" fill="url(#purpleBlueGrad)" opacity="0.6"/>
+    <rect x="52" y="74" width="45" height="3" rx="1.5" fill="url(#purpleBlueGrad)" opacity="0.6"/>
+    <rect x="52" y="80" width="50" height="3" rx="1.5" fill="url(#purpleBlueGrad)" opacity="0.6"/>
+    <rect x="52" y="86" width="48" height="3" rx="1.5" fill="url(#purpleBlueGrad)" opacity="0.6"/>
+    
+    <!-- Team Collaboration Icons -->
+    <g transform="translate(40, 125)">
+      <circle cx="15" cy="15" r="12" fill="url(#purpleBlueGrad)"/>
+      <circle cx="40" cy="15" r="12" fill="url(#purpleBlueGrad)" opacity="0.8"/>
+      <circle cx="65" cy="15" r="12" fill="url(#purpleBlueGrad)" opacity="0.6"/>
+      <!-- User icons -->
+      <circle cx="15" cy="12" r="4" fill="white"/>
+      <path d="M 15 17 Q 15 20 18 21 Q 20 21.5 20 23 L 10 23 Q 10 21.5 12 21 Q 15 20 15 17 Z" fill="white"/>
+      <circle cx="40" cy="12" r="4" fill="white"/>
+      <path d="M 40 17 Q 40 20 43 21 Q 45 21.5 45 23 L 35 23 Q 35 21.5 37 21 Q 40 20 40 17 Z" fill="white"/>
+      <circle cx="65" cy="12" r="4" fill="white"/>
+      <path d="M 65 17 Q 65 20 68 21 Q 70 21.5 70 23 L 60 23 Q 60 21.5 62 21 Q 65 20 65 17 Z" fill="white"/>
+    </g>
+    
+    <!-- Feature indicators -->
+    <circle cx="30" cy="175" r="4" fill="url(#purpleBlueGrad)"/>
+    <rect x="40" y="172" width="80" height="6" rx="3" fill="url(#purpleBlueGrad)" opacity="0.4"/>
+    <circle cx="30" cy="190" r="4" fill="url(#purpleBlueGrad)"/>
+    <rect x="40" y="187" width="90" height="6" rx="3" fill="url(#purpleBlueGrad)" opacity="0.4"/>
+    <circle cx="30" cy="205" r="4" fill="url(#purpleBlueGrad)"/>
+    <rect x="40" y="202" width="75" height="6" rx="3" fill="url(#purpleBlueGrad)" opacity="0.4"/>
+    
+    <!-- Label -->
+    <text x="80" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="url(#purpleBlueGrad)">Content Kit</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="300" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="url(#purpleBlueGrad)">Enterprise Starter Kits</text>
+  
+  <!-- Connecting elements showing modular nature -->
+  <line x1="195" y1="200" x2="215" y2="200" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="4 4"/>
+  <line x1="385" y1="200" x2="405" y2="200" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="4 4"/>
+  
+  <!-- Building block connection points -->
+  <circle cx="195" cy="200" r="5" fill="url(#purpleGrad)"/>
+  <circle cx="215" cy="200" r="5" fill="url(#blueGrad)"/>
+  <circle cx="385" cy="200" r="5" fill="url(#blueGrad)"/>
+  <circle cx="405" cy="200" r="5" fill="url(#purpleBlueGrad)"/>
+</svg>

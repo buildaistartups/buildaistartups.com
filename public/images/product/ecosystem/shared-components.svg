@@ -1,0 +1,181 @@
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="vibrantPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="vibrantBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <radialGradient id="glowEffect">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <style>
+      @keyframes dash {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -40; }
+      }
+      
+      @keyframes dashReverse {
+        0% { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: 40; }
+      }
+      
+      @keyframes pulse-opacity {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.9; }
+      }
+      
+      .connection-line {
+        stroke: url(#purpleBlue);
+        stroke-width: 4;
+        stroke-dasharray: 12, 8;
+        opacity: 0.6;
+        animation: dash 6s linear infinite, pulse-opacity 3s ease-in-out infinite;
+      }
+      
+      .connection-line-reverse {
+        stroke: url(#purpleBlue);
+        stroke-width: 4;
+        stroke-dasharray: 12, 8;
+        opacity: 0.6;
+        animation: dashReverse 6s linear infinite, pulse-opacity 3s ease-in-out infinite;
+      }
+      
+      text {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  
+  <text x="600" y="40" font-size="42" font-weight="800" fill="url(#purpleBlue)" text-anchor="middle">Shared Component Architecture</text>
+  
+  <circle cx="600" cy="350" r="200" fill="url(#glowEffect)" opacity="0.6"/>
+  
+  <rect x="480" y="170" width="240" height="35" rx="17.5" fill="url(#lightPurple)" stroke="url(#purpleBlue)" stroke-width="2"/>
+  <text x="600" y="195" font-size="26" fill="url(#purpleBlue)" text-anchor="middle">Shared Components</text>
+  
+  <g class="component-block">
+    <rect x="510" y="270" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
+    <rect x="515" y="275" width="170" height="80" rx="10" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
+    
+    <g class="icon">
+      <rect x="585" y="305" width="30" height="25" rx="3" fill="white" opacity="0.9"/>
+      <path d="M 592 305 L 592 295 Q 592 288 600 288 Q 608 288 608 295 L 608 305" fill="none" stroke="white" stroke-width="3" opacity="0.9"/>
+    </g>
+    
+    <text x="600" y="352" font-size="26" fill="white" text-anchor="middle">Authentication</text>
+  </g>
+  
+  <g class="component-block">
+    <rect x="510" y="370" width="180" height="90" rx="12" fill="url(#vibrantBlue)" filter="url(#shadow)"/>
+    <rect x="515" y="375" width="170" height="80" rx="10" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+    
+    <g class="icon">
+      <rect x="582" y="392" width="36" height="24" rx="3" fill="white" opacity="0.9"/>
+      <line x1="582" y1="400" x2="618" y2="400" stroke="#3b82f6" stroke-width="2"/>
+      <line x1="586" y1="408" x2="594" y2="408" stroke="#3b82f6" stroke-width="2"/>
+    </g>
+    
+    <text x="600" y="452" font-size="26" fill="white" text-anchor="middle">Billing</text>
+  </g>
+  
+  <g class="component-block">
+    <rect x="510" y="505" width="180" height="90" rx="12" fill="url(#vibrantPurple)" filter="url(#shadow)"/>
+    <rect x="515" y="510" width="170" height="80" rx="10" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+    
+    <g class="icon">
+      <rect x="585" y="545" width="8" height="20" rx="2" fill="white" opacity="0.9"/>
+      <rect x="597" y="535" width="8" height="30" rx="2" fill="white" opacity="0.9"/>
+      <rect x="609" y="540" width="8" height="25" rx="2" fill="white" opacity="0.9"/>
+    </g>
+    
+    <text x="600" y="587" font-size="26" fill="white" text-anchor="middle">Analytics</text>
+  </g>
+  
+  <g class="app-interface">
+    <rect x="150" y="150" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="160" y="160" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
+    <text x="250" y="184" font-size="24" fill="#8b5cf6" text-anchor="middle" font-weight="700">E-commerce</text>
+    <circle cx="250" cy="235" r="25" fill="url(#vibrantPurple)" opacity="0.2"/>
+    <text x="250" y="245" font-size="28" text-anchor="middle">🛒</text>
+    <text x="250" y="282" font-size="18" fill="#6b7280" text-anchor="middle">Shopping Platform</text>
+  </g>
+  
+  <g class="app-interface">
+    <rect x="850" y="150" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="860" y="160" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
+    <text x="950" y="184" font-size="24" fill="#3b82f6" text-anchor="middle" font-weight="700">SaaS Dashboard</text>
+    <circle cx="950" cy="235" r="25" fill="url(#vibrantBlue)" opacity="0.2"/>
+    <text x="950" y="245" font-size="28" text-anchor="middle">📊</text>
+    <text x="950" y="282" font-size="18" fill="#6b7280" text-anchor="middle">Business Analytics</text>
+  </g>
+  
+  <g class="app-interface">
+    <rect x="150" y="450" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantPurple)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="160" y="460" width="180" height="30" rx="8" fill="url(#vibrantPurple)" opacity="0.3"/>
+    <text x="250" y="484" font-size="24" fill="#8b5cf6" text-anchor="middle" font-weight="700">Mobile App</text>
+    <circle cx="250" cy="535" r="25" fill="url(#vibrantPurple)" opacity="0.2"/>
+    <text x="250" y="545" font-size="28" text-anchor="middle">📱</text>
+    <text x="250" y="582" font-size="18" fill="#6b7280" text-anchor="middle">iOS &amp; Android</text>
+  </g>
+  
+  <g class="app-interface">
+    <rect x="850" y="450" width="200" height="160" rx="15" fill="url(#lightPurple)" stroke="url(#vibrantBlue)" stroke-width="3" filter="url(#shadow)"/>
+    <rect x="860" y="460" width="180" height="30" rx="8" fill="url(#vibrantBlue)" opacity="0.3"/>
+    <text x="950" y="484" font-size="24" fill="#3b82f6" text-anchor="middle" font-weight="700">Content Platform</text>
+    <circle cx="950" cy="535" r="25" fill="url(#vibrantBlue)" opacity="0.2"/>
+    <text x="950" y="545" font-size="28" text-anchor="middle">📝</text>
+    <text x="950" y="582" font-size="18" fill="#6b7280" text-anchor="middle">Publishing System</text>
+  </g>
+  
+  <line class="connection-line" x1="350" y1="200" x2="510" y2="280" style="animation-delay: 0s"/>
+  <line class="connection-line-reverse" x1="340" y1="230" x2="510" y2="360" style="animation-delay: 0.5s"/>
+  <line class="connection-line" x1="850" y1="210" x2="690" y2="280" style="animation-delay: 1s"/>
+  <line class="connection-line-reverse" x1="860" y1="250" x2="690" y2="490" style="animation-delay: 1.5s"/>
+  <line class="connection-line" x1="350" y1="500" x2="510" y2="420" style="animation-delay: 2s"/>
+  <line class="connection-line-reverse" x1="350" y1="530" x2="510" y2="450" style="animation-delay: 2.5s"/>
+  <line class="connection-line" x1="340" y1="560" x2="510" y2="540" style="animation-delay: 3s"/>
+  <line class="connection-line-reverse" x1="850" y1="490" x2="690" y2="400" style="animation-delay: 3.5s"/>
+  <line class="connection-line" x1="850" y1="520" x2="690" y2="430" style="animation-delay: 4s"/>
+  <line class="connection-line-reverse" x1="860" y1="560" x2="690" y2="540" style="animation-delay: 4.5s"/>
+  
+  <rect x="350" y="650" width="500" height="40" rx="20" fill="url(#purpleBlue)" opacity="0.15" stroke="url(#purpleBlue)" stroke-width="2"/>
+  <text x="600" y="677" font-size="26" fill="url(#purpleBlue)" text-anchor="middle" font-weight="700">Reusable • Maintainable • Scalable • Consistent</text>
+</svg>

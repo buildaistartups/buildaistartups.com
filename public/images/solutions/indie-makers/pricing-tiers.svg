@@ -1,0 +1,69 @@
+<svg width="64" height="32" viewBox="0 0 64 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pricing Tiers: Starter, Builder, Studio</title>
+  <desc id="desc">Three ascending steps with feature icons, pricing badges, and upgrade arrows in purple and blue.</desc>
+
+  <defs>
+    <linearGradient id="gPurpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="gBluePurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 6 6" refX="4" refY="3" markerWidth="2.5" markerHeight="2.5" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#8B5CF6"/>
+    </marker>
+    <style>
+      .step { fill: url(#gPurpleBlue); stroke: #111827; stroke-opacity: .45; stroke-width: .8; rx:2; }
+      .label { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; font-weight: 700; fill: #FFFFFF; }
+      .badge { fill: url(#gBluePurple); stroke: rgba(17,24,39,.35); stroke-width: .6; }
+      .icon { fill: none; stroke: #FFFFFF; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
+      .arrow { fill: none; stroke: #8B5CF6; stroke-width: .7; marker-end: url(#arrow); stroke-linecap: round; }
+      .spark { fill: #FFFFFF; opacity: .9; }
+    </style>
+  </defs>
+
+  <!-- Starter -->
+  <rect class="step" x="2" y="22" width="16" height="8" rx="2"/>
+  <circle cx="10" cy="26" r="3.2" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+  <path class="icon" d="M8.8 26.1 l1.0 1.2 l2.0 -2.2"/>
+  <g transform="translate(3,16)">
+    <rect class="badge" x="0" y="0" width="14" height="5" rx="2.5"/>
+    <text class="label" x="7" y="3.7" font-size="3.1" text-anchor="middle">Free</text>
+  </g>
+
+  <!-- Builder -->
+  <rect class="step" x="20" y="15" width="18" height="15" rx="2"/>
+  <g transform="translate(29,22)">
+    <path class="icon" d="M-5 -1 l5 -3 l5 3 l-5 3 z"/>
+    <path class="icon" d="M-5 1.5 l5 3 l5 -3"/>
+  </g>
+  <g transform="translate(21,8)">
+    <rect class="badge" x="0" y="0" width="16" height="6" rx="3"/>
+    <text class="label" x="8" y="4.2" font-size="3.4" text-anchor="middle">$49</text>
+  </g>
+
+  <!-- Studio -->
+  <rect class="step" x="40" y="8" width="22" height="22" rx="2"/>
+  <g transform="translate(51,18)">
+    <path class="icon" d="M0 -5 c3 2 3 7 0 9 c-3 -2 -3 -7 0 -9 z"/>
+    <path class="icon" d="M0 4 l-2 3 M0 4 l2 3"/>
+    <path class="icon" d="M0 -1.5 a1.2 1.2 0 1 0 0.01 0"/>
+  </g>
+  <g transform="translate(41,0)">
+    <rect class="badge" x="0" y="0" width="20" height="7" rx="3.5"/>
+    <text class="label" x="10" y="4.9" font-size="3.6" text-anchor="middle">$149</text>
+  </g>
+
+  <!-- Upgrade arrows — shifted ~1px left -->
+  <!-- Previously: M17.45 15.56 L21.55 13.94 -->
+  <path class="arrow" d="M16.45 15.56 L20.55 13.94"/>
+  <!-- Previously: M37.92 7.96 L42.08 6.54 -->
+  <path class="arrow" d="M36.92 7.96 L41.08 6.54"/>
+
+  <!-- Value sparks -->
+  <rect class="spark" x="58" y="6" width="1.2" height="1.2" rx=".6"/>
+  <rect class="spark" x="56" y="4" width="1.2" height="1.2" rx=".6"/>
+  <rect class="spark" x="60.5" y="7.5" width="1.2" height="1.2" rx=".6"/>
+</svg>

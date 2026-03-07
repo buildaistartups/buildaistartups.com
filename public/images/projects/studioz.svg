@@ -1,0 +1,406 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Premium Gradients -->
+    <linearGradient id="pipelineMain" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.9" />
+      <stop offset="35%" style="stop-color:#8B5CF6;stop-opacity:0.95" />
+      <stop offset="65%" style="stop-color:#06B6D4;stop-opacity:0.95" />
+      <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:0.9" />
+    </linearGradient>
+    
+    <linearGradient id="pipelineHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0" />
+      <stop offset="50%" style="stop-color:#FFFFFF;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#5EEAD4;stop-opacity:0" />
+    </linearGradient>
+    
+    <linearGradient id="cardViolet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:0.15" />
+    </linearGradient>
+    
+    <linearGradient id="cardCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#0891B2;stop-opacity:0.15" />
+    </linearGradient>
+    
+    <linearGradient id="cardTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14B8A6;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#0D9488;stop-opacity:0.15" />
+    </linearGradient>
+    
+    <linearGradient id="rocketBody" x1="50%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5EEAD4;stop-opacity:1" />
+    </linearGradient>
+    
+    <radialGradient id="exhaustGlow" cx="50%" cy="0%">
+      <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:0.9" />
+      <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Premium Filters -->
+    <filter id="cardGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="pipelineGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="premiumGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="subtleGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Glassmorphism effect -->
+    <filter id="glass" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+      <feComponentTransfer>
+        <feFuncA type="discrete" tableValues="0.8"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  
+
+  
+  <!-- Sophisticated grid system -->
+  <g opacity="0.08">
+    <!-- Horizontal lines -->
+    <line x1="0" y1="200" x2="1600" y2="200" stroke="#8B5CF6" stroke-width="0.5"/>
+    <line x1="0" y1="400" x2="1600" y2="400" stroke="#06B6D4" stroke-width="0.5"/>
+    <line x1="0" y1="600" x2="1600" y2="600" stroke="#14B8A6" stroke-width="0.5"/>
+    <line x1="0" y1="700" x2="1600" y2="700" stroke="#8B5CF6" stroke-width="0.5"/>
+    
+    <!-- Vertical lines -->
+    <line x1="300" y1="0" x2="300" y2="900" stroke="#8B5CF6" stroke-width="0.5"/>
+    <line x1="600" y1="0" x2="600" y2="900" stroke="#06B6D4" stroke-width="0.5"/>
+    <line x1="900" y1="0" x2="900" y2="900" stroke="#14B8A6" stroke-width="0.5"/>
+    <line x1="1200" y1="0" x2="1200" y2="900" stroke="#8B5CF6" stroke-width="0.5"/>
+    <line x1="1500" y1="0" x2="1500" y2="900" stroke="#06B6D4" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Subtle radial grid -->
+  <g opacity="0.05">
+    <circle cx="800" cy="450" r="300" fill="none" stroke="#06B6D4" stroke-width="0.5"/>
+    <circle cx="800" cy="450" r="500" fill="none" stroke="#8B5CF6" stroke-width="0.5"/>
+    <circle cx="800" cy="450" r="700" fill="none" stroke="#14B8A6" stroke-width="0.5"/>
+  </g>
+  
+  <!-- Main pipeline with premium glow -->
+  <g filter="url(#pipelineGlow)">
+    <path d="M 180 480 Q 380 480 480 460 Q 620 430 760 410 Q 920 390 1080 360 Q 1180 340 1280 300" 
+          stroke="url(#pipelineMain)" stroke-width="10" fill="none" stroke-linecap="round"/>
+    <path d="M 180 480 Q 380 480 480 460 Q 620 430 760 410 Q 920 390 1080 360 Q 1180 340 1280 300" 
+          stroke="url(#pipelineHighlight)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+  
+  <!-- BACKLOG SECTION - Left panels -->
+  <g transform="translate(50, 180)">
+    <!-- Panel 1 - Top -->
+    <g filter="url(#cardGlow)">
+      <rect x="0" y="0" width="280" height="180" rx="12" 
+            fill="url(#cardViolet)" stroke="#8B5CF6" stroke-width="1.5" opacity="0.9"/>
+      
+      <!-- Content bars -->
+      <rect x="24" y="24" width="232" height="24" rx="4" fill="#A78BFA" opacity="0.5"/>
+      <rect x="24" y="58" width="190" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      <rect x="24" y="82" width="210" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      <rect x="24" y="106" width="165" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      
+      <!-- Subtle icons -->
+      <circle cx="35" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      <circle cx="65" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      <circle cx="95" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      
+      <!-- Priority indicator -->
+      <circle cx="256" cy="24" r="7" fill="#8B5CF6" opacity="0.6" filter="url(#subtleGlow)"/>
+    </g>
+    
+    <!-- Panel 2 - Middle -->
+    <g transform="translate(0, 200)" filter="url(#cardGlow)">
+      <rect x="0" y="0" width="280" height="180" rx="12" 
+            fill="url(#cardViolet)" stroke="#8B5CF6" stroke-width="1.5" opacity="0.9"/>
+      
+      <rect x="24" y="24" width="232" height="24" rx="4" fill="#A78BFA" opacity="0.5"/>
+      <rect x="24" y="58" width="200" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      <rect x="24" y="82" width="175" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      <rect x="24" y="106" width="222" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      
+      <circle cx="35" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      <circle cx="65" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      
+      <circle cx="256" cy="24" r="7" fill="#8B5CF6" opacity="0.6" filter="url(#subtleGlow)"/>
+    </g>
+    
+    <!-- Panel 3 - Bottom -->
+    <g transform="translate(0, 400)" filter="url(#cardGlow)">
+      <rect x="0" y="0" width="280" height="180" rx="12" 
+            fill="url(#cardViolet)" stroke="#8B5CF6" stroke-width="1.5" opacity="0.9"/>
+      
+      <rect x="24" y="24" width="232" height="24" rx="4" fill="#A78BFA" opacity="0.5"/>
+      <rect x="24" y="58" width="210" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      <rect x="24" y="82" width="188" height="14" rx="3" fill="#A78BFA" opacity="0.35"/>
+      
+      <circle cx="35" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      <circle cx="65" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      <circle cx="95" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      <circle cx="125" cy="144" r="12" fill="#8B5CF6" opacity="0.4" stroke="#A78BFA" stroke-width="1"/>
+      
+      <circle cx="256" cy="24" r="7" fill="#8B5CF6" opacity="0.6" filter="url(#subtleGlow)"/>
+    </g>
+  </g>
+  
+  <!-- IN PROGRESS SECTION - Center panels -->
+  <g transform="translate(430, 140)">
+    <!-- Panel 1 -->
+    <g filter="url(#cardGlow)">
+      <rect x="0" y="0" width="310" height="200" rx="12" 
+            fill="url(#cardCyan)" stroke="#06B6D4" stroke-width="1.5" opacity="0.95"/>
+      
+      <rect x="28" y="28" width="254" height="26" rx="5" fill="#22D3EE" opacity="0.55"/>
+      <rect x="28" y="66" width="215" height="16" rx="3" fill="#22D3EE" opacity="0.4"/>
+      <rect x="28" y="92" width="240" height="16" rx="3" fill="#22D3EE" opacity="0.4"/>
+      <rect x="28" y="118" width="192" height="16" rx="3" fill="#22D3EE" opacity="0.4"/>
+      
+      <!-- Progress bar -->
+      <rect x="28" y="152" width="254" height="12" rx="6" fill="#06B6D4" opacity="0.25"/>
+      <rect x="28" y="152" width="180" height="12" rx="6" fill="#22D3EE" opacity="0.8" filter="url(#subtleGlow)"/>
+      
+      <!-- Team indicators -->
+      <circle cx="38" cy="182" r="13" fill="#06B6D4" opacity="0.5" stroke="#22D3EE" stroke-width="1.5"/>
+      <circle cx="70" cy="182" r="13" fill="#06B6D4" opacity="0.5" stroke="#22D3EE" stroke-width="1.5"/>
+      <circle cx="102" cy="182" r="13" fill="#06B6D4" opacity="0.5" stroke="#22D3EE" stroke-width="1.5"/>
+      
+      <circle cx="282" cy="28" r="7" fill="#22D3EE" opacity="0.7" filter="url(#subtleGlow)"/>
+    </g>
+    
+    <!-- Panel 2 -->
+    <g transform="translate(0, 230)" filter="url(#cardGlow)">
+      <rect x="0" y="0" width="310" height="200" rx="12" 
+            fill="url(#cardCyan)" stroke="#06B6D4" stroke-width="1.5" opacity="0.95"/>
+      
+      <rect x="28" y="28" width="254" height="26" rx="5" fill="#22D3EE" opacity="0.55"/>
+      <rect x="28" y="66" width="228" height="16" rx="3" fill="#22D3EE" opacity="0.4"/>
+      <rect x="28" y="92" width="204" height="16" rx="3" fill="#22D3EE" opacity="0.4"/>
+      <rect x="28" y="118" width="240" height="16" rx="3" fill="#22D3EE" opacity="0.4"/>
+      
+      <rect x="28" y="152" width="254" height="12" rx="6" fill="#06B6D4" opacity="0.25"/>
+      <rect x="28" y="152" width="216" height="12" rx="6" fill="#22D3EE" opacity="0.8" filter="url(#subtleGlow)"/>
+      
+      <circle cx="38" cy="182" r="13" fill="#06B6D4" opacity="0.5" stroke="#22D3EE" stroke-width="1.5"/>
+      <circle cx="70" cy="182" r="13" fill="#06B6D4" opacity="0.5" stroke="#22D3EE" stroke-width="1.5"/>
+      
+      <circle cx="282" cy="28" r="7" fill="#22D3EE" opacity="0.7" filter="url(#subtleGlow)"/>
+    </g>
+  </g>
+  
+  <!-- LAUNCHED SECTION - Right tiles flowing toward rocket -->
+  <g transform="translate(850, 180)">
+    <!-- Tile 1 -->
+    <g filter="url(#cardGlow)">
+      <rect x="0" y="0" width="260" height="180" rx="12" 
+            fill="url(#cardTeal)" stroke="#14B8A6" stroke-width="2" opacity="0.98"/>
+      
+      <rect x="24" y="24" width="212" height="24" rx="4" fill="#2DD4BF" opacity="0.6"/>
+      <rect x="24" y="58" width="178" height="14" rx="3" fill="#2DD4BF" opacity="0.45"/>
+      <rect x="24" y="82" width="200" height="14" rx="3" fill="#2DD4BF" opacity="0.45"/>
+      <rect x="24" y="106" width="165" height="14" rx="3" fill="#2DD4BF" opacity="0.45"/>
+      
+      <!-- Success indicators -->
+      <circle cx="33" cy="142" r="12" fill="#14B8A6" opacity="0.6" stroke="#2DD4BF" stroke-width="1.5"/>
+      <path d="M 27 142 L 32 147 L 39 135" stroke="#5EEAD4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      
+      <circle cx="66" cy="142" r="12" fill="#14B8A6" opacity="0.6" stroke="#2DD4BF" stroke-width="1.5"/>
+      <path d="M 60 142 L 65 147 L 72 135" stroke="#5EEAD4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      
+      <circle cx="99" cy="142" r="12" fill="#14B8A6" opacity="0.6" stroke="#2DD4BF" stroke-width="1.5"/>
+      <path d="M 93 142 L 98 147 L 105 135" stroke="#5EEAD4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      
+      <!-- Launch arrow -->
+      <path d="M 188 142 L 212 142 L 206 136 M 212 142 L 206 148" 
+            stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+      
+      <circle cx="236" cy="24" r="8" fill="#5EEAD4" opacity="0.8" filter="url(#subtleGlow)"/>
+    </g>
+    
+    <!-- Tile 2 -->
+    <g transform="translate(0, 210)" filter="url(#cardGlow)">
+      <rect x="0" y="0" width="260" height="180" rx="12" 
+            fill="url(#cardTeal)" stroke="#14B8A6" stroke-width="2" opacity="0.98"/>
+      
+      <rect x="24" y="24" width="212" height="24" rx="4" fill="#2DD4BF" opacity="0.6"/>
+      <rect x="24" y="58" width="190" height="14" rx="3" fill="#2DD4BF" opacity="0.45"/>
+      <rect x="24" y="82" width="178" height="14" rx="3" fill="#2DD4BF" opacity="0.45"/>
+      <rect x="24" y="106" width="200" height="14" rx="3" fill="#2DD4BF" opacity="0.45"/>
+      
+      <circle cx="33" cy="142" r="12" fill="#14B8A6" opacity="0.6" stroke="#2DD4BF" stroke-width="1.5"/>
+      <path d="M 27 142 L 32 147 L 39 135" stroke="#5EEAD4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      
+      <circle cx="66" cy="142" r="12" fill="#14B8A6" opacity="0.6" stroke="#2DD4BF" stroke-width="1.5"/>
+      <path d="M 60 142 L 65 147 L 72 135" stroke="#5EEAD4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      
+      <path d="M 188 142 L 212 142 L 206 136 M 212 142 L 206 148" 
+            stroke="#2DD4BF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+      
+      <circle cx="236" cy="24" r="8" fill="#5EEAD4" opacity="0.8" filter="url(#subtleGlow)"/>
+    </g>
+  </g>
+  
+  <!-- ROCKET - Premium design -->
+  <g transform="translate(1280, 120) scale(1.5)" filter="url(#premiumGlow)">
+    <!-- Rocket body with gradient -->
+    <path d="M 90 10 L 100 60 L 96 150 L 84 150 L 80 60 Z" 
+          fill="url(#rocketBody)" stroke="#5EEAD4" stroke-width="1.5" opacity="0.95"/>
+    
+    <!-- Nose cone -->
+    <path d="M 90 10 L 80 60 L 100 60 Z" fill="#5EEAD4" opacity="0.95"/>
+    <path d="M 90 10 L 85 60 L 95 60 Z" fill="#FFFFFF" opacity="0.3"/>
+    
+    <!-- Premium window -->
+    <circle cx="90" cy="75" r="16" fill="#06B6D4" opacity="0.3"/>
+    <circle cx="90" cy="75" r="12" fill="#22D3EE" opacity="0.6"/>
+    <circle cx="90" cy="75" r="8" fill="#5EEAD4" opacity="0.9" filter="url(#subtleGlow)"/>
+    <circle cx="87" cy="72" r="3" fill="#FFFFFF" opacity="0.8"/>
+    
+    <!-- Detail lines on body -->
+    <line x1="84" y1="100" x2="96" y2="100" stroke="#5EEAD4" stroke-width="0.5" opacity="0.4"/>
+    <line x1="84" y1="120" x2="96" y2="120" stroke="#5EEAD4" stroke-width="0.5" opacity="0.4"/>
+    
+    <!-- Fins with gradient -->
+    <path d="M 80 95 L 60 140 L 80 135 Z" fill="#8B5CF6" opacity="0.85" stroke="#A78BFA" stroke-width="1"/>
+    <path d="M 100 95 L 120 140 L 100 135 Z" fill="#8B5CF6" opacity="0.85" stroke="#A78BFA" stroke-width="1"/>
+    
+    <!-- Fin details -->
+    <line x1="70" y1="115" x2="75" y2="125" stroke="#A78BFA" stroke-width="0.5" opacity="0.5"/>
+    <line x1="110" y1="115" x2="105" y2="125" stroke="#A78BFA" stroke-width="0.5" opacity="0.5"/>
+    
+    <!-- Premium exhaust with multiple layers -->
+    <ellipse cx="90" cy="155" rx="25" ry="20" fill="url(#exhaustGlow)" opacity="0.7"/>
+    <ellipse cx="90" cy="168" rx="22" ry="25" fill="#22D3EE" opacity="0.6"/>
+    <ellipse cx="90" cy="180" rx="18" ry="22" fill="#8B5CF6" opacity="0.5"/>
+    <ellipse cx="90" cy="192" rx="14" ry="20" fill="#14B8A6" opacity="0.4"/>
+    <ellipse cx="90" cy="204" rx="10" ry="16" fill="#5EEAD4" opacity="0.3"/>
+    
+    <!-- Exhaust particles -->
+    <circle cx="85" cy="210" r="3" fill="#22D3EE" opacity="0.6">
+      <animate attributeName="cy" values="210;230;210" dur="1.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="95" cy="215" r="2.5" fill="#8B5CF6" opacity="0.5">
+      <animate attributeName="cy" values="215;235;215" dur="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0;0.5" dur="1.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="90" cy="220" r="2" fill="#14B8A6" opacity="0.4">
+      <animate attributeName="cy" values="220;240;220" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Motion lines -->
+    <g opacity="0.6">
+      <path d="M 50 150 L 40 155" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 130 150 L 140 155" stroke="#22D3EE" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M 45 170 L 32 177" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 135 170 L 148 177" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/>
+      <path d="M 50 190 L 38 198" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M 130 190 L 142 198" stroke="#14B8A6" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Premium floating particles throughout the scene -->
+  <g opacity="0.5">
+    <circle cx="380" cy="250" r="4" fill="#8B5CF6">
+      <animate attributeName="cy" values="250;230;250" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="720" cy="320" r="3.5" fill="#22D3EE">
+      <animate attributeName="cy" values="320;300;320" dur="3.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1050" cy="280" r="4" fill="#14B8A6">
+      <animate attributeName="cy" values="280;260;280" dur="4.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="550" cy="580" r="3" fill="#5EEAD4">
+      <animate attributeName="cy" values="580;560;580" dur="3.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="920" cy="650" r="3.5" fill="#A78BFA">
+      <animate attributeName="cy" values="650;630;650" dur="4.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="4.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1200" cy="580" r="3" fill="#22D3EE">
+      <animate attributeName="cy" values="580;560;580" dur="3.3s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="3.3s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Premium pulsing connection nodes along pipeline -->
+  <g filter="url(#subtleGlow)">
+    <circle cx="330" cy="475" r="8" fill="#8B5CF6" opacity="0.9">
+      <animate attributeName="r" values="8;11;8" dur="2.5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="570" cy="445" r="8" fill="#06B6D4" opacity="0.9">
+      <animate attributeName="r" values="8;11;8" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="840" cy="400" r="8" fill="#14B8A6" opacity="0.9">
+      <animate attributeName="r" values="8;11;8" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1130" cy="350" r="8" fill="#22D3EE" opacity="0.9">
+      <animate attributeName="r" values="8;11;8" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.9;0.6;0.9" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Data flow particles along pipeline -->
+  <g opacity="0.7">
+    <circle cx="250" cy="480" r="6" fill="#A78BFA">
+      <animate attributeName="cx" values="250;1280" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="480;300" dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.7;0" dur="8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="480" r="5" fill="#22D3EE">
+      <animate attributeName="cx" values="250;1280" dur="8s" begin="2s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="480;300" dur="8s" begin="2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.7;0" dur="8s" begin="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="480" r="6" fill="#5EEAD4">
+      <animate attributeName="cx" values="250;1280" dur="8s" begin="4s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="480;300" dur="8s" begin="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.7;0" dur="8s" begin="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="250" cy="480" r="5" fill="#8B5CF6">
+      <animate attributeName="cx" values="250;1280" dur="8s" begin="6s" repeatCount="indefinite"/>
+      <animate attributeName="cy" values="480;300" dur="8s" begin="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0;0.7;0" dur="8s" begin="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>

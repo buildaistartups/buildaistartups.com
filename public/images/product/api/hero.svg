@@ -1,0 +1,164 @@
+<svg width="1240" height="750" viewBox="0 0 1050 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purpleBlueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- Glow -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Connecting Pipes (more horizontal spread: left=100, center=525, right=950; more vertical spacing: 120 / 300 / 480) -->
+  <g id="pipes" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.3">
+    <path d="M 100 120 Q 312 70 525 120" stroke="url(#purpleGradient)"/>
+    <path d="M 525 120 Q 737 170 950 120" stroke="url(#blueGradient)"/>
+    <path d="M 100 300 L 525 300" stroke="url(#purpleGradient)"/>
+    <path d="M 525 300 L 950 300" stroke="url(#blueGradient)"/>
+    <path d="M 100 480 Q 312 530 525 480" stroke="url(#purpleGradient)"/>
+    <path d="M 525 480 Q 737 430 950 480" stroke="url(#blueGradient)"/>
+    <path d="M 525 120 L 525 300" stroke="url(#purpleBlueGradient)"/>
+    <path d="M 525 300 L 525 480" stroke="url(#purpleBlueGradient)"/>
+  </g>
+
+  <!-- Solid Pipes -->
+  <g id="solidPipes" stroke-width="8" stroke-linecap="round" fill="none">
+    <path d="M 100 120 Q 312 70 525 120" stroke="url(#purpleGradient)"/>
+    <path d="M 525 120 Q 737 170 950 120" stroke="url(#blueGradient)"/>
+    <path d="M 100 300 L 525 300" stroke="url(#purpleGradient)"/>
+    <path d="M 525 300 L 950 300" stroke="url(#blueGradient)"/>
+    <path d="M 100 480 Q 312 530 525 480" stroke="url(#purpleGradient)"/>
+    <path d="M 525 480 Q 737 430 950 480" stroke="url(#blueGradient)"/>
+    <path d="M 525 120 L 525 300" stroke="url(#purpleBlueGradient)"/>
+    <path d="M 525 300 L 525 480" stroke="url(#purpleBlueGradient)"/>
+  </g>
+
+  <!-- Animated Data Packets -->
+  <g id="dataFlow">
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite"><mpath href="#path1"/></animateMotion>
+    </circle>
+    <path id="path1" d="M 100 120 Q 312 70 525 120" fill="none"/>
+
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite"><mpath href="#path2"/></animateMotion>
+    </circle>
+    <path id="path2" d="M 525 120 Q 737 170 950 120" fill="none"/>
+
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="2.5s" repeatCount="indefinite"><mpath href="#path3"/></animateMotion>
+    </circle>
+    <path id="path3" d="M 100 300 L 525 300" fill="none"/>
+
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.5s"><mpath href="#path4"/></animateMotion>
+    </circle>
+    <path id="path4" d="M 525 300 L 950 300" fill="none"/>
+
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite"><mpath href="#path5"/></animateMotion>
+    </circle>
+    <path id="path5" d="M 100 480 Q 312 530 525 480" fill="none"/>
+
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="3s" repeatCount="indefinite" begin="0.3s"><mpath href="#path6"/></animateMotion>
+    </circle>
+    <path id="path6" d="M 525 480 Q 737 430 950 480" fill="none"/>
+
+    <circle r="7" fill="#8b5cf6" opacity="0.9">
+      <animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path7"/></animateMotion>
+    </circle>
+    <path id="path7" d="M 525 120 L 525 300" fill="none"/>
+
+    <circle r="7" fill="#3b82f6" opacity="0.9">
+      <animateMotion dur="2s" repeatCount="indefinite"><mpath href="#path8"/></animateMotion>
+    </circle>
+    <path id="path8" d="M 525 300 L 525 480" fill="none"/>
+  </g>
+
+  <!-- REST Endpoint Nodes (left) -->
+  <g id="leftNodes" font-family="Arial, sans-serif">
+    <circle cx="100" cy="120" r="54" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <circle cx="100" cy="120" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <text x="100" y="120" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="16" font-weight="bold">GET</text>
+    <text x="100" y="202" text-anchor="middle" fill="#8b5cf6" font-size="16" font-weight="700">REST API</text>
+
+    <circle cx="100" cy="300" r="54" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <circle cx="100" cy="300" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <text x="100" y="300" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="16" font-weight="bold">POST</text>
+    <text x="100" y="382" text-anchor="middle" fill="#8b5cf6" font-size="16" font-weight="700">REST API</text>
+
+    <circle cx="100" cy="480" r="54" fill="url(#purpleGradient)" filter="url(#glow)"/>
+    <circle cx="100" cy="480" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <text x="100" y="480" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="16" font-weight="bold">PUT</text>
+    <text x="100" y="562" text-anchor="middle" fill="#8b5cf6" font-size="16" font-weight="700">REST API</text>
+  </g>
+
+  <!-- Central Hub -->
+  <g id="centralHub" font-family="Arial, sans-serif">
+    <circle cx="525" cy="300" r="75" fill="url(#purpleBlueGradient)" filter="url(#glow)"/>
+    <circle cx="525" cy="300" r="65" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <circle cx="525" cy="300" r="52" fill="none" stroke="#fff" stroke-width="1" opacity="0.3"/>
+    <path d="M 510 290 L 520 280 L 530 290 M 520 280 L 520 320 M 510 310 L 540 310"
+          stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="525" y="420" text-anchor="middle" fill="#8b5cf6" font-size="18" font-weight="800">API HUB</text>
+  </g>
+
+  <!-- Webhook Endpoint Nodes (right) -->
+  <g id="rightNodes" font-family="Arial, sans-serif">
+    <circle cx="950" cy="120" r="54" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <circle cx="950" cy="120" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <path d="M 940 115 L 945 110 L 960 125 M 945 110 L 945 130 M 960 115 L 945 130"
+          stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="950" y="202" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">WEBHOOK</text>
+
+    <circle cx="950" cy="300" r="54" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <circle cx="950" cy="300" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <path d="M 940 295 L 945 290 L 960 305 M 945 290 L 945 310 M 960 295 L 945 310"
+          stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="950" y="382" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">WEBHOOK</text>
+
+    <circle cx="950" cy="480" r="54" fill="url(#blueGradient)" filter="url(#glow)"/>
+    <circle cx="950" cy="480" r="44" fill="none" stroke="#fff" stroke-width="2" opacity="0.5"/>
+    <path d="M 940 475 L 945 470 L 960 485 M 945 470 L 945 490 M 960 475 L 945 490"
+          stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <text x="950" y="562" text-anchor="middle" fill="#3b82f6" font-size="16" font-weight="700">WEBHOOK</text>
+  </g>
+
+  <!-- Connection Points -->
+  <g id="connectionPoints" fill="#fff" opacity="0.9">
+    <circle cx="525" cy="120" r="8"/>
+    <circle cx="525" cy="480" r="8"/>
+  </g>
+
+  <!-- Pipe Indicators (adjusted positions for wider layout) -->
+  <g id="pipeIndicators" opacity="0.6">
+    <rect x="260" y="115" width="8" height="10" rx="2" fill="#8b5cf6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="780" y="115" width="8" height="10" rx="2" fill="#3b82f6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" begin="0.5s"/>
+    </rect>
+    <rect x="280" y="295" width="8" height="10" rx="2" fill="#8b5cf6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" begin="0.3s"/>
+    </rect>
+    <rect x="800" y="295" width="8" height="10" rx="2" fill="#3b82f6">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="1.5s" repeatCount="indefinite" begin="0.8s"/>
+    </rect>
+  </g>
+</svg>

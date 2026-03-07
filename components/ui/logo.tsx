@@ -1,33 +1,32 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Logo() {
   const { resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [useImagesDir, setUseImagesDir] = useState(false) // fallback to /images if /brand fails
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  useEffect(() => setMounted(true), [])
 
-  // Only render logo once theme is known, to avoid SSR mismatch
-  if (!mounted) return <div style={{ width: 120, height: 60 }} />  // blank/placeholder
+  if (!mounted) return <div style={{ width: 120, height: 60 }} />
 
-  const logoSrc = resolvedTheme === 'dark'
-    ? '/images/logo-dark.svg'
-    : '/images/logo-light.svg'
+  // Prefer /brand, fallback to /images if onError fires once
+  const base = useImagesDir ? '/images' : '/brand'
+  const src = resolvedTheme === 'dark' ? `${base}/logo-dark.svg` : `${base}/logo-light.svg`
 
   return (
-    <Link href="/" aria-label="BuildAIStartups" className="flex items-center gap-2">
+    <Link href="/" aria-label="Build AI Startups" className="flex items-center gap-2">
       <Image
-        src={logoSrc}
+        src={src}
         width={120}
         height={60}
-        alt="BuildAIStartups Logo"
+        alt="Build AI Starups logo"
         priority
+        onError={() => setUseImagesDir(true)}
       />
     </Link>
   )

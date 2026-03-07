@@ -1,0 +1,194 @@
+<svg viewBox="150 100 1100 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="purpleBlue1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleBlue2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="centerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8b5cf6" opacity="0.7" />
+    </marker>
+  </defs>
+  
+  <style>
+    @keyframes flowLine {
+      0% { stroke-dashoffset: 1000; }
+      100% { stroke-dashoffset: 0; }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    
+    .flow-line { 
+      stroke-dasharray: 10 5;
+      animation: flowLine 20s linear infinite;
+    }
+    .metric { animation: float 4s ease-in-out infinite; }
+    .metric:nth-child(2n) { animation-delay: 0.5s; }
+    .metric:nth-child(3n) { animation-delay: 1s; }
+  </style>
+  
+  <!-- Connecting Lines with Curves (Draw first - at back) -->
+  <!-- Line to top-left node -->
+  <path class="flow-line" d="M 700 450 Q 500 300 280 180" stroke="url(#purpleBlue1)" stroke-width="3" fill="none" opacity="0.6" marker-end="url(#arrowhead)"/>
+  
+  <!-- Line to top-right node -->
+  <path class="flow-line" d="M 700 450 Q 900 300 1120 180" stroke="url(#purpleBlue2)" stroke-width="3" fill="none" opacity="0.6" marker-end="url(#arrowhead)"/>
+  
+  <!-- Line to left node -->
+  <path class="flow-line" d="M 700 450 Q 500 450 280 450" stroke="url(#purpleBlue1)" stroke-width="3" fill="none" opacity="0.6" marker-end="url(#arrowhead)"/>
+  
+  <!-- Line to right node -->
+  <path class="flow-line" d="M 700 450 Q 900 450 1120 450" stroke="url(#purpleBlue2)" stroke-width="3" fill="none" opacity="0.6" marker-end="url(#arrowhead)"/>
+  
+  <!-- Line to bottom-left node -->
+  <path class="flow-line" d="M 700 450 Q 500 600 280 720" stroke="url(#purpleBlue1)" stroke-width="3" fill="none" opacity="0.6" marker-end="url(#arrowhead)"/>
+  
+  <!-- Line to bottom-right node -->
+  <path class="flow-line" d="M 700 450 Q 900 600 1120 720" stroke="url(#purpleBlue2)" stroke-width="3" fill="none" opacity="0.6" marker-end="url(#arrowhead)"/>
+  
+  <!-- Cross-connections -->
+  <path class="flow-line" d="M 280 180 Q 400 300 280 450" stroke="#8b5cf6" stroke-width="2" fill="none" opacity="0.4"/>
+  <path class="flow-line" d="M 1120 180 Q 1000 300 1120 450" stroke="#3b82f6" stroke-width="2" fill="none" opacity="0.4"/>
+  
+  <!-- Center Hub Node (Draw on top of lines) -->
+  <g id="centerNode">
+    <circle cx="700" cy="450" r="90" fill="url(#centerGradient)" opacity="0.95"/>
+    <circle cx="700" cy="450" r="75" fill="url(#centerGradient)" opacity="0.7"/>
+    <!-- Chart icon - bigger -->
+    <rect x="655" y="430" width="16" height="45" fill="white" opacity="0.9" rx="2"/>
+    <rect x="678" y="410" width="16" height="65" fill="white" opacity="0.9" rx="2"/>
+    <rect x="701" y="390" width="16" height="85" fill="white" opacity="0.9" rx="2"/>
+    <rect x="724" y="415" width="16" height="60" fill="white" opacity="0.9" rx="2"/>
+  </g>
+  
+  <!-- Top-Left Node: Chat/Social -->
+  <g id="node1">
+    <circle cx="280" cy="180" r="65" fill="url(#purpleBlue1)" opacity="0.9"/>
+    <circle cx="280" cy="180" r="52" fill="url(#purpleBlue1)" opacity="0.6"/>
+    <!-- Chat bubble - bigger -->
+    <path d="M 245 165 Q 245 145 265 145 L 295 145 Q 315 145 315 165 L 315 185 Q 315 205 295 205 L 270 205 L 255 220 L 255 205 Q 245 205 245 185 Z" fill="white" opacity="0.9"/>
+    <circle cx="265" cy="170" r="4" fill="url(#purpleBlue1)"/>
+    <circle cx="280" cy="170" r="4" fill="url(#purpleBlue1)"/>
+    <circle cx="295" cy="170" r="4" fill="url(#purpleBlue1)"/>
+  </g>
+  
+  <!-- Top-Right Node: E-commerce -->
+  <g id="node2">
+    <circle cx="1120" cy="180" r="65" fill="url(#purpleBlue2)" opacity="0.9"/>
+    <circle cx="1120" cy="180" r="52" fill="url(#purpleBlue2)" opacity="0.6"/>
+    <!-- Shopping cart - bigger -->
+    <path d="M 1088 160 L 1100 145 L 1140 145 L 1152 160 L 1146 192 Q 1146 198 1140 198 L 1100 198 Q 1094 198 1094 192 Z" fill="none" stroke="white" stroke-width="4" opacity="0.9"/>
+    <circle cx="1105" cy="172" r="5" fill="white"/>
+    <circle cx="1135" cy="172" r="5" fill="white"/>
+  </g>
+  
+  <!-- Left Node: Security/Shield -->
+  <g id="node3">
+    <circle cx="280" cy="450" r="65" fill="url(#purpleBlue1)" opacity="0.9"/>
+    <circle cx="280" cy="450" r="52" fill="url(#purpleBlue1)" opacity="0.6"/>
+    <!-- Shield - bigger -->
+    <path d="M 280 425 L 260 432 L 260 458 Q 260 478 280 485 Q 300 478 300 458 L 300 432 Z" fill="none" stroke="white" stroke-width="4" opacity="0.9"/>
+    <path d="M 268 448 L 276 456 L 294 438" fill="none" stroke="white" stroke-width="3.5" opacity="0.9"/>
+  </g>
+  
+  <!-- Right Node: Analytics/Growth -->
+  <g id="node4">
+    <circle cx="1120" cy="450" r="65" fill="url(#purpleBlue2)" opacity="0.9"/>
+    <circle cx="1120" cy="450" r="52" fill="url(#purpleBlue2)" opacity="0.6"/>
+    <!-- Magnifying glass - bigger -->
+    <circle cx="1120" cy="440" r="24" fill="none" stroke="white" stroke-width="4" opacity="0.9"/>
+    <circle cx="1120" cy="440" r="8" fill="white" opacity="0.9"/>
+    <path d="M 1136 454 L 1148 466" stroke="white" stroke-width="4" opacity="0.9"/>
+  </g>
+  
+  <!-- Bottom-Left Node: Integration/Plugin -->
+  <g id="node5">
+    <circle cx="280" cy="720" r="65" fill="url(#purpleBlue1)" opacity="0.9"/>
+    <circle cx="280" cy="720" r="52" fill="url(#purpleBlue1)" opacity="0.6"/>
+    <!-- Plug - bigger -->
+    <rect x="260" y="705" width="40" height="24" rx="4" fill="white" opacity="0.9"/>
+    <rect x="268" y="688" width="24" height="17" fill="white" opacity="0.9"/>
+    <path d="M 272 705 L 272 688 M 288 705 L 288 688" stroke="url(#purpleBlue1)" stroke-width="3"/>
+  </g>
+  
+  <!-- Bottom-Right Node: Customer Success/Smile -->
+  <g id="node6">
+    <circle cx="1120" cy="720" r="65" fill="url(#purpleBlue2)" opacity="0.9"/>
+    <circle cx="1120" cy="720" r="52" fill="url(#purpleBlue2)" opacity="0.6"/>
+    <!-- Smiley face - bigger -->
+    <circle cx="1100" cy="705" r="6" fill="white"/>
+    <circle cx="1140" cy="705" r="6" fill="white"/>
+    <path d="M 1090 725 Q 1120 745 1150 725" fill="none" stroke="white" stroke-width="4" opacity="0.9"/>
+  </g>
+  
+  <!-- Growth Metrics Labels (Draw last - on top) -->
+  <!-- MRR Metric -->
+  <g class="metric" id="metric1">
+    <rect x="660" y="240" width="140" height="45" rx="22" fill="white" opacity="0.95"/>
+    <text x="730" y="270" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#7c3aed" text-anchor="middle">+187% MRR</text>
+  </g>
+  
+  <!-- DAU Metric -->
+  <g class="metric" id="metric2">
+    <rect x="160" y="280" width="120" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="220" y="308" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#8b5cf6" text-anchor="middle">DAU 142%</text>
+  </g>
+  
+  <!-- Retention Metric -->
+  <g class="metric" id="metric3">
+    <rect x="850" y="280" width="130" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="915" y="308" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#3b82f6" text-anchor="middle">Ret. 94%</text>
+  </g>
+  
+  <!-- Conversion Rate - MOVED HIGHER -->
+  <g class="metric" id="metric4">
+    <rect x="1020" y="320" width="110" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="1075" y="348" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#6366f1" text-anchor="middle">CVR↑8%</text>
+  </g>
+  
+  <!-- NPS Score -->
+  <g class="metric" id="metric5">
+    <rect x="175" y="580" width="100" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="225" y="608" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#8b5cf6" text-anchor="middle">NPS 71</text>
+  </g>
+  
+  <!-- ARPU Metric - MOVED HIGHER -->
+  <g class="metric" id="metric6">
+    <rect x="1025" y="580" width="110" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="1080" y="608" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#3b82f6" text-anchor="middle">ARPU+15</text>
+  </g>
+  
+  <!-- Churn Rate -->
+  <g class="metric" id="metric7">
+    <rect x="420" y="630" width="90" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="465" y="658" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#7c3aed" text-anchor="middle">CR 3%</text>
+  </g>
+  
+  <!-- Growth Rate - MOVED HIGHER -->
+  <g class="metric" id="metric8">
+    <rect x="270" y="320" width="110" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="325" y="348" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#8b5cf6" text-anchor="middle">GR↑23%</text>
+  </g>
+  
+  <!-- Engagement -->
+  <g class="metric" id="metric9">
+    <rect x="820" y="580" width="130" height="42" rx="20" fill="white" opacity="0.95"/>
+    <text x="885" y="608" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#6366f1" text-anchor="middle">Eng. 156%</text>
+  </g>
+</svg>

@@ -1,0 +1,121 @@
+<svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
+  <defs>
+    <!-- Animations -->
+    <style>
+      @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.9; }
+        50% { opacity: 1; }
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -1000; }
+      }
+      .flywheel-rotate {
+        animation: rotate 20s linear infinite;
+        transform-origin: 300px 300px;
+      }
+      .pulse {
+        animation: pulse 2s ease-in-out infinite;
+      }
+      .arrow-flow {
+        stroke-dasharray: 20 10;
+        animation: dash 20s linear infinite;
+      }
+    </style>
+    
+    <!-- Gradients -->
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Arrow marker -->
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8B5CF6" />
+    </marker>
+  </defs>
+  
+  <!-- Center circle -->
+  <circle cx="300" cy="300" r="80" fill="none" stroke="url(#grad1)" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Circular arrows connecting segments -->
+  <g class="flywheel-rotate">
+    <path d="M 300 140 A 160 160 0 0 1 441 223" fill="none" stroke="url(#grad1)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 449 237 A 160 160 0 0 1 449 363" fill="none" stroke="url(#grad2)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 441 377 A 160 160 0 0 1 300 460" fill="none" stroke="url(#grad3)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 286 460 A 160 160 0 0 1 151 363" fill="none" stroke="url(#grad4)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+    <path d="M 151 237 A 160 160 0 0 1 286 140" fill="none" stroke="url(#grad5)" stroke-width="3" marker-end="url(#arrowhead)" opacity="0.6" class="arrow-flow"/>
+  </g>
+  
+  <!-- Segment 1: More Apps (Top) -->
+  <g transform="translate(300, 100)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad1)" class="pulse"/>
+    <!-- App icon -->
+    <rect x="-15" y="-15" width="12" height="12" rx="2" fill="white"/>
+    <rect x="3" y="-15" width="12" height="12" rx="2" fill="white"/>
+    <rect x="-15" y="3" width="12" height="12" rx="2" fill="white"/>
+    <rect x="3" y="3" width="12" height="12" rx="2" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#2563EB" font-size="16" font-weight="600">More Apps</text>
+  </g>
+  
+  <!-- Segment 2: More Surfaces (Right-Top) -->
+  <g transform="translate(460, 220)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad2)" class="pulse"/>
+    <!-- Screens icon -->
+    <rect x="-18" y="-12" width="20" height="15" rx="2" fill="none" stroke="white" stroke-width="2"/>
+    <rect x="-3" y="-8" width="16" height="12" rx="1.5" fill="none" stroke="white" stroke-width="2"/>
+    <rect x="8" y="-5" width="10" height="8" rx="1" fill="none" stroke="white" stroke-width="1.5"/>
+    <text x="0" y="65" text-anchor="middle" fill="#2563EB" font-size="16" font-weight="600">More Surfaces</text>
+  </g>
+  
+  <!-- Segment 3: More Traffic (Right-Bottom) -->
+  <g transform="translate(460, 380)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad3)" class="pulse"/>
+    <!-- Users/Traffic icon -->
+    <circle cx="-8" cy="-5" r="6" fill="white"/>
+    <path d="M -18 10 Q -8 2 2 10" fill="white"/>
+    <circle cx="8" cy="-5" r="6" fill="white"/>
+    <path d="M -2 10 Q 8 2 18 10" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#2563EB" font-size="16" font-weight="600">More Traffic</text>
+  </g>
+  
+  <!-- Segment 4: More Conversions (Bottom) -->
+  <g transform="translate(300, 500)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad4)" class="pulse"/>
+    <!-- Chart/Conversion icon -->
+    <path d="M -15 10 L -15 -10 L -8 -5 L -1 -15 L 6 0 L 15 -8 L 15 10 Z" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#2563EB" font-size="16" font-weight="600">More Conversions</text>
+  </g>
+  
+  <!-- Segment 5: More Growth (Left) -->
+  <g transform="translate(140, 300)">
+    <circle cx="0" cy="0" r="50" fill="url(#grad5)" class="pulse"/>
+    <!-- Growth/Arrow Up icon -->
+    <path d="M 0 -15 L 10 -5 L 5 -5 L 5 15 L -5 15 L -5 -5 L -10 -5 Z" fill="white"/>
+    <circle cx="0" cy="-15" r="3" fill="white"/>
+    <text x="0" y="65" text-anchor="middle" fill="#2563EB" font-size="16" font-weight="600">More Growth</text>
+  </g>
+  
+  <!-- Center text -->
+  <text x="300" y="295" text-anchor="middle" fill="#2563EB" font-size="18" font-weight="700">Growth</text>
+  <text x="300" y="315" text-anchor="middle" fill="#2563EB" font-size="16" font-weight="600">Flywheel</text>
+</svg>

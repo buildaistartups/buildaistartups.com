@@ -1,0 +1,269 @@
+<svg width="640" height="360" viewBox="0 0 640 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(139, 92, 246, 0.05)" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="640" height="360" fill="#0f172a"/>
+  <rect width="640" height="360" fill="url(#grid)"/>
+  
+  <!-- Header -->
+  <rect x="10" y="10" width="620" height="32" rx="6" fill="#1e293b" opacity="0.8"/>
+  <text x="20" y="31" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#f1f5f9">
+    Pricing Configuration Dashboard
+  </text>
+  <rect x="515" y="16" width="95" height="20" rx="4" fill="url(#purpleGradient)"/>
+  <text x="562" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="white" text-anchor="middle">
+    Deploy Changes
+  </text>
+  
+  <!-- Main Content Container -->
+  <g id="main-content">
+    <!-- Left Section: Pricing Tiers -->
+    <rect x="10" y="52" width="390" height="298" rx="8" fill="#1e293b" opacity="0.6"/>
+    
+    <!-- Starter Tier -->
+    <g id="starter-tier">
+      <rect x="20" y="62" width="115" height="278" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+      <text x="77.5" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#94a3b8" text-anchor="middle">
+        STARTER
+      </text>
+      <text x="77.5" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#f1f5f9" text-anchor="middle">
+        $29
+      </text>
+      <text x="77.5" y="120" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">
+        per month
+      </text>
+      
+      <circle cx="32" cy="145" r="2.5" fill="#8b5cf6"/>
+      <text x="40" y="148" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Up to 10 users
+      </text>
+      
+      <circle cx="32" cy="165" r="2.5" fill="#8b5cf6"/>
+      <text x="40" y="168" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        5GB storage
+      </text>
+      
+      <circle cx="32" cy="185" r="2.5" fill="#8b5cf6"/>
+      <text x="40" y="188" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Basic support
+      </text>
+      
+      <circle cx="32" cy="205" r="2.5" fill="#8b5cf6"/>
+      <text x="40" y="208" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        API access
+      </text>
+      
+      <rect x="32" y="315" width="90" height="20" rx="4" fill="#334155"/>
+      <text x="77" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#cbd5e1" text-anchor="middle">
+        Select Plan
+      </text>
+    </g>
+    
+    <!-- Pro Tier (Highlighted) -->
+    <g id="pro-tier">
+      <rect x="145" y="57" width="115" height="288" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="2" filter="url(#glow)"/>
+      <rect x="175" y="64" width="55" height="14" rx="3" fill="url(#purpleGradient)"/>
+      <text x="202.5" y="73" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="700" fill="white" text-anchor="middle">
+        POPULAR
+      </text>
+      
+      <text x="202.5" y="92" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#8b5cf6" text-anchor="middle">
+        PRO
+      </text>
+      <text x="202.5" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#f1f5f9" text-anchor="middle">
+        $99
+      </text>
+      <text x="202.5" y="130" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">
+        per month
+      </text>
+      
+      <circle cx="157" cy="155" r="2.5" fill="#8b5cf6"/>
+      <text x="165" y="158" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Unlimited users
+      </text>
+      
+      <circle cx="157" cy="175" r="2.5" fill="#8b5cf6"/>
+      <text x="165" y="178" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        100GB storage
+      </text>
+      
+      <circle cx="157" cy="195" r="2.5" fill="#8b5cf6"/>
+      <text x="165" y="198" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Priority support
+      </text>
+      
+      <circle cx="157" cy="215" r="2.5" fill="#8b5cf6"/>
+      <text x="165" y="218" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Advanced API
+      </text>
+      
+      <circle cx="157" cy="235" r="2.5" fill="#8b5cf6"/>
+      <text x="165" y="238" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Custom integrations
+      </text>
+      
+      <rect x="157" y="315" width="90" height="20" rx="4" fill="url(#purpleGradient)"/>
+      <text x="202" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="white" text-anchor="middle">
+        Select Plan
+      </text>
+    </g>
+    
+    <!-- Enterprise Tier -->
+    <g id="enterprise-tier">
+      <rect x="270" y="62" width="115" height="278" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1.2"/>
+      <text x="327.5" y="82" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#94a3b8" text-anchor="middle">
+        ENTERPRISE
+      </text>
+      <text x="327.5" y="105" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#f1f5f9" text-anchor="middle">
+        Custom
+      </text>
+      <text x="327.5" y="120" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#64748b" text-anchor="middle">
+        contact sales
+      </text>
+      
+      <circle cx="282" cy="145" r="2.5" fill="#8b5cf6"/>
+      <text x="290" y="148" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Unlimited all
+      </text>
+      
+      <circle cx="282" cy="165" r="2.5" fill="#8b5cf6"/>
+      <text x="290" y="168" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        Dedicated support
+      </text>
+      
+      <circle cx="282" cy="185" r="2.5" fill="#8b5cf6"/>
+      <text x="290" y="188" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        SLA guarantee
+      </text>
+      
+      <circle cx="282" cy="205" r="2.5" fill="#8b5cf6"/>
+      <text x="290" y="208" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        White-label
+      </text>
+      
+      <circle cx="282" cy="225" r="2.5" fill="#8b5cf6"/>
+      <text x="290" y="228" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#cbd5e1">
+        On-premise
+      </text>
+      
+      <rect x="282" y="315" width="90" height="20" rx="4" fill="#334155"/>
+      <text x="327" y="328" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#cbd5e1" text-anchor="middle">
+        Contact Sales
+      </text>
+    </g>
+  </g>
+  
+  <!-- Right Section: Feature Flags & Metrics -->
+  <g id="right-section">
+    <!-- Feature Flags Panel -->
+    <rect x="410" y="52" width="220" height="135" rx="8" fill="#1e293b" opacity="0.6"/>
+    <text x="420" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#f1f5f9">
+      Feature Flags
+    </text>
+    
+    <!-- Active Flag -->
+    <rect x="420" y="80" width="200" height="50" rx="5" fill="#0f172a" stroke="#8b5cf6" stroke-width="1.2"/>
+    <text x="428" y="95" font-family="'Courier New', monospace" font-size="10" font-weight="600" fill="#8b5cf6">
+      new-pricing-model
+    </text>
+    <rect x="585" y="88" width="28" height="14" rx="7" fill="#22c55e"/>
+    <circle cx="606" cy="95" r="5" fill="white"/>
+    
+    <text x="428" y="108" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#94a3b8">
+      Rollout: 50%
+    </text>
+    <rect x="428" y="112" width="184" height="5" rx="2.5" fill="#334155"/>
+    <rect x="428" y="112" width="92" height="5" rx="2.5" fill="url(#purpleGradient)"/>
+    
+    <text x="428" y="126" font-family="system-ui, -apple-system, sans-serif" font-size="8" fill="#64748b">
+      Users affected: 2,847 / 5,694
+    </text>
+    
+    <!-- Inactive Flags -->
+    <rect x="420" y="140" width="200" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <text x="428" y="154" font-family="'Courier New', monospace" font-size="9" fill="#cbd5e1">
+      legacy-billing
+    </text>
+    <rect x="585" y="145" width="28" height="12" rx="6" fill="#475569"/>
+    <circle cx="591" cy="151" r="4" fill="white"/>
+    
+    <rect x="420" y="168" width="200" height="22" rx="4" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <text x="428" y="182" font-family="'Courier New', monospace" font-size="9" fill="#cbd5e1">
+      annual-discount
+    </text>
+    <rect x="585" y="173" width="28" height="12" rx="6" fill="#22c55e"/>
+    <circle cx="606" cy="179" r="4" fill="white"/>
+    
+    <!-- Metrics Section -->
+    <rect x="410" y="197" width="220" height="75" rx="8" fill="#1e293b" opacity="0.6"/>
+    <text x="420" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#f1f5f9">
+      Conversion Rate
+    </text>
+    
+    <!-- Mini line graph -->
+    <g id="mini-graph">
+      <line x1="420" y1="240" x2="620" y2="240" stroke="#334155" stroke-width="0.5"/>
+      <line x1="420" y1="250" x2="620" y2="250" stroke="#334155" stroke-width="0.5"/>
+      <line x1="420" y1="260" x2="620" y2="260" stroke="#334155" stroke-width="0.5"/>
+      
+      <!-- Control line -->
+      <polyline points="420,255 445,254 470,253 495,252.5 520,252 545,251.5 570,251 595,250.5 620,250" 
+                fill="none" stroke="#64748b" stroke-width="1.5"/>
+      
+      <!-- Variant line -->
+      <polyline points="420,255 445,252 470,248 495,244 520,241 545,238 570,235 595,232 620,230" 
+                fill="none" stroke="#8b5cf6" stroke-width="2"/>
+    </g>
+    
+    <!-- Legend -->
+    <line x1="420" y1="266" x2="435" y2="266" stroke="#64748b" stroke-width="1.5"/>
+    <text x="438" y="269" font-family="system-ui, -apple-system, sans-serif" font-size="8" fill="#94a3b8">
+      Control (2.3%)
+    </text>
+    
+    <line x1="505" y1="266" x2="520" y2="266" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="523" y="269" font-family="system-ui, -apple-system, sans-serif" font-size="8" fill="#8b5cf6">
+      New (3.7%) +61%
+    </text>
+    
+    <!-- A/B Test Status -->
+    <rect x="410" y="282" width="220" height="68" rx="8" fill="#1e293b" opacity="0.6"/>
+    <text x="420" y="300" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#f1f5f9">
+      Experiment Status
+    </text>
+    
+    <rect x="420" y="308" width="200" height="32" rx="5" fill="#0f172a" stroke="#22c55e" stroke-width="1.5"/>
+    <circle cx="435" cy="324" r="10" fill="#22c55e" opacity="0.2"/>
+    <path d="M 431 324 L 434 327 L 439 320" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+    <text x="450" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#22c55e">
+      Significant
+    </text>
+    <text x="450" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="8" fill="#64748b">
+      95% confidence • p=0.012
+    </text>
+    
+    <!-- Revenue Impact Badge -->
+    <rect x="540" y="310" width="70" height="28" rx="4" fill="url(#purpleGradient)"/>
+    <text x="575" y="321" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="white" text-anchor="middle">
+      Revenue
+    </text>
+    <text x="575" y="331" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="white" text-anchor="middle">
+      +55%
+    </text>
+  </g>
+</svg>

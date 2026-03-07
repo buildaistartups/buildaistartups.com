@@ -1,0 +1,250 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A78BFA;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#818CF8;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  
+
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Arial, sans-serif" font-size="25" font-weight="bold" fill="#5B21B6" text-anchor="middle">Automated Team Formation</text>
+  
+  <!-- Left side - Student Profiles -->
+  <g id="studentProfiles">
+    <!-- Profile 1 -->
+    <g transform="translate(60, 80)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+      <circle cx="25" cy="30" r="18" fill="url(#purpleGrad)"/>
+      <path d="M 25 24 Q 25 18 31 18 Q 31 24 25 30 Q 19 24 19 18 Q 25 18 25 24" fill="white"/>
+      <text x="47" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#5B21B6">Sarah Chen</text>
+      <text x="47" y="38" font-family="Arial, sans-serif" font-size="11" fill="#7C3AED">Computer Science</text>
+      
+      <!-- Skills -->
+      <circle cx="15" cy="65" r="8" fill="#3B82F6"/>
+      <text x="12" y="69" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold">P</text>
+      
+      <circle cx="38" cy="65" r="8" fill="#8B5CF6"/>
+      <text x="35" y="69" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold">D</text>
+      
+      <circle cx="61" cy="65" r="8" fill="#06B6D4"/>
+      <text x="58" y="69" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold">L</text>
+      
+      <text x="75" y="69" font-family="Arial, sans-serif" font-size="9" fill="#7C3AED">Match: 92%</text>
+    </g>
+    
+    <!-- Profile 2 -->
+    <g transform="translate(60, 200)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+      <circle cx="25" cy="30" r="18" fill="url(#blueGrad)"/>
+      <path d="M 25 24 Q 25 18 31 18 Q 31 24 25 30 Q 19 24 19 18 Q 25 18 25 24" fill="white"/>
+      <text x="47" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1E40AF">Mike Johnson</text>
+      <text x="47" y="38" font-family="Arial, sans-serif" font-size="11" fill="#3B82F6">Business Admin</text>
+      
+      <circle cx="15" cy="65" r="8" fill="#EF4444"/>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">M</text>
+      
+      <circle cx="38" cy="65" r="8" fill="#10B981"/>
+      <text x="38" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">C</text>
+      
+      <circle cx="61" cy="65" r="8" fill="#F59E0B"/>
+      <text x="61" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">S</text>
+      
+      <text x="75" y="69" font-family="Arial, sans-serif" font-size="9" fill="#7C3AED">Match: 88%</text>
+    </g>
+    
+    <!-- Profile 3 -->
+    <g transform="translate(60, 320)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2"/>
+      <circle cx="25" cy="30" r="18" fill="url(#purpleGrad)"/>
+      <path d="M 25 24 Q 25 18 31 18 Q 31 24 25 30 Q 19 24 19 18 Q 25 18 25 24" fill="white"/>
+      <text x="47" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#5B21B6">Emma Davis</text>
+      <text x="47" y="38" font-family="Arial, sans-serif" font-size="11" fill="#7C3AED">Graphic Design</text>
+      
+      <circle cx="15" cy="65" r="8" fill="#8B5CF6"/>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">D</text>
+      
+      <circle cx="38" cy="65" r="8" fill="#EC4899"/>
+      <text x="38" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">A</text>
+      
+      <circle cx="61" cy="65" r="8" fill="#06B6D4"/>
+      <text x="61" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">L</text>
+      
+      <text x="75" y="69" font-family="Arial, sans-serif" font-size="9" fill="#7C3AED">Match: 95%</text>
+    </g>
+    
+    <!-- Profile 4 -->
+    <g transform="translate(60, 440)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2"/>
+      <circle cx="25" cy="30" r="18" fill="url(#blueGrad)"/>
+      <path d="M 25 24 Q 25 18 31 18 Q 31 24 25 30 Q 19 24 19 18 Q 25 18 25 24" fill="white"/>
+      <text x="47" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#1E40AF">Alex Kumar</text>
+      <text x="47" y="38" font-family="Arial, sans-serif" font-size="11" fill="#3B82F6">Data Analytics</text>
+      
+      <circle cx="15" cy="65" r="8" fill="#3B82F6"/>
+      <text x="15" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">P</text>
+      
+      <circle cx="38" cy="65" r="8" fill="#10B981"/>
+      <text x="38" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">C</text>
+      
+      <circle cx="61" cy="65" r="8" fill="#F59E0B"/>
+      <text x="61" y="65" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle" dominant-baseline="middle">S</text>
+      
+      <text x="75" y="69" font-family="Arial, sans-serif" font-size="9" fill="#7C3AED">Match: 90%</text>
+    </g>
+  </g>
+  
+  <!-- Center - Matching Algorithm -->
+  <g id="algorithm">
+    <!-- Main algorithm box -->
+    <rect x="280" y="200" width="240" height="200" rx="15" fill="url(#purpleGrad)" opacity="0.95"/>
+    
+    <!-- Algorithm icon -->
+    <g transform="translate(400, 240)">
+      <circle cx="0" cy="0" r="30" fill="white" opacity="0.2"/>
+      <path d="M -15 -5 L -5 -5 L 0 -15 L 5 -5 L 15 -5 L 15 5 L 5 5 L 0 15 L -5 5 L -15 5 Z" fill="white"/>
+    </g>
+    
+    <text x="400" y="295" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="white" text-anchor="middle">AI Matching Engine</text>
+    
+    <!-- Algorithm steps -->
+    <g transform="translate(295, 315)">
+      <circle cx="0" cy="0" r="4" fill="#A78BFA"/>
+      <text x="10" y="4" font-family="Arial, sans-serif" font-size="11" fill="white">Analyze skills &amp; interests</text>
+    </g>
+    
+    <g transform="translate(295, 335)">
+      <circle cx="0" cy="0" r="4" fill="#818CF8"/>
+      <text x="10" y="4" font-family="Arial, sans-serif" font-size="11" fill="white">Calculate compatibility</text>
+    </g>
+    
+    <g transform="translate(295, 355)">
+      <circle cx="0" cy="0" r="4" fill="#60A5FA"/>
+      <text x="10" y="4" font-family="Arial, sans-serif" font-size="11" fill="white">Balance team diversity</text>
+    </g>
+    
+    <g transform="translate(295, 375)">
+      <circle cx="0" cy="0" r="4" fill="#3B82F6"/>
+      <text x="10" y="4" font-family="Arial, sans-serif" font-size="11" fill="white">Optimize outcomes</text>
+    </g>
+  </g>
+  
+  <!-- Connection lines from profiles to algorithm -->
+  <g id="connections" opacity="0.6">
+    <path d="M 200 130 Q 250 150 280 230" stroke="#7C3AED" stroke-width="2" fill="none" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 200 250 Q 250 260 280 280" stroke="#3B82F6" stroke-width="2" fill="none" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 200 370 Q 250 350 280 320" stroke="#7C3AED" stroke-width="2" fill="none" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 200 490 Q 250 430 280 370" stroke="#3B82F6" stroke-width="2" fill="none" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Right side - Formed Teams -->
+  <g id="teams">
+    <!-- Team 1 -->
+    <g transform="translate(600, 120)">
+      <rect x="0" y="0" width="160" height="140" rx="12" fill="#F3E8FF" stroke="#7C3AED" stroke-width="2.5"/>
+      <text x="80" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#5B21B6" text-anchor="middle">Team Alpha</text>
+      
+      <circle cx="40" cy="50" r="15" fill="url(#purpleGrad)"/>
+      <text x="40" y="54" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle">SC</text>
+      
+      <circle cx="80" cy="50" r="15" fill="url(#blueGrad)"/>
+      <text x="80" y="54" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle">ED</text>
+      
+      <circle cx="120" cy="50" r="15" fill="url(#purpleGrad)"/>
+      <text x="120" y="54" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle">?</text>
+      
+      <!-- Skills bar -->
+      <rect x="15" y="80" width="130" height="8" rx="4" fill="#E9D5FF"/>
+      <rect x="15" y="80" width="115" height="8" rx="4" fill="#7C3AED"/>
+      <text x="80" y="100" font-family="Arial, sans-serif" font-size="11" fill="#7C3AED" text-anchor="middle">Skill Match: 93%</text>
+      
+      <!-- Theme tags -->
+      <rect x="20" y="110" width="55" height="18" rx="9" fill="#DDD6FE"/>
+      <text x="47.5" y="122" font-family="Arial, sans-serif" font-size="9" fill="#5B21B6" text-anchor="middle">Creative</text>
+      
+      <rect x="85" y="110" width="60" height="18" rx="9" fill="#DBEAFE"/>
+      <text x="115" y="122" font-family="Arial, sans-serif" font-size="9" fill="#1E40AF" text-anchor="middle">Technical</text>
+    </g>
+    
+    <!-- Team 2 -->
+    <g transform="translate(600, 310)">
+      <rect x="0" y="0" width="160" height="140" rx="12" fill="#EFF6FF" stroke="#3B82F6" stroke-width="2.5"/>
+      <text x="80" y="20" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1E40AF" text-anchor="middle">Team Beta</text>
+      
+      <circle cx="40" cy="50" r="15" fill="url(#blueGrad)"/>
+      <text x="40" y="54" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle">MJ</text>
+      
+      <circle cx="80" cy="50" r="15" fill="url(#purpleGrad)"/>
+      <text x="80" y="54" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle">AK</text>
+      
+      <circle cx="120" cy="50" r="15" fill="url(#blueGrad)"/>
+      <text x="120" y="54" font-family="Arial, sans-serif" font-size="11" fill="white" font-weight="bold" text-anchor="middle">?</text>
+      
+      <!-- Skills bar -->
+      <rect x="15" y="80" width="130" height="8" rx="4" fill="#DBEAFE"/>
+      <rect x="15" y="80" width="120" height="8" rx="4" fill="#3B82F6"/>
+      <text x="80" y="100" font-family="Arial, sans-serif" font-size="11" fill="#7C3AED" text-anchor="middle">Skill Match: 89%</text>
+      
+      <!-- Theme tags -->
+      <rect x="20" y="110" width="55" height="18" rx="9" fill="#DBEAFE"/>
+      <text x="47.5" y="122" font-family="Arial, sans-serif" font-size="9" fill="#1E40AF" text-anchor="middle">Business</text>
+      
+      <rect x="85" y="110" width="60" height="18" rx="9" fill="#D1FAE5"/>
+      <text x="115" y="122" font-family="Arial, sans-serif" font-size="9" fill="#047857" text-anchor="middle">Analytics</text>
+    </g>
+  </g>
+  
+  <!-- Connection lines from algorithm to teams -->
+  <g id="teamConnections" opacity="0.6">
+    <path d="M 520 260 Q 560 200 600 170" stroke="#7C3AED" stroke-width="2.5" fill="none">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 520 320 Q 560 340 600 370" stroke="#3B82F6" stroke-width="2.5" fill="none">
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(280, 480)">
+    <text x="-8" y="0" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#5B21B6">Skill Indicators:</text>
+    
+    <circle cx="80" cy="-3" r="6" fill="#3B82F6"/>
+    <text x="90" y="0" font-family="Arial, sans-serif" font-size="9" fill="#7C3AED">Programming</text>
+    
+    <circle cx="165" cy="-3" r="6" fill="#8B5CF6"/>
+    <text x="175" y="0" font-family="Arial, sans-serif" font-size="9" fill="#7C3AED">Design</text>
+    
+    <circle cx="230" cy="-3" r="6" fill="#10B981"/>
+    <text x="240" y="0" font-family="Arial, sans-serif" font-size="9" fill="#7C3AED">Comm.</text>
+  </g>
+  
+  <!-- Decorative gears/cogs -->
+  <g transform="translate(545, 300)" opacity="0.3">
+    <circle cx="0" cy="0" r="12" fill="none" stroke="#7C3AED" stroke-width="2"/>
+    <path d="M 0 -14 L 0 -10 M 0 10 L 0 14 M -14 0 L -10 0 M 10 0 L 14 0" stroke="#7C3AED" stroke-width="2"/>
+    <animateTransform attributeName="transform" type="rotate" from="0 545 300" to="360 545 300" dur="10s" repeatCount="indefinite"/>
+  </g>
+  
+  <g transform="translate(560, 285)" opacity="0.3">
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#3B82F6" stroke-width="2"/>
+    <path d="M 0 -10 L 0 -7 M 0 7 L 0 10 M -10 0 L -7 0 M 7 0 L 10 0" stroke="#3B82F6" stroke-width="2"/>
+    <animateTransform attributeName="transform" type="rotate" from="360 560 285" to="0 560 285" dur="8s" repeatCount="indefinite"/>
+  </g>
+</svg>

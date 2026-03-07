@@ -1,8 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+
+// Import Swiper React components and modules (v11+ style)
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+
+// Import images
 import IntegrationImg01 from '@/public/images/integrations-01.svg'
 import IntegrationImg02 from '@/public/images/integrations-02.svg'
 import IntegrationImg03 from '@/public/images/integrations-03.svg'
@@ -29,57 +38,54 @@ import Avatar17 from '@/public/images/avatar-17.jpg'
 import Avatar18 from '@/public/images/avatar-18.jpg'
 import Avatar19 from '@/public/images/avatar-19.jpg'
 
-// Import Swiper
-import Swiper, { Navigation } from 'swiper'
-import 'swiper/swiper.min.css'
-Swiper.use([Navigation])
-
 export default function IntegrationsCarousel() {
-
-  const [swiperInitialized, setSwiperInitialized] = useState<boolean>(false)
-
-  useEffect(() => {
-    const carousel = new Swiper('.stellar-carousel', {
-      breakpoints: {
-        320: {
-          slidesPerView: 1
-        },
-        640: {
-          slidesPerView: 2
-        },
-        1024: {
-          slidesPerView: 3
-        }
-      },
-      grabCursor: true,
-      loop: false,
-      centeredSlides: false,
-      initialSlide: 0,
-      spaceBetween: 24,
-      navigation: {
-        nextEl: '.carousel-next',
-        prevEl: '.carousel-prev',
-      },
-    })
-    setSwiperInitialized(true)
-  }, [])
-
   return (
     <>
-      <div className="stellar-carousel swiper-container group">
-        <div className="swiper-wrapper w-fit">
-          {/* Carousel items */}
-          <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
-            <div className="flex flex-col p-5 h-full">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="relative">
-                  <Image src={IntegrationImg01} width={40} height={40} alt="Icon 01" />
-                  <Image className="absolute top-0 -right-1" src={Star} width={16} height={16} alt="Star" aria-hidden="true" />
-                </div>
-                <Link className="font-semibold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 group-hover:before:absolute group-hover:before:inset-0" href="/integrations/single-post">Retool</Link>
+      {/* Carousel built with Swiper.js */}
+      <Swiper
+        modules={[Navigation]}
+        breakpoints={{
+          320: { slidesPerView: 1 },
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        grabCursor={true}
+        loop={false}
+        centeredSlides={false}
+        spaceBetween={24}
+        navigation={{
+          nextEl: '.carousel-next',
+          prevEl: '.carousel-prev',
+        }}
+        className="h-auto"
+      >
+        {/* Card 1 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="relative">
+                <Image src={IntegrationImg01} width={48} height={48} alt="Integration 01" />
               </div>
-              <div className="grow mb-4">
-                <div className="text-sm text-slate-400">Stellar makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.</div>
+              <div className="grow truncate">
+                <div className="font-semibold text-slate-50 mb-1">Build AI Startups Builder</div>
+                <div className="text-sm font-medium text-blue-500">buildaistartups.com</div>
+              </div>
+              <div className="shrink-0">
+                <svg className="w-3 h-3 fill-slate-400" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                  <path d="M11.953 4.29a.5.5 0 00-.454-.292H6.14L6.984.62A.5.5 0 006.12.173l-6 7a.5.5 0 00.379.825h5.359l-.844 3.38a.5.5 0 00.864.445l6-7a.5.5 0 00.054-.54z" />
+                </svg>
+              </div>
+            </div>
+            <div className="grow">
+              <div className="text-sm text-slate-300 mb-3">
+                "Build AI Startups has completely transformed how we approach product development. The automated workflows and AI-powered insights have saved us countless hours."
+              </div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
               </div>
               <div className="flex justify-between">
                 <div className="flex -space-x-3 -ml-0.5">
@@ -90,131 +96,149 @@ export default function IntegrationsCarousel() {
                 </div>
                 <button className="flex items-center space-x-2 font-medium text-sm text-slate-300 hover:text-white transition-colors">
                   <span className="sr-only">Like</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                    <path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" />
-                  </svg>
-                  <span>2.3K</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" /></svg>
+                  <span>4.9K</span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
-            <div className="flex flex-col p-5 h-full">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="relative">
-                  <Image src={IntegrationImg02} width={40} height={40} alt="Icon 02" />
-                  <Image className="absolute top-0 -right-1" src={Star} width={16} height={16} alt="Star" aria-hidden="true" />
-                </div>
-                <Link className="font-semibold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 group-hover:before:absolute group-hover:before:inset-0" href="/integrations/single-post">Zapier</Link>
+        </SwiperSlide>
+
+        {/* Card 2 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="relative">
+                <Image src={IntegrationImg02} width={48} height={48} alt="Integration 02" />
               </div>
-              <div className="grow mb-4">
-                <div className="text-sm text-slate-400">Stellar makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.</div>
+              <div className="grow truncate">
+                <div className="font-semibold text-slate-50 mb-1">AI Support Suite</div>
+                <div className="text-sm font-medium text-blue-500">ai-support.buildaistartups.com</div>
+              </div>
+              <div className="shrink-0">
+                <svg className="w-3 h-3 fill-slate-400" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                  <path d="M11.953 4.29a.5.5 0 00-.454-.292H6.14L6.984.62A.5.5 0 006.12.173l-6 7a.5.5 0 00.379.825h5.359l-.844 3.38a.5.5 0 00.864.445l6-7a.5.5 0 00.054-.54z" />
+                </svg>
+              </div>
+            </div>
+            <div className="grow">
+              <div className="text-sm text-slate-300 mb-3">
+                "The AI-powered customer support tools have revolutionized our response times. We've gone from hours to minutes while maintaining quality."
+              </div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
               </div>
               <div className="flex justify-between">
                 <div className="flex -space-x-3 -ml-0.5">
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar05} width={24} height={24} alt="Avatar 05" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar06} width={24} height={24} alt="Avatar 06" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar07} width={24} height={24} alt="Avatar 07" />
+                  <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar08} width={24} height={24} alt="Avatar 08" />
                 </div>
                 <button className="flex items-center space-x-2 font-medium text-sm text-slate-300 hover:text-white transition-colors">
                   <span className="sr-only">Like</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                    <path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" />
-                  </svg>
-                  <span>4.5K</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" /></svg>
+                  <span>3.8K</span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
-            <div className="flex flex-col p-5 h-full">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="relative">
-                  <Image src={IntegrationImg03} width={40} height={40} alt="Icon 03" />
-                  <Image className="absolute top-0 -right-1" src={Star} width={16} height={16} alt="Star" aria-hidden="true" />
-                </div>
-                <Link className="font-semibold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 group-hover:before:absolute group-hover:before:inset-0" href="/integrations/single-post">Airtable</Link>
+        </SwiperSlide>
+
+        {/* Card 3 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="relative">
+                <Image src={IntegrationImg03} width={48} height={48} alt="Integration 03" />
               </div>
-              <div className="grow mb-4">
-                <div className="text-sm text-slate-400">Stellar makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.</div>
+              <div className="grow truncate">
+                <div className="font-semibold text-slate-50 mb-1">Lead Generation AI</div>
+                <div className="text-sm font-medium text-blue-500">leadgen.buildaistartups.com</div>
+              </div>
+              <div className="shrink-0">
+                <svg className="w-3 h-3 fill-slate-400" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                  <path d="M11.953 4.29a.5.5 0 00-.454-.292H6.14L6.984.62A.5.5 0 006.12.173l-6 7a.5.5 0 00.379.825h5.359l-.844 3.38a.5.5 0 00.864.445l6-7a.5.5 0 00.054-.54z" />
+                </svg>
+              </div>
+            </div>
+            <div className="grow">
+              <div className="text-sm text-slate-300 mb-3">
+                "Our lead generation has increased 300% since implementing Build AI Startups tools. The quality of leads is consistently higher too."
+              </div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
               </div>
               <div className="flex justify-between">
                 <div className="flex -space-x-3 -ml-0.5">
-                  <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar08} width={24} height={24} alt="Avatar 08" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar09} width={24} height={24} alt="Avatar 09" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar10} width={24} height={24} alt="Avatar 10" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar11} width={24} height={24} alt="Avatar 11" />
+                  <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar12} width={24} height={24} alt="Avatar 12" />
                 </div>
                 <button className="flex items-center space-x-2 font-medium text-sm text-slate-300 hover:text-white transition-colors">
                   <span className="sr-only">Like</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                    <path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" />
-                  </svg>
-                  <span>4.7K</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" /></svg>
+                  <span>4.2K</span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
-            <div className="flex flex-col p-5 h-full">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="relative">
-                  <Image src={IntegrationImg04} width={40} height={40} alt="Icon 04" />
-                  <Image className="absolute top-0 -right-1" src={Star} width={16} height={16} alt="Star" aria-hidden="true" />
-                </div>
-                <Link className="font-semibold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 group-hover:before:absolute group-hover:before:inset-0" href="/integrations/single-post">Jira</Link>
+        </SwiperSlide>
+
+        {/* Card 4 */}
+        <SwiperSlide className="h-auto">
+          <div className="h-full flex flex-col bg-slate-800 p-6 rounded-lg">
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="relative">
+                <Image src={IntegrationImg04} width={48} height={48} alt="Integration 04" />
               </div>
-              <div className="grow mb-4">
-                <div className="text-sm text-slate-400">Stellar makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.</div>
+              <div className="grow truncate">
+                <div className="font-semibold text-slate-50 mb-1">Marketplace Analytics</div>
+                <div className="text-sm font-medium text-blue-500">analytics.buildaistartups.com</div>
+              </div>
+              <div className="shrink-0">
+                <svg className="w-3 h-3 fill-slate-400" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                  <path d="M11.953 4.29a.5.5 0 00-.454-.292H6.14L6.984.62A.5.5 0 006.12.173l-6 7a.5.5 0 00.379.825h5.359l-.844 3.38a.5.5 0 00.864.445l6-7a.5.5 0 00.054-.54z" />
+                </svg>
+              </div>
+            </div>
+            <div className="grow">
+              <div className="text-sm text-slate-300 mb-3">
+                "The marketplace insights have been game-changing for our product strategy. We can see exactly what's working in real-time."
+              </div>
+              <div className="flex items-center space-x-2 mb-4">
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
+                <Image className="rounded-full border-2 border-slate-700 box-content" src={Star} width={16} height={16} alt="Star" />
               </div>
               <div className="flex justify-between">
                 <div className="flex -space-x-3 -ml-0.5">
-                  <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar12} width={24} height={24} alt="Avatar 12" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar13} width={24} height={24} alt="Avatar 13" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar14} width={24} height={24} alt="Avatar 14" />
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar15} width={24} height={24} alt="Avatar 15" />
-                </div>
-                <button className="flex items-center space-x-2 font-medium text-sm text-slate-300 hover:text-white transition-colors">
-                  <span className="sr-only">Like</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                    <path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" />
-                  </svg>
-                  <span>4.4K</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="swiper-slide h-auto bg-linear-to-tr from-slate-800 to-slate-800/25 rounded-3xl border border-slate-800 hover:border-slate-700/60 transition-colors group relative">
-            <div className="flex flex-col p-5 h-full">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="relative">
-                  <Image src={IntegrationImg05} width={40} height={40} alt="Icon 05" />
-                  <Image className="absolute top-0 -right-1" src={Star} width={16} height={16} alt="Star" aria-hidden="true" />
-                </div>
-                <Link className="font-semibold bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 group-hover:before:absolute group-hover:before:inset-0" href="/integrations/single-post">GitLab</Link>
-              </div>
-              <div className="grow mb-4">
-                <div className="text-sm text-slate-400">Stellar makes it easy to build extensions by providing an authentication provider that handles the OAuth flow.</div>
-              </div>
-              <div className="flex justify-between">
-                <div className="flex -space-x-3 -ml-0.5">
                   <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar16} width={24} height={24} alt="Avatar 16" />
-                  <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar17} width={24} height={24} alt="Avatar 17" />
-                  <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar18} width={24} height={24} alt="Avatar 18" />
-                  <Image className="rounded-full border-2 border-slate-800 box-content" src={Avatar19} width={24} height={24} alt="Avatar 19" />
                 </div>
                 <button className="flex items-center space-x-2 font-medium text-sm text-slate-300 hover:text-white transition-colors">
                   <span className="sr-only">Like</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">
-                    <path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.78a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" />
-                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path className="fill-slate-500" d="M11.86 15.154 8 13.125l-3.86 2.03c-.726.386-1.591-.236-1.45-1.055l.737-4.299L.303 6.757a1 1 0 0 1 .555-1.706l4.316-.627L7.104.512c.337-.683 1.458-.683 1.794 0l1.93 3.911 4.317.627a1.001 1.001 0 0 1 .555 1.706l-3.124 3.045.737 4.3c.14.822-.726 1.435-1.452 1.053ZM8.468 11.11l2.532 1.331-.483-2.82a1 1 0 0 1 .287-.885l2.049-1.998-2.831-.41a.996.996 0 0 1-.753-.548L8 3.214 6.734 5.80a1 1 0 0 1-.753.547l-2.831.411 2.049 1.998a1 1 0 0 1 .287.885l-.483 2.82 2.532-1.33a.998.998 0 0 1 .932 0Z" /></svg>
                   <span>3.4K</span>
                 </button>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </SwiperSlide>
+      </Swiper>
 
       {/* Arrows */}
       <div className="flex py-8 justify-end">
@@ -231,7 +255,6 @@ export default function IntegrationsCarousel() {
           </svg>
         </button>
       </div>
-
     </>
   )
 }

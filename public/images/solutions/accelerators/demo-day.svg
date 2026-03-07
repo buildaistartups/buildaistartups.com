@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background is transparent by default -->
+  
+  <!-- Large Presentation Screen -->
+  <rect x="280" y="50" width="240" height="140" fill="#1e1b4b" stroke="#6366f1" stroke-width="3" rx="4"/>
+  
+  <!-- Screen Content - Demo Display -->
+  <rect x="295" y="65" width="80" height="50" fill="#8b5cf6" opacity="0.3" rx="2"/>
+  <rect x="385" y="65" width="120" height="50" fill="#3b82f6" opacity="0.3" rx="2"/>
+  <rect x="295" y="125" width="210" height="55" fill="#6366f1" opacity="0.2" rx="2"/>
+  
+  <!-- Screen Graphics Lines -->
+  <line x1="305" y1="75" x2="365" y2="75" stroke="#a78bfa" stroke-width="2"/>
+  <line x1="305" y1="85" x2="355" y2="85" stroke="#a78bfa" stroke-width="2"/>
+  <circle cx="320" cy="100" r="8" fill="#8b5cf6"/>
+  <circle cx="345" cy="100" r="8" fill="#6366f1"/>
+  <circle cx="360" cy="100" r="8" fill="#3b82f6"/>
+  
+  <!-- Chart on screen -->
+  <polyline points="395,105 420,95 445,100 470,85 495,90" fill="none" stroke="#60a5fa" stroke-width="3"/>
+  
+  <!-- Text lines on screen bottom -->
+  <line x1="305" y1="140" x2="490" y2="140" stroke="#818cf8" stroke-width="2"/>
+  <line x1="305" y1="155" x2="450" y2="155" stroke="#818cf8" stroke-width="2"/>
+  <line x1="305" y1="170" x2="470" y2="170" stroke="#818cf8" stroke-width="2"/>
+  
+  <!-- Pointer/Laser from presenter -->
+  <line x1="215" y1="180" x2="280" y2="120" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+  
+  <!-- Presenter Figure -->
+  <circle cx="200" cy="140" r="20" fill="#8b5cf6"/>
+  <rect x="185" y="165" width="30" height="45" fill="#6366f1" rx="3"/>
+  <rect x="175" y="175" width="15" height="30" fill="#6366f1" rx="2"/>
+  <rect x="210" y="175" width="15" height="30" fill="#6366f1" rx="2"/>
+  
+  <!-- Stage Podium -->
+  <rect x="170" y="210" width="60" height="15" fill="#6366f1" rx="2"/>
+  
+  <!-- Demo Stations Row -->
+  <g id="demo-station-1">
+    <!-- Station 1 -->
+    <rect x="60" y="270" width="140" height="120" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" rx="6"/>
+    <rect x="75" y="285" width="110" height="60" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2" rx="3"/>
+    <rect x="90" y="295" width="40" height="25" fill="#8b5cf6" opacity="0.4" rx="2"/>
+    <rect x="135" y="295" width="45" height="25" fill="#6366f1" opacity="0.4" rx="2"/>
+    <circle cx="110" cy="332" r="5" fill="#a78bfa"/>
+    <circle cx="130" cy="332" r="5" fill="#8b5cf6"/>
+    <circle cx="150" cy="332" r="5" fill="#6366f1"/>
+    
+    <!-- Team member -->
+    <circle cx="130" cy="365" r="10" fill="#8b5cf6"/>
+    <rect x="120" y="377" width="20" height="10" fill="#6366f1" rx="2"/>
+  </g>
+  
+  <g id="demo-station-2">
+    <!-- Station 2 -->
+    <rect x="230" y="270" width="140" height="120" fill="#ede9fe" stroke="#6366f1" stroke-width="2" rx="6"/>
+    <rect x="245" y="285" width="110" height="60" fill="#1e1b4b" stroke="#6366f1" stroke-width="2" rx="3"/>
+    <rect x="262" y="295" width="35" height="30" fill="#3b82f6" opacity="0.4" rx="2"/>
+    <rect x="303" y="295" width="50" height="30" fill="#8b5cf6" opacity="0.4" rx="2"/>
+    <line x1="265" y1="335" x2="335" y2="335" stroke="#60a5fa" stroke-width="2"/>
+    
+    <!-- Team member -->
+    <circle cx="300" cy="365" r="10" fill="#6366f1"/>
+    <rect x="290" y="377" width="20" height="10" fill="#3b82f6" rx="2"/>
+  </g>
+  
+  <g id="demo-station-3">
+    <!-- Station 3 -->
+    <rect x="400" y="270" width="140" height="120" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2" rx="6"/>
+    <rect x="415" y="285" width="110" height="60" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2" rx="3"/>
+    <circle cx="440" cy="310" r="12" fill="#8b5cf6" opacity="0.4"/>
+    <circle cx="470" cy="310" r="12" fill="#6366f1" opacity="0.4"/>
+    <circle cx="500" cy="310" r="12" fill="#3b82f6" opacity="0.4"/>
+    <rect x="425" y="328" width="90" height="3" fill="#818cf8" opacity="0.5" rx="1"/>
+    <rect x="433" y="335" width="75" height="3" fill="#818cf8" opacity="0.5" rx="1"/>
+    
+    <!-- Team member -->
+    <circle cx="470" cy="365" r="10" fill="#8b5cf6"/>
+    <rect x="460" y="377" width="20" height="10" fill="#6366f1" rx="2"/>
+  </g>
+  
+  <g id="demo-station-4">
+    <!-- Station 4 -->
+    <rect x="570" y="270" width="140" height="120" fill="#ede9fe" stroke="#3b82f6" stroke-width="2" rx="6"/>
+    <rect x="585" y="285" width="110" height="60" fill="#1e1b4b" stroke="#3b82f6" stroke-width="2" rx="3"/>
+    <rect x="598" y="295" width="45" height="22" fill="#6366f1" opacity="0.4" rx="2"/>
+    <rect x="648" y="295" width="40" height="22" fill="#3b82f6" opacity="0.4" rx="2"/>
+    <rect x="598" y="322" width="90" height="18" fill="#8b5cf6" opacity="0.3" rx="2"/>
+    
+    <!-- Team member -->
+    <circle cx="640" cy="365" r="10" fill="#3b82f6"/>
+    <rect x="630" y="377" width="20" height="10" fill="#6366f1" rx="2"/>
+  </g>
+  
+  <!-- Audience Section -->
+  <g id="audience">
+    <!-- Row 1 -->
+    <circle cx="100" cy="445" r="8" fill="#6366f1"/>
+    <rect x="92" y="455" width="16" height="12" fill="#8b5cf6" rx="1"/>
+    
+    <circle cx="140" cy="445" r="8" fill="#8b5cf6"/>
+    <rect x="132" y="455" width="16" height="12" fill="#6366f1" rx="1"/>
+    
+    <circle cx="180" cy="445" r="8" fill="#3b82f6"/>
+    <rect x="172" y="455" width="16" height="12" fill="#6366f1" rx="1"/>
+    
+    <circle cx="220" cy="445" r="8" fill="#6366f1"/>
+    <rect x="212" y="455" width="16" height="12" fill="#8b5cf6" rx="1"/>
+    
+    <circle cx="260" cy="445" r="8" fill="#8b5cf6"/>
+    <rect x="252" y="455" width="16" height="12" fill="#3b82f6" rx="1"/>
+    
+    <circle cx="300" cy="445" r="8" fill="#3b82f6"/>
+    <rect x="292" y="455" width="16" height="12" fill="#6366f1" rx="1"/>
+    
+    <circle cx="340" cy="445" r="8" fill="#6366f1"/>
+    <rect x="332" y="455" width="16" height="12" fill="#8b5cf6" rx="1"/>
+    
+    <circle cx="380" cy="445" r="8" fill="#8b5cf6"/>
+    <rect x="372" y="455" width="16" height="12" fill="#6366f1" rx="1"/>
+    
+    <!-- Row 2 -->
+    <circle cx="120" cy="485" r="8" fill="#8b5cf6"/>
+    <rect x="112" y="495" width="16" height="12" fill="#6366f1" rx="1"/>
+    
+    <circle cx="160" cy="485" r="8" fill="#6366f1"/>
+    <rect x="152" y="495" width="16" height="12" fill="#8b5cf6" rx="1"/>
+    
+    <circle cx="200" cy="485" r="8" fill="#3b82f6"/>
+    <rect x="192" y="495" width="16" height="12" fill="#6366f1" rx="1"/>
+    
+    <circle cx="240" cy="485" r="8" fill="#8b5cf6"/>
+    <rect x="232" y="495" width="16" height="12" fill="#3b82f6" rx="1"/>
+    
+    <circle cx="280" cy="485" r="8" fill="#6366f1"/>
+    <rect x="272" y="495" width="16" height="12" fill="#8b5cf6" rx="1"/>
+    
+    <circle cx="320" cy="485" r="8" fill="#3b82f6"/>
+    <rect x="312" y="495" width="16" height="12" fill="#6366f1" rx="1"/>
+    
+    <circle cx="360" cy="485" r="8" fill="#8b5cf6"/>
+    <rect x="352" y="495" width="16" height="12" fill="#6366f1" rx="1"/>
+  </g>
+  
+  <!-- Evaluation Panel -->
+  <g id="judges-panel">
+    <rect x="460" y="420" width="280" height="150" fill="#f8f9ff" stroke="#6366f1" stroke-width="2" rx="6"/>
+    
+    <!-- Judge 1 -->
+    <g id="judge-1">
+      <circle cx="495" cy="460" r="15" fill="#8b5cf6"/>
+      <rect x="480" y="478" width="30" height="20" fill="#6366f1" rx="2"/>
+      <!-- Clipboard/Tablet -->
+      <rect x="485" y="502" width="20" height="28" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="1" rx="2"/>
+      <line x1="490" y1="510" x2="500" y2="510" stroke="#818cf8" stroke-width="1"/>
+      <line x1="490" y1="515" x2="500" y2="515" stroke="#818cf8" stroke-width="1"/>
+      <line x1="490" y1="520" x2="498" y2="520" stroke="#818cf8" stroke-width="1"/>
+    </g>
+    
+    <!-- Judge 2 -->
+    <g id="judge-2">
+      <circle cx="565" cy="460" r="15" fill="#6366f1"/>
+      <rect x="550" y="478" width="30" height="20" fill="#3b82f6" rx="2"/>
+      <!-- Clipboard/Tablet -->
+      <rect x="555" y="502" width="20" height="28" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" rx="2"/>
+      <line x1="560" y1="510" x2="570" y2="510" stroke="#60a5fa" stroke-width="1"/>
+      <line x1="560" y1="515" x2="570" y2="515" stroke="#60a5fa" stroke-width="1"/>
+      <line x1="560" y1="520" x2="568" y2="520" stroke="#60a5fa" stroke-width="1"/>
+    </g>
+    
+    <!-- Judge 3 -->
+    <g id="judge-3">
+      <circle cx="635" cy="460" r="15" fill="#3b82f6"/>
+      <rect x="620" y="478" width="30" height="20" fill="#6366f1" rx="2"/>
+      <!-- Clipboard/Tablet -->
+      <rect x="625" y="502" width="20" height="28" fill="#1e1b4b" stroke="#3b82f6" stroke-width="1" rx="2"/>
+      <line x1="630" y1="510" x2="640" y2="510" stroke="#60a5fa" stroke-width="1"/>
+      <line x1="630" y1="515" x2="640" y2="515" stroke="#60a5fa" stroke-width="1"/>
+      <line x1="630" y1="520" x2="638" y2="520" stroke="#60a5fa" stroke-width="1"/>
+    </g>
+    
+    <!-- Judge 4 -->
+    <g id="judge-4">
+      <circle cx="705" cy="460" r="15" fill="#8b5cf6"/>
+      <rect x="690" y="478" width="30" height="20" fill="#6366f1" rx="2"/>
+      <!-- Clipboard/Tablet -->
+      <rect x="695" y="502" width="20" height="28" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="1" rx="2"/>
+      <line x1="700" y1="510" x2="710" y2="510" stroke="#818cf8" stroke-width="1"/>
+      <line x1="700" y1="515" x2="710" y2="515" stroke="#818cf8" stroke-width="1"/>
+      <line x1="700" y1="520" x2="708" y2="520" stroke="#818cf8" stroke-width="1"/>
+    </g>
+    
+    <!-- Panel Label -->
+    <text x="600" y="555" font-family="Arial, sans-serif" font-size="16" fill="#6366f1" font-weight="bold" text-anchor="middle">EVALUATION PANEL</text>
+  </g>
+  
+  <!-- Title/Labels -->
+  <text x="400" y="25" font-family="Arial, sans-serif" font-size="20" fill="#6366f1" font-weight="bold" text-anchor="middle">DEMO DAY</text>
+  
+  <!-- Stage Label -->
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="14" fill="#8b5cf6" font-weight="bold" text-anchor="middle">MAIN STAGE</text>
+  
+  <!-- Demo Stations Labels -->
+  <text x="130" y="408" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" font-weight="600" text-anchor="middle">TEAM A</text>
+  <text x="300" y="408" font-family="Arial, sans-serif" font-size="12" fill="#6366f1" font-weight="600" text-anchor="middle">TEAM B</text>
+  <text x="470" y="408" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" font-weight="600" text-anchor="middle">TEAM C</text>
+  <text x="640" y="408" font-family="Arial, sans-serif" font-size="12" fill="#3b82f6" font-weight="600" text-anchor="middle">TEAM D</text>
+  
+  <!-- Decorative Elements -->
+  <!-- Stars/Sparkles for showcase effect -->
+  <path d="M 730 50 L 735 55 L 740 50 L 735 45 Z" fill="#fbbf24" opacity="0.7"/>
+  <path d="M 65 50 L 70 55 L 75 50 L 70 45 Z" fill="#fbbf24" opacity="0.7"/>
+  <circle cx="750" cy="100" r="3" fill="#fbbf24" opacity="0.6"/>
+  <circle cx="55" cy="100" r="3" fill="#fbbf24" opacity="0.6"/>
+  
+  <!-- Connection lines showing interaction -->
+  <line x1="400" y1="230" x2="400" y2="270" stroke="#c7d2fe" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+</svg>

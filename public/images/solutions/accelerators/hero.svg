@@ -1,0 +1,510 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="lightPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Card Background Gradients -->
+    <linearGradient id="cardBg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3e8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardBg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ddd6fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#bfdbfe;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardBg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardBg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fae8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardBg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ede9fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardBg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardBg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#dbeafe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="cardBg8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3e8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ddd6fe;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Timeline Background Gradient -->
+    <linearGradient id="timelineBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0e7ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.1"/>
+    </filter>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="transparent"/>
+  
+  <!-- Header Section -->
+  <g id="header">
+    <!-- Title -->
+    <text x="40" y="45" font-family="Arial, sans-serif" font-size="29" font-weight="bold" fill="#6d28d9">
+      Cohort Management Dashboard
+    </text>
+    <text x="40" y="70" font-family="Arial, sans-serif" font-size="15" fill="#7c3aed">
+      Spring 2024 • 8 Active Teams • Week 6 of 12
+    </text>
+    
+    <!-- Mentor Oversight Indicator -->
+    <g transform="translate(900, 25)">
+      <rect x="0" y="0" width="260" height="60" rx="10" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1.5"/>
+      <circle cx="25" cy="30" r="12" fill="#8b5cf6"/>
+      <path d="M 22 30 L 24 32 L 29 27" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <text x="45" y="28" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#6d28d9">
+        Mentor Oversight
+      </text>
+      <text x="45" y="44" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        12 Mentors Active
+      </text>
+    </g>
+  </g>
+  
+  <!-- Program Timeline -->
+  <g id="timeline" transform="translate(40, 110)">
+    <rect x="0" y="0" width="1120" height="70" rx="12" fill="url(#timelineBg)" filter="url(#shadow)"/>
+    
+    <!-- Timeline Title -->
+    <text x="20" y="25" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#7c3aed">
+      PROGRAM TIMELINE
+    </text>
+    
+    <!-- Timeline Bar -->
+    <rect x="20" y="35" width="1080" height="8" rx="4" fill="#ddd6fe"/>
+    <rect x="20" y="35" width="540" height="8" rx="4" fill="url(#progressGrad)"/>
+    
+    <!-- Milestone Checkpoints -->
+    <g id="milestones">
+      <!-- Checkpoint 1 - Completed -->
+      <circle cx="180" cy="39" r="8" fill="#8b5cf6" stroke="white" stroke-width="3"/>
+      <text x="180" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">Kickoff</text>
+      
+      <!-- Checkpoint 2 - Completed -->
+      <circle cx="360" cy="39" r="8" fill="#8b5cf6" stroke="white" stroke-width="3"/>
+      <text x="360" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">MVP</text>
+      
+      <!-- Checkpoint 3 - Current -->
+      <circle cx="540" cy="39" r="10" fill="#3b82f6" stroke="white" stroke-width="3" filter="url(#glow)"/>
+      <text x="540" y="60" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#3b82f6" text-anchor="middle">Mid-Demo</text>
+      
+      <!-- Checkpoint 4 - Upcoming -->
+      <circle cx="720" cy="39" r="8" fill="white" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="720" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">Beta</text>
+      
+      <!-- Checkpoint 5 - Upcoming -->
+      <circle cx="900" cy="39" r="8" fill="white" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="900" y="60" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" text-anchor="middle">Final Demo</text>
+    </g>
+  </g>
+  
+  <!-- Team Cards Grid -->
+  <g id="team-cards">
+    <!-- Row 1 -->
+    <!-- Team Card 1 -->
+    <g transform="translate(40, 210)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg1)" filter="url(#shadow)"/>
+      
+      <!-- Quality Gate Badge -->
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
+      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
+        Approved
+      </text>
+      
+      <!-- Team Name -->
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Alpha
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        AI Learning Platform
+      </text>
+      
+      <!-- Progress Bar -->
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 85%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="272" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <!-- Team Collaboration Icons -->
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <text x="75" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          4 Members
+        </text>
+      </g>
+      
+      <!-- Demo Preview Icon -->
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Team Card 2 -->
+    <g transform="translate(420, 210)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg2)" filter="url(#shadow)"/>
+      
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
+      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
+        Approved
+      </text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Beta
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        Healthcare Analytics
+      </text>
+      
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 92%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="294" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="72" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <text x="90" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          5 Members
+        </text>
+      </g>
+      
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Team Card 3 -->
+    <g transform="translate(800, 210)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg3)" filter="url(#shadow)"/>
+      
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#fef9c3"/>
+      <circle cx="24" cy="23" r="4" fill="#eab308"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#ca8a04">
+        Review
+      </text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Gamma
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        Sustainability Tracker
+      </text>
+      
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 68%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="218" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <text x="58" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          3 Members
+        </text>
+      </g>
+      
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Row 2 -->
+    <!-- Team Card 4 -->
+    <g transform="translate(40, 370)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg4)" filter="url(#shadow)"/>
+      
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
+      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
+        Approved
+      </text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Delta
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        E-Commerce Optimizer
+      </text>
+      
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 78%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="250" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <text x="75" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          4 Members
+        </text>
+      </g>
+      
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Team Card 5 -->
+    <g transform="translate(420, 370)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg5)" filter="url(#shadow)"/>
+      
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
+      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
+        Approved
+      </text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Epsilon
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        Smart Campus App
+      </text>
+      
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 88%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="282" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="72" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <text x="90" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          5 Members
+        </text>
+      </g>
+      
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Team Card 6 -->
+    <g transform="translate(800, 370)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg6)" filter="url(#shadow)"/>
+      
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#fee2e2"/>
+      <circle cx="24" cy="23" r="4" fill="#ef4444"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#dc2626">
+        At Risk
+      </text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Zeta
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        Social Network Tool
+      </text>
+      
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 45%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="144" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <text x="58" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          3 Members
+        </text>
+      </g>
+      
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Row 3 -->
+    <!-- Team Card 7 -->
+    <g transform="translate(40, 530)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg7)" filter="url(#shadow)"/>
+      
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#dcfce7"/>
+      <circle cx="24" cy="23" r="4" fill="#22c55e"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#16a34a">
+        Approved
+      </text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Eta
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        Fintech Dashboard
+      </text>
+      
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 82%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="262" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <text x="75" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          4 Members
+        </text>
+      </g>
+      
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Team Card 8 -->
+    <g transform="translate(420, 530)">
+      <rect width="360" height="140" rx="12" fill="url(#cardBg8)" filter="url(#shadow)"/>
+      
+      <rect x="12" y="12" width="85" height="22" rx="11" fill="#fef9c3"/>
+      <circle cx="24" cy="23" r="4" fill="#eab308"/>
+      <text x="32" y="27" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#ca8a04">
+        Review
+      </text>
+      
+      <text x="20" y="55" font-family="Arial, sans-serif" font-size="17" font-weight="bold" fill="#6d28d9">
+        Team Theta
+      </text>
+      <text x="20" y="72" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+        EdTech Collaboration
+      </text>
+      
+      <text x="20" y="93" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#7c3aed">
+        Progress: 72%
+      </text>
+      <rect x="20" y="98" width="320" height="6" rx="3" fill="#ddd6fe"/>
+      <rect x="20" y="98" width="230" height="6" rx="3" fill="url(#progressGrad)"/>
+      
+      <g transform="translate(20, 115)">
+        <circle cx="8" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="24" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="40" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <circle cx="56" cy="8" r="8" fill="#3b82f6" opacity="0.9"/>
+        <circle cx="72" cy="8" r="8" fill="#8b5cf6" opacity="0.9"/>
+        <text x="90" y="13" font-family="Arial, sans-serif" font-size="12" fill="#7c3aed">
+          5 Members
+        </text>
+      </g>
+      
+      <g transform="translate(290, 108)">
+        <rect width="50" height="30" rx="4" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="1"/>
+        <circle cx="25" cy="15" r="6" fill="#8b5cf6" opacity="0.3"/>
+        <polygon points="22,12 22,18 28,15" fill="#8b5cf6"/>
+      </g>
+    </g>
+    
+    <!-- Quality Gate Legend -->
+    <g transform="translate(800, 530)">
+      <rect width="360" height="140" rx="12" fill="url(#lightPurple)" stroke="#8b5cf6" stroke-width="2"/>
+      
+      <text x="20" y="30" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#6d28d9">
+        Quality Gates
+      </text>
+      
+      <g transform="translate(20, 45)">
+        <circle cx="6" cy="6" r="5" fill="#22c55e"/>
+        <text x="20" y="11" font-family="Arial, sans-serif" font-size="13" fill="#6d28d9">
+          Approved - Ready for Next Phase
+        </text>
+      </g>
+      
+      <g transform="translate(20, 70)">
+        <circle cx="6" cy="6" r="5" fill="#eab308"/>
+        <text x="20" y="11" font-family="Arial, sans-serif" font-size="13" fill="#6d28d9">
+          Under Review - Mentor Feedback
+        </text>
+      </g>
+      
+      <g transform="translate(20, 95)">
+        <circle cx="6" cy="6" r="5" fill="#ef4444"/>
+        <text x="20" y="11" font-family="Arial, sans-serif" font-size="13" fill="#6d28d9">
+          At Risk - Requires Intervention
+        </text>
+      </g>
+      
+      <!-- Decorative Icon -->
+      <g transform="translate(280, 90)">
+        <circle cx="25" cy="25" r="25" fill="#8b5cf6" opacity="0.2"/>
+        <path d="M 20 25 L 23 28 L 30 20" stroke="#8b5cf6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </g>
+  </g>
+</svg>

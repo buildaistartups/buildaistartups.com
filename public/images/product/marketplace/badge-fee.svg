@@ -1,0 +1,56 @@
+<svg width="200" height="32" viewBox="0 0 200 32" role="img" aria-label="transparent fees badge" xmlns="http://www.w3.org/2000/svg">
+  <title>transparent fees</title>
+  <defs>
+    <!-- Accent gradient (stroke, icons, text) -->
+    <linearGradient id="pf-grad-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7C4DFF"/>
+      <stop offset="100%" stop-color="#2BB0FF"/>
+    </linearGradient>
+
+    <!-- Light blue pill background -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F3F9FF"/>
+      <stop offset="100%" stop-color="#E1F1FF"/>
+    </linearGradient>
+
+    <!-- Subtle glossy highlight on top -->
+    <linearGradient id="shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="55%" stop-color="#FFFFFF" stop-opacity="0.0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pill with gradient fill and accent stroke -->
+  <rect x="0.75" y="0.75" width="198.5" height="30.5" rx="15.25"
+        fill="url(#bg-grad)" stroke="url(#pf-grad-2)" stroke-width="1.5"/>
+  <!-- Top highlight (very subtle) -->
+  <rect x="0.75" y="0.75" width="198.5" height="30.5" rx="15.25" fill="url(#shine)"/>
+
+  <!-- Centered cluster: % icon (24) + 10 gap + text (112) + 10 gap + $ icon (16) = 172 -->
+  <!-- (200 - 172) / 2 = 14 -->
+  <g transform="translate(14,0)">
+    <!-- % icon -->
+    <g transform="translate(0,4)">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="url(#pf-grad-2)" stroke-width="1.6"/>
+      <g fill="none" stroke="url(#pf-grad-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7.5" y1="16.5" x2="16.5" y2="7.5"/>
+        <circle cx="9.6" cy="8.2" r="2.2"/>
+        <circle cx="14.4" cy="15.8" r="2.2"/>
+      </g>
+    </g>
+
+    <!-- Bold text -->
+    <text x="34" y="20" font-size="12.5" font-weight="700"
+          font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji'"
+          fill="url(#pf-grad-2)" letter-spacing=".15px"
+          textLength="112" lengthAdjust="spacingAndGlyphs">transparent fees</text>
+
+    <!-- $ indicator -->
+    <g transform="translate(156,8)">
+      <circle cx="8" cy="8" r="7.25" fill="none" stroke="url(#pf-grad-2)" stroke-width="1.5"/>
+      <text x="8" y="12" text-anchor="middle" font-size="12" font-weight="700"
+            font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial"
+            fill="url(#pf-grad-2)">$</text>
+    </g>
+  </g>
+</svg>

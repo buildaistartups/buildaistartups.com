@@ -1,0 +1,636 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="3600" height="2025">
+  <defs>
+    <!-- Enhanced Gradients -->
+    <linearGradient id="purpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="purpleGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c4b5fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="meshGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.08" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.05" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.08" />
+    </linearGradient>
+    
+    <radialGradient id="radialPurple" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </radialGradient>
+    
+    <radialGradient id="radialBlue" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+    </radialGradient>
+    
+    <!-- Premium Shadows -->
+    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12"/>
+      <feOffset dx="0" dy="8" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.12"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6"/>
+      <feOffset dx="0" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.08"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="innerGlow">
+      <feGaussianBlur stdDeviation="2"/>
+      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.545   0 0 0 0 0.361   0 0 0 0 0.965   0 0 0 0.3 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  
+  <!-- Main Container -->
+  <g id="mainContent">
+    
+    <!-- Header Section -->
+    <g id="header">
+      <!-- Glassmorphic Header Card -->
+      <g filter="url(#softShadow)">
+        <defs>
+          <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f5f3ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#eff6ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="30" y="25" width="1140" height="85" rx="16" fill="url(#headerBg)" stroke="#e0e7ff" stroke-width="1"/>
+        
+        <!-- Title with icon -->
+        <circle cx="55" cy="50" r="14" fill="url(#purpleBlue)" filter="url(#glow)"/>
+        <path d="M55 43 L55 53 M50 48 L60 48" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M52 45 L58 51 M58 45 L52 51" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+        
+        <text x="80" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="700" fill="#0f172a" letter-spacing="-0.5">
+          Deal Flow Intelligence
+        </text>
+        
+        <!-- Real-time indicator -->
+        <circle cx="330" cy="49" r="4" fill="#10b981">
+          <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+        </circle>
+        <text x="340" y="54" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#10b981">LIVE</text>
+        
+        <!-- Filter Pills -->
+        <g id="filters" transform="translate(55, 67)">
+          <rect x="0" y="0" width="100" height="36" rx="18" fill="url(#purpleBlue)" filter="url(#glow)"/>
+          <text x="50" y="23" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="white" text-anchor="middle">All Deals</text>
+          
+          <rect x="110" y="0" width="105" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="162.5" y="23" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#64748b" text-anchor="middle">In Review</text>
+          <circle cx="142" cy="18" r="8" fill="#fef3c7"/>
+          <text x="142" y="22" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#f59e0b" text-anchor="middle">8</text>
+          
+          <rect x="225" y="0" width="120" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="285" y="23" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#64748b" text-anchor="middle">Due Diligence</text>
+          
+          <rect x="355" y="0" width="90" height="36" rx="18" fill="white" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="400" y="23" font-family="system-ui, sans-serif" font-size="13" font-weight="500" fill="#64748b" text-anchor="middle">Portfolio</text>
+        </g>
+        
+        <!-- Enhanced Stats -->
+        <g id="stats">
+          <!-- Stat 1 -->
+          <defs>
+            <linearGradient id="stat1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#faf5ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f3e8ff;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="745" y="43" width="140" height="60" rx="12" fill="url(#stat1Bg)" stroke="#e9d5ff" stroke-width="1"/>
+          <text x="765" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">ACTIVE DEALS</text>
+          <text x="765" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#8b5cf6">24</text>
+          <circle cx="855" cy="82" r="6" fill="#22c55e" opacity="0.2"/>
+          <text x="860" y="84" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#22c55e">+3</text>
+          
+          <!-- Stat 2 -->
+          <defs>
+            <linearGradient id="stat2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#eff6ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="900" y="43" width="155" height="60" rx="12" fill="url(#stat2Bg)" stroke="#bfdbfe" stroke-width="1"/>
+          <text x="920" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">DEPLOYED CAPITAL</text>
+          <text x="920" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#3b82f6">$2.4M</text>
+          
+          <!-- Stat 3 -->
+          <defs>
+            <linearGradient id="stat3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#f5f3ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#e0e7ff;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <rect x="1070" y="43" width="85" height="60" rx="12" fill="url(#stat3Bg)" stroke="#c7d2fe" stroke-width="1"/>
+          <text x="1090" y="63" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">IRR</text>
+          <text x="1090" y="90" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="url(#purpleBlue)">34%</text>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Investment Pipeline Visualization -->
+    <g id="pipeline" transform="translate(30, 130)">
+      <g filter="url(#softShadow)">
+        <defs>
+          <linearGradient id="pipelineBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#f8f9ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="1140" height="95" rx="16" fill="url(#pipelineBg)" stroke="#e0e7ff" stroke-width="1"/>
+        
+        <text x="25" y="18" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Investment Pipeline</text>
+        <text x="25" y="35" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Real-time deal flow tracking</text>
+        
+        <!-- Enhanced Pipeline Stages -->
+        <g transform="translate(25, 45)">
+          <!-- Stage 1 -->
+          <rect x="0" y="0" width="265" height="10" rx="5" fill="#f1f5f9"/>
+          <rect x="0" y="0" width="240" height="10" rx="5" fill="url(#purpleGlow)" filter="url(#innerGlow)"/>
+          <circle cx="240" cy="5" r="6" fill="#8b5cf6" filter="url(#glow)"/>
+          <text x="0" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">SOURCING</text>
+          <text x="0" y="46" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#8b5cf6">12</text>
+          <text x="30" y="46" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">deals</text>
+          
+          <!-- Stage 2 -->
+          <rect x="280" y="0" width="265" height="10" rx="5" fill="#f1f5f9"/>
+          <rect x="280" y="0" width="190" height="10" rx="5" fill="url(#purpleBlue)" filter="url(#innerGlow)"/>
+          <circle cx="470" cy="5" r="6" fill="#7c3aed" filter="url(#glow)"/>
+          <text x="280" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">SCREENING</text>
+          <text x="280" y="46" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#7c3aed">8</text>
+          <text x="300" y="46" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">deals</text>
+          
+          <!-- Stage 3 -->
+          <rect x="560" y="0" width="265" height="10" rx="5" fill="#f1f5f9"/>
+          <rect x="560" y="0" width="135" height="10" rx="5" fill="url(#blueGlow)" filter="url(#innerGlow)"/>
+          <circle cx="695" cy="5" r="6" fill="#3b82f6" filter="url(#glow)"/>
+          <text x="560" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">DUE DILIGENCE</text>
+          <text x="560" y="46" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#3b82f6">4</text>
+          <text x="577" y="46" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">deals</text>
+          
+          <!-- Stage 4 -->
+          <rect x="840" y="0" width="265" height="10" rx="5" fill="#f1f5f9"/>
+          <rect x="840" y="0" width="100" height="10" rx="5" fill="#3b82f6" filter="url(#innerGlow)"/>
+          <circle cx="940" cy="5" r="6" fill="#2563eb" filter="url(#glow)"/>
+          <text x="840" y="28" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b">TERM SHEET</text>
+          <text x="840" y="46" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#2563eb">3</text>
+          <text x="857" y="46" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#94a3b8">deals</text>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Premium Startup Cards -->
+    <g id="startupCards" transform="translate(30, 245)">
+      
+      <!-- Card 1 - TechFlow AI -->
+      <g filter="url(#cardShadow)">
+        <defs>
+          <linearGradient id="card1Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card1Bg)" stroke="#e9d5ff" stroke-width="1"/>
+        <rect x="0" y="0" width="368" height="8" rx="16" fill="url(#purpleGlow)"/>
+        
+        <!-- Enhanced Demo Preview -->
+        <rect x="20" y="20" width="155" height="100" rx="12" fill="#fafafa" stroke="#e2e8f0" stroke-width="1"/>
+        
+        <!-- Animated dashboard mockup -->
+        <g transform="translate(30, 30)">
+          <rect x="0" y="0" width="65" height="6" rx="3" fill="url(#purpleGlow)"/>
+          <rect x="0" y="12" width="110" height="6" rx="3" fill="#e2e8f0"/>
+          <rect x="0" y="21" width="85" height="6" rx="3" fill="#e2e8f0"/>
+          <rect x="0" y="30" width="95" height="6" rx="3" fill="#e2e8f0"/>
+          
+          <!-- Chart visualization -->
+          <g transform="translate(0, 45)">
+            <rect x="0" y="25" width="8" height="15" rx="2" fill="#c4b5fd" opacity="0.6"/>
+            <rect x="12" y="18" width="8" height="22" rx="2" fill="#a78bfa" opacity="0.7"/>
+            <rect x="24" y="12" width="8" height="28" rx="2" fill="#8b5cf6" opacity="0.9"/>
+            <rect x="36" y="8" width="8" height="32" rx="2" fill="url(#purpleBlue)"/>
+            <rect x="48" y="15" width="8" height="25" rx="2" fill="#60a5fa" opacity="0.8"/>
+          </g>
+        </g>
+        
+        <!-- Play button overlay -->
+        <circle cx="147.5" cy="70" r="18" fill="white" opacity="0.95" filter="url(#softShadow)"/>
+        <circle cx="147.5" cy="70" r="15" fill="url(#purpleBlue)" filter="url(#glow)"/>
+        <path d="M145 65 L153 70 L145 75 Z" fill="white"/>
+        
+        <!-- Company Header -->
+        <g transform="translate(190, 30)">
+          <rect x="0" y="-10" width="45" height="45" rx="12" fill="url(#purpleGlow)" opacity="0.15"/>
+          <text x="22.5" y="20" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#8b5cf6" text-anchor="middle">TF</text>
+          
+          <text x="55" y="8" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#0f172a">TechFlow AI</text>
+          <text x="55" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#64748b">AI-Powered Analytics</text>
+        </g>
+        
+        <!-- Enhanced Score Badge -->
+        <rect x="190" y="70" width="70" height="28" rx="14" fill="#dcfce7" stroke="#86efac" stroke-width="1.5"/>
+        <circle cx="206" cy="84" r="5" fill="#22c55e">
+          <animate attributeName="r" values="5;6;5" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="217" y="89" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#15803d">9.2</text>
+        <path d="M248 81 L251 84 L255 79" stroke="#15803d" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Live indicator -->
+        <circle cx="270" cy="84" r="3" fill="#ef4444">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="277" y="87" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#ef4444">LIVE</text>
+        
+        <!-- Enhanced Metrics Grid -->
+        <g transform="translate(20, 135)">
+          <rect x="0" y="0" width="328" height="50" rx="10" fill="#fafafa"/>
+          
+          <g transform="translate(15, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">ARR</text>
+            <text x="0" y="18" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#8b5cf6">$1.2M</text>
+          </g>
+          
+          <line x1="110" y1="10" x2="110" y2="40" stroke="#e2e8f0" stroke-width="1.5"/>
+          
+          <g transform="translate(125, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">GROWTH</text>
+            <text x="0" y="18" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#22c55e">+127%</text>
+            <path d="M55 12 L60 7 L65 12" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          
+          <line x1="218" y1="10" x2="218" y2="40" stroke="#e2e8f0" stroke-width="1.5"/>
+          
+          <g transform="translate(233, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">STAGE</text>
+            <rect x="0" y="5" width="65" height="20" rx="10" fill="url(#blueGlow)" opacity="0.15"/>
+            <text x="32.5" y="19" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#3b82f6" text-anchor="middle">Series A</text>
+          </g>
+        </g>
+      </g>
+      
+      <!-- Card 2 - CloudVault -->
+      <g transform="translate(388, 0)" filter="url(#cardShadow)">
+        <defs>
+          <linearGradient id="card2Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#eff6ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="368" height="195" rx="16" fill="url(#card2Bg)" stroke="#bfdbfe" stroke-width="1"/>
+        <rect x="0" y="0" width="368" height="8" rx="16" fill="url(#blueGlow)"/>
+        
+        <!-- Enhanced Demo Preview -->
+        <rect x="20" y="20" width="155" height="100" rx="12" fill="#fafafa" stroke="#e2e8f0" stroke-width="1"/>
+        
+        <!-- Security dashboard mockup -->
+        <g transform="translate(30, 30)">
+          <!-- Shield icon -->
+          <circle cx="70" cy="25" r="22" fill="url(#blueGlow)" opacity="0.15"/>
+          <path d="M70 10 L70 10 C75 12 80 14 80 20 C80 30 75 35 70 40 C65 35 60 30 60 20 C60 14 65 12 70 10 Z" 
+                fill="url(#blueGlow)" stroke="#3b82f6" stroke-width="1.5"/>
+          <path d="M67 24 L69 26 L74 20" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          
+          <!-- Status bars -->
+          <rect x="5" y="60" width="130" height="6" rx="3" fill="#e2e8f0"/>
+          <rect x="5" y="60" width="110" height="6" rx="3" fill="url(#blueGlow)"/>
+          <text x="5" y="56" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Security Score</text>
+          
+          <rect x="5" y="75" width="130" height="6" rx="3" fill="#e2e8f0"/>
+          <rect x="5" y="75" width="95" height="6" rx="3" fill="#3b82f6"/>
+          <text x="5" y="71" font-family="system-ui, sans-serif" font-size="8" fill="#64748b">Compliance</text>
+        </g>
+        
+        <!-- Play button overlay -->
+        <circle cx="147.5" cy="70" r="18" fill="white" opacity="0.95" filter="url(#softShadow)"/>
+        <circle cx="147.5" cy="70" r="15" fill="url(#blueGlow)" filter="url(#glow)"/>
+        <path d="M145 65 L153 70 L145 75 Z" fill="white"/>
+        
+        <!-- Company Header -->
+        <g transform="translate(190, 30)">
+          <rect x="0" y="-10" width="45" height="45" rx="12" fill="url(#blueGlow)" opacity="0.15"/>
+          <text x="22.5" y="20" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#3b82f6" text-anchor="middle">CV</text>
+          
+          <text x="55" y="8" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#0f172a">CloudVault</text>
+          <text x="55" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#64748b">Enterprise Security</text>
+        </g>
+        
+        <!-- Enhanced Score Badge -->
+        <rect x="190" y="70" width="70" height="28" rx="14" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+        <circle cx="206" cy="84" r="5" fill="#3b82f6">
+          <animate attributeName="r" values="5;6;5" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="217" y="89" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#1e40af">8.8</text>
+        <path d="M248 81 L251 84 L255 79" stroke="#1e40af" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Trending badge -->
+        <rect x="270" y="75" width="65" height="20" rx="10" fill="#fef3c7"/>
+        <text x="302.5" y="88" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#f59e0b" text-anchor="middle">HOT 🔥</text>
+        
+        <!-- Enhanced Metrics Grid -->
+        <g transform="translate(20, 135)">
+          <rect x="0" y="0" width="328" height="50" rx="10" fill="#fafafa"/>
+          
+          <g transform="translate(15, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">ARR</text>
+            <text x="0" y="18" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#3b82f6">$2.8M</text>
+          </g>
+          
+          <line x1="110" y1="10" x2="110" y2="40" stroke="#e2e8f0" stroke-width="1.5"/>
+          
+          <g transform="translate(125, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">GROWTH</text>
+            <text x="0" y="18" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#22c55e">+89%</text>
+            <path d="M47 12 L52 7 L57 12" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          
+          <line x1="218" y1="10" x2="218" y2="40" stroke="#e2e8f0" stroke-width="1.5"/>
+          
+          <g transform="translate(233, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">STAGE</text>
+            <rect x="0" y="5" width="65" height="20" rx="10" fill="url(#blueGlow)" opacity="0.15"/>
+            <text x="32.5" y="19" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#3b82f6" text-anchor="middle">Series A</text>
+          </g>
+        </g>
+      </g>
+      
+      <!-- Card 3 - MetaHealth -->
+      <g transform="translate(776, 0)" filter="url(#cardShadow)">
+        <defs>
+          <linearGradient id="card3Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="364" height="195" rx="16" fill="url(#card3Bg)" stroke="#e9d5ff" stroke-width="1"/>
+        <rect x="0" y="0" width="364" height="8" rx="16" fill="url(#purpleBlue)"/>
+        
+        <!-- Enhanced Demo Preview -->
+        <rect x="20" y="20" width="155" height="100" rx="12" fill="#fafafa" stroke="#e2e8f0" stroke-width="1"/>
+        
+        <!-- Analytics dashboard mockup -->
+        <g transform="translate(30, 30)">
+          <!-- Sophisticated chart -->
+          <g>
+            <path d="M10 75 L10 75 Q20 70 30 65 T50 55 T70 45 T90 35 T110 25 T130 20" 
+                  fill="none" stroke="url(#purpleBlue)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M10 75 L10 75 Q20 70 30 65 T50 55 T70 45 T90 35 T110 25 T130 20 L130 85 L10 85 Z" 
+                  fill="url(#purpleBlue)" opacity="0.15"/>
+            
+            <!-- Data points -->
+            <circle cx="30" cy="65" r="3" fill="#8b5cf6"/>
+            <circle cx="50" cy="55" r="3" fill="#8b5cf6"/>
+            <circle cx="70" cy="45" r="3" fill="#7c3aed"/>
+            <circle cx="90" cy="35" r="3" fill="#3b82f6"/>
+            <circle cx="110" cy="25" r="3" fill="#3b82f6"/>
+            <circle cx="130" cy="20" r="4" fill="#3b82f6" filter="url(#glow)"/>
+          </g>
+          
+          <!-- Metric indicators -->
+          <rect x="5" y="5" width="35" height="14" rx="7" fill="#dcfce7"/>
+          <text x="22.5" y="14" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#16a34a" text-anchor="middle">+156%</text>
+        </g>
+        
+        <!-- Play button overlay -->
+        <circle cx="147.5" cy="80" r="18" fill="white" opacity="0.95" filter="url(#softShadow)"/>
+        <circle cx="147.5" cy="80" r="15" fill="url(#purpleBlue)" filter="url(#glow)"/>
+        <path d="M145 75 L153 80 L145 85 Z" fill="white"/>
+        
+        <!-- Company Header -->
+        <g transform="translate(190, 30)">
+          <rect x="0" y="-10" width="45" height="45" rx="12" fill="url(#purpleBlue)" opacity="0.15"/>
+          <text x="22.5" y="20" font-family="system-ui, sans-serif" font-size="22" font-weight="800" fill="#7c3aed" text-anchor="middle">MH</text>
+          
+          <text x="55" y="8" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#0f172a">MetaHealth</text>
+          <text x="55" y="26" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#64748b">Digital Healthcare</text>
+        </g>
+        
+        <!-- Enhanced Score Badge -->
+        <rect x="190" y="70" width="70" height="28" rx="14" fill="#f3e8ff" stroke="#c4b5fd" stroke-width="1.5"/>
+        <circle cx="206" cy="84" r="5" fill="#8b5cf6">
+          <animate attributeName="r" values="5;6;5" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="217" y="89" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#6b21a8">9.5</text>
+        <path d="M248 81 L251 84 L255 79" stroke="#6b21a8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        
+        <!-- Top pick badge -->
+        <rect x="270" y="75" width="70" height="20" rx="10" fill="url(#purpleBlue)" opacity="0.15"/>
+        <text x="305" y="88" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#8b5cf6" text-anchor="middle">★ TOP PICK</text>
+        
+        <!-- Enhanced Metrics Grid -->
+        <g transform="translate(20, 135)">
+          <rect x="0" y="0" width="324" height="50" rx="10" fill="#fafafa"/>
+          
+          <g transform="translate(15, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">ARR</text>
+            <text x="0" y="18" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#8b5cf6">$890K</text>
+          </g>
+          
+          <line x1="108" y1="10" x2="108" y2="40" stroke="#e2e8f0" stroke-width="1.5"/>
+          
+          <g transform="translate(123, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">GROWTH</text>
+            <text x="0" y="18" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#22c55e">+156%</text>
+            <path d="M52 12 L57 7 L62 12" stroke="#22c55e" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          
+          <line x1="216" y1="10" x2="216" y2="40" stroke="#e2e8f0" stroke-width="1.5"/>
+          
+          <g transform="translate(231, 15)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#64748b" letter-spacing="0.5">STAGE</text>
+            <rect x="0" y="5" width="50" height="20" rx="10" fill="url(#purpleGlow)" opacity="0.15"/>
+            <text x="25" y="19" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#8b5cf6" text-anchor="middle">Seed</text>
+          </g>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Bottom Analytics Section -->
+    <g id="analytics" transform="translate(30, 460)">
+      
+      <!-- Portfolio Performance Chart -->
+      <g filter="url(#cardShadow)">
+        <defs>
+          <linearGradient id="portfolioBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#faf8ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#f5f3ff;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="555" height="185" rx="16" fill="url(#portfolioBg)" stroke="#e0e7ff" stroke-width="1"/>
+        
+        <text x="25" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Portfolio Performance</text>
+        <text x="25" y="47" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Last 12 months</text>
+        
+        <!-- Chart Legend -->
+        <g transform="translate(370, 23)">
+          <circle cx="0" cy="0" r="4" fill="#8b5cf6"/>
+          <text x="10" y="4" font-family="system-ui, sans-serif" font-size="11" font-weight="500" fill="#64748b">Portfolio Value</text>
+          <rect x="100" y="-8" width="60" height="20" rx="10" fill="#dcfce7"/>
+          <text x="130" y="5" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+147%</text>
+        </g>
+        
+        <!-- Enhanced Chart -->
+        <g transform="translate(30, 65)">
+          <!-- Grid -->
+          <g opacity="0.3">
+            <line x1="0" y1="0" x2="500" y2="0" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="0" y1="25" x2="500" y2="25" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="0" y1="50" x2="500" y2="50" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="0" y1="75" x2="500" y2="75" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="0" y1="100" x2="500" y2="100" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+          </g>
+          
+          <!-- Area gradient -->
+          <defs>
+            <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
+              <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.05" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Performance curve -->
+          <path d="M 0,90 Q 35,85 70,80 T 140,65 T 210,52 T 280,42 T 350,32 T 420,22 T 490,12" 
+                fill="none" stroke="url(#purpleBlue)" stroke-width="3.5" stroke-linecap="round" filter="url(#glow)"/>
+          
+          <path d="M 0,90 Q 35,85 70,80 T 140,65 T 210,52 T 280,42 T 350,32 T 420,22 T 490,12 L 490,100 L 0,100 Z" 
+                fill="url(#areaGradient)"/>
+          
+          <!-- Enhanced data points -->
+          <circle cx="0" cy="90" r="5" fill="#8b5cf6" stroke="white" stroke-width="2"/>
+          <circle cx="140" cy="65" r="5" fill="#8b5cf6" stroke="white" stroke-width="2"/>
+          <circle cx="280" cy="42" r="5" fill="#7c3aed" stroke="white" stroke-width="2"/>
+          <circle cx="420" cy="22" r="5" fill="#3b82f6" stroke="white" stroke-width="2"/>
+          <circle cx="490" cy="12" r="6" fill="#3b82f6" stroke="white" stroke-width="2.5" filter="url(#glow)">
+            <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          
+          <!-- Tooltip on last point -->
+          <rect x="455" y="-5" width="55" height="24" rx="6" fill="#0f172a" opacity="0.9"/>
+          <text x="482.5" y="12" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">$5.8M</text>
+        </g>
+        
+        <!-- Time labels -->
+        <g transform="translate(30, 175)">
+          <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Jan</text>
+          <text x="140" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Apr</text>
+          <text x="280" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Jul</text>
+          <text x="420" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">Oct</text>
+          <text x="490" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8" text-anchor="end">Now</text>
+        </g>
+      </g>
+      
+      <!-- Key Metrics Dashboard -->
+      <g transform="translate(575, 0)" filter="url(#cardShadow)">
+        <defs>
+          <linearGradient id="metricsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#eff6ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#dbeafe;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="565" height="185" rx="16" fill="url(#metricsBg)" stroke="#bfdbfe" stroke-width="1"/>
+        
+        <text x="25" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#0f172a" letter-spacing="-0.2">Key Investment Metrics</text>
+        
+        <!-- Metric Cards -->
+        <g transform="translate(25, 50)">
+          
+          <!-- Metric 1 -->
+          <rect x="0" y="0" width="168" height="115" rx="12" fill="linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%)"/>
+          <rect x="0" y="0" width="168" height="4" rx="12" fill="url(#purpleGlow)"/>
+          
+          <g transform="translate(15, 20)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">AVG DEAL SIZE</text>
+            <text x="0" y="32" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#8b5cf6">$850K</text>
+            
+            <rect x="0" y="48" width="65" height="24" rx="12" fill="#dcfce7"/>
+            <path d="M12 59 L17 54 L22 59" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="32.5" y="65" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+12%</text>
+            
+            <text x="0" y="91" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">vs last quarter</text>
+          </g>
+          
+          <!-- Metric 2 -->
+          <rect x="183" y="0" width="168" height="115" rx="12" fill="linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%)"/>
+          <rect x="183" y="0" width="168" height="4" rx="12" fill="url(#blueGlow)"/>
+          
+          <g transform="translate(198, 20)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">SUCCESS RATE</text>
+            <text x="0" y="32" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#3b82f6">67%</text>
+            
+            <rect x="0" y="48" width="60" height="24" rx="12" fill="#dcfce7"/>
+            <path d="M12 59 L17 54 L22 59" stroke="#16a34a" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="30" y="65" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+8%</text>
+            
+            <text x="0" y="91" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">conversion rate</text>
+          </g>
+          
+          <!-- Metric 3 -->
+          <rect x="366" y="0" width="168" height="115" rx="12" fill="linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%)"/>
+          <rect x="366" y="0" width="168" height="4" rx="12" fill="url(#purpleBlue)"/>
+          
+          <g transform="translate(381, 20)">
+            <text x="0" y="0" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#64748b" letter-spacing="0.5">TIME TO CLOSE</text>
+            <text x="0" y="32" font-family="system-ui, sans-serif" font-size="32" font-weight="800" fill="#8b5cf6">42d</text>
+            
+            <rect x="0" y="48" width="60" height="24" rx="12" fill="#fef3c7"/>
+            <path d="M12 61 L17 66 L22 61" stroke="#f59e0b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="30" y="65" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#f59e0b" text-anchor="middle">-5d</text>
+            
+            <text x="0" y="91" font-family="system-ui, sans-serif" font-size="10" fill="#94a3b8">faster than avg</text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Decorative accents -->
+  <circle cx="1150" cy="40" r="4" fill="#8b5cf6" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1170" cy="60" r="3" fill="#3b82f6" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1130" cy="75" r="3.5" fill="#8b5cf6" opacity="0.35">
+    <animate attributeName="opacity" values="0.35;0.75;0.35" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+</svg>

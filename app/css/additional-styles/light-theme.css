@@ -1,0 +1,216 @@
+/* app/css/additional-styles/light-theme.css */
+
+/* When <html class="light"> is present, remap slate scale to a light UI. */
+.light {
+  /* Backgrounds & surfaces */
+  --color-slate-900: #ffffff;
+  --color-slate-800: #f8fafc;
+  --color-slate-700: #f1f5f9;
+  --color-slate-600: #e2e8f0;
+  --color-slate-500: #cbd5e1;
+
+  /* Text & UI neutrals */
+  --color-slate-400: #7c8ba1; /* slightly stronger contrast than #94a3b8 */
+  --color-slate-300: #64748b;
+  --color-slate-200: #475569;
+  --color-slate-100: #0f172a;
+  --color-slate-50:  #0b1220;
+
+  /* Slightly darker + thinner borders for cards & dividers */
+  --color-gray-200: #d1d5db;
+}
+
+/* ------------ Light-mode borders & polish ------------ */
+
+/* 1) Opt-in classes */
+.light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card) {
+  border: 0.75px solid var(--color-gray-200);
+  border-radius: 0.75rem;
+  background-clip: padding-box;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+.light :is(.card, .feature-card, .integration-card, .pricing-card, .changelog-card):hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+  transform: translateY(-1px);
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+/* 2) Automatic fallback */
+.light :is([class*="rounded"])[class*="bg-slate-8"],
+.light :is([class*="rounded"])[class*="bg-slate-7"] {
+  border: 0.75px solid var(--color-gray-200);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+/* 3) Gradient border variant */
+.light .gradient-border {
+  position: relative;
+  border: 0.75px solid transparent;
+  background:
+    linear-gradient(var(--color-slate-900), var(--color-slate-900)) padding-box,
+    linear-gradient(135deg, var(--color-purple-400), var(--color-purple-300)) border-box;
+  border-radius: 0.75rem;
+}
+
+/* 4) Soft dividers */
+.light .soft-divider > * + * {
+  border-top: 0.75px solid var(--color-gray-200);
+}
+
+/* 5) Inputs on light */
+.light input:not([type="checkbox"]):not([type="radio"]),
+.light textarea,
+.light select {
+  border-color: var(--color-gray-200);
+  box-shadow: 0 1px 2px rgba(0,0,0,.02);
+}
+.light input:focus,
+.light textarea:focus,
+.light select:focus {
+  outline: none;
+  border-color: var(--color-purple-400);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-purple-400) 25%, transparent);
+}
+
+/* ------------ CTA fixes ------------ */
+
+/* 6) .btn-primary */
+.light .btn-primary,
+.light a.btn-primary,
+.light button.btn-primary {
+  background-color: var(--color-purple-500);
+  color: #fff;
+}
+.light .btn-primary:hover,
+.light a.btn-primary:hover,
+.light button.btn-primary:hover {
+  background-color: var(--color-purple-400);
+}
+
+/* 7) White pill buttons */
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"],
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-7"] {
+  color: var(--color-slate-100) !important;
+  border: 0.75px solid var(--color-gray-200);
+  text-shadow: none !important;
+  font-weight: 600;
+}
+
+/* Ensure child elements don't force light text */
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60),
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-7"] :is(.text-white,.text-slate-50,.text-slate-100,.text-white\/80,.text-white\/70,.text-white\/60) {
+  color: var(--color-slate-100) !important;
+}
+
+/* Icons inside those buttons */
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-white/"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-9"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-8"] svg,
+.light :is(a,button,[role="button"])[class*="rounded-full"][class*="bg-slate-7"] svg {
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* 8) .cta-primary */
+.light .cta-primary {
+  background-color: var(--color-purple-500) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+.light .cta-primary:hover {
+  background-color: var(--color-purple-400) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+}
+.light .cta-primary :is(span,svg,i) {
+  color: currentColor !important;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+/* 9) Gradient CTAs */
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-700.to-purple-500,
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-600.to-purple-400,
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-500.to-purple-400 {
+  color: #fff !important;
+}
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-700.to-purple-500 :is(span,svg,i),
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-600.to-purple-400 :is(span,svg,i),
+.light :is(a,button,[role="button"]).bg-gradient-to-r.from-purple-500.to-purple-400 :is(span,svg,i) {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+/* --- Hero CTA override --- */
+.light a.cta-primary,
+.light button.cta-primary {
+  background-image: none !important;
+  background: linear-gradient(90deg, var(--color-purple-600, #7c3aed), var(--color-purple-400, #a78bfa)) !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: 0 6px 16px rgba(0,0,0,.10) !important;
+}
+.light a.cta-primary:hover,
+.light button.cta-primary:hover {
+  background: linear-gradient(90deg, var(--color-purple-600, #7c3aed), var(--color-purple-500, #8b5cf6)) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.12) !important;
+}
+.light .cta-primary::before,
+.light .cta-primary::after {
+  background: none !important;
+}
+.light .cta-primary :is(span, svg) {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+/* --- Nav hover --- */
+.light header nav a,
+.light header a[href*="sign-in"],
+.light header a[href*="signin"] {
+  transition: color .15s ease-in-out;
+}
+.light header nav a:hover,
+.light header nav a:focus-visible,
+.light header a[href*="sign-in"]:hover,
+.light header a[href*="sign-in"]:focus-visible,
+.light header a[href*="signin"]:hover,
+.light header a[href*="signin"]:focus-visible {
+  color: #000 !important;
+}
+
+/* Light only: solid eyebrow text in light mode */
+.light .eyebrow-text {
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #7500D6 !important;
+  color: #7500D6 !important;
+  font-weight: 600;
+}
+
+/* --- Hero subtext + Feature descriptions darker in light mode --- */
+.light .hero-subtext,
+.light .feature-subtext {
+  color: var(--color-slate-200) !important; /* stronger contrast */
+}
+/* Eyebrow style - light mode only */
+.eyebrow-light {
+  font-weight: 600;              /* similar to font-semibold */
+  padding-bottom: 1.5rem;        /* pb-6 */
+  color: #7500D6;
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: #7500D6;
+}

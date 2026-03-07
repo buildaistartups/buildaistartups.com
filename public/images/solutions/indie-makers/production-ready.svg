@@ -1,0 +1,130 @@
+<svg width="400" height="128" viewBox="0 0 400 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Production-Ready Checklist</title>
+  <desc id="desc">Completed checklist for Tests, CI, Analytics, Docs, Pricing, Deploy with checkmarks, feature icons, and a quality badge in purple/blue accents on a transparent background.</desc>
+
+  <defs>
+    <linearGradient id="gPurpleBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="gBluePurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+
+    <!-- NEW: pill background (subtle, works on light/dark) -->
+    <linearGradient id="chipFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E8FF"/>
+      <stop offset="100%" stop-color="#E0F2FE"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-opacity="0.18"/>
+    </filter>
+
+    <!-- Reusable check badge -->
+    <g id="checkBadge">
+      <circle cx="0" cy="0" r="8.5" fill="url(#gPurpleBlue)"/>
+      <path d="M-3 0 l2 2.5 L4 -3.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Feature icons (14x14 box, centered on 0,0) -->
+    <g id="ic-tests" fill="none" stroke="url(#gPurpleBlue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-2.5 -6 v5.2c0 .7-.3 1.3-.8 1.8l-3.2 3.2c-.8.8-.2 2.2.9 2.2h12.6c1.1 0 1.7-1.4.9-2.2l-3.2-3.2c-.5-.5-.8-1.1-.8-1.8V-6" />
+      <path d="M-4 -6h8"/>
+    </g>
+
+    <g id="ic-ci" fill="none" stroke="url(#gPurpleBlue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-5 0c1.8-3 5-3 6.8 0c1.8 3 5 3 6.8 0"/>
+      <path d="M1.8 0c-1.8 3-5 3-6.8 0c-1.8-3-5-3-6.8 0"/>
+    </g>
+
+    <g id="ic-analytics" fill="none" stroke="url(#gPurpleBlue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-5 5h10"/>
+      <path d="M-5 2v3M-1 -1v6M3 -4v9M7 -2v7"/>
+    </g>
+
+    <g id="ic-docs" fill="none" stroke="url(#gPurpleBlue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-3.5 -6h5.5l3.5 3.5v7.5h-9z"/>
+      <path d="M2 -6v3.5h3.5"/>
+      <path d="M-2.3 -1.5h4.6M-2.3 1h4.6"/>
+    </g>
+
+    <g id="ic-pricing" fill="none" stroke="url(#gPurpleBlue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-6 -1l5.8 -5.8h5v5L-1 4l-5 -5z"/>
+      <circle cx="3" cy="-4.3" r="1.3"/>
+    </g>
+
+    <g id="ic-deploy" fill="none" stroke="url(#gPurpleBlue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 -6c2.7 1.6 3.6 4.4 3.6 7.4c0 1.6-1.3 2.6-3.6 3.6c-2.3-1-3.6-2-3.6-3.6c0-3 0.9-5.8 3.6-7.4z"/>
+      <circle cx="0" cy="-3" r="1.3"/>
+      <path d="M-4 0c-1.5.5-2.8 1.6-3.4 3.1M4 0c1.5.5 2.8 1.6 3.4 3.1"/>
+    </g>
+
+    <style>
+      .chip-label{ font-family: Inter, "Segoe UI", Arial, sans-serif; font-size:12px; font-weight:600; fill:#0F172A; }
+      .badge-text{ font-family: Inter, "Segoe UI", Arial, sans-serif; font-size:12px; font-weight:700; fill:#ffffff; letter-spacing:.2px; }
+      .muted{ fill:#334155; opacity:.9; }
+    </style>
+  </defs>
+
+  <!-- Quality badge -->
+  <g transform="translate(12,12)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="166" height="28" rx="14" fill="url(#gBluePurple)"/>
+    <path d="M14 7 l6 -3 l6 3 v6 c0 5-6 8-6 8s-6-3-6-8z" fill="none" stroke="#FFF" stroke-width="1.5"/>
+    <path d="M18 12 l2 2 l4 -4" fill="none" stroke="#FFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="34" y="19" class="badge-text">PRODUCTION-READY</text>
+  </g>
+
+  <!-- Secondary badge -->
+  <g transform="translate(320,12)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="68" height="28" rx="14" fill="url(#gPurpleBlue)"/>
+    <path d="M16 18 l5-10 l5 10 l-9 0" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="30" y="19" class="badge-text">QA</text>
+  </g>
+
+  <!-- Checklist chips -->
+  <!-- Row 1 -->
+  <g transform="translate(12,56)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="28" rx="14" fill="url(#chipFill)" stroke="url(#gPurpleBlue)" stroke-width="1.25"/>
+    <g transform="translate(16,14)"><use href="#ic-tests"/></g>
+    <text x="34" y="19" class="chip-label">Tests</text>
+    <g transform="translate(106,14)"><use href="#checkBadge"/></g>
+  </g>
+
+  <g transform="translate(140,56)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="28" rx="14" fill="url(#chipFill)" stroke="url(#gPurpleBlue)" stroke-width="1.25"/>
+    <g transform="translate(16,14)"><use href="#ic-ci"/></g>
+    <text x="34" y="19" class="chip-label">CI</text>
+    <g transform="translate(106,14)"><use href="#checkBadge"/></g>
+  </g>
+
+  <g transform="translate(268,56)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="28" rx="14" fill="url(#chipFill)" stroke="url(#gPurpleBlue)" stroke-width="1.25"/>
+    <g transform="translate(16,14)"><use href="#ic-analytics"/></g>
+    <text x="34" y="19" class="chip-label">Analytics</text>
+    <g transform="translate(106,14)"><use href="#checkBadge"/></g>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(12,92)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="28" rx="14" fill="url(#chipFill)" stroke="url(#gPurpleBlue)" stroke-width="1.25"/>
+    <g transform="translate(16,14)"><use href="#ic-docs"/></g>
+    <text x="34" y="19" class="chip-label">Docs</text>
+    <g transform="translate(106,14)"><use href="#checkBadge"/></g>
+  </g>
+
+  <g transform="translate(140,92)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="28" rx="14" fill="url(#chipFill)" stroke="url(#gPurpleBlue)" stroke-width="1.25"/>
+    <g transform="translate(16,14)"><use href="#ic-pricing"/></g>
+    <text x="34" y="19" class="chip-label">Pricing</text>
+    <g transform="translate(106,14)"><use href="#checkBadge"/></g>
+  </g>
+
+  <g transform="translate(268,92)" filter="url(#softShadow)">
+    <rect x="0" y="0" width="120" height="28" rx="14" fill="url(#chipFill)" stroke="url(#gPurpleBlue)" stroke-width="1.25"/>
+    <g transform="translate(16,14)"><use href="#ic-deploy"/></g>
+    <text x="34" y="19" class="chip-label">Deploy</text>
+    <g transform="translate(106,14)"><use href="#checkBadge"/></g>
+  </g>
+</svg>

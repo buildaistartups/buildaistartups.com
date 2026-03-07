@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 128" width="1200" height="128">
+  <defs>
+    <style>
+      .stage-box { fill: #7C3AED; stroke: #5B21B6; stroke-width: 2; }
+      .stage-text { fill: white; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .deliverable-text { fill: #67E8F9; font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .milestone-text { fill: #60A5FA; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }
+      .arrow { fill: none; stroke: #3B82F6; stroke-width: 2; marker-end: url(#arrowhead); }
+      .milestone { fill: #3B82F6; }
+      .checkpoint { fill: #F59E0B; stroke: #D97706; stroke-width: 1.5; }
+      .checkpoint-text { fill: #78350F; font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3B82F6" />
+    </marker>
+  </defs>
+  
+  <!-- Stage 1: Intake -->
+  <rect x="10" y="40" width="150" height="50" rx="5" class="stage-box"/>
+  <text x="85" y="60" class="stage-text">1. INTAKE</text>
+  <text x="85" y="73" class="deliverable-text">Team Formation</text>
+  <text x="85" y="83" class="deliverable-text">Goal Setting</text>
+  <circle cx="85" cy="25" r="6" class="milestone"/>
+  <text x="85" y="15" class="milestone-text">Kickoff</text>
+  
+  <!-- Checkpoint 1 -->
+  <circle cx="140" cy="105" r="8" class="checkpoint"/>
+  <text x="140" y="122" class="checkpoint-text">Mentor ✓</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 165 65 L 200 65" class="arrow"/>
+  
+  <!-- Stage 2: Spec Studio -->
+  <rect x="205" y="40" width="150" height="50" rx="5" class="stage-box"/>
+  <text x="280" y="60" class="stage-text">2. SPEC STUDIO</text>
+  <text x="280" y="73" class="deliverable-text">Requirements Doc</text>
+  <text x="280" y="83" class="deliverable-text">Architecture Plan</text>
+  <circle cx="280" cy="25" r="6" class="milestone"/>
+  <text x="280" y="15" class="milestone-text">Spec Review</text>
+  
+  <!-- Checkpoint 2 -->
+  <circle cx="335" cy="105" r="8" class="checkpoint"/>
+  <text x="335" y="122" class="checkpoint-text">Mentor ✓</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M 360 65 L 395 65" class="arrow"/>
+  
+  <!-- Stage 3: Repo Forge -->
+  <rect x="400" y="40" width="150" height="50" rx="5" class="stage-box"/>
+  <text x="475" y="60" class="stage-text">3. REPO FORGE</text>
+  <text x="475" y="73" class="deliverable-text">Setup &amp; Structure</text>
+  <text x="475" y="83" class="deliverable-text">Core Development</text>
+  <circle cx="475" cy="25" r="6" class="milestone"/>
+  <text x="475" y="15" class="milestone-text">Code Review</text>
+  
+  <!-- Checkpoint 3 -->
+  <circle cx="530" cy="105" r="8" class="checkpoint"/>
+  <text x="530" y="122" class="checkpoint-text">Mentor ✓</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M 555 65 L 590 65" class="arrow"/>
+  
+  <!-- Stage 4: UI & Copy -->
+  <rect x="595" y="40" width="150" height="50" rx="5" class="stage-box"/>
+  <text x="670" y="60" class="stage-text">4. UI &amp; COPY</text>
+  <text x="670" y="73" class="deliverable-text">Design System</text>
+  <text x="670" y="83" class="deliverable-text">Content Creation</text>
+  <circle cx="670" cy="25" r="6" class="milestone"/>
+  <text x="670" y="15" class="milestone-text">UX Audit</text>
+  
+  <!-- Checkpoint 4 -->
+  <circle cx="725" cy="105" r="8" class="checkpoint"/>
+  <text x="725" y="122" class="checkpoint-text">Mentor ✓</text>
+  
+  <!-- Arrow 4 -->
+  <path d="M 750 65 L 785 65" class="arrow"/>
+  
+  <!-- Stage 5: Ship & Learn -->
+  <rect x="790" y="40" width="150" height="50" rx="5" class="stage-box"/>
+  <text x="865" y="60" class="stage-text">5. SHIP &amp; LEARN</text>
+  <text x="865" y="73" class="deliverable-text">Launch Product</text>
+  <text x="865" y="83" class="deliverable-text">User Feedback</text>
+  <circle cx="865" cy="25" r="6" class="milestone"/>
+  <text x="865" y="15" class="milestone-text">MVP Launch</text>
+  
+  <!-- Checkpoint 5 -->
+  <circle cx="920" cy="105" r="8" class="checkpoint"/>
+  <text x="920" y="122" class="checkpoint-text">Mentor ✓</text>
+  
+  <!-- Arrow 5 -->
+  <path d="M 945 65 L 980 65" class="arrow"/>
+  
+  <!-- Stage 6: Demo Day -->
+  <rect x="985" y="40" width="150" height="50" rx="5" class="stage-box"/>
+  <text x="1060" y="60" class="stage-text">6. DEMO DAY</text>
+  <text x="1060" y="73" class="deliverable-text">Final Presentation</text>
+  <text x="1060" y="83" class="deliverable-text">Showcase</text>
+  <circle cx="1060" cy="25" r="6" class="milestone"/>
+  <text x="1060" y="15" class="milestone-text">Graduation</text>
+  
+  <!-- Final Assessment -->
+  <circle cx="1115" cy="105" r="8" class="checkpoint"/>
+  <text x="1115" y="122" class="checkpoint-text">Final ✓</text>
+</svg>

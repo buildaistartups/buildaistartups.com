@@ -1,0 +1,154 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" style="background-color: transparent;">
+  <!-- Transparent canvas explicitly enforced -->
+  <rect width="100%" height="100%" fill="none" pointer-events="none"/>
+
+  <!-- Define gradients -->
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- High-contrast, theme-friendly panel backgrounds -->
+    <linearGradient id="panelGradPayload" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.12"/>
+    </linearGradient>
+    <linearGradient id="panelGradSecurity" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22C55E" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.12"/>
+    </linearGradient>
+
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="36" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#0EA5E9" text-anchor="middle">
+    Webhook Event Flow
+  </text>
+
+  <!-- Step 1: API Request -->
+  <g transform="translate(100, 80)">
+    <circle cx="0" cy="0" r="48" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+    <g transform="scale(1.6)">
+      <path d="M-12,-8 L-12,8 M-8,-8 L-8,8 M8,-8 L8,8 M12,-8 L12,8 M-4,-8 L-4,8 M4,-8 L4,8" stroke="white" stroke-width="2.5" fill="none"/>
+    </g>
+    <text x="70" y="6" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#0EA5E9">API Request</text>
+    <text x="70" y="30" font-family="Arial, sans-serif" font-size="15" fill="#38BDF8">POST /api/action</text>
+    <g transform="translate(238.67, -12)">
+      <rect x="0" y="0" width="88" height="24" rx="12" fill="#10B981" opacity="0.2"/>
+      <circle cx="12" cy="12" r="7" fill="none" stroke="#10B981" stroke-width="2"/>
+      <path d="M12,8 L12,12 L12,16" stroke="#10B981" stroke-width="2" stroke-linecap="round"/>
+      <text x="24" y="17" font-family="Arial, sans-serif" font-size="12" fill="#059669" font-weight="600">HTTPS</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g>
+    <line x1="100" y1="132" x2="100" y2="152" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="5,5"/>
+    <polygon points="100,162 95,152 105,152" fill="#8B5CF6"/>
+    <text x="115" y="150" font-family="Arial, sans-serif" font-size="14" fill="#38BDF8" font-style="italic">triggers</text>
+  </g>
+
+  <!-- Step 2: Event Trigger -->
+  <g transform="translate(100, 210)">
+    <circle cx="0" cy="0" r="48" fill="url(#blueGrad)" filter="url(#shadow)"/>
+    <g transform="scale(1.6)">
+      <rect x="-10" y="-12" width="20" height="24" rx="2" fill="none" stroke="white" stroke-width="2.5"/>
+      <line x1="-10" y1="-4" x2="10" y2="-4" stroke="white" stroke-width="2.5"/>
+      <line x1="-10" y1="4" x2="10" y2="4" stroke="white" stroke-width="2.5"/>
+    </g>
+    <text x="70" y="6" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#0EA5E9">Event Trigger</text>
+    <text x="70" y="30" font-family="Arial, sans-serif" font-size="15" fill="#38BDF8">event.created</text>
+    <g transform="translate(238.67, -12)">
+      <rect x="0" y="0" width="108" height="24" rx="12" fill="#8B5CF6" opacity="0.2"/>
+      <text x="10" y="17" font-family="Arial, sans-serif" font-size="12" fill="#7C3AED" font-weight="700">HMAC-SHA256</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g>
+    <line x1="100" y1="262" x2="100" y2="282" stroke="#3B82F6" stroke-width="3" stroke-dasharray="5,5"/>
+    <polygon points="100,292 95,282 105,282" fill="#3B82F6"/>
+    <text x="115" y="280" font-family="Arial, sans-serif" font-size="14" fill="#38BDF8" font-style="italic">sends payload</text>
+  </g>
+
+  <!-- Step 3: Webhook Handler -->
+  <g transform="translate(100, 340)">
+    <circle cx="0" cy="0" r="48" fill="url(#purpleGrad)" filter="url(#shadow)"/>
+    <g transform="scale(1.6)">
+      <circle cx="0" cy="-8" r="4" fill="white"/>
+      <path d="M0,-4 Q-8,4 -8,12" stroke="white" stroke-width="2.5" fill="none"/>
+      <path d="M0,-4 Q8,4 8,12" stroke="white" stroke-width="2.5" fill="none"/>
+      <circle cx="-8" cy="12" r="3" fill="white"/>
+      <circle cx="8" cy="12" r="3" fill="white"/>
+    </g>
+    <text x="70" y="6" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#0EA5E9">Webhook Handler</text>
+    <text x="70" y="30" font-family="Arial, sans-serif" font-size="15" fill="#38BDF8">Verify &amp; Process</text>
+    <g transform="translate(268.67, -12)">
+      <rect x="0" y="0" width="100" height="24" rx="12" fill="#10B981" opacity="0.2"/>
+      <circle cx="12" cy="12" r="6" fill="none" stroke="#059669" stroke-width="2"/>
+      <path d="M9.5,12 L11.5,14 L15,10.5" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="24" y="17" font-family="Arial, sans-serif" font-size="12" fill="#059669" font-weight="600">Verified</text>
+    </g>
+  </g>
+
+  <!-- Arrow 3 -->
+  <g>
+    <line x1="100" y1="392" x2="100" y2="412" stroke="#8B5CF6" stroke-width="3" stroke-dasharray="5,5"/>
+    <polygon points="100,422 95,412 105,412" fill="#8B5CF6"/>
+    <text x="115" y="408" font-family="Arial, sans-serif" font-size="14" fill="#38BDF8" font-style="italic">responds</text>
+  </g>
+
+  <!-- Step 4: Response -->
+  <g transform="translate(100, 470)">
+    <circle cx="0" cy="0" r="48" fill="url(#blueGrad)" filter="url(#shadow)"/>
+    <g transform="scale(1.6)">
+      <circle cx="0" cy="0" r="12" fill="none" stroke="white" stroke-width="2.5"/>
+      <path d="M-5,0 L-2,5 L6,-5" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <text x="70" y="6" font-family="Arial, sans-serif" font-size="22" font-weight="600" fill="#0EA5E9">Response</text>
+    <text x="70" y="30" font-family="Arial, sans-serif" font-size="15" fill="#38BDF8">200 OK</text>
+    <g transform="translate(238.67, -12)">
+      <rect x="0" y="0" width="88" height="24" rx="12" fill="#10B981" opacity="0.2"/>
+      <circle cx="12" cy="12" r="5" fill="#10B981"/>
+      <text x="26" y="17" font-family="Arial, sans-serif" font-size="12" fill="#059669" font-weight="600">Success</text>
+    </g>
+  </g>
+
+  <!-- Right side boxes with stunning, theme-friendly backgrounds & high-contrast borders -->
+  <g transform="translate(495, 78)">
+    <rect x="0" y="0" width="300" height="190" rx="12" fill="url(#panelGradPayload)" stroke="#0EA5E9" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    <text x="15" y="34" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0EA5E9">Webhook Payload</text>
+    <text x="15" y="66" font-family="Courier New, monospace" font-size="16" fill="#38BDF8">{</text>
+    <text x="25" y="88" font-family="Courier New, monospace" font-size="16" fill="#8B5CF6">"event"</text>
+    <text x="105" y="88" font-family="Courier New, monospace" font-size="16" fill="#38BDF8">: "action.created",</text>
+    <text x="25" y="110" font-family="Courier New, monospace" font-size="16" fill="#8B5CF6">"timestamp"</text>
+    <text x="137" y="110" font-family="Courier New, monospace" font-size="16" fill="#38BDF8">: 1697123456,</text>
+    <text x="25" y="132" font-family="Courier New, monospace" font-size="16" fill="#8B5CF6">"signature"</text>
+    <text x="121" y="132" font-family="Courier New, monospace" font-size="16" fill="#38BDF8">: "sha256=...",</text>
+    <text x="25" y="154" font-family="Courier New, monospace" font-size="16" fill="#8B5CF6">"data"</text>
+    <text x="85" y="154" font-family="Courier New, monospace" font-size="16" fill="#38BDF8">: { ... }</text>
+    <text x="15" y="176" font-family="Courier New, monospace" font-size="16" fill="#38BDF8">}</text>
+  </g>
+
+  <g transform="translate(495, 283)">
+    <rect x="0" y="0" width="300" height="235" rx="12" fill="url(#panelGradSecurity)" stroke="#0EA5E9" stroke-width="2" vector-effect="non-scaling-stroke"/>
+    <text x="15" y="34" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#0EA5E9">Security Features</text>
+    <circle cx="25" cy="66" r="8" fill="#8B5CF6" opacity="0.2"/>
+    <text x="45" y="70" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#0EA5E9">Signature Verification</text>
+    <text x="45" y="90" font-family="Arial, sans-serif" font-size="15" fill="#38BDF8">HMAC-SHA256 validates payload</text>
+    <circle cx="25" cy="118" r="8" fill="#3B82F6" opacity="0.2"/>
+    <text x="45" y="122" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#0EA5E9">Timestamp Check</text>
+    <text x="45" y="142" font-family="Arial, sans-serif" font-size="15" fill="#38BDF8">Prevents replay attacks</text>
+    <circle cx="25" cy="170" r="8" fill="#10B981" opacity="0.2"/>
+    <text x="45" y="174" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#0EA5E9">TLS Encryption</text>
+    <text x="45" y="194" font-family="Arial, sans-serif" font-size="15" fill="#38BDF8">End-to-end secure delivery</text>
+  </g>
+</svg>

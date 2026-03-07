@@ -1,0 +1,144 @@
+<svg width="100%" height="100%" viewBox="0 0 900 350" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" style="display:block;font-family:Arial, Helvetica, sans-serif">
+  <defs>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6366F1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563EB;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 2 2 L 10 6 L 2 10 L 4 6 Z" fill="#8B5CF6" />
+    </marker>
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 2 2 L 10 6 L 2 10 L 4 6 Z" fill="#3B82F6" />
+    </marker>
+  </defs>
+
+  <!-- centered scale for whole composition -->
+  <g transform="translate(450,175) scale(1.1) translate(-420,-175)">
+
+    <!-- Step 1: Browse -->
+    <g transform="translate(40, 40)">
+      <!-- emblem (rings) -->
+      <g transform="translate(40,40) scale(1.3) translate(-40,-40)">
+        <circle cx="40" cy="40" r="45" fill="url(#purpleGrad)" opacity="0.1"/>
+        <circle cx="40" cy="40" r="38" fill="none" stroke="url(#purpleGrad)" stroke-width="2"/>
+      </g>
+      <!-- icon (grid) BIGGER & CENTERED around (40,40) -->
+      <g transform="translate(40,40) scale(1.6) translate(-40,-40)">
+        <rect x="24" y="24" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="36" y="24" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="48" y="24" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="24" y="36" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="36" y="36" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="48" y="36" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="24" y="48" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="36" y="48" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+        <rect x="48" y="48" width="8" height="8" fill="url(#purpleGrad)" rx="1.5"/>
+      </g>
+      <text x="40" y="112" text-anchor="middle" fill="#3B82F6" font-size="20" font-weight="600">Browse</text>
+      <text x="40" y="138" text-anchor="middle" fill="#3B82F6" font-size="18">Explore items</text>
+    </g>
+
+    <!-- Arrow 1 -->
+    <line x1="135" y1="80" x2="185" y2="80" stroke="#8B5CF6" stroke-width="3" marker-end="url(#arrowPurple)"/>
+
+    <!-- Step 2: View Details -->
+    <g transform="translate(200, 40)">
+      <!-- emblem -->
+      <g transform="translate(40,40) scale(1.3) translate(-40,-40)">
+        <circle cx="40" cy="40" r="45" fill="url(#blueGrad)" opacity="0.1"/>
+        <circle cx="40" cy="40" r="38" fill="none" stroke="url(#blueGrad)" stroke-width="2"/>
+      </g>
+      <!-- icon (magnifier) BIGGER & CENTERED -->
+      <g transform="translate(40,40) scale(1.7) translate(-40,-40)">
+        <circle cx="40" cy="40" r="10" fill="none" stroke="url(#blueGrad)" stroke-width="2.5"/>
+        <line x1="48" y1="48" x2="58" y2="58" stroke="url(#blueGrad)" stroke-width="2.5" stroke-linecap="round"/>
+      </g>
+      <text x="40" y="112" text-anchor="middle" fill="#3B82F6" font-size="20" font-weight="600">View Details</text>
+      <text x="40" y="138" text-anchor="middle" fill="#3B82F6" font-size="18">Review item</text>
+    </g>
+
+    <!-- Arrow 2 -->
+    <line x1="295" y1="80" x2="345" y2="80" stroke="#3B82F6" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+    <!-- Step 3: Purchase -->
+    <g transform="translate(360, 40)">
+      <!-- emblem -->
+      <g transform="translate(40,40) scale(1.3) translate(-40,-40)">
+        <circle cx="40" cy="40" r="45" fill="url(#purpleGrad)" opacity="0.1"/>
+        <circle cx="40" cy="40" r="38" fill="none" stroke="url(#purpleGrad)" stroke-width="2"/>
+      </g>
+      <!-- icon (card) BIGGER & CENTERED -->
+      <g transform="translate(40,40) scale(1.65) translate(-40,-40)">
+        <rect x="26" y="33" width="28" height="18" rx="2.5" fill="none" stroke="url(#purpleGrad)" stroke-width="2"/>
+        <line x1="26" y1="38" x2="54" y2="38" stroke="url(#purpleGrad)" stroke-width="2"/>
+        <line x1="29" y1="44" x2="38" y2="44" stroke="url(#purpleGrad)" stroke-width="1.5" stroke-linecap="round"/>
+      </g>
+      <text x="40" y="112" text-anchor="middle" fill="#3B82F6" font-size="20" font-weight="600">Purchase</text>
+      <text x="40" y="138" text-anchor="middle" fill="#3B82F6" font-size="18">Secure payment</text>
+
+      <!-- Escrow Badge -->
+      <g transform="translate(-2, 160)">
+        <rect x="0" y="0" width="84" height="24" rx="12" fill="#10B981" opacity="0.15"/>
+        <rect x="0" y="0" width="84" height="24" rx="12" fill="none" stroke="#10B981" stroke-width="1"/>
+        <text x="42" y="16" text-anchor="middle" fill="#059669" font-size="12" font-weight="700">🔒 ESCROW</text>
+      </g>
+    </g>
+
+    <!-- Arrow 3 -->
+    <line x1="455" y1="80" x2="505" y2="80" stroke="#8B5CF6" stroke-width="3" marker-end="url(#arrowPurple)"/>
+
+    <!-- Step 4: Transfer -->
+    <g transform="translate(520, 40)">
+      <!-- emblem -->
+      <g transform="translate(40,40) scale(1.3) translate(-40,-40)">
+        <circle cx="40" cy="40" r="45" fill="url(#blueGrad)" opacity="0.1"/>
+        <circle cx="40" cy="40" r="38" fill="none" stroke="url(#blueGrad)" stroke-width="2"/>
+      </g>
+      <!-- icon (transfer arrows) BIGGER & PROPERLY CENTERED -->
+      <g>
+        <!-- Down arrow (left) -->
+        <path d="M 30 32 L 30 45 M 26 41 L 30 45 L 34 41" fill="none" stroke="url(#blueGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Up arrow (right) -->
+        <path d="M 50 48 L 50 35 M 46 39 L 50 35 L 54 39" fill="none" stroke="url(#blueGrad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <text x="40" y="112" text-anchor="middle" fill="#3B82F6" font-size="20" font-weight="600">Transfer</text>
+      <text x="40" y="138" text-anchor="middle" fill="#3B82F6" font-size="18">Item delivered</text>
+    </g>
+
+    <!-- Arrow 4 -->
+    <line x1="615" y1="80" x2="665" y2="80" stroke="#3B82F6" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+    <!-- Step 5: Payout -->
+    <g transform="translate(680, 40)">
+      <!-- emblem -->
+      <g transform="translate(40,40) scale(1.3) translate(-40,-40)">
+        <circle cx="40" cy="40" r="45" fill="url(#purpleGrad)" opacity="0.1"/>
+        <circle cx="40" cy="40" r="38" fill="none" stroke="url(#purpleGrad)" stroke-width="2"/>
+      </g>
+      <!-- icon (dollar ring) BIGGER & CENTERED -->
+      <g transform="translate(40,40) scale(1.7) translate(-40,-40)">
+        <circle cx="40" cy="40" r="12" fill="none" stroke="url(#purpleGrad)" stroke-width="2"/>
+        <text x="40" y="45" text-anchor="middle" fill="url(#purpleGrad)" font-size="16" font-weight="700">$</text>
+        <line x1="33" y1="32" x2="47" y2="32" stroke="url(#purpleGrad)" stroke-width="1.5"/>
+        <line x1="33" y1="48" x2="47" y2="48" stroke="url(#purpleGrad)" stroke-width="1.5"/>
+      </g>
+      <text x="40" y="112" text-anchor="middle" fill="#3B82F6" font-size="20" font-weight="600">Payout</text>
+      <text x="40" y="138" text-anchor="middle" fill="#3B82F6" font-size="18">Funds released</text>
+
+      <!-- Stripe Connect pill: one line, bigger -->
+      <g transform="translate(-90, 158)">
+        <rect x="0" y="0" width="220" height="36" rx="8" fill="#635BFF" opacity="0.10"/>
+        <rect x="0" y="0" width="220" height="36" rx="8" fill="none" stroke="#635BFF" stroke-width="1"/>
+        <text x="110" y="23" text-anchor="middle" fill="#635BFF" font-size="18" font-weight="700">stripe connect</text>
+      </g>
+    </g>
+
+    <!-- Timeline -->
+    <line x1="80" y1="240" x2="760" y2="240" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,6"/>
+    <text x="420" y="272" text-anchor="middle" fill="#3B82F6" font-size="14" font-weight="700">SECURE TRANSACTION FLOW</text>
+  </g>
+</svg>
