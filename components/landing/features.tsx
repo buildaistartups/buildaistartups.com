@@ -2,10 +2,19 @@ export default function Features() {
   const features = [
     {
       title: 'AI Idea Validation',
-      description: 'Describe your idea, get honest market analysis, competitor mapping, and an ICP profile. Know before you build.',
+      description: 'Describe your idea in any language — get honest market analysis, competitor mapping, and an ICP profile. Know before you build.',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+    },
+    {
+      title: 'AI Idea Generator',
+      description: 'No idea yet? Share your interests, skills, and budget. AI suggests 10 tailored startup ideas with market gaps, difficulty, and revenue potential.',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
         </svg>
       ),
     },
@@ -45,27 +54,18 @@ export default function Features() {
         </svg>
       ),
     },
-    {
-      title: 'Templates Library',
-      description: 'PRDs, competitor matrices, launch announcements, PMF surveys, monthly retros. Everything you need, pre-structured.',
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-        </svg>
-      ),
-    },
   ]
 
   return (
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Header */}
+          {/* Header — solid purple, no gradient */}
           <div className="text-center mb-12 md:mb-16">
-            <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3 text-sm">
+            <div className="inline-flex font-medium text-purple-500 pb-3 text-sm">
               What you get
             </div>
-            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4">
+            <h2 className="h2 text-[var(--ls-text)] pb-4">
               Everything you need to validate and grow
             </h2>
             <p className="text-lg text-[var(--ls-text-muted)] max-w-2xl mx-auto">

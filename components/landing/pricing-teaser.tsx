@@ -12,12 +12,12 @@ export default function PricingTeaser() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Header */}
+          {/* Header — solid purple */}
           <div className="text-center mb-12">
-            <div className="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3 text-sm">
+            <div className="inline-flex font-medium text-purple-500 pb-3 text-sm">
               Simple pricing
             </div>
-            <h2 className="h2 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4">
+            <h2 className="h2 text-[var(--ls-text)] pb-4">
               Start free. Upgrade when you need more.
             </h2>
           </div>

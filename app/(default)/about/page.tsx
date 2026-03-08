@@ -10,7 +10,6 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      {/* Hero */}
       <section className="relative">
         <div className="absolute left-1/2 -translate-x-1/2 -mt-36 blur-2xl pointer-events-none -z-10" style={{ opacity: 'var(--ls-glow-opacity)' }} aria-hidden="true">
           <Image src={Illustration} className="max-w-none" width={1440} height={427} alt="" />
@@ -19,7 +18,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="pt-32 pb-12 md:pt-40 md:pb-20">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="h1 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4">
+              <h1 className="h1 text-[var(--ls-text)] pb-4">
                 About this project
               </h1>
               <p className="text-lg text-[var(--ls-text-muted)]">
@@ -30,7 +29,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Story */}
       <section className="relative">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="pb-12 md:pb-20">
@@ -39,15 +37,15 @@ export default function About() {
                 <div>
                   <h2 className="text-xl font-semibold text-[var(--ls-text)] mb-3">The problem we saw</h2>
                   <p>
-                    The vibe coding tools made building apps 10x faster. But they made the validation problem worse. 
+                    The vibe coding tools made building apps 10x faster. But they made the validation problem worse.
                     Now founders can build a beautiful app in 28 minutes and still fail because nobody wants it.
                   </p>
                 </div>
                 <div>
                   <h2 className="text-xl font-semibold text-[var(--ls-text)] mb-3">What we&apos;re building</h2>
                   <p>
-                    LaunchScore is the accountability layer that sits alongside whatever tool you use to build. 
-                    It tracks your startup from idea to revenue using a structured 5-stage journey with AI-assisted validation at each stage. 
+                    LaunchScore is the accountability layer that sits alongside whatever tool you use to build.
+                    It tracks your startup from idea to revenue using a structured 5-stage journey with AI-assisted validation at each stage.
                     Your LaunchScore (0-100) tells you — honestly — whether to persevere, pivot, or move on.
                   </p>
                 </div>
@@ -75,8 +73,8 @@ export default function About() {
                 <div>
                   <h2 className="text-xl font-semibold text-[var(--ls-text)] mb-3">The bigger vision</h2>
                   <p>
-                    LaunchScore is the first piece of a larger platform. Over time, we&apos;re building an ecosystem where AI startups 
-                    can be validated, built, launched, grown, and even traded — all with quality gates and structured evidence at every step. 
+                    LaunchScore is the first piece of a larger platform. Over time, we&apos;re building an ecosystem where AI startups
+                    can be validated, built, launched, grown, and even traded — all with quality gates and structured evidence at every step.
                     But we&apos;re starting small, focused, and honest.
                   </p>
                 </div>

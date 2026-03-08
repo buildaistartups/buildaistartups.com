@@ -44,35 +44,30 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Right controls */}
-          <ul className="flex-1 flex justify-end items-center gap-3">
-            <li>
-              <ThemeToggle />
-            </li>
-            <li className="hidden md:block">
-              <Link
-                className="font-medium text-sm text-[var(--ls-text-secondary)] hover:text-[var(--ls-text)] whitespace-nowrap transition duration-150 ease-in-out"
-                href="/signin"
-              >
-                Sign in
-              </Link>
-            </li>
-            <li className="hidden md:block ml-3">
-              <Link
-                className="btn-sm text-white bg-[var(--ls-accent)] hover:bg-[var(--ls-accent-hover)] transition duration-150 ease-in-out w-full group shadow-sm"
-                href="/signup"
-              >
-                <span className="relative inline-flex items-center">
-                  Start Free{' '}
-                  <span className="tracking-normal text-purple-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                    -&gt;
-                  </span>
+          {/* Right controls: Sign in → Start Free → Theme Toggle */}
+          <div className="flex-1 flex justify-end items-center gap-3">
+            <Link
+              className="hidden md:inline-flex font-medium text-sm text-[var(--ls-text-secondary)] hover:text-[var(--ls-text)] whitespace-nowrap transition duration-150 ease-in-out"
+              href="/signin"
+            >
+              Sign in
+            </Link>
+            <Link
+              className="hidden md:inline-flex btn-sm text-white bg-[var(--ls-accent)] hover:bg-[var(--ls-accent-hover)] transition duration-150 ease-in-out group shadow-sm"
+              href="/signup"
+            >
+              <span className="relative inline-flex items-center">
+                Start Free{' '}
+                <span className="tracking-normal text-purple-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                  -&gt;
                 </span>
-              </Link>
-            </li>
-          </ul>
+              </span>
+            </Link>
+            {/* Theme toggle — rightmost element */}
+            <ThemeToggle />
 
-          <MobileMenu />
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </header>

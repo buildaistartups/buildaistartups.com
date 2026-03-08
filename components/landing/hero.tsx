@@ -38,7 +38,7 @@ export default function Hero() {
 
             {/* Title */}
             <h1
-              className="h1 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4"
+              className="h1 text-[var(--ls-text)] pb-4"
               data-aos="fade-down"
             >
               Know if your startup is working.
@@ -82,8 +82,12 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Trust line */}
-            <p className="text-sm text-[var(--ls-text-muted)] mt-6" data-aos="fade-down" data-aos-delay="500">
+            {/* Trust line — more visible on dark gradient */}
+            <p
+              className="text-sm font-medium text-white/80 [html[data-theme=light]_&]:text-[var(--ls-text-muted)] mt-6 drop-shadow-sm"
+              data-aos="fade-down"
+              data-aos-delay="500"
+            >
               Free plan available. No credit card required.
             </p>
           </div>

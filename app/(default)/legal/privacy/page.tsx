@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           <div className="max-w-3xl mx-auto">
-            <h1 className="h2 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4">
+            <h1 className="h2 text-[var(--ls-text)] pb-4">
               Privacy Policy
             </h1>
             <p className="text-sm text-[var(--ls-text-muted)] mb-8">Last updated: March 2026</p>

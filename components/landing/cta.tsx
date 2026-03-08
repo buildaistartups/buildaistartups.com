@@ -7,7 +7,7 @@ export default function Cta() {
         <div className="py-12 md:py-20 border-t border-[var(--ls-border)]">
           <div className="max-w-3xl mx-auto text-center">
             <h2
-              className="h2 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4"
+              className="h2 text-[var(--ls-text)] pb-4"
               data-aos="fade-down"
             >
               Your next startup deserves better than guesswork.

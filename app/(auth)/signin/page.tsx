@@ -13,7 +13,7 @@ export default function SignIn() {
     <>
       <div className="max-w-3xl mx-auto text-center pb-12">
         <AuthLogo />
-        <h1 className="h2 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60">
+        <h1 className="h2 text-[var(--ls-text)]">
           Sign in to your account
         </h1>
         <p className="mt-3 text-[var(--ls-text-muted)]">

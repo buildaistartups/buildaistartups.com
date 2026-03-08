@@ -23,7 +23,7 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="pt-32 pb-10 md:pt-40 md:pb-16">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="h1 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4">
+              <h1 className="h1 text-[var(--ls-text)] pb-4">
                 Simple, transparent pricing
               </h1>
               <p className="text-lg text-[var(--ls-text-muted)]">

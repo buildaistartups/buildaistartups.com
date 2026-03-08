@@ -13,7 +13,7 @@ export default function ContactPage() {
         <div className="pt-32 pb-12 md:pt-40 md:pb-20">
           <div className="max-w-xl mx-auto">
             <div className="text-center mb-8">
-              <h1 className="h2 bg-clip-text text-transparent bg-linear-to-r from-[var(--ls-text-heading)]/60 via-[var(--ls-text-heading)] to-[var(--ls-text-heading)]/60 pb-4">
+              <h1 className="h2 text-[var(--ls-text)] pb-4">
                 Get in touch
               </h1>
               <p className="text-[var(--ls-text-muted)]">
