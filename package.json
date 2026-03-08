@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -31,7 +31,7 @@
     "@tailwindcss/postcss": "^4.0.3",
     "@tailwindcss/typography": "^0.5.16",
     "@types/aos": "^3.0.7",
-    "baseline-browser-mapping": "^2.10.0",
+    "baseline-browser-mapping": "latest",
     "postcss": "^8.5.1",
     "tailwindcss": "^4.0.3"
   }
