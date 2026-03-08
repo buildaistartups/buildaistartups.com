@@ -1,0 +1,151 @@
+@import 'tailwindcss';
+
+/* Additional styles */
+@import './additional-styles/utility-patterns.css' layer(components);
+@import './additional-styles/theme.css';
+
+@plugin "@tailwindcss/forms" {
+  strategy: base;
+}
+@plugin "@tailwindcss/typography" {
+  strategy: base;
+}
+
+/* ═══════════════════════════════════════════
+   Theme Tokens — Dark (default) & Light
+   ═══════════════════════════════════════════ */
+
+:root,
+[data-theme="dark"] {
+  --ls-bg: #0f172a;
+  --ls-bg-alt: #1e293b;
+  --ls-surface: rgba(15, 23, 42, 0.6);
+  --ls-surface-border: rgba(255, 255, 255, 0.08);
+  --ls-text: #f1f5f9;
+  --ls-text-secondary: #cbd5e1;
+  --ls-text-muted: #94a3b8;
+  --ls-text-heading: #e2e8f0;
+  --ls-border: rgba(255, 255, 255, 0.1);
+  --ls-accent: #a855f7;
+  --ls-accent-hover: #c084fc;
+  --ls-accent-text: #c4b5fd;
+  --ls-card-bg: rgba(30, 41, 59, 0.5);
+  --ls-card-border: rgba(255, 255, 255, 0.08);
+  --ls-input-bg: #1e293b;
+  --ls-input-border: transparent;
+  --ls-input-focus: #a855f7;
+  --ls-footer-bg: #0f172a;
+  --ls-header-blur: rgba(15, 23, 42, 0.8);
+  --ls-glow-opacity: 1;
+  --ls-particles-opacity: 1;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --ls-bg: #ffffff;
+  --ls-bg-alt: #f8fafc;
+  --ls-surface: rgba(248, 250, 252, 0.8);
+  --ls-surface-border: rgba(0, 0, 0, 0.06);
+  --ls-text: #0f172a;
+  --ls-text-secondary: #475569;
+  --ls-text-muted: #64748b;
+  --ls-text-heading: #1e293b;
+  --ls-border: #e2e8f0;
+  --ls-accent: #7c3aed;
+  --ls-accent-hover: #6d28d9;
+  --ls-accent-text: #7c3aed;
+  --ls-card-bg: #ffffff;
+  --ls-card-border: #e2e8f0;
+  --ls-input-bg: #ffffff;
+  --ls-input-border: #d1d5db;
+  --ls-input-focus: #7c3aed;
+  --ls-footer-bg: #f8fafc;
+  --ls-header-blur: rgba(255, 255, 255, 0.85);
+  --ls-glow-opacity: 0.4;
+  --ls-particles-opacity: 0.3;
+  color-scheme: light;
+}
+
+/* ═══════════════════════════════════════════ */
+
+@theme {
+  --font-inter: Inter, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5715;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-base--letter-spacing: -0.017em;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.5;
+  --text-lg--letter-spacing: -0.017em;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-xl--letter-spacing: -0.017em;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.415;
+  --text-2xl--letter-spacing: -0.017em;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.333;
+  --text-3xl--letter-spacing: -0.017em;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.277;
+  --text-4xl--letter-spacing: -0.017em;
+  --text-5xl: 2.75rem;
+  --text-5xl--line-height: 1.1;
+  --text-5xl--letter-spacing: -0.017em;
+  --text-6xl: 3.5rem;
+  --text-6xl--line-height: 1;
+  --text-6xl--letter-spacing: -0.017em;
+  --text-7xl: 4.5rem;
+  --text-7xl--line-height: 1;
+  --text-7xl--letter-spacing: -0.017em;
+
+  --tracking-tighter: -0.02em;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.01em;
+  --tracking-wider: 0.02em;
+  --tracking-widest: 0.4em;
+
+  --animate-endless: endless 20s linear infinite;
+  --animate-shine: shine 5s linear 500ms infinite;
+  --animate-float: float 2s ease-in-out infinite;
+  --animate-infinite-scroll: infinite-scroll 40s linear infinite;
+
+  @keyframes endless {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-245px); }
+  }
+  @keyframes shine {
+    0% { top: 0; transform: translateY(-100%) scaleY(10); opacity: 0; }
+    2% { opacity: 0.5; }
+    40% { top: 100%; transform: translateY(0) scaleY(200); opacity: 0; }
+    100% { top: 100%; transform: translateY(0) scaleY(1); opacity: 0; }
+  }
+  @keyframes float {
+    0% { transform: translateY(3%); }
+    50% { transform: translateY(-3%); }
+    100% { transform: translateY(3%); }
+  }
+  @keyframes infinite-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@utility rtl {
+  direction: rtl;
+}
