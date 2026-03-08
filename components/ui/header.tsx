@@ -44,7 +44,7 @@ export default function Header() {
             </ul>
           </nav>
 
-          {/* Right controls: Sign in → Start Free → Theme Toggle */}
+          {/* Right controls — all vertically centered */}
           <div className="flex-1 flex justify-end items-center gap-3">
             <Link
               className="hidden md:inline-flex font-medium text-sm text-[var(--ls-text-secondary)] hover:text-[var(--ls-text)] whitespace-nowrap transition duration-150 ease-in-out"
@@ -53,7 +53,7 @@ export default function Header() {
               Sign in
             </Link>
             <Link
-              className="hidden md:inline-flex btn-sm text-white bg-[var(--ls-accent)] hover:bg-[var(--ls-accent-hover)] transition duration-150 ease-in-out group shadow-sm"
+              className="hidden md:inline-flex items-center btn-sm text-white bg-[var(--ls-accent)] hover:bg-[var(--ls-accent-hover)] transition duration-150 ease-in-out group shadow-sm"
               href="/signup"
             >
               <span className="relative inline-flex items-center">
@@ -63,8 +63,10 @@ export default function Header() {
                 </span>
               </span>
             </Link>
-            {/* Theme toggle — rightmost element */}
-            <ThemeToggle />
+            {/* Toggle — vertically centered with items-center on parent */}
+            <div className="flex items-center">
+              <ThemeToggle />
+            </div>
 
             <MobileMenu />
           </div>

@@ -4,7 +4,7 @@ export default function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'Describe your idea',
+      title: 'Already have a business idea?',
       description: 'Tell us your startup idea in your own words, in any language. Our AI analyzes the market, identifies competitors, profiles your ideal customer, and gives you an honest validation score.',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -38,7 +38,7 @@ export default function HowItWorks() {
     <section className="relative" id="how-it-works">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Header — solid purple, no gradient (fix #4) */}
+          {/* Header */}
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex font-medium text-purple-500 pb-3 text-sm">
               How it works
@@ -51,7 +51,7 @@ export default function HowItWorks() {
             </p>
           </div>
 
-          {/* Step 0 — Idea Generator (point #7) */}
+          {/* Step 00 — Idea Generator */}
           <div
             className="mb-12 md:mb-16 max-w-2xl mx-auto"
             data-aos="fade-up"
@@ -66,10 +66,10 @@ export default function HowItWorks() {
                 Optional — Step 00
               </div>
               <h3 className="text-lg font-semibold text-[var(--ls-text)] mb-2">
-                Don&apos;t have an idea yet?
+                Don&apos;t have an idea for your startup yet?
               </h3>
               <p className="text-sm text-[var(--ls-text-muted)] mb-4 max-w-md mx-auto">
-                Tell us your interests, skills, and budget. Our AI generates 10 tailored startup ideas 
+                Tell us your interests, skills, and budget. Our AI generates 10 tailored startup ideas
                 based on real market gaps — complete with estimated difficulty, competition level, and revenue potential.
                 Pick one and go straight to Step 1.
               </p>

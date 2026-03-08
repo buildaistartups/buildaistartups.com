@@ -1,20 +1,20 @@
 export default function Features() {
   const features = [
     {
-      title: 'AI Idea Validation',
-      description: 'Describe your idea in any language — get honest market analysis, competitor mapping, and an ICP profile. Know before you build.',
-      icon: (
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-    },
-    {
       title: 'AI Idea Generator',
       description: 'No idea yet? Share your interests, skills, and budget. AI suggests 10 tailored startup ideas with market gaps, difficulty, and revenue potential.',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+      ),
+    },
+    {
+      title: 'AI Idea Validation',
+      description: 'Describe your idea in any language — get honest market analysis, competitor mapping, and an ICP profile. Know before you build.',
+      icon: (
+        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       ),
     },
@@ -60,7 +60,7 @@ export default function Features() {
     <section className="relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
-          {/* Header — solid purple, no gradient */}
+          {/* Header */}
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex font-medium text-purple-500 pb-3 text-sm">
               What you get
