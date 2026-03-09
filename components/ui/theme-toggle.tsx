@@ -10,7 +10,7 @@ export default function ThemeToggle() {
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    return <div className="w-6 h-[13px] rounded-full bg-[var(--ls-bg-alt)]" />
+    return <div className="w-[15px] h-[8px] rounded-full bg-[var(--ls-bg-alt)]" />
   }
 
   const isDark = theme === 'dark'
@@ -22,7 +22,7 @@ export default function ThemeToggle() {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className={`
-        relative inline-flex h-[13px] w-6 shrink-0 items-center rounded-full
+        relative inline-flex h-[8px] w-[15px] shrink-0 items-center rounded-full
         transition-colors duration-300 focus:outline-none
         ${isDark ? 'bg-slate-700' : 'bg-slate-300'}
       `}
@@ -32,8 +32,8 @@ export default function ThemeToggle() {
         className={`
           absolute transition-all duration-300 ease-in-out
           ${isDark
-            ? 'left-0.5 w-2 h-2 text-slate-400 opacity-50'
-            : 'left-[2px] w-[9px] h-[9px] text-amber-500 z-10'
+            ? 'left-[1px] w-[5px] h-[5px] text-slate-400 opacity-50'
+            : 'left-[1px] w-[6px] h-[6px] text-amber-500 z-10'
           }
         `}
       >
@@ -47,8 +47,8 @@ export default function ThemeToggle() {
         className={`
           absolute transition-all duration-300 ease-in-out
           ${isDark
-            ? 'right-[2px] w-[9px] h-[9px] text-violet-400 z-10'
-            : 'right-0.5 w-2 h-2 text-slate-400 opacity-50'
+            ? 'right-[1px] w-[6px] h-[6px] text-purple-500 z-10'
+            : 'right-[1px] w-[5px] h-[5px] text-slate-400 opacity-50'
           }
         `}
       >
@@ -60,9 +60,9 @@ export default function ThemeToggle() {
       {/* Thumb */}
       <span
         className={`
-          inline-block h-[9px] w-[9px] rounded-full bg-white shadow-md
+          inline-block h-[6px] w-[6px] rounded-full bg-white shadow-md
           transition-transform duration-300 ease-in-out
-          ${isDark ? 'translate-x-[13px]' : 'translate-x-[2px]'}
+          ${isDark ? 'translate-x-[8px]' : 'translate-x-[1px]'}
         `}
       />
     </button>
