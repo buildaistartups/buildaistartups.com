@@ -16,7 +16,7 @@ export default function ThemeToggle() {
   const isDark = theme === 'dark'
 
   return (
-    <div style={{ transform: 'scale(0.65)', transformOrigin: 'center' }}>
+    <div style={{ transform: 'scale(1.3)', transformOrigin: 'center' }}>
       <button
         role="switch"
         aria-checked={isDark}
