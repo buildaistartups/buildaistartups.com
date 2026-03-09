@@ -10,7 +10,7 @@ export default function ThemeToggle() {
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    return <div className="w-7 h-4 rounded-full bg-[var(--ls-bg-alt)]" />
+    return <div className="w-11 h-6 rounded-full bg-[var(--ls-bg-alt)]" />
   }
 
   const isDark = theme === 'dark'
@@ -21,24 +21,49 @@ export default function ThemeToggle() {
       aria-checked={isDark}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="relative inline-flex h-4 w-7 shrink-0 items-center rounded-full transition-colors duration-300 focus:outline-none"
-      style={{ backgroundColor: isDark ? 'rgba(139, 92, 246, 0.5)' : '#94a3b8' }}
+      className={`
+        relative inline-flex h-6 w-11 shrink-0 items-center rounded-full
+        transition-colors duration-300 focus:outline-none
+        ${isDark ? 'bg-slate-700' : 'bg-slate-300'}
+      `}
     >
-      {/* Sun icon (left side) — golden in light, dim in dark */}
-      <span className={`absolute left-0.5 transition-opacity duration-200 ${isDark ? 'opacity-30' : 'opacity-100'}`}>
-        <svg className="w-2.5 h-2.5 text-yellow-300 drop-shadow-sm" fill="currentColor" viewBox="0 0 20 20">
-          <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-        </svg>
-      </span>
-      {/* Moon icon (right side) — purple in dark, slate in light (never white) */}
-      <span className={`absolute right-0.5 transition-opacity duration-200 ${isDark ? 'opacity-100' : 'opacity-30'}`}>
-        <svg className="w-2.5 h-2.5 text-purple-300 [html[data-theme=light]_&]:text-slate-600" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-        </svg>
-      </span>
-      {/* Thumb */}
+      {/* Sun — small on track (dark mode) or large on thumb (light mode) */}
       <span
-        className={`inline-block h-2.5 w-2.5 transform rounded-full bg-white shadow transition-transform duration-300 ${isDark ? 'translate-x-[14px]' : 'translate-x-[2px]'}`}
+        className={`
+          absolute transition-all duration-300 ease-in-out
+          ${isDark
+            ? 'left-1.5 w-3 h-3 text-slate-400 opacity-50'
+            : 'left-[3px] w-4 h-4 text-amber-500 z-10'
+          }
+        `}
+      >
+        <svg className="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zm10.28-5.03a.75.75 0 10-1.06-1.06l-1.59 1.59a.75.75 0 101.06 1.06l1.59-1.59zm1.47 4.28a.75.75 0 010 1.5h-2.25a.75.75 0 010-1.5h2.25zM17.78 17.78a.75.75 0 00-1.06-1.06l-1.59 1.59a.75.75 0 101.06 1.06l1.59-1.59zM12 18.75a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm-5.03-1.47a.75.75 0 00-1.06 1.06l1.59 1.59a.75.75 0 101.06-1.06l-1.59-1.59zM5.25 12a.75.75 0 01-.75.75H2.25a.75.75 0 010-1.5H4.5a.75.75 0 01.75.75zm1.28-5.03a.75.75 0 001.06-1.06L6 4.32a.75.75 0 00-1.06 1.06l1.59 1.59z" />
+        </svg>
+      </span>
+
+      {/* Moon — large on thumb (dark mode) or small on track (light mode) */}
+      <span
+        className={`
+          absolute transition-all duration-300 ease-in-out
+          ${isDark
+            ? 'right-[3px] w-4 h-4 text-purple-300 z-10'
+            : 'right-1.5 w-3 h-3 text-slate-400 opacity-50'
+          }
+        `}
+      >
+        <svg className="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
+          <path fillRule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clipRule="evenodd" />
+        </svg>
+      </span>
+
+      {/* Thumb — slides left/right */}
+      <span
+        className={`
+          inline-block h-5 w-5 rounded-full bg-white shadow-md
+          transition-transform duration-300 ease-in-out
+          ${isDark ? 'translate-x-[22px]' : 'translate-x-[2px]'}
+        `}
       />
     </button>
   )
