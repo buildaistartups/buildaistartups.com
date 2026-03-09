@@ -10,7 +10,7 @@ export default function ThemeToggle() {
   useEffect(() => setMounted(true), [])
 
   if (!mounted) {
-    return <div className="w-11 h-6 rounded-full bg-[var(--ls-bg-alt)]" />
+    return <div className="w-8 h-[18px] rounded-full bg-[var(--ls-bg-alt)]" />
   }
 
   const isDark = theme === 'dark'
@@ -22,18 +22,18 @@ export default function ThemeToggle() {
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
       className={`
-        relative inline-flex h-6 w-11 shrink-0 items-center rounded-full
+        relative inline-flex h-[18px] w-8 shrink-0 items-center rounded-full
         transition-colors duration-300 focus:outline-none
         ${isDark ? 'bg-slate-700' : 'bg-slate-300'}
       `}
     >
-      {/* Sun — small on track (dark mode) or large on thumb (light mode) */}
+      {/* Sun — small on track (dark) or large on thumb (light) */}
       <span
         className={`
           absolute transition-all duration-300 ease-in-out
           ${isDark
-            ? 'left-1.5 w-3 h-3 text-slate-400 opacity-50'
-            : 'left-[3px] w-4 h-4 text-amber-500 z-10'
+            ? 'left-1 w-2.5 h-2.5 text-slate-400 opacity-50'
+            : 'left-[2px] w-3 h-3 text-amber-500 z-10'
           }
         `}
       >
@@ -42,13 +42,13 @@ export default function ThemeToggle() {
         </svg>
       </span>
 
-      {/* Moon — large on thumb (dark mode) or small on track (light mode) */}
+      {/* Moon — large on thumb (dark) or small on track (light) */}
       <span
         className={`
           absolute transition-all duration-300 ease-in-out
           ${isDark
-            ? 'right-[3px] w-4 h-4 text-purple-300 z-10'
-            : 'right-1.5 w-3 h-3 text-slate-400 opacity-50'
+            ? 'right-[2px] w-3 h-3 text-violet-400 z-10'
+            : 'right-1 w-2.5 h-2.5 text-slate-400 opacity-50'
           }
         `}
       >
@@ -57,12 +57,12 @@ export default function ThemeToggle() {
         </svg>
       </span>
 
-      {/* Thumb — slides left/right */}
+      {/* Thumb */}
       <span
         className={`
-          inline-block h-5 w-5 rounded-full bg-white shadow-md
+          inline-block h-3.5 w-3.5 rounded-full bg-white shadow-md
           transition-transform duration-300 ease-in-out
-          ${isDark ? 'translate-x-[22px]' : 'translate-x-[2px]'}
+          ${isDark ? 'translate-x-[16px]' : 'translate-x-[2px]'}
         `}
       />
     </button>
