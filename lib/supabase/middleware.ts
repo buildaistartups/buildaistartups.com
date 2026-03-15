@@ -12,8 +12,8 @@ export async function updateSession(request: NextRequest) {
         getAll() {
           return request.cookies.getAll()
         },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
+        setAll(cookiesToSet: { name: string; value: string; options?: Record<string, unknown> }[]) {
+          cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           )
           supabaseResponse = NextResponse.next({ request })
@@ -29,7 +29,6 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Protect /app/** routes
   if (request.nextUrl.pathname.startsWith('/app') && !user) {
     const url = request.nextUrl.clone()
     url.pathname = '/signin'
@@ -37,7 +36,6 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
-  // Redirect authenticated users away from auth pages
   if (user && (request.nextUrl.pathname === '/signin' || request.nextUrl.pathname === '/signup')) {
     const url = request.nextUrl.clone()
     url.pathname = '/app/dashboard'
