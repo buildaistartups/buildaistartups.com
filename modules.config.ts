@@ -1,7 +1,3 @@
-// modules.config.ts — The Switch Panel
-// Enable/disable modules to progressively reveal platform features.
-// The header, footer, landing page, and middleware all read this config.
-
 export type ModuleConfig = {
   enabled: boolean
   name: string
@@ -12,9 +8,8 @@ export type ModuleConfig = {
 }
 
 export const modules: Record<string, ModuleConfig> = {
-  // ── Phase 1: LaunchScore (the MVP) ──
   launchscore: {
-    enabled: false, // Will flip to true when the product is built
+    enabled: true, // ← Phase 1: ACTIVE
     name: 'LaunchScore',
     description: 'AI startup validation & growth tracker',
     routes: ['/app'],
@@ -24,8 +19,6 @@ export const modules: Record<string, ModuleConfig> = {
     ],
     phase: 1,
   },
-
-  // ── Phase 2: Builder ──
   builder: {
     enabled: false,
     name: 'Builder',
@@ -36,8 +29,6 @@ export const modules: Record<string, ModuleConfig> = {
     ],
     phase: 2,
   },
-
-  // ── Phase 3: Ecosystem ──
   ecosystem: {
     enabled: false,
     name: 'Ecosystem',
@@ -48,8 +39,6 @@ export const modules: Record<string, ModuleConfig> = {
     ],
     phase: 3,
   },
-
-  // ── Phase 4: Marketplace ──
   marketplace: {
     enabled: false,
     name: 'Marketplace',
@@ -60,8 +49,6 @@ export const modules: Record<string, ModuleConfig> = {
     ],
     phase: 4,
   },
-
-  // ── Phase 5: API Platform ──
   apiPlatform: {
     enabled: false,
     name: 'API',
@@ -72,45 +59,18 @@ export const modules: Record<string, ModuleConfig> = {
     ],
     phase: 5,
   },
-
-  // ── Content modules (can enable anytime) ──
-  blog: {
-    enabled: false,
-    name: 'Blog',
-    description: 'Build-in-public updates',
-    routes: ['/blog'],
-    navItems: [
-      { label: 'Blog', href: '/blog', parent: 'Resources' },
-    ],
-    phase: 2,
-  },
-
-  docs: {
-    enabled: false,
-    name: 'Docs',
-    description: 'Documentation hub',
-    routes: ['/docs'],
-    navItems: [
-      { label: 'Docs', href: '/docs', parent: 'Resources' },
-    ],
-    phase: 2,
-  },
+  blog: { enabled: false, name: 'Blog', description: 'Build-in-public updates', routes: ['/blog'], navItems: [{ label: 'Blog', href: '/blog', parent: 'Resources' }], phase: 2 },
+  docs: { enabled: false, name: 'Docs', description: 'Documentation hub', routes: ['/docs'], navItems: [{ label: 'Docs', href: '/docs', parent: 'Resources' }], phase: 2 },
 } as const
 
-// Helper: get all enabled modules
 export function getEnabledModules() {
   return Object.entries(modules).filter(([, m]) => m.enabled)
 }
 
-// Helper: get nav items grouped by parent
 export function getNavItems() {
-  const items = Object.values(modules)
-    .filter(m => m.enabled)
-    .flatMap(m => m.navItems)
-
+  const items = Object.values(modules).filter(m => m.enabled).flatMap(m => m.navItems)
   const grouped: Record<string, typeof items> = {}
   const topLevel: typeof items = []
-
   for (const item of items) {
     if (item.parent) {
       if (!grouped[item.parent]) grouped[item.parent] = []
@@ -119,11 +79,9 @@ export function getNavItems() {
       topLevel.push(item)
     }
   }
-
   return { topLevel, grouped }
 }
 
-// Helper: check if a route belongs to a disabled module
 export function isRouteDisabled(pathname: string): boolean {
   return Object.values(modules)
     .filter(m => !m.enabled)

@@ -1,29 +1,25 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { type NextRequest } from 'next/server'
+import { updateSession } from './lib/supabase/middleware'
 import { isRouteDisabled } from './modules.config'
+import { NextResponse } from 'next/server'
 
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Block routes for disabled modules → redirect to home
+  // Block disabled module routes
   if (isRouteDisabled(pathname)) {
     return NextResponse.redirect(new URL('/', request.url))
   }
 
-  // Future: Auth protection for /app/** routes
-  // const token = request.cookies.get('next-auth.session-token')
-  // if (pathname.startsWith('/app') && !token) {
-  //   const loginUrl = new URL('/signin', request.url)
-  //   loginUrl.searchParams.set('callbackUrl', pathname)
-  //   return NextResponse.redirect(loginUrl)
-  // }
-
-  return NextResponse.next()
+  // Auth session refresh + protection for /app/** and auth page redirects
+  return await updateSession(request)
 }
 
 export const config = {
   matcher: [
     '/app/:path*',
+    '/signin',
+    '/signup',
     '/product/:path*',
     '/generate/:path*',
     '/blog/:path*',
