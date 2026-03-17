@@ -7,7 +7,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <AppProvider>
       <div className="flex h-[100dvh] overflow-hidden">
         <Sidebar />
-        <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+        <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden bg-gray-50 dark:bg-gray-900">
           <AppHeader />
           <main className="grow">
             {children}

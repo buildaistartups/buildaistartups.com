@@ -11,7 +11,6 @@ export default function Sidebar() {
   const { sidebarOpen, setSidebarOpen } = useAppProvider()
   const pathname = usePathname()
 
-  // Close on click outside (mobile)
   useEffect(() => {
     const clickHandler = ({ target }: { target: EventTarget | null }): void => {
       if (!sidebar.current) return
@@ -22,7 +21,6 @@ export default function Sidebar() {
     return () => document.removeEventListener('click', clickHandler)
   })
 
-  // Close on Escape
   useEffect(() => {
     const keyHandler = ({ keyCode }: { keyCode: number }): void => {
       if (!sidebarOpen || keyCode !== 27) return
@@ -40,18 +38,13 @@ export default function Sidebar() {
     const active = isActive(href)
     return (
       <li>
-        <Link
-          href={href}
-          onClick={() => setSidebarOpen(false)}
+        <Link href={href} onClick={() => setSidebarOpen(false)}
           className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition ${
             active
               ? 'bg-violet-500/10 text-violet-500 dark:text-violet-400'
-              : 'text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700/30'
-          }`}
-        >
-          <span className={`shrink-0 ${active ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`}>
-            {icon}
-          </span>
+              : 'text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700/30'
+          }`}>
+          <span className={`shrink-0 ${active ? 'text-violet-500' : 'text-gray-400 dark:text-gray-500'}`}>{icon}</span>
           <span>{label}</span>
         </Link>
       </li>
@@ -60,38 +53,20 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Backdrop (mobile) */}
-      <div
-        className={`fixed inset-0 bg-gray-900/30 z-40 lg:hidden transition-opacity duration-200 ${
-          sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-        aria-hidden="true"
-      />
+      <div className={`fixed inset-0 bg-gray-900/30 z-40 lg:hidden transition-opacity duration-200 ${sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} aria-hidden="true" />
 
-      {/* Sidebar */}
-      <div
-        ref={sidebar}
-        className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:translate-x-0 h-[100dvh] overflow-y-auto no-scrollbar w-64 shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700/60 p-4 transition-transform duration-200 ease-in-out ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-64'
-        }`}
-      >
-        {/* Header */}
+      <div ref={sidebar}
+        className={`flex flex-col absolute z-40 left-0 top-0 lg:static lg:translate-x-0 h-[100dvh] overflow-y-auto no-scrollbar w-64 shrink-0 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700/60 p-4 transition-transform duration-200 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-64'}`}>
+
         <div className="flex justify-between items-center mb-8 pr-3">
-          <button
-            className="lg:hidden text-gray-500 hover:text-gray-400"
-            onClick={() => setSidebarOpen(false)}
-          >
+          <button className="lg:hidden text-gray-500 hover:text-gray-400" onClick={() => setSidebarOpen(false)}>
             <span className="sr-only">Close sidebar</span>
-            <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
-              <path d="M10.7 18.7l1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4L4 12z" />
-            </svg>
+            <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M10.7 18.7l1.4-1.4L7.8 13H20v-2H7.8l4.3-4.3-1.4-1.4L4 12z" /></svg>
           </button>
           <AppLogo />
         </div>
 
-        {/* Navigation */}
         <nav className="space-y-8 flex-1">
-          {/* Main */}
           <div>
             <div className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3 px-3">Main</div>
             <ul className="space-y-1">
@@ -103,8 +78,6 @@ export default function Sidebar() {
               )}
             </ul>
           </div>
-
-          {/* Account */}
           <div>
             <div className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3 px-3">Account</div>
             <ul className="space-y-1">
@@ -118,14 +91,11 @@ export default function Sidebar() {
           </div>
         </nav>
 
-        {/* Footer: plan badge */}
         <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700/60">
           <div className="px-3 py-2 rounded-lg bg-violet-500/10">
             <div className="text-xs font-medium text-violet-500">Free Plan</div>
             <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">3 AI calls remaining</div>
-            <Link href="/app/account/billing" className="text-xs font-medium text-violet-500 hover:text-violet-600 mt-1 inline-block">
-              Upgrade to Pro &rarr;
-            </Link>
+            <Link href="/app/account/billing" className="text-xs font-medium text-violet-500 hover:text-violet-600 mt-1 inline-block">Upgrade to Pro &rarr;</Link>
           </div>
         </div>
       </div>
