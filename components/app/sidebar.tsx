@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import Logo from '@/components/ui/logo'
+import AppLogo from '@/components/app/logo'
 import { useAppProvider } from '@/app/app/app-provider'
 
 export default function Sidebar() {
