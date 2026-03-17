@@ -25,6 +25,7 @@
     "next-themes": "^0.4.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "sharp": "^0.34.5",
     "swiper": "^8.4.7",
     "typescript": "^5.7.3"
   },
