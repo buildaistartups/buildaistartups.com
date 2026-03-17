@@ -16,7 +16,7 @@
    ═══════════════════════════════════════════ */
 
 :root,
-[data-theme="dark"] {
+.dark {
   --ls-bg: #0f172a;
   --ls-bg-alt: #1e293b;
   --ls-surface: rgba(15, 23, 42, 0.6);
@@ -41,7 +41,7 @@
   color-scheme: dark;
 }
 
-[data-theme="light"] {
+.light {
   --ls-bg: #ffffff;
   --ls-bg-alt: #f8fafc;
   --ls-surface: rgba(248, 250, 252, 0.8);
