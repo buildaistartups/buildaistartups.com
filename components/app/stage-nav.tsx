@@ -2,14 +2,15 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { IconOverview, IconValidate, IconBuild, IconLaunch, IconMeasure, IconGrow, IconSettings } from '@/components/app/icons'
 
 const stages = [
-  { key: 'overview', label: 'Overview', icon: '📋' },
-  { key: 'validate', label: 'Validate', icon: '✅' },
-  { key: 'build', label: 'Build', icon: '🔨' },
-  { key: 'launch', label: 'Launch', icon: '🚀' },
-  { key: 'measure', label: 'Measure', icon: '📊' },
-  { key: 'grow', label: 'Grow', icon: '📈' },
+  { key: 'overview', label: 'Overview', Icon: IconOverview },
+  { key: 'validate', label: 'Validate', Icon: IconValidate },
+  { key: 'build', label: 'Build', Icon: IconBuild },
+  { key: 'launch', label: 'Launch', Icon: IconLaunch },
+  { key: 'measure', label: 'Measure', Icon: IconMeasure },
+  { key: 'grow', label: 'Grow', Icon: IconGrow },
 ]
 
 export default function StageNav({ projectId, currentStage }: { projectId: string; currentStage: string }) {
@@ -31,7 +32,7 @@ export default function StageNav({ projectId, currentStage }: { projectId: strin
                 : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:border-gray-300'
             }`}
           >
-            <span>{stage.icon}</span>
+            <stage.Icon className={`w-4 h-4 ${isActive ? 'text-violet-500' : ''}`} />
             <span>{stage.label}</span>
           </Link>
         )
@@ -44,7 +45,8 @@ export default function StageNav({ projectId, currentStage }: { projectId: strin
             : 'border-transparent text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200'
         }`}
       >
-        ⚙️ Settings
+        <IconSettings className={`w-4 h-4 ${pathname.includes('/settings') ? 'text-violet-500' : ''}`} />
+        Settings
       </Link>
     </div>
   )
