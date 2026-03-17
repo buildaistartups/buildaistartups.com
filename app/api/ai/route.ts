@@ -112,3 +112,4 @@ You MUST respond with ONLY valid JSON, no markdown, no backticks, no explanation
     return NextResponse.json({ error: 'AI service error' }, { status: 500 })
   }
 }
+// updated 
