@@ -42,7 +42,7 @@ export default function RootLayout({
         className={`${inter.variable} font-inter antialiased bg-[var(--ls-bg)] text-[var(--ls-text)] tracking-tight`}
       >
         <ThemeProvider
-          attribute="data-theme"
+          attribute="class"
           defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
