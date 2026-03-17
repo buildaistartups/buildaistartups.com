@@ -1,6 +1,6 @@
 'use client'
 
-import { useAppProvider } from '@/app/(app)/app-provider'
+import { useAppProvider } from '@/app/app/app-provider'
 import ThemeToggle from '@/components/ui/theme-toggle'
 import UserMenu from '@/components/app/user-menu'
 
