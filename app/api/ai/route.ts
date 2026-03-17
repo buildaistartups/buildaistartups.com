@@ -1,6 +1,68 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
+// --- Provider: Gemini ---
+async function callGemini(apiKey: string, systemPrompt: string, input: string) {
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents: [{ role: 'user', parts: [{ text: input }] }],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 4000,
+          responseMimeType: 'application/json',
+        },
+      }),
+    }
+  )
+
+  if (!response.ok) {
+    const err = await response.text()
+    throw new Error(`Gemini error ${response.status}: ${err}`)
+  }
+
+  const aiResult = await response.json()
+  const text = aiResult.candidates?.[0]?.content?.parts?.[0]?.text || ''
+  const tokensUsed = (aiResult.usageMetadata?.promptTokenCount || 0) + (aiResult.usageMetadata?.candidatesTokenCount || 0)
+  return { text, tokensUsed, provider: 'gemini' }
+}
+
+// --- Provider: Groq ---
+async function callGroq(apiKey: string, systemPrompt: string, input: string) {
+  const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: 'llama-3.3-70b-versatile',
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: input },
+      ],
+      temperature: 0.7,
+      max_tokens: 4000,
+      response_format: { type: 'json_object' },
+    }),
+  })
+
+  if (!response.ok) {
+    const err = await response.text()
+    throw new Error(`Groq error ${response.status}: ${err}`)
+  }
+
+  const aiResult = await response.json()
+  const text = aiResult.choices?.[0]?.message?.content || ''
+  const tokensUsed = (aiResult.usage?.prompt_tokens || 0) + (aiResult.usage?.completion_tokens || 0)
+  return { text, tokensUsed, provider: 'groq' }
+}
+
+// --- Main handler ---
 export async function POST(request: Request) {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -16,8 +78,9 @@ export async function POST(request: Request) {
   const { type, input, projectId } = body
   if (!type || !input) return NextResponse.json({ error: 'type and input required' }, { status: 400 })
 
-  const apiKey = process.env.GEMINI_API_KEY
-  if (!apiKey) return NextResponse.json({ error: 'AI service not configured' }, { status: 503 })
+  const geminiKey = process.env.GEMINI_API_KEY
+  const groqKey = process.env.GROQ_API_KEY
+  if (!geminiKey && !groqKey) return NextResponse.json({ error: 'AI service not configured' }, { status: 503 })
 
   let systemPrompt: string
   if (type === 'analyze-idea') {
@@ -54,62 +117,60 @@ You MUST respond with ONLY valid JSON, no markdown, no backticks, no explanation
     return NextResponse.json({ error: 'Invalid type' }, { status: 400 })
   }
 
-  try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          system_instruction: { parts: [{ text: systemPrompt }] },
-          contents: [{ role: 'user', parts: [{ text: input }] }],
-          generationConfig: {
-            temperature: 0.7,
-            maxOutputTokens: 4000,
-            responseMimeType: 'application/json',
-          },
-        }),
-      }
-    )
+  // Try Gemini first, fall back to Groq
+  let result: { text: string; tokensUsed: number; provider: string } | null = null
 
-    if (!response.ok) {
-      const err = await response.text()
-      console.error('Gemini API error:', err)
-      return NextResponse.json({ error: 'AI analysis failed' }, { status: 502 })
-    }
-
-    const aiResult = await response.json()
-    const text = aiResult.candidates?.[0]?.content?.parts?.[0]?.text || ''
-    const tokensUsed = (aiResult.usageMetadata?.promptTokenCount || 0) + (aiResult.usageMetadata?.candidatesTokenCount || 0)
-
-    let parsed
+  if (geminiKey) {
     try {
-      parsed = JSON.parse(text)
-    } catch {
-      const jsonMatch = text.match(/\{[\s\S]*\}/)
-      if (jsonMatch) {
-        parsed = JSON.parse(jsonMatch[0])
-      } else {
-        return NextResponse.json({ error: 'Failed to parse AI response', raw: text }, { status: 500 })
-      }
+      result = await callGemini(geminiKey, systemPrompt, input)
+    } catch (err) {
+      console.error('Gemini failed, trying Groq fallback:', err)
     }
-
-    await supabase.from('profiles').update({ ai_calls_used: profile.ai_calls_used + 1 }).eq('id', user.id)
-
-    if (projectId) {
-      await supabase.from('ai_analyses').insert({
-        project_id: projectId,
-        analysis_type: type === 'analyze-idea' ? 'idea' : 'ideas_generator',
-        input_hash: Buffer.from(input).toString('base64').slice(0, 100),
-        result: parsed,
-        tokens_used: tokensUsed,
-      })
-    }
-
-    return NextResponse.json({ result: parsed, tokensUsed })
-  } catch (err) {
-    console.error('AI call error:', err)
-    return NextResponse.json({ error: 'AI service error' }, { status: 500 })
   }
+
+  if (!result && groqKey) {
+    try {
+      result = await callGroq(groqKey, systemPrompt, input)
+    } catch (err) {
+      console.error('Groq fallback also failed:', err)
+      return NextResponse.json({ error: 'AI analysis failed on all providers' }, { status: 502 })
+    }
+  }
+
+  if (!result) {
+    return NextResponse.json({ error: 'AI analysis failed' }, { status: 502 })
+  }
+
+  // Parse JSON from response
+  let parsed
+  try {
+    parsed = JSON.parse(result.text)
+  } catch {
+    const jsonMatch = result.text.match(/\{[\s\S]*\}/)
+    if (jsonMatch) {
+      try {
+        parsed = JSON.parse(jsonMatch[0])
+      } catch {
+        return NextResponse.json({ error: 'Failed to parse AI response', raw: result.text }, { status: 500 })
+      }
+    } else {
+      return NextResponse.json({ error: 'Failed to parse AI response', raw: result.text }, { status: 500 })
+    }
+  }
+
+  // Increment AI calls
+  await supabase.from('profiles').update({ ai_calls_used: profile.ai_calls_used + 1 }).eq('id', user.id)
+
+  // Cache result
+  if (projectId) {
+    await supabase.from('ai_analyses').insert({
+      project_id: projectId,
+      analysis_type: type === 'analyze-idea' ? 'idea' : 'ideas_generator',
+      input_hash: Buffer.from(input).toString('base64').slice(0, 100),
+      result: parsed,
+      tokens_used: result.tokensUsed,
+    })
+  }
+
+  return NextResponse.json({ result: parsed, tokensUsed: result.tokensUsed, provider: result.provider })
 }
-// updated 
