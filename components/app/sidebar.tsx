@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import AppLogo from '@/components/app/logo'
+import PlanBadge from '@/components/app/plan-badge'
 import { useAppProvider } from '@/app/app/app-provider'
 
 export default function Sidebar() {
@@ -95,11 +96,7 @@ export default function Sidebar() {
         </nav>
 
         <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700/60">
-          <div className="px-3 py-2 rounded-lg bg-violet-500/10">
-            <div className="text-xs font-medium text-violet-500">Free Plan</div>
-            <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">3 AI calls remaining</div>
-            <Link href="/app/account/billing" className="text-xs font-medium text-violet-500 hover:text-violet-600 mt-1 inline-block">Upgrade to Pro &rarr;</Link>
-          </div>
+          <PlanBadge />
         </div>
       </div>
     </>
