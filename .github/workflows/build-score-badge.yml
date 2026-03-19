@@ -2,43 +2,50 @@ name: Build Score Badge
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Run every 6 hours
-  workflow_dispatch:  # Allow manual trigger
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - '.github/workflows/build-score-badge.yml'
-      - 'bass.json'  # Trigger when BASS file is updated
+      - 'bass.json'
 
 jobs:
   update-badge:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-      
+        uses: actions/checkout@v4  # ✅ Fixed deprecation warning
+
       - name: Get Build Score
         id: score
         run: |
-          # Call the Build AI Startups API to get the current build score
-          # Uses the BAIS_API_KEY secret for authentication
-          RESPONSE=$(curl -s -X GET \
+          # Call the API
+          RESPONSE=$(curl -s -o /tmp/response.json -w "%{http_code}" -X GET \
             -H "Authorization: Bearer ${{ secrets.BAIS_API_KEY }}" \
             -H "Content-Type: application/json" \
             "https://buildaistartups.com/api/projects/${{ github.event.repository.name }}/score")
-          
-          # Extract score from response
-          SCORE=$(echo $RESPONSE | jq -r '.buildScore.overall // 0')
-          TREND=$(echo $RESPONSE | jq -r '.buildScore.trend // "stable"')
-          
+
+          echo "HTTP Status: $RESPONSE"
+          echo "Raw Response: $(cat /tmp/response.json)"
+
+          # ✅ Fallback to 0 if API fails or returns bad JSON
+          SCORE=$(cat /tmp/response.json | jq -r '.buildScore.overall // 0' 2>/dev/null || echo "0")
+          TREND=$(cat /tmp/response.json | jq -r '.buildScore.trend // "stable"' 2>/dev/null || echo "stable")
+
+          # ✅ Validate SCORE is a number, default to 0
+          if ! [[ "$SCORE" =~ ^[0-9]+$ ]]; then
+            SCORE=0
+          fi
+
           echo "score=$SCORE" >> $GITHUB_OUTPUT
           echo "trend=$TREND" >> $GITHUB_OUTPUT
-          
-          # Determine color based on score
+
+          # Determine color
           if [ "$SCORE" -ge 80 ]; then
             COLOR="brightgreen"
           elif [ "$SCORE" -ge 60 ]; then
@@ -48,9 +55,9 @@ jobs:
           else
             COLOR="orange"
           fi
-          
+
           echo "color=$COLOR" >> $GITHUB_OUTPUT
-          
+
           # Determine trend emoji
           if [ "$TREND" = "up" ]; then
             TREND_EMOJI="📈"
@@ -59,12 +66,13 @@ jobs:
           else
             TREND_EMOJI="➡️"
           fi
-          
+
           echo "trend_emoji=$TREND_EMOJI" >> $GITHUB_OUTPUT
-      
+
       - name: Generate SVG Badge
         run: |
-          cat > badge.svg << 'EOF'
+          mkdir -p .github/badges
+          cat > .github/badges/build-score.svg << 'EOF'
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="20">
             <linearGradient id="b" x2="0" y2="100%">
               <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
@@ -86,19 +94,12 @@ jobs:
             </g>
           </svg>
           EOF
-      
+
       - name: Commit and push badge
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
-          # Create badges directory if it doesn't exist
-          mkdir -p .github/badges
-          
-          # Move badge to badges directory
-          mv badge.svg .github/badges/build-score.svg
-          
-          # Check if there are changes
+
           if git diff --quiet; then
             echo "No changes to badge"
           else
@@ -106,13 +107,11 @@ jobs:
             git commit -m "Update Build Score badge: ${{ steps.score.outputs.score }}% ${{ steps.score.outputs.trend_emoji }}"
             git push
           fi
-      
+
       - name: Update README badge URL
         run: |
-          # Update README.md to use the latest badge
           sed -i 's|!\[Build Score\].*|![Build Score](https://raw.githubusercontent.com/${{ github.repository }}/main/.github/badges/build-score.svg)|' README.md
-          
-          # Commit if changed
+
           if git diff --quiet README.md; then
             echo "README already has correct badge URL"
           else
