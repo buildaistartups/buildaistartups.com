@@ -12,13 +12,22 @@ export default function PlanBadge() {
   useEffect(() => {
     async function fetchPlan() {
       const supabase = createClient()
-      const { data: { user } } = await supabase.auth.getUser()
+
+      const { data: { user }, error: userError } = await supabase.auth.getUser()
+      console.log('🔍 User:', user)
+      console.log('🔍 User error:', userError)
+
       if (!user) return
-      const { data } = await supabase
+
+      const { data, error } = await supabase
         .from('profiles')
         .select('plan, ai_calls_used, ai_calls_limit')
         .eq('id', user.id)
         .single()
+
+      console.log('🔍 Profile data:', data)
+      console.log('🔍 Profile error:', error)
+
       if (data) {
         setPlan(data.plan)
         setUsed(data.ai_calls_used)
