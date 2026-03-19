@@ -10,14 +10,20 @@ export default function PlanBadge() {
   const [limit, setLimit] = useState<number>(3)
 
   useEffect(() => {
+    console.log('🚨 PlanBadge mounted!')
+
     async function fetchPlan() {
+      console.log('🚨 fetchPlan called!')
       const supabase = createClient()
 
       const { data: { user }, error: userError } = await supabase.auth.getUser()
-      console.log('🔍 User:', user)
-      console.log('🔍 User error:', userError)
+      console.log('🚨 User:', JSON.stringify(user))
+      console.log('🚨 User error:', JSON.stringify(userError))
 
-      if (!user) return
+      if (!user) {
+        console.log('🚨 No user found, returning early!')
+        return
+      }
 
       const { data, error } = await supabase
         .from('profiles')
@@ -25,8 +31,8 @@ export default function PlanBadge() {
         .eq('id', user.id)
         .single()
 
-      console.log('🔍 Profile data:', data)
-      console.log('🔍 Profile error:', error)
+      console.log('🚨 Profile data:', JSON.stringify(data))
+      console.log('🚨 Profile error:', JSON.stringify(error))
 
       if (data) {
         setPlan(data.plan)
@@ -34,6 +40,7 @@ export default function PlanBadge() {
         setLimit(data.ai_calls_limit)
       }
     }
+
     fetchPlan()
   }, [])
 
@@ -43,7 +50,7 @@ export default function PlanBadge() {
   return (
     <div className={`px-3 py-2 rounded-lg ${isPro ? 'bg-violet-500/20' : 'bg-violet-500/10'}`}>
       <div className={`text-xs font-medium ${isPro ? 'text-violet-400' : 'text-violet-500'}`}>
-        {isPro ? 'Pro Plan' : 'Free Plan'}
+        {isPro ? '✅ Pro Plan' : '❌ Free Plan'}
       </div>
       <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
         {isPro ? 'Unlimited AI calls' : `${remaining} AI call${remaining !== 1 ? 's' : ''} remaining`}
