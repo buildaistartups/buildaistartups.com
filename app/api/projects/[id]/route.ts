@@ -19,10 +19,13 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   const body = await request.json()
-  const updates: Record<string, any> = { updated_at: new Date().toISOString() }
+  const updates: Record<string, unknown> = { updated_at: new Date().toISOString() }
   if (body.name) updates.name = body.name.trim()
   if (body.one_liner !== undefined) updates.one_liner = body.one_liner?.trim() || null
   if (body.stage) updates.stage = body.stage
+  if (body.github_url !== undefined) updates.github_url = body.github_url?.trim() || null
+  if (body.pmf_score !== undefined) updates.pmf_score = body.pmf_score
+  if (body.runway_months !== undefined) updates.runway_months = body.runway_months
 
   const { data, error } = await supabase.from('projects').update(updates).eq('id', id).select().single()
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
