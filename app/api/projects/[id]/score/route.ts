@@ -6,7 +6,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
   const { id } = await params
   const supabase = await createClient()
 
-  const [competitors, icp, demand, validateChecklist, buildChecklist, project, revenue] = await Promise.all([
+  const [competitors, icp, demand, validateChecklist, buildChecklist, project, revenue, experiments] = await Promise.all([
     supabase.from('competitors').select('id').eq('project_id', id),
     supabase.from('icp_profiles').select('id').eq('project_id', id).single(),
     supabase.from('demand_signals').select('id').eq('project_id', id),
@@ -14,6 +14,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     supabase.from('checklist_items').select('completed').eq('project_id', id).eq('stage', 'build'),
     supabase.from('projects').select('pmf_score, runway_months').eq('id', id).single(),
     supabase.from('revenue_entries').select('mrr').eq('project_id', id).order('month', { ascending: false }).limit(1),
+    supabase.from('experiments').select('id').eq('project_id', id),
   ])
 
   const latestMRR = revenue.data?.[0]?.mrr ? Number(revenue.data[0].mrr) : 0
@@ -33,7 +34,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
     pmfScore: project.data?.pmf_score ?? null,
     mrr: latestMRR,
     runwayMonths: project.data?.runway_months ? Number(project.data.runway_months) : null,
-    experimentCount: 0, // Week 5
+    experimentCount: experiments.data?.length || 0,
   })
 
   await supabase.from('projects').update({ launch_score: result.overall, updated_at: new Date().toISOString() }).eq('id', id)
