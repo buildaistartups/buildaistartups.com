@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { IconChecklist } from '@/components/app/icons'
 
-export default function BillingPage() {
+function BillingContent() {
   const searchParams = useSearchParams()
   const [plan, setPlan] = useState('free')
   const [loading, setLoading] = useState(false)
@@ -24,7 +24,6 @@ export default function BillingPage() {
     }
     fetchProfile()
 
-    // Check if Stripe is configured by trying the checkout endpoint
     fetch('/api/stripe/checkout', { method: 'POST' }).then(r => {
       if (r.status !== 503) setStripeConfigured(true)
     }).catch(() => {})
@@ -72,9 +71,7 @@ export default function BillingPage() {
         </div>
       )}
 
-      {/* Plan comparison */}
       <div className="grid sm:grid-cols-2 gap-4 mb-8">
-        {/* Free */}
         <div className={`bg-white dark:bg-gray-800 border rounded-xl p-6 ${!isPro ? 'border-violet-500/50 ring-1 ring-violet-500/20' : 'border-gray-200 dark:border-gray-700/60'}`}>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Free</h2>
@@ -93,7 +90,6 @@ export default function BillingPage() {
           </ul>
         </div>
 
-        {/* Pro */}
         <div className={`bg-white dark:bg-gray-800 border rounded-xl p-6 ${isPro ? 'border-violet-500/50 ring-1 ring-violet-500/20' : 'border-gray-200 dark:border-gray-700/60'}`}>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100">Pro</h2>
@@ -131,7 +127,6 @@ export default function BillingPage() {
         </div>
       </div>
 
-      {/* FAQ */}
       <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 rounded-xl p-6">
         <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100 mb-4">Frequently Asked Questions</h3>
         <div className="space-y-4 text-sm">
@@ -150,5 +145,13 @@ export default function BillingPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function BillingPage() {
+  return (
+    <Suspense fallback={<div className="px-4 sm:px-6 lg:px-8 py-8"><div className="text-sm text-gray-400">Loading billing...</div></div>}>
+      <BillingContent />
+    </Suspense>
   )
 }
