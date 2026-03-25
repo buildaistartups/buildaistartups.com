@@ -50,7 +50,6 @@ function parseJSON(text: string): unknown {
   try { return JSON.parse(text) } catch {}
   const jsonMatch = text.match(/\{[\s\S]*\}/)
   if (jsonMatch) { try { return JSON.parse(jsonMatch[0]) } catch {} }
-  // Try removing markdown fences
   const cleaned = text.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim()
   try { return JSON.parse(cleaned) } catch {}
   return null
@@ -137,13 +136,17 @@ export async function POST(request: Request) {
 
   // Cache result
   if (projectId) {
-    await supabase.from('ai_analyses').insert({
-      project_id: projectId,
-      analysis_type: type,
-      input_hash: Buffer.from(input).toString('base64').slice(0, 100),
-      result: parsed,
-      tokens_used: result.tokensUsed,
-    }).catch(() => {}) // Don't fail if cache insert fails
+    try {
+      await supabase.from('ai_analyses').insert({
+        project_id: projectId,
+        analysis_type: type,
+        input_hash: Buffer.from(input).toString('base64').slice(0, 100),
+        result: parsed,
+        tokens_used: result.tokensUsed,
+      })
+    } catch {
+      // Don't fail if cache insert fails
+    }
   }
 
   return NextResponse.json({ result: parsed, tokensUsed: result.tokensUsed })
