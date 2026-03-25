@@ -37,7 +37,7 @@ export default function Features() {
       ),
     },
     {
-      title: 'Pivot / Persevere / Kill',
+      title: 'Pivot / Persevere / Sunset',
       description: 'AI analyzes your metrics and evidence to recommend whether to keep going, change direction, or move on.',
       icon: (
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

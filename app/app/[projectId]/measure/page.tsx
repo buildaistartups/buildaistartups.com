@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams } from 'next/navigation'
 import { IconCurrency, IconChart, IconMeasure, IconChecklist } from '@/components/app/icons'
+import { TabInfo } from '@/components/app/tab-info'
 import { useCurrency } from '@/components/app/currency-provider'
 import { getCurrencySymbol } from '@/lib/currency'
 
@@ -110,6 +111,7 @@ export default function MeasurePage() {
       {/* Revenue & Runway */}
       {tab === 'revenue' && (
         <div className="space-y-4">
+          <TabInfo title="Revenue &amp; Runway" description="Track your monthly revenue (MRR = Monthly Recurring Revenue), customer count, expenses, and runway. Runway is how many months you can operate before running out of money. Adding data here feeds your Finance score in LaunchScore." />
           <div className="grid sm:grid-cols-4 gap-4">
             <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 rounded-xl p-4">
               <div className="text-xs text-gray-500 dark:text-gray-400 uppercase mb-1">MRR</div>
@@ -185,6 +187,7 @@ export default function MeasurePage() {
       {/* PMF Score */}
       {tab === 'pmf' && (
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 rounded-xl p-6">
+          <TabInfo title="Product-Market Fit (PMF) Score" description="PMF measures whether your product satisfies a strong market demand. The Sean Ellis test asks users: 'How would you feel if you could no longer use this product?' If 40%+ say 'very disappointed', you have strong PMF. Below 40% means you need to keep iterating." />
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center"><IconChart className="w-5 h-5 text-amber-500" /></div>
             <div>
@@ -228,6 +231,7 @@ export default function MeasurePage() {
       {/* Evidence Ledger */}
       {tab === 'evidence' && (
         <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700/60 rounded-xl p-6">
+          <TabInfo title="Evidence Ledger" description="Log concrete evidence that supports or contradicts your startup thesis. Positive evidence (happy customers, revenue growth) and negative evidence (churn, bugs, competitor moves) help you make data-driven decisions instead of guessing." />
           <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-1">Evidence Ledger</h2>
           <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Log evidence for and against your startup's progress.</p>
 
